@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* ===== Global Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary-blue: #0066FF;
             --light-blue: #E6F0FF;
@@ -19,12 +25,6 @@
             --gray-bg: #F5F5F5;
             --shadow: 0 5px 15px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         body {
@@ -50,14 +50,14 @@
         a {
             text-decoration: none;
             color: inherit;
-            transition: var(--transition);
+            cursor: pointer;
         }
 
         ul {
             list-style: none;
         }
 
-        /* ===== Header Styles - Mini Logo ===== */
+        /* ===== Header Styles ===== */
         .blue-header {
             background-color: var(--primary-blue);
             color: var(--white);
@@ -74,11 +74,11 @@
             align-items: center;
         }
 
-        /* Mini Logo */
         .mini-logo {
             display: flex;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
         }
 
         .logo-icon {
@@ -104,6 +104,7 @@
             font-size: 20px;
             font-weight: 700;
             line-height: 1.2;
+            color: var(--white);
         }
 
         .logo-text span {
@@ -111,9 +112,9 @@
             letter-spacing: 1px;
             opacity: 0.9;
             font-weight: 300;
+            color: var(--white);
         }
 
-        /* Navigation */
         .main-nav ul {
             display: flex;
             align-items: center;
@@ -126,13 +127,18 @@
             padding: 6px 10px;
             border-radius: 5px;
             font-size: 14px;
+            cursor: pointer;
+            display: inline-block;
         }
 
-        .main-nav a:hover, .main-nav a.active {
+        .main-nav a:hover {
             background-color: rgba(255,255,255,0.2);
         }
 
-        /* Dropdown */
+        .main-nav .active {
+            background-color: rgba(255,255,255,0.2);
+        }
+
         .dropdown {
             position: relative;
         }
@@ -168,18 +174,18 @@
         }
 
         .dropdown-menu a {
-            color: var(--text-dark);
+            color: var(--text-dark) !important;
             display: block;
             font-size: 13px;
+            padding: 5px 0;
         }
 
         .dropdown-menu a:hover {
-            color: var(--primary-blue);
-            background: none;
-            padding-left: 20px;
+            color: var(--primary-blue) !important;
+            padding-left: 10px;
+            background: none !important;
         }
 
-        /* Login Button */
         .login-btn {
             background-color: rgba(255,255,255,0.2);
             padding: 6px 12px;
@@ -195,42 +201,20 @@
             color: var(--primary-blue) !important;
         }
 
-        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             font-size: 24px;
             cursor: pointer;
+            color: var(--white);
         }
 
-        /* ===== Hero Section - All Light Blue ===== */
+        /* ===== Hero Section ===== */
         .hero {
             padding: 100px 0;
             text-align: center;
             background: linear-gradient(135deg, var(--light-blue) 0%, #ffffff 100%);
             position: relative;
             overflow: hidden;
-        }
-
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(0,102,255,0.05) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero:after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            left: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(0,102,255,0.05) 0%, transparent 70%);
-            border-radius: 50%;
         }
 
         .hero-content {
@@ -253,17 +237,6 @@
             display: inline-block;
         }
 
-        .hero h1 span:after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background-color: rgba(0,102,255,0.2);
-            z-index: -1;
-        }
-
         .hero-subtitle {
             font-size: 22px;
             color: var(--text-light);
@@ -282,29 +255,10 @@
             padding: 14px 35px;
             border-radius: 50px;
             font-weight: 600;
-            transition: var(--transition);
             cursor: pointer;
             border: none;
             font-size: 16px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.2);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn:hover:before {
-            left: 0;
+            transition: var(--transition);
         }
 
         .btn-primary {
@@ -323,14 +277,12 @@
             background-color: var(--white);
             color: var(--primary-blue);
             border: 2px solid var(--primary-blue);
-            box-shadow: 0 5px 15px rgba(0,102,255,0.1);
         }
 
         .btn-secondary:hover {
             background-color: var(--primary-blue);
             color: var(--white);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,102,255,0.3);
         }
 
         .btn-outline {
@@ -352,49 +304,14 @@
             border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
-            transition: var(--transition);
             border: none;
             cursor: pointer;
+            transition: var(--transition);
         }
 
         .btn-small:hover {
             background-color: var(--primary-blue);
             color: var(--white);
-        }
-
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            font-size: 40px;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-1 {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-2 {
-            bottom: 20%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .floating-3 {
-            top: 40%;
-            right: 15%;
-            animation-delay: 1s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
         }
 
         /* ===== Categories Section ===== */
@@ -431,9 +348,9 @@
             border-radius: 15px;
             text-align: center;
             box-shadow: var(--shadow);
-            transition: var(--transition);
             border: 1px solid #eee;
             cursor: pointer;
+            transition: var(--transition);
         }
 
         .category-card:hover {
@@ -458,7 +375,6 @@
             margin-bottom: 20px;
         }
 
-        /* Rest of the CSS remains the same as before */
         /* ===== Popular Posts Slider ===== */
         .popular-posts {
             padding: 60px 0;
@@ -487,6 +403,7 @@
             border-radius: 10px;
             padding: 20px;
             box-shadow: var(--shadow);
+            cursor: pointer;
             transition: var(--transition);
         }
 
@@ -509,10 +426,7 @@
             color: var(--primary-blue);
             font-weight: 600;
             font-size: 14px;
-        }
-
-        .read-more:hover {
-            text-decoration: underline;
+            display: inline-block;
         }
 
         .slider-controls {
@@ -554,6 +468,7 @@
             border-radius: 8px;
             box-shadow: var(--shadow);
             border-left: 3px solid var(--primary-blue);
+            cursor: pointer;
             transition: var(--transition);
         }
 
@@ -566,11 +481,182 @@
             display: block;
             color: var(--text-dark);
             font-weight: 500;
+        }
+
+        /* ===== Topic Page Styles ===== */
+        .topic-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .topic-header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .topic-category {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .topic-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .topic-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .topic-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .topic-content h2 {
+            color: var(--primary-blue);
+            margin: 30px 0 15px;
+            font-size: 28px;
+        }
+
+        .topic-content h3 {
+            margin: 25px 0 10px;
+            font-size: 22px;
+        }
+
+        .topic-content p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .topic-content ul, .topic-content ol {
+            margin: 15px 0 15px 20px;
+            color: var(--text-light);
+        }
+
+        .topic-content li {
+            margin-bottom: 8px;
+        }
+
+        .topic-content blockquote {
+            background: var(--light-blue);
+            padding: 20px;
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 5px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .topic-tag {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 30px 0;
+            justify-content: center;
+        }
+
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: var(--transition);
             cursor: pointer;
         }
 
-        .topic-item a:hover {
+        .share-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .share-facebook { background-color: #3b5998; }
+        .share-twitter { background-color: #1da1f2; }
+        .share-linkedin { background-color: #0077b5; }
+        .share-pinterest { background-color: #bd081c; }
+
+        .related-posts {
+            margin-top: 40px;
+        }
+
+        .related-posts h3 {
+            margin-bottom: 20px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .related-card {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .related-card h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             color: var(--primary-blue);
+            font-weight: 600;
+            margin: 20px 0;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 16px;
+        }
+
+        .back-btn:hover {
+            gap: 15px;
         }
 
         /* ===== Newsletter Section ===== */
@@ -578,44 +664,25 @@
             background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
             color: var(--white);
             padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .newsletter:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.8; }
         }
 
         .newsletter-content {
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .newsletter h2 {
             font-size: 36px;
             margin-bottom: 15px;
+            color: white;
         }
 
         .newsletter p {
             margin-bottom: 30px;
             opacity: 0.9;
             font-size: 18px;
+            color: white;
         }
 
         .newsletter-form {
@@ -631,16 +698,10 @@
             border: none;
             border-radius: 50px;
             font-size: 16px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .newsletter-form input:focus {
             outline: none;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .newsletter-form button {
-            padding: 15px 30px;
         }
 
         /* ===== Footer ===== */
@@ -660,6 +721,7 @@
         .footer-logo h2 {
             font-size: 28px;
             margin-bottom: 15px;
+            color: white;
         }
 
         .footer-logo span {
@@ -679,6 +741,7 @@
         .footer-column h3 {
             margin-bottom: 20px;
             font-size: 18px;
+            color: white;
         }
 
         .footer-column ul li {
@@ -687,8 +750,8 @@
 
         .footer-column a {
             color: #999;
-            transition: var(--transition);
             cursor: pointer;
+            transition: var(--transition);
         }
 
         .footer-column a:hover {
@@ -728,6 +791,7 @@
 
         .footer-topics h3 {
             margin-bottom: 20px;
+            color: white;
         }
 
         .topics-tags {
@@ -747,8 +811,8 @@
             border-radius: 20px;
             font-size: 12px;
             color: #ccc;
-            transition: var(--transition);
             cursor: pointer;
+            transition: var(--transition);
         }
 
         .topic-tag:hover {
@@ -765,9 +829,156 @@
             font-size: 14px;
         }
 
+        /* ===== Page Header ===== */
+        .page-header {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--light-blue);
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== Search Box ===== */
+        .search-box {
+            max-width: 500px;
+            margin: 30px auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 16px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        /* ===== Login/Contact Pages ===== */
+        .login-section, .contact-section {
+            padding: 60px 0;
+            min-height: 500px;
+        }
+
+        .login-container {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h2 {
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-group.checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group.checkbox input {
+            width: auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background-color: var(--light-blue);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-blue);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
         /* ===== Responsive Design ===== */
         @media (max-width: 992px) {
             .footer-top {
+                grid-template-columns: 1fr;
+            }
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -832,6 +1043,23 @@
             .footer-links {
                 grid-template-columns: 1fr;
             }
+            
+            .topic-content {
+                padding: 20px;
+            }
+            
+            .topic-header h1 {
+                font-size: 32px;
+            }
+            
+            .topic-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -862,355 +1090,58 @@
             }
         }
 
-        /* ===== Page Header ===== */
-        .page-header {
-            padding: 60px 0;
-            text-align: center;
-            background-color: var(--light-blue);
-        }
-
-        .page-header h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .page-header p {
-            font-size: 18px;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* ===== Featured Posts ===== */
-        .featured-posts {
-            padding: 60px 0;
-        }
-
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .featured-post-card {
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            position: relative;
-            border: 1px solid #eee;
-            transition: var(--transition);
-        }
-
-        .featured-post-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-blue);
-        }
-
-        .post-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--primary-blue);
-            color: #fff;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .featured-post-card h3 {
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-
-        .featured-post-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-
-        /* ===== Country List ===== */
-        .country-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-            margin: 30px 0;
-        }
-
-        .country-item {
-            background-color: var(--white);
-            padding: 10px 15px;
-            border-radius: 5px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border-left: 3px solid var(--primary-blue);
-        }
-
-        .country-item:hover {
-            transform: translateX(5px);
-        }
-
-        .country-item a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .country-flag {
-            font-size: 20px;
-        }
-
-        /* ===== Login Page ===== */
-        .login-section {
-            min-height: calc(100vh - 300px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 0;
-        }
-
-        .login-container {
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .login-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .login-header h2 {
-            margin-bottom: 10px;
-        }
-
-        .login-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .login-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .login-form input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-
-        .login-form input:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 2px rgba(0,102,255,0.1);
-        }
-
-        .login-form .checkbox {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .login-form .checkbox input {
-            width: auto;
-        }
-
-        .login-form .btn {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
-        .login-footer {
-            text-align: center;
-            margin-top: 20px;
-            color: var(--text-light);
-        }
-
-        .login-footer a {
-            color: var(--primary-blue);
-            cursor: pointer;
-        }
-
-        .login-footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* ===== Contact Page ===== */
-        .contact-section {
-            padding: 60px 0;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .contact-info {
-            background-color: var(--light-blue);
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 20px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .info-item i {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-blue);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-form {
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            font-family: inherit;
-        }
-
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        /* ===== Tab Content ===== */
-        .tab-content {
+        .page-content {
             display: none;
-            padding: 40px 0;
         }
 
-        .tab-content.active {
+        .page-content.active {
             display: block;
-        }
-
-        .category-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 30px 0;
-        }
-
-        .tab-btn {
-            padding: 10px 20px;
-            background-color: var(--white);
-            border: 2px solid var(--primary-blue);
-            border-radius: 50px;
-            color: var(--primary-blue);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .tab-btn:hover, .tab-btn.active {
-            background-color: var(--primary-blue);
-            color: var(--white);
-        }
-
-        .search-box {
-            max-width: 500px;
-            margin: 30px auto;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #ddd;
-            border-radius: 50px;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--primary-blue);
         }
     </style>
 </head>
 <body>
-    <!-- Header - Blue with Mini Logo -->
+    <!-- Header -->
     <header class="blue-header">
         <div class="container">
-            <div class="mini-logo">
+            <div class="mini-logo" onclick="showHome()">
                 <div class="logo-icon">DTZ</div>
                 <div class="logo-text">
                     <h1>Daily<span>TrickZone</span></h1>
                     <span>TRICKS & TIPS DAILY</span>
                 </div>
             </div>
-            <nav class="main-nav">
+            <nav class="main-nav" id="mainNav">
                 <ul>
-                    <li><a href="#" onclick="showHome()" class="active">Home</a></li>
+                    <li><a onclick="showHome()" id="homeLink">Home</a></li>
                     <li class="dropdown">
-                        <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
+                        <a>Blog <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" onclick="showCategory('blog')">Blog Ideas</a></li>
-                            <li><a href="#" onclick="showCategory('blog')">How to Start Blog 2026</a></li>
-                            <li><a href="#" onclick="showCategory('blog')">SEO Guide</a></li>
-                            <li><a href="#" onclick="showCategory('blog')">Blogging Tools</a></li>
+                            <li><a onclick="showCategory('blog')">Blog Ideas</a></li>
+                            <li><a onclick="showCategory('blog')">How to Start Blog</a></li>
+                            <li><a onclick="showCategory('blog')">SEO Guide</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="showCategory('health')">Health</a></li>
-                    <li><a href="#" onclick="showCategory('country')">Country</a></li>
-                    <li><a href="#" onclick="showCategory('earn')">Earning</a></li>
-                    <li><a href="#" onclick="showCategory('webdev')">Web Dev</a></li>
-                    <li><a href="#" onclick="showCategory('social')">Social</a></li>
-                    <li><a href="#" onclick="showAbout()">About</a></li>
-                    <li><a href="#" onclick="showContact()">Contact</a></li>
-                    <li><a href="#" onclick="showLogin()" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
+                    <li><a onclick="showCategory('health')">Health</a></li>
+                    <li><a onclick="showCategory('country')">Country</a></li>
+                    <li><a onclick="showCategory('earn')">Earning</a></li>
+                    <li><a onclick="showCategory('webdev')">Web Dev</a></li>
+                    <li><a onclick="showCategory('social')">Social</a></li>
+                    <li><a onclick="showAbout()">About</a></li>
+                    <li><a onclick="showContact()">Contact</a></li>
+                    <li><a onclick="showLogin()" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu-btn">
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Area -->
+    <!-- Main Content -->
     <main id="main-content">
-        <!-- Home Page Content -->
+        <!-- Home Page -->
         <div id="home-page" class="page-content">
-            <!-- Hero Section - All Light Blue with Floating Elements -->
             <section class="hero">
-                <div class="floating-element floating-1">✨</div>
-                <div class="floating-element floating-2">💡</div>
-                <div class="floating-element floating-3">🚀</div>
-                
                 <div class="container">
                     <div class="hero-content">
                         <h1>Welcome to <span>DailyTrickZone</span></h1>
@@ -1227,7 +1158,6 @@
                 </div>
             </section>
 
-            <!-- Featured Categories -->
             <section class="featured-categories">
                 <div class="container">
                     <h2 class="section-title">Popular Categories</h2>
@@ -1240,118 +1170,114 @@
                         </div>
                         <div class="category-card" onclick="showCategory('health')">
                             <i class="fas fa-heartbeat"></i>
-                            <h3>Health & Fitness</h3>
+                            <h3>Health</h3>
                             <p>100+ Topics</p>
                             <button class="btn-small">Explore →</button>
                         </div>
                         <div class="category-card" onclick="showCategory('country')">
                             <i class="fas fa-globe-asia"></i>
-                            <h3>Travel Guide</h3>
+                            <h3>Travel</h3>
                             <p>206 Countries</p>
                             <button class="btn-small">Explore →</button>
                         </div>
                         <div class="category-card" onclick="showCategory('earn')">
                             <i class="fas fa-dollar-sign"></i>
-                            <h3>Earning Ideas</h3>
+                            <h3>Earning</h3>
                             <p>30+ Ways</p>
                             <button class="btn-small">Explore →</button>
                         </div>
                         <div class="category-card" onclick="showCategory('webdev')">
                             <i class="fas fa-code"></i>
-                            <h3>Web Development</h3>
+                            <h3>Web Dev</h3>
                             <p>50+ Tutorials</p>
                             <button class="btn-small">Explore →</button>
                         </div>
                         <div class="category-card" onclick="showCategory('social')">
                             <i class="fas fa-share-alt"></i>
                             <h3>Social Media</h3>
-                            <p>Tips & Tricks</p>
+                            <p>15+ Topics</p>
                             <button class="btn-small">Explore →</button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Popular Posts Slider -->
             <section class="popular-posts">
                 <div class="container">
                     <h2 class="section-title">🔥 Trending Now</h2>
                     <div class="posts-slider">
-                        <div class="slider-container" id="slider-container">
+                        <div class="slider-container" id="sliderContainer">
                             <div class="slide">
-                                <div class="post-card">
+                                <div class="post-card" onclick="showTopic('blog', 'How to start a blog in 2026')">
                                     <div class="post-img">📝</div>
                                     <h4>How to Start a Blog in 2026</h4>
-                                    <a href="#" class="read-more" onclick="showCategory('blog')">Read More →</a>
+                                    <span class="read-more">Read More →</span>
                                 </div>
                             </div>
                             <div class="slide">
-                                <div class="post-card">
+                                <div class="post-card" onclick="showTopic('country', 'Pakistan Travel Guide')">
                                     <div class="post-img">🇵🇰</div>
                                     <h4>Pakistan Travel Guide</h4>
-                                    <a href="#" class="read-more" onclick="showCategory('country')">Read More →</a>
+                                    <span class="read-more">Read More →</span>
                                 </div>
                             </div>
                             <div class="slide">
-                                <div class="post-card">
+                                <div class="post-card" onclick="showTopic('health', 'Healthy morning routine tips')">
                                     <div class="post-img">🌅</div>
                                     <h4>Healthy Morning Routine</h4>
-                                    <a href="#" class="read-more" onclick="showCategory('health')">Read More →</a>
+                                    <span class="read-more">Read More →</span>
                                 </div>
                             </div>
                             <div class="slide">
-                                <div class="post-card">
+                                <div class="post-card" onclick="showTopic('earn', 'Blogging se paise kaise kamaye')">
                                     <div class="post-img">💰</div>
                                     <h4>Blogging se Paise Kaise Kamaye</h4>
-                                    <a href="#" class="read-more" onclick="showCategory('earn')">Read More →</a>
+                                    <span class="read-more">Read More →</span>
                                 </div>
                             </div>
                             <div class="slide">
-                                <div class="post-card">
+                                <div class="post-card" onclick="showTopic('webdev', 'HTML basics for beginners')">
                                     <div class="post-img">💻</div>
                                     <h4>HTML Complete Course</h4>
-                                    <a href="#" class="read-more" onclick="showCategory('webdev')">Read More →</a>
+                                    <span class="read-more">Read More →</span>
                                 </div>
                             </div>
                         </div>
                         <div class="slider-controls">
-                            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
-                            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                            <button class="prev-slide" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-slide" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Blog Ideas Section -->
             <section class="blog-ideas">
                 <div class="container">
                     <h2 class="section-title">📝 Blog Ideas (100+ Topics)</h2>
-                    <div class="topics-grid" id="blog-topics"></div>
-                    <div class="view-all" style="text-align: center;">
-                        <button class="btn btn-outline" onclick="showCategory('blog')">View All 100+ Topics →</button>
+                    <div class="topics-grid" id="blogTopics"></div>
+                    <div style="text-align: center;">
+                        <button class="btn btn-outline" onclick="showCategory('blog')">View All →</button>
                     </div>
                 </div>
             </section>
 
-            <!-- Health Blog Section -->
             <section class="health-ideas">
                 <div class="container">
-                    <h2 class="section-title">💪 Health Blog (100+ Topics)</h2>
-                    <div class="topics-grid" id="health-topics"></div>
-                    <div class="view-all" style="text-align: center;">
-                        <button class="btn btn-outline" onclick="showCategory('health')">View All 100+ Topics →</button>
+                    <h2 class="section-title">💪 Health Tips (100+ Topics)</h2>
+                    <div class="topics-grid" id="healthTopics"></div>
+                    <div style="text-align: center;">
+                        <button class="btn btn-outline" onclick="showCategory('health')">View All →</button>
                     </div>
                 </div>
             </section>
 
-            <!-- Newsletter Section -->
             <section class="newsletter">
                 <div class="container">
                     <div class="newsletter-content">
-                        <h2>Subscribe for Daily Tricks & Tips!</h2>
-                        <p>Get latest updates directly in your inbox. No spam, only valuable content.</p>
+                        <h2>Subscribe for Daily Tips!</h2>
+                        <p>Get latest updates directly in your inbox.</p>
                         <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                            <input type="email" id="newsletter-email" placeholder="Enter your email address" required>
+                            <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
                             <button type="submit" class="btn btn-primary">Subscribe</button>
                         </form>
                     </div>
@@ -1359,80 +1285,75 @@
             </section>
         </div>
 
-        <!-- Category Pages (Hidden by default) -->
-        <div id="category-page" class="page-content" style="display: none;">
+        <!-- Category Page -->
+        <div id="category-page" class="page-content">
             <section class="page-header">
                 <div class="container">
-                    <h1 id="category-title">Category</h1>
-                    <p id="category-description">Explore all topics in this category</p>
+                    <h1 id="categoryTitle">Category</h1>
+                    <p id="categoryDescription">Explore all topics</p>
                 </div>
             </section>
 
-            <!-- Search Box -->
             <div class="container">
                 <div class="search-box">
-                    <input type="text" id="topic-search" placeholder="🔍 Search topics..." onkeyup="searchTopics()">
+                    <input type="text" id="searchInput" placeholder="🔍 Search topics..." onkeyup="searchTopics()">
+                </div>
+                <div class="topics-grid" id="categoryTopics"></div>
+            </div>
+        </div>
+
+        <!-- Topic Page -->
+        <div id="topic-page" class="page-content">
+            <div class="topic-header">
+                <div class="container">
+                    <span class="topic-category" id="topicCategory">Category</span>
+                    <h1 id="topicTitle">Topic Title</h1>
+                    <div class="topic-meta">
+                        <span><i class="far fa-calendar"></i> Updated: March 2026</span>
+                        <span><i class="far fa-clock"></i> 10 min read</span>
+                        <span><i class="far fa-user"></i> By Admin</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Topics Grid -->
-            <section class="topics-section">
-                <div class="container">
-                    <div class="topics-grid" id="category-topics"></div>
+            <div class="container">
+                <button class="back-btn" onclick="goBackToCategory()">
+                    <i class="fas fa-arrow-left"></i> Back to Category
+                </button>
+
+                <div class="topic-content" id="topicContent"></div>
+
+                <div class="share-buttons">
+                    <a class="share-btn share-facebook" onclick="shareOnFacebook()"><i class="fab fa-facebook-f"></i></a>
+                    <a class="share-btn share-twitter" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></a>
+                    <a class="share-btn share-linkedin" onclick="shareOnLinkedIn()"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="share-btn share-pinterest" onclick="shareOnPinterest()"><i class="fab fa-pinterest-p"></i></a>
                 </div>
-            </section>
+
+                <div class="related-posts">
+                    <h3>You May Also Like</h3>
+                    <div class="related-grid" id="relatedPosts"></div>
+                </div>
+            </div>
         </div>
 
         <!-- About Page -->
-        <div id="about-page" class="page-content" style="display: none;">
+        <div id="about-page" class="page-content">
             <section class="page-header">
                 <div class="container">
-                    <h1>About DailyTrickZone.com</h1>
-                    <p>Your trusted source for daily tips and tricks</p>
+                    <h1>About DailyTrickZone</h1>
+                    <p>Your trusted source for daily tips</p>
                 </div>
             </section>
-            
-            <section class="featured-categories">
-                <div class="container">
-                    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                        <h2>Our Mission</h2>
-                        <p style="font-size: 18px; margin: 30px 0;">DailyTrickZone.com was founded with a simple mission: to provide valuable, actionable tips and tricks that help people improve their lives, learn new skills, and achieve their goals.</p>
-                        
-                        <h2>What We Offer</h2>
-                        <div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 30px; margin: 40px 0;">
-                            <div>
-                                <i class="fas fa-check-circle" style="color: var(--primary-blue); font-size: 40px;"></i>
-                                <h3>Blogging Tips</h3>
-                                <p>Complete guides for bloggers</p>
-                            </div>
-                            <div>
-                                <i class="fas fa-check-circle" style="color: var(--primary-blue); font-size: 40px;"></i>
-                                <h3>Health Advice</h3>
-                                <p>Science-based health tips</p>
-                            </div>
-                            <div>
-                                <i class="fas fa-check-circle" style="color: var(--primary-blue); font-size: 40px;"></i>
-                                <h3>Travel Guides</h3>
-                                <p>206 country guides</p>
-                            </div>
-                            <div>
-                                <i class="fas fa-check-circle" style="color: var(--primary-blue); font-size: 40px;"></i>
-                                <h3>Earning Methods</h3>
-                                <p>30+ money-making ideas</p>
-                            </div>
-                        </div>
-                        
-                        <h2>Our Team</h2>
-                        <p style="margin: 30px 0;">We're a team of passionate writers, researchers, and digital experts dedicated to bringing you the best content every single day.</p>
-                        
-                        <button class="btn btn-primary" onclick="showContact()">Contact Us</button>
-                    </div>
-                </div>
-            </section>
+            <div class="container" style="padding: 40px 0; text-align: center;">
+                <h2>Our Mission</h2>
+                <p style="max-width: 600px; margin: 20px auto;">To provide valuable, actionable tips that help people improve their lives.</p>
+                <button class="btn btn-primary" onclick="showContact()">Contact Us</button>
+            </div>
         </div>
 
         <!-- Contact Page -->
-        <div id="contact-page" class="page-content" style="display: none;">
+        <div id="contact-page" class="page-content">
             <section class="page-header">
                 <div class="container">
                     <h1>Contact Us</h1>
@@ -1440,55 +1361,42 @@
                 </div>
             </section>
 
-            <section class="contact-section">
-                <div class="container">
-                    <div class="contact-grid">
-                        <div class="contact-info">
-                            <h3>Get in Touch</h3>
-                            <div class="info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <p>123 Digital Street, Tech City, 12345</p>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-envelope"></i>
-                                <p>info@dailytrickzone.com</p>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-phone"></i>
-                                <p>+1 234 567 8900</p>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-clock"></i>
-                                <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
-                            </div>
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>info@dailytrickzone.com</p>
                         </div>
-                        
-                        <div class="contact-form">
-                            <h3>Send Message</h3>
-                            <form onsubmit="sendMessage(event)">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Your Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" placeholder="Your Email" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" placeholder="Subject">
-                                </div>
-                                <div class="form-group">
-                                    <textarea placeholder="Your Message" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Send Message</button>
-                            </form>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+1 234 567 8900</p>
                         </div>
                     </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send Message</h3>
+                        <form onsubmit="sendMessage(event)">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </form>
+                    </div>
                 </div>
-            </section>
+            </div>
         </div>
 
         <!-- Login Page -->
-        <div id="login-page" class="page-content" style="display: none;">
-            <section class="login-section">
+        <div id="login-page" class="page-content">
+            <div class="login-section">
                 <div class="container">
                     <div class="login-container">
                         <div class="login-header">
@@ -1497,31 +1405,24 @@
                         </div>
                         <form class="login-form" onsubmit="loginUser(event)">
                             <div class="form-group">
-                                <label for="login-email">Email Address</label>
-                                <input type="email" id="login-email" placeholder="Enter your email" required>
+                                <label>Email</label>
+                                <input type="email" placeholder="Enter your email" required>
                             </div>
                             <div class="form-group">
-                                <label for="login-password">Password</label>
-                                <input type="password" id="login-password" placeholder="Enter your password" required>
-                            </div>
-                            <div class="form-group checkbox">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">Remember me</label>
+                                <label>Password</label>
+                                <input type="password" placeholder="Enter password" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Login</button>
-                            <button type="button" class="btn btn-secondary" onclick="showRegister()">Create New Account</button>
+                            <button type="button" class="btn btn-secondary" onclick="showRegister()">Register</button>
                         </form>
-                        <div class="login-footer">
-                            <a href="#" onclick="alert('Password reset link sent to your email!')">Forgot Password?</a>
-                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
 
         <!-- Register Page -->
-        <div id="register-page" class="page-content" style="display: none;">
-            <section class="login-section">
+        <div id="register-page" class="page-content">
+            <div class="login-section">
                 <div class="container">
                     <div class="login-container">
                         <div class="login-header">
@@ -1530,27 +1431,23 @@
                         </div>
                         <form class="login-form" onsubmit="registerUser(event)">
                             <div class="form-group">
-                                <label for="reg-name">Full Name</label>
-                                <input type="text" id="reg-name" placeholder="Enter your name" required>
+                                <label>Full Name</label>
+                                <input type="text" placeholder="Enter your name" required>
                             </div>
                             <div class="form-group">
-                                <label for="reg-email">Email Address</label>
-                                <input type="email" id="reg-email" placeholder="Enter your email" required>
+                                <label>Email</label>
+                                <input type="email" placeholder="Enter email" required>
                             </div>
                             <div class="form-group">
-                                <label for="reg-password">Password</label>
-                                <input type="password" id="reg-password" placeholder="Create password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="reg-confirm">Confirm Password</label>
-                                <input type="password" id="reg-confirm" placeholder="Confirm password" required>
+                                <label>Password</label>
+                                <input type="password" placeholder="Create password" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Register</button>
                             <button type="button" class="btn btn-secondary" onclick="showLogin()">Back to Login</button>
                         </form>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
     </main>
 
@@ -1560,48 +1457,43 @@
             <div class="footer-top">
                 <div class="footer-logo">
                     <h2>Daily<span>TrickZone</span></h2>
-                    <p>Your daily source for tricks, tips, and valuable information.</p>
+                    <p>Your daily source for tips and tricks.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
                         <h3>Quick Links</h3>
                         <ul>
-                            <li><a href="#" onclick="showAbout()">About Us</a></li>
-                            <li><a href="#" onclick="showPrivacy()">Privacy Policy</a></li>
-                            <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
-                            <li><a href="#" onclick="showContact()">Contact</a></li>
+                            <li><a onclick="showAbout()">About</a></li>
+                            <li><a onclick="showContact()">Contact</a></li>
+                            <li><a onclick="showPrivacy()">Privacy</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h3>Categories</h3>
                         <ul>
-                            <li><a href="#" onclick="showCategory('blog')">Blogging</a></li>
-                            <li><a href="#" onclick="showCategory('health')">Health</a></li>
-                            <li><a href="#" onclick="showCategory('country')">Travel</a></li>
-                            <li><a href="#" onclick="showCategory('earn')">Earning</a></li>
+                            <li><a onclick="showCategory('blog')">Blogging</a></li>
+                            <li><a onclick="showCategory('health')">Health</a></li>
+                            <li><a onclick="showCategory('earn')">Earning</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h3>Follow Us</h3>
                         <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a><i class="fab fa-facebook"></i></a>
+                            <a><i class="fab fa-twitter"></i></a>
+                            <a><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- All Blog Topics Footer -->
             <div class="footer-topics">
-                <h3>📚 All Blog Topics</h3>
-                <div class="topics-tags" id="all-topics-footer"></div>
+                <h3>📚 Popular Topics</h3>
+                <div class="topics-tags" id="footerTopics"></div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 DailyTrickZone.com. All Rights Reserved.</p>
+                <p>&copy; 2026 DailyTrickZone.com</p>
             </div>
         </div>
     </footer>
@@ -1609,397 +1501,109 @@
     <script>
         // ========== DATA ==========
         const blogTopics = [
-            "Blog Ideas (100 Example Topics)",
             "How to start a blog in 2026",
-            "Best blogging platforms for beginners",
-            "How to choose a blog niche",
-            "Best free blogging tools",
-            "Blogging mistakes beginners make",
-            "How to write SEO friendly articles",
-            "Keyword research for beginners",
-            "How to increase blog traffic",
-            "On-page SEO complete guide",
-            "Off-page SEO strategies",
-            "How to write viral blog posts",
-            "Best content writing tips",
-            "How to find trending blog topics",
-            "Blogging for passive income",
-            "Affiliate marketing for beginners",
-            "How to monetize a blog",
-            "Best free SEO tools",
-            "Blogging vs YouTube earning",
-            "How to create blog logo",
-            "How to design blog website",
-            "WordPress vs Blogger comparison",
-            "How to install WordPress step by step",
-            "Best WordPress themes for blogging",
-            "Best WordPress plugins",
-            "How to optimize website speed",
-            "How to reduce website loading time",
-            "Best free keyword research tools",
-            "How to get Google AdSense approval",
-            "AdSense mistakes to avoid",
-            "How to write high CTR titles",
-            "How to create attractive thumbnails",
-            "How to promote blog on social media",
-            "Pinterest traffic for blogs",
-            "Facebook traffic strategy",
-            "Instagram traffic tips",
+            "Best blogging platforms",
+            "SEO guide for beginners",
+            "Keyword research tips",
+            "Blog monetization strategies",
+            "WordPress vs Blogger",
+            "How to get AdSense approval",
             "Email marketing for bloggers",
-            "How to build email list",
-            "Best blogging niches for beginners",
-            "Micro niche blogging guide",
-            "How to write list articles",
-            "How to write product reviews",
-            "How to write comparison articles",
-            "How to get backlinks for blog",
-            "Guest posting guide",
-            "Internal linking SEO strategy",
-            "How to improve Google ranking",
-            "How to write meta description",
-            "How to optimize blog images",
-            "How to create sitemap",
-            "How to submit website to Google",
-            "Google Search Console guide",
-            "Google Analytics for beginners",
-            "How to track website traffic",
-            "Best free stock image websites",
-            "Blogging content calendar guide",
-            "AI tools for bloggers",
-            "How to write long-form content",
-            "How to create pillar content",
-            "Blogging trends in 2026",
-            "Voice search SEO tips",
-            "Mobile SEO optimization",
-            "Core Web Vitals guide",
-            "How to write engaging introductions",
-            "How to increase blog engagement",
-            "How to reduce bounce rate",
-            "Blog design best practices",
-            "Minimalist blog design tips",
-            "How to create blog categories",
-            "Best fonts for websites",
-            "Best color combinations for blogs",
-            "How to build authority website",
-            "How to build niche website",
-            "Blogging case studies",
-            "How bloggers earn money",
-            "Passive income blogging strategies",
-            "How to sell digital products",
-            "How to create online course",
-            "Best affiliate programs",
-            "Amazon affiliate guide",
-            "CPA marketing guide",
-            "How to build personal brand",
-            "Blogging productivity tips",
-            "Time management for bloggers",
-            "Best laptop for blogging",
-            "Best apps for bloggers",
-            "Blogging myths and facts",
-            "How to write faster blog posts",
-            "How to repurpose blog content",
-            "Content marketing strategy",
-            "SEO checklist for bloggers",
-            "Blog launch checklist",
-            "How to create blog homepage",
-            "Best blogging communities",
-            "How to get first 1000 visitors",
-            "How to get first 1000 email subscribers",
-            "How to create viral content",
-            "Blogging income report example",
-            "Future of blogging",
-            "How to build blogging team",
-            "Complete blogging guide for beginners"
+            "Blogging mistakes to avoid",
+            "How to write viral posts"
         ];
 
         const healthTopics = [
-            "Healthy morning routine tips",
-            "Benefits of drinking water daily",
+            "Healthy morning routine",
+            "Benefits of drinking water",
             "How to lose weight naturally",
-            "Best home workouts for beginners",
-            "Healthy diet plan for beginners",
+            "Best home workouts",
             "Foods that boost immunity",
-            "How to improve digestion naturally",
-            "Benefits of walking daily",
-            "Best exercises for weight loss",
-            "How to stay fit at home",
-            "Tips for better sleep",
-            "Causes of insomnia and solutions",
             "Yoga for beginners",
-            "Meditation benefits for mental health",
             "Stress management tips",
-            "Natural ways to reduce stress",
-            "Healthy breakfast ideas",
-            "Foods for healthy skin",
-            "Natural remedies for acne",
-            "How to get glowing skin naturally",
-            "Hair care tips for healthy hair",
-            "Best foods for hair growth",
-            "Natural remedies for hair fall",
-            "Eye care tips for screen users",
-            "How to improve eyesight naturally",
-            "Tips to reduce belly fat",
-            "Best exercises for abs",
-            "Benefits of stretching daily",
-            "Home remedies for cold and cough",
-            "Natural remedies for sore throat",
-            "Best foods for heart health",
-            "Tips to control blood pressure",
-            "How to maintain healthy cholesterol levels",
-            "Foods that lower blood sugar",
-            "Natural ways to control diabetes",
-            "Healthy habits for long life",
-            "Importance of regular exercise",
-            "How to build strong immunity",
-            "Best vitamins for body health",
-            "Benefits of sunlight for health",
-            "How to detox your body naturally",
-            "Benefits of drinking lemon water",
-            "Apple cider vinegar health benefits",
-            "Green tea health benefits",
-            "Herbal tea benefits",
-            "Benefits of eating fruits daily",
-            "Benefits of vegetables for health",
-            "Importance of fiber in diet",
-            "Best protein sources for vegetarians",
-            "Healthy snacks for weight loss",
-            "How to stay hydrated",
-            "Signs of dehydration",
-            "Tips for healthy bones",
-            "Calcium rich foods list",
-            "Vitamin D benefits",
-            "How to improve metabolism",
-            "Tips to prevent obesity",
-            "Healthy lifestyle tips",
-            "Importance of mental health",
-            "Tips for positive thinking",
-            "How to stay motivated for fitness",
-            "Fitness goals for beginners",
-            "Benefits of running daily",
-            "Cycling benefits for health",
-            "Swimming benefits for body",
-            "Best exercises for seniors",
-            "Healthy habits for children",
-            "Importance of physical activity for kids",
-            "Healthy school lunch ideas",
-            "Tips for healthy pregnancy",
-            "Foods to avoid during pregnancy",
-            "Post pregnancy fitness tips",
-            "Women's health tips",
-            "Men's health tips",
-            "Importance of regular health checkups",
-            "How to maintain good posture",
-            "Tips to avoid back pain",
-            "Exercises for neck pain",
-            "Tips for joint health",
-            "Natural remedies for headache",
-            "Migraine prevention tips",
-            "Benefits of deep breathing",
-            "How to boost energy naturally",
-            "Healthy evening routine",
-            "Importance of sleep for health",
-            "Best bedtime habits",
-            "How to avoid junk food",
-            "Healthy alternatives to junk food",
-            "Benefits of fasting for health",
-            "Intermittent fasting guide",
-            "Healthy weight gain tips",
-            "Foods for muscle growth",
-            "Best fitness apps",
-            "Home gym setup guide",
-            "Healthy lifestyle for busy people",
-            "Tips to stay active all day",
-            "Importance of balanced diet",
-            "Healthy living tips for beginners",
-            "Daily habits for better health",
-            "Complete guide to healthy living"
+            "Natural remedies for cold",
+            "Tips for better sleep",
+            "Healthy breakfast ideas"
         ];
 
         const countryTopics = [
-            "Pakistan Travel Guide", "India Travel Guide", "Afghanistan Travel Guide",
-            "China Travel Guide", "Japan Travel Guide", "South Korea Travel Guide",
-            "North Korea Travel Guide", "Thailand Travel Guide", "Malaysia Travel Guide",
-            "Indonesia Travel Guide", "Philippines Travel Guide", "Vietnam Travel Guide",
-            "Singapore Travel Guide", "Bangladesh Travel Guide", "Nepal Travel Guide",
-            "Sri Lanka Travel Guide", "Maldives Travel Guide", "Myanmar Travel Guide",
-            "Cambodia Travel Guide", "Laos Travel Guide", "Saudi Arabia Travel Guide",
-            "United Arab Emirates Travel Guide", "Qatar Travel Guide", "Oman Travel Guide",
-            "Kuwait Travel Guide", "Bahrain Travel Guide", "Iran Travel Guide",
-            "Iraq Travel Guide", "Turkey Travel Guide", "Israel Travel Guide",
-            "Jordan Travel Guide", "Lebanon Travel Guide", "Syria Travel Guide",
-            "Yemen Travel Guide", "Russia Travel Guide", "Ukraine Travel Guide",
-            "Germany Travel Guide", "France Travel Guide", "Italy Travel Guide",
-            "Spain Travel Guide", "Portugal Travel Guide", "Netherlands Travel Guide",
-            "Belgium Travel Guide", "Switzerland Travel Guide", "Austria Travel Guide",
-            "Poland Travel Guide", "Czech Republic Travel Guide", "Slovakia Travel Guide",
-            "Hungary Travel Guide", "Romania Travel Guide", "Bulgaria Travel Guide",
-            "Greece Travel Guide", "Denmark Travel Guide", "Sweden Travel Guide",
-            "Norway Travel Guide", "Finland Travel Guide", "Iceland Travel Guide",
-            "Ireland Travel Guide", "United Kingdom Travel Guide", "Estonia Travel Guide",
-            "Latvia Travel Guide", "Lithuania Travel Guide", "Belarus Travel Guide",
-            "Moldova Travel Guide", "Croatia Travel Guide", "Slovenia Travel Guide",
-            "Bosnia and Herzegovina Travel Guide", "Serbia Travel Guide", "Montenegro Travel Guide",
-            "Albania Travel Guide", "North Macedonia Travel Guide", "Kosovo Travel Guide",
-            "United States Travel Guide", "Canada Travel Guide", "Mexico Travel Guide",
-            "Brazil Travel Guide", "Argentina Travel Guide", "Chile Travel Guide",
-            "Peru Travel Guide", "Colombia Travel Guide", "Venezuela Travel Guide",
-            "Ecuador Travel Guide", "Bolivia Travel Guide", "Paraguay Travel Guide",
-            "Uruguay Travel Guide", "Guyana Travel Guide", "Suriname Travel Guide",
-            "Panama Travel Guide", "Costa Rica Travel Guide", "Nicaragua Travel Guide",
-            "Honduras Travel Guide", "El Salvador Travel Guide", "Guatemala Travel Guide",
-            "Belize Travel Guide", "Cuba Travel Guide", "Jamaica Travel Guide",
-            "Haiti Travel Guide", "Dominican Republic Travel Guide", "Bahamas Travel Guide",
-            "Barbados Travel Guide", "Trinidad and Tobago Travel Guide", "Saint Lucia Travel Guide",
-            "Grenada Travel Guide", "Saint Vincent and the Grenadines Travel Guide", "Antigua and Barbuda Travel Guide",
-            "Dominica Travel Guide", "Saint Kitts and Nevis Travel Guide", "Australia Travel Guide",
-            "New Zealand Travel Guide", "Fiji Travel Guide", "Papua New Guinea Travel Guide",
-            "Solomon Islands Travel Guide", "Vanuatu Travel Guide", "Samoa Travel Guide",
-            "Tonga Travel Guide", "Kiribati Travel Guide", "Tuvalu Travel Guide",
-            "Nauru Travel Guide", "Palau Travel Guide", "Marshall Islands Travel Guide",
-            "Egypt Travel Guide", "South Africa Travel Guide", "Nigeria Travel Guide",
-            "Kenya Travel Guide", "Ethiopia Travel Guide", "Morocco Travel Guide",
-            "Algeria Travel Guide", "Tunisia Travel Guide", "Libya Travel Guide",
-            "Sudan Travel Guide", "South Sudan Travel Guide", "Ghana Travel Guide",
-            "Ivory Coast Travel Guide", "Senegal Travel Guide", "Mali Travel Guide",
-            "Burkina Faso Travel Guide", "Niger Travel Guide", "Chad Travel Guide",
-            "Cameroon Travel Guide", "Central African Republic Travel Guide", "Congo Travel Guide",
-            "DR Congo Travel Guide", "Gabon Travel Guide", "Equatorial Guinea Travel Guide",
-            "Angola Travel Guide", "Namibia Travel Guide", "Botswana Travel Guide",
-            "Zimbabwe Travel Guide", "Zambia Travel Guide", "Mozambique Travel Guide",
-            "Madagascar Travel Guide", "Mauritius Travel Guide", "Seychelles Travel Guide",
-            "Tanzania Travel Guide", "Uganda Travel Guide", "Rwanda Travel Guide",
-            "Burundi Travel Guide", "Somalia Travel Guide", "Djibouti Travel Guide",
-            "Eritrea Travel Guide", "Lesotho Travel Guide", "Eswatini Travel Guide",
-            "Benin Travel Guide", "Togo Travel Guide", "Guinea Travel Guide",
-            "Guinea-Bissau Travel Guide", "Sierra Leone Travel Guide", "Liberia Travel Guide",
-            "Gambia Travel Guide", "Cape Verde Travel Guide", "Kazakhstan Travel Guide",
-            "Uzbekistan Travel Guide", "Turkmenistan Travel Guide", "Kyrgyzstan Travel Guide",
-            "Tajikistan Travel Guide", "Mongolia Travel Guide", "Azerbaijan Travel Guide",
-            "Armenia Travel Guide", "Georgia Travel Guide", "Cyprus Travel Guide",
-            "Malta Travel Guide", "Luxembourg Travel Guide", "Monaco Travel Guide",
-            "Andorra Travel Guide", "Liechtenstein Travel Guide", "San Marino Travel Guide",
-            "Vatican City Travel Guide", "Bhutan Travel Guide", "Brunei Travel Guide",
-            "Timor-Leste Travel Guide", "Micronesia Travel Guide", "Cook Islands Travel Guide",
-            "Niue Travel Guide", "Tokelau Travel Guide", "French Polynesia Travel Guide",
-            "New Caledonia Travel Guide", "Greenland Travel Guide", "Faroe Islands Travel Guide",
-            "Aruba Travel Guide", "Curacao Travel Guide", "Bonaire Travel Guide",
-            "Sint Maarten Travel Guide", "Guadeloupe Travel Guide", "Martinique Travel Guide",
-            "Reunion Travel Guide", "Mayotte Travel Guide"
+            "Pakistan Travel Guide",
+            "India Travel Guide",
+            "USA Travel Guide",
+            "UK Travel Guide",
+            "Canada Travel Guide",
+            "Australia Travel Guide",
+            "Japan Travel Guide",
+            "Turkey Travel Guide",
+            "Thailand Travel Guide",
+            "Dubai Travel Guide"
         ];
 
         const earningTopics = [
-            "Blogging se paise kaise kamaye",
-            "YouTube channel se earning",
-            "Freelancing se online paise",
-            "Affiliate marketing se income",
-            "Dropshipping business start",
-            "Print on demand se earning",
-            "Online tutoring se paise",
-            "Digital products sell earning",
-            "Stock photography se income",
-            "Online course bana kar paise",
-            "Mobile apps se earning",
-            "Website flipping se profit",
-            "Domain flipping se paise",
-            "CPA marketing se earning",
-            "Content writing se paise",
-            "Graphic design freelancing",
-            "Social media management se income",
-            "SEO services de kar paise",
-            "Virtual assistant ban kar earning",
-            "Data entry jobs se online income",
-            "Online surveys se earning",
-            "Gaming se paise kamana",
-            "Live streaming se earning",
-            "TikTok se paise kamana",
-            "Instagram se income",
-            "Facebook page monetization guide",
-            "Podcast se paise kamana",
-            "E-book likh kar sell karna",
-            "Website par ads lagana",
-            "Passive income ideas online"
+            "Blogging se paise",
+            "YouTube se earning",
+            "Freelancing guide",
+            "Affiliate marketing",
+            "Dropshipping business",
+            "Print on demand",
+            "Online tutoring",
+            "Digital products",
+            "CPA marketing",
+            "Passive income ideas"
         ];
 
         const webDevTopics = [
-            "What is Web Development?",
-            "Frontend vs Backend Development",
-            "Best programming languages for web development",
-            "HTML basics for beginners",
-            "CSS layout complete guide",
-            "JavaScript basics tutorial",
-            "How to build your first website",
-            "Best free tools for web developers",
-            "GitHub guide for beginners",
-            "How to host website for free",
-            "Best VS Code extensions for developers",
-            "Website design tips",
-            "Responsive website design guide",
-            "Website speed optimization tips",
-            "SEO basics for developers",
-            "Best frameworks for web development",
-            "React vs Angular comparison",
-            "Node.js beginner guide",
-            "How to connect database to website",
-            "API integration guide",
-            "Best frontend frameworks",
-            "Best backend frameworks",
-            "How to create portfolio website",
-            "Website security tips",
-            "HTTPS importance for websites",
-            "Best hosting providers",
-            "Domain name selection guide",
-            "Web developer career roadmap",
-            "Freelancing for web developers",
-            "How to earn from web development",
-            "Web developer salary guide",
-            "Future of web development",
-            "AI tools for web developers",
-            "No-code website builders",
-            "Best CMS platforms",
-            "WordPress vs custom website",
-            "How to build ecommerce website",
-            "Website UX design tips",
-            "Landing page design tips",
-            "Web accessibility guide",
-            "Website maintenance tips",
-            "Common web development mistakes",
-            "Web developer productivity tips",
-            "Chrome developer tools guide",
-            "JavaScript libraries guide",
-            "Website animation techniques",
-            "How to create blog website",
-            "Website performance testing",
-            "Web development project ideas",
-            "Complete web development roadmap"
+            "HTML complete guide",
+            "CSS tutorial",
+            "JavaScript basics",
+            "React.js guide",
+            "Node.js tutorial",
+            "Python for web",
+            "WordPress development",
+            "Website speed optimization",
+            "SEO for developers",
+            "Web hosting guide"
         ];
 
         const socialTopics = [
-            "Facebook marketing tips",
-            "Instagram growth hacks",
-            "TikTok viral strategies",
-            "YouTube SEO guide",
-            "Pinterest traffic secrets",
-            "Twitter/X tips",
+            "Facebook marketing",
+            "Instagram growth",
+            "TikTok strategy",
+            "YouTube SEO",
+            "Pinterest traffic",
+            "Twitter tips",
             "LinkedIn networking",
-            "Social media content calendar",
-            "Hashtag strategy guide",
-            "Social media analytics",
-            "Engagement boosting tips",
-            "Social media advertising",
-            "Influencer marketing guide",
-            "Social media automation tools",
-            "Video content strategy"
+            "Social media calendar",
+            "Hashtag strategy",
+            "Video content tips"
         ];
 
-        const allTopics = [...blogTopics, ...healthTopics, ...countryTopics, ...earningTopics, ...webDevTopics, ...socialTopics];
+        const allTopics = {
+            'blog': blogTopics,
+            'health': healthTopics,
+            'country': countryTopics,
+            'earn': earningTopics,
+            'webdev': webDevTopics,
+            'social': socialTopics
+        };
+
+        const categoryNames = {
+            'blog': 'Blogging',
+            'health': 'Health',
+            'country': 'Travel',
+            'earn': 'Earning',
+            'webdev': 'Web Development',
+            'social': 'Social Media'
+        };
+
+        let currentCategory = 'blog';
+        let currentSlideIndex = 0;
 
         // ========== PAGE NAVIGATION ==========
         function hideAllPages() {
             document.querySelectorAll('.page-content').forEach(page => {
                 page.style.display = 'none';
             });
-            
-            // Remove active class from nav links
             document.querySelectorAll('.main-nav a').forEach(link => {
                 link.classList.remove('active');
             });
@@ -2008,7 +1612,7 @@
         function showHome() {
             hideAllPages();
             document.getElementById('home-page').style.display = 'block';
-            document.querySelectorAll('.main-nav a')[0].classList.add('active');
+            document.getElementById('homeLink').classList.add('active');
             window.scrollTo(0, 0);
             loadHomepageTopics();
         }
@@ -2016,73 +1620,104 @@
         function showCategory(category) {
             hideAllPages();
             document.getElementById('category-page').style.display = 'block';
+            currentCategory = category;
             
-            const title = document.getElementById('category-title');
-            const desc = document.getElementById('category-description');
-            let topics = [];
+            document.getElementById('categoryTitle').textContent = categoryNames[category];
+            document.getElementById('categoryDescription').textContent = `Explore ${allTopics[category].length}+ topics`;
             
-            switch(category) {
-                case 'blog':
-                    title.innerHTML = '📝 Blogging Tips & Tricks';
-                    desc.innerHTML = 'Complete guide for beginners to pro bloggers - 100+ topics';
-                    topics = blogTopics;
-                    break;
-                case 'health':
-                    title.innerHTML = '💪 Health & Wellness';
-                    desc.innerHTML = '100+ health tips, fitness guides, and natural remedies';
-                    topics = healthTopics;
-                    break;
-                case 'country':
-                    title.innerHTML = '🌍 Country Travel Guides';
-                    desc.innerHTML = 'Explore 206 countries with detailed travel guides';
-                    topics = countryTopics;
-                    break;
-                case 'earn':
-                    title.innerHTML = '💰 Online Earning Ideas';
-                    desc.innerHTML = '30+ proven ways to make money online in 2026';
-                    topics = earningTopics;
-                    break;
-                case 'webdev':
-                    title.innerHTML = '💻 Web Development';
-                    desc.innerHTML = 'Complete courses, tutorials, and resources';
-                    topics = webDevTopics;
-                    break;
-                case 'social':
-                    title.innerHTML = '📱 Social Media Tips';
-                    desc.innerHTML = 'Master Facebook, Instagram, TikTok, YouTube & more';
-                    topics = socialTopics;
-                    break;
-            }
-            
-            // Store current category and topics for search
-            window.currentCategory = category;
-            window.currentTopics = topics;
-            
-            displayCategoryTopics(topics);
+            displayCategoryTopics(allTopics[category]);
             window.scrollTo(0, 0);
         }
 
         function displayCategoryTopics(topics) {
-            const container = document.getElementById('category-topics');
+            const container = document.getElementById('categoryTopics');
             container.innerHTML = '';
-            
             topics.forEach(topic => {
-                const topicDiv = document.createElement('div');
-                topicDiv.className = 'topic-item';
-                topicDiv.innerHTML = `<a href="#" onclick="alert('Opening: ${topic}')">${topic}</a>`;
-                container.appendChild(topicDiv);
+                const div = document.createElement('div');
+                div.className = 'topic-item';
+                div.onclick = () => showTopic(currentCategory, topic);
+                div.innerHTML = `<a>${topic}</a>`;
+                container.appendChild(div);
             });
         }
 
         function searchTopics() {
-            const searchTerm = document.getElementById('topic-search').value.toLowerCase();
-            if (!window.currentTopics) return;
-            
-            const filtered = window.currentTopics.filter(topic => 
-                topic.toLowerCase().includes(searchTerm)
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allTopics[currentCategory].filter(t => 
+                t.toLowerCase().includes(searchTerm)
             );
-            
             displayCategoryTopics(filtered);
+        }
+
+        function showTopic(category, topic) {
+            hideAllPages();
+            document.getElementById('topic-page').style.display = 'block';
+            
+            document.getElementById('topicCategory').textContent = categoryNames[category];
+            document.getElementById('topicTitle').textContent = topic;
+            document.getElementById('topicContent').innerHTML = generateTopicContent(category, topic);
+            
+            loadRelatedPosts(category, topic);
+            window.scrollTo(0, 0);
+        }
+
+        function generateTopicContent(category, topic) {
+            return `
+                <h2>Introduction to ${topic}</h2>
+                <p>Welcome to our comprehensive guide on <strong>${topic}</strong>. This article covers everything you need to know.</p>
+                
+                <blockquote>
+                    "Knowledge is power. Information is liberating." - Kofi Annan
+                </blockquote>
+                
+                <h3>Key Points</h3>
+                <ul>
+                    <li>Complete coverage of ${topic}</li>
+                    <li>Practical tips and strategies</li>
+                    <li>Expert insights and advice</li>
+                    <li>Updated for 2026</li>
+                </ul>
+                
+                <h3>Step-by-Step Guide</h3>
+                <ol>
+                    <li>Understand the basics</li>
+                    <li>Learn from examples</li>
+                    <li>Practice regularly</li>
+                    <li>Get feedback</li>
+                </ol>
+                
+                <h3>Common Mistakes to Avoid</h3>
+                <ul>
+                    <li>Not doing enough research</li>
+                    <li>Skipping fundamentals</li>
+                    <li>Giving up too early</li>
+                </ul>
+                
+                <div class="topic-tags">
+                    <span class="topic-tag">#${category}</span>
+                    <span class="topic-tag">#Guide</span>
+                    <span class="topic-tag">#2026</span>
+                </div>
+            `;
+        }
+
+        function loadRelatedPosts(category, currentTopic) {
+            const relatedDiv = document.getElementById('relatedPosts');
+            const otherTopics = allTopics[category].filter(t => t !== currentTopic);
+            const selected = otherTopics.slice(0, 3);
+            
+            relatedDiv.innerHTML = '';
+            selected.forEach(topic => {
+                const card = document.createElement('div');
+                card.className = 'related-card';
+                card.onclick = () => showTopic(category, topic);
+                card.innerHTML = `<h4>${topic}</h4><span class="read-more">Read →</span>`;
+                relatedDiv.appendChild(card);
+            });
+        }
+
+        function goBackToCategory() {
+            showCategory(currentCategory);
         }
 
         function showAbout() {
@@ -2110,146 +1745,153 @@
         }
 
         function showPrivacy() {
-            alert('Privacy Policy page will be available soon!');
-        }
-
-        function showTerms() {
-            alert('Terms of Use page will be available soon!');
+            alert('Privacy Policy page coming soon!');
         }
 
         // ========== HOME PAGE FUNCTIONS ==========
         function loadHomepageTopics() {
-            // Blog topics (first 12)
-            const blogContainer = document.getElementById('blog-topics');
-            if (blogContainer) {
-                blogContainer.innerHTML = '';
-                blogTopics.slice(0, 12).forEach(topic => {
-                    const topicDiv = document.createElement('div');
-                    topicDiv.className = 'topic-item';
-                    topicDiv.innerHTML = `<a href="#" onclick="showCategory('blog')">${topic}</a>`;
-                    blogContainer.appendChild(topicDiv);
-                });
-            }
+            // Blog topics
+            const blogContainer = document.getElementById('blogTopics');
+            blogContainer.innerHTML = '';
+            blogTopics.slice(0, 6).forEach(topic => {
+                const div = document.createElement('div');
+                div.className = 'topic-item';
+                div.onclick = () => showTopic('blog', topic);
+                div.innerHTML = `<a>${topic}</a>`;
+                blogContainer.appendChild(div);
+            });
 
-            // Health topics (first 12)
-            const healthContainer = document.getElementById('health-topics');
-            if (healthContainer) {
-                healthContainer.innerHTML = '';
-                healthTopics.slice(0, 12).forEach(topic => {
-                    const topicDiv = document.createElement('div');
-                    topicDiv.className = 'topic-item';
-                    topicDiv.innerHTML = `<a href="#" onclick="showCategory('health')">${topic}</a>`;
-                    healthContainer.appendChild(topicDiv);
-                });
-            }
+            // Health topics
+            const healthContainer = document.getElementById('healthTopics');
+            healthContainer.innerHTML = '';
+            healthTopics.slice(0, 6).forEach(topic => {
+                const div = document.createElement('div');
+                div.className = 'topic-item';
+                div.onclick = () => showTopic('health', topic);
+                div.innerHTML = `<a>${topic}</a>`;
+                healthContainer.appendChild(div);
+            });
 
             // Footer topics
             loadFooterTopics();
         }
 
         function loadFooterTopics() {
-            const footerContainer = document.getElementById('all-topics-footer');
-            if (footerContainer) {
-                footerContainer.innerHTML = '';
-                // Show first 50 topics in footer
-                allTopics.slice(0, 50).forEach(topic => {
-                    const topicSpan = document.createElement('span');
-                    topicSpan.className = 'topic-tag';
-                    topicSpan.innerHTML = topic;
-                    topicSpan.onclick = () => alert(`Topic: ${topic}`);
-                    footerContainer.appendChild(topicSpan);
-                });
-            }
+            const footerContainer = document.getElementById('footerTopics');
+            footerContainer.innerHTML = '';
+            const allTopicsList = [...blogTopics, ...healthTopics, ...countryTopics];
+            allTopicsList.slice(0, 30).forEach(topic => {
+                const span = document.createElement('span');
+                span.className = 'topic-tag';
+                span.textContent = topic;
+                span.onclick = () => {
+                    for (let cat in allTopics) {
+                        if (allTopics[cat].includes(topic)) {
+                            showTopic(cat, topic);
+                            break;
+                        }
+                    }
+                };
+                footerContainer.appendChild(span);
+            });
         }
 
-        // ========== SLIDER FUNCTIONALITY ==========
-        let currentSlide = 0;
-        
+        // ========== SLIDER FUNCTIONS ==========
         function updateSlider() {
-            const sliderContainer = document.getElementById('slider-container');
+            const container = document.getElementById('sliderContainer');
             const slides = document.querySelectorAll('.slide');
-            if (!sliderContainer || !slides.length) return;
+            if (!container || !slides.length) return;
             
             const slideWidth = slides[0]?.offsetWidth || 0;
-            const translateX = -currentSlide * (slideWidth + 20);
-            sliderContainer.style.transform = `translateX(${translateX}px)`;
+            const maxIndex = slides.length - (window.innerWidth <= 768 ? 1 : 3);
+            
+            if (currentSlideIndex > maxIndex) {
+                currentSlideIndex = maxIndex;
+            }
+            if (currentSlideIndex < 0) {
+                currentSlideIndex = 0;
+            }
+            
+            container.style.transform = `translateX(-${currentSlideIndex * (slideWidth + 20)}px)`;
         }
 
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.next-slide')) {
-                const slides = document.querySelectorAll('.slide');
-                const maxSlide = slides.length - (window.innerWidth <= 768 ? 1 : 3);
-                if (currentSlide < maxSlide) {
-                    currentSlide++;
-                    updateSlider();
-                }
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slide');
+            const maxIndex = slides.length - (window.innerWidth <= 768 ? 1 : 3);
+            if (currentSlideIndex < maxIndex) {
+                currentSlideIndex++;
+                updateSlider();
             }
-            if (e.target.closest('.prev-slide')) {
-                if (currentSlide > 0) {
-                    currentSlide--;
-                    updateSlider();
-                }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                updateSlider();
             }
-        });
+        }
+
+        // ========== MOBILE MENU ==========
+        function toggleMobileMenu() {
+            document.getElementById('mainNav').classList.toggle('active');
+        }
 
         // ========== FORM HANDLERS ==========
         function subscribeNewsletter(event) {
             event.preventDefault();
-            const email = document.getElementById('newsletter-email').value;
-            alert(`✅ Thanks for subscribing! We'll send daily tips to ${email}`);
-            document.getElementById('newsletter-email').value = '';
+            const email = document.getElementById('newsletterEmail').value;
+            alert(`✅ Thanks for subscribing! Check ${email} for updates.`);
+            event.target.reset();
         }
 
         function sendMessage(event) {
             event.preventDefault();
-            alert('✅ Your message has been sent! We\'ll get back to you soon.');
+            alert('✅ Message sent! We\'ll reply soon.');
             event.target.reset();
         }
 
         function loginUser(event) {
             event.preventDefault();
-            alert('✅ Login successful! Welcome back.');
+            alert('✅ Login successful!');
         }
 
         function registerUser(event) {
             event.preventDefault();
-            const password = document.getElementById('reg-password').value;
-            const confirm = document.getElementById('reg-confirm').value;
-            
-            if (password !== confirm) {
-                alert('❌ Passwords do not match!');
-                return;
-            }
-            
             alert('✅ Registration successful! Please login.');
             showLogin();
         }
 
-        // ========== MOBILE MENU ==========
+        // ========== SHARE FUNCTIONS ==========
+        function shareOnFacebook() {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+        }
+
+        function shareOnTwitter() {
+            const text = document.getElementById('topicTitle').textContent;
+            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank');
+        }
+
+        function shareOnPinterest() {
+            window.open('https://pinterest.com/pin/create/button/?url=' + encodeURIComponent(window.location.href), '_blank');
+        }
+
+        // ========== INITIALIZATION ==========
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileBtn = document.querySelector('.mobile-menu-btn');
-            const mainNav = document.querySelector('.main-nav');
-            
-            if (mobileBtn) {
-                mobileBtn.addEventListener('click', function() {
-                    mainNav.classList.toggle('active');
-                });
-            }
-            
-            // Load home page by default
             showHome();
             
             // Close mobile menu when clicking a link
             document.querySelectorAll('.main-nav a').forEach(link => {
                 link.addEventListener('click', () => {
-                    mainNav.classList.remove('active');
+                    document.getElementById('mainNav').classList.remove('active');
                 });
             });
             
             // Update slider on resize
-            window.addEventListener('resize', function() {
-                updateSlider();
-            });
+            window.addEventListener('resize', updateSlider);
             
             // Initial slider setup
             setTimeout(updateSlider, 100);
