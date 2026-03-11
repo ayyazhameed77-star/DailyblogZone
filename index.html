@@ -57,7 +57,7 @@
             list-style: none;
         }
 
-        /* ===== Header Styles ===== */
+        /* ===== Header Styles - Mini Logo ===== */
         .blue-header {
             background-color: var(--primary-blue);
             color: var(--white);
@@ -79,7 +79,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            cursor: pointer;
         }
 
         .logo-icon {
@@ -127,7 +126,6 @@
             padding: 6px 10px;
             border-radius: 5px;
             font-size: 14px;
-            cursor: pointer;
         }
 
         .main-nav a:hover, .main-nav a.active {
@@ -204,7 +202,7 @@
             cursor: pointer;
         }
 
-        /* ===== Hero Section ===== */
+        /* ===== Hero Section - All Light Blue ===== */
         .hero {
             padding: 100px 0;
             text-align: center;
@@ -460,6 +458,7 @@
             margin-bottom: 20px;
         }
 
+        /* Rest of the CSS remains the same as before */
         /* ===== Popular Posts Slider ===== */
         .popular-posts {
             padding: 60px 0;
@@ -489,7 +488,6 @@
             padding: 20px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            cursor: pointer;
         }
 
         .post-card:hover {
@@ -557,7 +555,6 @@
             box-shadow: var(--shadow);
             border-left: 3px solid var(--primary-blue);
             transition: var(--transition);
-            cursor: pointer;
         }
 
         .topic-item:hover {
@@ -569,188 +566,11 @@
             display: block;
             color: var(--text-dark);
             font-weight: 500;
+            cursor: pointer;
         }
 
         .topic-item a:hover {
             color: var(--primary-blue);
-        }
-
-        /* ===== Topic Page Styles ===== */
-        .topic-page {
-            padding: 40px 0;
-        }
-
-        .topic-header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .topic-header h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .topic-header .topic-category {
-            display: inline-block;
-            background-color: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .topic-meta {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            font-size: 14px;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .topic-meta i {
-            margin-right: 5px;
-        }
-
-        .topic-content {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .topic-content h2 {
-            color: var(--primary-blue);
-            margin: 30px 0 15px;
-            font-size: 28px;
-        }
-
-        .topic-content h3 {
-            margin: 25px 0 10px;
-            font-size: 22px;
-        }
-
-        .topic-content p {
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        .topic-content ul, .topic-content ol {
-            margin: 15px 0 15px 20px;
-            color: var(--text-light);
-        }
-
-        .topic-content li {
-            margin-bottom: 8px;
-        }
-
-        .topic-content blockquote {
-            background: var(--light-blue);
-            padding: 20px;
-            border-left: 4px solid var(--primary-blue);
-            border-radius: 5px;
-            margin: 20px 0;
-            font-style: italic;
-        }
-
-        .topic-content img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        .topic-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 30px 0;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .topic-tag {
-            background-color: var(--light-blue);
-            color: var(--primary-blue);
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 12px;
-        }
-
-        .share-buttons {
-            display: flex;
-            gap: 10px;
-            margin: 30px 0;
-        }
-
-        .share-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            transition: var(--transition);
-        }
-
-        .share-btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .share-facebook { background-color: #3b5998; }
-        .share-twitter { background-color: #1da1f2; }
-        .share-linkedin { background-color: #0077b5; }
-        .share-pinterest { background-color: #bd081c; }
-
-        .related-posts {
-            margin-top: 40px;
-        }
-
-        .related-posts h3 {
-            margin-bottom: 20px;
-        }
-
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .related-card {
-            background: var(--white);
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .related-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .related-card h4 {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-blue);
-            font-weight: 600;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
-
-        .back-btn:hover {
-            gap: 15px;
         }
 
         /* ===== Newsletter Section ===== */
@@ -950,9 +770,6 @@
             .footer-top {
                 grid-template-columns: 1fr;
             }
-            .related-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
@@ -1015,18 +832,6 @@
             .footer-links {
                 grid-template-columns: 1fr;
             }
-            
-            .topic-content {
-                padding: 20px;
-            }
-            
-            .topic-header h1 {
-                font-size: 32px;
-            }
-            
-            .related-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1055,11 +860,6 @@
             .topics-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .topic-meta {
-                flex-direction: column;
-                gap: 10px;
-            }
         }
 
         /* ===== Page Header ===== */
@@ -1081,24 +881,84 @@
             margin: 0 auto;
         }
 
-        /* ===== Search Box ===== */
-        .search-box {
-            max-width: 500px;
-            margin: 30px auto;
+        /* ===== Featured Posts ===== */
+        .featured-posts {
+            padding: 60px 0;
         }
 
-        .search-box input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #ddd;
-            border-radius: 50px;
-            font-size: 16px;
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .featured-post-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid #eee;
             transition: var(--transition);
         }
 
-        .search-box input:focus {
-            outline: none;
+        .featured-post-card:hover {
+            transform: translateY(-5px);
             border-color: var(--primary-blue);
+        }
+
+        .post-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-blue);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .featured-post-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .featured-post-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* ===== Country List ===== */
+        .country-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .country-item {
+            background-color: var(--white);
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        .country-item:hover {
+            transform: translateX(5px);
+        }
+
+        .country-item a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .country-flag {
+            font-size: 20px;
         }
 
         /* ===== Login Page ===== */
@@ -1247,13 +1107,66 @@
             height: 150px;
             resize: vertical;
         }
+
+        /* ===== Tab Content ===== */
+        .tab-content {
+            display: none;
+            padding: 40px 0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: var(--white);
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            color: var(--primary-blue);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 30px auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
     </style>
 </head>
 <body>
     <!-- Header - Blue with Mini Logo -->
     <header class="blue-header">
         <div class="container">
-            <div class="mini-logo" onclick="showHome()">
+            <div class="mini-logo">
                 <div class="logo-icon">DTZ</div>
                 <div class="logo-text">
                     <h1>Daily<span>TrickZone</span></h1>
@@ -1262,24 +1175,24 @@
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a onclick="showHome()" class="active">Home</a></li>
+                    <li><a href="#" onclick="showHome()" class="active">Home</a></li>
                     <li class="dropdown">
-                        <a>Blog <i class="fas fa-chevron-down"></i></a>
+                        <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="showCategory('blog')">Blog Ideas</a></li>
-                            <li><a onclick="showCategory('blog')">How to Start Blog 2026</a></li>
-                            <li><a onclick="showCategory('blog')">SEO Guide</a></li>
-                            <li><a onclick="showCategory('blog')">Blogging Tools</a></li>
+                            <li><a href="#" onclick="showCategory('blog')">Blog Ideas</a></li>
+                            <li><a href="#" onclick="showCategory('blog')">How to Start Blog 2026</a></li>
+                            <li><a href="#" onclick="showCategory('blog')">SEO Guide</a></li>
+                            <li><a href="#" onclick="showCategory('blog')">Blogging Tools</a></li>
                         </ul>
                     </li>
-                    <li><a onclick="showCategory('health')">Health</a></li>
-                    <li><a onclick="showCategory('country')">Country</a></li>
-                    <li><a onclick="showCategory('earn')">Earning</a></li>
-                    <li><a onclick="showCategory('webdev')">Web Dev</a></li>
-                    <li><a onclick="showCategory('social')">Social</a></li>
-                    <li><a onclick="showAbout()">About</a></li>
-                    <li><a onclick="showContact()">Contact</a></li>
-                    <li><a onclick="showLogin()" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
+                    <li><a href="#" onclick="showCategory('health')">Health</a></li>
+                    <li><a href="#" onclick="showCategory('country')">Country</a></li>
+                    <li><a href="#" onclick="showCategory('earn')">Earning</a></li>
+                    <li><a href="#" onclick="showCategory('webdev')">Web Dev</a></li>
+                    <li><a href="#" onclick="showCategory('social')">Social</a></li>
+                    <li><a href="#" onclick="showAbout()">About</a></li>
+                    <li><a href="#" onclick="showContact()">Contact</a></li>
+                    <li><a href="#" onclick="showLogin()" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
                 </ul>
             </nav>
             <div class="mobile-menu-btn">
@@ -1292,7 +1205,7 @@
     <main id="main-content">
         <!-- Home Page Content -->
         <div id="home-page" class="page-content">
-            <!-- Hero Section -->
+            <!-- Hero Section - All Light Blue with Floating Elements -->
             <section class="hero">
                 <div class="floating-element floating-1">✨</div>
                 <div class="floating-element floating-2">💡</div>
@@ -1352,7 +1265,7 @@
                         <div class="category-card" onclick="showCategory('social')">
                             <i class="fas fa-share-alt"></i>
                             <h3>Social Media</h3>
-                            <p>15+ Topics</p>
+                            <p>Tips & Tricks</p>
                             <button class="btn-small">Explore →</button>
                         </div>
                     </div>
@@ -1366,38 +1279,38 @@
                     <div class="posts-slider">
                         <div class="slider-container" id="slider-container">
                             <div class="slide">
-                                <div class="post-card" onclick="showTopic('blog', 'How to start a blog in 2026')">
+                                <div class="post-card">
                                     <div class="post-img">📝</div>
                                     <h4>How to Start a Blog in 2026</h4>
-                                    <span class="read-more">Read More →</span>
+                                    <a href="#" class="read-more" onclick="showCategory('blog')">Read More →</a>
                                 </div>
                             </div>
                             <div class="slide">
-                                <div class="post-card" onclick="showTopic('country', 'Pakistan Travel Guide')">
+                                <div class="post-card">
                                     <div class="post-img">🇵🇰</div>
                                     <h4>Pakistan Travel Guide</h4>
-                                    <span class="read-more">Read More →</span>
+                                    <a href="#" class="read-more" onclick="showCategory('country')">Read More →</a>
                                 </div>
                             </div>
                             <div class="slide">
-                                <div class="post-card" onclick="showTopic('health', 'Healthy morning routine tips')">
+                                <div class="post-card">
                                     <div class="post-img">🌅</div>
                                     <h4>Healthy Morning Routine</h4>
-                                    <span class="read-more">Read More →</span>
+                                    <a href="#" class="read-more" onclick="showCategory('health')">Read More →</a>
                                 </div>
                             </div>
                             <div class="slide">
-                                <div class="post-card" onclick="showTopic('earn', 'Blogging se paise kaise kamaye')">
+                                <div class="post-card">
                                     <div class="post-img">💰</div>
                                     <h4>Blogging se Paise Kaise Kamaye</h4>
-                                    <span class="read-more">Read More →</span>
+                                    <a href="#" class="read-more" onclick="showCategory('earn')">Read More →</a>
                                 </div>
                             </div>
                             <div class="slide">
-                                <div class="post-card" onclick="showTopic('webdev', 'HTML basics for beginners')">
+                                <div class="post-card">
                                     <div class="post-img">💻</div>
                                     <h4>HTML Complete Course</h4>
-                                    <span class="read-more">Read More →</span>
+                                    <a href="#" class="read-more" onclick="showCategory('webdev')">Read More →</a>
                                 </div>
                             </div>
                         </div>
@@ -1446,7 +1359,7 @@
             </section>
         </div>
 
-        <!-- Category Pages -->
+        <!-- Category Pages (Hidden by default) -->
         <div id="category-page" class="page-content" style="display: none;">
             <section class="page-header">
                 <div class="container">
@@ -1468,47 +1381,6 @@
                     <div class="topics-grid" id="category-topics"></div>
                 </div>
             </section>
-        </div>
-
-        <!-- Individual Topic Page -->
-        <div id="topic-page" class="page-content" style="display: none;">
-            <div class="topic-header">
-                <div class="container">
-                    <span class="topic-category" id="topic-category">Category</span>
-                    <h1 id="topic-title">Topic Title</h1>
-                    <div class="topic-meta">
-                        <span><i class="far fa-calendar"></i> Updated: March 2026</span>
-                        <span><i class="far fa-clock"></i> 10 min read</span>
-                        <span><i class="far fa-user"></i> By Admin</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="back-btn" onclick="goBackToCategory()">
-                    <i class="fas fa-arrow-left"></i> Back to Category
-                </div>
-
-                <div class="topic-content" id="topic-content">
-                    <!-- Content will be dynamically generated -->
-                </div>
-
-                <!-- Share Buttons -->
-                <div class="share-buttons">
-                    <a href="#" class="share-btn share-facebook" onclick="shareOnFacebook()"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="share-btn share-twitter" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="share-btn share-linkedin" onclick="shareOnLinkedIn()"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="share-btn share-pinterest" onclick="shareOnPinterest()"><i class="fab fa-pinterest-p"></i></a>
-                </div>
-
-                <!-- Related Posts -->
-                <div class="related-posts">
-                    <h3>You May Also Like</h3>
-                    <div class="related-grid" id="related-posts">
-                        <!-- Related posts will be loaded here -->
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- About Page -->
@@ -1640,7 +1512,7 @@
                             <button type="button" class="btn btn-secondary" onclick="showRegister()">Create New Account</button>
                         </form>
                         <div class="login-footer">
-                            <a onclick="alert('Password reset link sent to your email!')">Forgot Password?</a>
+                            <a href="#" onclick="alert('Password reset link sent to your email!')">Forgot Password?</a>
                         </div>
                     </div>
                 </div>
@@ -1694,19 +1566,19 @@
                     <div class="footer-column">
                         <h3>Quick Links</h3>
                         <ul>
-                            <li><a onclick="showAbout()">About Us</a></li>
-                            <li><a onclick="showPrivacy()">Privacy Policy</a></li>
-                            <li><a onclick="showTerms()">Terms of Use</a></li>
-                            <li><a onclick="showContact()">Contact</a></li>
+                            <li><a href="#" onclick="showAbout()">About Us</a></li>
+                            <li><a href="#" onclick="showPrivacy()">Privacy Policy</a></li>
+                            <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
+                            <li><a href="#" onclick="showContact()">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h3>Categories</h3>
                         <ul>
-                            <li><a onclick="showCategory('blog')">Blogging</a></li>
-                            <li><a onclick="showCategory('health')">Health</a></li>
-                            <li><a onclick="showCategory('country')">Travel</a></li>
-                            <li><a onclick="showCategory('earn')">Earning</a></li>
+                            <li><a href="#" onclick="showCategory('blog')">Blogging</a></li>
+                            <li><a href="#" onclick="showCategory('health')">Health</a></li>
+                            <li><a href="#" onclick="showCategory('country')">Travel</a></li>
+                            <li><a href="#" onclick="showCategory('earn')">Earning</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -2121,29 +1993,6 @@
 
         const allTopics = [...blogTopics, ...healthTopics, ...countryTopics, ...earningTopics, ...webDevTopics, ...socialTopics];
 
-        // Category mapping for easy access
-        const categoryTopics = {
-            'blog': blogTopics,
-            'health': healthTopics,
-            'country': countryTopics,
-            'earn': earningTopics,
-            'webdev': webDevTopics,
-            'social': socialTopics
-        };
-
-        const categoryNames = {
-            'blog': 'Blogging',
-            'health': 'Health',
-            'country': 'Travel',
-            'earn': 'Earning',
-            'webdev': 'Web Development',
-            'social': 'Social Media'
-        };
-
-        // Track last viewed category for back button
-        let lastCategory = 'blog';
-        let lastCategoryTitle = '';
-
         // ========== PAGE NAVIGATION ==========
         function hideAllPages() {
             document.querySelectorAll('.page-content').forEach(page => {
@@ -2168,37 +2017,40 @@
             hideAllPages();
             document.getElementById('category-page').style.display = 'block';
             
-            lastCategory = category;
-            lastCategoryTitle = categoryNames[category] || category;
-            
             const title = document.getElementById('category-title');
             const desc = document.getElementById('category-description');
-            let topics = categoryTopics[category] || [];
+            let topics = [];
             
             switch(category) {
                 case 'blog':
                     title.innerHTML = '📝 Blogging Tips & Tricks';
                     desc.innerHTML = 'Complete guide for beginners to pro bloggers - 100+ topics';
+                    topics = blogTopics;
                     break;
                 case 'health':
                     title.innerHTML = '💪 Health & Wellness';
                     desc.innerHTML = '100+ health tips, fitness guides, and natural remedies';
+                    topics = healthTopics;
                     break;
                 case 'country':
                     title.innerHTML = '🌍 Country Travel Guides';
                     desc.innerHTML = 'Explore 206 countries with detailed travel guides';
+                    topics = countryTopics;
                     break;
                 case 'earn':
                     title.innerHTML = '💰 Online Earning Ideas';
                     desc.innerHTML = '30+ proven ways to make money online in 2026';
+                    topics = earningTopics;
                     break;
                 case 'webdev':
                     title.innerHTML = '💻 Web Development';
                     desc.innerHTML = 'Complete courses, tutorials, and resources';
+                    topics = webDevTopics;
                     break;
                 case 'social':
                     title.innerHTML = '📱 Social Media Tips';
                     desc.innerHTML = 'Master Facebook, Instagram, TikTok, YouTube & more';
+                    topics = socialTopics;
                     break;
             }
             
@@ -2217,8 +2069,7 @@
             topics.forEach(topic => {
                 const topicDiv = document.createElement('div');
                 topicDiv.className = 'topic-item';
-                topicDiv.onclick = () => showTopic(window.currentCategory, topic);
-                topicDiv.innerHTML = `<a>${topic}</a>`;
+                topicDiv.innerHTML = `<a href="#" onclick="alert('Opening: ${topic}')">${topic}</a>`;
                 container.appendChild(topicDiv);
             });
         }
@@ -2232,108 +2083,6 @@
             );
             
             displayCategoryTopics(filtered);
-        }
-
-        function showTopic(category, topic) {
-            hideAllPages();
-            document.getElementById('topic-page').style.display = 'block';
-            
-            document.getElementById('topic-category').textContent = categoryNames[category] || category;
-            document.getElementById('topic-title').textContent = topic;
-            
-            // Generate content for the topic
-            const contentDiv = document.getElementById('topic-content');
-            contentDiv.innerHTML = generateTopicContent(category, topic);
-            
-            // Load related posts
-            loadRelatedPosts(category, topic);
-            
-            window.scrollTo(0, 0);
-        }
-
-        function generateTopicContent(category, topic) {
-            // Generate detailed content based on topic
-            const categoryName = categoryNames[category] || category;
-            
-            return `
-                <h2>Introduction to ${topic}</h2>
-                <p>Welcome to our comprehensive guide on <strong>${topic}</strong>. In this detailed article, we'll explore everything you need to know about this topic in the ${categoryName} category.</p>
-                
-                <blockquote>
-                    "Knowledge is power. Information is liberating. Education is the premise of progress, in every society, in every family." - Kofi Annan
-                </blockquote>
-                
-                <h3>Why This Matters</h3>
-                <p>Understanding ${topic} is crucial for anyone interested in ${categoryName}. Whether you're a beginner or an expert, this guide will provide valuable insights and practical tips to help you succeed.</p>
-                
-                <h3>Key Points</h3>
-                <ul>
-                    <li><strong>Comprehensive Coverage:</strong> We cover all aspects of ${topic} in detail</li>
-                    <li><strong>Practical Tips:</strong> Actionable advice you can implement today</li>
-                    <li><strong>Expert Insights:</strong> Learn from industry professionals</li>
-                    <li><strong>Latest Updates:</strong> Information current for 2026</li>
-                </ul>
-                
-                <h3>Step-by-Step Guide</h3>
-                <p>Follow these steps to master ${topic}:</p>
-                <ol>
-                    <li>Understand the basics of ${topic}</li>
-                    <li>Learn from successful examples</li>
-                    <li>Practice with real-world scenarios</li>
-                    <li>Get feedback and improve</li>
-                    <li>Stay updated with latest trends</li>
-                </ol>
-                
-                <h3>Common Mistakes to Avoid</h3>
-                <ul>
-                    <li>Not doing enough research</li>
-                    <li>Skipping fundamental concepts</li>
-                    <li>Ignoring best practices</li>
-                    <li>Giving up too early</li>
-                </ul>
-                
-                <h3>Resources and Tools</h3>
-                <p>Here are some recommended resources to help you with ${topic}:</p>
-                <ul>
-                    <li>Online courses and tutorials</li>
-                    <li>Books and publications</li>
-                    <li>Community forums and groups</li>
-                    <li>Professional tools and software</li>
-                </ul>
-                
-                <h3>Conclusion</h3>
-                <p>${topic} is an exciting and rewarding area to explore. With dedication and the right approach, you can achieve great results. Remember to stay curious, keep learning, and practice consistently.</p>
-                
-                <div class="topic-tags">
-                    <span class="topic-tag">#${categoryName}</span>
-                    <span class="topic-tag">#${topic.split(' ').join('')}</span>
-                    <span class="topic-tag">#Tutorial</span>
-                    <span class="topic-tag">#Guide2026</span>
-                </div>
-            `;
-        }
-
-        function loadRelatedPosts(category, currentTopic) {
-            const relatedDiv = document.getElementById('related-posts');
-            const topics = categoryTopics[category] || [];
-            
-            // Get 3 random topics (excluding current)
-            const otherTopics = topics.filter(t => t !== currentTopic);
-            const shuffled = otherTopics.sort(() => 0.5 - Math.random());
-            const selected = shuffled.slice(0, 3);
-            
-            relatedDiv.innerHTML = '';
-            selected.forEach(topic => {
-                const card = document.createElement('div');
-                card.className = 'related-card';
-                card.onclick = () => showTopic(category, topic);
-                card.innerHTML = `<h4>${topic}</h4><span class="read-more">Read More →</span>`;
-                relatedDiv.appendChild(card);
-            });
-        }
-
-        function goBackToCategory() {
-            showCategory(lastCategory);
         }
 
         function showAbout() {
@@ -2368,31 +2117,6 @@
             alert('Terms of Use page will be available soon!');
         }
 
-        // ========== SHARE FUNCTIONS ==========
-        function shareOnFacebook() {
-            const url = window.location.href;
-            const title = document.getElementById('topic-title').textContent;
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-        }
-
-        function shareOnTwitter() {
-            const text = document.getElementById('topic-title').textContent;
-            const url = window.location.href;
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
-        }
-
-        function shareOnLinkedIn() {
-            const url = window.location.href;
-            const title = document.getElementById('topic-title').textContent;
-            window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`, '_blank');
-        }
-
-        function shareOnPinterest() {
-            const url = window.location.href;
-            const description = document.getElementById('topic-title').textContent;
-            window.open(`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(description)}`, '_blank');
-        }
-
         // ========== HOME PAGE FUNCTIONS ==========
         function loadHomepageTopics() {
             // Blog topics (first 12)
@@ -2402,8 +2126,7 @@
                 blogTopics.slice(0, 12).forEach(topic => {
                     const topicDiv = document.createElement('div');
                     topicDiv.className = 'topic-item';
-                    topicDiv.onclick = () => showTopic('blog', topic);
-                    topicDiv.innerHTML = `<a>${topic}</a>`;
+                    topicDiv.innerHTML = `<a href="#" onclick="showCategory('blog')">${topic}</a>`;
                     blogContainer.appendChild(topicDiv);
                 });
             }
@@ -2415,8 +2138,7 @@
                 healthTopics.slice(0, 12).forEach(topic => {
                     const topicDiv = document.createElement('div');
                     topicDiv.className = 'topic-item';
-                    topicDiv.onclick = () => showTopic('health', topic);
-                    topicDiv.innerHTML = `<a>${topic}</a>`;
+                    topicDiv.innerHTML = `<a href="#" onclick="showCategory('health')">${topic}</a>`;
                     healthContainer.appendChild(topicDiv);
                 });
             }
@@ -2434,13 +2156,7 @@
                     const topicSpan = document.createElement('span');
                     topicSpan.className = 'topic-tag';
                     topicSpan.innerHTML = topic;
-                    // Find which category this topic belongs to
-                    for (const [cat, topics] of Object.entries(categoryTopics)) {
-                        if (topics.includes(topic)) {
-                            topicSpan.onclick = () => showTopic(cat, topic);
-                            break;
-                        }
-                    }
+                    topicSpan.onclick = () => alert(`Topic: ${topic}`);
                     footerContainer.appendChild(topicSpan);
                 });
             }
