@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Content Writing Tips</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #fefcf8;
+    --surface:  #ffffff;
+    --surface2: #f9f6f0;
+    --border:   #ece5d8;
+    --ink:      #1a1410;
+    --muted:    #9c8e7e;
+    --accent:   #2d6a4f;
+    --gold:     #d4a017;
+    --rust:     #c1440e;
+    --blue:     #1d4e89;
+    --plum:     #6b2d5e;
+    --warm:     #b5602a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  /* subtle linen texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='500' height='500' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 94px 48px 118px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 72px; }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 30px;
+  }
+
+  .ht-block {
+    background: var(--accent);
+    color: #fff;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 4px;
+    margin-right: 14px;
+  }
+
+  .ht-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .ht-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    margin-left: 14px;
+  }
+
+  h1 {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .deck {
+    font-size: 1.06rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 590px;
+  }
+
+  .header-ornament {
+    margin-top: 38px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .ho-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .ho-symbol {
+    font-family: 'Cormorant', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.65em;
+    color: #362a1e;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px -8px;
+    padding: 38px 48px;
+    background: var(--ink);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '"';
+    position: absolute;
+    bottom: -40px;
+    right: 20px;
+    font-family: 'Cormorant', serif;
+    font-size: 10rem;
+    color: var(--accent);
+    opacity: 0.18;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Cormorant', serif;
+    font-style: italic;
+    font-size: 1.36rem;
+    color: #f0ead8 !important;
+    line-height: 1.6;
+    margin: 0 !important;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Cormorant', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 58px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .h2-tag {
+    font-family: 'Karla', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  /* ── TIP CARDS ── */
+  .tip-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 20px 0;
+    transition: box-shadow 0.2s;
+  }
+
+  .tip-card:hover {
+    box-shadow: 0 6px 28px rgba(45,106,79,0.08);
+  }
+
+  .tc-head {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tc-stripe { width: 4px; flex-shrink: 0; }
+
+  .tc-head-body {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    flex: 1;
+  }
+
+  .tc-counter {
+    font-family: 'Cormorant', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.2;
+    flex-shrink: 0;
+    width: 36px;
+  }
+
+  .tc-icon {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .tip-card h3 {
+    font-family: 'Cormorant', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .tc-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .tc-body { padding: 20px 24px 22px 28px; }
+
+  .tc-body p {
+    font-size: 0.95rem;
+    color: #5a4838;
+    margin: 0 !important;
+    line-height: 1.76;
+  }
+
+  /* ── WRITER'S TRUTH BOX ── */
+  .truth-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 22px;
+    margin-top: 14px;
+  }
+
+  .truth-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .truth-box p {
+    font-size: 0.87rem !important;
+    color: var(--muted) !important;
+    font-style: italic;
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+
+  /* ── WRITING RHYTHM ── */
+  .rhythm-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 28px 0 36px;
+  }
+
+  .rhythm-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rhythm-tile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .rt-1::before { background: var(--accent); }
+  .rt-2::before { background: var(--gold); }
+  .rt-3::before { background: var(--rust); }
+  .rt-4::before { background: var(--blue); }
+
+  .rhythm-icon { font-size: 22px; display: block; margin-bottom: 10px; }
+
+  .rhythm-tile h4 {
+    font-family: 'Cormorant', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+
+  .rhythm-tile p {
+    font-size: 0.78rem !important;
+    color: var(--muted) !important;
+    margin: 0 !important;
+    line-height: 1.5;
+  }
+
+  /* ── GOLDEN RULES ── */
+  .golden-rules {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 36px;
+    margin: 36px 0;
+  }
+
+  .gr-title {
+    font-family: 'Cormorant', serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-style: normal;
+  }
+
+  .gr-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 28px;
+  }
+
+  .gr-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.91rem;
+    color: #5a4838;
+    line-height: 1.58;
+  }
+
+  .gr-list li::before {
+    content: '✦';
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 10px;
+    margin-top: 4px;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 76px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Cormorant', serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .rhythm-grid { grid-template-columns: 1fr 1fr; }
+    .gr-list     { grid-template-columns: 1fr; }
+    .pull-quote  { margin: 44px 0; padding: 28px 28px; }
+    .tc-counter  { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <span class="ht-block">Writing Craft</span>
+      <div class="ht-line"></div>
+      <span class="ht-num">700 Words · 2026</span>
+    </div>
+    <h1>Best Content<br><em>Writing Tips</em></h1>
+    <p class="deck">Writing content that people actually finish reading — and remember long after they close the tab — is a skill. A learnable, practisable, deeply rewarding skill. Here are the tips that will change how you write, permanently.</p>
+    <div class="header-ornament">
+      <div class="ho-line"></div>
+      <span class="ho-symbol">❧</span>
+      <div class="ho-line"></div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>Most people who sit down to write content make the same quiet mistake before a single word appears on the page. They think about what they want to say. The great content writers — the ones whose work gets read, shared, and remembered — think about something entirely different. They think about how they want their reader to <em>feel</em>. That shift in perspective, from self to reader, from message to experience, is where all good writing begins.</p>
+
+    <p>Content writing is not about volume. It is not about SEO tricks or posting schedules or algorithm hacks. At its irreducible core, it is about one human being sitting down to give something genuinely useful and true to another. When you write from that place, with care and craft and honesty, everything else — the rankings, the shares, the loyal readers — follows naturally.</p>
+
+    <div class="pull-quote">
+      <p>Write less than you think you should. Say more than you think you can. Edit until what remains is only what earns its place.</p>
+    </div>
+
+    <!-- WRITING RHYTHM -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(45,106,79,0.1);color:var(--accent);border:1px solid rgba(45,106,79,0.2)">Foundation</span>
+      The Four Rhythms of Great Writing
+    </h2>
+
+    <div class="rhythm-grid">
+      <div class="rhythm-tile rt-1">
+        <span class="rhythm-icon">✍️</span>
+        <h4>Write First</h4>
+        <p>Draft fast, without judgment. Editing comes later.</p>
+      </div>
+      <div class="rhythm-tile rt-2">
+        <span class="rhythm-icon">✂️</span>
+        <h4>Cut Hard</h4>
+        <p>Every unnecessary word dilutes the ones that matter.</p>
+      </div>
+      <div class="rhythm-tile rt-3">
+        <span class="rhythm-icon">🔁</span>
+        <h4>Read Aloud</h4>
+        <p>Your ear catches what your eye misses every time.</p>
+      </div>
+      <div class="rhythm-tile rt-4">
+        <span class="rhythm-icon">💤</span>
+        <h4>Sleep On It</h4>
+        <p>Distance reveals what closeness hides in your draft.</p>
+      </div>
+    </div>
+
+    <!-- TIP 1 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(45,106,79,0.1);color:var(--accent);border:1px solid rgba(45,106,79,0.2)">Tip 01</span>
+      Write for One Person, Not an Audience
+    </h2>
+
+    <div class="tip-card">
+      <div class="tc-head">
+        <div class="tc-stripe" style="background:var(--accent)"></div>
+        <div class="tc-head-body">
+          <span class="tc-counter" style="color:var(--accent)">1</span>
+          <div class="tc-icon" style="background:rgba(45,106,79,0.1);color:var(--accent)">👤</div>
+          <h3>The One-Reader Rule</h3>
+          <span class="tc-badge" style="background:rgba(45,106,79,0.1);color:var(--accent);border:1px solid rgba(45,106,79,0.2)">Transformative</span>
+        </div>
+      </div>
+      <div class="tc-body">
+        <p>The fastest way to make your writing feel cold and distant is to imagine a faceless crowd reading it. The fastest way to make it feel warm, direct, and alive is to picture one specific person — their age, their question, their frustration, their hope — and write every sentence as if reaching directly for them. When you write for one person with full attention, thousands of readers will feel you wrote it specifically for them. That intimacy is the rarest and most valuable quality in content writing.</p>
+        <div class="truth-box">
+          <span class="truth-label">Writer's Truth</span>
+          <p>The word "you" is the most powerful word in content writing. Use it constantly, generously, and with genuine care.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIP 2 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(212,160,23,0.1);color:var(--gold);border:1px solid rgba(212,160,23,0.2)">Tip 02</span>
+      Say One Thing Per Sentence
+    </h2>
+
+    <div class="tip-card">
+      <div class="tc-head">
+        <div class="tc-stripe" style="background:var(--gold)"></div>
+        <div class="tc-head-body">
+          <span class="tc-counter" style="color:var(--gold)">2</span>
+          <div class="tc-icon" style="background:rgba(212,160,23,0.1);color:var(--gold)">📐</div>
+          <h3>The Power of Simplicity and Precision</h3>
+          <span class="tc-badge" style="background:rgba(212,160,23,0.1);color:var(--gold);border:1px solid rgba(212,160,23,0.2)">Clarity</span>
+        </div>
+      </div>
+      <div class="tc-body">
+        <p>Complex sentences do not signal intelligence — they signal a writer who has not yet done the work of clarifying their own thinking. The clearest writers are the most trusted writers, and the most trusted writers are the most read. Train yourself to break long, tangled sentences into short, clean ones. One idea per sentence. Then move on. Short sentences create rhythm. They create momentum. They give the reader's mind exactly the breathing room it needs to absorb one thought before the next arrives.</p>
+        <div class="truth-box">
+          <span class="truth-label">Writer's Truth</span>
+          <p>If a sentence requires reading twice to understand, it needs to be rewritten — not because the reader is slow, but because the writing is unclear.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIP 3 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(193,68,14,0.1);color:var(--rust);border:1px solid rgba(193,68,14,0.2)">Tip 03</span>
+      Open Strong, Close Stronger
+    </h2>
+
+    <div class="tip-card">
+      <div class="tc-head">
+        <div class="tc-stripe" style="background:var(--rust)"></div>
+        <div class="tc-head-body">
+          <span class="tc-counter" style="color:var(--rust)">3</span>
+          <div class="tc-icon" style="background:rgba(193,68,14,0.1);color:var(--rust)">🎯</div>
+          <h3>First Impressions and Final Feelings</h3>
+          <span class="tc-badge" style="background:rgba(193,68,14,0.1);color:var(--rust);border:1px solid rgba(193,68,14,0.2)">High Impact</span>
+        </div>
+      </div>
+      <div class="tc-body">
+        <p>Your opening sentence exists for one reason only — to make the reader desperately want to read the second sentence. Your closing exists to make the reader feel something that lingers after the tab is closed. These two moments — the first word and the last — carry disproportionate weight in the reader's memory of the entire piece. Never begin with "In this article, I will..." and never end with "I hope this was helpful." Both are the written equivalent of a limp handshake. Instead, open with a vivid scene, a provocative question, or a startling truth. Close with something that resonates, that echoes, that feels like a small but genuine gift.</p>
+      </div>
+    </div>
+
+    <!-- TIP 4 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(29,78,137,0.1);color:var(--blue);border:1px solid rgba(29,78,137,0.2)">Tip 04</span>
+      Be Specific. Always.
+    </h2>
+
+    <div class="tip-card">
+      <div class="tc-head">
+        <div class="tc-stripe" style="background:var(--blue)"></div>
+        <div class="tc-head-body">
+          <span class="tc-counter" style="color:var(--blue)">4</span>
+          <div class="tc-icon" style="background:rgba(29,78,137,0.1);color:var(--blue)">🔬</div>
+          <h3>Vague Writing Loses Trust. Specific Writing Builds It.</h3>
+          <span class="tc-badge" style="background:rgba(29,78,137,0.1);color:var(--blue);border:1px solid rgba(29,78,137,0.2)">Trust Builder</span>
+        </div>
+      </div>
+      <div class="tc-body">
+        <p>Vague writing is the most common and most damaging habit in content creation. "This can really help you improve" is forgettable. "This one habit added 40 minutes of focused writing to my mornings" is memorable, credible, and real. Specificity is trust. When you write with concrete details, precise numbers, vivid examples, and named techniques, readers feel they are in the company of someone who actually knows what they are talking about. Replace every adjective that means "good" or "great" with something that actually shows what makes it so.</p>
+        <div class="truth-box">
+          <span class="truth-label">Writer's Truth</span>
+          <p>Vague claims vanish from memory within minutes. A specific detail — the right one — stays with a reader for years.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOLDEN RULES -->
+    <div class="golden-rules">
+      <div class="gr-title">
+        <span style="font-size:14px">✦</span> The Golden Rules of Content Writing
+      </div>
+      <ul class="gr-list">
+        <li>Write for your reader, not your word count</li>
+        <li>Delete every word that earns no place</li>
+        <li>Use active voice — always, unless passive is essential</li>
+        <li>Vary sentence length to create natural rhythm</li>
+        <li>Never use jargon a reader must pause to decode</li>
+        <li>Read the best writers in your niche, every week</li>
+        <li>Start writing before you feel ready</li>
+        <li>Edit in a different session from when you draft</li>
+      </ul>
+    </div>
+
+    <p>Great content writing is not a talent reserved for a gifted few. It is a practice — a daily discipline of sitting down, caring about your reader, saying one true thing at a time, and cutting everything that does not serve them. Every tip in this article is simply a description of what that practice looks like when it is done with full attention.</p>
+
+    <p>Write with care. Edit with courage. Publish with confidence. The reader who needed exactly what you wrote is already out there, waiting to find it.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">The best writing tip of all: write something only you could write.</span>
+  </footer>
+
+</div>
+</body>
+</html>
