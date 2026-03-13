@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Blogging Platforms for Beginners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --surface: #ffffff;
+    --surface2: #f7f3ed;
+    --border: #e8e0d4;
+    --ink: #1c1710;
+    --muted: #9a8f82;
+    --accent: #d4622a;
+    --sage: #6a8a6d;
+    --sky: #4a7fa5;
+    --warm: #c8872a;
+    --lavender: #7b6fa0;
+    --soft-red: #b85c5c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    line-height: 1.88;
+  }
+
+  /* Subtle grain */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .page {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 88px 44px 110px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    margin-bottom: 70px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .eyebrow-line {
+    flex: 0 0 36px;
+    height: 1.5px;
+    background: var(--accent);
+  }
+
+  .eyebrow-text {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.3rem, 5.8vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.12;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+  }
+
+  h1 span {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .deck {
+    font-size: 1.06rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.72;
+    max-width: 580px;
+  }
+
+  .header-rule {
+    margin-top: 36px;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.6em;
+    color: #3a3028;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 50px -10px;
+    padding: 36px 44px;
+    background: var(--surface2);
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem;
+    color: var(--accent);
+    opacity: 0.25;
+    line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.32rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--ink) !important;
+    line-height: 1.58;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 58px 0 22px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  h2 .num {
+    font-size: 0.7rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 4px;
+  }
+
+  /* ── PLATFORM CARDS ── */
+  .platform-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 30px;
+    margin: 22px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .platform-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .card-wordpress::before { background: var(--sky); }
+  .card-blogger::before   { background: var(--accent); }
+  .card-medium::before    { background: var(--ink); }
+  .card-substack::before  { background: var(--accent); }
+  .card-wix::before       { background: var(--sage); }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  .platform-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .ctag {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  .ctag-free { background: #edf7ee; color: var(--sage); border: 1px solid #c5e0c7; }
+  .ctag-easy { background: #fdf3e8; color: var(--warm); border: 1px solid #f0d8b0; }
+  .ctag-write { background: #f0eef8; color: var(--lavender); border: 1px solid #ccc8e8; }
+  .ctag-visual { background: #e8f2f8; color: var(--sky); border: 1px solid #b8d4e8; }
+
+  .platform-card p {
+    font-size: 0.93rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 0 !important;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0 40px;
+    font-size: 0.88rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .compare-table th {
+    background: var(--surface2);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .compare-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    color: #4a4030;
+    vertical-align: middle;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: var(--surface2); }
+
+  .compare-table td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 72px;
+    padding-top: 38px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.76rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 52px 22px 72px; }
+    .pull-quote { margin: 40px 0; padding: 28px 26px; }
+    .card-top { flex-direction: column; }
+    .compare-table { font-size: 0.8rem; }
+    .compare-table th, .compare-table td { padding: 10px 11px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Beginner's Guide · Blogging</span>
+    </div>
+    <h1>The Best Blogging Platforms<br>for <span>Beginners</span></h1>
+    <p class="deck">Starting a blog is one of the best decisions you can make. Choosing where to start it is the next — and we have made that decision beautifully simple.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>You have decided to start a blog. Maybe it is to share your passion for cooking, document your travels, build a business, or simply find your voice in writing. Whatever the reason, something has drawn you here — to that exciting, slightly terrifying blank page of possibility. The very first practical question you must answer is this: <em>Where will your blog actually live?</em></p>
+
+    <p>Choosing your blogging platform is like choosing a home. It shapes what you can build, how comfortable you feel creating, and how easily your readers can find and enjoy your work. The good news is that for beginners, there are several outstanding platforms — each with a different personality, strength, and sweet spot. Here are the best ones, honestly explained.</p>
+
+    <div class="pull-quote">
+      <p>The right platform does not just host your words — it gives them room to breathe, grow, and be found by the people who need them most.</p>
+    </div>
+
+    <!-- WORDPRESS -->
+    <h2><span class="num">01 ·</span> WordPress.com — The Reliable Classic</h2>
+
+    <div class="platform-card card-wordpress">
+      <div class="card-top">
+        <h3>WordPress.com</h3>
+        <div class="card-tags">
+          <span class="ctag ctag-free">Free Plan</span>
+          <span class="ctag ctag-easy">Beginner-Friendly</span>
+        </div>
+      </div>
+      <p>The world's most popular publishing platform, powering over 40% of the entire web. WordPress.com gives beginners a polished, professional space to write immediately, with no technical knowledge required. The free plan is genuinely usable, and as your blog grows, upgrading is seamless. If you are serious about blogging long-term, this is the platform built for that journey.</p>
+    </div>
+
+    <p>WordPress shines because of its sheer flexibility. Thousands of themes let you shape your blog's appearance exactly as you imagine it. Built-in SEO tools help readers find your posts. And the community around WordPress is so vast that almost any question you have has already been answered somewhere online.</p>
+
+    <!-- BLOGGER -->
+    <h2><span class="num">02 ·</span> Blogger — The Zero-Friction Start</h2>
+
+    <div class="platform-card card-blogger">
+      <div class="card-top">
+        <h3>Blogger by Google</h3>
+        <div class="card-tags">
+          <span class="ctag ctag-free">Completely Free</span>
+          <span class="ctag ctag-easy">Ultra Simple</span>
+        </div>
+      </div>
+      <p>Google's own blogging platform has been around since 2003 and remains one of the easiest ways to go from zero to published in under ten minutes. Linked directly to your Google account, Blogger requires no setup, no payment, and no technical decisions. It is the perfect choice if your only goal right now is to simply start writing and see where it leads.</p>
+    </div>
+
+    <!-- MEDIUM -->
+    <h2><span class="num">03 ·</span> Medium — The Writer's Sanctuary</h2>
+
+    <div class="platform-card card-medium">
+      <div class="card-top">
+        <h3>Medium</h3>
+        <div class="card-tags">
+          <span class="ctag ctag-free">Free to Publish</span>
+          <span class="ctag ctag-write">Writing-First</span>
+        </div>
+      </div>
+      <p>Medium is pure writing experience. There are no themes to fiddle with, no widgets to configure, no design decisions to agonize over — just a stunning, distraction-free editor and a built-in audience of millions of curious readers. For beginners who want to focus entirely on the craft of writing and gain early readers without any technical overhead, Medium is genuinely hard to beat.</p>
+    </div>
+
+    <!-- SUBSTACK -->
+    <h2><span class="num">04 ·</span> Substack — Blog Meets Newsletter</h2>
+
+    <div class="platform-card card-substack">
+      <div class="card-top">
+        <h3>Substack</h3>
+        <div class="card-tags">
+          <span class="ctag ctag-free">Free to Start</span>
+          <span class="ctag ctag-write">Newsletter Style</span>
+        </div>
+      </div>
+      <p>Substack has transformed how writers think about blogging by merging it with email newsletters. Every post you publish is both a blog entry and an email delivered straight to your subscribers' inboxes. It is free to start, requires no design work, and gives you a direct, intimate connection with your audience from day one. For writers who value relationship over traffic, Substack is revelatory.</p>
+    </div>
+
+    <!-- WIX -->
+    <h2><span class="num">05 ·</span> Wix — The Visual Builder</h2>
+
+    <div class="platform-card card-wix">
+      <div class="card-top">
+        <h3>Wix</h3>
+        <div class="card-tags">
+          <span class="ctag ctag-free">Free Plan</span>
+          <span class="ctag ctag-visual">Drag & Drop</span>
+        </div>
+      </div>
+      <p>If you care deeply about how your blog looks and want complete visual control without writing a line of code, Wix is your answer. Its drag-and-drop editor is among the most intuitive in existence. You can design a genuinely beautiful blog in an afternoon, with full creative freedom over every pixel. Ideal for lifestyle bloggers, photographers, and creatives who see design as part of their voice.</p>
+    </div>
+
+    <!-- COMPARISON -->
+    <h2><span class="num">At a Glance ·</span> Quick Comparison</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Best For</th>
+          <th>Ease of Use</th>
+          <th>Free Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="dot" style="background:var(--sky)"></span>WordPress.com</td>
+          <td>Long-term, serious bloggers</td>
+          <td>Moderate</td>
+          <td>✓ Yes</td>
+        </tr>
+        <tr>
+          <td><span class="dot" style="background:var(--accent)"></span>Blogger</td>
+          <td>Absolute beginners</td>
+          <td>Very Easy</td>
+          <td>✓ Always Free</td>
+        </tr>
+        <tr>
+          <td><span class="dot" style="background:var(--ink)"></span>Medium</td>
+          <td>Writers & storytellers</td>
+          <td>Very Easy</td>
+          <td>✓ Yes</td>
+        </tr>
+        <tr>
+          <td><span class="dot" style="background:var(--accent)"></span>Substack</td>
+          <td>Newsletter + blog hybrid</td>
+          <td>Easy</td>
+          <td>✓ Yes</td>
+        </tr>
+        <tr>
+          <td><span class="dot" style="background:var(--sage)"></span>Wix</td>
+          <td>Visual & creative bloggers</td>
+          <td>Easy</td>
+          <td>✓ Yes</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Here is the most important thing to remember: no platform is perfect, and the best one is simply the one that makes you want to sit down and write. Start somewhere. Publish your first post before it feels ready. The platform matters far less than the habit, and the habit matters far less than the decision to begin.</p>
+
+    <p>Your blog is waiting. All it needs is you.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">Written for every beginner brave enough to begin.</span>
+  </footer>
+
+</div>
+</body>
+</html>
