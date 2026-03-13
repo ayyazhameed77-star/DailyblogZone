@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blogging for Passive Income</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0c0a06;
+    --surface:   #141108;
+    --surface2:  #1a1510;
+    --border:    #2e2618;
+    --text:      #f0e8d0;
+    --muted:     #7a6a50;
+    --gold:      #d4a832;
+    --gold2:     #f0c84a;
+    --green:     #4caf7d;
+    --blue:      #4a8fc4;
+    --rose:      #d46060;
+    --amber:     #e08830;
+    --glow-gold: rgba(212,168,50,0.10);
+    --glow-grn:  rgba(76,175,125,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  /* Luxury gold radial glow */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -180px; left: 50%;
+    transform: translateX(-50%);
+    width: 1100px; height: 520px;
+    background: radial-gradient(ellipse at center,
+      rgba(212,168,50,0.08) 0%,
+      rgba(212,168,50,0.03) 45%,
+      transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 94px 48px 118px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 74px; }
+
+  .crown-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .crown-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    max-width: 50px;
+  }
+
+  .crown-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 6px 16px;
+    border: 1px solid rgba(212,168,50,0.3);
+    border-radius: 30px;
+    background: rgba(212,168,50,0.08);
+  }
+
+  h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(2.5rem, 6.2vw, 4.1rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: #f8f0dc;
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+  }
+
+  .deck {
+    font-size: 1.06rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 590px;
+  }
+
+  .header-rule {
+    margin-top: 38px;
+    height: 1px;
+    background: linear-gradient(to right,
+      transparent, var(--gold) 30%, var(--gold2) 50%, var(--gold) 70%, transparent);
+    opacity: 0.35;
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.65em;
+    color: #b0a088;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 54px 0;
+    padding: 38px 44px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent, var(--gold) 25%, var(--gold2) 50%, var(--gold) 75%, transparent);
+  }
+
+  .pull-quote::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, var(--glow-gold), transparent);
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Bodoni Moda', serif;
+    font-style: italic;
+    font-size: 1.26rem;
+    color: var(--gold) !important;
+    line-height: 1.64;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f8f0dc;
+    margin: 58px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .h2-chip {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  /* ── INCOME STREAM CARDS ── */
+  .income-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 20px 0;
+    transition: border-color 0.25s;
+  }
+
+  .income-card:hover {
+    border-color: rgba(212,168,50,0.35);
+  }
+
+  .ic-top {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ic-stripe { width: 4px; flex-shrink: 0; }
+
+  .ic-top-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    flex: 1;
+  }
+
+  .ic-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .income-card h3 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.06rem;
+    font-weight: 700;
+    color: #f8f0dc;
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .ic-badge {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .ic-body { padding: 20px 24px 22px 28px; }
+
+  .ic-body p {
+    font-size: 0.94rem;
+    color: var(--muted);
+    margin: 0 !important;
+    line-height: 1.76;
+  }
+
+  /* ── EARNING POTENTIAL BAR ── */
+  .earn-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 24px;
+    border-top: 1px solid var(--border);
+    background: var(--surface2);
+  }
+
+  .earn-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+    width: 100px;
+  }
+
+  .earn-track {
+    flex: 1;
+    height: 6px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .earn-fill {
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .earn-val {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+    text-align: right;
+    min-width: 70px;
+  }
+
+  /* ── INCOME TIMELINE ── */
+  .timeline {
+    position: relative;
+    margin: 32px 0 40px;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    border-radius: 2px;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 24px;
+    padding-left: 20px;
+  }
+
+  .tl-item:last-child { margin-bottom: 0; }
+
+  .tl-dot {
+    position: absolute;
+    left: -22px; top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: var(--bg);
+    flex-shrink: 0;
+  }
+
+  .tl-dot.active {
+    background: var(--gold);
+    box-shadow: 0 0 12px rgba(212,168,50,0.5);
+  }
+
+  .tl-period {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .tl-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f8f0dc;
+    margin-bottom: 4px;
+  }
+
+  .tl-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── WEALTH TRUTHS ── */
+  .truths-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 36px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .truths-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 100%, var(--glow-gold), transparent);
+    pointer-events: none;
+  }
+
+  .tp-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 26px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.91rem;
+    color: #8a7860;
+    line-height: 1.58;
+  }
+
+  .tp-gem {
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 10px;
+    margin-top: 4px;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 78px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Bodoni Moda', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .tp-grid { grid-template-columns: 1fr; }
+    .pull-quote { padding: 28px 26px; }
+    .ic-top-inner { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="crown-row">
+      <div class="crown-line"></div>
+      <span class="crown-badge">Income · Freedom · 2026</span>
+      <div class="crown-line" style="background:linear-gradient(to left,var(--gold),transparent)"></div>
+    </div>
+    <h1>Blogging for<br><em>Passive Income</em></h1>
+    <p class="deck">A blog is not just a place to write. Built with intention and patience, it becomes a quiet, tireless machine that earns money while you sleep — and keeps earning long after the work is done.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>There is something genuinely extraordinary about waking up to find that money appeared in your account overnight — not because you worked through the night, but because something you built weeks or months ago continued doing its job quietly, persistently, and without you. That is passive income. And for the blogger who builds well, it is not a fantasy. It is the entirely predictable destination of a well-travelled road.</p>
+
+    <p>But let us be honest about what that road looks like. Passive income from blogging is real — thousands of bloggers earn it every day. What it is not, however, is quick. The word "passive" refers to how the income eventually arrives, not how little effort goes into building the system that delivers it. The bloggers who earn consistently from their writing invested deeply — in content, in audience, in trust — before the money followed. That investment is the entire point.</p>
+
+    <div class="pull-quote">
+      <p>Passive income is not the absence of work. It is the reward for work that was done so well, so thoroughly, and so generously that it never stops paying dividends.</p>
+    </div>
+
+    <!-- TIMELINE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(212,168,50,0.1);color:var(--gold);border:1px solid rgba(212,168,50,0.2)">The Reality</span>
+      What the Passive Income Journey Actually Looks Like
+    </h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-period">Months 1 – 3</span>
+        <div class="tl-title">The Foundation Phase</div>
+        <p class="tl-desc">Build content consistently. Focus entirely on quality and audience. Earn nothing yet — and expect nothing. This phase is pure investment.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-period">Months 4 – 8</span>
+        <div class="tl-title">The Growth Phase</div>
+        <p class="tl-desc">Traffic begins to build. First affiliate clicks appear. Apply for ad networks. Your blog starts to resemble a real, growing platform.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-period">Months 9 – 18</span>
+        <div class="tl-title">The Earning Phase</div>
+        <p class="tl-desc">Multiple income streams activate simultaneously. Monthly earnings become meaningful. The compound effect of consistent content begins to show itself clearly.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot active"></div>
+        <span class="tl-period">Year 2 and Beyond</span>
+        <div class="tl-title">The Passive Phase</div>
+        <p class="tl-desc">Older posts continue earning without updates. Traffic grows from accumulated SEO authority. Income becomes genuinely, beautifully passive.</p>
+      </div>
+    </div>
+
+    <!-- INCOME STREAM 1: ADS -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(212,168,50,0.1);color:var(--gold);border:1px solid rgba(212,168,50,0.2)">Stream 01</span>
+      Display Advertising — Earn from Every Visit
+    </h2>
+
+    <div class="income-card">
+      <div class="ic-top">
+        <div class="ic-stripe" style="background:var(--gold)"></div>
+        <div class="ic-top-inner">
+          <div class="ic-icon" style="background:rgba(212,168,50,0.12);color:var(--gold)">📊</div>
+          <h3>Ad Networks — The Simplest Starting Point</h3>
+          <span class="ic-badge" style="background:rgba(212,168,50,0.1);color:var(--gold);border:1px solid rgba(212,168,50,0.2)">Beginner-Friendly</span>
+        </div>
+      </div>
+      <div class="ic-body">
+        <p>Display advertising is the most accessible form of blog income — place ads on your site and earn every time a reader views or clicks them. Google AdSense is the entry point for new bloggers, accepting sites with modest traffic. Once your blog reaches ten to twenty-five thousand monthly page views, premium networks like Mediavine and Raptive unlock significantly higher earnings per visitor. A well-trafficked blog in a lucrative niche — finance, health, technology — can earn hundreds or even thousands of dollars monthly from ads alone, entirely passively.</p>
+      </div>
+      <div class="earn-row">
+        <span class="earn-label">Earning Potential</span>
+        <div class="earn-track"><div class="earn-fill" style="width:65%;background:var(--gold)"></div></div>
+        <span class="earn-val" style="color:var(--gold)">Moderate</span>
+      </div>
+    </div>
+
+    <!-- INCOME STREAM 2: AFFILIATE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(76,175,125,0.1);color:var(--green);border:1px solid rgba(76,175,125,0.2)">Stream 02</span>
+      Affiliate Marketing — Earn by Recommending
+    </h2>
+
+    <p>Affiliate marketing is the art of recommending products or services you genuinely use and believe in, earning a commission whenever a reader makes a purchase through your unique link. It is the income stream most beloved by bloggers for one simple reason — the earning potential is essentially unlimited, and the work of writing the recommendation is done once. A single well-crafted "Best Tools for Bloggers" article, ranking on the first page of Google, can generate commissions every day for years without a single word being changed.</p>
+
+    <div class="income-card">
+      <div class="ic-top">
+        <div class="ic-stripe" style="background:var(--green)"></div>
+        <div class="ic-top-inner">
+          <div class="ic-icon" style="background:rgba(76,175,125,0.12);color:var(--green)">🔗</div>
+          <h3>The One Rule of Affiliate Marketing</h3>
+          <span class="ic-badge" style="background:rgba(76,175,125,0.1);color:var(--green);border:1px solid rgba(76,175,125,0.2)">Highest Potential</span>
+        </div>
+      </div>
+      <div class="ic-body">
+        <p>Only ever recommend products you have personally used and would genuinely suggest to a close friend. The moment you recommend something purely for the commission, your readers feel it — and the trust that took months to build dissolves in a single post. Trust is the currency that makes affiliate income work. Protect it with the same seriousness you would protect money itself, because in the long run, it is worth far more.</p>
+      </div>
+      <div class="earn-row">
+        <span class="earn-label">Earning Potential</span>
+        <div class="earn-track"><div class="earn-fill" style="width:92%;background:var(--green)"></div></div>
+        <span class="earn-val" style="color:var(--green)">Very High</span>
+      </div>
+    </div>
+
+    <!-- INCOME STREAM 3: DIGITAL PRODUCTS -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(74,143,196,0.1);color:var(--blue);border:1px solid rgba(74,143,196,0.2)">Stream 03</span>
+      Digital Products — Sell What You Know
+    </h2>
+
+    <div class="income-card">
+      <div class="ic-top">
+        <div class="ic-stripe" style="background:var(--blue)"></div>
+        <div class="ic-top-inner">
+          <div class="ic-icon" style="background:rgba(74,143,196,0.12);color:var(--blue)">📦</div>
+          <h3>E-books, Templates, Courses and More</h3>
+          <span class="ic-badge" style="background:rgba(74,143,196,0.1);color:var(--blue);border:1px solid rgba(74,143,196,0.2)">Scalable</span>
+        </div>
+      </div>
+      <div class="ic-body">
+        <p>Digital products are created once and sold infinitely. An e-book written over three weekends can generate sales for years. An online course built from the expertise your blog already demonstrates can earn more in a month than most traditional jobs. The extraordinary advantage of digital products is zero inventory, zero shipping, and zero marginal cost — every sale after the first is almost entirely profit. Your blog becomes the storefront; your content becomes the trust that converts browsers into buyers.</p>
+      </div>
+      <div class="earn-row">
+        <span class="earn-label">Earning Potential</span>
+        <div class="earn-track"><div class="earn-fill" style="width:96%;background:var(--blue)"></div></div>
+        <span class="earn-val" style="color:var(--blue)">Exceptional</span>
+      </div>
+    </div>
+
+    <!-- STREAM 4: SPONSORED -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(212,96,96,0.1);color:var(--rose);border:1px solid rgba(212,96,96,0.2)">Stream 04</span>
+      Sponsored Content — Brands Pay for Your Voice
+    </h2>
+
+    <div class="income-card">
+      <div class="ic-top">
+        <div class="ic-stripe" style="background:var(--rose)"></div>
+        <div class="ic-top-inner">
+          <div class="ic-icon" style="background:rgba(212,96,96,0.12);color:var(--rose)">🤝</div>
+          <h3>Partner With Brands That Serve Your Audience</h3>
+          <span class="ic-badge" style="background:rgba(212,96,96,0.1);color:var(--rose);border:1px solid rgba(212,96,96,0.2)">High Per Post</span>
+        </div>
+      </div>
+      <div class="ic-body">
+        <p>As your audience grows, brands in your niche will pay to be featured in your content. Sponsored posts, reviews, and newsletter mentions can command anywhere from a few hundred to several thousand dollars per placement depending on your traffic, engagement, and niche authority. The key, as always, is selectivity — accept only partnerships that genuinely align with your readers' interests and your own values. One authentic sponsored post serves everyone. One cynical one costs you the audience that made the opportunity possible.</p>
+      </div>
+      <div class="earn-row">
+        <span class="earn-label">Earning Potential</span>
+        <div class="earn-track"><div class="earn-fill" style="width:78%;background:var(--rose)"></div></div>
+        <span class="earn-val" style="color:var(--rose)">High</span>
+      </div>
+    </div>
+
+    <!-- TRUTHS PANEL -->
+    <div class="truths-panel">
+      <div class="tp-title">
+        <span>◆</span> The Truths Every Income Blogger Must Know
+      </div>
+      <div class="tp-grid">
+        <div class="tp-item"><span class="tp-gem">◆</span>Passive income is built actively, daily</div>
+        <div class="tp-item"><span class="tp-gem">◆</span>Multiple streams protect against one failing</div>
+        <div class="tp-item"><span class="tp-gem">◆</span>Audience trust is your most valuable asset</div>
+        <div class="tp-item"><span class="tp-gem">◆</span>SEO traffic earns while you sleep</div>
+        <div class="tp-item"><span class="tp-gem">◆</span>Niche focus earns more than broad appeal</div>
+        <div class="tp-item"><span class="tp-gem">◆</span>One great post can earn for five years</div>
+        <div class="tp-item"><span class="tp-gem">◆</span>Never sacrifice trust for a commission</div>
+        <div class="tp-item"><span class="tp-gem">◆</span>Patience is the only non-negotiable skill</div>
+      </div>
+    </div>
+
+    <p>Blogging for passive income is one of the most patient and rewarding businesses a person can build. It does not reward urgency. It does not reward shortcuts. But it rewards — generously, consistently, and for years — the blogger who shows up, serves their audience with honesty and care, and builds something worth returning to.</p>
+
+    <p>Start writing. Keep writing. Build the thing that will one day pay you back for every word — long after the words stop coming.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">Plant words today. Harvest income for years.</span>
+  </footer>
+
+</div>
+</body>
+</html>
