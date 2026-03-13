@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On-Page SEO Complete Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #080c18;
+    --surface:   #0e1628;
+    --surface2:  #121e34;
+    --border:    #1c2e4a;
+    --text:      #d8e8f8;
+    --muted:     #5a7090;
+    --accent:    #22d3a0;
+    --blue:      #4a9eff;
+    --amber:     #f9a826;
+    --rose:      #ff6b8a;
+    --violet:    #b06dff;
+    --sky:       #38c4f0;
+    --glow-teal: rgba(34,211,160,0.10);
+    --glow-blue: rgba(74,158,255,0.10);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.88;
+  }
+
+  /* deep space radial glow */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 1100px; height: 500px;
+    background: radial-gradient(ellipse at center,
+      rgba(34,211,160,0.07) 0%,
+      rgba(74,158,255,0.05) 40%,
+      transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 92px 46px 116px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 74px; }
+
+  .header-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .hbadge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 30px;
+  }
+
+  .hb-teal   { background:rgba(34,211,160,0.12); color:var(--accent); border:1px solid rgba(34,211,160,0.25); }
+  .hb-blue   { background:rgba(74,158,255,0.12); color:var(--blue);   border:1px solid rgba(74,158,255,0.25); }
+
+  h1 {
+    font-family: 'Spectral', serif;
+    font-size: clamp(2.3rem, 6vw, 3.9rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #eaf4ff;
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .deck {
+    font-size: 1.06rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 600px;
+  }
+
+  .header-rule {
+    margin-top: 40px;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent 65%);
+  }
+
+  /* ── BODY TEXT ── */
+  .body p {
+    margin-bottom: 1.6em;
+    color: #9ab4cc;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 54px 0;
+    padding: 36px 42px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--blue) 60%, transparent);
+  }
+
+  .pull-quote::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 0% 50%, var(--glow-teal), transparent);
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 1.24rem;
+    color: var(--accent) !important;
+    line-height: 1.64;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Spectral', serif;
+    font-size: 1.48rem;
+    font-weight: 700;
+    color: #eaf4ff;
+    margin: 58px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .h2-tag {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  /* ── SEO ELEMENT CARDS ── */
+  .seo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 18px 0;
+    transition: border-color 0.25s;
+  }
+
+  .seo-card:hover { border-color: rgba(34,211,160,0.3); }
+
+  .seo-card-head {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .seo-accent-stripe { width: 4px; flex-shrink: 0; }
+
+  .seo-head-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    flex: 1;
+  }
+
+  .seo-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+
+  .seo-card h3 {
+    font-family: 'Spectral', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #eaf4ff;
+    flex: 1;
+  }
+
+  .seo-level {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .seo-card-body {
+    padding: 18px 24px 20px 28px;
+  }
+
+  .seo-card-body p {
+    font-size: 0.94rem;
+    color: var(--muted);
+    margin: 0 !important;
+    line-height: 1.74;
+  }
+
+  /* ── EXAMPLE BOX ── */
+  .example-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 13px 18px;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #7090a8;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .example-box strong {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  /* ── SCORE METER ── */
+  .score-grid {
+    display: grid;
+    gap: 12px;
+    margin: 28px 0 36px;
+  }
+
+  .score-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 44px;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .score-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .score-bar-bg {
+    height: 7px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.6s ease;
+  }
+
+  .score-pct {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  /* ── QUICK WINS PANEL ── */
+  .quick-wins {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 34px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quick-wins::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 100% 0%, var(--glow-blue), transparent);
+    pointer-events: none;
+  }
+
+  .qw-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .qw-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .qw-list li {
+    font-size: 0.9rem;
+    color: #7090a8;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.55;
+  }
+
+  .qw-list li::before {
+    content: '→';
+    color: var(--accent);
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 78px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .qw-list, .score-row { grid-template-columns: 1fr; }
+    .score-row { grid-template-columns: 1fr 1fr 40px; }
+    .pull-quote { padding: 26px 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-badges">
+      <span class="hbadge hb-teal">On-Page SEO</span>
+      <span class="hbadge hb-blue">Complete Guide</span>
+    </div>
+    <h1>On-Page SEO —<br>The <em>Complete Guide</em></h1>
+    <p class="deck">Everything that happens inside your article — the words, structure, titles, and signals — determines whether Google shows it to the world or buries it quietly on page ten. Here is how to get every element exactly right.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>There are two kinds of SEO. Off-page SEO is everything that happens outside your website — the links other sites point at yours, the reputation you build across the internet over time. On-page SEO is everything you control directly: the words you write, the structure you choose, the titles you craft, the images you name. It is entirely in your hands, and it is the foundation every successful blog is built upon.</p>
+
+    <p>Think of on-page SEO as the art of making your content absolutely clear — to your reader and to Google simultaneously. When you do it well, search engines understand precisely what your article is about, trust that it genuinely helps the people who land on it, and confidently surface it in front of the exact audience who was searching for it. That clarity is what earns rankings.</p>
+
+    <div class="pull-quote">
+      <p>On-page SEO is not about pleasing an algorithm. It is about writing with such precision and care that no algorithm could possibly misunderstand you.</p>
+    </div>
+
+    <!-- SECTION 1: TITLE TAG -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(34,211,160,0.12);color:var(--accent);border:1px solid rgba(34,211,160,0.22)">Element 01</span>
+      The Title Tag — Your Single Most Important Line
+    </h2>
+
+    <p>Your title tag is the headline that appears in Google search results — the first thing a potential reader sees before they ever visit your page. It must contain your primary keyword, ideally near the beginning, and it must be compelling enough to earn the click over every competing result on the page. Keep it under 60 characters to prevent it being cut off in search results.</p>
+
+    <div class="seo-card">
+      <div class="seo-card-head">
+        <div class="seo-accent-stripe" style="background:var(--accent)"></div>
+        <div class="seo-head-inner">
+          <div class="seo-icon" style="background:rgba(34,211,160,0.12);color:var(--accent)">📌</div>
+          <h3>Craft Titles That Win the Click</h3>
+          <span class="seo-level" style="background:rgba(34,211,160,0.12);color:var(--accent);border:1px solid rgba(34,211,160,0.2)">Critical</span>
+        </div>
+      </div>
+      <div class="seo-card-body">
+        <p>A strong title balances keyword placement with genuine human appeal. Numbers, questions, and power words — "complete," "proven," "exactly" — increase click-through rates measurably. Write your title last, after the article is done, when you truly know what promise your content can deliver and keep.</p>
+        <div class="example-box">
+          <strong>Example</strong>
+          Weak: "SEO Tips" &nbsp;·&nbsp; Strong: "On-Page SEO: The Complete Guide to Ranking Higher in 2026"
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: META DESCRIPTION -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(74,158,255,0.12);color:var(--blue);border:1px solid rgba(74,158,255,0.22)">Element 02</span>
+      The Meta Description — Your Silent Salesperson
+    </h2>
+
+    <div class="seo-card">
+      <div class="seo-card-head">
+        <div class="seo-accent-stripe" style="background:var(--blue)"></div>
+        <div class="seo-head-inner">
+          <div class="seo-icon" style="background:rgba(74,158,255,0.12);color:var(--blue)">💬</div>
+          <h3>Write Descriptions That Earn Clicks</h3>
+          <span class="seo-level" style="background:rgba(74,158,255,0.12);color:var(--blue);border:1px solid rgba(74,158,255,0.2)">High Value</span>
+        </div>
+      </div>
+      <div class="seo-card-body">
+        <p>The meta description is the two-line summary that appears beneath your title in Google results. It does not directly influence rankings — but it powerfully influences whether someone clicks. Keep it between 150 and 160 characters, include your primary keyword naturally, and end with a subtle call to action. Think of it as a miniature advertisement for your article, written for a reader who is one click away from choosing you over everyone else.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 3: HEADINGS -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(249,168,38,0.12);color:var(--amber);border:1px solid rgba(249,168,38,0.22)">Element 03</span>
+      Heading Structure — The Architecture of Clarity
+    </h2>
+
+    <p>Headings are not just design elements — they are structural signals that tell both readers and search engines how your content is organised. Your article should have one H1 tag containing your primary keyword, followed by H2 subheadings that break the content into logical sections, and H3 tags for any subsections beneath those. This hierarchy creates a scannable, navigable article that rewards both the quick reader and the thorough one.</p>
+
+    <div class="seo-card">
+      <div class="seo-card-head">
+        <div class="seo-accent-stripe" style="background:var(--amber)"></div>
+        <div class="seo-head-inner">
+          <div class="seo-icon" style="background:rgba(249,168,38,0.12);color:var(--amber)">🗂</div>
+          <h3>Use Keywords in Subheadings Naturally</h3>
+          <span class="seo-level" style="background:rgba(249,168,38,0.12);color:var(--amber);border:1px solid rgba(249,168,38,0.2)">Important</span>
+        </div>
+      </div>
+      <div class="seo-card-body">
+        <p>Weave your primary keyword and related secondary keywords into your H2 and H3 headings where they fit naturally. Never force a keyword into a heading just for SEO — awkward headings break the reading experience and signal low quality to the very algorithm you are trying to impress. Write headings first for the reader, then ask whether a relevant keyword fits comfortably.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 4: URL + IMAGES -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(176,109,255,0.12);color:var(--violet);border:1px solid rgba(176,109,255,0.22)">Element 04</span>
+      URL, Images & Internal Links
+    </h2>
+
+    <p>Three smaller elements that quietly carry enormous weight. Your URL slug should be short, clean, and keyword-inclusive — avoid auto-generated strings of numbers and dates. Every image needs a descriptive alt text that explains what the image shows, both for screen readers and for Google's image-indexing crawlers. And internal links — links from one of your articles to another — keep readers on your site longer while spreading SEO authority across your entire blog.</p>
+
+    <div class="seo-card">
+      <div class="seo-card-head">
+        <div class="seo-accent-stripe" style="background:var(--violet)"></div>
+        <div class="seo-head-inner">
+          <div class="seo-icon" style="background:rgba(176,109,255,0.12);color:var(--violet)">🔗</div>
+          <h3>The Internal Linking Strategy</h3>
+          <span class="seo-level" style="background:rgba(176,109,255,0.12);color:var(--violet);border:1px solid rgba(176,109,255,0.2)">Often Overlooked</span>
+        </div>
+      </div>
+      <div class="seo-card-body">
+        <p>Every time you publish a new article, revisit two or three older posts and add a natural link to it. This creates a connected web of content that search engines can crawl efficiently and readers can explore deeply. Blogs with strong internal linking structures see measurably higher time-on-site, lower bounce rates, and stronger overall domain authority — three signals Google quietly uses to decide who deserves the top rankings.</p>
+      </div>
+    </div>
+
+    <!-- SCORE METER -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(56,196,240,0.12);color:var(--sky);border:1px solid rgba(56,196,240,0.22)">At a Glance</span>
+      On-Page SEO — Ranking Impact by Element
+    </h2>
+
+    <div class="score-grid">
+      <div class="score-row">
+        <span class="score-label">Title Tag</span>
+        <div class="score-bar-bg"><div class="score-bar-fill" style="width:95%;background:var(--accent)"></div></div>
+        <span class="score-pct" style="color:var(--accent)">95%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Heading Structure</span>
+        <div class="score-bar-bg"><div class="score-bar-fill" style="width:88%;background:var(--blue)"></div></div>
+        <span class="score-pct" style="color:var(--blue)">88%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Keyword Placement</span>
+        <div class="score-bar-bg"><div class="score-bar-fill" style="width:90%;background:var(--amber)"></div></div>
+        <span class="score-pct" style="color:var(--amber)">90%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Internal Links</span>
+        <div class="score-bar-bg"><div class="score-bar-fill" style="width:80%;background:var(--violet)"></div></div>
+        <span class="score-pct" style="color:var(--violet)">80%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Meta Description</span>
+        <div class="score-bar-bg"><div class="score-bar-fill" style="width:72%;background:var(--sky)"></div></div>
+        <span class="score-pct" style="color:var(--sky)">72%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Image Alt Text</span>
+        <div class="score-bar-bg"><div class="score-bar-fill" style="width:65%;background:var(--rose)"></div></div>
+        <span class="score-pct" style="color:var(--rose)">65%</span>
+      </div>
+    </div>
+
+    <!-- QUICK WINS -->
+    <div class="quick-wins">
+      <div class="qw-title">✦ &nbsp; On-Page SEO Quick Wins — Do These Today</div>
+      <ul class="qw-list">
+        <li>Add your keyword to your title tag</li>
+        <li>Write a compelling meta description</li>
+        <li>Use one H1, multiple H2 headings</li>
+        <li>Include keyword in first 100 words</li>
+        <li>Add alt text to every image</li>
+        <li>Clean up your URL slugs</li>
+        <li>Link to 2–3 related posts internally</li>
+        <li>Aim for 800–1500 word articles</li>
+      </ul>
+    </div>
+
+    <p>On-page SEO is not a one-time checklist you tick off and forget. It is a standard of quality you build into every article from the very first word. When you internalise these elements — when writing with SEO in mind becomes as natural as writing with clarity in mind — something remarkable happens. Your articles stop competing for attention and start earning it, quietly, consistently, and for years at a time.</p>
+
+    <p>The page is yours to optimise. Every element above is waiting for you to get it right.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">Every great ranking begins with a perfectly optimised page.</span>
+  </footer>
+
+</div>
+</body>
+</html>
