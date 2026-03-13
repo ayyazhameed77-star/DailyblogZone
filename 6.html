@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Write SEO Friendly Articles</title>
+<link href="https://fonts.googleapis.com/css2?family=Sentient:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8faff;
+    --surface: #ffffff;
+    --surface2: #f0f4ff;
+    --border: #dde4f5;
+    --ink: #0f1523;
+    --muted: #7080a0;
+    --accent: #3355ff;
+    --teal:   #0ea87e;
+    --amber:  #e68f1a;
+    --rose:   #e0415a;
+    --violet: #7c3aed;
+    --soft-accent: rgba(51,85,255,0.08);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.87;
+  }
+
+  /* subtle dot-grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, #c8d4f0 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 88px 44px 112px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 70px; }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .pill {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 30px;
+  }
+
+  .pill-blue   { background: rgba(51,85,255,0.1);  color: var(--accent); border:1px solid rgba(51,85,255,0.2); }
+  .pill-teal   { background: rgba(14,168,126,0.1); color: var(--teal);   border:1px solid rgba(14,168,126,0.2); }
+
+  h1 {
+    font-family: 'Sentient', serif;
+    font-size: clamp(2.2rem, 5.8vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.11;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .deck {
+    font-size: 1.06rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.74;
+    max-width: 590px;
+  }
+
+  .header-rule {
+    margin-top: 38px;
+    height: 1px;
+    background: linear-gradient(to right, var(--border) 50%, transparent);
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.6em;
+    color: #253045;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 36px 42px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent), var(--teal));
+  }
+
+  .pull-quote::after {
+    content: '"';
+    position: absolute;
+    bottom: -28px;
+    right: 28px;
+    font-family: 'Sentient', serif;
+    font-size: 9rem;
+    color: var(--border);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Sentient', serif;
+    font-style: italic;
+    font-size: 1.26rem;
+    color: var(--ink) !important;
+    line-height: 1.62;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  h2 {
+    font-family: 'Sentient', serif;
+    font-size: 1.46rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 56px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .h2-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── SEO RULE CARDS ── */
+  .rule-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 0;
+    margin: 20px 0;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .rule-card:hover {
+    box-shadow: 0 4px 24px rgba(51,85,255,0.07);
+  }
+
+  .rule-top {
+    display: flex;
+    align-items: stretch;
+    min-height: 54px;
+  }
+
+  .rule-color-bar {
+    width: 5px;
+    flex-shrink: 0;
+  }
+
+  .rule-head-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 22px;
+    flex: 1;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rule-icon {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .rule-card h3 {
+    font-family: 'Sentient', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .rule-tag {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .rule-body {
+    padding: 18px 22px 20px 27px;
+  }
+
+  .rule-body p {
+    font-size: 0.94rem;
+    color: #4a5870;
+    margin: 0 !important;
+    line-height: 1.73;
+  }
+
+  /* ── DO / DON'T BOX ── */
+  .dos-donts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 36px 0;
+  }
+
+  .dd-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+  }
+
+  .dd-box h4 {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .do-box h4  { color: var(--teal); }
+  .dont-box h4 { color: var(--rose); }
+
+  .dd-box ul { list-style: none; }
+
+  .dd-box li {
+    font-size: 0.87rem;
+    color: #4a5870;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.6;
+  }
+
+  .dd-box li:last-child { border-bottom: none; }
+
+  .dd-box li::before {
+    font-size: 12px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .do-box   li::before { content: '✓'; color: var(--teal); }
+  .dont-box li::before { content: '✗'; color: var(--rose); }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 72px;
+    padding-top: 34px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Sentient', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 52px 22px 72px; }
+    .dos-donts { grid-template-columns: 1fr; }
+    .pull-quote { padding: 28px 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <span class="pill pill-blue">SEO Writing</span>
+      <span class="pill pill-teal">Content Strategy</span>
+    </div>
+    <h1>How to Write<br><em>SEO Friendly</em> Articles</h1>
+    <p class="deck">Writing for search engines and writing for human beings are not opposites — they are the same craft, done well. Here is how to master both at once.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>There is a persistent tension that haunts every blogger who discovers SEO for the first time. On one side sits the reader — a real human being who came to your article with a genuine question, hoping for a clear and satisfying answer. On the other side sits the search engine — a vast, algorithmic system that decides whether that reader ever finds your article at all. The great news is that these two audiences want almost exactly the same thing. Master that overlap, and you have mastered SEO writing.</p>
+
+    <p>Writing SEO-friendly articles is not about cramming keywords into every sentence or tricking an algorithm with technical sleight of hand. It is about writing with intention — understanding what your reader is searching for, structuring your content so it is easy to navigate, and giving search engines enough clear signals to confidently recommend your work. Here is how to do that, step by thoughtful step.</p>
+
+    <div class="pull-quote">
+      <p>Google's goal and your reader's goal are identical — to find the most useful, clearly written answer to a question. Write for that, and SEO takes care of itself.</p>
+    </div>
+
+    <!-- RULE 1 -->
+    <h2><span class="h2-dot" style="background:var(--accent)"></span> Start With the Right Keyword</h2>
+
+    <div class="rule-card">
+      <div class="rule-top">
+        <div class="rule-color-bar" style="background:var(--accent)"></div>
+        <div class="rule-head-content">
+          <div class="rule-icon" style="background:rgba(51,85,255,0.1);color:var(--accent)">🔑</div>
+          <h3>Research Before You Write</h3>
+          <span class="rule-tag" style="background:rgba(51,85,255,0.1);color:var(--accent);border:1px solid rgba(51,85,255,0.2)">Foundation</span>
+        </div>
+      </div>
+      <div class="rule-body">
+        <p>Every great SEO article begins before a single word is written — it begins with keyword research. Use free tools like Google Search Console, Ubersuggest, or even the autocomplete suggestions in Google itself to discover the exact phrases your audience types when they search. Choose one primary keyword that is specific enough to rank for but broad enough to attract meaningful traffic. This keyword becomes the compass for your entire article.</p>
+      </div>
+    </div>
+
+    <!-- RULE 2 -->
+    <h2><span class="h2-dot" style="background:var(--teal)"></span> Write a Title That Works Twice</h2>
+
+    <div class="rule-card">
+      <div class="rule-top">
+        <div class="rule-color-bar" style="background:var(--teal)"></div>
+        <div class="rule-head-content">
+          <div class="rule-icon" style="background:rgba(14,168,126,0.1);color:var(--teal)">✍</div>
+          <h3>Craft Your Headline With Care</h3>
+          <span class="rule-tag" style="background:rgba(14,168,126,0.1);color:var(--teal);border:1px solid rgba(14,168,126,0.2)">High Impact</span>
+        </div>
+      </div>
+      <div class="rule-body">
+        <p>Your title must work twice — once to earn a click in search results, and once to hold a reader's attention when they arrive. Place your primary keyword near the beginning of the title, keep it under 60 characters so it displays fully in Google, and make it genuinely compelling. A title like "How to Write SEO Articles" is fine. "How to Write SEO Articles That Rank and Actually Get Read" is far better — it promises two rewards, not one.</p>
+      </div>
+    </div>
+
+    <!-- RULE 3 -->
+    <h2><span class="h2-dot" style="background:var(--amber)"></span> Structure Your Article for Skimmers and Readers</h2>
+
+    <div class="rule-card">
+      <div class="rule-top">
+        <div class="rule-color-bar" style="background:var(--amber)"></div>
+        <div class="rule-head-content">
+          <div class="rule-icon" style="background:rgba(230,143,26,0.1);color:var(--amber)">🗂</div>
+          <h3>Use Headers, Short Paragraphs & Flow</h3>
+          <span class="rule-tag" style="background:rgba(230,143,26,0.1);color:var(--amber);border:1px solid rgba(230,143,26,0.2)">Readability</span>
+        </div>
+      </div>
+      <div class="rule-body">
+        <p>Most online readers do not read — they scan first, then commit. Use H2 and H3 subheadings throughout your article to break content into clear, navigable sections. Keep paragraphs short — three to five sentences at most. This makes your article breathe on the page, prevents visual overwhelm, and tells Google exactly what each section covers. Include your primary keyword naturally in at least one subheading.</p>
+      </div>
+    </div>
+
+    <!-- RULE 4 -->
+    <h2><span class="h2-dot" style="background:var(--violet)"></span> Place Keywords Like a Skilled Writer, Not a Robot</h2>
+
+    <div class="rule-card">
+      <div class="rule-top">
+        <div class="rule-color-bar" style="background:var(--violet)"></div>
+        <div class="rule-head-content">
+          <div class="rule-icon" style="background:rgba(124,58,237,0.1);color:var(--violet)">🎯</div>
+          <h3>Natural Keyword Integration</h3>
+          <span class="rule-tag" style="background:rgba(124,58,237,0.1);color:var(--violet);border:1px solid rgba(124,58,237,0.2)">Critical</span>
+        </div>
+      </div>
+      <div class="rule-body">
+        <p>Your primary keyword should appear in your title, your opening paragraph, at least one subheading, and naturally throughout the body — but it should never feel forced. If you have to bend a sentence awkwardly to include a keyword, rewrite the sentence instead. Google's modern algorithms are sophisticated enough to recognize context and synonyms. Write naturally, include related terms, and trust that a well-written article on a topic will rank for that topic.</p>
+      </div>
+    </div>
+
+    <!-- RULE 5 -->
+    <h2><span class="h2-dot" style="background:var(--rose)"></span> Write an Introduction That Earns Every Scroll</h2>
+
+    <div class="rule-card">
+      <div class="rule-top">
+        <div class="rule-color-bar" style="background:var(--rose)"></div>
+        <div class="rule-head-content">
+          <div class="rule-icon" style="background:rgba(224,65,90,0.1);color:var(--rose)">⚡</div>
+          <h3>Hook Fast, Promise Clearly</h3>
+          <span class="rule-tag" style="background:rgba(224,65,90,0.1);color:var(--rose);border:1px solid rgba(224,65,90,0.2)">Retention</span>
+        </div>
+      </div>
+      <div class="rule-body">
+        <p>Your first 100 words carry enormous weight — both for SEO and for the reader who is still deciding whether to stay. Open by acknowledging the reader's problem or question directly. Include your keyword in the first two sentences. Then promise, clearly and honestly, what this article will deliver. Readers who feel immediately understood will scroll down. Readers who feel immediately bored will bounce — and high bounce rates signal to Google that your content did not satisfy the search.</p>
+      </div>
+    </div>
+
+    <!-- DO / DON'T -->
+    <h2><span class="h2-dot" style="background:var(--muted)"></span> SEO Writing — At a Glance</h2>
+
+    <div class="dos-donts">
+      <div class="dd-box do-box">
+        <h4>✓ &nbsp; Do This</h4>
+        <ul>
+          <li>Research one clear keyword first</li>
+          <li>Use keyword in title & intro</li>
+          <li>Write short, clear paragraphs</li>
+          <li>Use descriptive subheadings</li>
+          <li>Answer the reader's question fully</li>
+          <li>Link to related posts on your blog</li>
+        </ul>
+      </div>
+      <div class="dd-box dont-box">
+        <h4>✗ &nbsp; Avoid This</h4>
+        <ul>
+          <li>Keyword stuffing in every line</li>
+          <li>Vague, clickbait-only titles</li>
+          <li>Giant unbroken paragraphs</li>
+          <li>Thin content under 500 words</li>
+          <li>Copying competitor structures blindly</li>
+          <li>Ignoring mobile readability</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>SEO-friendly writing, at its best, is simply good writing — clear, structured, honest, and genuinely useful. When you write an article that fully answers a real question, organizes its ideas logically, and respects the reader's time, you have already done most of the work. The keywords, the headings, the meta description — these are small finishing touches on something that was already built right from the inside out.</p>
+
+    <p>Write for the person first. The algorithm will follow.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">Rank higher by writing better — always in that order.</span>
+  </footer>
+
+</div>
+</body>
+</html>
