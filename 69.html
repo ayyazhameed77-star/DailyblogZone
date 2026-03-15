@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Fonts for Websites — The Complete Type Guide</title>
+
+<!-- Load all the fonts we'll be showcasing -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- The article's own UI font -->
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ══════════════════════════════════════════
+     DESIGN: Type-as-Design Showcase
+     Dark editorial with vivid category colours.
+     Each font section demos itself live.
+     Sora ultra-light for UI chrome.
+     The page is a type specimen first,
+     an article second.
+     Palette: near-black + vivid per-category
+     accents (plum, emerald, amber, sky).
+  ══════════════════════════════════════════ */
+
+  :root {
+    --bg:        #0c0b0a;
+    --surface:   #141210;
+    --surface2:  #1c1917;
+    --surface3:  #232018;
+    --border:    #2e2a24;
+    --border2:   #3c3830;
+    --ink:       #f5f0e8;
+    --soft:      #c8bfb0;
+    --muted:     #7a7060;
+
+    /* category colours */
+    --plum:      #9b5de5;
+    --plum-dim:  rgba(155,93,229,0.12);
+    --plum-mid:  rgba(155,93,229,0.28);
+    --emerald:   #00b894;
+    --em-dim:    rgba(0,184,148,0.11);
+    --em-mid:    rgba(0,184,148,0.26);
+    --amber:     #f0a500;
+    --am-dim:    rgba(240,165,0,0.10);
+    --am-mid:    rgba(240,165,0,0.26);
+    --sky:       #0984e3;
+    --sky-dim:   rgba(9,132,227,0.10);
+    --sky-mid:   rgba(9,132,227,0.26);
+    --rose:      #e84393;
+    --rose-dim:  rgba(232,67,147,0.10);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 16.5px;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Spectrum top bar ── */
+  .spectrum-bar {
+    height: 4px;
+    background: linear-gradient(90deg,
+      var(--plum) 0%, var(--sky) 25%,
+      var(--emerald) 50%, var(--amber) 75%,
+      var(--rose) 100%);
+  }
+
+  /* ══ HEADER ══ */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 76px 32px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* giant faded T watermark */
+  .header-wm {
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 38vw;
+    font-weight: 700;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+    white-space: nowrap;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.06em;
+    user-select: none;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow::before,.eyebrow::after {
+    content:''; width:20px; height:1px;
+    background: rgba(155,93,229,0.4);
+  }
+
+  h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 16px;
+    max-width: 760px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  /* h1 uses 4 different fonts to show variety */
+  .h1-best  { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,5vw,4rem); font-weight:900; color:var(--ink); font-style:italic; }
+  .h1-fonts { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2.4rem,5vw,4rem); font-weight:700; color:var(--plum); letter-spacing:-0.04em; }
+  .h1-for   { font-family:'Sora',sans-serif; font-size:clamp(1rem,2vw,1.4rem); font-weight:200; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; display:block; margin:10px 0 6px; }
+  .h1-web   { font-family:'DM Serif Display',serif; font-size:clamp(2.4rem,5vw,4rem); font-weight:400; color:var(--emerald); font-style:italic; }
+
+  .header-meta {
+    font-size:0.82rem; color:rgba(245,240,232,0.28);
+    letter-spacing:0.08em; margin-bottom:52px;
+    position:relative; z-index:1;
+  }
+
+  /* ── Font preview strips ── */
+  .preview-strip {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  .strip-head {
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size:0.62rem; font-weight:600;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:rgba(245,240,232,0.25);
+    display:flex; align-items:center; gap:8px;
+  }
+
+  .strip-dot { width:8px;height:8px;border-radius:50%; }
+
+  .strip-row {
+    padding:16px 22px;
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    display:flex; align-items:center; gap:16px;
+  }
+  .strip-row:last-child { border-bottom:none; }
+
+  .strip-name {
+    font-size:0.62rem; font-weight:500;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:rgba(245,240,232,0.28);
+    width:130px; flex-shrink:0;
+  }
+
+  .strip-sample {
+    font-size:1.3rem;
+    color:rgba(245,240,232,0.85);
+    line-height:1.2;
+  }
+
+  /* ══ MAIN ══ */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 28px 100px;
+  }
+
+  /* ── Lead ── */
+  .lead {
+    font-family:'Lora',Georgia,serif;
+    font-size:1.12rem; font-style:italic;
+    color:var(--soft); line-height:1.82;
+    padding:24px 28px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-left:3px solid var(--plum);
+    border-radius:4px;
+    margin-bottom:58px;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom:60px; }
+
+  .section-tag {
+    font-size:0.61rem; font-weight:600;
+    letter-spacing:0.3em; text-transform:uppercase;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:10px;
+  }
+  .section-tag::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  h2 {
+    font-family:'Sora',sans-serif;
+    font-size:1.6rem; font-weight:600;
+    color:var(--ink); line-height:1.22;
+    margin-bottom:18px; letter-spacing:-0.025em;
+  }
+
+  p { color:var(--soft); margin-bottom:16px; font-size:0.97rem; }
+  strong { color:var(--ink); font-weight:600; }
+
+  /* ── Font category cards ── */
+  .font-category {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    margin:26px 0;
+  }
+
+  .fc-head {
+    padding:14px 22px;
+    display:flex; align-items:center; gap:12px;
+    border-bottom:1px solid var(--border);
+  }
+
+  .fc-icon {
+    width:34px;height:34px;
+    border-radius:7px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;
+    flex-shrink:0;
+  }
+
+  .fc-label {
+    font-size:0.62rem;font-weight:700;
+    letter-spacing:0.22em;text-transform:uppercase;
+    flex:1;
+  }
+
+  .fc-count {
+    font-family:'Sora',sans-serif;
+    font-size:0.7rem;font-weight:600;
+    padding:3px 10px;border-radius:20px;
+    letter-spacing:0.05em;
+  }
+
+  /* Font rows inside category */
+  .font-row {
+    padding:18px 22px;
+    border-bottom:1px solid var(--border);
+    transition:background 0.18s;
+  }
+  .font-row:last-child { border-bottom:none; }
+  .font-row:hover { background:var(--surface2); }
+
+  .fr-top {
+    display:flex; align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:10px;
+    flex-wrap:wrap; gap:6px;
+  }
+
+  .fr-name {
+    font-size:0.72rem;font-weight:700;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .fr-tags {
+    display:flex;gap:5px;flex-wrap:wrap;
+  }
+
+  .fr-tag {
+    font-size:0.6rem;font-weight:700;
+    letter-spacing:0.1em;text-transform:uppercase;
+    padding:2px 8px;border-radius:20px;
+  }
+
+  .tag-free { background:var(--em-dim);color:var(--emerald); border:1px solid var(--em-mid); }
+  .tag-body { background:var(--plum-dim);color:var(--plum);   border:1px solid var(--plum-mid); }
+  .tag-head { background:var(--am-dim);color:var(--amber);    border:1px solid var(--am-mid); }
+  .tag-both { background:var(--sky-dim);color:var(--sky);     border:1px solid var(--sky-mid); }
+  .tag-code { background:rgba(232,67,147,0.10);color:var(--rose); border:1px solid rgba(232,67,147,.25); }
+
+  .fr-sample {
+    line-height:1.25;
+    color:rgba(245,240,232,0.88);
+  }
+
+  .fr-note {
+    font-size:0.77rem;
+    color:var(--muted);
+    margin-top:6px;
+    line-height:1.55;
+  }
+
+  /* ── Callout ── */
+  .callout {
+    padding:15px 20px;border-radius:5px;margin:20px 0;
+  }
+  .cb-p { background:var(--plum-dim);border:1px solid var(--plum-mid);border-left:3px solid var(--plum); }
+  .cb-e { background:var(--em-dim);  border:1px solid var(--em-mid);  border-left:3px solid var(--emerald); }
+  .cb-a { background:var(--am-dim);  border:1px solid var(--am-mid);  border-left:3px solid var(--amber); }
+  .cb-s { background:var(--sky-dim); border:1px solid var(--sky-mid); border-left:3px solid var(--sky); }
+
+  .callout strong {
+    font-size:0.62rem;font-weight:700;
+    letter-spacing:0.22em;text-transform:uppercase;
+    display:block;margin-bottom:5px;
+  }
+  .cb-p strong { color:var(--plum); }
+  .cb-e strong { color:var(--emerald); }
+  .cb-a strong { color:var(--amber); }
+  .cb-s strong { color:var(--sky); }
+  .callout p { font-size:0.88rem;margin:0; }
+
+  /* ── Pairing cards ── */
+  .pairing-grid {
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:14px;margin:22px 0;
+  }
+  @media(max-width:520px){.pairing-grid{grid-template-columns:1fr;}}
+
+  .pair-card {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:20px 18px;
+    transition:border-color 0.18s,transform 0.18s;
+  }
+  .pair-card:hover { border-color:var(--border2); transform:translateY(-2px); }
+
+  .pair-label {
+    font-size:0.59rem;font-weight:700;
+    letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:12px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .pair-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  .pair-heading {
+    font-size:1.3rem;
+    color:var(--ink);
+    line-height:1.2;
+    margin-bottom:6px;
+  }
+
+  .pair-body {
+    font-size:0.85rem;
+    color:var(--soft);
+    line-height:1.62;
+  }
+
+  .pair-credit {
+    margin-top:10px;
+    font-size:0.62rem;
+    font-weight:600;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+    border-top:1px solid var(--border);
+    padding-top:8px;
+  }
+
+  /* ── Checklist ── */
+  ul.check {
+    list-style:none;padding:0;margin:18px 0;
+  }
+  ul.check li {
+    padding:9px 0 9px 28px;position:relative;
+    border-bottom:1px solid var(--border);
+    color:var(--soft);font-size:0.92rem;
+  }
+  ul.check li:last-child { border-bottom:none; }
+  ul.check li::before {
+    content:'→';position:absolute;left:4px;
+    color:var(--plum);font-weight:700;
+  }
+
+  /* ── Divider ── */
+  hr.div {
+    border:none;border-top:1px solid var(--border);
+    margin:52px 0;position:relative;
+  }
+  hr.div::before {
+    content:'Aa';
+    font-family:'Playfair Display',serif;
+    font-size:0.9rem;font-style:italic;
+    position:absolute;top:-13px;left:50%;
+    transform:translateX(-50%);
+    background:var(--bg);padding:0 12px;
+    color:var(--plum);
+  }
+
+  /* ── Closing ── */
+  .closing {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-top:2px solid var(--plum);
+    padding:44px 40px;
+    border-radius:8px;
+    margin-top:60px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .closing::before {
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 0%, rgba(155,93,229,0.07) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .closing h3 {
+    font-family:'Playfair Display',serif;
+    font-size:1.75rem;font-weight:700;font-style:italic;
+    color:var(--ink);letter-spacing:-0.015em;
+    margin-bottom:14px;position:relative;
+  }
+  .closing h3 em { color:var(--plum); }
+  .closing p {
+    color:var(--muted);font-size:0.92rem;
+    max-width:500px;margin:0 auto;position:relative;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align:center;padding:24px;
+    font-size:0.7rem;color:var(--muted);
+    border-top:1px solid var(--border);
+    letter-spacing:0.1em;text-transform:uppercase;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from{opacity:0;transform:translateY(18px);}
+    to  {opacity:1;transform:translateY(0);}
+  }
+  .section{animation:fadeUp 0.5s ease both;}
+  .section:nth-child(1){animation-delay:.05s;}
+  .section:nth-child(2){animation-delay:.10s;}
+  .section:nth-child(3){animation-delay:.15s;}
+  .section:nth-child(4){animation-delay:.20s;}
+  .section:nth-child(5){animation-delay:.25s;}
+  .section:nth-child(6){animation-delay:.30s;}
+
+  @media(max-width:600px){
+    main{padding:36px 16px 70px;}
+    header{padding:52px 18px 0;}
+    .closing{padding:28px 18px;}
+    .strip-name{width:100px;font-size:0.58rem;}
+    .strip-sample{font-size:1.1rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="spectrum-bar"></div>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-wm">Aa</div>
+  <div class="eyebrow">Typography Guide</div>
+
+  <!-- Multi-font title — demonstrates the topic live -->
+  <h1>
+    <span class="h1-best">Best </span><span class="h1-fonts">Fonts</span>
+    <span class="h1-for">for</span>
+    <span class="h1-web">Websites</span>
+  </h1>
+  <p class="header-meta">~800 words &nbsp;·&nbsp; Practical &amp; Human &nbsp;·&nbsp; 2026 Edition</p>
+
+  <!-- Live font preview strip -->
+  <div class="preview-strip">
+    <div class="strip-head">
+      <div class="strip-dot" style="background:var(--plum)"></div>
+      <div class="strip-dot" style="background:var(--emerald)"></div>
+      <div class="strip-dot" style="background:var(--amber)"></div>
+      <span>Live Font Preview — Each Rendered in Its Own Typeface</span>
+    </div>
+    <div class="strip-row">
+      <span class="strip-name">Playfair Display</span>
+      <span class="strip-sample" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:700;">The quick brown fox jumps.</span>
+    </div>
+    <div class="strip-row">
+      <span class="strip-name">Plus Jakarta Sans</span>
+      <span class="strip-sample" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">The quick brown fox jumps.</span>
+    </div>
+    <div class="strip-row">
+      <span class="strip-name">Lora</span>
+      <span class="strip-sample" style="font-family:'Lora',serif;font-weight:400;">The quick brown fox jumps.</span>
+    </div>
+    <div class="strip-row">
+      <span class="strip-name">Outfit</span>
+      <span class="strip-sample" style="font-family:'Outfit',sans-serif;font-weight:400;">The quick brown fox jumps.</span>
+    </div>
+    <div class="strip-row">
+      <span class="strip-name">JetBrains Mono</span>
+      <span class="strip-sample" style="font-family:'JetBrains Mono',monospace;font-size:1.05rem;">The quick brown fox jumps.</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══ MAIN ══ -->
+<main>
+
+  <!-- Lead -->
+  <p class="lead">
+    The font you choose for your website says something before a single word is read. It sets a tone, signals a personality, and either helps or hurts the experience of reading. The right typeface is invisible — it gets out of the way and lets the content breathe. The wrong one is friction you cannot name but always feel.
+  </p>
+
+  <!-- Section 1 — Why it matters -->
+  <div class="section">
+    <p class="section-tag" style="color:var(--plum)">The Foundation</p>
+    <h2>Why Your Font Choice Changes Everything</h2>
+    <p>
+      Typography accounts for roughly 95% of web design. That figure, often cited by designers, sounds extreme until you consider what a webpage actually contains: mostly text. Headlines, paragraphs, navigation labels, captions, buttons — all text. The typeface you apply to that text shapes how every single visitor experiences your website.
+    </p>
+    <p>
+      A poorly chosen font creates reading fatigue. Lines feel too tight or too loose. Letterforms feel slightly wrong for the context — a playful rounded sans on a serious financial blog, a heavy condensed display font on a children's learning site. Readers cannot always articulate why they feel uncomfortable, but they feel it. And they leave.
+    </p>
+    <div class="callout cb-p">
+      <strong>The 6-Second Rule</strong>
+      <p>Visitors form an impression of your site's credibility within 6 seconds. Typography is the dominant factor in that impression — more than colour, more than images, more than layout. First, choose a font that earns trust. Everything else follows.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 2 — Serif fonts -->
+  <div class="section">
+    <p class="section-tag" style="color:var(--amber)">Category One</p>
+    <h2>Serif Fonts — Authority, Warmth, and Long-Form Reading</h2>
+    <p>
+      Serif typefaces carry small decorative strokes — serifs — at the ends of their letterforms. These horizontal anchors guide the eye along a line of text, making serifs the natural choice for long-form content: articles, essays, books, and editorial blogs. They feel considered, authoritative, and warm. On a blog that publishes deeply written content, a serif body font signals quality before the reader has finished the first sentence.
+    </p>
+
+    <div class="font-category">
+      <div class="fc-head">
+        <div class="fc-icon" style="background:var(--am-dim)">📖</div>
+        <span class="fc-label" style="color:var(--amber)">Best Serif Fonts for Websites</span>
+        <span class="fc-count" style="background:var(--am-dim);color:var(--amber)">4 Picks</span>
+      </div>
+
+      <!-- Playfair Display -->
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Playfair Display</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-head">Headlines</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;font-style:italic;">The Art of Beautiful Writing</div>
+        <p class="fr-note">High-contrast, elegant, with dramatic thick-to-thin strokes. Perfect for editorial blogs, luxury brands, and any site that wants to feel premium. Best used for headings — its contrast can be too strong for long body text at small sizes.</p>
+      </div>
+
+      <!-- Lora -->
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Lora</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-both">Head + Body</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Lora',serif;font-size:1.6rem;font-weight:600;">Stories worth reading, type worth seeing.</div>
+        <p class="fr-note">Moderate contrast, highly readable at all sizes. One of the best all-purpose serifs on Google Fonts. Works beautifully for body text at 16–18px and equally well for headings. Warm without being nostalgic.</p>
+      </div>
+
+      <!-- Merriweather -->
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Merriweather</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-body">Body Text</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Merriweather',serif;font-size:1.2rem;font-weight:300;line-height:1.5;">Designed for screen reading. Generous x-height, open apertures, and excellent spacing at small sizes.</div>
+        <p class="fr-note">The gold standard for on-screen serif body text. Its open letterforms and generous spacing were specifically optimised for digital reading. Medium and Blog publications use it for good reason.</p>
+      </div>
+
+      <!-- Crimson Pro -->
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Crimson Pro</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-both">Head + Body</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Crimson Pro',serif;font-size:1.55rem;font-weight:400;font-style:italic;">Classical elegance. Modern clarity. Free forever.</div>
+        <p class="fr-note">A refined, book-like serif with exceptional italics. Feels literary and intelligent — ideal for writing-focused blogs, personal essays, or any site where the quality of prose is the primary product.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 3 — Sans-serif fonts -->
+  <div class="section">
+    <p class="section-tag" style="color:var(--emerald)">Category Two</p>
+    <h2>Sans-Serif Fonts — Clean, Modern, Endlessly Versatile</h2>
+    <p>
+      Sans-serif typefaces — fonts without the small strokes at letter ends — dominate modern web design for a simple reason: they are exceptionally legible on screens at all sizes, weights, and resolutions. They feel approachable, professional, and contemporary. For UI elements, navigation, and body text on technical, business, or design-focused sites, a well-chosen sans-serif is almost always the right call.
+    </p>
+
+    <div class="font-category">
+      <div class="fc-head">
+        <div class="fc-icon" style="background:var(--em-dim)">✦</div>
+        <span class="fc-label" style="color:var(--emerald)">Best Sans-Serif Fonts for Websites</span>
+        <span class="fc-count" style="background:var(--em-dim);color:var(--emerald)">5 Picks</span>
+      </div>
+
+      <!-- Inter -->
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Inter</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-both">Head + Body</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Inter',sans-serif;font-size:1.55rem;font-weight:600;letter-spacing:-0.02em;">Designed specifically for computer screens.</div>
+        <p class="fr-note">Possibly the most popular web typeface in the world right now. Designed by Rasmus Andersson specifically for digital interfaces. Exceptional legibility at small sizes, neutral enough for any context. The safe, excellent choice — though its ubiquity means it carries no personality signal.</p>
+      </div>
+
+      <!-- Plus Jakarta Sans -->
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Plus Jakarta Sans</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-both">Head + Body</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.55rem;font-weight:700;letter-spacing:-0.025em;">Modern energy without sacrificing warmth.</div>
+        <p class="fr-note">A fresher, warmer alternative to Inter. Slightly more personality in the letterforms — especially visible in the 'a', 'g', and 'y'. Excellent for blogs and creative sites that want to feel contemporary without being cold.</p>
+      </div>
+
+      <!-- Outfit -->
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Outfit</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-head">Headlines</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:-0.03em;">Geometric confidence. Clear purpose.</div>
+        <p class="fr-note">Clean geometric construction with a confident, slightly techy personality. Works beautifully as a display/headline font. Pairs exceptionally well with serif body text for a high-contrast editorial feel.</p>
+      </div>
+
+      <!-- Poppins -->
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Poppins</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-both">Head + Body</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:600;">Friendly, round, and universally loved.</div>
+        <p class="fr-note">Pure geometric — every letterform based on a circle. The result is warm, approachable, and friendly. Ideal for lifestyle blogs, wellness sites, and any brand that wants to feel accessible without being informal.</p>
+      </div>
+
+      <!-- Nunito -->
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Nunito</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-body">Body Text</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Nunito',sans-serif;font-size:1.45rem;font-weight:500;">Rounded terminals. Unusually gentle on the eye.</div>
+        <p class="fr-note">Nunito's rounded terminal strokes give it a softness rarely found in sans-serifs. Outstanding for long-form reading — especially for younger audiences or topics where a harder geometric feel would create unnecessary friction.</p>
+      </div>
+    </div>
+
+    <div class="callout cb-e">
+      <strong>The Personality Test</strong>
+      <p>Choose a sans-serif by asking: what personality do I need? Inter = neutral/professional. Plus Jakarta = modern/warm. Outfit = confident/tech. Poppins = friendly/approachable. Nunito = gentle/accessible. The right answer depends on your audience and your topic — not on which font is objectively "best."</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 4 — Monospace -->
+  <div class="section">
+    <p class="section-tag" style="color:var(--rose)">Category Three</p>
+    <h2>Monospace Fonts — For Code, Data, and Technical Sites</h2>
+    <p>
+      Monospace typefaces assign equal width to every character. Originally designed for typewriters and code terminals, they have found a second life as a design choice — used not just for code blocks but as a deliberate aesthetic signal on technical blogs, developer sites, and any content where precision and honesty are brand values.
+    </p>
+
+    <div class="font-category">
+      <div class="fc-head">
+        <div class="fc-icon" style="background:var(--rose-dim)">⌨️</div>
+        <span class="fc-label" style="color:var(--rose)">Best Monospace Fonts for Websites</span>
+        <span class="fc-count" style="background:var(--rose-dim);color:var(--rose)">2 Picks</span>
+      </div>
+
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">JetBrains Mono</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-code">Code</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'JetBrains Mono',monospace;font-size:1.1rem;">const message = "Clean, precise, beautiful.";</div>
+        <p class="fr-note">Built by the creators of popular developer tools. Excellent ligature support, reduced eye strain over long sessions, and clear distinction between similar characters (0/O, 1/l/I). The top choice for developer blogs and technical documentation.</p>
+      </div>
+
+      <div class="font-row">
+        <div class="fr-top">
+          <span class="fr-name">Fira Code</span>
+          <div class="fr-tags">
+            <span class="fr-tag tag-free">Free</span>
+            <span class="fr-tag tag-code">Code</span>
+          </div>
+        </div>
+        <div class="fr-sample" style="font-family:'Fira Code',monospace;font-size:1.1rem;">function read() { return "perfectly"; }</div>
+        <p class="fr-note">Mozilla's open-source monospace with beautiful programming ligatures. Turns common operator combinations (=>, !=, >=) into single clean glyphs. Widely used, trusted, and legible at any size.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 5 — Pairing -->
+  <div class="section">
+    <p class="section-tag" style="color:var(--sky)">Font Pairing</p>
+    <h2>The Best Font Pairs for Blogs in 2026</h2>
+    <p>
+      The most refined websites rarely use a single typeface for everything. They pair one font for headlines — something with personality and presence — with a different font for body text — something optimised for sustained reading at small sizes. Here are four proven combinations that work beautifully together:
+    </p>
+
+    <div class="pairing-grid">
+      <div class="pair-card">
+        <div class="pair-label">Editorial Classic</div>
+        <div class="pair-heading" style="font-family:'Playfair Display',serif;font-style:italic;">Playfair Display</div>
+        <div class="pair-body" style="font-family:'Lora',serif;">paired with Lora for body — a warm, literary combination that signals depth and careful writing on any content-focused blog.</div>
+        <div class="pair-credit">Serif + Serif · High Contrast</div>
+      </div>
+
+      <div class="pair-card">
+        <div class="pair-label">Modern Professional</div>
+        <div class="pair-heading" style="font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:-0.025em;">Outfit</div>
+        <div class="pair-body" style="font-family:'Nunito',sans-serif;">paired with Nunito for body — geometric confidence in the headlines, gentle warmth in the paragraphs. Great for lifestyle and business blogs.</div>
+        <div class="pair-credit">Sans + Sans · Complementary</div>
+      </div>
+
+      <div class="pair-card">
+        <div class="pair-label">Clean Editorial</div>
+        <div class="pair-heading" style="font-family:'DM Serif Display',serif;font-style:italic;font-size:1.4rem;">DM Serif Display</div>
+        <div class="pair-body" style="font-family:'Plus Jakarta Sans',sans-serif;">paired with Plus Jakarta Sans — the contrast between a delicate italic serif heading and a crisp modern sans body creates elegant tension.</div>
+        <div class="pair-credit">Serif + Sans · High Contrast</div>
+      </div>
+
+      <div class="pair-card">
+        <div class="pair-label">Developer Blog</div>
+        <div class="pair-heading" style="font-family:'Inter',sans-serif;font-weight:700;letter-spacing:-0.03em;">Inter</div>
+        <div class="pair-body" style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;">with JetBrains Mono for code blocks — the neutral clarity of Inter for prose, the precise technical feel of Mono for everything code-related.</div>
+        <div class="pair-credit">Sans + Mono · Technical</div>
+      </div>
+    </div>
+
+    <div class="callout cb-s">
+      <strong>The Contrast Rule</strong>
+      <p>When pairing two fonts, create contrast — not conflict. A high-contrast serif headline font pairs beautifully with a low-contrast sans body font. Two competing display fonts fight for attention and neither wins. One font leads; the other supports. Always.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 6 — Practical rules -->
+  <div class="section">
+    <p class="section-tag" style="color:var(--plum)">The Rules</p>
+    <h2>Eight Font Rules Every Website Owner Should Follow</h2>
+    <p>
+      Knowing which fonts exist is useful. Knowing how to use them well is what separates beautiful websites from average ones. These eight rules apply regardless of which typefaces you choose:
+    </p>
+
+    <ul class="check">
+      <li><strong>Body text minimum 16px.</strong> Anything smaller forces readers to lean in. On mobile, 17–18px is even better. Font size is not vanity — it is accessibility and comfort.</li>
+      <li><strong>Never use more than two typeface families</strong> on one site. One for display/headings, one for body text. Everything else is noise. Exceptions require a very strong reason.</li>
+      <li><strong>Line height between 1.6 and 1.9 for body text.</strong> Tight line spacing forces words to compete. Generous spacing makes paragraphs feel like breathing space, not work.</li>
+      <li><strong>Test your font on a real mobile device</strong> before launching. Fonts that look beautiful on a large monitor often lose their character on a 375px phone screen where rendering differences are amplified.</li>
+      <li><strong>Load only the font weights you actually use.</strong> Every additional font weight adds page weight and load time. If you only use Regular and Bold, do not load Light, Medium, and Extra-Bold as well.</li>
+      <li><strong>Use system fonts for UI chrome</strong> if performance is critical. Navigation labels, buttons, and form fields often read better and load faster in the device's native system font — saving your chosen typeface for content only.</li>
+      <li><strong>Pair high contrast with low contrast.</strong> A dramatic display serif (Playfair) needs a calm body font (Lora, Inter). Two dramatic fonts create visual competition. One dramatic font creates focus.</li>
+      <li><strong>Revisit your font choice once a year.</strong> Typography norms evolve. A font that felt fresh in 2022 may feel dated in 2026. Your typeface communicates which era your site belongs to — make sure it is the right one.</li>
+    </ul>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <h3>The right font<br>is the one <em>readers never notice</em> —<br>because it never gets in the way.</h3>
+    <p>
+      Start with the reading experience. Choose a body font that makes long paragraphs a pleasure, not a task. Then choose a headline font with enough personality to create hierarchy without competing for attention. Load only what you use. Test on mobile. And remember: the goal is never to impress with your type choices — it is to make every visitor forget they are reading at all.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 &nbsp;·&nbsp; Best Fonts for Websites &nbsp;·&nbsp; Written for Human Readers
+</footer>
+
+</body>
+</html>
