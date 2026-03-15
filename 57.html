@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Write Long-Form Content — The Complete Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #0e0e0e;
+    --surface:    #161616;
+    --surface2:   #1d1d1d;
+    --surface3:   #242424;
+    --border:     #2e2e2e;
+    --border2:    #3a3a3a;
+    --ink:        #f5f0e8;
+    --soft:       #c8c0b0;
+    --muted:      #706860;
+    --gold:       #d4a843;
+    --gold-dim:   rgba(212,168,67,0.10);
+    --gold-mid:   rgba(212,168,67,0.25);
+    --gold-glow:  rgba(212,168,67,0.06);
+    --rust:       #c05a30;
+    --rust-dim:   rgba(192,90,48,0.10);
+    --sage:       #7aab82;
+    --sage-dim:   rgba(122,171,130,0.10);
+    --slate:      #6a8fad;
+    --slate-dim:  rgba(106,143,173,0.10);
+    --blush:      #b86070;
+    --blush-dim:  rgba(184,96,112,0.10);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Jost', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  /* ── Gold pinstripe top ── */
+  .pinstripe {
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%, var(--gold) 20%, var(--gold) 80%, transparent 100%);
+    box-shadow: 0 0 12px rgba(212,168,67,0.4);
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--surface);
+    padding: 80px 32px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Subtle grid texture */
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+
+  header::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%,
+      rgba(212,168,67,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .chapter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .chapter-tag::before, .chapter-tag::after {
+    content: '';
+    width: 36px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  .chapter-tag::after {
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    font-weight: 900;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 740px;
+    margin: 0 auto 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+  }
+
+  .header-sub {
+    font-size: 0.86rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Word count progress bar ── */
+  .progress-wrap {
+    max-width: 560px;
+    margin: 40px auto 0;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .progress-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .progress-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .progress-track {
+    background: var(--surface3);
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--gold), #e8c06a);
+    box-shadow: 0 0 8px rgba(212,168,67,0.4);
+    animation: fillBar 1.8s cubic-bezier(.4,0,.2,1) both;
+  }
+
+  @keyframes fillBar {
+    from { width: 0% }
+    to   { width: 78% }
+  }
+
+  .progress-ticks {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tick {
+    font-size: 0.62rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
+
+  .tick.active { color: var(--gold); font-weight: 600; }
+
+  /* ── Wave separator ── */
+  .sep {
+    background: var(--surface);
+    line-height: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .sep svg { display:block; width:100%; }
+
+  /* ── Main ── */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 28px 90px;
+  }
+
+  /* ── Lead ── */
+  .lead {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.18rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--soft);
+    line-height: 1.82;
+    padding: 26px 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 3px;
+    margin-bottom: 58px;
+    position: relative;
+  }
+
+  .lead::before {
+    content: '"';
+    position: absolute;
+    top: -18px; left: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.2;
+    line-height: 1;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 58px; }
+
+  .section-tag {
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .section-tag::after {
+    content: ''; flex:1; height:1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  p { color: var(--soft); margin-bottom: 17px; }
+  strong { color: var(--ink); font-weight: 600; }
+  em { color: var(--gold); font-style: italic; }
+
+  /* ── Long-form anatomy diagram ── */
+  .anatomy {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 26px 0;
+  }
+
+  .anatomy-head {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .anatomy-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 70px;
+    align-items: center;
+    gap: 16px;
+    padding: 13px 20px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.18s;
+  }
+
+  .anatomy-row:last-child { border-bottom: none; }
+  .anatomy-row:hover { background: var(--surface2); }
+
+  .anat-part {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--ink);
+  }
+
+  .anat-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .anat-words {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* ── Phase cards ── */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0;
+  }
+
+  @media(max-width:540px){
+    .phase-grid { grid-template-columns: 1fr; }
+    .anatomy-row { grid-template-columns: 120px 1fr; }
+    .anat-words { display: none; }
+  }
+
+  .pcard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.18s;
+  }
+
+  .pcard:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+  }
+
+  .pcard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .pc-gold  ::before { background: var(--gold);  }
+  .pc-rust  { border-top: 2px solid var(--rust);  }
+  .pc-sage  { border-top: 2px solid var(--sage);  }
+  .pc-slate { border-top: 2px solid var(--slate); }
+  .pc-blush { border-top: 2px solid var(--blush); }
+  .pc-gold  { border-top: 2px solid var(--gold);  }
+
+  .pcard-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+    opacity: 0.18;
+  }
+
+  .pcard-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .pcard-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── Callouts ── */
+  .callout {
+    padding: 17px 22px;
+    border-radius: 5px;
+    margin: 24px 0;
+  }
+
+  .cb-gold  { background:var(--gold-dim);  border:1px solid var(--gold-mid);           border-left:3px solid var(--gold);  }
+  .cb-rust  { background:var(--rust-dim);  border:1px solid rgba(192,90,48,0.25);       border-left:3px solid var(--rust);  }
+  .cb-sage  { background:var(--sage-dim);  border:1px solid rgba(122,171,130,0.25);     border-left:3px solid var(--sage);  }
+  .cb-slate { background:var(--slate-dim); border:1px solid rgba(106,143,173,0.25);     border-left:3px solid var(--slate); }
+  .cb-blush { background:var(--blush-dim); border:1px solid rgba(184,96,112,0.25);      border-left:3px solid var(--blush); }
+
+  .callout strong {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    display: block; margin-bottom: 6px;
+  }
+  .cb-gold  strong { color:var(--gold);  }
+  .cb-rust  strong { color:var(--rust);  }
+  .cb-sage  strong { color:var(--sage);  }
+  .cb-slate strong { color:var(--slate); }
+  .cb-blush strong { color:var(--blush); }
+  .callout p { font-size:0.9rem; margin:0; }
+
+  /* ── Readability rules ── */
+  .rules {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 22px 0;
+  }
+
+  .rule-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  .rule-row:last-child { border-bottom: none; }
+  .rule-row:hover { background: var(--surface2); }
+
+  .rule-icon {
+    font-size: 1.2rem;
+    width: 32px;
+    flex-shrink: 0;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .rule-body { flex: 1; }
+
+  .rule-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .rule-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── Steps ── */
+  ol.steps {
+    list-style: none; padding:0; margin:20px 0;
+    counter-reset: step;
+  }
+
+  ol.steps li {
+    counter-increment: step;
+    padding: 14px 14px 14px 58px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    color: var(--soft);
+    font-size: 0.96rem;
+  }
+
+  ol.steps li:last-child { border-bottom: none; }
+
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute; left: 10px; top: 13px;
+    width: 30px; height: 30px;
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-mid);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem; font-weight: 700;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── Pull quote ── */
+  .pullquote {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 10px;
+    margin: 34px 0;
+    text-align: center;
+  }
+
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.28rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    line-height: 1.6;
+    max-width: 580px;
+    margin: 0 auto;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Divider ── */
+  hr.div {
+    border: none; border-top: 1px solid var(--border);
+    margin: 54px 0; position: relative;
+  }
+
+  hr.div::before {
+    content: '◈';
+    position: absolute; top: -11px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg); padding: 0 14px;
+    color: var(--gold); font-size: 0.85rem;
+  }
+
+  /* ── Checklist ── */
+  ul.check {
+    list-style: none; padding:0; margin:18px 0;
+  }
+  ul.check li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    color: var(--soft);
+    font-size: 0.96rem;
+  }
+  ul.check li:last-child { border-bottom: none; }
+  ul.check li::before {
+    content: '→';
+    position: absolute; left: 4px;
+    color: var(--gold); font-weight: 700;
+  }
+
+  /* ── Closing ── */
+  .closing {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold);
+    padding: 46px 40px;
+    border-radius: 8px;
+    margin-top: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 100%, var(--gold-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .closing h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    position: relative;
+  }
+
+  .closing h3 em {
+    color: var(--gold); font-style: italic;
+  }
+
+  .closing p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* ── Ornament line ── */
+  .ornament {
+    text-align: center;
+    margin: 10px 0 28px;
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.5em;
+    opacity: 0.5;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 26px;
+    font-size: 0.76rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(22px); }
+    to   { opacity:1; transform:translateY(0);    }
+  }
+
+  .section {
+    animation: fadeUp 0.55s ease both;
+  }
+  .section:nth-child(1){ animation-delay: 0.04s; }
+  .section:nth-child(2){ animation-delay: 0.09s; }
+  .section:nth-child(3){ animation-delay: 0.14s; }
+  .section:nth-child(4){ animation-delay: 0.19s; }
+  .section:nth-child(5){ animation-delay: 0.24s; }
+  .section:nth-child(6){ animation-delay: 0.29s; }
+
+  @media(max-width:600px){
+    main{ padding:36px 16px 60px; }
+    header{ padding:52px 18px 52px; }
+    h1{ font-size:2.2rem; }
+    h2{ font-size:1.4rem; }
+    .closing{ padding:30px 18px; }
+    .progress-wrap{ margin:28px 16px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pinstripe"></div>
+
+<header>
+  <div class="chapter-tag">Writing Craft</div>
+  <h1>How to Write<br><em>Long-Form Content</em><br>That People Actually Read</h1>
+  <p class="header-sub">~800 words &nbsp;·&nbsp; Practical &amp; Human &nbsp;·&nbsp; 2026 Edition</p>
+
+  <!-- Word count depth meter -->
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span class="progress-title">Content Depth Meter</span>
+      <span class="progress-value">2,500+ words → Long-Form Territory</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill"></div>
+    </div>
+    <div class="progress-ticks">
+      <div class="tick">300<br>Short</div>
+      <div class="tick">800<br>Standard</div>
+      <div class="tick active">1,500<br>Long-Form</div>
+      <div class="tick">3,000<br>Deep Dive</div>
+      <div class="tick">5,000+<br>Pillar</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Lead -->
+  <p class="lead">
+    Long-form content is not about word count. It is about depth — the willingness to stay with a subject long enough to truly serve the reader. The articles that rank for years, earn thousands of backlinks, and build genuine authority are not long because someone padded them out. They are long because the subject deserved the space.
+  </p>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <p class="section-tag">The Case for Long-Form</p>
+    <h2>Why Long-Form Content Outperforms Everything Else</h2>
+    <p>
+      Study after study confirms that longer content ranks higher, earns more backlinks, and generates more social shares than short posts on the same topic. The average first-page Google result contains well over 1,400 words. The articles that hold the top positions for competitive keywords are almost always comprehensive, deeply researched, and genuinely useful.
+    </p>
+    <p>
+      But the real reason long-form wins has nothing to do with word count as a signal. It wins because depth creates trust. When a reader arrives at your post and finds every question they had — and several they had not thought to ask yet — answered thoroughly, they trust you. They bookmark you. They come back. They share. <strong>Depth converts casual visitors into loyal readers.</strong>
+    </p>
+    <div class="callout cb-gold">
+      <strong>The SEO Advantage</strong>
+      <p>Long-form articles naturally incorporate more keywords, earn more time-on-page, attract more backlinks, and cover more semantic ground than short posts. These are exactly the signals Google uses to determine whether a page deserves a top ranking.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 2 — Anatomy -->
+  <div class="section">
+    <p class="section-tag">The Architecture</p>
+    <h2>Anatomy of a Great Long-Form Article</h2>
+    <p>
+      Before writing a single word, understand the structure. Long-form content is not a short post with extra paragraphs bolted on. It is a deliberately architected piece with distinct components, each serving a purpose. Here is how a 2,500-word long-form article breaks down:
+    </p>
+
+    <div class="anatomy">
+      <div class="anatomy-head">Article Structure — Word Distribution</div>
+      <div class="anatomy-row">
+        <span class="anat-part">Hook &amp; Intro</span>
+        <span class="anat-desc">Grabs attention, states the problem, promises the reward for reading on</span>
+        <span class="anat-words" style="color:var(--gold)">150–250w</span>
+      </div>
+      <div class="anatomy-row">
+        <span class="anat-part">Context / Why</span>
+        <span class="anat-desc">Explains why this topic matters and what the reader stands to gain</span>
+        <span class="anat-words" style="color:var(--rust)">200–300w</span>
+      </div>
+      <div class="anatomy-row">
+        <span class="anat-part">Core Sections</span>
+        <span class="anat-desc">3–6 focused sections, each answering a specific sub-question in depth</span>
+        <span class="anat-words" style="color:var(--sage)">1,500–1,800w</span>
+      </div>
+      <div class="anatomy-row">
+        <span class="anat-part">Examples / Proof</span>
+        <span class="anat-desc">Real examples, data, or case studies that validate the main points</span>
+        <span class="anat-words" style="color:var(--slate)">200–400w</span>
+      </div>
+      <div class="anatomy-row">
+        <span class="anat-part">Conclusion + CTA</span>
+        <span class="anat-desc">Summarises key insights and tells the reader what to do next</span>
+        <span class="anat-words" style="color:var(--blush)">150–200w</span>
+      </div>
+    </div>
+
+    <p>
+      Notice that the core sections make up the majority of the word count. This is where the real value lives. Every other section exists to get the reader into those core sections — and to land them softly at the end.
+    </p>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 3 — The process -->
+  <div class="section">
+    <p class="section-tag">The Writing Process</p>
+    <h2>How to Write a Long-Form Article Step by Step</h2>
+    <p>
+      Most writers struggle with long-form because they try to write and think at the same time. The solution is to separate the process into distinct phases — each with a single job. Here is the sequence that works:
+    </p>
+
+    <ol class="steps">
+      <li><strong>Define the one reader you are writing for.</strong> Not a demographic — a specific person with a specific problem. Write their question at the top of your document and keep it visible throughout. Every section you write should be answering that question.</li>
+      <li><strong>Research before you outline.</strong> Spend 60–90 minutes reading the top five articles on your topic. Note what they cover well, what they miss, and what questions readers are still asking in the comments. Your job is to fill those gaps.</li>
+      <li><strong>Build a detailed outline first.</strong> Your outline is your safety net. Write every H2 and H3 heading before drafting a word of body copy. A strong outline means you never stare at a blank screen — you just fill in the boxes you have already drawn.</li>
+      <li><strong>Write the draft in one sitting if possible.</strong> Speed is your friend in the draft phase. Turn off your inner editor, follow the outline, and write from start to finish without going back. Imperfect momentum beats perfect paralysis every time.</li>
+      <li><strong>Wait before editing.</strong> Leave at least 24 hours between drafting and editing. Distance gives you perspective. What felt profound the night before often reveals itself as obvious in the morning — and what felt clunky may turn out to be fine.</li>
+      <li><strong>Edit for clarity and cut ruthlessly.</strong> A 3,000-word draft that becomes a sharp 2,000-word final piece is better than a padded 3,000-word post that keeps every word. Ask of each sentence: does this earn its place? If not, cut it.</li>
+    </ol>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 4 — Readability -->
+  <div class="section">
+    <p class="section-tag">Keeping Readers Engaged</p>
+    <h2>Making Long Content Feel Short</h2>
+    <p>
+      The greatest enemy of long-form content is not length — it is <em>density</em>. A wall of unbroken text, even if the ideas are brilliant, will drive readers away. The following rules transform a long article from something that feels like work into something that feels effortless to read.
+    </p>
+
+    <div class="rules">
+      <div class="rule-row">
+        <div class="rule-icon">✂️</div>
+        <div class="rule-body">
+          <p class="rule-title">Short Paragraphs, Always</p>
+          <p class="rule-desc">Three sentences maximum per paragraph. Each paragraph should contain one idea. White space is not wasted space — it is breathing room for the reader's brain.</p>
+        </div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-icon">🗂️</div>
+        <div class="rule-body">
+          <p class="rule-title">Subheadings Every 300 Words</p>
+          <p class="rule-desc">Readers scan before they commit. Subheadings act as signposts — they tell skimmers which section they need and reassure deep readers that structure exists.</p>
+        </div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-icon">📌</div>
+        <div class="rule-body">
+          <p class="rule-title">Callout Boxes and Highlighted Tips</p>
+          <p class="rule-desc">Break up body text with pull quotes, tip boxes, and examples. These visual breaks reset the reader's attention and give re-readers quick access to key insights.</p>
+        </div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-icon">🔢</div>
+        <div class="rule-body">
+          <p class="rule-title">Lists for Parallel Information</p>
+          <p class="rule-desc">Whenever you are explaining three or more items of equal weight, use a list. Prose buries parallel ideas; lists surface them so the reader can compare and remember.</p>
+        </div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-icon">💬</div>
+        <div class="rule-body">
+          <p class="rule-title">Conversational Transitions</p>
+          <p class="rule-desc">End each section with a sentence that leads naturally into the next. The reader should feel carried forward, not dropped. Flow is what separates articles that get finished from articles that get abandoned.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <p>The best long-form content does not feel long. It feels complete — like the writer knew exactly when to stop, and that moment was only after every question had been answered.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 5 — Common mistakes -->
+  <div class="section">
+    <p class="section-tag">What to Avoid</p>
+    <h2>Six Mistakes That Ruin Long-Form Content</h2>
+    <p>
+      Long-form writing has its own set of failure modes — traps that are easy to fall into precisely because the format encourages verbosity. Stay alert for these:
+    </p>
+
+    <div class="phase-grid">
+      <div class="pcard pc-rust">
+        <p class="pcard-num">01</p>
+        <p class="pcard-name">Padding for Word Count</p>
+        <p class="pcard-desc">Adding sentences that say nothing new just to hit a number. Readers feel it immediately — and leave.</p>
+      </div>
+      <div class="pcard pc-sage">
+        <p class="pcard-num">02</p>
+        <p class="pcard-name">Burying the Lead</p>
+        <p class="pcard-desc">Spending 400 words of preamble before getting to the point. Earn the reader's time from sentence one.</p>
+      </div>
+      <div class="pcard pc-slate">
+        <p class="pcard-num">03</p>
+        <p class="pcard-name">No Clear Through-Line</p>
+        <p class="pcard-desc">Writing sections that feel disconnected. Every section should relate back to the one promise in your introduction.</p>
+      </div>
+      <div class="pcard pc-gold">
+        <p class="pcard-num">04</p>
+        <p class="pcard-name">Ignoring Mobile Readers</p>
+        <p class="pcard-desc">Over 60% of readers are on phones. Long paragraphs that look fine on desktop become walls of text on mobile.</p>
+      </div>
+      <div class="pcard pc-blush">
+        <p class="pcard-num">05</p>
+        <p class="pcard-name">No Table of Contents</p>
+        <p class="pcard-desc">Articles over 1,500 words need a clickable table of contents. It helps readers navigate and improves your SEO.</p>
+      </div>
+      <div class="pcard pc-rust">
+        <p class="pcard-num">06</p>
+        <p class="pcard-name">Weak Conclusion</p>
+        <p class="pcard-desc">Ending with "In conclusion, we covered…" wastes the most powerful moment in the article. Close with insight, not summary.</p>
+      </div>
+    </div>
+
+    <div class="callout cb-sage">
+      <strong>The Quality Check</strong>
+      <p>Before publishing, read your article aloud from start to finish. Your ear catches problems your eye misses — awkward transitions, repeated words, sentences that drag on too long, and paragraphs that suddenly slow down. If you stumble reading it aloud, your reader will stumble reading it silently.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 6 — Publishing -->
+  <div class="section">
+    <p class="section-tag">Publishing Right</p>
+    <h2>The Final Checklist Before You Hit Publish</h2>
+    <p>
+      Great long-form content deserves a great launch. Running through this checklist before publishing protects all the hours you invested in writing and maximises the chances your article finds the audience it was written for:
+    </p>
+
+    <ul class="check">
+      <li><strong>Compelling headline</strong> that includes your primary keyword and a clear promise to the reader.</li>
+      <li><strong>Optimised meta description</strong> of 150–155 characters that mirrors the benefit stated in the headline.</li>
+      <li><strong>Table of contents</strong> with jump links at the top for any article over 1,500 words.</li>
+      <li><strong>Three to five internal links</strong> pointing to related articles already on your blog.</li>
+      <li><strong>At least one original image, infographic, or custom diagram</strong> that adds visual information, not just decoration.</li>
+      <li><strong>Schema markup</strong> (Article or HowTo) added to the page if your platform supports it — helps Google understand your content type.</li>
+      <li><strong>Read aloud pass</strong> completed and any awkward phrasing corrected before final upload.</li>
+    </ul>
+
+    <div class="callout cb-slate">
+      <strong>Repurpose Immediately</strong>
+      <p>Every long-form article you publish contains at least five shorter pieces of content inside it. Pull out key sections as standalone social posts, turn the main checklist into a downloadable PDF, or record the introduction as a short video. One well-researched long-form piece should fuel a month of content across other channels.</p>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+    <h3>Write Deep. <em>Earn Forever.</em></h3>
+    <p>
+      Short content fades. A genuinely useful long-form article compounds. It earns links, climbs rankings, and brings in readers months and years after it was published — while you are asleep, on holiday, or writing your next piece. Long-form is not more work. It is more efficient work, concentrated into one piece that pays dividends indefinitely.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 &nbsp;·&nbsp; How to Write Long-Form Content &nbsp;·&nbsp; Written for Human Readers
+</footer>
+
+</body>
+</html>
