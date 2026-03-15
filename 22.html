@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Install WordPress Step by Step</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #07090f;
+    --surface:   #0f1219;
+    --surface2:  #141824;
+    --border:    #1e2535;
+    --text:      #d8e4f8;
+    --muted:     #4a607a;
+    --accent:    #3b82f6;
+    --wp-blue:   #21759b;
+    --green:     #22c55e;
+    --amber:     #f59e0b;
+    --rose:      #f43f5e;
+    --violet:    #8b5cf6;
+    --teal:      #14b8a6;
+    --glow-b:    rgba(59,130,246,0.10);
+    --glow-g:    rgba(34,197,94,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  /* blueprint grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* top glow */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -180px; left: 50%;
+    transform: translateX(-50%);
+    width: 1000px; height: 480px;
+    background: radial-gradient(ellipse at center,
+      rgba(59,130,246,0.09) 0%,
+      rgba(33,117,155,0.06) 40%,
+      transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 92px 46px 116px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 74px; }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .ht-pill {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 30px;
+  }
+
+  .hp-blue  { background:rgba(59,130,246,0.12);  color:var(--accent); border:1px solid rgba(59,130,246,0.28); }
+  .hp-green { background:rgba(34,197,94,0.10);   color:var(--green);  border:1px solid rgba(34,197,94,0.25); }
+
+  .hp-steps {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .hp-steps::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 10px var(--amber);
+    animation: amber-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes amber-pulse {
+    0%,100% { opacity:1; } 50% { opacity:0.3; }
+  }
+
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.4rem, 6.2vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #eef4ff;
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .deck {
+    font-size: 1.06rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 590px;
+  }
+
+  .header-rule {
+    margin-top: 40px;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent 65%);
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.62em;
+    color: #7a9ab8;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    padding: 34px 42px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--teal) 55%, transparent);
+  }
+
+  .pull-quote::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 0% 50%, var(--glow-b), transparent);
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.26rem;
+    color: var(--accent) !important;
+    line-height: 1.64;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── STEP CARDS ── */
+  .step-wrapper {
+    position: relative;
+    margin: 12px 0;
+  }
+
+  /* vertical connector line */
+  .step-wrapper:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 68px;
+    bottom: -12px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--border), transparent);
+  }
+
+  .step-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+
+  .step-card:hover {
+    border-color: rgba(59,130,246,0.35);
+    box-shadow: 0 4px 32px rgba(59,130,246,0.06);
+  }
+
+  .step-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step-num {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .step-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .step-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.08rem;
+    font-weight: 400;
+    color: #eef4ff;
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .step-time {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+  }
+
+  .step-body { padding: 18px 24px 20px 24px; }
+
+  .step-body p {
+    font-size: 0.94rem;
+    color: var(--muted);
+    margin: 0 !important;
+    line-height: 1.76;
+  }
+
+  /* ── ACTION NOTE ── */
+  .action-note {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 11px 16px;
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .an-icon { font-size: 13px; flex-shrink: 0; padding-top: 1px; }
+
+  .action-note p {
+    font-size: 0.85rem !important;
+    color: var(--green) !important;
+    font-weight: 600;
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+
+  /* ── OVERVIEW STRIP ── */
+  .overview-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin: 28px 0 42px;
+    position: relative;
+  }
+
+  .overview-strip::before {
+    content: '';
+    position: absolute;
+    top: 22px; left: 8%; right: 8%;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent), var(--teal));
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .ov-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ov-circle {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin-bottom: 8px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  .ov-step p {
+    font-size: 0.7rem !important;
+    color: var(--muted) !important;
+    margin: 0 !important;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  /* ── TIME TOTAL BAR ── */
+  .time-bar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 24px;
+    margin: 32px 0 38px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .tb-icon { font-size: 20px; flex-shrink: 0; }
+
+  .tb-text {
+    flex: 1;
+  }
+
+  .tb-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .tb-val {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem;
+    color: #eef4ff;
+    font-style: italic;
+  }
+
+  .tb-track {
+    flex: 2;
+    height: 8px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 160px;
+  }
+
+  .tb-fill {
+    height: 100%;
+    width: 85%;
+    background: linear-gradient(to right, var(--accent), var(--teal));
+    border-radius: 10px;
+  }
+
+  .tb-note {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    flex-shrink: 0;
+  }
+
+  /* ── LAUNCH CHECKLIST ── */
+  .launch-check {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 36px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .launch-check::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 100% 0%, var(--glow-g), transparent);
+    pointer-events: none;
+  }
+
+  .lc-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 26px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.91rem;
+    color: var(--muted);
+    line-height: 1.56;
+  }
+
+  .lc-box {
+    width: 18px; height: 18px;
+    border-radius: 5px;
+    border: 1.5px solid var(--green);
+    background: rgba(34,197,94,0.08);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── WARNING CHIP ── */
+  .warn-chip {
+    background: rgba(244,63,94,0.08);
+    border: 1px solid rgba(244,63,94,0.22);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .wc-icon { font-size: 15px; flex-shrink: 0; }
+
+  .warn-chip p {
+    font-size: 0.87rem !important;
+    color: var(--rose) !important;
+    font-weight: 500;
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.48rem;
+    font-weight: 400;
+    color: #eef4ff;
+    margin: 56px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-style: italic;
+  }
+
+  .h2-tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    font-style: normal;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 76px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .overview-strip { grid-template-columns: repeat(3, 1fr); }
+    .overview-strip::before { display: none; }
+    .lc-grid { grid-template-columns: 1fr; }
+    .pull-quote { padding: 26px 26px; }
+    .time-bar { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <span class="ht-pill hp-blue">WordPress Setup</span>
+      <span class="ht-pill hp-green">Step by Step</span>
+      <span class="hp-steps">Under 30 Minutes</span>
+    </div>
+    <h1>How to Install<br><em>WordPress</em><br>Step by Step</h1>
+    <p class="deck">WordPress powers over 43% of the entire internet — and installing it is far simpler than most people imagine. Follow these steps in order and your blog will be live before you finish your next cup of coffee.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>The moment you decide to take your blog seriously, WordPress becomes the destination almost every seasoned blogger eventually recommends. Its flexibility, its enormous plugin ecosystem, its SEO capabilities, and its full content ownership make it the undisputed home of professional bloggers worldwide. But for beginners, the prospect of installing it can feel technical and intimidating — a wall between the intention to blog and the actual act of it.</p>
+
+    <p>That wall is an illusion. Installing WordPress today, with modern hosting providers, has been reduced to a process so streamlined that it requires no coding knowledge, no server expertise, and no technical background whatsoever. This guide will walk you through every step clearly, in plain language, with nothing assumed and nothing skipped.</p>
+
+    <div class="pull-quote">
+      <p>WordPress is not a platform you learn once and move on from. It is a home you grow into — and the installation is simply the key in the front door.</p>
+    </div>
+
+    <!-- OVERVIEW STRIP -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(59,130,246,0.12);color:var(--accent);border:1px solid rgba(59,130,246,0.25)">Overview</span>
+      Six Steps to a Live WordPress Blog
+    </h2>
+
+    <div class="overview-strip">
+      <div class="ov-step">
+        <div class="ov-circle" style="border-color:var(--accent)">🌐</div>
+        <p>Get a Domain</p>
+      </div>
+      <div class="ov-step">
+        <div class="ov-circle" style="border-color:var(--teal)">🖥</div>
+        <p>Choose Hosting</p>
+      </div>
+      <div class="ov-step">
+        <div class="ov-circle" style="border-color:var(--green)">⚡</div>
+        <p>Install WP</p>
+      </div>
+      <div class="ov-step">
+        <div class="ov-circle" style="border-color:var(--amber)">🎨</div>
+        <p>Pick a Theme</p>
+      </div>
+      <div class="ov-step">
+        <div class="ov-circle" style="border-color:var(--violet)">🔌</div>
+        <p>Add Plugins</p>
+      </div>
+      <div class="ov-step">
+        <div class="ov-circle" style="border-color:var(--rose)">🚀</div>
+        <p>Go Live</p>
+      </div>
+    </div>
+
+    <!-- TIME BAR -->
+    <div class="time-bar">
+      <span class="tb-icon">⏱</span>
+      <div class="tb-text">
+        <span class="tb-label">Total Time Required</span>
+        <span class="tb-val">20 – 30 minutes from start to published</span>
+      </div>
+      <div class="tb-track"><div class="tb-fill"></div></div>
+      <span class="tb-note">Beginner Friendly</span>
+    </div>
+
+    <!-- STEP 1 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(59,130,246,0.12);color:var(--accent);border:1px solid rgba(59,130,246,0.25)">Step 01</span>
+      Choose and Register Your Domain Name
+    </h2>
+
+    <div class="step-wrapper">
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num" style="background:rgba(59,130,246,0.12);color:var(--accent)">01</div>
+          <span class="step-icon">🌐</span>
+          <h3>Your Blog's Address on the Internet</h3>
+          <span class="step-time">5 min</span>
+        </div>
+        <div class="step-body">
+          <p>Your domain name is your blog's permanent address — the URL readers will type to find you. Choose something short, memorable, and easy to spell. Avoid hyphens and numbers. Your domain should ideally reflect your blog name or niche clearly. Register it through providers like Namecheap, GoDaddy, or directly through your hosting provider — many hosting plans include a free domain for the first year, which is a genuine saving worth looking for when you compare options.</p>
+          <div class="action-note">
+            <span class="an-icon">→</span>
+            <p>Search your chosen name with a .com extension first. If it's taken, try .blog or .co — but .com remains the most trusted and recognised extension for professional bloggers worldwide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(20,184,166,0.12);color:var(--teal);border:1px solid rgba(20,184,166,0.25)">Step 02</span>
+      Choose a Reliable Web Hosting Provider
+    </h2>
+
+    <div class="step-wrapper">
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num" style="background:rgba(20,184,166,0.12);color:var(--teal)">02</div>
+          <span class="step-icon">🖥</span>
+          <h3>The Server That Houses Your Blog</h3>
+          <span class="step-time">5 min</span>
+        </div>
+        <div class="step-body">
+          <p>Web hosting is the service that stores your blog's files and makes them accessible to anyone who types your domain name. For WordPress beginners, shared hosting is the ideal starting point — affordable, beginner-friendly, and more than powerful enough for a growing blog. Bluehost, SiteGround, and Hostinger are three consistently recommended options, each offering WordPress-optimised plans starting from just a few dollars per month. Look for a plan that includes a free SSL certificate, as this is essential for security and SEO.</p>
+          <div class="action-note">
+            <span class="an-icon">→</span>
+            <p>Many hosts offer one-click WordPress installation — choose one of these. It will save you every technical step in the traditional installation process and is the route we follow in Step 3.</p>
+          </div>
+          <div class="warn-chip">
+            <span class="wc-icon">⚠</span>
+            <p>Avoid the very cheapest hosting plans that offer no performance guarantees. A slow-loading blog sends readers away and signals low quality to search engines — the cost saving is never worth the traffic cost.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.25)">Step 03</span>
+      Install WordPress in One Click
+    </h2>
+
+    <div class="step-wrapper">
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num" style="background:rgba(34,197,94,0.12);color:var(--green)">03</div>
+          <span class="step-icon">⚡</span>
+          <h3>The Moment Your Blog Comes Alive</h3>
+          <span class="step-time">3 min</span>
+        </div>
+        <div class="step-body">
+          <p>Log into your hosting account's control panel — usually called cPanel. Look for the WordPress installer tool, which on most modern hosts is labelled "WordPress" or "Softaculous." Click it, enter your blog's title, create your admin username and a strong password, confirm your domain, and click install. Within sixty seconds, WordPress will be fully installed on your server. You will receive an email with your login link — typically yourdomain.com/wp-admin. Bookmark this immediately. It is how you access everything from this point forward.</p>
+          <div class="action-note">
+            <span class="an-icon">→</span>
+            <p>Create a password that is at least 12 characters with numbers and symbols. Your WordPress admin account is the most sensitive area of your entire blog — treat it accordingly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(245,158,11,0.12);color:var(--amber);border:1px solid rgba(245,158,11,0.25)">Step 04</span>
+      Choose and Install Your Theme
+    </h2>
+
+    <div class="step-wrapper">
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num" style="background:rgba(245,158,11,0.12);color:var(--amber)">04</div>
+          <span class="step-icon">🎨</span>
+          <h3>Give Your Blog Its Visual Identity</h3>
+          <span class="step-time">5 min</span>
+        </div>
+        <div class="step-body">
+          <p>Inside your WordPress dashboard, navigate to Appearance → Themes → Add New. Browse the thousands of free themes available directly from the WordPress repository. For beginners, look for themes labelled "Lightweight," "Fast," or "Blog-Optimised." Popular choices like Astra, Kadence, and GeneratePress are beloved by professional bloggers for their speed, clean design, and extensive customisation options — all available on their free tiers. Click "Install" then "Activate" and your blog's visual identity is in place within minutes.</p>
+          <div class="action-note">
+            <span class="an-icon">→</span>
+            <p>Choose a theme designed specifically for blogs rather than general websites. Blog-optimised themes handle typography, post layouts, and reading experience far better than generic multipurpose themes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(139,92,246,0.12);color:var(--violet);border:1px solid rgba(139,92,246,0.25)">Step 05</span>
+      Install Your Essential Plugins
+    </h2>
+
+    <div class="step-wrapper">
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num" style="background:rgba(139,92,246,0.12);color:var(--violet)">05</div>
+          <span class="step-icon">🔌</span>
+          <h3>Add the Tools That Power Your Blog</h3>
+          <span class="step-time">5 min</span>
+        </div>
+        <div class="step-body">
+          <p>Plugins extend WordPress's functionality — each one adds a specific feature your blog needs. Navigate to Plugins → Add New and install these four essential plugins immediately: Rank Math or Yoast SEO for search engine optimisation, WP Rocket or LiteSpeed Cache for performance and speed, Wordfence for security protection, and UpdraftPlus for automatic backups. These four plugins alone give your blog a professional-grade technical foundation that most beginner bloggers take months to discover and assemble.</p>
+          <div class="action-note">
+            <span class="an-icon">→</span>
+            <p>Install only the plugins you genuinely need. Every active plugin adds a small weight to your page load time. Twelve focused plugins perform better than forty half-configured ones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <h2>
+      <span class="h2-tag" style="background:rgba(244,63,94,0.12);color:var(--rose);border:1px solid rgba(244,63,94,0.25)">Step 06</span>
+      Configure Settings and Publish Your First Post
+    </h2>
+
+    <div class="step-wrapper">
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num" style="background:rgba(244,63,94,0.12);color:var(--rose)">06</div>
+          <span class="step-icon">🚀</span>
+          <h3>The Final Step Before You Go Live</h3>
+          <span class="step-time">5 min</span>
+        </div>
+        <div class="step-body">
+          <p>Before writing, spend five minutes in Settings. Under Settings → General, set your site title and tagline. Under Settings → Permalinks, choose "Post name" as your URL structure — this is cleaner and better for SEO than the default numerical format. Under Settings → Reading, confirm your homepage displays your latest posts. Then navigate to Posts → Add New, write a short introduction post, and click Publish. Your WordPress blog is now live, indexed-ready, and open to the world.</p>
+          <div class="action-note">
+            <span class="an-icon">→</span>
+            <p>After publishing your first post, submit your site to Google Search Console and generate a sitemap using your SEO plugin. This tells Google your blog exists and begins the indexing process immediately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL CHECKLIST -->
+    <div class="launch-check">
+      <div class="lc-title">✦ &nbsp; WordPress Launch Checklist — Verify Everything</div>
+      <div class="lc-grid">
+        <div class="lc-item"><div class="lc-box"></div>Domain registered & pointing to host</div>
+        <div class="lc-item"><div class="lc-box"></div>SSL certificate active (https://)</div>
+        <div class="lc-item"><div class="lc-box"></div>WordPress installed & admin accessible</div>
+        <div class="lc-item"><div class="lc-box"></div>Theme installed and activated</div>
+        <div class="lc-item"><div class="lc-box"></div>SEO plugin installed & configured</div>
+        <div class="lc-item"><div class="lc-box"></div>Caching plugin active for speed</div>
+        <div class="lc-item"><div class="lc-box"></div>Backup plugin scheduled to run weekly</div>
+        <div class="lc-item"><div class="lc-box"></div>First post published and readable</div>
+        <div class="lc-item"><div class="lc-box"></div>Permalinks set to "Post name"</div>
+        <div class="lc-item"><div class="lc-box"></div>Site submitted to Google Search Console</div>
+      </div>
+    </div>
+
+    <p>Installing WordPress is one of those tasks that feels more intimidating than it actually is. Most bloggers who delayed it for months — convinced it required technical expertise they did not possess — look back on the process and wonder what they were waiting for. The steps above represent perhaps thirty minutes of focused attention and the beginning of a blogging platform that can genuinely grow with you for years.</p>
+
+    <p>Your blog is ready. Now the real work — and the real joy — of writing can begin.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">Installation takes thirty minutes. The blog you build lasts for years.</span>
+  </footer>
+
+</div>
+</body>
+</html>
