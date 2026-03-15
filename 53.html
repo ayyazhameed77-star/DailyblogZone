@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Track Website Traffic — Complete Analytics Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #09090f;
+    --surface:    #111118;
+    --surface2:   #18181f;
+    --surface3:   #1e1e28;
+    --border:     #2a2a38;
+    --border2:    #363648;
+    --ink:        #f0f0fa;
+    --soft:       #b0b0c8;
+    --muted:      #606078;
+    --violet:     #7c6fcd;
+    --violet-dim: rgba(124,111,205,0.12);
+    --violet-mid: rgba(124,111,205,0.28);
+    --violet-glow:rgba(124,111,205,0.06);
+    --pink:       #e05c97;
+    --pink-dim:   rgba(224,92,151,0.10);
+    --teal:       #2ec4b6;
+    --teal-dim:   rgba(46,196,182,0.10);
+    --amber:      #f4a259;
+    --amber-dim:  rgba(244,162,89,0.10);
+    --green:      #56cba8;
+    --green-dim:  rgba(86,203,168,0.10);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  /* ── Neon top accent ── */
+  .topglow {
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      var(--violet) 25%,
+      var(--pink) 50%,
+      var(--teal) 75%,
+      transparent 100%);
+    box-shadow: 0 0 20px rgba(124,111,205,0.6),
+                0 0 40px rgba(224,92,151,0.3);
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--surface);
+    padding: 76px 32px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-glow {
+    position: absolute;
+    top: -120px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse,
+      rgba(124,111,205,0.12) 0%,
+      rgba(224,92,151,0.06) 40%,
+      transparent 70%);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.67rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 22px;
+    position: relative;
+  }
+
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--violet-mid);
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.3rem, 5.5vw, 4rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    max-width: 720px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+
+  h1 .grad {
+    background: linear-gradient(135deg, var(--violet) 0%, var(--pink) 50%, var(--teal) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header-sub {
+    font-size: 0.88rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  /* ── Live traffic visualisation ── */
+  .traffic-viz {
+    max-width: 660px;
+    margin: 0 auto;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .viz-bar {
+    background: var(--surface3);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .vdot { width:10px;height:10px;border-radius:50%; }
+  .vd1{background:#ff5f57;} .vd2{background:#febc2e;} .vd3{background:#28c840;}
+
+  .viz-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+
+  .viz-body {
+    padding: 22px 22px 16px;
+  }
+
+  .viz-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .vstat {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+  }
+
+  .vstat-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .vstat-lbl {
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .vs1 .vstat-num { color: var(--violet); }
+  .vs2 .vstat-num { color: var(--pink); }
+  .vs3 .vstat-num { color: var(--teal); }
+  .vs4 .vstat-num { color: var(--amber); }
+
+  /* sparkline chart */
+  .sparkline {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+  }
+
+  .spark {
+    flex: 1;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spark::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 62px 28px 90px;
+  }
+
+  /* ── Lead ── */
+  .lead {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.18rem;
+    font-style: italic;
+    color: var(--soft);
+    line-height: 1.8;
+    padding: 24px 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--violet);
+    border-radius: 4px;
+    margin-bottom: 56px;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 58px; }
+
+  .section-tag {
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--violet);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .section-tag::after {
+    content: ''; flex:1; height:1px;
+    background: var(--border);
+  }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 18px;
+    letter-spacing: -0.025em;
+  }
+
+  p { color: var(--soft); margin-bottom: 16px; }
+  strong { color: var(--ink); font-weight: 600; }
+  em { color: var(--violet); font-style: italic; }
+
+  /* ── Tool cards ── */
+  .tool-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 26px 0;
+  }
+
+  @media(max-width:540px){
+    .tool-grid { grid-template-columns:1fr; }
+    .viz-stats  { grid-template-columns: repeat(2,1fr); }
+  }
+
+  .tcard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 20px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tcard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .tcard.tc-v::before { background: var(--violet); }
+  .tcard.tc-p::before { background: var(--pink); }
+  .tcard.tc-t::before { background: var(--teal); }
+  .tcard.tc-a::before { background: var(--amber); }
+  .tcard.tc-g::before { background: var(--green); }
+  .tcard.tc-m::before { background: linear-gradient(90deg,var(--violet),var(--pink)); }
+
+  .tcard:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+  }
+
+  .tcard-logo {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .tcard-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .tcard-tag {
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .tag-free { background:var(--green-dim); color:var(--green); }
+  .tag-paid { background:var(--pink-dim);  color:var(--pink);  }
+  .tag-both { background:var(--violet-dim);color:var(--violet);}
+
+  .tcard-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── Callouts ── */
+  .callout {
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin: 22px 0;
+  }
+
+  .cb-v { background:var(--violet-dim); border:1px solid var(--violet-mid);            border-left:3px solid var(--violet); }
+  .cb-p { background:var(--pink-dim);   border:1px solid rgba(224,92,151,0.25);        border-left:3px solid var(--pink);   }
+  .cb-t { background:var(--teal-dim);   border:1px solid rgba(46,196,182,0.25);        border-left:3px solid var(--teal);   }
+  .cb-a { background:var(--amber-dim);  border:1px solid rgba(244,162,89,0.25);        border-left:3px solid var(--amber);  }
+  .cb-g { background:var(--green-dim);  border:1px solid rgba(86,203,168,0.25);        border-left:3px solid var(--green);  }
+
+  .callout strong {
+    font-size: 0.66rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    display: block; margin-bottom: 5px;
+  }
+  .cb-v strong { color:var(--violet); }
+  .cb-p strong { color:var(--pink);   }
+  .cb-t strong { color:var(--teal);   }
+  .cb-a strong { color:var(--amber);  }
+  .cb-g strong { color:var(--green);  }
+  .callout p { font-size:0.9rem; margin:0; }
+
+  /* ── Traffic sources ── */
+  .sources {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  .source-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .source-row:last-child { border-bottom: none; }
+
+  .source-icon {
+    font-size: 1.1rem;
+    width: 32px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .source-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--ink);
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  .source-bar-wrap {
+    flex: 1;
+    background: var(--surface3);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+  }
+
+  .source-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+  }
+
+  .sb-v { background: var(--violet); }
+  .sb-p { background: var(--pink);   }
+  .sb-t { background: var(--teal);   }
+  .sb-a { background: var(--amber);  }
+  .sb-g { background: var(--green);  }
+
+  .source-pct {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+    width: 36px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* ── Steps ── */
+  ol.steps {
+    list-style: none; padding:0; margin:20px 0;
+    counter-reset: step;
+  }
+  ol.steps li {
+    counter-increment: step;
+    padding: 13px 14px 13px 54px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    color: var(--soft);
+    font-size: 0.95rem;
+  }
+  ol.steps li:last-child { border-bottom:none; }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute; left:10px; top:12px;
+    width:28px; height:28px;
+    background: var(--violet-dim);
+    border: 1px solid var(--violet-mid);
+    color: var(--violet);
+    font-size: 0.72rem; font-weight:700;
+    border-radius: 50%;
+    display: flex; align-items:center; justify-content:center;
+  }
+
+  /* ── Metrics grid ── */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  @media(max-width:500px){ .metric-grid { grid-template-columns: 1fr 1fr; } }
+
+  .mgcard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+
+  .mgcard-icon { font-size: 1.3rem; margin-bottom: 6px; display:block; }
+
+  .mgcard-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .mgcard-desc {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ── Checklist ── */
+  ul.check {
+    list-style:none; padding:0; margin:18px 0;
+  }
+  ul.check li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    color: var(--soft);
+    font-size: 0.95rem;
+  }
+  ul.check li:last-child { border-bottom:none; }
+  ul.check li::before {
+    content: '→';
+    position: absolute; left:4px;
+    color: var(--violet); font-weight:700;
+  }
+
+  /* ── Divider ── */
+  hr.div {
+    border:none; border-top:1px solid var(--border);
+    margin: 52px 0; position:relative;
+  }
+  hr.div::before {
+    content: '◆';
+    position:absolute; top:-10px; left:50%;
+    transform:translateX(-50%);
+    background:var(--bg); padding:0 12px;
+    color: var(--violet); font-size:0.8rem;
+  }
+
+  /* ── Closing ── */
+  .closing {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 44px 38px;
+    margin-top: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse at 0% 100%, rgba(124,111,205,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 0%,  rgba(46,196,182,0.06) 0%, transparent 55%);
+    pointer-events:none;
+  }
+
+  .closing h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.75rem;
+    font-style: italic;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+    position:relative;
+  }
+
+  .closing h3 span {
+    background: linear-gradient(135deg, var(--violet), var(--pink), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .closing p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align:center;
+    padding:26px;
+    font-size:0.78rem;
+    color:var(--muted);
+    border-top:1px solid var(--border);
+    letter-spacing:0.05em;
+  }
+
+  @media(max-width:600px){
+    main { padding:36px 16px 60px; }
+    header { padding:50px 18px 0; }
+    h1 { font-size:2rem; }
+    h2 { font-size:1.35rem; }
+    .closing { padding:28px 18px; }
+    .source-name { width:90px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topglow"></div>
+
+<header>
+  <div class="header-glow"></div>
+  <div class="eyebrow">Analytics &amp; SEO</div>
+  <h1>How to <span class="grad">Track<br>Website Traffic</span></h1>
+  <p class="header-sub">~800 words &nbsp;·&nbsp; Practical &amp; Human &nbsp;·&nbsp; 2026 Edition</p>
+
+  <!-- Live traffic widget -->
+  <div class="traffic-viz">
+    <div class="viz-bar">
+      <div class="vdot vd1"></div>
+      <div class="vdot vd2"></div>
+      <div class="vdot vd3"></div>
+      <span class="viz-title">Live Dashboard — Last 30 Days</span>
+    </div>
+    <div class="viz-body">
+      <div class="viz-stats">
+        <div class="vstat vs1"><span class="vstat-num">24.8K</span><span class="vstat-lbl">Visitors</span></div>
+        <div class="vstat vs2"><span class="vstat-num">3.6</span><span class="vstat-lbl">Pages/Visit</span></div>
+        <div class="vstat vs3"><span class="vstat-num">2:42</span><span class="vstat-lbl">Avg. Duration</span></div>
+        <div class="vstat vs4"><span class="vstat-num">54%</span><span class="vstat-lbl">Bounce Rate</span></div>
+      </div>
+      <div class="sparkline">
+        <div class="spark" style="height:38%;background:linear-gradient(180deg,var(--violet),var(--violet-dim))"></div>
+        <div class="spark" style="height:52%;background:linear-gradient(180deg,var(--violet),var(--violet-dim))"></div>
+        <div class="spark" style="height:44%;background:linear-gradient(180deg,var(--violet),var(--violet-dim))"></div>
+        <div class="spark" style="height:66%;background:linear-gradient(180deg,var(--violet),var(--violet-dim))"></div>
+        <div class="spark" style="height:58%;background:linear-gradient(180deg,var(--pink),var(--pink-dim))"></div>
+        <div class="spark" style="height:74%;background:linear-gradient(180deg,var(--pink),var(--pink-dim))"></div>
+        <div class="spark" style="height:62%;background:linear-gradient(180deg,var(--pink),var(--pink-dim))"></div>
+        <div class="spark" style="height:85%;background:linear-gradient(180deg,var(--teal),var(--teal-dim))"></div>
+        <div class="spark" style="height:78%;background:linear-gradient(180deg,var(--teal),var(--teal-dim))"></div>
+        <div class="spark" style="height:92%;background:linear-gradient(180deg,var(--teal),var(--teal-dim))"></div>
+        <div class="spark" style="height:88%;background:linear-gradient(180deg,var(--teal),var(--teal-dim))"></div>
+        <div class="spark" style="height:100%;background:linear-gradient(180deg,var(--amber),var(--amber-dim))"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Lead -->
+  <p class="lead">
+    You cannot improve what you cannot measure. Tracking website traffic is not just about watching numbers go up — it is about understanding who your visitors are, where they come from, what they read, and why they leave. Done right, traffic data becomes the clearest guide you have for growing your blog.
+  </p>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <p class="section-tag">The Foundation</p>
+    <h2>Why Tracking Traffic Is Non-Negotiable</h2>
+    <p>
+      Every decision you make about your blog — what topics to write about, which pages to update, where to focus your promotion efforts — should be informed by real data. Without traffic tracking, you are making those decisions blind, relying on guesswork and gut feeling instead of evidence.
+    </p>
+    <p>
+      Traffic data tells you which articles are driving the most organic visits, which pages have the highest bounce rate (signalling a content or experience problem), and which traffic sources deliver the most engaged readers. This is not optional information — it is the foundation of intelligent content strategy.
+    </p>
+
+    <div class="callout cb-v">
+      <strong>Data Is Direction</strong>
+      <p>Bloggers who track traffic consistently grow faster than those who publish randomly. Not because tracking magically increases traffic — but because it reveals exactly where to put your energy next.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 2 — Tools -->
+  <div class="section">
+    <p class="section-tag">The Right Tools</p>
+    <h2>Best Tools to Track Your Website Traffic</h2>
+    <p>
+      Several powerful tools exist for traffic tracking, ranging from completely free to enterprise-level paid platforms. The right one depends on your site size, technical comfort, and what you need to measure.
+    </p>
+
+    <div class="tool-grid">
+      <div class="tcard tc-v">
+        <span class="tcard-logo">📊</span>
+        <p class="tcard-name">Google Analytics 4</p>
+        <span class="tcard-tag tag-free">Free</span>
+        <p class="tcard-desc">The industry standard. Tracks every visitor, session, page view, and conversion. Steep learning curve but unmatched depth of data.</p>
+      </div>
+      <div class="tcard tc-p">
+        <span class="tcard-logo">🔍</span>
+        <p class="tcard-name">Google Search Console</p>
+        <span class="tcard-tag tag-free">Free</span>
+        <p class="tcard-desc">Tracks organic search traffic specifically — impressions, clicks, and keyword rankings direct from Google's own database.</p>
+      </div>
+      <div class="tcard tc-t">
+        <span class="tcard-logo">🦔</span>
+        <p class="tcard-name">Plausible Analytics</p>
+        <span class="tcard-tag tag-paid">Paid</span>
+        <p class="tcard-desc">A privacy-focused, lightweight alternative to GA4. Simple dashboard, no cookies, GDPR-compliant by default. Loved by indie bloggers.</p>
+      </div>
+      <div class="tcard tc-a">
+        <span class="tcard-logo">📈</span>
+        <p class="tcard-name">Semrush / Ahrefs</p>
+        <span class="tcard-tag tag-both">Freemium</span>
+        <p class="tcard-desc">Track your own traffic and spy on competitors. Shows which pages rank, which keywords drive traffic, and how you compare in your niche.</p>
+      </div>
+      <div class="tcard tc-g">
+        <span class="tcard-logo">🟠</span>
+        <p class="tcard-name">Cloudflare Analytics</p>
+        <span class="tcard-tag tag-free">Free</span>
+        <p class="tcard-desc">Built into Cloudflare's free plan. Tracks raw server-level traffic without JavaScript — catches visitors that ad blockers hide from GA4.</p>
+      </div>
+      <div class="tcard tc-m">
+        <span class="tcard-logo">🔥</span>
+        <p class="tcard-name">Hotjar</p>
+        <span class="tcard-tag tag-both">Freemium</span>
+        <p class="tcard-desc">Goes beyond numbers — records actual visitor sessions, heatmaps, and scroll depth. Shows you exactly how people interact with your pages.</p>
+      </div>
+    </div>
+
+    <div class="callout cb-t">
+      <strong>Start Here</strong>
+      <p>If you are just getting started, install Google Analytics 4 and Google Search Console together. They are free, complementary, and give you everything you need at the beginning. Add other tools once you have outgrown what they offer.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 3 — Traffic sources -->
+  <div class="section">
+    <p class="section-tag">Traffic Sources</p>
+    <h2>Understanding Where Your Visitors Come From</h2>
+    <p>
+      Not all traffic is the same. Analytics tools divide your visitors into <strong>traffic channels</strong> — the pathways through which people arrived at your site. Understanding each channel helps you invest your time in the right places.
+    </p>
+
+    <div class="sources">
+      <div class="source-row">
+        <span class="source-icon">🔎</span>
+        <span class="source-name">Organic Search</span>
+        <div class="source-bar-wrap"><div class="source-bar sb-v" style="width:72%"></div></div>
+        <span class="source-pct">72%</span>
+      </div>
+      <div class="source-row">
+        <span class="source-icon">📱</span>
+        <span class="source-name">Social Media</span>
+        <div class="source-bar-wrap"><div class="source-bar sb-p" style="width:48%"></div></div>
+        <span class="source-pct">48%</span>
+      </div>
+      <div class="source-row">
+        <span class="source-icon">🔗</span>
+        <span class="source-name">Referral</span>
+        <div class="source-bar-wrap"><div class="source-bar sb-t" style="width:33%"></div></div>
+        <span class="source-pct">33%</span>
+      </div>
+      <div class="source-row">
+        <span class="source-icon">✉️</span>
+        <span class="source-name">Email</span>
+        <div class="source-bar-wrap"><div class="source-bar sb-a" style="width:22%"></div></div>
+        <span class="source-pct">22%</span>
+      </div>
+      <div class="source-row">
+        <span class="source-icon">🧭</span>
+        <span class="source-name">Direct</span>
+        <div class="source-bar-wrap"><div class="source-bar sb-g" style="width:15%"></div></div>
+        <span class="source-pct">15%</span>
+      </div>
+    </div>
+
+    <p>
+      <strong>Organic search</strong> is the holy grail — it compounds over time as you publish more content and build authority. <strong>Direct traffic</strong> often means loyal readers typing your URL straight into their browser, which signals strong brand recognition. <strong>Referral traffic</strong> comes from other websites linking to you — a sign your content is being recognised across the web.
+    </p>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 4 — Setup GA4 -->
+  <div class="section">
+    <p class="section-tag">Getting Started</p>
+    <h2>How to Set Up Google Analytics 4 in 5 Steps</h2>
+    <p>
+      Installing GA4 takes about ten minutes and requires no coding knowledge if you use WordPress or a similar platform. Here is the full setup process:
+    </p>
+
+    <ol class="steps">
+      <li>Go to <strong>analytics.google.com</strong> and sign in. Click <em>Start measuring</em> and create a new account and property for your website.</li>
+      <li>Choose <strong>Web</strong> as your platform. Enter your website URL and give the stream a name — this creates your data stream where all traffic is collected.</li>
+      <li>Copy your <strong>Measurement ID</strong> (it looks like G-XXXXXXXXXX). This is your unique tracking code that connects your site to your GA4 account.</li>
+      <li>Add the tracking code to your site. On WordPress, use the <em>Site Kit by Google</em> plugin for a one-click install. On other platforms, paste the code into your site's <code style="background:var(--surface2);padding:2px 8px;border-radius:3px;font-size:0.82rem;color:var(--violet);">&lt;head&gt;</code> section.</li>
+      <li>Verify the installation by visiting your site and checking the <strong>Realtime</strong> report in GA4. If your own visit appears, tracking is working correctly.</li>
+    </ol>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 5 — Key metrics -->
+  <div class="section">
+    <p class="section-tag">Key Metrics</p>
+    <h2>The 6 Metrics Every Blogger Must Monitor</h2>
+    <p>
+      Google Analytics shows hundreds of data points. Most of them are noise. These six metrics are the ones that actually tell you something useful about how your blog is performing:
+    </p>
+
+    <div class="metric-grid">
+      <div class="mgcard">
+        <span class="mgcard-icon">👥</span>
+        <p class="mgcard-name">Users</p>
+        <p class="mgcard-desc">Unique individuals who visited your site. Your most fundamental growth metric.</p>
+      </div>
+      <div class="mgcard">
+        <span class="mgcard-icon">📄</span>
+        <p class="mgcard-name">Sessions</p>
+        <p class="mgcard-desc">Individual visits including return visits. One user can create multiple sessions.</p>
+      </div>
+      <div class="mgcard">
+        <span class="mgcard-icon">⏱️</span>
+        <p class="mgcard-name">Avg. Session Duration</p>
+        <p class="mgcard-desc">How long visitors stay. Longer = more engaged. Under 30 seconds signals a problem.</p>
+      </div>
+      <div class="mgcard">
+        <span class="mgcard-icon">↩️</span>
+        <p class="mgcard-name">Bounce Rate</p>
+        <p class="mgcard-desc">Visitors who left after one page. High rates often mean slow load speed or poor content match.</p>
+      </div>
+      <div class="mgcard">
+        <span class="mgcard-icon">📋</span>
+        <p class="mgcard-name">Pages per Session</p>
+        <p class="mgcard-desc">How many pages each visitor reads. Higher numbers mean strong internal linking is working.</p>
+      </div>
+      <div class="mgcard">
+        <span class="mgcard-icon">🆕</span>
+        <p class="mgcard-name">New vs Returning</p>
+        <p class="mgcard-desc">The ratio of first-time visitors to loyal readers. A healthy blog grows both numbers steadily.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 6 — Habits -->
+  <div class="section">
+    <p class="section-tag">Building the Habit</p>
+    <h2>How Often Should You Check Your Traffic?</h2>
+    <p>
+      Checking your analytics every hour is anxiety, not strategy. The right frequency depends on your site's age and traffic level — but here is a rhythm that works for most bloggers:
+    </p>
+
+    <ul class="check">
+      <li><strong>Daily:</strong> A quick 60-second glance at the Realtime report after publishing a new article — just to confirm your tracking is working and the post is being discovered.</li>
+      <li><strong>Weekly:</strong> A 10-minute review of your top pages by traffic, bounce rate trends, and any sudden drops that might signal a technical issue or Google algorithm update.</li>
+      <li><strong>Monthly:</strong> A deeper 30-minute session comparing this month to last month. Identify your fastest-growing pages, your biggest traffic sources, and three specific actions to take next month based on what the data shows.</li>
+    </ul>
+
+    <div class="callout cb-g">
+      <strong>Compare Periods, Not Single Days</strong>
+      <p>Day-to-day traffic fluctuates naturally — weekends are slower, viral posts spike randomly. Always compare month-over-month or year-over-year to see the real trend. A single bad Tuesday means nothing; a declining monthly trend means everything.</p>
+    </div>
+
+    <div class="callout cb-a">
+      <strong>Filter Out Your Own Visits</strong>
+      <p>Before trusting any data, filter out your own IP address from your analytics. If you visit your own site frequently while checking content, you will inflate your session count and distort your bounce rate — giving you false confidence or false concern.</p>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <h3>Data Is Your <span>Competitive Edge</span></h3>
+    <p>
+      Most bloggers publish content and hope for the best. The ones who grow consistently track what works, double down on it, and quietly drop what does not. Traffic data is not just numbers on a dashboard — it is a map showing you the shortest path to more readers, more influence, and more impact. Install your tools today, build the habit, and let the data guide you.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 &nbsp;·&nbsp; How to Track Website Traffic &nbsp;·&nbsp; Written for human readers
+</footer>
+
+</body>
+</html>
