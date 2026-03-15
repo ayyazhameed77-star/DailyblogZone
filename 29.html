@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdSense Mistakes to Avoid</title>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0a0c10;
+    --surface:   #101318;
+    --surface2:  #161920;
+    --border:    #1e2430;
+    --text:      #dce8f8;
+    --muted:     #4a6080;
+    --accent:    #f59e0b;
+    --red:       #ef4444;
+    --green:     #22c55e;
+    --blue:      #60a5fa;
+    --violet:    #a78bfa;
+    --teal:      #2dd4bf;
+    --rose:      #fb7185;
+    --glow-a:    rgba(245,158,11,0.10);
+    --glow-r:    rgba(239,68,68,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  /* warning amber glow */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -180px; right: -100px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle,
+      rgba(245,158,11,0.07) 0%,
+      rgba(239,68,68,0.04) 40%,
+      transparent 68%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle,
+      rgba(96,165,250,0.05) 0%,
+      transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 92px 46px 116px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 74px; }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .ht-warn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,158,11,0.12);
+    border: 1px solid rgba(245,158,11,0.28);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .ht-warn::before {
+    content: '⚠';
+    font-size: 12px;
+  }
+
+  .ht-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+
+  .ht-sub {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    font-family: 'Domine', serif;
+    font-size: clamp(2.3rem, 6vw, 3.9rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #eef4ff;
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .deck {
+    font-size: 1.05rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 590px;
+  }
+
+  .header-rule {
+    margin-top: 40px;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent 65%);
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.62em;
+    color: #8090a8;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    padding: 34px 42px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--red) 55%, transparent);
+  }
+
+  .pull-quote::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 0% 50%, var(--glow-a), transparent);
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Domine', serif;
+    font-style: italic;
+    font-size: 1.24rem;
+    font-weight: 400;
+    color: var(--accent) !important;
+    line-height: 1.64;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Domine', serif;
+    font-size: 1.46rem;
+    font-weight: 700;
+    color: #eef4ff;
+    margin: 58px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .h2-chip {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  /* ── MISTAKE CARDS ── */
+  .mistake-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 20px 0;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+
+  .mistake-card:hover {
+    border-color: rgba(245,158,11,0.3);
+    box-shadow: 0 4px 32px rgba(245,158,11,0.05);
+  }
+
+  .mc-top {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mc-stripe { width: 4px; flex-shrink: 0; }
+
+  .mc-top-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    flex: 1;
+  }
+
+  .mc-num {
+    font-family: 'Domine', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.18;
+    flex-shrink: 0;
+    width: 36px;
+  }
+
+  .mc-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .mistake-card h3 {
+    font-family: 'Domine', serif;
+    font-size: 1.06rem;
+    font-weight: 700;
+    color: #eef4ff;
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .mc-risk {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .risk-fatal  { background:rgba(239,68,68,0.12);  color:var(--red);   border:1px solid rgba(239,68,68,0.25); }
+  .risk-ban    { background:rgba(251,113,133,0.12); color:var(--rose);  border:1px solid rgba(251,113,133,0.25); }
+  .risk-high   { background:rgba(245,158,11,0.12);  color:var(--accent);border:1px solid rgba(245,158,11,0.25); }
+  .risk-common { background:rgba(96,165,250,0.12);  color:var(--blue);  border:1px solid rgba(96,165,250,0.25); }
+  .risk-loss   { background:rgba(167,139,250,0.12); color:var(--violet);border:1px solid rgba(167,139,250,0.25); }
+
+  .mc-body { padding: 18px 24px 20px 28px; }
+
+  .mc-body p {
+    font-size: 0.94rem;
+    color: var(--muted);
+    margin: 0 !important;
+    line-height: 1.76;
+  }
+
+  /* ── THE FIX ── */
+  .the-fix {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    border-radius: 0 9px 9px 0;
+    padding: 12px 18px;
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .fix-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .the-fix p {
+    font-size: 0.86rem !important;
+    font-weight: 500;
+    color: #5a7a58 !important;
+    margin: 0 !important;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ── ACCOUNT HEALTH METER ── */
+  .health-meter {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px 30px;
+    margin: 28px 0 38px;
+  }
+
+  .hm-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .hm-rows { display: grid; gap: 12px; }
+
+  .hm-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 100px;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .hm-label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .hm-track {
+    height: 7px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .hm-fill { height: 100%; border-radius: 10px; }
+
+  .hm-val {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  /* ── SAFE VS UNSAFE ── */
+  .safe-unsafe {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 26px 0 36px;
+  }
+
+  .su-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .su-head {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .su-body { padding: 6px 0; }
+
+  .su-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 7px 18px;
+    font-size: 0.87rem;
+    color: #5a7090;
+    line-height: 1.55;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .su-item:last-child { border-bottom: none; }
+  .su-safe::before   { content: '✓'; color:var(--green); flex-shrink:0; }
+  .su-danger::before { content: '✗'; color:var(--red);   flex-shrink:0; }
+
+  /* ── PROTECT PANEL ── */
+  .protect-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 36px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .protect-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 100% 0%, var(--glow-r), transparent);
+    pointer-events: none;
+  }
+
+  .pp-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 26px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.56;
+  }
+
+  .pp-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 76px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Domine', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .safe-unsafe { grid-template-columns: 1fr; }
+    .pp-grid { grid-template-columns: 1fr; }
+    .hm-row { grid-template-columns: 130px 1fr 70px; }
+    .pull-quote { padding: 26px 26px; }
+    .mc-num { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <div class="ht-warn">AdSense Danger Zones</div>
+      <span class="ht-dot"></span>
+      <span class="ht-sub">Account Protection Guide · 2026</span>
+    </div>
+    <h1>AdSense Mistakes<br><em>to Avoid</em></h1>
+    <p class="deck">Getting AdSense approved is only half the journey. Keeping your account — and the income it generates — requires understanding exactly which mistakes can cost you everything. Here is what every blogger must know.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>Ask any blogger who has had their AdSense account banned and they will describe a feeling unlike any other digital setback: the arrival of an email with the subject line "Your AdSense account has been suspended," followed by the realisation that months or years of carefully accumulated ad revenue has been cut off — permanently, with almost no recourse for appeal. Google bans AdSense accounts without prior warning, and once banned, the vast majority of publishers are never reinstated.</p>
+
+    <p>This is not a scare story. It is a reality that tens of thousands of bloggers encounter every year, almost always because of mistakes that were entirely avoidable. The rules are clear, the consequences are severe, and the protection is entirely in your hands. Here are the most important AdSense mistakes to understand, avoid, and actively guard against.</p>
+
+    <div class="pull-quote">
+      <p>An AdSense account is not just a source of income — it is a relationship built on trust with the world's largest advertising network. Every mistake on this list is simply a way of breaking that trust.</p>
+    </div>
+
+    <!-- ACCOUNT HEALTH DASHBOARD -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(245,158,11,0.12);color:var(--accent);border:1px solid rgba(245,158,11,0.25)">Risk Overview</span>
+      The Cost of Each Mistake Category
+    </h2>
+
+    <div class="health-meter">
+      <div class="hm-title">⚠ &nbsp; Mistake Severity — Account Risk Level</div>
+      <div class="hm-rows">
+        <div class="hm-row">
+          <span class="hm-label">Invalid Click Activity</span>
+          <div class="hm-track"><div class="hm-fill" style="width:100%;background:var(--red)"></div></div>
+          <span class="hm-val" style="color:var(--red)">Account Ban</span>
+        </div>
+        <div class="hm-row">
+          <span class="hm-label">Policy Violations</span>
+          <div class="hm-track"><div class="hm-fill" style="width:92%;background:var(--rose)"></div></div>
+          <span class="hm-val" style="color:var(--rose)">Suspension</span>
+        </div>
+        <div class="hm-row">
+          <span class="hm-label">Poor Ad Placement</span>
+          <div class="hm-track"><div class="hm-fill" style="width:75%;background:var(--accent)"></div></div>
+          <span class="hm-val" style="color:var(--accent)">Revenue Loss</span>
+        </div>
+        <div class="hm-row">
+          <span class="hm-label">Low-Quality Content</span>
+          <div class="hm-track"><div class="hm-fill" style="width:68%;background:var(--violet)"></div></div>
+          <span class="hm-val" style="color:var(--violet)">Low RPM</span>
+        </div>
+        <div class="hm-row">
+          <span class="hm-label">Ignoring Policy Updates</span>
+          <div class="hm-track"><div class="hm-fill" style="width:80%;background:var(--blue)"></div></div>
+          <span class="hm-val" style="color:var(--blue)">Surprise Ban</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISTAKE 1 -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(239,68,68,0.12);color:var(--red);border:1px solid rgba(239,68,68,0.25)">Mistake 01</span>
+      Clicking Your Own Ads — The Account Killer
+    </h2>
+
+    <p>This is the single most common and most devastating AdSense mistake — and it is one that many bloggers make without any malicious intent. Curiosity gets the better of them. They want to see how the ads look, which advertisers are showing, or simply how much a single click is worth. That innocent curiosity ends accounts every day. Google's fraud detection systems are extraordinarily sophisticated, tracking every click against hundreds of behavioural and technical signals. There is no such thing as a safe test click on your own ads.</p>
+
+    <div class="mistake-card">
+      <div class="mc-top">
+        <div class="mc-stripe" style="background:var(--red)"></div>
+        <div class="mc-top-inner">
+          <span class="mc-num" style="color:var(--red)">01</span>
+          <span class="mc-icon">🖱️</span>
+          <h3>Invalid Clicks — Self-Clicking and Click Fraud</h3>
+          <span class="mc-risk risk-fatal">Account Ban</span>
+        </div>
+      </div>
+      <div class="mc-body">
+        <p>Never click your own ads under any circumstances — not once, not to test, not out of curiosity, not accidentally from a different device. Never ask friends, family, or social media followers to click your ads as a show of support. Never use automated software or bots to generate artificial clicks. Google tracks IP addresses, click patterns, session duration after clicks, and dozens of other signals. A single suspicious pattern can trigger an investigation that results in permanent account termination with no appeal. Invalid click activity is the number one reason AdSense accounts are banned worldwide.</p>
+        <div class="the-fix">
+          <span class="fix-label">The Fix</span>
+          <p>If you accidentally click your own ad, report it immediately in your AdSense dashboard under the "Invalid activity" section. Proactive disclosure dramatically reduces the risk of account action and demonstrates good faith to Google's review team.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISTAKE 2 -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(251,113,133,0.12);color:var(--rose);border:1px solid rgba(251,113,133,0.25)">Mistake 02</span>
+      Placing Ads on Policy-Violating Content
+    </h2>
+
+    <div class="mistake-card">
+      <div class="mc-top">
+        <div class="mc-stripe" style="background:var(--rose)"></div>
+        <div class="mc-top-inner">
+          <span class="mc-num" style="color:var(--rose)">02</span>
+          <span class="mc-icon">📄</span>
+          <h3>Prohibited Content With Active Ad Units</h3>
+          <span class="mc-risk risk-ban">Suspension Risk</span>
+        </div>
+      </div>
+      <div class="mc-body">
+        <p>Google's AdSense programme policies explicitly prohibit ads from appearing alongside certain categories of content — adult material, content that glorifies violence, drug-related information, content facilitating illegal activities, and several others. Many bloggers are unaware that this policy applies to every page on their site where ads appear, not just pages that feel explicitly problematic. An otherwise policy-compliant blog can receive account action if even one page contains prohibited content with active ad units displayed on it. Review every published page on your blog before enabling ads sitewide.</p>
+        <div class="the-fix">
+          <span class="fix-label">The Fix</span>
+          <p>Use AdSense's ad serving controls to exclude specific pages or URLs from showing ads. If certain posts on your blog cover borderline topics, exclude those pages from ad serving rather than removing the content entirely.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISTAKE 3 -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(245,158,11,0.12);color:var(--accent);border:1px solid rgba(245,158,11,0.25)">Mistake 03</span>
+      Manipulative Ad Placement That Tricks Readers
+    </h2>
+
+    <div class="mistake-card">
+      <div class="mc-top">
+        <div class="mc-stripe" style="background:var(--accent)"></div>
+        <div class="mc-top-inner">
+          <span class="mc-num" style="color:var(--accent)">03</span>
+          <span class="mc-icon">🎯</span>
+          <h3>Deceptive Layouts Designed to Generate Accidental Clicks</h3>
+          <span class="mc-risk risk-high">High Risk</span>
+        </div>
+      </div>
+      <div class="mc-body">
+        <p>Placing ads immediately beneath navigation menus to catch misclicks, embedding ads within content in ways that make them indistinguishable from article elements, or designing page layouts where ads are the most visually prominent element are all explicitly against AdSense policy. Google calls this "encouraging clicks" and treats it as a form of click fraud. The temptation to increase earnings through clever placement is understandable — but Google's automated systems and manual reviewers identify these patterns reliably, and the short-term revenue gain is never worth the permanent account risk it creates.</p>
+        <div class="the-fix">
+          <span class="fix-label">The Fix</span>
+          <p>Place ads in clearly identifiable positions — within article content at natural breaks, in sidebars, or in the header and footer. Ads should complement your layout, not dominate or deceive it. Label ad sections clearly where required by policy.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISTAKE 4 -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(96,165,250,0.12);color:var(--blue);border:1px solid rgba(96,165,250,0.25)">Mistake 04</span>
+      Sending Invalid Traffic to Your Ad-Monetised Blog
+    </h2>
+
+    <div class="mistake-card">
+      <div class="mc-top">
+        <div class="mc-stripe" style="background:var(--blue)"></div>
+        <div class="mc-top-inner">
+          <span class="mc-num" style="color:var(--blue)">04</span>
+          <span class="mc-icon">🤖</span>
+          <h3>Bot Traffic, Purchased Visits, and Traffic Exchanges</h3>
+          <span class="mc-risk risk-common">Very Risky</span>
+        </div>
+      </div>
+      <div class="mc-body">
+        <p>Many bloggers, frustrated by slow organic growth, purchase traffic from third-party providers or join traffic exchange programmes that promise thousands of visitors. This is one of the most dangerous mistakes an AdSense publisher can make. Purchased traffic is almost always low-quality bot traffic that generates artificially inflated page views and, critically, ad impressions — a pattern Google's systems flag immediately as invalid activity. Even if you did not intend for bots to click your ads, the presence of suspicious traffic patterns alone is sufficient to trigger account investigation and suspension. Organic traffic is the only safe traffic for an AdSense-monetised blog.</p>
+        <div class="the-fix">
+          <span class="fix-label">The Fix</span>
+          <p>Build traffic the legitimate way — through SEO, social media, and quality content that earns real readers. If you notice a sudden unexplained spike in traffic, report it as suspicious activity in your AdSense dashboard immediately.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISTAKE 5 -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(167,139,250,0.12);color:var(--violet);border:1px solid rgba(167,139,250,0.25)">Mistake 05</span>
+      Ignoring Policy Updates Until It Is Too Late
+    </h2>
+
+    <div class="mistake-card">
+      <div class="mc-top">
+        <div class="mc-stripe" style="background:var(--violet)"></div>
+        <div class="mc-top-inner">
+          <span class="mc-num" style="color:var(--violet)">05</span>
+          <span class="mc-icon">📋</span>
+          <h3>Failing to Stay Current With AdSense Programme Policies</h3>
+          <span class="mc-risk risk-loss">Revenue Risk</span>
+        </div>
+      </div>
+      <div class="mc-body">
+        <p>Google updates its AdSense Programme Policies regularly, and compliance is mandatory — not optional — regardless of whether you were notified or have reviewed the latest version. Bloggers who set up AdSense and never revisit the policy page can find themselves unknowingly violating updated guidelines months or years after they were introduced. A practice that was permitted when you first applied may be explicitly prohibited today. Google sends policy update notifications by email, but these are easy to miss in a busy inbox. Schedule a quarterly review of your AdSense policy compliance as a non-negotiable part of your blogging routine.</p>
+        <div class="the-fix">
+          <span class="fix-label">The Fix</span>
+          <p>Bookmark the Google AdSense Programme Policies page and review it every three months. Set a calendar reminder. The ten minutes this takes each quarter could be the most valuable ten minutes you spend protecting your income.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAFE VS UNSAFE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(45,212,191,0.10);color:var(--teal);border:1px solid rgba(45,212,191,0.22)">Quick Ref</span>
+      Safe AdSense Behaviours vs Dangerous Ones
+    </h2>
+
+    <div class="safe-unsafe">
+      <div class="su-col">
+        <div class="su-head" style="color:var(--green)">
+          <span>✓</span> Safe Behaviours
+        </div>
+        <div class="su-body">
+          <div class="su-item su-safe"><span></span>Only organic traffic sources</div>
+          <div class="su-item su-safe"><span></span>Clearly labelled ad placements</div>
+          <div class="su-item su-safe"><span></span>Original, quality content only</div>
+          <div class="su-item su-safe"><span></span>Report accidental clicks immediately</div>
+          <div class="su-item su-safe"><span></span>Quarterly policy review habit</div>
+          <div class="su-item su-safe"><span></span>Exclude sensitive content pages</div>
+        </div>
+      </div>
+      <div class="su-col">
+        <div class="su-head" style="color:var(--red)">
+          <span>✗</span> Dangerous Behaviours
+        </div>
+        <div class="su-body">
+          <div class="su-item su-danger"><span></span>Clicking your own ads ever</div>
+          <div class="su-item su-danger"><span></span>Buying traffic from any source</div>
+          <div class="su-item su-danger"><span></span>Asking others to click your ads</div>
+          <div class="su-item su-danger"><span></span>Ads near prohibited content</div>
+          <div class="su-item su-danger"><span></span>Misleading ad placement layouts</div>
+          <div class="su-item su-danger"><span></span>Ignoring policy change emails</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROTECT PANEL -->
+    <div class="protect-panel">
+      <div class="pp-title">✦ &nbsp; Your AdSense Account Protection Checklist</div>
+      <div class="pp-grid">
+        <div class="pp-item"><div class="pp-dot"></div>Never click your own ads — not even once</div>
+        <div class="pp-item"><div class="pp-dot"></div>Review all content for policy compliance</div>
+        <div class="pp-item"><div class="pp-dot"></div>Only drive organic, legitimate traffic</div>
+        <div class="pp-item"><div class="pp-dot"></div>Keep ads away from prohibited topics</div>
+        <div class="pp-item"><div class="pp-dot"></div>Label ads clearly and place them honestly</div>
+        <div class="pp-item"><div class="pp-dot"></div>Check the Policy Centre monthly</div>
+        <div class="pp-item"><div class="pp-dot"></div>Report unusual traffic spikes proactively</div>
+        <div class="pp-item"><div class="pp-dot"></div>Read every policy update email Google sends</div>
+      </div>
+    </div>
+
+    <p>AdSense is one of the most accessible and genuinely rewarding ways to earn from a blog — but it demands a level of responsibility that many bloggers underestimate. The mistakes above are not obscure technicalities buried in fine print. They are clear, well-documented behaviours that Google has consistently enforced for years. Understanding them is not optional if you want a long, stable relationship with the world's most important ad network.</p>
+
+    <p>Protect the account. Protect the income. Protect the years of work that made both possible.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">An AdSense account once lost is almost never recovered. Guard it accordingly.</span>
+  </footer>
+
+</div>
+</body>
+</html>
