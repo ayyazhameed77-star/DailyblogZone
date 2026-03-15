@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best WordPress Plugins</title>
+<link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,opsz,wght@0,8..30,300;0,8..30,400;0,8..30,700;1,8..30,400;1,8..30,600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #060b12;
+    --surface:   #0c1520;
+    --surface2:  #101e2e;
+    --border:    #182840;
+    --text:      #cce0ff;
+    --muted:     #3a5878;
+    --accent:    #60a5fa;
+    --orange:    #fb923c;
+    --green:     #34d399;
+    --violet:    #a78bfa;
+    --rose:      #fb7185;
+    --amber:     #fbbf24;
+    --teal:      #2dd4bf;
+    --glow-b:    rgba(96,165,250,0.10);
+    --glow-o:    rgba(251,146,60,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  /* star field dots */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(96,165,250,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 10%, rgba(167,139,250,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 80%, rgba(52,211,153,0.2) 0%, transparent 100%),
+      radial-gradient(2px 2px at 10% 60%, rgba(251,146,60,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 50%, rgba(251,191,36,0.2) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* main top glow */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -180px; left: 50%;
+    transform: translateX(-50%);
+    width: 1000px; height: 480px;
+    background: radial-gradient(ellipse at center,
+      rgba(96,165,250,0.08) 0%,
+      rgba(251,146,60,0.04) 50%,
+      transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 92px 46px 116px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 74px; }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .ht-pill {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 30px;
+  }
+
+  .hp-b { background:rgba(96,165,250,0.12);  color:var(--accent);  border:1px solid rgba(96,165,250,0.28); }
+  .hp-o { background:rgba(251,146,60,0.12);  color:var(--orange);  border:1px solid rgba(251,146,60,0.28); }
+
+  .ht-count {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .ht-count::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    animation: gp 2s ease-in-out infinite;
+  }
+
+  @keyframes gp { 0%,100%{opacity:1;}50%{opacity:0.3;} }
+
+  h1 {
+    font-family: 'Piazzolla', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    color: #e8f4ff;
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .deck {
+    font-size: 1.05rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 590px;
+  }
+
+  .header-rule {
+    margin-top: 40px;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent 65%);
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.62em;
+    color: #7a9ab8;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    padding: 34px 42px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--orange) 50%, transparent);
+  }
+
+  .pull-quote::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 0% 50%, var(--glow-b), transparent);
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Piazzolla', serif;
+    font-style: italic;
+    font-size: 1.24rem;
+    color: var(--accent) !important;
+    line-height: 1.64;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Piazzolla', serif;
+    font-size: 1.46rem;
+    font-weight: 700;
+    color: #e8f4ff;
+    margin: 56px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .h2-chip {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  /* ── PLUGIN CARDS ── */
+  .plugin-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 20px 0;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+
+  .plugin-card:hover {
+    border-color: rgba(96,165,250,0.3);
+    box-shadow: 0 4px 32px rgba(96,165,250,0.06);
+  }
+
+  .pc-top {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pc-bar { width: 4px; flex-shrink: 0; }
+
+  .pc-top-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    flex: 1;
+  }
+
+  .pc-icon {
+    width: 40px; height: 40px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+  }
+
+  .plugin-card h3 {
+    font-family: 'Piazzolla', serif;
+    font-size: 1.06rem;
+    font-weight: 700;
+    color: #e8f4ff;
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .pc-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .pc-badge {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  .badge-free   { background:rgba(52,211,153,0.12);  color:var(--green);  border:1px solid rgba(52,211,153,0.25); }
+  .badge-must   { background:rgba(251,146,60,0.12);   color:var(--orange); border:1px solid rgba(251,146,60,0.25); }
+  .badge-seo    { background:rgba(96,165,250,0.12);   color:var(--accent); border:1px solid rgba(96,165,250,0.25); }
+  .badge-sec    { background:rgba(251,113,133,0.12);  color:var(--rose);   border:1px solid rgba(251,113,133,0.25); }
+  .badge-perf   { background:rgba(167,139,250,0.12);  color:var(--violet); border:1px solid rgba(167,139,250,0.25); }
+  .badge-backup { background:rgba(45,212,191,0.12);   color:var(--teal);   border:1px solid rgba(45,212,191,0.25); }
+
+  .pc-body { padding: 18px 24px 20px 28px; }
+
+  .pc-body p {
+    font-size: 0.94rem;
+    color: var(--muted);
+    margin: 0 !important;
+    line-height: 1.76;
+  }
+
+  /* ── WHAT IT DOES ── */
+  .what-it-does {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 11px 16px;
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .wid-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .what-it-does p {
+    font-size: 0.86rem !important;
+    font-weight: 500;
+    margin: 0 !important;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ── CATEGORY GRID ── */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 11px;
+    margin: 26px 0 38px;
+  }
+
+  .cat-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    transition: border-color 0.22s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cat-tile:hover { border-color: rgba(96,165,250,0.3); }
+
+  .cat-tile::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .ct1::after { background: var(--accent);  }
+  .ct2::after { background: var(--orange);  }
+  .ct3::after { background: var(--green);   }
+  .ct4::after { background: var(--rose);    }
+  .ct5::after { background: var(--violet);  }
+  .ct6::after { background: var(--teal);    }
+
+  .ct-emoji { font-size: 24px; display: block; margin-bottom: 10px; }
+
+  .cat-tile h4 {
+    font-family: 'Piazzolla', serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #e8f4ff;
+    margin-bottom: 4px;
+    line-height: 1.25;
+  }
+
+  .cat-tile p {
+    font-size: 0.78rem !important;
+    color: var(--muted) !important;
+    margin: 0 !important;
+    line-height: 1.5;
+  }
+
+  /* ── PLUGIN STACK ── */
+  .plugin-stack {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 36px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .plugin-stack::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 100% 0%, var(--glow-o), transparent);
+    pointer-events: none;
+  }
+
+  .ps-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ps-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ps-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #3a5878;
+    line-height: 1.56;
+  }
+
+  .ps-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 76px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Piazzolla', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .cat-grid  { grid-template-columns: 1fr 1fr; }
+    .ps-list   { grid-template-columns: 1fr; }
+    .pc-badges { display: none; }
+    .pull-quote { padding: 26px 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <span class="ht-pill hp-b">WordPress Plugins</span>
+      <span class="ht-pill hp-o">2026 Edition</span>
+      <span class="ht-count">Essential Collection</span>
+    </div>
+    <h1>Best WordPress<br><em>Plugins</em> for Bloggers</h1>
+    <p class="deck">WordPress without plugins is a blank canvas. WordPress with the right plugins is a fully equipped, high-performance blogging machine. Here are the essential ones every serious blogger needs to install.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>One of WordPress's most extraordinary qualities is also one of its most overwhelming: there are over sixty thousand plugins available in the official repository, each one promising to add something your blog cannot live without. For a new blogger staring at that number, the question of which plugins to install can feel genuinely paralysing — a decision matrix so large it threatens to delay the actual act of blogging indefinitely.</p>
+
+    <p>Here is the truth that experienced bloggers learn over time: your blog does not need sixty thousand plugins. It does not even need twenty. A focused stack of seven to ten carefully chosen plugins will give your WordPress blog capabilities that rival sites maintained by full professional web development teams — and the fewer plugins you run, the faster and more stable your blog will be. These are the ones that matter most.</p>
+
+    <div class="pull-quote">
+      <p>Plugins are not features you collect. They are tools you choose with purpose — each one earning its place by solving a specific, real problem your blog would otherwise face unaided.</p>
+    </div>
+
+    <!-- CATEGORY GRID -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(96,165,250,0.12);color:var(--accent);border:1px solid rgba(96,165,250,0.25)">The Six Pillars</span>
+      What Every Blog Needs to Function at Its Best
+    </h2>
+
+    <div class="cat-grid">
+      <div class="cat-tile ct1">
+        <span class="ct-emoji">🔍</span>
+        <h4>SEO</h4>
+        <p>Help Google find, understand and rank your content</p>
+      </div>
+      <div class="cat-tile ct2">
+        <span class="ct-emoji">⚡</span>
+        <h4>Performance</h4>
+        <p>Speed up your blog for readers and search engines</p>
+      </div>
+      <div class="cat-tile ct3">
+        <span class="ct-emoji">💾</span>
+        <h4>Backup</h4>
+        <p>Protect years of work from loss in seconds</p>
+      </div>
+      <div class="cat-tile ct4">
+        <span class="ct-emoji">🔒</span>
+        <h4>Security</h4>
+        <p>Shield your blog from hackers and malware</p>
+      </div>
+      <div class="cat-tile ct5">
+        <span class="ct-emoji">📧</span>
+        <h4>Email Growth</h4>
+        <p>Capture reader emails and build your list</p>
+      </div>
+      <div class="cat-tile ct6">
+        <span class="ct-emoji">📊</span>
+        <h4>Analytics</h4>
+        <p>Understand your readers and grow with data</p>
+      </div>
+    </div>
+
+    <!-- PLUGIN 1: RANK MATH -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(96,165,250,0.12);color:var(--accent);border:1px solid rgba(96,165,250,0.25)">Plugin 01</span>
+      Rank Math — SEO Intelligence Built In
+    </h2>
+
+    <p>Search engine optimisation is the engine that drives sustainable blog traffic — and Rank Math is the plugin that brings that engine under your control. It replaced Yoast SEO as the most recommended SEO plugin among professional bloggers for one compelling reason: its free tier offers features that Yoast reserves for expensive premium plans. Real-time content analysis, schema markup, Google Search Console integration, rich snippet support, and intelligent keyword tracking are all available without paying a single dollar.</p>
+
+    <div class="plugin-card">
+      <div class="pc-top">
+        <div class="pc-bar" style="background:var(--accent)"></div>
+        <div class="pc-top-inner">
+          <div class="pc-icon" style="background:rgba(96,165,250,0.12);color:var(--accent)">🔍</div>
+          <h3>Rank Math SEO</h3>
+          <div class="pc-badges">
+            <span class="pc-badge badge-free">Free</span>
+            <span class="pc-badge badge-seo">SEO</span>
+            <span class="pc-badge badge-must">Must Have</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <p>Install Rank Math on your first day and configure it with the Setup Wizard, which walks you through every important setting in under ten minutes. Connect it to Google Search Console, enable breadcrumbs, activate the schema markup for blog posts, and let its content analysis guide every article you write. The little score indicator — showing how well your content is optimised as you write — becomes one of the most useful feedback loops in your entire blogging workflow.</p>
+        <div class="what-it-does">
+          <span class="wid-label" style="color:var(--accent)">Best For</span>
+          <p style="color:#5a7898">Bloggers who want professional SEO guidance without hiring an SEO specialist or paying for expensive tools.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLUGIN 2: WP ROCKET -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(167,139,250,0.12);color:var(--violet);border:1px solid rgba(167,139,250,0.25)">Plugin 02</span>
+      WP Rocket — Make Your Blog Fly
+    </h2>
+
+    <div class="plugin-card">
+      <div class="pc-top">
+        <div class="pc-bar" style="background:var(--violet)"></div>
+        <div class="pc-top-inner">
+          <div class="pc-icon" style="background:rgba(167,139,250,0.12);color:var(--violet)">⚡</div>
+          <h3>WP Rocket — Performance & Caching</h3>
+          <div class="pc-badges">
+            <span class="pc-badge badge-perf">Performance</span>
+            <span class="pc-badge badge-must">Top Rated</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <p>Page speed is both a Google ranking factor and a reader experience essential — and WP Rocket is the most respected caching and performance plugin in the WordPress ecosystem. Unlike free alternatives that require complex configuration, WP Rocket begins improving your site's speed the moment it is activated, with sensible defaults that work for most blogs immediately. It handles page caching, file minification, lazy loading of images, database optimisation, and CDN integration — the full performance stack — in a single, elegantly designed dashboard. It carries a modest annual fee, but the speed improvements it delivers translate directly into better rankings and lower bounce rates that more than justify the investment.</p>
+        <div class="what-it-does">
+          <span class="wid-label" style="color:var(--violet)">Best For</span>
+          <p style="color:#5a7898">Bloggers who want serious speed improvements without becoming performance engineering experts.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLUGIN 3: WORDFENCE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(251,113,133,0.12);color:var(--rose);border:1px solid rgba(251,113,133,0.25)">Plugin 03</span>
+      Wordfence — Your Blog's Security Guard
+    </h2>
+
+    <div class="plugin-card">
+      <div class="pc-top">
+        <div class="pc-bar" style="background:var(--rose)"></div>
+        <div class="pc-top-inner">
+          <div class="pc-icon" style="background:rgba(251,113,133,0.12);color:var(--rose)">🔒</div>
+          <h3>Wordfence Security</h3>
+          <div class="pc-badges">
+            <span class="pc-badge badge-free">Free</span>
+            <span class="pc-badge badge-sec">Security</span>
+            <span class="pc-badge badge-must">Essential</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <p>WordPress is the most popular CMS in the world, which also makes it the most targeted by hackers, malware, and automated attack bots. Without security protection, a new blog is vulnerable from day one. Wordfence's free tier provides a powerful Web Application Firewall that blocks malicious traffic before it reaches your site, a malware scanner that checks your files against known threat signatures, login protection with brute force defence, and real-time threat intelligence updated regularly. It runs quietly in the background, protecting everything you have built without requiring any ongoing attention from you.</p>
+        <div class="what-it-does">
+          <span class="wid-label" style="color:var(--rose)">Best For</span>
+          <p style="color:#5a7898">Every WordPress blog, from day one. Security is not optional — it is the foundation everything else rests on.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLUGIN 4: UPDRAFTPLUS -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(45,212,191,0.12);color:var(--teal);border:1px solid rgba(45,212,191,0.25)">Plugin 04</span>
+      UpdraftPlus — Never Lose a Word You Wrote
+    </h2>
+
+    <div class="plugin-card">
+      <div class="pc-top">
+        <div class="pc-bar" style="background:var(--teal)"></div>
+        <div class="pc-top-inner">
+          <div class="pc-icon" style="background:rgba(45,212,191,0.12);color:var(--teal)">💾</div>
+          <h3>UpdraftPlus — Automated Backup System</h3>
+          <div class="pc-badges">
+            <span class="pc-badge badge-free">Free</span>
+            <span class="pc-badge badge-backup">Backup</span>
+            <span class="pc-badge badge-must">Non-Negotiable</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <p>Every blogger's nightmare — a hacked site, a hosting failure, a failed update — becomes a five-minute recovery rather than a catastrophe when UpdraftPlus is running. The free tier allows you to schedule automatic backups of your entire blog — all files, all database content, all media — and store them securely in Google Drive, Dropbox, or Amazon S3. Set it to back up daily, point it at your cloud storage, and forget it exists until the day you genuinely need it. That day will come for almost every blogger at some point, and when it does, UpdraftPlus is the difference between a minor inconvenience and a devastating loss.</p>
+        <div class="what-it-does">
+          <span class="wid-label" style="color:var(--teal)">Best For</span>
+          <p style="color:#5a7898">Any blogger who would be heartbroken to lose their content. Which is every blogger, without exception.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLUGIN 5: CONVERTKIT -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(251,146,60,0.12);color:var(--orange);border:1px solid rgba(251,146,60,0.25)">Plugin 05</span>
+      ConvertKit — Build the Audience You Own
+    </h2>
+
+    <div class="plugin-card">
+      <div class="pc-top">
+        <div class="pc-bar" style="background:var(--orange)"></div>
+        <div class="pc-top-inner">
+          <div class="pc-icon" style="background:rgba(251,146,60,0.12);color:var(--orange)">📧</div>
+          <h3>ConvertKit — Email List Building</h3>
+          <div class="pc-badges">
+            <span class="pc-badge badge-free">Free to 1,000</span>
+            <span class="pc-badge badge-must">Growth Essential</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <p>An email list is the one audience no algorithm can take from you. ConvertKit is the email platform most beloved by bloggers because it was built specifically for content creators — not corporate marketers. The WordPress plugin integrates beautifully, allowing you to embed sign-up forms and landing pages anywhere on your blog with no technical knowledge required. Its free tier supports up to one thousand subscribers with unlimited forms, landing pages, and broadcasts — more than enough to build a genuinely valuable list before you ever consider upgrading. Start building your list on day one, even if it grows slowly. The investment of patience compounds exponentially over time.</p>
+        <div class="what-it-does">
+          <span class="wid-label" style="color:var(--orange)">Best For</span>
+          <p style="color:#5a7898">Bloggers serious about building a loyal audience that belongs to them — not to any social platform or algorithm.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLUGIN STACK -->
+    <div class="plugin-stack">
+      <div class="ps-title">✦ &nbsp; The Complete Blogger Plugin Stack</div>
+      <div class="ps-list">
+        <div class="ps-item"><div class="ps-dot" style="background:var(--accent)"></div>Rank Math — SEO optimisation</div>
+        <div class="ps-item"><div class="ps-dot" style="background:var(--violet)"></div>WP Rocket — speed and caching</div>
+        <div class="ps-item"><div class="ps-dot" style="background:var(--rose)"></div>Wordfence — security firewall</div>
+        <div class="ps-item"><div class="ps-dot" style="background:var(--teal)"></div>UpdraftPlus — automatic backups</div>
+        <div class="ps-item"><div class="ps-dot" style="background:var(--orange)"></div>ConvertKit — email list growth</div>
+        <div class="ps-item"><div class="ps-dot" style="background:var(--amber)"></div>MonsterInsights — analytics dashboard</div>
+        <div class="ps-item"><div class="ps-dot" style="background:var(--green)"></div>Smush — image optimisation</div>
+        <div class="ps-item"><div class="ps-dot" style="background:var(--accent)"></div>Akismet — spam comment protection</div>
+      </div>
+    </div>
+
+    <p>The bloggers who waste the most time are the ones who spend weeks researching plugins instead of writing. The bloggers who grow the fastest are the ones who install a focused, well-chosen set of tools and then direct all remaining energy toward creating content their readers genuinely need. Use this list. Install these plugins. Then close the dashboard and write something worth reading.</p>
+
+    <p>Your plugins are ready. The rest is up to you.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">The best plugin stack is the smallest one that does everything your blog actually needs.</span>
+  </footer>
+
+</div>
+</body>
+</html>
