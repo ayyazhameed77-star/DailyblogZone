@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blogging vs YouTube Earning</title>
+<link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #fdf9f4;
+    --surface:   #ffffff;
+    --surface2:  #f7f2ea;
+    --border:    #e8dece;
+    --ink:       #1a1208;
+    --muted:     #9a8870;
+    --blog:      #2a5fa8;
+    --yt:        #cc2200;
+    --gold:      #c8900e;
+    --green:     #2a7a4a;
+    --neutral:   #5a5a6a;
+    --blog-soft: rgba(42,95,168,0.08);
+    --yt-soft:   rgba(204,34,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Hind', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 90px 46px 114px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 72px; }
+
+  .vs-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 30px;
+  }
+
+  .vs-block {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 4px;
+  }
+
+  .vs-b { background: var(--blog); color: #fff; border-radius: 4px 0 0 4px; }
+  .vs-mid {
+    background: var(--ink);
+    color: #f0e8d4;
+    font-family: 'Rufina', serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 7px 12px;
+    letter-spacing: 0.06em;
+  }
+  .vs-y { background: var(--yt); color: #fff; border-radius: 0 4px 4px 0; }
+
+  h1 {
+    font-family: 'Rufina', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+
+  h1 .blog-word { color: var(--blog); }
+  h1 .yt-word   { color: var(--yt); }
+
+  .deck {
+    font-size: 1.05rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 590px;
+  }
+
+  .header-rule {
+    margin-top: 38px;
+    height: 1px;
+    background: linear-gradient(to right,
+      var(--blog) 0%, var(--ink) 50%, var(--yt) 100%);
+    opacity: 0.25;
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.65em;
+    color: #3a2c1a;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    padding: 36px 44px;
+    background: var(--ink);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 50%; height: 3px;
+    background: var(--blog);
+    border-radius: 18px 0 0 0;
+  }
+
+  .pull-quote::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%; height: 3px;
+    background: var(--yt);
+    border-radius: 0 18px 0 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-size: 1.26rem;
+    color: #f0e8d4 !important;
+    line-height: 1.62;
+    margin: 0 !important;
+    text-align: center;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Rufina', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 58px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .h2-chip {
+    font-family: 'Hind', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  /* ── SIDE-BY-SIDE COMPARE ── */
+  .sbs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0 36px;
+  }
+
+  .sbs-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .sbs-head {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sbs-icon { font-size: 18px; }
+
+  .sbs-head h3 {
+    font-family: 'Rufina', serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .sbs-body {
+    padding: 16px 20px;
+  }
+
+  .sbs-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 0.88rem;
+    color: #5a4838;
+    line-height: 1.58;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sbs-item:last-child { border-bottom: none; }
+
+  .sbs-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* ── DIMENSION CARDS ── */
+  .dim-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+
+  .dim-head {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dim-stripe { width: 4px; flex-shrink: 0; }
+
+  .dim-head-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 22px;
+    flex: 1;
+  }
+
+  .dim-icon {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .dim-card h3 {
+    font-family: 'Rufina', serif;
+    font-size: 1.04rem;
+    font-weight: 700;
+    color: var(--ink);
+    flex: 1;
+    line-height: 1.25;
+  }
+
+  .dim-badge {
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .dim-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .dim-half {
+    padding: 18px 22px;
+  }
+
+  .dim-half:first-child {
+    border-right: 1px solid var(--border);
+  }
+
+  .dim-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .dim-half p {
+    font-size: 0.88rem;
+    color: #5a4838;
+    margin: 0 !important;
+    line-height: 1.68;
+  }
+
+  /* ── SCORE TABLE ── */
+  .score-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0 36px;
+    font-size: 0.88rem;
+    border-radius: 13px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .score-table thead tr { background: var(--surface2); }
+
+  .score-table th {
+    padding: 12px 18px;
+    text-align: left;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .score-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    line-height: 1.5;
+  }
+
+  .score-table tr:last-child td { border-bottom: none; }
+  .score-table tr:hover td { background: var(--surface2); }
+
+  .score-table td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 0.9rem;
+  }
+
+  .winner {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  .w-blog { background: var(--blog-soft); color: var(--blog); border:1px solid rgba(42,95,168,0.2); }
+  .w-yt   { background: var(--yt-soft);   color: var(--yt);   border:1px solid rgba(204,34,0,0.2); }
+  .w-tie  { background: rgba(90,90,106,0.08); color:var(--neutral); border:1px solid rgba(90,90,106,0.2); }
+
+  .td-blog { color: var(--blog); font-size:0.85rem; }
+  .td-yt   { color: var(--yt);   font-size:0.85rem; }
+
+  /* ── VERDICT PANEL ── */
+  .verdict-panel {
+    background: var(--ink);
+    border-radius: 18px;
+    padding: 34px 38px;
+    margin: 38px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .verdict-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 0% 100%, rgba(42,95,168,0.15), transparent),
+      radial-gradient(ellipse 60% 80% at 100% 0%, rgba(204,34,0,0.15), transparent);
+    pointer-events: none;
+  }
+
+  .vp-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .vp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .vp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #8a7a60;
+    line-height: 1.58;
+  }
+
+  .vp-arrow { flex-shrink: 0; font-size: 12px; margin-top: 3px; }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 76px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .sbs-grid { grid-template-columns: 1fr; }
+    .dim-body { grid-template-columns: 1fr; }
+    .dim-half:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+    .vp-grid { grid-template-columns: 1fr; }
+    .score-table th, .score-table td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="vs-eyebrow">
+      <span class="vs-block vs-b">Blogging</span>
+      <span class="vs-mid">vs</span>
+      <span class="vs-block vs-y">YouTube</span>
+    </div>
+    <h1><span class="blog-word">Blogging</span> vs<br><span class="yt-word">YouTube</span><br>Earning</h1>
+    <p class="deck">Two of the most powerful content platforms in the world. Both can earn you life-changing income. But they ask very different things of you — and reward very different strengths. Here is the honest, complete comparison you need before you choose.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>The question comes up in almost every creator community, every blogging forum, every late-night conversation between people who are trying to build something meaningful from their knowledge and their voice: <em>Should I blog or start a YouTube channel?</em> Both paths lead to genuine income. Both have produced millionaires. Both have broken the hearts of creators who expected quick rewards. And both require something that no algorithm can replace — consistent, patient effort applied over a long period of time.</p>
+
+    <p>But beyond that shared foundation, blogging and YouTube are remarkably different creatures. They demand different skills, reward different personalities, operate on different timelines, and earn money through different mechanisms. Understanding those differences — clearly and honestly — is the most important decision a new creator will make.</p>
+
+    <div class="pull-quote">
+      <p>The right platform is not the one that earns more money. It is the one you will still be showing up for two years from now, when the growth feels slow and the rewards feel distant.</p>
+    </div>
+
+    <!-- STRENGTHS GRID -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(42,95,168,0.1);color:var(--blog);border:1px solid rgba(42,95,168,0.2)">Side by Side</span>
+      What Each Platform Does Best
+    </h2>
+
+    <div class="sbs-grid">
+      <div class="sbs-col">
+        <div class="sbs-head" style="background:var(--blog-soft); border-bottom-color:rgba(42,95,168,0.15)">
+          <span class="sbs-icon">✍️</span>
+          <h3 style="color:var(--blog)">Blogging Strengths</h3>
+        </div>
+        <div class="sbs-body">
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--blog)"></div>Lower startup cost — almost zero</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--blog)"></div>SEO traffic compounds over years</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--blog)"></div>No on-camera presence required</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--blog)"></div>Affiliate income highly scalable</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--blog)"></div>Full ownership of your content</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--blog)"></div>Works at your own pace and schedule</div>
+        </div>
+      </div>
+      <div class="sbs-col">
+        <div class="sbs-head" style="background:var(--yt-soft); border-bottom-color:rgba(204,34,0,0.15)">
+          <span class="sbs-icon">🎥</span>
+          <h3 style="color:var(--yt)">YouTube Strengths</h3>
+        </div>
+        <div class="sbs-body">
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--yt)"></div>Built-in audience of 2 billion users</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--yt)"></div>Ad revenue starts at 1,000 subscribers</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--yt)"></div>Personality builds faster, deeper trust</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--yt)"></div>Algorithm can push content virally</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--yt)"></div>Sponsorships command premium rates</div>
+          <div class="sbs-item"><div class="sbs-dot" style="background:var(--yt)"></div>Video content often ranks in Google too</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIMENSION 1: STARTUP -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(200,144,14,0.1);color:var(--gold);border:1px solid rgba(200,144,14,0.2)">Round 01</span>
+      Startup Cost & Barrier to Entry
+    </h2>
+
+    <div class="dim-card">
+      <div class="dim-head">
+        <div class="dim-stripe" style="background:var(--gold)"></div>
+        <div class="dim-head-inner">
+          <div class="dim-icon" style="background:rgba(200,144,14,0.1);color:var(--gold)">💰</div>
+          <h3>What Does It Cost to Begin?</h3>
+          <span class="dim-badge" style="background:rgba(42,95,168,0.1);color:var(--blog);border:1px solid rgba(42,95,168,0.2)">Blog Wins</span>
+        </div>
+      </div>
+      <div class="dim-body">
+        <div class="dim-half">
+          <span class="dim-label" style="color:var(--blog)">✍ Blogging</span>
+          <p>A domain name costs around twelve dollars per year. Hosting starts at three dollars per month. You can launch a fully professional blog for under fifty dollars total. Your laptop, your ideas, and your time are all you genuinely need to begin. The barrier to entry is almost nonexistent — which is both its greatest gift and its greatest challenge.</p>
+        </div>
+        <div class="dim-half">
+          <span class="dim-label" style="color:var(--yt)">🎥 YouTube</span>
+          <p>Technically, you can start with a smartphone and good natural light — and many successful creators did exactly that. But to compete seriously, a decent camera, microphone, and basic lighting improve quality dramatically. Budget realistically between two hundred and eight hundred dollars for a starter setup that will not immediately signal low production value to new viewers.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIMENSION 2: INCOME TIMELINE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(42,122,74,0.1);color:var(--green);border:1px solid rgba(42,122,74,0.2)">Round 02</span>
+      How Long Until You Earn Real Money?
+    </h2>
+
+    <p>This is the question that matters most to anyone starting out — and it deserves a completely honest answer. Neither platform pays quickly. Both require months of consistent work before meaningful income arrives. The difference lies in <em>how</em> income eventually flows.</p>
+
+    <div class="dim-card">
+      <div class="dim-head">
+        <div class="dim-stripe" style="background:var(--green)"></div>
+        <div class="dim-head-inner">
+          <div class="dim-icon" style="background:rgba(42,122,74,0.1);color:var(--green)">⏱</div>
+          <h3>The Income Timeline — Honest Comparison</h3>
+          <span class="dim-badge" style="background:rgba(90,90,106,0.08);color:var(--neutral);border:1px solid rgba(90,90,106,0.2)">Depends on You</span>
+        </div>
+      </div>
+      <div class="dim-body">
+        <div class="dim-half">
+          <span class="dim-label" style="color:var(--blog)">✍ Blogging</span>
+          <p>Bloggers typically wait six to eighteen months before earning meaningful income. SEO is slow — it takes time for Google to trust new sites. But once that trust is established, traffic grows continuously and income becomes deeply passive. A post written in year one can still earn in year five without any updates.</p>
+        </div>
+        <div class="dim-half">
+          <span class="dim-label" style="color:var(--yt)">🎥 YouTube</span>
+          <p>YouTube's Partner Programme requires one thousand subscribers and four thousand watch hours — a milestone most new channels reach in six to twelve months. But once monetisation unlocks, ad revenue can grow quickly. A viral video can change a channel's trajectory overnight in a way that blogs rarely experience.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIMENSION 3: EARNING CEILING -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(204,34,0,0.1);color:var(--yt);border:1px solid rgba(204,34,0,0.2)">Round 03</span>
+      Which Earns More at Its Peak?
+    </h2>
+
+    <div class="dim-card">
+      <div class="dim-head">
+        <div class="dim-stripe" style="background:var(--yt)"></div>
+        <div class="dim-head-inner">
+          <div class="dim-icon" style="background:rgba(204,34,0,0.1);color:var(--yt)">📈</div>
+          <h3>The Earning Ceiling at Scale</h3>
+          <span class="dim-badge" style="background:rgba(204,34,0,0.1);color:var(--yt);border:1px solid rgba(204,34,0,0.2)">YouTube Edges Ahead</span>
+        </div>
+      </div>
+      <div class="dim-body">
+        <div class="dim-half">
+          <span class="dim-label" style="color:var(--blog)">✍ Blogging</span>
+          <p>Top bloggers in high-value niches earn ten thousand to one hundred thousand dollars monthly through ads, affiliates, digital products, and sponsorships combined. The income is highly passive, relatively stable, and built on evergreen content that compounds quietly over years.</p>
+        </div>
+        <div class="dim-half">
+          <span class="dim-label" style="color:var(--yt)">🎥 YouTube</span>
+          <p>Top YouTubers earn through ad revenue, sponsorships, memberships, merchandise, and affiliate links simultaneously. The largest channels earn millions annually. But income is more volatile — algorithm changes, content trends, and audience attention shifts can affect earnings dramatically month to month.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(90,90,106,0.08);color:var(--neutral);border:1px solid rgba(90,90,106,0.18)">Full Picture</span>
+      The Complete Comparison Table
+    </h2>
+
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th class="td-blog">✍ Blogging</th>
+          <th class="td-yt">🎥 YouTube</th>
+          <th>Winner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Startup Cost</td>
+          <td class="td-blog">~$50 total</td>
+          <td class="td-yt">$200–$800+</td>
+          <td><span class="winner w-blog">Blog</span></td>
+        </tr>
+        <tr>
+          <td>Time to First Income</td>
+          <td class="td-blog">6–18 months</td>
+          <td class="td-yt">6–12 months</td>
+          <td><span class="winner w-yt">YouTube</span></td>
+        </tr>
+        <tr>
+          <td>Passive Income Depth</td>
+          <td class="td-blog">Very high</td>
+          <td class="td-yt">Moderate</td>
+          <td><span class="winner w-blog">Blog</span></td>
+        </tr>
+        <tr>
+          <td>Peak Earning Potential</td>
+          <td class="td-blog">Very high</td>
+          <td class="td-yt">Exceptional</td>
+          <td><span class="winner w-yt">YouTube</span></td>
+        </tr>
+        <tr>
+          <td>Content Longevity</td>
+          <td class="td-blog">Years</td>
+          <td class="td-yt">Months</td>
+          <td><span class="winner w-blog">Blog</span></td>
+        </tr>
+        <tr>
+          <td>Skills Required</td>
+          <td class="td-blog">Writing, SEO</td>
+          <td class="td-yt">Video, editing</td>
+          <td><span class="winner w-tie">Depends</span></td>
+        </tr>
+        <tr>
+          <td>Audience Trust Speed</td>
+          <td class="td-blog">Slower</td>
+          <td class="td-yt">Faster</td>
+          <td><span class="winner w-yt">YouTube</span></td>
+        </tr>
+        <tr>
+          <td>Content Ownership</td>
+          <td class="td-blog">Full ownership</td>
+          <td class="td-yt">Platform-owned</td>
+          <td><span class="winner w-blog">Blog</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- VERDICT PANEL -->
+    <div class="verdict-panel">
+      <div class="vp-title">◆ &nbsp; The Honest Verdict — How to Choose</div>
+      <div class="vp-grid">
+        <div class="vp-item"><span class="vp-arrow" style="color:var(--blog)">→</span>Choose blogging if you love to write and think in words</div>
+        <div class="vp-item"><span class="vp-arrow" style="color:var(--yt)">→</span>Choose YouTube if you are comfortable on camera</div>
+        <div class="vp-item"><span class="vp-arrow" style="color:var(--blog)">→</span>Choose blogging if you want deeply passive income</div>
+        <div class="vp-item"><span class="vp-arrow" style="color:var(--yt)">→</span>Choose YouTube if you want faster audience growth</div>
+        <div class="vp-item"><span class="vp-arrow" style="color:var(--blog)">→</span>Choose blogging if your budget is near zero</div>
+        <div class="vp-item"><span class="vp-arrow" style="color:var(--yt)">→</span>Choose YouTube if personality is your strongest asset</div>
+        <div class="vp-item"><span class="vp-arrow" style="color:var(--gold)">→</span>Do both if you have the time — they feed each other</div>
+        <div class="vp-item"><span class="vp-arrow" style="color:var(--gold)">→</span>Do neither unless you will commit for at least one year</div>
+      </div>
+    </div>
+
+    <p>The honest truth is that there is no universally superior platform — only the one that matches who you are and how you create. The writer who starts a YouTube channel out of obligation and dreads every filming session will never compete with the natural communicator who lights up on camera. And the video creator who forces themselves to blog without loving the written word will always lag behind the writer who loses track of time at their keyboard.</p>
+
+    <p>Choose the platform that feels less like work. Build it with the patience it deserves. And trust that a year of consistent effort on either path will take you somewhere neither luck nor shortcuts ever could.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">The best platform is the one you will still love building next year.</span>
+  </footer>
+
+</div>
+</body>
+</html>
