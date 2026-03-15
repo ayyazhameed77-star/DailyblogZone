@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Create Blog Categories</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f5f3ff;
+    --surface:   #ffffff;
+    --surface2:  #edeaff;
+    --border:    #d8d0ff;
+    --ink:       #0e0820;
+    --muted:     #7060a8;
+    --accent:    #6d28d9;
+    --blue:      #2563eb;
+    --teal:      #0891b2;
+    --green:     #059669;
+    --amber:     #d97706;
+    --rose:      #e11d48;
+    --soft:      rgba(109,40,217,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.014'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 90px 46px 114px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 74px; }
+
+  .header-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .hl-folder {
+    width: 38px; height: 38px;
+    background: rgba(109,40,217,0.1);
+    border: 1px solid rgba(109,40,217,0.22);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .hl-stack { display: flex; flex-direction: column; gap: 2px; }
+
+  .hl-cat {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .hl-sub {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.5rem, 6.5vw, 4.3rem);
+    font-weight: 700;
+    line-height: 1.09;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .deck {
+    font-size: 1.06rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.78;
+    max-width: 590px;
+  }
+
+  .header-rule {
+    margin-top: 38px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hr-line { flex: 1; height: 1px; background: var(--border); }
+  .hr-mark { font-size: 12px; color: var(--accent); opacity: 0.45; }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.65em;
+    color: #2a1a50;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    padding: 36px 48px;
+    background: var(--ink);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent), var(--blue) 60%, transparent);
+  }
+
+  .pull-quote::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 0% 100%, rgba(109,40,217,0.18), transparent);
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.28rem;
+    color: #e0d8ff !important;
+    line-height: 1.64;
+    margin: 0 !important;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.52rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 58px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .h2-chip {
+    font-family: 'Manrope', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  /* ── RULE CARDS ── */
+  .rule-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 22px 0;
+    transition: box-shadow 0.22s, border-color 0.22s;
+  }
+
+  .rule-card:hover {
+    box-shadow: 0 6px 28px rgba(109,40,217,0.08);
+    border-color: rgba(109,40,217,0.24);
+  }
+
+  .rc-top {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rc-bar { width: 4px; flex-shrink: 0; }
+
+  .rc-top-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    flex: 1;
+  }
+
+  .rc-icon {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .rule-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .rc-badge {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .rc-body { padding: 18px 24px 20px 28px; }
+
+  .rc-body p {
+    font-size: 0.94rem;
+    color: #3a2870;
+    margin: 0 !important;
+    line-height: 1.78;
+  }
+
+  /* ── STRUCTURE TIP ── */
+  .structure-tip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 9px 9px 0;
+    padding: 12px 18px;
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .st-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .structure-tip p {
+    font-size: 0.87rem !important;
+    color: var(--muted) !important;
+    font-style: italic;
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+
+  /* ── CATEGORY EXAMPLES ── */
+  .niche-examples {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 26px 0 38px;
+  }
+
+  .ne-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow: hidden;
+  }
+
+  .ne-head {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ne-body { padding: 6px 0; }
+
+  .ne-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    font-size: 0.88rem;
+    color: #3a2870;
+    line-height: 1.4;
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+    transition: background 0.18s;
+  }
+
+  .ne-item:hover { background: var(--surface2); }
+  .ne-item:last-child { border-bottom: none; }
+
+  .ne-folder { font-size: 14px; flex-shrink: 0; }
+
+  .ne-count {
+    margin-left: auto;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  /* ── NAMING GUIDE ── */
+  .naming-compare {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 24px 0 36px;
+  }
+
+  .nc-header {
+    padding: 13px 22px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .nc-rows { display: grid; }
+
+  .nc-row {
+    display: grid;
+    grid-template-columns: 1fr 12px 1fr;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nc-row:last-child { border-bottom: none; }
+
+  .nc-weak, .nc-strong {
+    padding: 12px 18px;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .nc-weak   { color: var(--rose);  font-style: italic; }
+  .nc-strong { color: var(--green); font-weight: 600; }
+
+  .nc-arrow {
+    text-align: center;
+    color: var(--border);
+    font-size: 12px;
+  }
+
+  /* ── ARCHITECTURE VISUAL ── */
+  .arch-visual {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 24px 0 36px;
+  }
+
+  .av-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .av-tree { display: grid; gap: 10px; }
+
+  .av-blog {
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .av-cat-row {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .av-indent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6px;
+  }
+
+  .av-vline {
+    width: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    height: 100%;
+  }
+
+  .av-cat {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 10px 16px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 6px;
+  }
+
+  .av-posts {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+    padding-left: 4px;
+  }
+
+  .av-post {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.76rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ── FINAL CHECKLIST ── */
+  .final-check {
+    background: var(--ink);
+    border-radius: 18px;
+    padding: 30px 36px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-check::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 0% 100%, rgba(109,40,217,0.22), transparent),
+      radial-gradient(ellipse 50% 70% at 100% 0%, rgba(37,99,235,0.14), transparent);
+    pointer-events: none;
+  }
+
+  .fc-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fc-accent { color: #a78bfa; }
+
+  .fc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 26px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #7060b0;
+    line-height: 1.56;
+  }
+
+  .fc-box {
+    width: 18px; height: 18px;
+    border-radius: 5px;
+    border: 1.5px solid rgba(109,40,217,0.4);
+    background: rgba(109,40,217,0.08);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 76px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .niche-examples { grid-template-columns: 1fr; }
+    .fc-grid { grid-template-columns: 1fr; }
+    .pull-quote { padding: 28px 26px; }
+    .av-posts { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-label">
+      <div class="hl-folder">🗂</div>
+      <div class="hl-stack">
+        <span class="hl-cat">Blog Architecture</span>
+        <span class="hl-sub">Categories Guide · 2026</span>
+      </div>
+    </div>
+    <h1>How to Create<br>Blog <em>Categories</em></h1>
+    <p class="deck">Categories are the architecture beneath your blog — the invisible framework that organises your thinking, guides your readers through your content, and signals to Google exactly what your blog is about. Get them right and everything else becomes clearer.</p>
+    <div class="header-rule">
+      <div class="hr-line"></div>
+      <span class="hr-mark">◈</span>
+      <div class="hr-line"></div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>Most bloggers create categories the way they might arrange a messy desk — grouping vaguely related things into whatever containers feel roughly right in the moment, adding new ones whenever the existing ones seem not to fit, and never stepping back far enough to ask whether the whole system actually makes sense. The result is a category list that grows over time into something no reader can navigate and no search engine can interpret coherently.</p>
+
+    <p>Categories are not just administrative labels. They are the primary navigation system of your blog, the organisational logic that shapes how readers explore your archive, and a significant SEO signal about the topical scope of your content. A blog with four or five clear, well-named, strategically chosen categories communicates authority and coherence. A blog with twenty-three overlapping categories communicates the opposite, regardless of how good the individual posts are.</p>
+
+    <div class="pull-quote">
+      <p>A blog's categories are the chapters of its book. Choose them before you need them, name them for your reader, and let them shape every post you write — not the other way around.</p>
+    </div>
+
+    <!-- WHAT CATEGORIES DO -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(109,40,217,0.1);color:var(--accent);border:1px solid rgba(109,40,217,0.2)">Understand First</span>
+      What Blog Categories Actually Do
+    </h2>
+
+    <p>Before choosing your categories, it is worth understanding the three simultaneous jobs they perform. For readers, categories are a navigation tool — the fastest path from "I just found this blog" to "I know exactly where to find what I'm looking for." For search engines, category pages are topical authority signals — dedicated pages that consolidate your blog's coverage of a specific subject and, when well-structured, rank for broad terms in their own right. And for you as the blogger, categories are an editorial discipline — a framework that prevents scope creep, keeps your content strategy coherent, and ensures that every new post you publish belongs somewhere logical rather than floating in an uncategorised void.</p>
+
+    <!-- ARCHITECTURE VISUAL -->
+    <div class="arch-visual">
+      <div class="av-title">🏗 &nbsp; What a Well-Structured Blog Architecture Looks Like</div>
+      <div class="av-tree">
+        <div class="av-blog">🗂 &nbsp; Your Blog — Personal Finance for Young Professionals</div>
+
+        <div class="av-cat-row">
+          <div class="av-indent"><div class="av-vline"></div></div>
+          <div>
+            <div class="av-cat">📁 Budgeting</div>
+            <div class="av-posts">
+              <span class="av-post">How to make a monthly budget</span>
+              <span class="av-post">50/30/20 rule explained</span>
+              <span class="av-post">Budget apps reviewed</span>
+            </div>
+            <div class="av-cat">📁 Investing</div>
+            <div class="av-posts">
+              <span class="av-post">Index funds for beginners</span>
+              <span class="av-post">How to open an ISA</span>
+              <span class="av-post">Compound interest explained</span>
+            </div>
+            <div class="av-cat">📁 Saving</div>
+            <div class="av-posts">
+              <span class="av-post">Emergency fund guide</span>
+              <span class="av-post">High-yield savings accounts</span>
+              <span class="av-post">30-day savings challenge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 1: NUMBER -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(109,40,217,0.1);color:var(--accent);border:1px solid rgba(109,40,217,0.2)">Rule 01</span>
+      Start With Three to Five — No More, No Fewer
+    </h2>
+
+    <p>The optimal number of blog categories for any blog at any stage is between three and seven — with three to five being the ideal range for most new and growing blogs. Three is the minimum needed to divide a niche into meaningful distinct areas; seven is the maximum before navigation becomes cognitive overload. Everything beyond seven signals a blog that has not made the hard editorial decisions about what it is fundamentally about.</p>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--accent)"></div>
+        <div class="rc-top-inner">
+          <div class="rc-icon" style="background:rgba(109,40,217,0.1);color:var(--accent)">🔢</div>
+          <h3>Choose Five Categories Maximum Before Publishing Your First Post</h3>
+          <span class="rc-badge" style="background:rgba(109,40,217,0.1);color:var(--accent);border:1px solid rgba(109,40,217,0.2)">Foundational</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>Decide your categories before you begin writing, not as you go along. The categories should be broad enough that every post you could ever imagine writing for your niche fits naturally into one of them, and specific enough that each category has a genuine, distinct focus. Ask yourself: if someone visited only my Budgeting category, would they find a coherent, complete resource on that subject? If yes, that is a category. If the answer requires qualifications — "well, it depends on what kind of budgeting" — then either the category is too narrow or you are conflating multiple distinct topics into one.</p>
+        <div class="structure-tip">
+          <span class="st-label">Key Principle</span>
+          <p>Every post you write should belong to exactly one category without ambiguity. If a post could equally belong to two categories, either the post covers too broad a subject or your categories overlap in ways that will confuse both readers and search engines. One post, one category, always.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXAMPLES BY NICHE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(37,99,235,0.1);color:var(--blue);border:1px solid rgba(37,99,235,0.2)">By Niche</span>
+      What Good Category Sets Look Like Across Different Blogs
+    </h2>
+
+    <div class="niche-examples">
+      <div class="ne-block">
+        <div class="ne-head" style="color:var(--accent)">
+          <span>💰</span> Personal Finance Blog
+        </div>
+        <div class="ne-body">
+          <div class="ne-item">
+            <span class="ne-folder">📁</span> Budgeting
+            <span class="ne-count" style="background:rgba(109,40,217,0.1);color:var(--accent);border:1px solid rgba(109,40,217,0.2)">Anchor</span>
+          </div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Investing</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Saving</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Debt</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Side Hustles</div>
+        </div>
+      </div>
+      <div class="ne-block">
+        <div class="ne-head" style="color:var(--teal)">
+          <span>🍳</span> Food Blog
+        </div>
+        <div class="ne-body">
+          <div class="ne-item">
+            <span class="ne-folder">📁</span> Weeknight Dinners
+            <span class="ne-count" style="background:rgba(8,145,178,0.1);color:var(--teal);border:1px solid rgba(8,145,178,0.2)">Anchor</span>
+          </div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Baking</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Meal Prep</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Soups & Salads</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Desserts</div>
+        </div>
+      </div>
+      <div class="ne-block">
+        <div class="ne-head" style="color:var(--green)">
+          <span>🌿</span> Wellness Blog
+        </div>
+        <div class="ne-body">
+          <div class="ne-item">
+            <span class="ne-folder">📁</span> Mental Health
+            <span class="ne-count" style="background:rgba(5,150,105,0.1);color:var(--green);border:1px solid rgba(5,150,105,0.2)">Anchor</span>
+          </div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Fitness</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Nutrition</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Sleep</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Self-Care Habits</div>
+        </div>
+      </div>
+      <div class="ne-block">
+        <div class="ne-head" style="color:var(--amber)">
+          <span>💻</span> Blogging Blog
+        </div>
+        <div class="ne-body">
+          <div class="ne-item">
+            <span class="ne-folder">📁</span> Getting Started
+            <span class="ne-count" style="background:rgba(217,119,6,0.1);color:var(--amber);border:1px solid rgba(217,119,6,0.2)">Anchor</span>
+          </div>
+          <div class="ne-item"><span class="ne-folder">📁</span> SEO</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Content Writing</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Monetisation</div>
+          <div class="ne-item"><span class="ne-folder">📁</span> Social Media</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 2: NAMING -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(5,150,105,0.1);color:var(--green);border:1px solid rgba(5,150,105,0.2)">Rule 02</span>
+      Name Categories for Your Reader, Not for Yourself
+    </h2>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--green)"></div>
+        <div class="rc-top-inner">
+          <div class="rc-icon" style="background:rgba(5,150,105,0.1);color:var(--green)">🏷</div>
+          <h3>Use the Language Your Reader Searches, Not the Vocabulary You Prefer</h3>
+          <span class="rc-badge" style="background:rgba(5,150,105,0.1);color:var(--green);border:1px solid rgba(5,150,105,0.2)">SEO + UX</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>Category names serve two audiences simultaneously: the reader who scans your navigation looking for content that solves their problem, and the search engine that uses your category page's URL and title to understand your blog's topical scope. Both audiences prefer plain, specific language over clever, brand-specific naming. A category called "The Money Mindset" tells a reader and a search engine almost nothing useful. A category called "Budgeting" tells both exactly what they need to know in a single word. Name your categories as the reader would search for them — not as a brand exercise, not as a display of personality, but as a genuinely useful signpost.</p>
+        <div class="structure-tip">
+          <span class="st-label">Naming Test</span>
+          <p>Before committing to any category name, type it into Google and check whether the search results are relevant to what your category covers. If Google shows content matching your intended category, the name is a good keyword. If Google looks confused, rename it to something more searchable.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAMING GUIDE -->
+    <div class="naming-compare">
+      <div class="nc-header">✏ &nbsp; Category Naming — What Works vs What Weakens</div>
+      <div class="nc-rows">
+        <div class="nc-row">
+          <span class="nc-weak">My Money Journey</span>
+          <span class="nc-arrow">→</span>
+          <span class="nc-strong">Personal Finance</span>
+        </div>
+        <div class="nc-row">
+          <span class="nc-weak">In The Kitchen</span>
+          <span class="nc-arrow">→</span>
+          <span class="nc-strong">Recipes</span>
+        </div>
+        <div class="nc-row">
+          <span class="nc-weak">Musings on Movement</span>
+          <span class="nc-arrow">→</span>
+          <span class="nc-strong">Fitness</span>
+        </div>
+        <div class="nc-row">
+          <span class="nc-weak">The Digital Desk</span>
+          <span class="nc-arrow">→</span>
+          <span class="nc-strong">Blogging Tips</span>
+        </div>
+        <div class="nc-row">
+          <span class="nc-weak">Miscellaneous</span>
+          <span class="nc-arrow">→</span>
+          <span class="nc-strong">[Delete it entirely]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 3: SEO -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(8,145,178,0.1);color:var(--teal);border:1px solid rgba(8,145,178,0.2)">Rule 03</span>
+      Treat Each Category Page as a Standalone SEO Asset
+    </h2>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--teal)"></div>
+        <div class="rc-top-inner">
+          <div class="rc-icon" style="background:rgba(8,145,178,0.1);color:var(--teal)">🔍</div>
+          <h3>Your Category Pages Can Rank — Most Bloggers Leave This Opportunity Untouched</h3>
+          <span class="rc-badge" style="background:rgba(8,145,178,0.1);color:var(--teal);border:1px solid rgba(8,145,178,0.2)">SEO Gain</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>By default, WordPress category pages are thin — a title, a grid of post thumbnails, and nothing else. This is a significant missed opportunity. A category page with a 150–250 word introduction explaining what the category covers, what kinds of posts readers will find there, and who the content is designed for is a genuinely useful page that Google can assess for topical relevance and rank for broad keywords. In your SEO plugin, each category page should have a unique meta title and meta description. The URL should be short and keyword-rich — yoursite.com/budgeting rather than yoursite.com/category/budgeting. These small investments turn passive archive pages into active organic traffic assets.</p>
+        <div class="structure-tip">
+          <span class="st-label">Quick Win</span>
+          <p>In WordPress, go to Posts → Categories → Edit each category and add a 150-word description written for both the reader and for SEO. Update the slug to remove "category/" from the URL using your SEO plugin settings. These two changes take ten minutes per category and meaningfully improve their search visibility.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL CHECKLIST -->
+    <div class="final-check">
+      <div class="fc-title">◆ &nbsp; Your Category Creation Checklist</div>
+      <div class="fc-grid">
+        <div class="fc-item"><div class="fc-box"></div>Choose 3–5 categories before writing your first post</div>
+        <div class="fc-item"><div class="fc-box"></div>Name each one using searchable, reader-first language</div>
+        <div class="fc-item"><div class="fc-box"></div>Every post fits exactly one category — no exceptions</div>
+        <div class="fc-item"><div class="fc-box"></div>Never create a "Miscellaneous" or "Other" category</div>
+        <div class="fc-item"><div class="fc-box"></div>Add 150-word descriptions to each category page</div>
+        <div class="fc-item"><div class="fc-box"></div>Remove "category/" from category page URLs</div>
+        <div class="fc-item"><div class="fc-box"></div>Set unique meta title and description per category</div>
+        <div class="fc-item"><div class="fc-box"></div>Categories appear clearly in your main navigation</div>
+        <div class="fc-item"><div class="fc-box"></div>Review category structure every 6 months</div>
+        <div class="fc-item"><div class="fc-box"></div>Merge or rename categories that overlap or confuse</div>
+      </div>
+    </div>
+
+    <p>Categories are a decision that most bloggers make once, carelessly, and then live with for years. The investment of thinking them through deliberately — choosing the right number, naming them for the reader, building them with SEO in mind from the beginning — takes one focused afternoon and pays dividends in navigation clarity, search visibility, and editorial coherence for the entire life of the blog.</p>
+
+    <p>Open your blog's category settings today. Look at your existing categories with fresh eyes — the eyes of a reader who has never been to your blog before. Ask whether they make sense, whether they are named helpfully, and whether they are the right number to cover your niche without overlap. Then make the changes your honest assessment reveals. Future readers — and future rankings — depend on the quality of the architecture you build today.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">Good categories do not organise your archive. They organise your reader's experience of it.</span>
+  </footer>
+
+</div>
+</body>
+</html>
