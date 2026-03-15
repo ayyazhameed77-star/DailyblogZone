@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>breathing room ·  reduce website loading time</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f6f3f0;  /* soft parchment */
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #2c2b28;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .paper {
+      max-width: 780px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(2px);
+      background: #ffffffec;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.15), 0 8px 24px -6px rgba(45, 62, 80, 0.1);
+      padding: 3rem 2.5rem;
+      transition: all 0.2s ease;
+    }
+
+    /* soft custom indents */
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 480;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #1e1e1c;
+      border-left: 6px solid #9ba6a0;
+      padding-left: 1.4rem;
+      margin-bottom: 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .sub {
+      font-size: 1.1rem;
+      color: #5e5b57;
+      margin-bottom: 2.4rem;
+      font-weight: 340;
+      border-bottom: 1px dashed #d9d2cb;
+      padding-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 430;
+      margin-top: 2.4rem;
+      margin-bottom: 0.8rem;
+      color: #2e3b37;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2:before {
+      content: "↘";
+      font-size: 1.6rem;
+      color: #b3aaa1;
+      font-weight: 300;
+    }
+
+    p {
+      margin-bottom: 1.3rem;
+      font-size: 1.06rem;
+      color: #322f2b;
+    }
+
+    .soft-card {
+      background: #faf9f7;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin: 2.2rem 0 2rem 0;
+      border: 1px solid #e9e2da;
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      margin: 1.8rem 0 1rem;
+    }
+
+    .pill {
+      background: #e7e1da;
+      color: #2d403a;
+      padding: 0.3rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 440;
+      letter-spacing: 0.2px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .pill:hover {
+      background: #d3cdc4;
+      border-color: #b7afa5;
+    }
+
+    .insight {
+      background: #f2eee9;
+      border-radius: 18px;
+      padding: 1.2rem 1.8rem;
+      margin: 1.5rem 0;
+      font-style: normal;
+      border-left: 4px solid #8f9e97;
+      font-size: 1.02rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dotted #cfc8c0;
+      margin: 2.5rem 0 1rem;
+    }
+
+    .foot-note {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 2.6rem;
+      font-size: 0.95rem;
+      color: #716b64;
+      background: #f6f2ed;
+      padding: 1rem 1.8rem;
+      border-radius: 60px;
+    }
+
+    .foot-note span {
+      font-size: 2rem;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 550px) {
+      .paper { padding: 2rem 1.5rem; }
+      h1 { font-size: 2rem; }
+    }
+
+    /* gentle list style */
+    ul {
+      margin: 1rem 0 1.6rem 1.8rem;
+      list-style-type: none;
+    }
+
+    li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.7rem;
+      position: relative;
+    }
+
+    li::before {
+      content: "○";
+      color: #9e948b;
+      font-weight: 300;
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+    }
+
+    a {
+      color: #48665c;
+      text-decoration: none;
+      border-bottom: 1px solid #cbbfb6;
+    }
+
+    a:hover {
+      border-bottom-color: #48665c;
+    }
+  </style>
+</head>
+<body>
+  <div class="paper">
+    <h1>slowness is a feeling.<br>speed is a craft.</h1>
+    <div class="sub">gentle, human‑friendly ways to reduce website loading time</div>
+
+    <p>We’ve all felt it — that tiny pause, the spinning wheel, the delayed text. A slow website isn’t just a technical nuisance; it breaks the flow, the trust, the quiet conversation between a page and a person. Speeding up a website isn’t about geeky tricks; it’s about <strong>removing the invisible frictions</strong> between your reader and what you have to say.</p>
+
+    <div class="insight">
+      ✦ half a second slower loads reduce satisfaction by 16% — but even more, it breaks the human rhythm. Let’s fix that.
+    </div>
+
+    <h2>choose images that breathe</h2>
+    <p>Heavy images are the silent weight of the web. Before uploading a photo or illustration, ask: <em>“does it need to be this big?”</em> Resize images to the exact dimensions they’ll appear. Use modern formats like <span class="pill">WebP</span> or <span class="pill">AVIF</span> — they look identical, yet are 25–35% lighter. Tools like <strong>Squoosh</strong> or <strong>ImageOptim</strong> make this feel like mindfulness for your media.</p>
+
+    <h2>let browsers borrow & cache</h2>
+    <p>Caching is memory with manners. When someone visits your site, their browser can <em>remember</em> parts of it — logos, fonts, style sheets — so next time the page almost appears instantly. Set cache headers gently: static resources (images, CSS, JS) can stay for weeks. A simple <code>.htaccess</code> or your hosting panel often has a checkbox for “leverage browser caching”. It’s like leaving a bookmark in a book you’re reading together.</p>
+
+    <div class="soft-card">
+      <span style="font-size: 1.6rem; display: block; margin-bottom: 0.3rem;">✺</span>
+      <p style="margin-bottom: 0;"><strong>quick human tip:</strong> run your site through <a href="#">PageSpeed Insights</a> or <a href="#">GTmetrix</a> — but don’t get hypnotized by the numbers. Look at the suggestions as you’d look at a friend’s notes: with curiosity, not shame.</p>
+    </div>
+
+    <h2>trim the hidden fat (code & plugins)</h2>
+    <p>Websites often carry invisible baggage: unused CSS, bulky JavaScript, plugins that whisper “maybe you need me”. Go through your theme or site builder and disable what you don’t truly use. For those who like to tinker, <strong>minify</strong> your CSS/JS — it removes spaces and comments, making files smaller without changing how they work. It’s like folding a letter neatly before slipping it into an envelope.</p>
+
+    <h2>choose a hosting home that cares</h2>
+    <p>Hosting is the neighbourhood where your website lives. If the server is far away or overcrowded, every visitor experiences delay. Look for hosts with <strong>SSD storage</strong>, <strong>HTTP/2 support</strong>, and perhaps a <strong>CDN (content delivery network)</strong> — a service that stores copies of your site in cities around the world. When someone in Lisbon visits, they get the version from Lisbon, not from a basement in Texas.</p>
+
+    <div class="pill-group">
+      <span class="pill">ssd hosting</span>
+      <span class="pill">cdn (like cloudflare)</span>
+      <span class="pill">php 8+</span>
+      <span class="pill">http/2 or 3</span>
+    </div>
+
+    <h2>reduce & ask nicely</h2>
+    <p>Every file your site requests — each image, script, font — is a little knock on the server’s door. The fewer knocks, the faster the party starts. Combine CSS files, use image sprites for icons, and limit the number of external fonts. If you only need three font weights, don’t load all twelve. Your visitors will feel the quiet elegance.</p>
+
+    <ul>
+      <li><strong>lazy load</strong> images further down the page – they only load when someone scrolls to them.</li>
+      <li><strong>inline critical CSS</strong> – style the top part of the page directly in the HTML, so it appears without waiting.</li>
+      <li><strong>avoid redirects</strong> – every redirect is a detour.</li>
+    </ul>
+
+    <h2>gzip / brotli compression</h2>
+    <p>Before the server sends files to the browser, it can shrink them — like vacuum‑packing a sweater. Gzip and Brotli are compression algorithms that most servers support with one click. They reduce text files (HTML, CSS, XML) by up to 70%. Ask your host or look for “enable compression” in your control panel. It’s effortless, invisible, and your users will feel the difference.</p>
+
+    <hr>
+
+    <p style="font-size: 1.2rem; font-weight: 370; line-height: 1.5;">a faster website doesn’t just save seconds — it respects attention. It says: <em>I know your time is tender, so I’ll be brief, graceful, and ready.</em></p>
+
+    <div class="foot-note">
+      <span>☕</span> 
+      <div>speed is a practice, not a one‑time fix. check in every few months, clean what feels heavy, and keep the human moment light.</div>
+    </div>
+
+    <!-- tiny note: word count approx 720 – calm reading :) -->
+    <p style="margin-top: 2rem; font-size: 0.85rem; color: #bbb3aa; text-align: right;">~ read in about 3–4 minutes · human‑scale performance</p>
+  </div>
+</body>
+</html>
