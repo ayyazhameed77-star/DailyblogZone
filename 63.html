@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Write Engaging Introductions — The Writer's Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,200;1,300;1,400;1,600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ── DESIGN DIRECTION: Literary Magazine ──
+     Deep burgundy + aged cream + charcoal ink
+     Spectral serif for all display — elegant, bookish, literary
+     Barlow for body — clean, readable contrast
+     Asymmetric layout with a giant decorative first-letter drop cap
+     Horizontal rule ornaments. Side-margin pull quotes.
+     Feels like a beautiful printed essay, not a blog post.
+  ── */
+
+  :root {
+    --bg:          #faf7f2;
+    --page:        #ffffff;
+    --surface2:    #f4efe6;
+    --border:      #e2d9c8;
+    --border2:     #d0c4b0;
+    --ink:         #18140c;
+    --soft:        #3c3020;
+    --muted:       #8a7a62;
+    --burg:        #7a1a2e;
+    --burg-dim:    rgba(122,26,46,0.08);
+    --burg-mid:    rgba(122,26,46,0.20);
+    --burg-light:  #9e2438;
+    --gold:        #b8923a;
+    --gold-dim:    rgba(184,146,58,0.10);
+    --sage:        #4a6741;
+    --sage-dim:    rgba(74,103,65,0.09);
+    --slate:       #3a5270;
+    --slate-dim:   rgba(58,82,112,0.09);
+    --ochre:       #a06820;
+    --ochre-dim:   rgba(160,104,32,0.09);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Barlow', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 17.5px;
+    line-height: 1.9;
+  }
+
+  /* ── Top ornament band ── */
+  .ornament-band {
+    background: var(--burg);
+    height: 5px;
+  }
+
+  /* ── Magazine Header ── */
+  header {
+    background: var(--page);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Diagonal background slice */
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 42%;
+    height: 100%;
+    background: var(--burg);
+    clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 380px;
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Left: text */
+  .header-left {
+    padding: 64px 48px 64px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .issue-tag {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--burg);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .issue-tag::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--burg);
+  }
+
+  h1 {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  h1 em {
+    color: var(--burg);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .header-dek {
+    font-family: 'Spectral', serif;
+    font-size: 1.08rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 380px;
+    border-left: 2px solid var(--border2);
+    padding-left: 16px;
+    margin-bottom: 28px;
+  }
+
+  .header-byline {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Right: decorative type */
+  .header-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+  }
+
+  .big-letter {
+    font-family: 'Spectral', serif;
+    font-size: clamp(12rem, 22vw, 18rem);
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,255,0.10);
+    line-height: 1;
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+    letter-spacing: -0.05em;
+    user-select: none;
+  }
+
+  .header-quote {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 280px;
+  }
+
+  .hq-mark {
+    font-family: 'Spectral', serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.25);
+    line-height: 0.8;
+    margin-bottom: 10px;
+  }
+
+  .hq-text {
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.65;
+  }
+
+  .hq-attr {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 12px;
+    display: block;
+  }
+
+  @media(max-width:700px){
+    header::before { display:none; }
+    .header-inner { grid-template-columns:1fr; }
+    .header-right { display:none; }
+    .header-left  { padding:48px 24px; }
+    h1 { font-size:2.4rem; }
+  }
+
+  /* ── Main layout ── */
+  main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 64px 32px 100px;
+  }
+
+  /* ── Drop-cap lead ── */
+  .lead-section {
+    margin-bottom: 58px;
+  }
+
+  .lead-text {
+    font-family: 'Spectral', serif;
+    font-size: 1.12rem;
+    font-weight: 300;
+    color: var(--soft);
+    line-height: 1.88;
+    columns: 1;
+  }
+
+  /* Drop cap */
+  .lead-text::first-letter {
+    font-family: 'Spectral', serif;
+    font-size: 5.2rem;
+    font-weight: 800;
+    color: var(--burg);
+    float: left;
+    line-height: 0.78;
+    margin: 6px 10px 0 0;
+    padding: 0 4px 4px 0;
+  }
+
+  /* ── Chapter / section ── */
+  .chapter {
+    margin-bottom: 58px;
+    position: relative;
+  }
+
+  .ch-num {
+    font-family: 'Spectral', serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--burg);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .ch-num::after {
+    content: ''; flex:1; height:1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+
+  h2 {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  p { color: var(--soft); margin-bottom: 17px; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  /* ── Side pull-quote ── */
+  .pull {
+    float: right;
+    width: 240px;
+    margin: 0 0 24px 32px;
+    padding: 18px 0 18px 20px;
+    border-left: 3px solid var(--burg);
+    clear: right;
+  }
+
+  .pull p {
+    font-family: 'Spectral', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--burg);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  @media(max-width:640px){
+    .pull {
+      float: none;
+      width: 100%;
+      margin: 0 0 24px;
+    }
+  }
+
+  /* ── Technique cards ── */
+  .technique-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 24px 0;
+    background: var(--page);
+  }
+
+  .tech-row {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.18s;
+  }
+
+  .tech-row:last-child { border-bottom: none; }
+  .tech-row:hover { background: var(--surface2); }
+
+  .tech-num {
+    background: var(--burg);
+    color: rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-style: italic;
+    padding: 16px 0;
+  }
+
+  .tech-body {
+    padding: 15px 20px;
+  }
+
+  .tech-name {
+    font-weight: 700;
+    font-size: 0.93rem;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .tech-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Example comparison ── */
+  .example-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0;
+  }
+
+  @media(max-width:520px){ .example-pair { grid-template-columns:1fr; } }
+
+  .ex-card {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .ex-head {
+    padding: 9px 16px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ex-bad  .ex-head { background:rgba(160,50,40,0.07); color:#9a2830; }
+  .ex-good .ex-head { background:var(--sage-dim);       color:var(--sage); }
+
+  .ex-body {
+    padding: 14px 16px;
+    font-family: 'Spectral', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--soft);
+    line-height: 1.65;
+    background: var(--page);
+  }
+
+  .ex-note {
+    padding: 8px 16px;
+    font-size: 0.76rem;
+    color: var(--muted);
+    background: var(--surface2);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── Callout boxes ── */
+  .callout {
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin: 22px 0;
+    position: relative;
+  }
+
+  .cb-burg  { background:var(--burg-dim);  border:1px solid var(--burg-mid);           border-left:3px solid var(--burg);  }
+  .cb-gold  { background:var(--gold-dim);  border:1px solid rgba(184,146,58,0.25);      border-left:3px solid var(--gold);  }
+  .cb-sage  { background:var(--sage-dim);  border:1px solid rgba(74,103,65,0.22);       border-left:3px solid var(--sage);  }
+  .cb-slate { background:var(--slate-dim); border:1px solid rgba(58,82,112,0.22);       border-left:3px solid var(--slate); }
+  .cb-ochre { background:var(--ochre-dim); border:1px solid rgba(160,104,32,0.22);      border-left:3px solid var(--ochre); }
+
+  .callout strong {
+    font-size: 0.64rem; font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    display: block; margin-bottom: 5px;
+  }
+  .cb-burg  strong { color:var(--burg);  }
+  .cb-gold  strong { color:var(--gold);  }
+  .cb-sage  strong { color:var(--sage);  }
+  .cb-slate strong { color:var(--slate); }
+  .cb-ochre strong { color:var(--ochre); }
+  .callout p { font-size:0.9rem; margin:0; }
+
+  /* ── Formula box ── */
+  .formula {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 28px 30px;
+    border-radius: 6px;
+    margin: 28px 0;
+    text-align: center;
+  }
+
+  .formula-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.35);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .formula-text {
+    font-family: 'Spectral', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--bg);
+    line-height: 1.75;
+  }
+
+  .formula-text span {
+    color: #e8a87c;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* ── Checklist ── */
+  ul.check {
+    list-style: none; padding:0; margin:18px 0;
+  }
+  ul.check li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    color: var(--soft);
+    font-size: 0.96rem;
+  }
+  ul.check li:last-child { border-bottom: none; }
+  ul.check li::before {
+    content: '✦';
+    position: absolute; left: 4px;
+    color: var(--burg); font-size: 0.7rem;
+    top: 13px;
+  }
+
+  /* ── Ornamental divider ── */
+  .orn-div {
+    text-align: center;
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--border2);
+  }
+
+  .orn-div::before, .orn-div::after {
+    content: ''; flex:1; height:1px;
+    background: var(--border);
+  }
+
+  .orn-div span {
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--burg);
+    letter-spacing: 0.3em;
+    opacity: 0.6;
+  }
+
+  /* ── Closing ── */
+  .closing {
+    background: var(--burg);
+    color: rgba(255,255,255,0.9);
+    padding: 48px 44px;
+    border-radius: 6px;
+    margin-top: 62px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '"';
+    position: absolute;
+    top: -20px; right: 20px;
+    font-family: 'Spectral', serif;
+    font-size: 14rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.05);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing h3 {
+    font-family: 'Spectral', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #fff;
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+    position: relative;
+    line-height: 1.25;
+  }
+
+  .closing h3 em {
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .closing p {
+    color: rgba(255,255,255,0.62);
+    font-size: 0.96rem;
+    max-width: 520px;
+    position: relative;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 28px;
+    font-size: 0.72rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(18px); }
+    to   { opacity:1; transform:translateY(0);    }
+  }
+
+  .chapter { animation: fadeUp 0.5s ease both; }
+  .chapter:nth-child(1){ animation-delay:0.05s; }
+  .chapter:nth-child(2){ animation-delay:0.10s; }
+  .chapter:nth-child(3){ animation-delay:0.15s; }
+  .chapter:nth-child(4){ animation-delay:0.20s; }
+  .chapter:nth-child(5){ animation-delay:0.25s; }
+  .chapter:nth-child(6){ animation-delay:0.30s; }
+
+  @media(max-width:600px){
+    main { padding:40px 18px 70px; }
+    h2 { font-size:1.55rem; }
+    .closing { padding:32px 22px; }
+    .formula { padding:22px 18px; }
+    .formula-text { font-size:1.05rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ornament-band"></div>
+
+<header>
+  <div class="header-inner">
+    <!-- Left: title block -->
+    <div class="header-left">
+      <span class="issue-tag">The Writer's Craft Series</span>
+      <h1>How to Write<br><em>Engaging</em><br>Introductions</h1>
+      <p class="header-dek">The first sentence is a contract between writer and reader. Here is how to make it one they cannot refuse.</p>
+      <span class="header-byline">~800 words &nbsp;·&nbsp; Practical &amp; Human &nbsp;·&nbsp; 2026 Edition</span>
+    </div>
+
+    <!-- Right: decorative -->
+    <div class="header-right">
+      <div class="big-letter">"</div>
+      <div class="header-quote">
+        <div class="hq-mark">"</div>
+        <p class="hq-text">The most important sentence in any article is the first one. If it doesn't induce the reader to proceed to the second sentence, your article is dead.</p>
+        <span class="hq-attr">— William Zinsser</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Drop-cap lead -->
+  <div class="lead-section">
+    <p class="lead-text">
+      Your introduction is the most important part of anything you write. Not because it is the most informative — it rarely is. Not because it is the most complex — it should never be. But because it is the only part of your article that every single reader will encounter. Everything after the introduction is read only by those your introduction chose to keep. That is both the terrifying truth of writing — and the extraordinary opportunity inside it.
+    </p>
+  </div>
+
+  <!-- Chapter 1 -->
+  <div class="chapter">
+    <p class="ch-num">Chapter One</p>
+    <h2>Why Most Introductions Fail the Reader</h2>
+
+    <div class="pull">
+      <p>"Readers do not owe you their attention. Every sentence must earn the next one."</p>
+    </div>
+
+    <p>
+      Most introductions fail for one of three reasons. The first is <strong>preamble</strong> — sentences that circle the topic without landing on it. "In today's digital age, content is more important than ever before." That sentence tells the reader nothing they did not already know. It wastes the most valuable real estate in the article and signals that the writer has not yet figured out what they actually want to say.
+    </p>
+    <p>
+      The second failure is <strong>summarising instead of hooking</strong>. Some writers treat the introduction as a table of contents — listing what will be covered in the article below. This removes all reason to continue. Why read to the end when the end has already been described in the beginning?
+    </p>
+    <p>
+      The third failure is <strong>writing for yourself instead of the reader</strong>. A great introduction is not about showing what you know. It is about addressing something the reader feels, fears, wants, or wonders about — and promising, implicitly or explicitly, that what follows will help.
+    </p>
+
+    <div class="callout cb-burg">
+      <strong>The Brutal Test</strong>
+      <p>Read your introduction aloud and ask: would a stranger stop scrolling for this? If the honest answer is no, the introduction needs a complete rewrite — not a polish. Most first introductions need to be thrown away and started over entirely.</p>
+    </div>
+  </div>
+
+  <div class="orn-div"><span>✦ ✦ ✦</span></div>
+
+  <!-- Chapter 2 — The five hooks -->
+  <div class="chapter">
+    <p class="ch-num">Chapter Two</p>
+    <h2>Five Hook Techniques That Actually Work</h2>
+    <p>
+      A hook is the opening mechanism — the specific technique you use to capture attention in the first one to three sentences. There is no single right hook. The best one depends on your topic, your audience, and the tone of the piece. Here are the five that work most reliably:
+    </p>
+
+    <div class="technique-list">
+      <div class="tech-row">
+        <div class="tech-num">1</div>
+        <div class="tech-body">
+          <p class="tech-name">The Surprising Statistic</p>
+          <p class="tech-desc">Open with a number that defies expectation. Not a boring fact — a fact that reframes something the reader thought they understood. "The average person decides whether to keep reading within 3 seconds of landing on a page."</p>
+        </div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-num">2</div>
+        <div class="tech-body">
+          <p class="tech-name">The Provocative Question</p>
+          <p class="tech-desc">Ask a question the reader is privately asking themselves. Make it specific enough to feel personal. Not "Do you want to write better?" but "Have you ever stared at a blank first paragraph for twenty minutes and written nothing useful?"</p>
+        </div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-num">3</div>
+        <div class="tech-body">
+          <p class="tech-name">The Vivid Scene or Story</p>
+          <p class="tech-desc">Drop the reader mid-scene into a specific moment — a place, a sound, a feeling, a decision. Story is the most ancient attention-holding technology humans have. Even three sentences of scene-setting can hold a reader who would have bounced in two seconds.</p>
+        </div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-num">4</div>
+        <div class="tech-body">
+          <p class="tech-name">The Bold Claim or Counterintuitive Idea</p>
+          <p class="tech-desc">State something most people believe is wrong — confidently. "The best introductions never introduce the topic." The reader's immediate scepticism becomes the reason they read on. They want to see if you can back it up.</p>
+        </div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-num">5</div>
+        <div class="tech-body">
+          <p class="tech-name">The Shared Problem or Relatable Frustration</p>
+          <p class="tech-desc">Name something the reader has felt but never articulated. When a reader thinks "that is exactly what I experience" — you have them. They read on because you are clearly someone who understands their situation, which means you might have the solution too.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout cb-gold">
+      <strong>Mix and Layer</strong>
+      <p>The strongest introductions often combine two techniques — a vivid scene that contains a surprising statistic, or a relatable frustration followed immediately by a bold claim. One hook opens the door; the second hook pulls the reader through it.</p>
+    </div>
+  </div>
+
+  <div class="orn-div"><span>✦ ✦ ✦</span></div>
+
+  <!-- Chapter 3 — Bad vs Good -->
+  <div class="chapter">
+    <p class="ch-num">Chapter Three</p>
+    <h2>The Difference Between Weak and Strong — Side by Side</h2>
+    <p>
+      The fastest way to understand what makes an introduction work is to compare a weak version with a strong version on the same topic. The difference is rarely about the subject matter — it is entirely about where the writer decides to begin.
+    </p>
+
+    <div class="example-pair">
+      <div class="ex-card ex-bad">
+        <div class="ex-head">✗ &nbsp; Weak Opening</div>
+        <div class="ex-body">"In this article, we will be talking about sleep and why it is important for your health. Many people do not get enough sleep. This is a growing problem in modern society. We will cover the causes and solutions."</div>
+        <div class="ex-note">Summarises instead of hooks. Generic, impersonal, no reason to continue.</div>
+      </div>
+      <div class="ex-card ex-good">
+        <div class="ex-head">✓ &nbsp; Strong Opening</div>
+        <div class="ex-body">"At 2 AM on a Wednesday, I made a decision that cost me three years of my health. I chose to watch one more episode instead of sleeping. I did this 847 times."</div>
+        <div class="ex-note">Scene + specific numbers + personal voice. Reader is immediately inside the story.</div>
+      </div>
+    </div>
+
+    <div class="example-pair">
+      <div class="ex-card ex-bad">
+        <div class="ex-head">✗ &nbsp; Weak Opening</div>
+        <div class="ex-body">"Email marketing is one of the most effective digital marketing strategies available to businesses today. In this guide, we will explain how to build an email list and create campaigns that convert."</div>
+        <div class="ex-note">Table-of-contents style. Tells readers what to expect instead of making them want to find out.</div>
+      </div>
+      <div class="ex-card ex-good">
+        <div class="ex-head">✓ &nbsp; Strong Opening</div>
+        <div class="ex-body">"One email to 340 people. Twelve minutes later, £4,200 in sales. No ads. No algorithm. No guessing. Email marketing is the only channel I know where the numbers still make sense."</div>
+        <div class="ex-note">Specific, bold claim backed by real numbers. Curiosity and credibility in four sentences.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="orn-div"><span>✦ ✦ ✦</span></div>
+
+  <!-- Chapter 4 — Structure -->
+  <div class="chapter">
+    <p class="ch-num">Chapter Four</p>
+    <h2>The Three-Part Structure of Every Great Introduction</h2>
+    <p>
+      Great introductions follow a reliable architecture even when they appear improvised. Once you see the structure, you will recognise it everywhere — in great journalism, in bestselling books, in the blog posts you bookmark and return to. The three parts are: the hook, the bridge, and the promise.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">The Introduction Formula</span>
+      <p class="formula-text">
+        <span>Hook</span> — capture attention in the first 1–3 sentences<br>
+        + <span>Bridge</span> — connect the hook to the reader's real situation<br>
+        + <span>Promise</span> — tell them exactly what they will gain by reading on
+      </p>
+    </div>
+
+    <p>
+      The <strong>hook</strong> is your opening move — the statistic, question, story, or claim that creates an immediate reason to keep reading. The <strong>bridge</strong> is the one or two sentences that connect your hook to the reader's actual life — making the topic feel relevant, not just interesting. The <strong>promise</strong> is your implicit or explicit contract: here is what you will know, be able to do, or understand differently by the time you reach the end.
+    </p>
+    <p>
+      This structure does not need to be rigid. The best introductions wear it invisibly. But when your introduction is not working, checking which of these three elements is missing almost always reveals the problem immediately.
+    </p>
+
+    <div class="callout cb-sage">
+      <strong>Keep It Short</strong>
+      <p>The ideal introduction for a blog post is three to five sentences. For long-form articles, up to two paragraphs. Introductions longer than 150 words are almost always too long — the writer is warming up when they should already be in motion.</p>
+    </div>
+  </div>
+
+  <div class="orn-div"><span>✦ ✦ ✦</span></div>
+
+  <!-- Chapter 5 — Common mistakes -->
+  <div class="chapter">
+    <p class="ch-num">Chapter Five</p>
+    <h2>What to Cut from Every Introduction You Write</h2>
+    <p>
+      Editing an introduction is often more important than writing it. The first draft almost always contains material that was useful for the writer to write — as a way of finding the real opening — but that has no place in the final version. Here is what to cut without hesitation:
+    </p>
+
+    <ul class="check">
+      <li><strong>"In today's world…" / "In this day and age…"</strong> — Every era considers itself uniquely complex. These phrases say nothing and signal lazy thinking. Cut them entirely.</li>
+      <li><strong>Dictionary definitions as openers.</strong> "According to Merriam-Webster, an introduction is…" — Readers are adults. They do not need common words defined. This opener was outdated in 2005.</li>
+      <li><strong>Apologies and hedges.</strong> "This is just my opinion, but…" or "I am not an expert, however…" — Undermine authority before you have earned any. State your position and let the content prove it.</li>
+      <li><strong>Long historical preamble.</strong> "Since the dawn of writing, humans have…" — Skip the origin story unless the history is directly, immediately relevant to the specific point you are making.</li>
+      <li><strong>Restatement of the title.</strong> If your title says "How to Write Great Introductions," your first sentence should not say "In this article, I will explain how to write great introductions." The reader just read the title.</li>
+      <li><strong>The last sentence you wrote first.</strong> Many first drafts contain a buried gold sentence two or three paragraphs in — the sentence where the writer finally found what they actually wanted to say. Find it. Move it to the top. Delete everything before it.</li>
+    </ul>
+
+    <div class="callout cb-ochre">
+      <strong>The Real First Draft Rule</strong>
+      <p>Assume your first draft introduction will be deleted entirely and replaced. Write it anyway to find your way into the piece — then go back after the article is complete and write a second introduction knowing exactly what the article contains. The second one is almost always ten times better.</p>
+    </div>
+  </div>
+
+  <div class="orn-div"><span>✦ ✦ ✦</span></div>
+
+  <!-- Chapter 6 -->
+  <div class="chapter">
+    <p class="ch-num">Chapter Six</p>
+    <h2>A Five-Step Process to Write Better Introductions Every Time</h2>
+    <p>
+      Skill in writing introductions is built through process, not talent. Here is a repeatable method that works for any type of article — blog post, long-form guide, newsletter, or essay:
+    </p>
+
+    <ul class="check">
+      <li><strong>Write the article first.</strong> Finish the full body of the piece before attempting the introduction. You cannot promise what you have not yet written. The article reveals what the introduction should be.</li>
+      <li><strong>Identify the single most compelling sentence in your article.</strong> This is usually found in the conclusion or buried deep in the body. Consider this your introduction's destination — and work backwards from it.</li>
+      <li><strong>Write three completely different opening sentences.</strong> Use three different hook techniques — a question, a story fragment, and a bold claim. Pick the strongest, or combine the best elements of two.</li>
+      <li><strong>Apply the Hook-Bridge-Promise test.</strong> Does your introduction capture attention, connect to the reader, and make a clear implied promise? If any element is missing, add it — in that order.</li>
+      <li><strong>Read it aloud cold.</strong> Wait one hour, then read the introduction aloud to yourself as if you are a sceptical reader encountering it for the first time. If you stumble, rewrite. If you would keep reading, it is ready.</li>
+    </ul>
+
+    <div class="callout cb-slate">
+      <strong>The 80 / 20 of Writing</strong>
+      <p>You will spend 20% of your writing time on the introduction and it will determine 80% of whether your article gets read. That ratio is not inefficient — it is the correct investment. A mediocre body attached to a great introduction gets read. A brilliant body attached to a weak introduction gets abandoned in the first ten seconds.</p>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <h3>The First Sentence<br><em>Is Everything.</em></h3>
+    <p>
+      Write it last. Test it ruthlessly. Kill every sentence that preambles instead of hooks. Find the buried gold sentence in your draft and move it to the top. Then give it the space and simplicity it deserves — because a great introduction needs nothing but itself. One sentence that earns the next. And then the next. Until the reader has read every word you wrote.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 &nbsp;·&nbsp; How to Write Engaging Introductions &nbsp;·&nbsp; Written for Human Readers
+</footer>
+
+</body>
+</html>
