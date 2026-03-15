@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Colour Combinations for Blogs — The Visual Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+  /* ══════════════════════════════════════════
+     DESIGN: Living Colour Compendium
+     The page itself is split into palette zones.
+     Each section has its own background tinted
+     very subtly from its featured palette.
+
+     Unbounded (geometric display) for headings
+     Newsreader (editorial serif) for body text
+
+     No gradients except in the header spectrum.
+     Colours live in blocks, swatches, and demos.
+     The content teaches; the design shows.
+  ══════════════════════════════════════════ */
+
+  :root {
+    --bg:        #f9f7f4;
+    --surface:   #ffffff;
+    --border:    #e8e3db;
+    --ink:       #16120d;
+    --soft:      #3d3528;
+    --muted:     #8c8070;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 300;
+    font-size: 17.5px;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Rainbow top stripe ── */
+  .rainbow {
+    height: 6px;
+    background: linear-gradient(90deg,
+      #e63946 0%,
+      #f4a261 14%,
+      #e9c46a 28%,
+      #2a9d8f 42%,
+      #219ebc 56%,
+      #6d28d9 70%,
+      #be185d 84%,
+      #1a1a2e 100%);
+  }
+
+  /* ══ HEADER ══ */
+  header {
+    background: var(--ink);
+    padding: 72px 32px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* large colour wheel behind title */
+  .wheel {
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    background: conic-gradient(
+      #e63946 0deg,
+      #f4a261 45deg,
+      #e9c46a 90deg,
+      #2a9d8f 135deg,
+      #219ebc 180deg,
+      #6d28d9 225deg,
+      #be185d 270deg,
+      #e63946 360deg
+    );
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.58rem; font-weight: 400;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+
+  h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(2rem, 5.5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: #f9f7f4;
+    max-width: 740px;
+    margin: 0 auto 16px;
+    position: relative; z-index: 1;
+  }
+
+  h1 .c1 { color: #f4a261; }
+  h1 .c2 { color: #2a9d8f; }
+  h1 .c3 { color: #6d28d9; }
+
+  .header-sub {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 0.88rem;
+    color: rgba(249,247,244,0.28);
+    letter-spacing: 0.06em;
+    margin-bottom: 52px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── Header palette grid ── */
+  .header-palettes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative; z-index: 1;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-bottom: none;
+  }
+
+  .hp-col { display: flex; flex-direction: column; }
+
+  .hp-swatch {
+    height: 60px;
+    transition: height 0.3s ease;
+    cursor: pointer;
+  }
+
+  .hp-col:hover .hp-swatch { height: 80px; }
+
+  .hp-label {
+    background: rgba(255,255,255,0.04);
+    padding: 8px 0;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(249,247,244,0.25);
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* ── Wave ── */
+  .wv { background:var(--ink); line-height:0; }
+  .wv svg { display:block; width:100%; }
+
+  /* ══ MAIN ══ */
+  main { max-width:800px; margin:0 auto; padding:64px 28px 100px; }
+
+  .lead {
+    font-family:'Newsreader',serif;
+    font-size:1.15rem; font-style:italic;
+    color:var(--soft); line-height:1.82;
+    padding:24px 28px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-left:4px solid #e63946;
+    border-radius:4px;
+    margin-bottom:60px;
+    box-shadow:0 2px 12px rgba(22,18,13,0.05);
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom:64px; }
+
+  .section-tag {
+    font-family:'Unbounded',sans-serif;
+    font-size:0.56rem; font-weight:600;
+    letter-spacing:0.28em; text-transform:uppercase;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:12px;
+  }
+  .section-tag::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  h2 {
+    font-family:'Unbounded',sans-serif;
+    font-size:1.5rem; font-weight:700;
+    color:var(--ink); line-height:1.22;
+    margin-bottom:18px; letter-spacing:-0.03em;
+  }
+
+  p { color:var(--soft); margin-bottom:16px; font-size:0.97rem; }
+  strong { color:var(--ink); font-weight:600; }
+
+  /* ══ PALETTE CARDS ══ */
+  .palette-card {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    margin:22px 0;
+    transition:box-shadow 0.2s;
+  }
+  .palette-card:hover {
+    box-shadow:0 8px 32px rgba(22,18,13,0.10);
+  }
+
+  /* Big swatch strip */
+  .pc-swatches {
+    display:flex;
+    height:80px;
+  }
+
+  .pc-sw { flex:1; }
+
+  /* Info area */
+  .pc-info {
+    padding:18px 22px;
+    border-top:1px solid var(--border);
+  }
+
+  .pc-top {
+    display:flex; align-items:center;
+    justify-content:space-between;
+    margin-bottom:10px; flex-wrap:wrap; gap:8px;
+  }
+
+  .pc-name {
+    font-family:'Unbounded',sans-serif;
+    font-size:0.82rem; font-weight:700;
+    color:var(--ink); letter-spacing:-0.01em;
+  }
+
+  .pc-vibe {
+    font-family:'Newsreader',serif;
+    font-size:0.78rem; font-style:italic;
+    color:var(--muted);
+  }
+
+  .pc-tags { display:flex; gap:6px; flex-wrap:wrap; }
+
+  .pc-tag {
+    font-family:'Unbounded',sans-serif;
+    font-size:0.5rem; font-weight:600;
+    letter-spacing:0.12em; text-transform:uppercase;
+    padding:3px 9px; border-radius:20px;
+  }
+
+  /* Hex codes row */
+  .pc-hex {
+    display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+  }
+
+  .hex-chip {
+    display:flex; align-items:center; gap:6px;
+    background: rgba(22,18,13,0.04);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:4px 10px 4px 6px;
+    font-size:0.72rem; font-weight:500;
+    font-family:'Unbounded',sans-serif;
+    color:var(--soft); letter-spacing:0.04em;
+    cursor:pointer;
+    transition:background 0.15s;
+  }
+  .hex-chip:hover { background:rgba(22,18,13,0.08); }
+
+  .hex-dot {
+    width:14px; height:14px; border-radius:3px;
+    border:1px solid rgba(22,18,13,0.12);
+    flex-shrink:0;
+  }
+
+  /* Blog preview mockup */
+  .pc-preview {
+    margin-top:14px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    overflow:hidden;
+    font-size:0;
+  }
+
+  .mock-nav {
+    height:32px;
+    display:flex; align-items:center;
+    padding:0 14px; gap:10px;
+  }
+
+  .mock-logo {
+    width:60px; height:8px;
+    border-radius:2px; opacity:0.7;
+  }
+
+  .mock-links {
+    display:flex; gap:8px; margin-left:auto;
+  }
+
+  .mock-link {
+    width:28px; height:6px; border-radius:2px; opacity:0.4;
+  }
+
+  .mock-hero {
+    height:42px;
+    display:flex; align-items:center;
+    padding:0 14px; gap:10px;
+  }
+
+  .mock-headline {
+    height:14px; border-radius:2px;
+    flex:1; opacity:0.85;
+  }
+
+  .mock-body-area {
+    padding:12px 14px; background:var(--surface);
+  }
+
+  .mock-line {
+    height:6px; border-radius:2px;
+    margin-bottom:7px; opacity:0.15; background:var(--ink);
+  }
+
+  .mock-cta {
+    display:inline-block;
+    height:20px; width:70px;
+    border-radius:4px;
+    margin-top:4px;
+  }
+
+  /* ── Callout ── */
+  .callout {
+    padding:16px 20px; border-radius:5px; margin:20px 0;
+  }
+
+  .callout strong {
+    font-family:'Unbounded',sans-serif;
+    font-size:0.56rem; font-weight:700;
+    letter-spacing:0.22em; text-transform:uppercase;
+    display:block; margin-bottom:5px;
+  }
+
+  .callout p { font-size:0.9rem; margin:0; }
+
+  /* ── Colour theory quick rules ── */
+  .theory-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:12px; margin:22px 0;
+  }
+  @media(max-width:520px){.theory-grid{grid-template-columns:1fr 1fr;}}
+
+  .tcard {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:18px 16px;
+    text-align:center;
+    transition:transform 0.18s, box-shadow 0.18s;
+  }
+  .tcard:hover {
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(22,18,13,0.08);
+  }
+  .tcard-vis { height:32px; border-radius:6px; margin-bottom:10px; }
+  .tcard-name {
+    font-family:'Unbounded',sans-serif;
+    font-size:0.68rem; font-weight:700;
+    color:var(--ink); margin-bottom:4px;
+    letter-spacing:-0.01em;
+  }
+  .tcard-desc { font-size:0.75rem; color:var(--muted); line-height:1.5; }
+
+  /* ── Contrast checker visual ── */
+  .contrast-demo {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:12px; margin:18px 0;
+  }
+  @media(max-width:460px){.contrast-demo{grid-template-columns:1fr;}}
+
+  .cd-box {
+    border-radius:8px;
+    padding:18px 18px;
+    border:1px solid rgba(0,0,0,0.08);
+  }
+
+  .cd-label {
+    font-family:'Unbounded',sans-serif;
+    font-size:0.56rem; font-weight:600;
+    letter-spacing:0.18em; text-transform:uppercase;
+    margin-bottom:8px; opacity:0.5;
+  }
+
+  .cd-text {
+    font-family:'Newsreader',serif;
+    font-size:1.05rem; font-weight:400;
+    font-style:italic; line-height:1.55;
+  }
+
+  .cd-ratio {
+    font-family:'Unbounded',sans-serif;
+    font-size:0.65rem; font-weight:700;
+    margin-top:8px; opacity:0.5;
+  }
+
+  /* ── Checklist ── */
+  ul.check {
+    list-style:none; padding:0; margin:18px 0;
+  }
+  ul.check li {
+    padding:10px 0 10px 30px; position:relative;
+    border-bottom:1px solid var(--border);
+    color:var(--soft); font-size:0.94rem;
+  }
+  ul.check li:last-child { border-bottom:none; }
+  ul.check li::before {
+    content:'◆'; position:absolute; left:4px;
+    color:#e63946; font-size:0.55rem; top:14px;
+  }
+
+  /* ── HR ── */
+  hr.div {
+    border:none; border-top:1px solid var(--border);
+    margin:52px 0; position:relative;
+  }
+  hr.div::before {
+    content:'●';
+    position:absolute; top:-10px; left:50%;
+    transform:translateX(-50%);
+    background:var(--bg); padding:0 12px;
+    font-size:0.7rem;
+  }
+
+  /* ── Closing ── */
+  .closing {
+    background:var(--ink); color:#f9f7f4;
+    padding:46px 40px; border-radius:10px;
+    margin-top:60px; text-align:center;
+    position:relative; overflow:hidden;
+  }
+  .closing::before {
+    content:'';
+    position:absolute; inset:0;
+    background:conic-gradient(
+      rgba(230,57,70,0.06) 0deg,
+      rgba(244,162,97,0.06) 90deg,
+      rgba(42,157,143,0.06) 180deg,
+      rgba(109,40,217,0.06) 270deg,
+      rgba(230,57,70,0.06) 360deg
+    );
+    pointer-events:none;
+  }
+  .closing h3 {
+    font-family:'Unbounded',sans-serif;
+    font-size:1.5rem; font-weight:900;
+    letter-spacing:-0.04em; color:#f9f7f4;
+    margin-bottom:14px; position:relative;
+    line-height:1.2;
+  }
+  .closing h3 span { color:#f4a261; }
+  .closing p {
+    color:rgba(249,247,244,0.55); font-size:0.92rem;
+    max-width:480px; margin:0 auto; position:relative;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align:center; padding:24px;
+    font-family:'Unbounded',sans-serif;
+    font-size:0.55rem; color:var(--muted);
+    border-top:1px solid var(--border);
+    letter-spacing:0.18em; text-transform:uppercase;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from{opacity:0;transform:translateY(18px);}
+    to  {opacity:1;transform:translateY(0);}
+  }
+  .section{animation:fadeUp 0.5s ease both;}
+  .section:nth-child(1){animation-delay:.04s;}
+  .section:nth-child(2){animation-delay:.09s;}
+  .section:nth-child(3){animation-delay:.14s;}
+  .section:nth-child(4){animation-delay:.19s;}
+  .section:nth-child(5){animation-delay:.24s;}
+  .section:nth-child(6){animation-delay:.29s;}
+
+  @media(max-width:600px){
+    main{padding:40px 16px 70px;}
+    header{padding:52px 18px 0;}
+    h1{font-size:1.9rem;}
+    h2{font-size:1.25rem;}
+    .closing{padding:30px 18px;}
+    .header-palettes{grid-template-columns:repeat(5,1fr);}
+    .hp-swatch{height:44px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="rainbow"></div>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="wheel"></div>
+  <div class="eyebrow">Colour &amp; Design — 2026</div>
+  <h1>Best <span class="c1">Colour</span><br><span class="c2">Combinations</span><br>for <span class="c3">Blogs</span></h1>
+  <p class="header-sub">~800 words · Practical &amp; Human · Every Palette Shown Live</p>
+
+  <!-- Live palette preview strip -->
+  <div class="header-palettes">
+    <!-- Warm Classic -->
+    <div class="hp-col">
+      <div class="hp-swatch" style="background:#fffbf5"></div>
+      <div class="hp-swatch" style="background:#c0392b"></div>
+      <div class="hp-swatch" style="background:#1a1612"></div>
+      <div class="hp-label">Warm Classic</div>
+    </div>
+    <!-- Ocean Calm -->
+    <div class="hp-col">
+      <div class="hp-swatch" style="background:#f0f7f9"></div>
+      <div class="hp-swatch" style="background:#219ebc"></div>
+      <div class="hp-swatch" style="background:#023047"></div>
+      <div class="hp-label">Ocean Calm</div>
+    </div>
+    <!-- Forest Modern -->
+    <div class="hp-col">
+      <div class="hp-swatch" style="background:#f4f6f0"></div>
+      <div class="hp-swatch" style="background:#2a9d8f"></div>
+      <div class="hp-swatch" style="background:#1d3a2f"></div>
+      <div class="hp-label">Forest Modern</div>
+    </div>
+    <!-- Dark Editorial -->
+    <div class="hp-col">
+      <div class="hp-swatch" style="background:#1a1a2e"></div>
+      <div class="hp-swatch" style="background:#e94560"></div>
+      <div class="hp-swatch" style="background:#f9f7f4"></div>
+      <div class="hp-label">Dark Editorial</div>
+    </div>
+    <!-- Soft Pastel -->
+    <div class="hp-col">
+      <div class="hp-swatch" style="background:#fdf6ec"></div>
+      <div class="hp-swatch" style="background:#f4a261"></div>
+      <div class="hp-swatch" style="background:#264653"></div>
+      <div class="hp-label">Warm Sunset</div>
+    </div>
+  </div>
+</header>
+
+<div class="wv">
+  <svg viewBox="0 0 1440 52" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,52 L0,26 Q360,0 720,26 Q1080,52 1440,26 L1440,52 Z" fill="#f9f7f4"/>
+  </svg>
+</div>
+
+<!-- ══ MAIN ══ -->
+<main>
+
+  <p class="lead">
+    Colour is the first thing a visitor feels — before they read a headline, before they notice your layout, before they judge whether your content is worth their time. The right colour palette signals trust, personality, and professionalism in under a second. The wrong one sends them back to Google just as fast. Here are the combinations that consistently work — and why.
+  </p>
+
+  <!-- Section 1 — Why colour matters -->
+  <div class="section">
+    <p class="section-tag" style="color:#e63946">The Psychology</p>
+    <h2>Why Colour Is Your Blog's First Impression</h2>
+    <p>
+      Research consistently shows that people make subconscious colour-based judgements about a website within 90 milliseconds of arrival. Colours communicate before words can. Deep navy signals authority and trust. Terracotta signals warmth and creativity. Bright lime green signals energy and modernity. A mismatch between your colour palette and your content creates a subtle but persistent sense of wrongness that readers cannot name — but always feel.
+    </p>
+    <p>
+      The goal of a blog colour palette is not beauty for its own sake. It is <strong>alignment</strong> — making your visual environment match the emotional register of your writing. A mindfulness blog in harsh neon colours undermines every word. A bold opinion blog in washed-out pastels deflates every argument. Choose colours that feel like the same world your writing inhabits.
+    </p>
+    <div class="callout" style="background:rgba(230,57,70,0.08);border:1px solid rgba(230,57,70,0.22);border-left:3px solid #e63946;">
+      <strong style="color:#e63946">The Rule of Three</strong>
+      <p>Every blog palette needs exactly three roles filled: a background colour (dominant, calm), a text colour (high contrast, readable), and an accent colour (used sparingly, purposefully). Everything else is decoration. The fewer colours you use, the stronger each one becomes.</p>
+    </div>
+  </div>
+
+  <hr class="div" style="--dot-col:#e63946">
+
+  <!-- Section 2 — Colour theory basics -->
+  <div class="section">
+    <p class="section-tag" style="color:#f4a261">Colour Theory</p>
+    <h2>Three Harmony Principles Every Blogger Should Know</h2>
+    <p>
+      You do not need a design degree to choose beautiful colour combinations. You need three principles: complementary, analogous, and neutral-plus-one. These are the structures behind every palette that feels intentional rather than accidental.
+    </p>
+
+    <div class="theory-grid">
+      <div class="tcard">
+        <div class="tcard-vis" style="background:linear-gradient(90deg,#2a9d8f 50%, #e63946 50%)"></div>
+        <p class="tcard-name">Complementary</p>
+        <p class="tcard-desc">Opposite colours on the wheel. High contrast, high energy. Use one as background, one as accent — never split equally.</p>
+      </div>
+      <div class="tcard">
+        <div class="tcard-vis" style="background:linear-gradient(90deg,#219ebc 33%,#2a9d8f 33%,#2a9d8f 66%,#1d3a2f 66%)"></div>
+        <p class="tcard-name">Analogous</p>
+        <p class="tcard-desc">Neighbouring colours on the wheel. Harmonious, calm, cohesive. Perfect for blogs that need a professional, settled feel.</p>
+      </div>
+      <div class="tcard">
+        <div class="tcard-vis" style="background:linear-gradient(90deg,#f9f7f4 50%,#1a1612 50%)"></div>
+        <p class="tcard-name">Neutral + One</p>
+        <p class="tcard-desc">A clean neutral base with a single vivid accent. The most versatile palette structure — works for any niche, any writing style.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="background:rgba(244,162,97,0.09);border:1px solid rgba(244,162,97,0.28);border-left:3px solid #f4a261;">
+      <strong style="color:#f4a261">Contrast Saves Readability</strong>
+      <p>Whatever palette you choose, your body text must have a contrast ratio of at least 4.5:1 against its background (WCAG AA standard). Dark charcoal on white passes easily. Light grey on white fails. Readable text is non-negotiable — no palette is worth sacrificing it.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 3 — The 7 palettes -->
+  <div class="section">
+    <p class="section-tag" style="color:#2a9d8f">The Palettes</p>
+    <h2>Seven Proven Colour Combinations for Every Blog Type</h2>
+    <p>
+      Each palette below has been chosen because it works consistently across different content types, screen sizes, and reading conditions. Every combination is shown as a live swatch with a blog mockup so you can see exactly how it feels in context.
+    </p>
+
+    <!-- Palette 1: Warm Classic -->
+    <div class="palette-card">
+      <div class="pc-swatches">
+        <div class="pc-sw" style="background:#fffbf5"></div>
+        <div class="pc-sw" style="background:#f5ede0"></div>
+        <div class="pc-sw" style="background:#c0392b"></div>
+        <div class="pc-sw" style="background:#3d2b1f"></div>
+        <div class="pc-sw" style="background:#1a1612"></div>
+      </div>
+      <div class="pc-info">
+        <div class="pc-top">
+          <span class="pc-name">Warm Classic</span>
+          <span class="pc-vibe">Editorial, literary, timeless</span>
+        </div>
+        <div class="pc-tags">
+          <span class="pc-tag" style="background:rgba(192,57,43,0.1);color:#c0392b;border:1px solid rgba(192,57,43,.25)">Writing</span>
+          <span class="pc-tag" style="background:rgba(192,57,43,0.1);color:#c0392b;border:1px solid rgba(192,57,43,.25)">Lifestyle</span>
+          <span class="pc-tag" style="background:rgba(192,57,43,0.1);color:#c0392b;border:1px solid rgba(192,57,43,.25)">Personal</span>
+        </div>
+        <div class="pc-hex">
+          <div class="hex-chip"><div class="hex-dot" style="background:#fffbf5"></div>#FFFBF5</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#c0392b"></div>#C0392B</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#3d2b1f"></div>#3D2B1F</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#1a1612"></div>#1A1612</div>
+        </div>
+        <div class="pc-preview">
+          <div class="mock-nav" style="background:#fffbf5;border-bottom:1px solid #eddfd0;">
+            <div class="mock-logo" style="background:#1a1612;"></div>
+            <div class="mock-links">
+              <div class="mock-link" style="background:#3d2b1f;"></div>
+              <div class="mock-link" style="background:#3d2b1f;"></div>
+              <div class="mock-link" style="background:#c0392b;"></div>
+            </div>
+          </div>
+          <div class="mock-hero" style="background:#f5ede0;">
+            <div class="mock-headline" style="background:#1a1612;height:16px;max-width:260px;"></div>
+          </div>
+          <div class="mock-body-area">
+            <div class="mock-line" style="width:100%"></div>
+            <div class="mock-line" style="width:88%"></div>
+            <div class="mock-line" style="width:94%"></div>
+            <div class="mock-cta" style="background:#c0392b;opacity:0.9;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 2: Ocean Calm -->
+    <div class="palette-card">
+      <div class="pc-swatches">
+        <div class="pc-sw" style="background:#f0f7f9"></div>
+        <div class="pc-sw" style="background:#d6eaf2"></div>
+        <div class="pc-sw" style="background:#219ebc"></div>
+        <div class="pc-sw" style="background:#126782"></div>
+        <div class="pc-sw" style="background:#023047"></div>
+      </div>
+      <div class="pc-info">
+        <div class="pc-top">
+          <span class="pc-name">Ocean Calm</span>
+          <span class="pc-vibe">Professional, trustworthy, clear</span>
+        </div>
+        <div class="pc-tags">
+          <span class="pc-tag" style="background:rgba(33,158,188,0.1);color:#219ebc;border:1px solid rgba(33,158,188,.25)">Business</span>
+          <span class="pc-tag" style="background:rgba(33,158,188,0.1);color:#219ebc;border:1px solid rgba(33,158,188,.25)">Finance</span>
+          <span class="pc-tag" style="background:rgba(33,158,188,0.1);color:#219ebc;border:1px solid rgba(33,158,188,.25)">Tech</span>
+        </div>
+        <div class="pc-hex">
+          <div class="hex-chip"><div class="hex-dot" style="background:#f0f7f9"></div>#F0F7F9</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#219ebc"></div>#219EBC</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#126782"></div>#126782</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#023047"></div>#023047</div>
+        </div>
+        <div class="pc-preview">
+          <div class="mock-nav" style="background:#f0f7f9;border-bottom:1px solid #cde3ec;">
+            <div class="mock-logo" style="background:#023047;"></div>
+            <div class="mock-links">
+              <div class="mock-link" style="background:#126782;"></div>
+              <div class="mock-link" style="background:#126782;"></div>
+              <div class="mock-link" style="background:#219ebc;"></div>
+            </div>
+          </div>
+          <div class="mock-hero" style="background:#023047;">
+            <div class="mock-headline" style="background:#f0f7f9;height:16px;max-width:240px;opacity:0.9;"></div>
+          </div>
+          <div class="mock-body-area">
+            <div class="mock-line" style="width:100%"></div>
+            <div class="mock-line" style="width:82%"></div>
+            <div class="mock-line" style="width:96%"></div>
+            <div class="mock-cta" style="background:#219ebc;opacity:0.9;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 3: Forest Modern -->
+    <div class="palette-card">
+      <div class="pc-swatches">
+        <div class="pc-sw" style="background:#f4f6f0"></div>
+        <div class="pc-sw" style="background:#dde8d8"></div>
+        <div class="pc-sw" style="background:#2a9d8f"></div>
+        <div class="pc-sw" style="background:#264a3a"></div>
+        <div class="pc-sw" style="background:#1d3a2f"></div>
+      </div>
+      <div class="pc-info">
+        <div class="pc-top">
+          <span class="pc-name">Forest Modern</span>
+          <span class="pc-vibe">Natural, sustainable, focused</span>
+        </div>
+        <div class="pc-tags">
+          <span class="pc-tag" style="background:rgba(42,157,143,0.1);color:#2a9d8f;border:1px solid rgba(42,157,143,.25)">Wellness</span>
+          <span class="pc-tag" style="background:rgba(42,157,143,0.1);color:#2a9d8f;border:1px solid rgba(42,157,143,.25)">Environment</span>
+          <span class="pc-tag" style="background:rgba(42,157,143,0.1);color:#2a9d8f;border:1px solid rgba(42,157,143,.25)">Food</span>
+        </div>
+        <div class="pc-hex">
+          <div class="hex-chip"><div class="hex-dot" style="background:#f4f6f0"></div>#F4F6F0</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#2a9d8f"></div>#2A9D8F</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#264a3a"></div>#264A3A</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#1d3a2f"></div>#1D3A2F</div>
+        </div>
+        <div class="pc-preview">
+          <div class="mock-nav" style="background:#f4f6f0;border-bottom:1px solid #ccd9c6;">
+            <div class="mock-logo" style="background:#1d3a2f;"></div>
+            <div class="mock-links">
+              <div class="mock-link" style="background:#264a3a;"></div>
+              <div class="mock-link" style="background:#264a3a;"></div>
+              <div class="mock-link" style="background:#2a9d8f;"></div>
+            </div>
+          </div>
+          <div class="mock-hero" style="background:#264a3a;">
+            <div class="mock-headline" style="background:#dde8d8;height:16px;max-width:220px;opacity:0.9;"></div>
+          </div>
+          <div class="mock-body-area">
+            <div class="mock-line" style="width:100%"></div>
+            <div class="mock-line" style="width:90%"></div>
+            <div class="mock-line" style="width:84%"></div>
+            <div class="mock-cta" style="background:#2a9d8f;opacity:0.9;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 4: Dark Editorial -->
+    <div class="palette-card">
+      <div class="pc-swatches">
+        <div class="pc-sw" style="background:#1a1a2e"></div>
+        <div class="pc-sw" style="background:#16213e"></div>
+        <div class="pc-sw" style="background:#0f3460"></div>
+        <div class="pc-sw" style="background:#e94560"></div>
+        <div class="pc-sw" style="background:#f9f7f4"></div>
+      </div>
+      <div class="pc-info">
+        <div class="pc-top">
+          <span class="pc-name">Dark Editorial</span>
+          <span class="pc-vibe">Bold, dramatic, high-tech</span>
+        </div>
+        <div class="pc-tags">
+          <span class="pc-tag" style="background:rgba(233,69,96,0.12);color:#e94560;border:1px solid rgba(233,69,96,.25)">Tech</span>
+          <span class="pc-tag" style="background:rgba(233,69,96,0.12);color:#e94560;border:1px solid rgba(233,69,96,.25)">Opinion</span>
+          <span class="pc-tag" style="background:rgba(233,69,96,0.12);color:#e94560;border:1px solid rgba(233,69,96,.25)">Gaming</span>
+        </div>
+        <div class="pc-hex">
+          <div class="hex-chip" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12);color:#f9f7f4;"><div class="hex-dot" style="background:#1a1a2e;border-color:rgba(255,255,255,0.15)"></div>#1A1A2E</div>
+          <div class="hex-chip" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12);color:#f9f7f4;"><div class="hex-dot" style="background:#e94560"></div>#E94560</div>
+          <div class="hex-chip" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12);color:#f9f7f4;"><div class="hex-dot" style="background:#f9f7f4;border-color:rgba(0,0,0,0.15)"></div>#F9F7F4</div>
+        </div>
+        <div class="pc-preview" style="background:#1a1a2e;">
+          <div class="mock-nav" style="background:#16213e;border-bottom:1px solid #0f3460;">
+            <div class="mock-logo" style="background:#f9f7f4;opacity:0.8;"></div>
+            <div class="mock-links">
+              <div class="mock-link" style="background:#f9f7f4;opacity:0.3;"></div>
+              <div class="mock-link" style="background:#f9f7f4;opacity:0.3;"></div>
+              <div class="mock-link" style="background:#e94560;opacity:0.9;"></div>
+            </div>
+          </div>
+          <div class="mock-hero" style="background:#0f3460;">
+            <div class="mock-headline" style="background:#f9f7f4;height:16px;max-width:230px;opacity:0.9;"></div>
+          </div>
+          <div class="mock-body-area" style="background:#1a1a2e;">
+            <div class="mock-line" style="width:100%;background:#f9f7f4;opacity:0.08"></div>
+            <div class="mock-line" style="width:88%;background:#f9f7f4;opacity:0.08"></div>
+            <div class="mock-line" style="width:94%;background:#f9f7f4;opacity:0.08"></div>
+            <div class="mock-cta" style="background:#e94560;opacity:0.9;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 5: Warm Sunset -->
+    <div class="palette-card">
+      <div class="pc-swatches">
+        <div class="pc-sw" style="background:#fdf6ec"></div>
+        <div class="pc-sw" style="background:#fde8c8"></div>
+        <div class="pc-sw" style="background:#f4a261"></div>
+        <div class="pc-sw" style="background:#e76f51"></div>
+        <div class="pc-sw" style="background:#264653"></div>
+      </div>
+      <div class="pc-info">
+        <div class="pc-top">
+          <span class="pc-name">Warm Sunset</span>
+          <span class="pc-vibe">Energetic, creative, approachable</span>
+        </div>
+        <div class="pc-tags">
+          <span class="pc-tag" style="background:rgba(244,162,97,0.12);color:#e76f51;border:1px solid rgba(231,111,81,.25)">Travel</span>
+          <span class="pc-tag" style="background:rgba(244,162,97,0.12);color:#e76f51;border:1px solid rgba(231,111,81,.25)">Food</span>
+          <span class="pc-tag" style="background:rgba(244,162,97,0.12);color:#e76f51;border:1px solid rgba(231,111,81,.25)">Creative</span>
+        </div>
+        <div class="pc-hex">
+          <div class="hex-chip"><div class="hex-dot" style="background:#fdf6ec"></div>#FDF6EC</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#f4a261"></div>#F4A261</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#e76f51"></div>#E76F51</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#264653"></div>#264653</div>
+        </div>
+        <div class="pc-preview">
+          <div class="mock-nav" style="background:#fdf6ec;border-bottom:1px solid #f0d9b8;">
+            <div class="mock-logo" style="background:#264653;"></div>
+            <div class="mock-links">
+              <div class="mock-link" style="background:#264653;"></div>
+              <div class="mock-link" style="background:#264653;"></div>
+              <div class="mock-link" style="background:#e76f51;"></div>
+            </div>
+          </div>
+          <div class="mock-hero" style="background:#e76f51;">
+            <div class="mock-headline" style="background:#fdf6ec;height:16px;max-width:220px;opacity:0.95;"></div>
+          </div>
+          <div class="mock-body-area">
+            <div class="mock-line" style="width:100%"></div>
+            <div class="mock-line" style="width:92%"></div>
+            <div class="mock-line" style="width:86%"></div>
+            <div class="mock-cta" style="background:#f4a261;opacity:0.9;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 6: Soft Lavender -->
+    <div class="palette-card">
+      <div class="pc-swatches">
+        <div class="pc-sw" style="background:#f8f4ff"></div>
+        <div class="pc-sw" style="background:#ede0ff"></div>
+        <div class="pc-sw" style="background:#7c4dff"></div>
+        <div class="pc-sw" style="background:#4a148c"></div>
+        <div class="pc-sw" style="background:#1a0530"></div>
+      </div>
+      <div class="pc-info">
+        <div class="pc-top">
+          <span class="pc-name">Soft Lavender</span>
+          <span class="pc-vibe">Creative, dreamy, distinctive</span>
+        </div>
+        <div class="pc-tags">
+          <span class="pc-tag" style="background:rgba(124,77,255,0.10);color:#7c4dff;border:1px solid rgba(124,77,255,.25)">Design</span>
+          <span class="pc-tag" style="background:rgba(124,77,255,0.10);color:#7c4dff;border:1px solid rgba(124,77,255,.25)">Arts</span>
+          <span class="pc-tag" style="background:rgba(124,77,255,0.10);color:#7c4dff;border:1px solid rgba(124,77,255,.25)">Fashion</span>
+        </div>
+        <div class="pc-hex">
+          <div class="hex-chip"><div class="hex-dot" style="background:#f8f4ff"></div>#F8F4FF</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#7c4dff"></div>#7C4DFF</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#4a148c"></div>#4A148C</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#1a0530"></div>#1A0530</div>
+        </div>
+        <div class="pc-preview">
+          <div class="mock-nav" style="background:#f8f4ff;border-bottom:1px solid #ddd0f5;">
+            <div class="mock-logo" style="background:#1a0530;"></div>
+            <div class="mock-links">
+              <div class="mock-link" style="background:#4a148c;"></div>
+              <div class="mock-link" style="background:#4a148c;"></div>
+              <div class="mock-link" style="background:#7c4dff;"></div>
+            </div>
+          </div>
+          <div class="mock-hero" style="background:#4a148c;">
+            <div class="mock-headline" style="background:#ede0ff;height:16px;max-width:220px;opacity:0.9;"></div>
+          </div>
+          <div class="mock-body-area">
+            <div class="mock-line" style="width:100%"></div>
+            <div class="mock-line" style="width:88%"></div>
+            <div class="mock-line" style="width:95%"></div>
+            <div class="mock-cta" style="background:#7c4dff;opacity:0.9;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 7: Monochrome Ink -->
+    <div class="palette-card">
+      <div class="pc-swatches">
+        <div class="pc-sw" style="background:#fafafa"></div>
+        <div class="pc-sw" style="background:#e8e8e8"></div>
+        <div class="pc-sw" style="background:#888888"></div>
+        <div class="pc-sw" style="background:#2c2c2c"></div>
+        <div class="pc-sw" style="background:#0a0a0a"></div>
+      </div>
+      <div class="pc-info">
+        <div class="pc-top">
+          <span class="pc-name">Monochrome Ink</span>
+          <span class="pc-vibe">Timeless, minimal, content-first</span>
+        </div>
+        <div class="pc-tags">
+          <span class="pc-tag" style="background:rgba(44,44,44,0.08);color:#2c2c2c;border:1px solid rgba(44,44,44,.18)">Minimalist</span>
+          <span class="pc-tag" style="background:rgba(44,44,44,0.08);color:#2c2c2c;border:1px solid rgba(44,44,44,.18)">Literary</span>
+          <span class="pc-tag" style="background:rgba(44,44,44,0.08);color:#2c2c2c;border:1px solid rgba(44,44,44,.18)">Portfolio</span>
+        </div>
+        <div class="pc-hex">
+          <div class="hex-chip"><div class="hex-dot" style="background:#fafafa"></div>#FAFAFA</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#888888"></div>#888888</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#2c2c2c"></div>#2C2C2C</div>
+          <div class="hex-chip"><div class="hex-dot" style="background:#0a0a0a"></div>#0A0A0A</div>
+        </div>
+        <div class="pc-preview">
+          <div class="mock-nav" style="background:#fafafa;border-bottom:1px solid #e8e8e8;">
+            <div class="mock-logo" style="background:#0a0a0a;"></div>
+            <div class="mock-links">
+              <div class="mock-link" style="background:#2c2c2c;"></div>
+              <div class="mock-link" style="background:#2c2c2c;"></div>
+              <div class="mock-link" style="background:#888888;"></div>
+            </div>
+          </div>
+          <div class="mock-hero" style="background:#2c2c2c;">
+            <div class="mock-headline" style="background:#fafafa;height:16px;max-width:230px;opacity:0.9;"></div>
+          </div>
+          <div class="mock-body-area">
+            <div class="mock-line" style="width:100%"></div>
+            <div class="mock-line" style="width:87%"></div>
+            <div class="mock-line" style="width:93%"></div>
+            <div class="mock-cta" style="background:#0a0a0a;opacity:0.85;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /section -->
+
+  <hr class="div">
+
+  <!-- Section 4 — Contrast check -->
+  <div class="section">
+    <p class="section-tag" style="color:#219ebc">Readability</p>
+    <h2>Contrast Is King — Never Sacrifice Readability for Style</h2>
+    <p>
+      Beautiful colour combinations mean nothing if your text is difficult to read. The most common mistake bloggers make is choosing a background and text colour that feel harmonious but fail the readability test — a muted sage green on a slightly lighter sage background, or light grey body text on white. The eye sees harmony. The brain registers effort.
+    </p>
+
+    <div class="contrast-demo">
+      <div class="cd-box" style="background:#ffffff;">
+        <div class="cd-label" style="color:#2c2c2c;">✓ PASS — 15.3:1 ratio</div>
+        <div class="cd-text" style="color:#1a1612;">Dark charcoal on white. Clear, comfortable, universally readable. This is the gold standard for body text contrast.</div>
+        <div class="cd-ratio" style="color:#1a1612;">AA ✓ &nbsp; AAA ✓</div>
+      </div>
+      <div class="cd-box" style="background:#f5f5f5;">
+        <div class="cd-label" style="color:#999999;">✗ FAIL — 2.8:1 ratio</div>
+        <div class="cd-text" style="color:#aaaaaa;">Light grey on off-white. Harmonious but unreadable at body text sizes. Common on aesthetic blogs that prioritise look over usability.</div>
+        <div class="cd-ratio" style="color:#aaaaaa;">AA ✗ &nbsp; AAA ✗</div>
+      </div>
+    </div>
+
+    <div class="callout" style="background:rgba(33,158,188,0.08);border:1px solid rgba(33,158,188,0.25);border-left:3px solid #219ebc;">
+      <strong style="color:#219ebc">Free Contrast Checker</strong>
+      <p>Use the WebAIM Contrast Checker (webaim.org/resources/contrastchecker) to test any colour combination before committing. Enter your background and text hex codes and it tells you instantly whether you pass the WCAG AA standard. It takes thirty seconds and prevents months of readability problems.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 5 — Mistakes -->
+  <div class="section">
+    <p class="section-tag" style="color:#e94560">Common Mistakes</p>
+    <h2>Six Colour Mistakes That Make Blogs Look Amateur</h2>
+
+    <ul class="check">
+      <li><strong>Using more than four colours.</strong> Every additional colour reduces the visual coherence of your brand. If you find yourself adding a fifth colour "just for this element," audit your palette instead. More colour is almost never the answer.</li>
+      <li><strong>Choosing colours that clash with your niche.</strong> Bright neon orange on a meditation blog. Soft lavender on a cybersecurity site. Colour carries cultural and emotional associations — ignore them and your design fights your content.</li>
+      <li><strong>Making your accent colour too subtle.</strong> If your call-to-action button, your link colour, and your pull quote all use the same muted accent, nothing stands out. The accent colour's entire job is to draw the eye. Let it do its job.</li>
+      <li><strong>Using pure black (#000000) on pure white (#ffffff).</strong> The maximum contrast ratio creates eye strain over long reading sessions. Most professional blogs use near-black (#1a1612) on near-white (#fafaf7) — softer, equally readable, much more comfortable.</li>
+      <li><strong>Copying a palette without testing it in your context.</strong> A palette that looks beautiful in a design mockup can feel jarring when applied to actual blog content with real headers, sidebars, and images. Always apply your palette to a live page and live with it for a week before deciding.</li>
+      <li><strong>Changing your palette every few months.</strong> Colour consistency is how readers recognise and remember you. Every time you overhaul your colour scheme, you erase the visual recognition you have built. Choose carefully once — then let the palette do its long-term work.</li>
+    </ul>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <h3>The right palette<br>is the one that feels like<br><span>your blog's natural light.</span></h3>
+    <p>
+      Choose a background that does not compete with your words. Choose a text colour with enough contrast to be effortless. Choose one accent colour and use it only where it matters. Then stop changing things. Consistency in colour is how casual visitors become loyal readers — they begin to recognise you before they even read your name.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 &nbsp;·&nbsp; Best Colour Combinations for Blogs &nbsp;·&nbsp; Written for Human Readers
+</footer>
+
+</body>
+</html>
