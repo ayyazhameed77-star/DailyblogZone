@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Design a Blog Website</title>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f9f6f1;
+    --surface:   #ffffff;
+    --surface2:  #f3ede4;
+    --border:    #e6ddd0;
+    --ink:       #1c1208;
+    --muted:     #9c8c7a;
+    --accent:    #d4501a;
+    --forest:    #2a6040;
+    --navy:      #1a3a6e;
+    --gold:      #c89018;
+    --plum:      #6a2858;
+    --teal:      #0a6e78;
+    --warm:      rgba(212,80,26,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Raleway', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 90px 46px 114px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 74px; }
+
+  .header-flag {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .flag-bar {
+    width: 4px; height: 36px;
+    background: linear-gradient(to bottom, var(--accent), var(--gold));
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .flag-text-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .flag-cat {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .flag-sub {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: clamp(2.4rem, 6.2vw, 4.1rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .deck {
+    font-family: 'Lora', serif;
+    font-size: 1.06rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 590px;
+    font-style: italic;
+  }
+
+  .header-rule {
+    margin-top: 38px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hr-line { flex: 1; height: 1px; background: var(--border); }
+  .hr-mark {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* ── BODY ── */
+  .body p {
+    font-family: 'Lora', serif;
+    margin-bottom: 1.65em;
+    color: #3c2c1a;
+    font-weight: 400;
+    line-height: 1.88;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    padding: 38px 48px;
+    background: var(--ink);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 26px;
+    font-family: 'Abril Fatface', serif;
+    font-size: 8rem;
+    color: var(--accent);
+    opacity: 0.22;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .pull-quote::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 100% 0%, rgba(212,80,26,0.12), transparent);
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.26rem;
+    color: #f4ece0 !important;
+    line-height: 1.64;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.52rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 58px 0 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .h2-chip {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  /* ── DESIGN RULE CARDS ── */
+  .rule-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 20px 0;
+    transition: box-shadow 0.22s, border-color 0.22s;
+  }
+
+  .rule-card:hover {
+    box-shadow: 0 6px 30px rgba(212,80,26,0.07);
+    border-color: rgba(212,80,26,0.22);
+  }
+
+  .rc-top {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rc-bar { width: 4px; flex-shrink: 0; }
+
+  .rc-top-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    flex: 1;
+  }
+
+  .rc-num {
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.8rem;
+    line-height: 1;
+    opacity: 0.18;
+    flex-shrink: 0;
+  }
+
+  .rc-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+
+  .rule-card h3 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink);
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .rc-badge {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .rc-body { padding: 18px 24px 20px 28px; }
+
+  .rc-body p {
+    font-size: 0.94rem;
+    color: #5a4030 !important;
+    margin: 0 !important;
+    line-height: 1.76;
+  }
+
+  /* ── QUICK NOTE ── */
+  .quick-note {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 9px 9px 0;
+    padding: 12px 18px;
+    margin-top: 13px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .qn-icon { font-size: 13px; flex-shrink: 0; padding-top: 2px; }
+
+  .quick-note p {
+    font-size: 0.87rem !important;
+    color: var(--muted) !important;
+    font-style: italic;
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+
+  /* ── ANATOMY VISUAL ── */
+  .anatomy {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 28px 0 38px;
+  }
+
+  .anatomy-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+
+  .anatomy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .an-zone {
+    padding: 18px 20px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .an-zone:nth-child(3n) { border-right: none; }
+  .an-zone:nth-child(n+4) { border-bottom: none; }
+
+  .an-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .an-zone h4 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .an-zone p {
+    font-size: 0.8rem !important;
+    color: var(--muted) !important;
+    margin: 0 !important;
+    line-height: 1.55;
+    font-style: normal !important;
+    font-family: 'Raleway', sans-serif !important;
+  }
+
+  /* ── THEME COMPARISON ── */
+  .theme-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+    margin: 22px 0 36px;
+  }
+
+  .tc-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow: hidden;
+  }
+
+  .tc-head {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tc-head .th-icon { font-size: 14px; }
+
+  .tc-list { padding: 8px 0; }
+
+  .tc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 7px 18px;
+    font-size: 0.87rem;
+    color: #5a4030;
+    line-height: 1.55;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .tc-item::before {
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .tc-do::before   { content: '✓'; color: var(--forest); }
+  .tc-dont::before { content: '✗'; color: var(--accent); }
+
+  /* ── FINAL CHECKLIST ── */
+  .final-check {
+    background: var(--ink);
+    border-radius: 18px;
+    padding: 32px 38px;
+    margin: 38px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-check::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 0% 100%, rgba(212,80,26,0.14), transparent);
+    pointer-events: none;
+  }
+
+  .fc-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #8a7860;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.56;
+  }
+
+  .fc-diamond {
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 10px;
+    margin-top: 5px;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 76px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+    font-family: 'Raleway', sans-serif;
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .anatomy-grid  { grid-template-columns: 1fr 1fr; }
+    .theme-compare { grid-template-columns: 1fr; }
+    .fc-grid       { grid-template-columns: 1fr; }
+    .pull-quote    { padding: 30px 28px; }
+    .rc-num        { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-flag">
+      <div class="flag-bar"></div>
+      <div class="flag-text-col">
+        <span class="flag-cat">Web Design · Blog Branding</span>
+        <span class="flag-sub">Complete Guide · 2026</span>
+      </div>
+    </div>
+    <h1>How to Design a<br><em>Blog Website</em></h1>
+    <p class="deck">A blog that reads beautifully but looks amateurish will never earn the trust it deserves. Design is not vanity — it is the first conversation your blog has with every new reader before a single word is read.</p>
+    <div class="header-rule">
+      <div class="hr-line"></div>
+      <span class="hr-mark">✦</span>
+      <div class="hr-line"></div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>Close your eyes and think of a blog you genuinely love returning to. The content, certainly — but also the feeling of being there. The clean space around the text. The typeface that somehow matches the personality of the writer. The colours that feel intentional rather than accidental. That feeling is design doing its job invisibly, and it is the difference between a reader who visits once and a reader who comes back every week.</p>
+
+    <p>Designing a blog website sounds intimidating, especially if you have never thought of yourself as a visual person. But here is the truth that professional designers keep to themselves: most great blog design is not about creativity. It is about restraint. It is about making fewer decisions more deliberately, choosing clarity over cleverness, and always — always — putting the reader's experience above your own aesthetic preferences.</p>
+
+    <div class="pull-quote">
+      <p>A well-designed blog does not shout its beauty. It whispers it — through white space, readable type, and a clarity so complete that the reader never once thinks about the design itself.</p>
+    </div>
+
+    <!-- ANATOMY -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(212,80,26,0.1);color:var(--accent);border:1px solid rgba(212,80,26,0.2)">Foundation</span>
+      The Anatomy of a Great Blog
+    </h2>
+
+    <p>Before picking a theme or choosing a colour palette, understand the six zones every successful blog shares. Each zone serves a specific purpose in guiding your reader's experience — from the first glance at your homepage to the last scroll of your most recent post.</p>
+
+    <div class="anatomy">
+      <div class="anatomy-title">The Six Zones of a Well-Designed Blog</div>
+      <div class="anatomy-grid">
+        <div class="an-zone">
+          <span class="an-label" style="color:var(--accent)">Zone 01</span>
+          <h4>Header & Logo</h4>
+          <p>First impression — communicates your brand identity instantly</p>
+        </div>
+        <div class="an-zone">
+          <span class="an-label" style="color:var(--forest)">Zone 02</span>
+          <h4>Navigation Menu</h4>
+          <p>Guides readers to your best content without confusion</p>
+        </div>
+        <div class="an-zone">
+          <span class="an-label" style="color:var(--navy)">Zone 03</span>
+          <h4>Hero / Homepage</h4>
+          <p>Sets the tone and shows readers why they should stay</p>
+        </div>
+        <div class="an-zone">
+          <span class="an-label" style="color:var(--gold)">Zone 04</span>
+          <h4>Blog Post Layout</h4>
+          <p>The reading experience — where design matters most</p>
+        </div>
+        <div class="an-zone">
+          <span class="an-label" style="color:var(--plum)">Zone 05</span>
+          <h4>Sidebar / CTA</h4>
+          <p>Email sign-up, related posts, and key conversions</p>
+        </div>
+        <div class="an-zone">
+          <span class="an-label" style="color:var(--teal)">Zone 06</span>
+          <h4>Footer</h4>
+          <p>About, social links, legal info — the trusted sign-off</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 1: TYPOGRAPHY -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(212,80,26,0.1);color:var(--accent);border:1px solid rgba(212,80,26,0.2)">Rule 01</span>
+      Typography Is the Soul of Blog Design
+    </h2>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--accent)"></div>
+        <div class="rc-top-inner">
+          <span class="rc-num" style="color:var(--accent)">01</span>
+          <div class="rc-icon" style="background:rgba(212,80,26,0.1);color:var(--accent)">🔤</div>
+          <h3>Choose Fonts That Serve the Reader First</h3>
+          <span class="rc-badge" style="background:rgba(212,80,26,0.1);color:var(--accent);border:1px solid rgba(212,80,26,0.2)">Most Critical</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>Typography is not just how your words look — it is how your words feel. The body font you choose determines whether your readers glide through paragraphs or labour over them. For blog body text, prioritise readability above everything: a comfortable 17–19px size, a line height of 1.6 to 1.9, and a maximum line length of 680 pixels. Pair a distinctive serif or display font for your headings with a clean, highly readable font for your body — this single typographic decision creates more visual sophistication than any colour choice or graphic element you will ever add to your blog.</p>
+        <div class="quick-note">
+          <span class="qn-icon">✦</span>
+          <p>Google Fonts offers over 1,000 free fonts. Great body font pairings: Lora + Raleway, Playfair Display + Source Sans, Merriweather + Open Sans. Any of these will make your blog feel immediately more professional.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 2: WHITESPACE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(42,96,64,0.1);color:var(--forest);border:1px solid rgba(42,96,64,0.2)">Rule 02</span>
+      White Space Is Not Empty Space
+    </h2>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--forest)"></div>
+        <div class="rc-top-inner">
+          <span class="rc-num" style="color:var(--forest)">02</span>
+          <div class="rc-icon" style="background:rgba(42,96,64,0.1);color:var(--forest)">☁️</div>
+          <h3>Give Your Content Room to Breathe</h3>
+          <span class="rc-badge" style="background:rgba(42,96,64,0.1);color:var(--forest);border:1px solid rgba(42,96,64,0.2)">Underrated</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>The single biggest difference between a blog that feels professional and one that feels amateur is almost always white space — the generous, deliberate emptiness around your content. New bloggers instinctively fear empty space and try to fill every corner of their page with widgets, banners, advertisements, and sidebar content. Experienced designers do the opposite. They protect white space fiercely, knowing that generous margins, comfortable paragraph spacing, and a restrained sidebar allow the reader's eye to rest, focus, and return. A blog with breathing room feels trustworthy. A cluttered blog feels desperate.</p>
+        <div class="quick-note">
+          <span class="qn-icon">✦</span>
+          <p>Cap your content width at 680–720 pixels for body text. Lines longer than this force readers' eyes to travel too far across the page, causing fatigue that sends them away from your content long before they intended to leave.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 3: COLOUR -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(26,58,110,0.1);color:var(--navy);border:1px solid rgba(26,58,110,0.2)">Rule 03</span>
+      Use Colour With Discipline
+    </h2>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--navy)"></div>
+        <div class="rc-top-inner">
+          <span class="rc-num" style="color:var(--navy)">03</span>
+          <div class="rc-icon" style="background:rgba(26,58,110,0.1);color:var(--navy)">🎨</div>
+          <h3>The Three-Colour Rule Every Blog Should Follow</h3>
+          <span class="rc-badge" style="background:rgba(26,58,110,0.1);color:var(--navy);border:1px solid rgba(26,58,110,0.2)">Design Law</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>Limit your blog palette to three intentional colours: a dominant background colour that carries the majority of your pages, a primary brand accent colour for headings, buttons, and links, and a secondary supporting tone for subtle highlights and borders. Every colour beyond three adds visual noise without adding meaning. When in doubt, use more white or cream backgrounds with a single bold accent — this combination is timeless, professional, and infinitely easier to execute well than a multi-colour palette that requires sophisticated design instincts to balance.</p>
+        <div class="quick-note">
+          <span class="qn-icon">✦</span>
+          <p>Visit Coolors.co, generate a palette, and lock the colour that already represents your brand. Every shade it pairs will be professionally harmonious — no colour theory knowledge required.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 4: MOBILE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(200,144,24,0.1);color:var(--gold);border:1px solid rgba(200,144,24,0.2)">Rule 04</span>
+      Design Mobile First — Always
+    </h2>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--gold)"></div>
+        <div class="rc-top-inner">
+          <span class="rc-num" style="color:var(--gold)">04</span>
+          <div class="rc-icon" style="background:rgba(200,144,24,0.1);color:var(--gold)">📱</div>
+          <h3>Over 70% of Your Readers Arrive on a Phone</h3>
+          <span class="rc-badge" style="background:rgba(200,144,24,0.1);color:var(--gold);border:1px solid rgba(200,144,24,0.2)">Non-Negotiable</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>In 2026, designing for desktop first is designing for a minority. The majority of blog traffic arrives on mobile devices — and a blog that reads beautifully on a laptop but requires pinching and zooming on a phone will lose those readers within seconds. Choose a fully responsive theme, test every page on your own phone before publishing, and ensure your tap targets — links, buttons, menu items — are large enough for fingers rather than mouse cursors. Mobile-first design is not a design preference. It is a reader-respect principle.</p>
+      </div>
+    </div>
+
+    <!-- DO / DON'T -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(90,90,90,0.08);color:var(--muted);border:1px solid rgba(90,90,90,0.18)">Quick Ref</span>
+      Blog Design — Do This & Avoid That
+    </h2>
+
+    <div class="theme-compare">
+      <div class="tc-col">
+        <div class="tc-head" style="color:var(--forest)">
+          <span class="th-icon">✓</span> Design Principles to Follow
+        </div>
+        <div class="tc-list">
+          <div class="tc-item tc-do">Use a maximum of 3 brand colours</div>
+          <div class="tc-item tc-do">Keep body text 17–19px minimum</div>
+          <div class="tc-item tc-do">Test every page on mobile first</div>
+          <div class="tc-item tc-do">Protect white space generously</div>
+          <div class="tc-item tc-do">Use high-contrast text on backgrounds</div>
+          <div class="tc-item tc-do">Choose a clean, fast-loading theme</div>
+        </div>
+      </div>
+      <div class="tc-col">
+        <div class="tc-head" style="color:var(--accent)">
+          <span class="th-icon">✗</span> Design Mistakes to Avoid
+        </div>
+        <div class="tc-list">
+          <div class="tc-item tc-dont">Overcrowded sidebars with too many widgets</div>
+          <div class="tc-item tc-dont">Fonts smaller than 15px for body text</div>
+          <div class="tc-item tc-dont">Auto-playing music or video</div>
+          <div class="tc-item tc-dont">Dark text on dark backgrounds</div>
+          <div class="tc-item tc-dont">Too many popups and interstitials</div>
+          <div class="tc-item tc-dont">Inconsistent colours across pages</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL CHECKLIST -->
+    <div class="final-check">
+      <div class="fc-title">◆ &nbsp; Before You Launch — Design Readiness Check</div>
+      <div class="fc-grid">
+        <div class="fc-item"><span class="fc-diamond">◆</span>Logo displays clearly on mobile</div>
+        <div class="fc-item"><span class="fc-diamond">◆</span>Navigation has maximum 5–6 items</div>
+        <div class="fc-item"><span class="fc-diamond">◆</span>Body font is readable at 17px+</div>
+        <div class="fc-item"><span class="fc-diamond">◆</span>Colour palette is 3 colours or fewer</div>
+        <div class="fc-item"><span class="fc-diamond">◆</span>Site loads in under 3 seconds</div>
+        <div class="fc-item"><span class="fc-diamond">◆</span>Blog post width is under 720px</div>
+        <div class="fc-item"><span class="fc-diamond">◆</span>Email sign-up is visible and clear</div>
+        <div class="fc-item"><span class="fc-diamond">◆</span>Tested on at least two real devices</div>
+      </div>
+    </div>
+
+    <p>Designing a blog website is not an event — it is a process. Your first design will be imperfect, and that is exactly as it should be. What matters is that every decision you make is made in service of one person: the reader who arrived hoping to find something worth their time. When every font choice, every colour decision, and every spacing consideration comes from that place of reader-first thinking, design stops being a challenge and becomes a form of hospitality.</p>
+
+    <p>Build the blog you would love to visit. Then invite the world in.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">Great design is simply great hospitality — made visible.</span>
+  </footer>
+
+</div>
+</body>
+</html>
