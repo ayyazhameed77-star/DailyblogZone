@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook Traffic Strategy for Blogs</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f5f8ff;
+    --surface:   #ffffff;
+    --surface2:  #edf2ff;
+    --border:    #dce8ff;
+    --ink:       #080e20;
+    --muted:     #6878a8;
+    --fb:        #1877f2;
+    --fb2:       #0d65d9;
+    --green:     #1a8a50;
+    --amber:     #a86010;
+    --violet:    #6030a0;
+    --teal:      #0a7878;
+    --rose:      #b83050;
+    --fb-soft:   rgba(24,119,242,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.016'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 90px 46px 114px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 72px; }
+
+  .fb-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .fb-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--fb);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 6px;
+  }
+
+  .fb-badge-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  .fb-badge-sub {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.3rem, 6vw, 3.9rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--fb);
+    font-weight: 700;
+  }
+
+  .deck {
+    font-size: 1.06rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 590px;
+  }
+
+  .header-rule {
+    margin-top: 38px;
+    height: 1px;
+    background: linear-gradient(to right, var(--border) 50%, transparent);
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.65em;
+    color: #1c2c50;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    padding: 36px 46px;
+    background: var(--fb);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '"';
+    position: absolute;
+    bottom: -28px; right: 22px;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: rgba(255,255,255,0.12);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.26rem;
+    color: #fff !important;
+    line-height: 1.64;
+    margin: 0 !important;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 58px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .h2-chip {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  /* ── STRATEGY CARDS ── */
+  .strat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 20px 0;
+    transition: box-shadow 0.22s, border-color 0.22s;
+  }
+
+  .strat-card:hover {
+    box-shadow: 0 6px 28px rgba(24,119,242,0.08);
+    border-color: rgba(24,119,242,0.25);
+  }
+
+  .sc-top {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sc-bar { width: 4px; flex-shrink: 0; }
+
+  .sc-top-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    flex: 1;
+  }
+
+  .sc-icon {
+    width: 40px; height: 40px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+  }
+
+  .strat-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.06rem;
+    font-weight: 700;
+    color: var(--ink);
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .sc-badge {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .sc-body { padding: 18px 24px 20px 28px; }
+
+  .sc-body p {
+    font-size: 0.94rem;
+    color: #304060;
+    margin: 0 !important;
+    line-height: 1.76;
+  }
+
+  /* ── INSIDER TIP ── */
+  .insider {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--fb);
+    border-radius: 0 9px 9px 0;
+    padding: 12px 18px;
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .ins-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fb);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .insider p {
+    font-size: 0.86rem !important;
+    color: var(--muted) !important;
+    font-style: italic;
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+
+  /* ── CHANNEL OVERVIEW ── */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 26px 0 38px;
+  }
+
+  .cg-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .cg-tile:hover { border-color: rgba(24,119,242,0.25); }
+
+  .cg-tile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .ct1::before { background: var(--fb); }
+  .ct2::before { background: var(--green); }
+  .ct3::before { background: var(--violet); }
+  .ct4::before { background: var(--amber); }
+
+  .cg-emoji { font-size: 22px; display: block; margin-bottom: 9px; }
+
+  .cg-tile h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .cg-tile p {
+    font-size: 0.74rem !important;
+    color: var(--muted) !important;
+    margin: 0 0 8px !important;
+    line-height: 1.5;
+  }
+
+  .cg-tag {
+    display: inline-block;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  /* ── REACH BARS ── */
+  .reach-bars {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 26px 0 36px;
+  }
+
+  .rb-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .rb-rows { display: grid; gap: 12px; }
+
+  .rb-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 80px;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .rb-label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .rb-track {
+    height: 7px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .rb-fill { height: 100%; border-radius: 10px; }
+
+  .rb-val {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  /* ── POST TYPES TABLE ── */
+  .post-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0 36px;
+    font-size: 0.88rem;
+    border-radius: 13px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .post-table thead tr { background: var(--surface2); }
+
+  .post-table th {
+    padding: 11px 16px;
+    text-align: left;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: #304060;
+    vertical-align: middle;
+    line-height: 1.5;
+  }
+
+  .post-table tr:last-child td { border-bottom: none; }
+  .post-table tr:hover td { background: var(--surface2); }
+  .post-table td:first-child { font-weight: 600; color: var(--ink); }
+
+  .pt-tag {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  /* ── ACTION PANEL ── */
+  .action-panel {
+    background: var(--ink);
+    border-radius: 18px;
+    padding: 30px 36px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .action-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 0% 100%, rgba(24,119,242,0.2), transparent),
+      radial-gradient(ellipse 50% 70% at 100% 0%, rgba(13,101,217,0.14), transparent);
+    pointer-events: none;
+  }
+
+  .ap-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #60a0ff;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 26px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ap-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #6080b0;
+    line-height: 1.56;
+  }
+
+  .ap-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--fb);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 76px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .channel-grid { grid-template-columns: 1fr 1fr; }
+    .ap-grid { grid-template-columns: 1fr; }
+    .rb-row { grid-template-columns: 120px 1fr 60px; }
+    .pull-quote { padding: 28px 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="fb-badge-row">
+      <span class="fb-badge">📘 Facebook Strategy</span>
+      <div class="fb-badge-line"></div>
+      <span class="fb-badge-sub">Blog Traffic Guide · 2026</span>
+    </div>
+    <h1>Facebook Traffic<br><em>Strategy</em> for Blogs</h1>
+    <p class="deck">Facebook reaches more than three billion people every single month. Most bloggers use it carelessly and get almost nothing back. Here is how to use it intelligently — and turn the world's largest social network into a genuine, reliable source of blog readers.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>Ask a room full of bloggers what they think of Facebook as a traffic source and you will likely hear a familiar chorus of frustration: organic reach is dead, the algorithm buries your posts, the platform favours paid advertising, and nobody clicks links anymore. There is enough truth in those complaints to explain the frustration — but not enough to justify giving up on three billion monthly active users who are actively consuming content every single day.</p>
+
+    <p>Facebook's algorithm did not kill organic reach for everyone. It killed organic reach for bloggers who treated it like a link-posting billboard and gave their audience no compelling reason to engage. The bloggers who understand Facebook's current behaviour — what it rewards, what it suppresses, and where it sends traffic most willingly — find it is still a remarkably powerful channel, simply one that demands a more thoughtful and community-centred approach than it once did.</p>
+
+    <div class="pull-quote">
+      <p>Facebook does not owe your blog an audience. It rewards the bloggers who build one — through genuine conversation, consistent value, and content that earns a response rather than simply requesting a click.</p>
+    </div>
+
+    <!-- FACEBOOK CHANNELS -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(24,119,242,0.1);color:var(--fb);border:1px solid rgba(24,119,242,0.2)">Know This First</span>
+      Four Ways to Reach Readers on Facebook
+    </h2>
+
+    <div class="channel-grid">
+      <div class="cg-tile ct1">
+        <span class="cg-emoji">📄</span>
+        <h4>Your Page</h4>
+        <p>Official blog presence — low organic reach without engagement</p>
+        <span class="cg-tag" style="background:rgba(24,119,242,0.1);color:var(--fb);border:1px solid rgba(24,119,242,0.2)">Long-term</span>
+      </div>
+      <div class="cg-tile ct2">
+        <span class="cg-emoji">👥</span>
+        <h4>Facebook Groups</h4>
+        <p>Highest organic reach and engagement on the entire platform</p>
+        <span class="cg-tag" style="background:rgba(26,138,80,0.1);color:var(--green);border:1px solid rgba(26,138,80,0.2)">Best Strategy</span>
+      </div>
+      <div class="cg-tile ct3">
+        <span class="cg-emoji">📖</span>
+        <h4>Personal Profile</h4>
+        <p>Authentic reach with friends who genuinely know you</p>
+        <span class="cg-tag" style="background:rgba(96,48,160,0.1);color:var(--violet);border:1px solid rgba(96,48,160,0.2)">Authentic</span>
+      </div>
+      <div class="cg-tile ct4">
+        <span class="cg-emoji">🎬</span>
+        <h4>Facebook Reels</h4>
+        <p>Highest organic discovery for new audiences in 2026</p>
+        <span class="cg-tag" style="background:rgba(168,96,16,0.1);color:var(--amber);border:1px solid rgba(168,96,16,0.2)">Growing Fast</span>
+      </div>
+    </div>
+
+    <!-- STRATEGY 1: GROUPS -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(26,138,80,0.1);color:var(--green);border:1px solid rgba(26,138,80,0.2)">Strategy 01</span>
+      Facebook Groups — The Highest-Reach Asset You Own
+    </h2>
+
+    <p>While Facebook Pages have seen their organic reach collapse over the past decade, Facebook Groups remain one of the highest-engagement environments on the entire platform. Group posts consistently reach a far greater percentage of members than page posts reach followers — sometimes ten or twenty times more. Creating your own Facebook Group around your blog's niche is one of the most powerful long-term investments a blogger can make on the platform.</p>
+
+    <div class="strat-card">
+      <div class="sc-top">
+        <div class="sc-bar" style="background:var(--green)"></div>
+        <div class="sc-top-inner">
+          <div class="sc-icon" style="background:rgba(26,138,80,0.1);color:var(--green)">👥</div>
+          <h3>Build Your Own Group — Then Serve It Generously</h3>
+          <span class="sc-badge" style="background:rgba(26,138,80,0.1);color:var(--green);border:1px solid rgba(26,138,80,0.2)">Highest ROI</span>
+        </div>
+      </div>
+      <div class="sc-body">
+        <p>Create a Facebook Group centred not around your blog name but around the transformation your blog delivers — not "Sarah's Cooking Blog Community" but "Simple Weeknight Meals for Busy Families." This niche-specific framing attracts members who are genuinely interested in the topic, not simply in supporting you. Post three to five pieces of genuinely valuable content per week: quick tips, questions that spark discussion, polls, and yes — links to your most relevant recent posts. The ratio matters: four posts of pure value for every one link to your blog. Members who trust the group will click your links willingly because they know the group consistently delivers on its promise.</p>
+        <div class="insider">
+          <span class="ins-label">Pro Strategy</span>
+          <p>Also join and actively contribute in three to five established groups in your niche. Become a genuinely helpful voice — answering questions, sharing expertise, and occasionally mentioning your blog naturally when directly relevant. This brings you before audiences of thousands who have never heard of you.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGY 2: CONTENT TYPES -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(24,119,242,0.1);color:var(--fb);border:1px solid rgba(24,119,242,0.2)">Strategy 02</span>
+      Write for Facebook First — Then Link to Your Blog
+    </h2>
+
+    <div class="strat-card">
+      <div class="sc-top">
+        <div class="sc-bar" style="background:var(--fb)"></div>
+        <div class="sc-top-inner">
+          <div class="sc-icon" style="background:rgba(24,119,242,0.1);color:var(--fb)">✍️</div>
+          <h3>Native Content Earns Reach. Links Request It.</h3>
+          <span class="sc-badge" style="background:rgba(24,119,242,0.1);color:var(--fb);border:1px solid rgba(24,119,242,0.2)">Algorithm Truth</span>
+        </div>
+      </div>
+      <div class="sc-body">
+        <p>Facebook's algorithm explicitly suppresses posts that contain external links in the main post body, because external links pull people off the platform — and Facebook does not want that. The practical implication for bloggers is clear: post the value first, natively on Facebook, and place any link to your blog in the first comment. Write a compelling summary, insight, or story drawn from your latest blog post — something that stands alone as valuable, engages the reader fully, and ends with a natural invitation to read more. Then drop your link in the comment below. This approach consistently earns two to three times more organic reach than posting the link directly.</p>
+        <div class="insider">
+          <span class="ins-label">Engagement Hack</span>
+          <p>End every Facebook post with a genuine question that invites responses. "Which of these strategies has worked for you?" or "What's your biggest challenge with X?" — real engagement signals tell the algorithm your content is worth distributing further, compounding your reach with every reply you receive.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGY 3: REELS -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(168,96,16,0.1);color:var(--amber);border:1px solid rgba(168,96,16,0.2)">Strategy 03</span>
+      Facebook Reels — The Organic Reach That Still Works
+    </h2>
+
+    <div class="strat-card">
+      <div class="sc-top">
+        <div class="sc-bar" style="background:var(--amber)"></div>
+        <div class="sc-top-inner">
+          <div class="sc-icon" style="background:rgba(168,96,16,0.1);color:var(--amber)">🎬</div>
+          <h3>Short Video Reaches People Who Have Never Heard of You</h3>
+          <span class="sc-badge" style="background:rgba(168,96,16,0.1);color:var(--amber);border:1px solid rgba(168,96,16,0.2)">Discovery Tool</span>
+        </div>
+      </div>
+      <div class="sc-body">
+        <p>In 2026, Facebook Reels remain one of the last places on the platform where completely new audiences can discover your content without any prior knowledge of your existence. Facebook is actively pushing short-form video to compete with TikTok and Instagram Reels, which means the algorithm currently rewards Reel creators with disproportionately high organic distribution. Create thirty to sixty-second videos that distil one genuinely useful insight from a recent blog post — quick tips, common myths, surprising statistics, step-by-step processes. End each video with a clear verbal call to action directing viewers to your profile or your blog for more.</p>
+        <div class="insider">
+          <span class="ins-label">Production Tip</span>
+          <p>You do not need professional equipment. Good natural light, a clean background, and clear audio — even from a smartphone — create Reels that perform as well as studio-quality productions. Authenticity outperforms polish on this platform, consistently and measurably.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REACH BARS -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(96,48,160,0.1);color:var(--violet);border:1px solid rgba(96,48,160,0.2)">Realistic View</span>
+      Organic Reach by Content Type on Facebook
+    </h2>
+
+    <div class="reach-bars">
+      <div class="rb-title">📊 &nbsp; Average Organic Reach as % of Followers / Members</div>
+      <div class="rb-rows">
+        <div class="rb-row">
+          <span class="rb-label">Facebook Reels</span>
+          <div class="rb-track"><div class="rb-fill" style="width:88%;background:var(--amber)"></div></div>
+          <span class="rb-val" style="color:var(--amber)">Very High</span>
+        </div>
+        <div class="rb-row">
+          <span class="rb-label">Group Posts</span>
+          <div class="rb-track"><div class="rb-fill" style="width:75%;background:var(--green)"></div></div>
+          <span class="rb-val" style="color:var(--green)">High</span>
+        </div>
+        <div class="rb-row">
+          <span class="rb-label">Native Text Posts</span>
+          <div class="rb-track"><div class="rb-fill" style="width:52%;background:var(--fb)"></div></div>
+          <span class="rb-val" style="color:var(--fb)">Moderate</span>
+        </div>
+        <div class="rb-row">
+          <span class="rb-label">Image Posts (Page)</span>
+          <div class="rb-track"><div class="rb-fill" style="width:32%;background:var(--violet)"></div></div>
+          <span class="rb-val" style="color:var(--violet)">Low–Mod</span>
+        </div>
+        <div class="rb-row">
+          <span class="rb-label">Posts With Links (Page)</span>
+          <div class="rb-track"><div class="rb-fill" style="width:12%;background:var(--rose)"></div></div>
+          <span class="rb-val" style="color:var(--rose)">Suppressed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST TYPES TABLE -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(10,120,120,0.1);color:var(--teal);border:1px solid rgba(10,120,120,0.2)">Quick Ref</span>
+      What to Post — and What to Avoid
+    </h2>
+
+    <table class="post-table">
+      <thead>
+        <tr>
+          <th>Post Type</th>
+          <th>Reach Potential</th>
+          <th>Best Placement</th>
+          <th>Verdict</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Short-form Reels</td>
+          <td>🔼 Excellent</td>
+          <td>Page + Profile</td>
+          <td><span class="pt-tag" style="background:rgba(26,138,80,0.1);color:var(--green);border:1px solid rgba(26,138,80,0.2)">Do This First</span></td>
+        </tr>
+        <tr>
+          <td>Group value posts</td>
+          <td>🔼 High</td>
+          <td>Your Group</td>
+          <td><span class="pt-tag" style="background:rgba(26,138,80,0.1);color:var(--green);border:1px solid rgba(26,138,80,0.2)">Priority</span></td>
+        </tr>
+        <tr>
+          <td>Native stories / insights</td>
+          <td>🔼 Moderate-High</td>
+          <td>Page + Groups</td>
+          <td><span class="pt-tag" style="background:rgba(24,119,242,0.1);color:var(--fb);border:1px solid rgba(24,119,242,0.2)">Recommended</span></td>
+        </tr>
+        <tr>
+          <td>Direct link posts</td>
+          <td>🔽 Suppressed</td>
+          <td>First Comment</td>
+          <td><span class="pt-tag" style="background:rgba(168,96,16,0.1);color:var(--amber);border:1px solid rgba(168,96,16,0.2)">Use Carefully</span></td>
+        </tr>
+        <tr>
+          <td>Boosted posts (paid)</td>
+          <td>🎯 Targeted</td>
+          <td>Page</td>
+          <td><span class="pt-tag" style="background:rgba(96,48,160,0.1);color:var(--violet);border:1px solid rgba(96,48,160,0.2)">When Ready</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ACTION PANEL -->
+    <div class="action-panel">
+      <div class="ap-title">✦ &nbsp; Your Facebook Traffic Action Plan</div>
+      <div class="ap-grid">
+        <div class="ap-item"><div class="ap-dot"></div>Create a niche-focused Facebook Group today</div>
+        <div class="ap-item"><div class="ap-dot"></div>Join 3–5 active groups in your niche</div>
+        <div class="ap-item"><div class="ap-dot"></div>Post value content 4× before posting a link</div>
+        <div class="ap-item"><div class="ap-dot"></div>Always put blog links in the first comment</div>
+        <div class="ap-item"><div class="ap-dot"></div>Create one Facebook Reel per week</div>
+        <div class="ap-item"><div class="ap-dot"></div>End every post with a genuine question</div>
+        <div class="ap-item"><div class="ap-dot"></div>Reply to every comment within 24 hours</div>
+        <div class="ap-item"><div class="ap-dot"></div>Track which content type drives real clicks</div>
+      </div>
+    </div>
+
+    <p>Facebook has not stopped working for bloggers. It has simply stopped working for bloggers who treat it as a posting schedule rather than a community. The platform rewards those who show up to give — genuine insights, real conversations, valuable video content — and then, within that context of trust, naturally invite their readers home to the blog where more depth, more value, and more of their voice awaits.</p>
+
+    <p>Show up for your Facebook community every week. They will show up for your blog in return.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">Facebook rewards generosity. Give first. The traffic follows.</span>
+  </footer>
+
+</div>
+</body>
+</html>
