@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Create Attractive Thumbnails</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #080610;
+    --surface:   #100e1c;
+    --surface2:  #161428;
+    --border:    #221e38;
+    --text:      #e0d8ff;
+    --muted:     #6058a0;
+    --accent:    #e040fb;
+    --pink:      #ff4da6;
+    --amber:     #ffd600;
+    --teal:      #00e5c8;
+    --blue:      #448aff;
+    --green:     #69f0ae;
+    --glow-p:    rgba(224,64,251,0.12);
+    --glow-a:    rgba(255,214,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  /* mesh gradient background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -150px; left: -150px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(224,64,251,0.07) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -150px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,229,200,0.06) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 92px 46px 116px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 74px; }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .ht-pill {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 30px;
+  }
+
+  .hp-p { background:rgba(224,64,251,0.12); color:var(--accent); border:1px solid rgba(224,64,251,0.28); }
+  .hp-a { background:rgba(255,214,0,0.12);  color:var(--amber);  border:1px solid rgba(255,214,0,0.28); }
+
+  .ht-live {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .ht-live::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 10px var(--teal);
+    animation: tp 2s ease-in-out infinite;
+  }
+
+  @keyframes tp { 0%,100%{opacity:1;}50%{opacity:0.3;} }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.2rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    color: #f0e8ff;
+    margin-bottom: 22px;
+  }
+
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--accent), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .deck {
+    font-size: 1.05rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.76;
+    max-width: 590px;
+  }
+
+  .header-rule {
+    margin-top: 40px;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent 65%);
+  }
+
+  /* ── BODY ── */
+  .body p {
+    margin-bottom: 1.62em;
+    color: #9090c8;
+    font-weight: 400;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    padding: 34px 42px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--pink) 40%, var(--amber) 70%, transparent);
+  }
+
+  .pull-quote::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 0% 50%, var(--glow-p), transparent);
+    pointer-events: none;
+  }
+
+  .pull-quote p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.22rem;
+    font-weight: 600;
+    color: #f0e8ff !important;
+    line-height: 1.64;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SECTION HEADING ── */
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #f0e8ff;
+    margin: 58px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .h2-chip {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  /* ── DESIGN RULE CARDS ── */
+  .rule-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 20px 0;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+
+  .rule-card:hover {
+    border-color: rgba(224,64,251,0.3);
+    box-shadow: 0 4px 32px rgba(224,64,251,0.06);
+  }
+
+  .rc-top {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rc-bar { width: 4px; flex-shrink: 0; }
+
+  .rc-top-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    flex: 1;
+  }
+
+  .rc-icon {
+    width: 40px; height: 40px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+  }
+
+  .rule-card h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f0e8ff;
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .rc-impact {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .rc-body { padding: 18px 24px 20px 28px; }
+
+  .rc-body p {
+    font-size: 0.94rem;
+    color: var(--muted);
+    margin: 0 !important;
+    line-height: 1.76;
+  }
+
+  /* ── DESIGNER TIP ── */
+  .designer-tip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 11px 16px;
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .dt-icon { font-size: 13px; flex-shrink: 0; padding-top: 1px; }
+
+  .designer-tip p {
+    font-size: 0.86rem !important;
+    font-weight: 500;
+    margin: 0 !important;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ── COLOUR PSYCHOLOGY ── */
+  .colour-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 26px 0 36px;
+  }
+
+  .colour-tile {
+    border-radius: 12px;
+    padding: 18px 16px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    text-align: center;
+    transition: border-color 0.22s;
+  }
+
+  .colour-tile:hover { border-color: rgba(224,64,251,0.25); }
+
+  .colour-swatch {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .colour-tile h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f0e8ff;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .colour-tile p {
+    font-size: 0.76rem !important;
+    color: var(--muted) !important;
+    margin: 0 0 8px !important;
+    line-height: 1.5;
+  }
+
+  .colour-use {
+    display: inline-block;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  /* ── THUMBNAIL ANATOMY ── */
+  .anatomy-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 24px 0 36px;
+  }
+
+  .anatomy-header {
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--border);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .anatomy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .anat-zone {
+    padding: 18px 20px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .anat-zone:nth-child(3n) { border-right: none; }
+  .anat-zone:nth-child(n+4) { border-bottom: none; }
+
+  .az-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .anat-zone h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f0e8ff;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .anat-zone p {
+    font-size: 0.78rem !important;
+    color: var(--muted) !important;
+    margin: 0 !important;
+    line-height: 1.5;
+  }
+
+  /* ── TOOLS STRIP ── */
+  .tools-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 22px 0 36px;
+  }
+
+  .tool-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 18px 14px;
+    text-align: center;
+    transition: border-color 0.22s;
+  }
+
+  .tool-tile:hover { border-color: rgba(0,229,200,0.3); }
+
+  .tool-emoji { font-size: 24px; display: block; margin-bottom: 10px; }
+
+  .tool-tile h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f0e8ff;
+    margin-bottom: 4px;
+  }
+
+  .tool-tile p {
+    font-size: 0.77rem !important;
+    color: var(--muted) !important;
+    margin: 0 0 9px !important;
+    line-height: 1.5;
+  }
+
+  .tool-free {
+    display: inline-block;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: rgba(105,240,174,0.12);
+    color: var(--green);
+    border: 1px solid rgba(105,240,174,0.25);
+  }
+
+  /* ── CREATION CHECKLIST ── */
+  .creation-check {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 36px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .creation-check::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 100%, var(--glow-a), transparent);
+    pointer-events: none;
+  }
+
+  .cc-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 26px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.56;
+  }
+
+  .cc-box {
+    width: 18px; height: 18px;
+    border-radius: 5px;
+    border: 1.5px solid rgba(255,214,0,0.4);
+    background: rgba(255,214,0,0.08);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 76px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-sig {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  .footer-meta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .page { padding: 54px 22px 74px; }
+    .colour-grid { grid-template-columns: 1fr 1fr; }
+    .anatomy-grid { grid-template-columns: 1fr 1fr; }
+    .anat-zone:nth-child(2n) { border-right: none; }
+    .anat-zone:nth-child(n+5) { border-bottom: none; }
+    .tools-strip { grid-template-columns: 1fr 1fr; }
+    .cc-grid { grid-template-columns: 1fr; }
+    .pull-quote { padding: 26px 26px; }
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <span class="ht-pill hp-p">Visual Design</span>
+      <span class="ht-pill hp-a">Content Creation</span>
+      <span class="ht-live">2026 Guide</span>
+    </div>
+    <h1>HOW TO CREATE<br><em>ATTRACTIVE</em><br>THUMBNAILS</h1>
+    <p class="deck">A thumbnail is seen before your title, before your description, before anything you have written. It is the first judgement your potential reader makes — and it is made in less than a second. Here is how to win it every time.</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p>Scroll through any blog directory, Pinterest board, or YouTube search and pay attention to what your eyes do. They do not read from left to right, systematically processing each result. They jump — pulled magnetically toward certain images and away from others, making decisions so fast that the conscious mind barely registers the process. The images that attract those first jumps share a common quality: they were designed, not just created. They were built to be noticed in exactly the environment where they compete.</p>
+
+    <p>A thumbnail that looks beautiful in isolation but disappears in a grid of competing images has failed at its primary job. The goal of a great thumbnail is not to look good — it is to look different. To interrupt the scroll. To create a micro-moment of visual curiosity strong enough to override a reader's inertia and pull their finger toward a tap or a click. That is the challenge, and it is entirely learnable.</p>
+
+    <div class="pull-quote">
+      <p>Your thumbnail is not decoration. It is a conversion tool — the first thing between your content and your reader's attention. Design it like the most important pixel on the page. Because it is.</p>
+    </div>
+
+    <!-- ANATOMY -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(224,64,251,0.12);color:var(--accent);border:1px solid rgba(224,64,251,0.25)">Foundation</span>
+      THE ANATOMY OF A THUMBNAIL THAT CONVERTS
+    </h2>
+
+    <div class="anatomy-card">
+      <div class="anatomy-header">🔬 &nbsp; The Six Elements of a High-Performing Thumbnail</div>
+      <div class="anatomy-grid">
+        <div class="anat-zone">
+          <span class="az-num" style="color:var(--accent)">01</span>
+          <h4>Hero Visual</h4>
+          <p>The dominant image — face, object, or scene — that anchors attention immediately</p>
+        </div>
+        <div class="anat-zone">
+          <span class="az-num" style="color:var(--pink)">02</span>
+          <h4>Background</h4>
+          <p>Solid, gradient or blurred — must contrast strongly with foreground elements</p>
+        </div>
+        <div class="anat-zone">
+          <span class="az-num" style="color:var(--amber)">03</span>
+          <h4>Text Overlay</h4>
+          <p>3–7 words maximum, large enough to read at thumbnail size, high contrast</p>
+        </div>
+        <div class="anat-zone">
+          <span class="az-num" style="color:var(--teal)">04</span>
+          <h4>Colour Palette</h4>
+          <p>2–3 intentional colours chosen for emotion, contrast and brand consistency</p>
+        </div>
+        <div class="anat-zone">
+          <span class="az-num" style="color:var(--blue)">05</span>
+          <h4>Focal Hierarchy</h4>
+          <p>Visual weight that guides the eye: image → text → supporting detail</p>
+        </div>
+        <div class="anat-zone">
+          <span class="az-num" style="color:var(--green)">06</span>
+          <h4>Negative Space</h4>
+          <p>Breathing room that prevents visual clutter and aids legibility at small sizes</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 1: CONTRAST -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(224,64,251,0.12);color:var(--accent);border:1px solid rgba(224,64,251,0.25)">Rule 01</span>
+      CONTRAST IS KING — MAKE EVERY ELEMENT FIGHT FOR SPACE
+    </h2>
+
+    <p>The single most powerful principle in thumbnail design is contrast. High contrast between your subject and your background. High contrast between your text and whatever it sits on. High contrast between your thumbnail and the dozens of competing thumbnails surrounding it in any grid. Without contrast, even a beautifully designed thumbnail becomes visually soft — it exists in the feed but does not demand attention. It is seen but not noticed.</p>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--accent)"></div>
+        <div class="rc-top-inner">
+          <div class="rc-icon" style="background:rgba(224,64,251,0.12);color:var(--accent)">⚡</div>
+          <h3>Dark Subject on Light Background — or Reverse. Never Same Tone.</h3>
+          <span class="rc-impact" style="background:rgba(224,64,251,0.12);color:var(--accent);border:1px solid rgba(224,64,251,0.22)">Rule #1</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>Use a dark subject on a light, vibrant background — or a bright subject against a deep, dark one. Avoid placing medium-toned elements against medium-toned backgrounds; this creates visual mud that makes everything feel flat and unclickable. When designing text overlays, always check legibility at half size — if your text is hard to read at 300 pixels wide, it is invisible at the 120-pixel thumbnail size that most platforms display by default.</p>
+        <div class="designer-tip">
+          <span class="dt-icon">💡</span>
+          <p style="color:#8080c0">Use Canva's accessibility checker or simply squint at your thumbnail. Elements that remain clear when squinting will remain clear in feed previews. Elements that vanish need more contrast immediately.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 2: FACES -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(255,77,166,0.12);color:var(--pink);border:1px solid rgba(255,77,166,0.25)">Rule 02</span>
+      FACES OUTPERFORM EVERYTHING — USE THEM
+    </h2>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--pink)"></div>
+        <div class="rc-top-inner">
+          <div class="rc-icon" style="background:rgba(255,77,166,0.12);color:var(--pink)">😮</div>
+          <h3>Human Faces With Clear Emotional Expressions Drive Clicks</h3>
+          <span class="rc-impact" style="background:rgba(255,77,166,0.12);color:var(--pink);border:1px solid rgba(255,77,166,0.22)">Proven Psychology</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>Decades of visual psychology research confirm what content creators have learned through data: thumbnails featuring human faces with visible emotional expressions consistently outperform all other image types across almost every platform and niche. The reason is hardwired into human biology — we are social creatures who instinctively track other people's faces and emotions. A thumbnail showing genuine surprise, curiosity, joy, or concern creates an immediate emotional connection that abstract or object-based thumbnails rarely match. If your niche allows for it, put a face in your thumbnail. Make the expression real, visible, and large enough to read clearly.</p>
+        <div class="designer-tip">
+          <span class="dt-icon">💡</span>
+          <p style="color:#8080c0">The face should occupy at least 30–40% of the thumbnail's total area and be cropped at the shoulders or closer. Eyes and expression are the entire point — do not bury them in a wide landscape shot.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULE 3: TYPOGRAPHY -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(255,214,0,0.12);color:var(--amber);border:1px solid rgba(255,214,0,0.25)">Rule 03</span>
+      TEXT ON THUMBNAILS — SAY LESS, MEAN MORE
+    </h2>
+
+    <div class="rule-card">
+      <div class="rc-top">
+        <div class="rc-bar" style="background:var(--amber)"></div>
+        <div class="rc-top-inner">
+          <div class="rc-icon" style="background:rgba(255,214,0,0.12);color:var(--amber)">🔤</div>
+          <h3>Maximum 7 Words. Maximum 2 Font Weights. Always Bold.</h3>
+          <span class="rc-impact" style="background:rgba(255,214,0,0.12);color:var(--amber);border:1px solid rgba(255,214,0,0.22)">Critical</span>
+        </div>
+      </div>
+      <div class="rc-body">
+        <p>Text on a thumbnail is not a title — it is a visual anchor. It must be readable in under a second at thumbnail size, which means it must be large, bold, and ruthlessly limited. Use 3–7 words that amplify the visual rather than explain it. A thumbnail showing a shocked face with the words "THEY ALL GOT IT WRONG" does not need more text — the combination of expression and words creates the story. Use one primary font in a heavy weight and one secondary font for contrast, never more. Decorative scripts and lightweight fonts disappear at small sizes; bold, geometric sans-serifs dominate every platform.</p>
+        <div class="designer-tip">
+          <span class="dt-icon">💡</span>
+          <p style="color:#8080c0">Add a drop shadow or semi-transparent background behind your text if it sits on a complex image. Legibility is non-negotiable — a word no one can read might as well not exist.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLOUR PSYCHOLOGY -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(68,138,255,0.12);color:var(--blue);border:1px solid rgba(68,138,255,0.25)">Colour Guide</span>
+      WHAT EVERY COLOUR COMMUNICATES IN A THUMBNAIL
+    </h2>
+
+    <div class="colour-grid">
+      <div class="colour-tile">
+        <div class="colour-swatch" style="background:rgba(239,68,68,0.2);border:2px solid #ef4444;">❤️</div>
+        <h4>Red</h4>
+        <p>Urgency, passion, danger — triggers immediate attention</p>
+        <span class="colour-use" style="background:rgba(239,68,68,0.12);color:#ef4444;border:1px solid rgba(239,68,68,0.25)">News · Finance</span>
+      </div>
+      <div class="colour-tile">
+        <div class="colour-swatch" style="background:rgba(255,214,0,0.2);border:2px solid var(--amber);">💛</div>
+        <h4>Yellow</h4>
+        <p>Energy, optimism, warmth — the highest visual attention score</p>
+        <span class="colour-use" style="background:rgba(255,214,0,0.12);color:var(--amber);border:1px solid rgba(255,214,0,0.25)">Lifestyle · DIY</span>
+      </div>
+      <div class="colour-tile">
+        <div class="colour-swatch" style="background:rgba(68,138,255,0.2);border:2px solid var(--blue);">💙</div>
+        <h4>Blue</h4>
+        <p>Trust, calm, authority — the colour of credibility</p>
+        <span class="colour-use" style="background:rgba(68,138,255,0.12);color:var(--blue);border:1px solid rgba(68,138,255,0.25)">Tech · Business</span>
+      </div>
+      <div class="colour-tile">
+        <div class="colour-swatch" style="background:rgba(105,240,174,0.2);border:2px solid var(--green);">💚</div>
+        <h4>Green</h4>
+        <p>Growth, health, nature — reassuring and approachable</p>
+        <span class="colour-use" style="background:rgba(105,240,174,0.12);color:var(--green);border:1px solid rgba(105,240,174,0.25)">Health · Finance</span>
+      </div>
+      <div class="colour-tile">
+        <div class="colour-swatch" style="background:rgba(224,64,251,0.2);border:2px solid var(--accent);">💜</div>
+        <h4>Purple</h4>
+        <p>Creativity, luxury, mystery — elevated and distinctive</p>
+        <span class="colour-use" style="background:rgba(224,64,251,0.12);color:var(--accent);border:1px solid rgba(224,64,251,0.25)">Creative · Beauty</span>
+      </div>
+      <div class="colour-tile">
+        <div class="colour-swatch" style="background:rgba(15,15,15,0.8);border:2px solid #555;">🖤</div>
+        <h4>Black</h4>
+        <p>Power, sophistication, premium — makes all other colours pop</p>
+        <span class="colour-use" style="background:rgba(100,100,100,0.15);color:#aaa;border:1px solid rgba(100,100,100,0.3)">Luxury · Fashion</span>
+      </div>
+    </div>
+
+    <!-- FREE TOOLS -->
+    <h2>
+      <span class="h2-chip" style="background:rgba(0,229,200,0.10);color:var(--teal);border:1px solid rgba(0,229,200,0.22)">Tools</span>
+      THREE FREE TOOLS EVERY BLOGGER NEEDS
+    </h2>
+
+    <div class="tools-strip">
+      <div class="tool-tile">
+        <span class="tool-emoji">🎨</span>
+        <h4>Canva</h4>
+        <p>Pre-sized templates, drag-and-drop design, massive free library</p>
+        <span class="tool-free">Free Plan</span>
+      </div>
+      <div class="tool-tile">
+        <span class="tool-emoji">🖼</span>
+        <h4>Adobe Express</h4>
+        <p>Premium quality thumbnails with professional-grade typography</p>
+        <span class="tool-free">Free Tier</span>
+      </div>
+      <div class="tool-tile">
+        <span class="tool-emoji">✂️</span>
+        <h4>Remove.bg</h4>
+        <p>Instant background removal for clean, composited thumbnail images</p>
+        <span class="tool-free">Free Credits</span>
+      </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div class="creation-check">
+      <div class="cc-title">✦ &nbsp; Before You Export — Thumbnail Quality Checklist</div>
+      <div class="cc-grid">
+        <div class="cc-item"><div class="cc-box"></div>Text readable at 120px wide</div>
+        <div class="cc-item"><div class="cc-box"></div>Maximum 3 colours used</div>
+        <div class="cc-item"><div class="cc-box"></div>Strong contrast throughout</div>
+        <div class="cc-item"><div class="cc-box"></div>Face visible and expressive</div>
+        <div class="cc-item"><div class="cc-box"></div>No more than 7 words of text</div>
+        <div class="cc-item"><div class="cc-box"></div>Consistent with your brand style</div>
+        <div class="cc-item"><div class="cc-box"></div>Exported at correct dimensions</div>
+        <div class="cc-item"><div class="cc-box"></div>You would stop scrolling for it</div>
+      </div>
+    </div>
+
+    <p>Creating thumbnails that convert is not a talent reserved for designers. It is a discipline — a set of principles applied consistently, refined through observation, and improved with every thumbnail you create. The principles above have been tested across millions of pieces of content on every major platform. Apply them, build your own design templates, and your thumbnails will begin doing what every thumbnail should: stopping the scroll and delivering your content to the readers it was made for.</p>
+
+    <p>The scroll is fast. Make your thumbnail faster.</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="article-footer">
+    <span class="footer-sig">Great thumbnails are not designed. They are engineered to be irresistible.</span>
+    <span class="footer-meta">~ 700 Words · Human Quality · 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
