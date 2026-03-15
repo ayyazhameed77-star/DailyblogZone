@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Write List Articles — The Complete Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito+Sans:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161d;
+    --card: #1a1e28;
+    --border: #252a38;
+    --cyan: #4ecdc4;
+    --cyan-dim: #2a7d79;
+    --violet: #a78bfa;
+    --rose: #fb7185;
+    --amber: #fbbf24;
+    --text: #e8eaf0;
+    --muted: #8892aa;
+    --soft: #c8cdd8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(78,205,196,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(78,205,196,0.03) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glow orbs */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(167,139,250,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .glow-bottom {
+    position: fixed;
+    bottom: -200px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(78,205,196,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Top bar */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,15,20,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideDown 0.6s ease forwards;
+  }
+
+  .topbar-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .topbar-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 90px 40px 60px;
+    text-align: center;
+    animation: fadeUp 0.9s ease forwards 0.2s;
+    opacity: 0;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(78,205,196,0.1);
+    border: 1px solid rgba(78,205,196,0.25);
+    color: var(--cyan);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+
+  .badge::before { content: '◆'; font-size: 7px; }
+
+  h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(48px, 9vw, 82px);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    color: var(--text);
+  }
+
+  h1 .accent { color: var(--cyan); font-style: italic; }
+  h1 .accent2 { color: var(--violet); }
+
+  .hero-desc {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 44px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stat::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+  }
+
+  /* Divider */
+  .divider {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 860px;
+    margin: 0 auto 70px;
+    padding: 0 40px;
+    animation: fadeUp 0.7s ease forwards 0.4s;
+    opacity: 0;
+  }
+
+  .divider-line { flex: 1; height: 1px; background: var(--border); }
+  .divider-icon {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--cyan);
+  }
+
+  /* Article */
+  .article {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+    animation: fadeUp 1s ease forwards 0.5s;
+    opacity: 0;
+  }
+
+  p {
+    margin-bottom: 26px;
+    color: var(--soft);
+    font-weight: 400;
+  }
+
+  /* Drop cap */
+  .drop-cap::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5em;
+    font-weight: 700;
+    float: left;
+    line-height: 0.8;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: var(--cyan);
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 3px solid var(--violet);
+    background: rgba(167,139,250,0.06);
+    padding: 28px 32px;
+    margin: 48px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--text);
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    font-size: 90px;
+    line-height: 1;
+    color: var(--violet);
+    opacity: 0.2;
+    position: absolute;
+    top: -8px;
+    left: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    pointer-events: none;
+  }
+
+  /* Section heading */
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 600;
+    margin: 56px 0 18px;
+    line-height: 1.2;
+    color: var(--text);
+  }
+
+  .step-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+    background: rgba(251,191,36,0.08);
+    border: 1px solid rgba(251,191,36,0.2);
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+
+  /* Numbered list cards */
+  .tip-list {
+    list-style: none;
+    padding: 0;
+    margin: 32px 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .tip-list li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .tip-list li:hover {
+    border-color: rgba(78,205,196,0.3);
+    transform: translateX(4px);
+  }
+
+  .tip-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--cyan);
+    min-width: 28px;
+    margin-top: 2px;
+    opacity: 0.7;
+  }
+
+  .tip-list li p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--soft);
+  }
+
+  .tip-list li strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  /* Alert box */
+  .alert {
+    background: rgba(251,113,133,0.08);
+    border: 1px solid rgba(251,113,133,0.25);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 40px 0;
+    position: relative;
+  }
+
+  .alert-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 10px;
+  }
+
+  .alert p { margin: 0; font-size: 16px; }
+
+  /* Highlight box */
+  .highlight {
+    background: linear-gradient(135deg, rgba(78,205,196,0.08), rgba(167,139,250,0.06));
+    border: 1px solid rgba(78,205,196,0.2);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 44px 0;
+  }
+
+  .highlight-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 12px;
+  }
+
+  .highlight p { margin: 0; font-size: 16px; }
+
+  /* Footer */
+  footer {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 36px 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  footer span { color: var(--cyan); }
+
+  /* Animations */
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .topbar { padding: 12px 20px; }
+    .hero { padding: 60px 24px 40px; }
+    .article { padding: 0 24px 80px; }
+    .divider { padding: 0 24px; }
+    .hero-stats { gap: 18px; }
+    .pull-quote { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow-bottom"></div>
+
+<nav class="topbar">
+  <div class="topbar-brand">Content Craft</div>
+  <div class="topbar-meta">Writer's Series — Vol. II</div>
+</nav>
+
+<header class="hero">
+  <div class="badge">Complete Writing Guide</div>
+  <h1>How to Write<br><span class="accent">List</span> <span class="accent2">Articles</span></h1>
+  <p class="hero-desc">The format that dominates every search results page — and the surprisingly deep craft behind making one that readers actually finish.</p>
+  <div class="hero-stats">
+    <div class="stat">700 Words</div>
+    <div class="stat">4 Min Read</div>
+    <div class="stat">Beginner Friendly</div>
+  </div>
+</header>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <div class="divider-icon">✦</div>
+  <div class="divider-line"></div>
+</div>
+
+<article class="article">
+
+  <p class="drop-cap">Open any popular blog, scroll through Google's first page, or browse a magazine website — and you will find them everywhere. Lists. "7 Ways to Save Money." "10 Books That Will Change Your Life." "15 Mistakes Every New Cook Makes." The listicle is arguably the most clicked, shared, and bookmarked format in online writing. But writing one well is harder than it looks. Most list articles feel thin and forgettable. Great ones feel like a hand-curated gift.</p>
+
+  <p>Here is everything you need to write list articles that people genuinely read, share, and remember.</p>
+
+  <div class="pull-quote">
+    A list article is not a shortcut. It is a specific structure — one that demands clarity, brevity, and the courage to actually say something useful in every single point.
+  </div>
+
+  <div class="step-tag">Step 01</div>
+  <h2>Choose a Number With Purpose</h2>
+
+  <p>Your number is not arbitrary. It sets the reader's expectation before they read a single word. Odd numbers — 7, 9, 11 — perform consistently well because they feel curated, not rounded off. "10 Tips" feels like you stopped at a round number. "9 Tips" feels like you included exactly what mattered and cut the rest. Round numbers work well only when they feel complete — "100 Writing Prompts" makes sense. "100 Reasons to Exercise" feels padded.</p>
+
+  <p>The number should also match the depth of your topic. A list of 5 works beautifully for a focused, high-quality breakdown. A list of 25 works for inspiration-style posts where readers scan and pick what resonates. Never pad a list to hit an arbitrary count — readers notice filler instantly.</p>
+
+  <div class="step-tag">Step 02</div>
+  <h2>Write a Headline That Makes a Promise</h2>
+
+  <p>The list article lives or dies by its headline. The formula is simple: number + specific adjective + noun + implicit benefit. "7 Proven Ways to Fall Asleep Faster" works because it is specific, actionable, and promises a result. "Tips for Sleep" fails because it promises nothing and targets no one in particular.</p>
+
+  <div class="tip-list">
+    <li><span class="tip-num">01</span><p><strong>Use a specific adjective.</strong> "Proven," "Surprising," "Overlooked," "Honest" — these create curiosity and credibility simultaneously.</p></li>
+    <li><span class="tip-num">02</span><p><strong>Name the audience when possible.</strong> "7 Things Every Freelance Designer Knows" speaks directly to one person and draws them in.</p></li>
+    <li><span class="tip-num">03</span><p><strong>Promise a clear outcome.</strong> The reader should know exactly what they will gain before they click.</p></li>
+    <li><span class="tip-num">04</span><p><strong>Test different framings.</strong> "Mistakes to Avoid" performs differently than "Things to Start Doing" — one creates fear, the other creates hope. Both work depending on your topic.</p></li>
+  </div>
+
+  <div class="step-tag">Step 03</div>
+  <h2>Open With a Hook, Not a Definition</h2>
+
+  <p>The biggest mistake in list articles is starting with a dry introduction that explains what the reader is about to read. They already know — they clicked the headline. Instead, open with a story, a bold claim, a surprising fact, or a direct question that pulls them into the problem your list is about to solve. Give them a reason to trust you before the first item begins.</p>
+
+  <div class="step-tag">Step 04</div>
+  <h2>Make Every Item Earn Its Place</h2>
+
+  <p>Each item in your list is a small promise. If it does not deliver real value — a specific insight, a concrete tip, an honest observation — cut it. The most common failure of list articles is that each point gets two vague sentences of explanation that say nothing memorable. Every item should have: a bold, clear heading; two to four sentences of genuine substance; and ideally one concrete example, number, or story that makes it real.</p>
+
+  <div class="alert">
+    <div class="alert-label">⚠ Common Mistake</div>
+    <p>Never write a list item heading and then repeat the same idea in different words underneath. The body of each point must add something the heading does not already say. If it does not, you are padding — and readers will feel it.</p>
+  </div>
+
+  <div class="step-tag">Step 05</div>
+  <h2>Close With Weight, Not a Whisper</h2>
+
+  <p>Most list articles end abruptly — the last item finishes and the post just stops. A strong conclusion ties the list together and leaves the reader with one clear thought to carry away. It does not need to be long. Three sentences that reframe the whole piece, remind the reader why any of this matters, and leave them with something to do or think about next. That final moment is what turns a reader into someone who shares your post.</p>
+
+  <div class="highlight">
+    <div class="highlight-title">✦ The Core Rule</div>
+    <p>Write every list article as if your reader is busy, skeptical, and will leave after the first boring point. Earn their attention with every sentence. Respect their time with every word. Make every item count — and they will read to the end every time.</p>
+  </div>
+
+</article>
+
+<footer>
+  <span>✦</span> &nbsp; How to Write List Articles &nbsp; <span>✦</span> &nbsp; Content Craft Series &nbsp; <span>✦</span>
+</footer>
+
+</body>
+</html>
