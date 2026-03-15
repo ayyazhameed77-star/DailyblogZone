@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Write Meta Descriptions — SEO Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #f7f3ee;
+    --surface:  #ffffff;
+    --surface2: #f0ebe3;
+    --border:   #e0d8cc;
+    --ink:      #1e1712;
+    --muted:    #8a7f74;
+    --rose:     #b5462b;
+    --rose-dim: rgba(181,70,43,0.08);
+    --rose-mid: rgba(181,70,43,0.18);
+    --sage:     #3d6b5e;
+    --sage-dim: rgba(61,107,94,0.09);
+    --gold:     #a0722a;
+    --gold-dim: rgba(160,114,42,0.10);
+    --soft:     #4a3f35;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  /* ── Top stripe ── */
+  .stripe {
+    height: 4px;
+    background: linear-gradient(90deg, var(--rose) 0%, var(--gold) 50%, var(--sage) 100%);
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--ink);
+    color: #f7f3ee;
+    padding: 72px 32px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 40px;
+    background: var(--bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 26px;
+  }
+
+  .eyebrow::before,
+  .eyebrow::after {
+    content: '';
+    width: 28px; height: 1px;
+    background: rgba(200,169,110,0.5);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    max-width: 680px;
+    margin: 0 auto 18px;
+  }
+
+  h1 strong {
+    font-weight: 700;
+    color: #e8c97a;
+    font-style: italic;
+  }
+
+  .header-note {
+    font-size: 0.85rem;
+    color: rgba(247,243,238,0.45);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── SERP Preview ── */
+  .serp-preview {
+    max-width: 600px;
+    margin: -12px auto 54px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 26px;
+    box-shadow: 0 4px 24px rgba(30,23,18,0.07);
+  }
+
+  .serp-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .serp-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: var(--border);
+  }
+
+  .serp-url {
+    font-size: 0.8rem;
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  .serp-title {
+    font-size: 1.1rem;
+    color: #1a0dab;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .serp-desc {
+    font-size: 0.83rem;
+    color: #4d4d4d;
+    line-height: 1.55;
+  }
+
+  .serp-desc em {
+    font-style: normal;
+    font-weight: 600;
+    color: #1e1712;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 20px 28px 90px;
+  }
+
+  /* ── Lead ── */
+  .lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.28rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--soft);
+    line-height: 1.75;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 36px;
+    margin-bottom: 54px;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 54px; }
+
+  .section-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rose);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .section-tag::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: var(--border);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+
+  p { color: var(--soft); margin-bottom: 16px; }
+
+  /* ── Do / Don't ── */
+  .do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0;
+  }
+
+  @media (max-width: 560px) {
+    .do-dont { grid-template-columns: 1fr; }
+  }
+
+  .do, .dont {
+    padding: 16px 18px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+  }
+
+  .do {
+    background: var(--sage-dim);
+    border: 1px solid rgba(61,107,94,0.22);
+  }
+
+  .dont {
+    background: var(--rose-dim);
+    border: 1px solid rgba(181,70,43,0.18);
+  }
+
+  .do strong {
+    color: var(--sage);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .dont strong {
+    color: var(--rose);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .do p, .dont p { margin: 0; color: var(--soft); }
+
+  /* ── Callout box ── */
+  .callout {
+    background: var(--gold-dim);
+    border: 1px solid rgba(160,114,42,0.22);
+    border-left: 3px solid var(--gold);
+    padding: 17px 20px;
+    border-radius: 4px;
+    margin: 24px 0;
+  }
+
+  .callout strong {
+    color: var(--gold);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .callout p { font-size: 0.9rem; margin: 0; color: var(--soft); }
+
+  /* ── Checklist ── */
+  ul.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 24px;
+  }
+
+  ul.checklist li {
+    padding: 9px 0 9px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    color: var(--soft);
+    font-size: 0.95rem;
+  }
+
+  ul.checklist li:last-child { border-bottom: none; }
+
+  ul.checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 4px;
+    color: var(--sage);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  /* ── Formula box ── */
+  .formula {
+    background: var(--ink);
+    color: #f7f3ee;
+    padding: 26px 28px;
+    border-radius: 8px;
+    margin: 28px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .formula span {
+    color: #e8c97a;
+    font-weight: 600;
+  }
+
+  /* ── Divider ── */
+  hr.div {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+    position: relative;
+  }
+
+  hr.div::before {
+    content: '❧';
+    position: absolute;
+    top: -11px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg);
+    padding: 0 12px;
+    color: var(--rose);
+    font-size: 1rem;
+  }
+
+  /* ── Number stat ── */
+  .stat-row {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    flex: 1;
+    min-width: 140px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--rose);
+    line-height: 1;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .stat-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Closing ── */
+  .closing {
+    background: var(--ink);
+    color: #f7f3ee;
+    padding: 42px 38px;
+    border-radius: 8px;
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  .closing h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #e8c97a;
+    margin-bottom: 14px;
+  }
+
+  .closing p {
+    color: rgba(247,243,238,0.7);
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 26px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+
+<div class="stripe"></div>
+
+<header>
+  <div class="eyebrow">SEO Writing Guide</div>
+  <h1>How to Write a<br><strong>Meta Description</strong><br>That Gets Clicks</h1>
+  <p class="header-note">~800 words &nbsp;·&nbsp; Practical &amp; Human &nbsp;·&nbsp; 2026 Edition</p>
+</header>
+
+<main>
+
+  <!-- Live SERP Preview -->
+  <div class="serp-preview">
+    <p class="serp-label">What a Great Meta Description Looks Like</p>
+    <p class="serp-url">🌐 yourblog.com › seo › meta-descriptions</p>
+    <p class="serp-title">How to Write Meta Descriptions That Get Clicked</p>
+    <p class="serp-desc">Learn exactly how to write <em>meta descriptions</em> that boost your click-through rate. Simple rules, real examples, and a proven formula — ready in 5 minutes.</p>
+  </div>
+
+  <!-- Lead -->
+  <p class="lead">
+    A meta description is a tiny piece of text — 160 characters at most — that appears beneath your page title in Google search results. Most people write them as an afterthought. The bloggers who rank and get clicked treat them as a craft. Here is everything you need to know.
+  </p>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <p class="section-tag">The Foundation</p>
+    <h2>What Is a Meta Description, Really?</h2>
+    <p>
+      A meta description is an HTML tag that sits in the head of your webpage. Readers never see it in your article — they see it in search results, right below your blue clickable title. It is your one chance to tell someone who has never heard of you: <em>"This page has exactly what you are looking for."</em>
+    </p>
+    <p>
+      Here is the crucial thing to understand: meta descriptions are <strong>not a direct ranking factor</strong>. Google does not use them to decide where your page appears. But they have enormous influence over whether someone clicks your result or the one below it. A higher click-through rate sends a positive signal back to Google — so indirectly, a great meta description does help you rank.
+    </p>
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-num">160</span>
+        <span class="stat-desc">Maximum characters Google typically displays</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">~63%</span>
+        <span class="stat-desc">Of pages have meta descriptions rewritten by Google</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">5 sec</span>
+        <span class="stat-desc">Time a searcher spends deciding whether to click</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 2 -->
+  <div class="section">
+    <p class="section-tag">The Formula</p>
+    <h2>A Simple Formula That Works Every Time</h2>
+    <p>
+      You do not need to reinvent the wheel for every page. Most high-performing meta descriptions follow a reliable structure: lead with the benefit, address the reader's intent, include your keyword naturally, and close with a gentle nudge to act.
+    </p>
+
+    <div class="formula">
+      <span>Benefit</span> + What the reader will learn or get<br>
+      + <span>Keyword</span> used naturally in the sentence<br>
+      + <span>Call to action</span> — soft, confident, human
+    </div>
+
+    <p>
+      For example, instead of: <em>"This article is about meta descriptions and SEO."</em> — write: <em>"Discover how to write meta descriptions that get more clicks, with a simple formula and ready-to-use examples."</em>
+    </p>
+    <p>
+      The first version describes your content. The second version speaks directly to the reader's desire.
+    </p>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 3 -->
+  <div class="section">
+    <p class="section-tag">Length &amp; Keywords</p>
+    <h2>Get the Length and Keywords Right</h2>
+    <p>
+      Google typically displays up to 160 characters on desktop and around 120 on mobile before cutting off your description with an ellipsis. Aim for 140–155 characters — long enough to be informative, short enough to display fully.
+    </p>
+    <p>
+      Always include your primary keyword. When a user's search query matches words in your meta description, Google bolds those words in the results. Bold text draws the eye. It creates an instant visual signal that your page is relevant — and that drives clicks.
+    </p>
+    <div class="callout">
+      <strong>Pro Tip</strong>
+      <p>Write your meta description after you have finalized your article. By then, you know exactly what value the page delivers — and that clarity makes writing a compelling 155-character summary much easier.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 4 -->
+  <div class="section">
+    <p class="section-tag">Do's &amp; Don'ts</p>
+    <h2>What to Do — and What to Avoid</h2>
+    <p>
+      The difference between a meta description that gets clicks and one that gets ignored often comes down to a handful of habits. Keep these in mind every time you write one.
+    </p>
+
+    <div class="do-dont">
+      <div class="do">
+        <strong>✓ Do This</strong>
+        <p>Write in active voice. "Learn how to…" and "Discover the…" are far more compelling than passive descriptions.</p>
+      </div>
+      <div class="dont">
+        <strong>✗ Avoid This</strong>
+        <p>Do not stuff keywords unnaturally. "Meta description meta description tips SEO meta" is spam — and Google ignores it.</p>
+      </div>
+      <div class="do">
+        <strong>✓ Do This</strong>
+        <p>Match the search intent. If someone searches "how to," your description should promise a clear how-to answer.</p>
+      </div>
+      <div class="dont">
+        <strong>✗ Avoid This</strong>
+        <p>Do not duplicate the same meta description across multiple pages. Every page has a unique purpose — describe it uniquely.</p>
+      </div>
+      <div class="do">
+        <strong>✓ Do This</strong>
+        <p>Use numbers when relevant. "7 proven techniques" or "under 5 minutes" adds specificity that builds trust instantly.</p>
+      </div>
+      <div class="dont">
+        <strong>✗ Avoid This</strong>
+        <p>Do not write clickbait. If your description promises something your page does not deliver, visitors will bounce — and Google notices.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 5 -->
+  <div class="section">
+    <p class="section-tag">When Google Rewrites You</p>
+    <h2>Why Google Sometimes Ignores Your Description</h2>
+    <p>
+      Studies show that Google rewrites meta descriptions for roughly 63% of search results. This happens when Google believes its own generated snippet better matches what the user is searching for. You cannot fully prevent this — but you can reduce how often it happens.
+    </p>
+    <p>
+      The best defence is writing a description that closely mirrors what a user at each stage of intent would want to read. If your description genuinely answers the implied question behind the keyword, Google has less reason to replace it with something else.
+    </p>
+
+    <ul class="checklist">
+      <li>Match your description to the dominant search intent for that keyword</li>
+      <li>Avoid vague or generic descriptions that could apply to any page</li>
+      <li>Do not repeat your page title word-for-word in the description</li>
+      <li>Keep the most important information in the first 120 characters</li>
+      <li>Write for the human first — Google's algorithm rewards that naturally</li>
+    </ul>
+  </div>
+
+  <hr class="div">
+
+  <!-- Section 6 -->
+  <div class="section">
+    <p class="section-tag">Final Thought</p>
+    <h2>Treat Every Meta Description as a Tiny Advertisement</h2>
+    <p>
+      The best mental shift you can make is to stop thinking of meta descriptions as a technical SEO field to fill in — and start thinking of them as tiny, handcrafted advertisements for your content. You have 155 characters and one job: convince the right person to click.
+    </p>
+    <p>
+      Speak to a specific reader. Answer a specific need. Use your keyword. Keep it honest. And always — always — write it as a human being, not as a bot filling a form.
+    </p>
+    <div class="callout">
+      <strong>The One-Sentence Test</strong>
+      <p>Read your meta description aloud. If it sounds like something a real person would say to recommend your article to a friend, it is ready to publish. If it sounds robotic or corporate, rewrite it.</p>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <h3>Small Text. Big Impact.</h3>
+    <p>
+      A meta description takes two minutes to write well. Over hundreds of pages, those two minutes compound into thousands of extra clicks, lower bounce rates, and stronger rankings. It is one of the smallest investments in SEO — and one of the most consistently rewarding ones.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 &nbsp;·&nbsp; How to Write Meta Descriptions &nbsp;·&nbsp; Written for human readers
+</footer>
+
+</body>
+</html>
