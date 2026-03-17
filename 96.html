@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How to Create Viral Content</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black:   #080608;
+    --near:    #120e14;
+    --paper:   #ffffff;
+    --off:     #f8f4fc;
+    --mag:     #d4186c;
+    --mag2:    #f0307e;
+    --pink:    #fce8f2;
+    --yellow:  #f5d800;
+    --cyan:    #00c8d4;
+    --border:  #e8d8f0;
+    --muted:   #7a6888;
+    --ink:     #1a0e20;
+    --purple:  #5a18a0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--off);
+    color: var(--ink);
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 400;
+    min-height: 100vh;
+    cursor: default;
+  }
+
+  /* ── SCROLLING HEADLINE TAPE ── */
+  .tape {
+    background: var(--yellow);
+    overflow: hidden;
+    padding: 9px 0;
+    white-space: nowrap;
+    border-top: 3px solid var(--black);
+    border-bottom: 3px solid var(--black);
+  }
+  .tape-inner {
+    display: inline-flex;
+    gap: 48px;
+    animation: tape-scroll 18s linear infinite;
+    font-family: 'Anton', sans-serif;
+    font-size: .88rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+  .tape-inner span { color: var(--mag); }
+  @keyframes tape-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--mag);
+  }
+
+  /* animated gradient orbs */
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,24,108,.22) 0%, transparent 70%);
+    top: -200px; left: -100px;
+    animation: orb1 8s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,200,212,.12) 0%, transparent 70%);
+    bottom: -200px; right: -80px;
+    animation: orb2 10s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes orb1 {
+    from { transform: translate(0,0) scale(1); }
+    to   { transform: translate(60px, 40px) scale(1.15); }
+  }
+  @keyframes orb2 {
+    from { transform: translate(0,0) scale(1); }
+    to   { transform: translate(-40px, -30px) scale(1.1); }
+  }
+
+  .hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 36px 72px;
+    position: relative; z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 52px;
+    align-items: center;
+  }
+  @media(max-width:700px){ .hero-inner { grid-template-columns: 1fr; gap: 36px; } }
+
+  .hero-label {
+    font-family: 'Anton', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--mag2);
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3.2rem, 8vw, 6.5rem);
+    line-height: .94;
+    letter-spacing: -.01em;
+    margin-bottom: 24px;
+  }
+  h1 .stroke {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+  }
+  h1 .mag { color: var(--mag2); }
+  h1 .yellow { color: var(--yellow); }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,.55);
+    line-height: 1.8;
+    max-width: 440px;
+    font-style: italic;
+  }
+
+  /* right panel */
+  .hero-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hp-box {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: background .2s, border .2s;
+  }
+  .hp-box:hover {
+    background: rgba(212,24,108,.15);
+    border-color: rgba(212,24,108,.4);
+  }
+  .hp-emoji { font-size: 1.5rem; flex-shrink: 0; }
+  .hp-val {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    color: var(--yellow);
+    line-height: 1;
+    display: block;
+  }
+  .hp-lbl {
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.38);
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* ── BODY ── */
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 68px 24px 92px;
+  }
+
+  p {
+    font-size: 1.08rem;
+    line-height: 1.9;
+    margin-bottom: 1.5em;
+    color: #2a1a30;
+  }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-family: 'Anton', sans-serif;
+    font-size: 5.8rem;
+    line-height: .78;
+    margin: 4px 14px -4px 0;
+    color: var(--mag);
+  }
+
+  /* ── SECTION HEADS ── */
+  .sh {
+    margin: 54px 0 14px;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .sh-accent {
+    width: 5px;
+    background: var(--mag);
+    flex-shrink: 0;
+    border-radius: 2px;
+    margin-right: 16px;
+  }
+  .sh-accent.yellow { background: var(--yellow); }
+  .sh-accent.cyan   { background: var(--cyan); }
+  .sh-accent.purple { background: var(--purple); }
+  .sh-body {}
+  .sh-cat {
+    font-family: 'Anton', sans-serif;
+    font-size: .65rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--mag);
+    margin-bottom: 4px;
+  }
+  .sh-cat.yellow { color: var(--yellow); }
+  .sh-cat.cyan   { color: var(--cyan); }
+  .sh-cat.purple { color: var(--purple); }
+  h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.65rem;
+    color: var(--ink);
+    line-height: 1.12;
+    letter-spacing: .01em;
+  }
+
+  /* ── VIRAL TRIGGER CARDS ── */
+  .trigger-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 22px 0 8px;
+  }
+  @media(max-width:520px){ .trigger-grid { grid-template-columns: 1fr; } }
+  .trig-card {
+    background: var(--black);
+    color: #fff;
+    padding: 20px 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: transform .2s;
+  }
+  .trig-card:hover { transform: translateY(-3px); }
+  .trig-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .trig-card.mag::before    { background: var(--mag2); }
+  .trig-card.yellow::before { background: var(--yellow); }
+  .trig-card.cyan::before   { background: var(--cyan); }
+  .trig-card.purple::before { background: var(--purple); }
+  .tc-emoji {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .tc-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    letter-spacing: .04em;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  .tc-desc {
+    font-size: .84rem;
+    color: rgba(255,255,255,.5);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .trig-card.mag    .tc-title { color: var(--mag2); }
+  .trig-card.yellow .tc-title { color: var(--yellow); }
+  .trig-card.cyan   .tc-title { color: var(--cyan); }
+  .trig-card.purple .tc-title { color: #b088f0; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--pink);
+    border-left: 4px solid var(--mag);
+    padding: 16px 20px;
+    margin: 14px 0 6px;
+    font-size: .98rem;
+    color: var(--ink);
+    line-height: 1.75;
+    font-style: italic;
+  }
+  .callout b { font-style: normal; color: var(--mag); font-weight: 600; }
+
+  /* ── FORMULA VISUAL ── */
+  .formula {
+    background: var(--near);
+    color: #fff;
+    padding: 28px 30px;
+    margin: 22px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    letter-spacing: .06em;
+  }
+  .f-box {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 12px 18px;
+    text-align: center;
+    min-width: 90px;
+    transition: background .2s;
+  }
+  .f-box:hover { background: rgba(212,24,108,.2); }
+  .f-box .fv { font-size: 1.1rem; color: var(--mag2); display: block; }
+  .f-box .fl { font-size: .58rem; letter-spacing: .18em; color: rgba(255,255,255,.38); margin-top: 3px; }
+  .f-op {
+    color: var(--yellow);
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .f-result {
+    background: var(--mag);
+    padding: 12px 20px;
+    text-align: center;
+    min-width: 100px;
+  }
+  .f-result .fv { color: #fff; font-size: 1.1rem; display: block; }
+  .f-result .fl { font-size: .58rem; letter-spacing: .18em; color: rgba(255,255,255,.55); margin-top: 3px; }
+
+  /* ── PULL QUOTE ── */
+  .pq {
+    background: var(--mag);
+    color: #fff;
+    padding: 46px 52px;
+    margin: 54px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  @media(max-width:540px){ .pq { padding: 32px 24px; margin: 40px 0; } }
+  .pq::before {
+    content: 'VIRAL';
+    position: absolute;
+    bottom: -20px; right: -10px;
+    font-family: 'Anton', sans-serif;
+    font-size: 8rem;
+    color: rgba(0,0,0,.12);
+    line-height: 1;
+    letter-spacing: -.02em;
+    pointer-events: none;
+  }
+  .pq::after {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 280px; height: 280px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .pq p {
+    font-family: 'Spectral', serif;
+    font-size: 1.55rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 600px;
+    position: relative; z-index: 1;
+  }
+  .pq-src {
+    display: block;
+    font-family: 'Anton', sans-serif;
+    font-size: .65rem;
+    letter-spacing: .25em;
+    color: rgba(255,255,255,.55);
+    margin-top: 18px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── PLATFORM TABLE ── */
+  .ptable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 22px 0 36px;
+    font-size: .95rem;
+  }
+  .ptable thead tr { background: var(--black); }
+  .ptable th {
+    color: rgba(255,255,255,.55);
+    font-family: 'Anton', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 400;
+  }
+  .ptable td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    color: #1a0e20;
+    vertical-align: middle;
+  }
+  .ptable tr:last-child td { border-bottom: none; }
+  .ptable td:first-child {
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    letter-spacing: .04em;
+    color: var(--ink);
+  }
+  .pill-tag {
+    display: inline-block;
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: .72rem;
+    padding: 2px 9px;
+    border-radius: 20px;
+    border: 1px solid;
+    margin: 1px 2px;
+  }
+  .pt-mag    { color: var(--mag);    background: var(--pink);  border-color: #f0a8c8; }
+  .pt-yellow { color: #8a7000;       background: #fffde0;      border-color: #e8d040; }
+  .pt-cyan   { color: #006878;       background: #e0fafe;      border-color: #80d8e0; }
+  .pt-purple { color: var(--purple); background: #f0eafc;      border-color: #c0a0e0; }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    background: var(--off);
+    border: 2px solid var(--black);
+    padding: 28px 30px;
+    margin: 36px 0;
+    position: relative;
+  }
+  .checklist::before {
+    content: 'VIRAL CONTENT CHECKLIST';
+    position: absolute;
+    top: -13px; left: 18px;
+    background: var(--mag);
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .2em;
+    padding: 3px 14px;
+  }
+  .cl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 28px;
+    margin-top: 10px;
+  }
+  @media(max-width:500px){ .cl-grid { grid-template-columns: 1fr; } }
+  .cl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: .95rem;
+    color: var(--ink);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .cl-item:last-child { border-bottom: none; }
+  .cl-icon {
+    color: var(--mag);
+    font-family: 'Anton', sans-serif;
+    font-size: .75rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+    letter-spacing: .1em;
+  }
+
+  /* ── RULE ── */
+  .rule { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--black);
+    color: #fff;
+    padding: 68px 44px;
+    text-align: center;
+    margin-top: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle 400px at 20% 50%, rgba(212,24,108,.15) 0%, transparent 60%),
+      radial-gradient(circle 400px at 80% 50%, rgba(0,200,212,.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; z-index: 1; }
+  .cta-label {
+    font-family: 'Anton', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .3em;
+    color: var(--mag2);
+    margin-bottom: 14px;
+  }
+  .cta h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: .96;
+    letter-spacing: .01em;
+    margin-bottom: 14px;
+  }
+  .cta h3 .stroke {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+  }
+  .cta h3 .mag { color: var(--mag2); }
+  .cta p {
+    color: rgba(255,255,255,.45);
+    font-size: 1rem;
+    font-style: italic;
+    max-width: 400px;
+    margin: 0 auto 30px;
+  }
+  .cta-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cbtn {
+    display: inline-block;
+    font-family: 'Anton', sans-serif;
+    font-size: .88rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all .2s;
+  }
+  .cbtn.mag {
+    background: var(--mag);
+    color: #fff;
+    border-color: var(--mag);
+  }
+  .cbtn.mag:hover { background: var(--mag2); border-color: var(--mag2); }
+  .cbtn.outline {
+    background: transparent;
+    color: rgba(255,255,255,.55);
+    border-color: rgba(255,255,255,.18);
+  }
+  .cbtn.outline:hover { border-color: rgba(255,255,255,.6); color: #fff; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .tape  { animation: fadeUp .4s ease both; }
+  .hero  { animation: fadeUp .5s .05s ease both; }
+  .wrap  { animation: fadeUp .5s .12s ease both; }
+  .cta   { animation: fadeUp .5s .18s ease both; }
+</style>
+</head>
+<body>
+
+<!-- SCROLLING TAPE -->
+<div class="tape">
+  <div class="tape-inner">
+    <span>VIRAL CONTENT</span> ✦
+    <span>SHARE THIS</span> ✦
+    Go Viral ✦
+    <span>800 WORDS</span> ✦
+    Make It Spread ✦
+    <span>STRATEGY GUIDE</span> ✦
+    <span>VIRAL CONTENT</span> ✦
+    <span>SHARE THIS</span> ✦
+    Go Viral ✦
+    <span>800 WORDS</span> ✦
+    Make It Spread ✦
+    <span>STRATEGY GUIDE</span> ✦
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">✦ The Complete Playbook</div>
+      <h1>HOW<br/>TO<br/><span class="stroke">CREATE</span><br/><span class="mag">VIRAL</span><br/><span class="yellow">CONTENT</span></h1>
+      <p class="hero-sub">Viral content is not luck. It is a science — a combination of emotion, timing, story, and strategy that makes sharing irresistible. Here is how to engineer it.</p>
+    </div>
+    <div class="hero-panel">
+      <div class="hp-box">
+        <span class="hp-emoji">🔥</span>
+        <div>
+          <span class="hp-val">3.2B</span>
+          <span class="hp-lbl">Daily social shares</span>
+        </div>
+      </div>
+      <div class="hp-box">
+        <span class="hp-emoji">⚡</span>
+        <div>
+          <span class="hp-val">1 hr</span>
+          <span class="hp-lbl">Peak viral window</span>
+        </div>
+      </div>
+      <div class="hp-box">
+        <span class="hp-emoji">🎯</span>
+        <div>
+          <span class="hp-val">7 Keys</span>
+          <span class="hp-lbl">To virality inside</span>
+        </div>
+      </div>
+      <div class="hp-box">
+        <span class="hp-emoji">📈</span>
+        <div>
+          <span class="hp-val">94%</span>
+          <span class="hp-lbl">Share for emotion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="wrap">
+
+  <!-- INTRO -->
+  <p class="drop-cap">
+    Every content creator has watched a piece of their work spread across the internet, gathering shares, comments, and attention far beyond anything they expected. And almost every creator has also put enormous effort into something that generated nothing but silence. The difference between content that spreads and content that disappears is not quality alone, nor effort, nor luck — it is the presence or absence of specific psychological triggers that make sharing feel natural, even compulsive, to the people who encounter it. Viral content can be engineered. Here is how.
+  </p>
+  <p>
+    Understanding virality starts with understanding why people share in the first place. Research consistently shows that people share content to define themselves, to connect with others, to provide value to their community, and to express emotions that feel too strong to keep private. Every piece of genuinely viral content activates at least one of these motivations — the best ones activate several simultaneously.
+  </p>
+
+  <!-- SECTION 1 — EMOTIONAL TRIGGERS -->
+  <div class="sh">
+    <div class="sh-accent"></div>
+    <div class="sh-body">
+      <div class="sh-cat">The Core Engine</div>
+      <h2>Trigger the Right Emotions — Immediately</h2>
+    </div>
+  </div>
+  <p>
+    Emotion is the engine of virality. Content that makes people feel something intensely — awe, laughter, anger, inspiration, surprise, or deep recognition — gets shared because sharing is how people process and express strong feelings. The specific emotion matters less than its intensity. Mild amusement generates a polite scroll. Genuine laughter generates a share. Mild interest gets a like. Jaw-dropping awe gets a tag, a forward, and a "you have to see this." Design for intensity, not comfort.
+  </p>
+
+  <div class="trigger-grid">
+    <div class="trig-card mag">
+      <span class="tc-emoji">😂</span>
+      <div class="tc-title">Humour & Delight</div>
+      <div class="tc-desc">Laughter is the most-shared emotion online. Make people genuinely laugh and they will share before they even finish reading.</div>
+    </div>
+    <div class="trig-card yellow">
+      <span class="tc-emoji">🤩</span>
+      <div class="tc-title">Awe & Inspiration</div>
+      <div class="tc-desc">Content that makes people feel small in the best way — confronting them with beauty, scale, or human achievement — spreads powerfully.</div>
+    </div>
+    <div class="trig-card cyan">
+      <span class="tc-emoji">😤</span>
+      <div class="tc-title">Righteous Anger</div>
+      <div class="tc-desc">Content that validates a frustration people already feel but haven't been able to articulate creates an explosive urge to share.</div>
+    </div>
+    <div class="trig-card purple">
+      <span class="tc-emoji">🥺</span>
+      <div class="tc-title">Deep Recognition</div>
+      <div class="tc-desc">"This is exactly how I feel but never knew how to say it." Content that captures an unspoken truth travels extraordinarily far.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — IDENTITY SHARING -->
+  <div class="sh">
+    <div class="sh-accent yellow"></div>
+    <div class="sh-body">
+      <div class="sh-cat yellow">Social Currency</div>
+      <h2>Make Sharing Feel Like Self-Expression</h2>
+    </div>
+  </div>
+  <p>
+    People share content that makes them look good to their own audience. It is called social currency — content that signals intelligence, taste, values, or humour to the sharer's network. Ask yourself honestly: does sharing my content make someone look smart, funny, informed, compassionate, or cool? If the answer is no, the sharing motivation disappears. If the answer is yes, sharing becomes nearly automatic. Every viral piece of content doubles as a personal statement from the person who shares it.
+  </p>
+
+  <div class="callout"><b>The Test:</b> Before publishing any piece of content, ask yourself — if a reader shared this, what would it say about them? If the answer is nothing interesting, rewrite the headline, the angle, or the conclusion until sharing it feels like a statement worth making.</div>
+
+  <!-- FORMULA VISUAL -->
+  <div class="formula">
+    <div class="f-box">
+      <span class="fv">EMOTION</span>
+      <span class="fl">Intensity</span>
+    </div>
+    <div class="f-op">+</div>
+    <div class="f-box">
+      <span class="fv">IDENTITY</span>
+      <span class="fl">Social Currency</span>
+    </div>
+    <div class="f-op">+</div>
+    <div class="f-box">
+      <span class="fv">VALUE</span>
+      <span class="fl">Practical Use</span>
+    </div>
+    <div class="f-op">+</div>
+    <div class="f-box">
+      <span class="fv">TIMING</span>
+      <span class="fl">Relevance</span>
+    </div>
+    <div class="f-op">=</div>
+    <div class="f-result">
+      <span class="fv">VIRAL</span>
+      <span class="fl">Content</span>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — HEADLINES -->
+  <div class="sh">
+    <div class="sh-accent cyan"></div>
+    <div class="sh-body">
+      <div class="sh-cat cyan">The Gateway</div>
+      <h2>Write Headlines That Demand a Click</h2>
+    </div>
+  </div>
+  <p>
+    The most emotionally powerful content in the world goes unread if the headline fails to stop the scroll. Viral headlines create what psychologists call a curiosity gap — they reveal enough information to generate interest but withhold enough to make clicking feel necessary. Numbers create specificity and credibility. Direct promises communicate clear value. Counterintuitive statements disrupt expectations and demand resolution. Practise writing twenty headlines for every piece of content, then choose the one that creates the strongest pull. Your headline is not decoration — it is the door.
+  </p>
+
+  <!-- PULL QUOTE -->
+  <div class="pq">
+    <p>Viral content is not created in the moment of publishing. It is engineered in the moment of conception — when you ask not "what do I want to say?" but "what do my readers desperately need to feel and share?"</p>
+    <span class="pq-src">— The Viral Content Formula</span>
+  </div>
+
+  <!-- SECTION 4 — PLATFORMS -->
+  <div class="sh">
+    <div class="sh-accent purple"></div>
+    <div class="sh-body">
+      <div class="sh-cat purple">Distribution</div>
+      <h2>Match Your Content Format to the Right Platform</h2>
+    </div>
+  </div>
+  <p>
+    Virality is always platform-specific. A long-form, nuanced essay can go viral on LinkedIn among professionals but will be completely ignored on TikTok. Short-form video dominates Instagram Reels and TikTok. Highly visual infographics spread fastest on Pinterest. Twitter rewards wit, brevity, and provocation. Understanding the native language of each platform — and creating content that feels made for it rather than adapted to it — is the difference between content that spreads naturally and content that feels like advertising.
+  </p>
+
+  <table class="ptable">
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th>What Goes Viral</th>
+        <th>Best Emotions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TikTok</td>
+        <td>Surprising reveals, tutorials, relatable moments, trends</td>
+        <td><span class="pill-tag pt-mag">Delight</span><span class="pill-tag pt-yellow">Awe</span></td>
+      </tr>
+      <tr>
+        <td>Instagram</td>
+        <td>Aesthetic visuals, transformation stories, Reels hooks</td>
+        <td><span class="pill-tag pt-mag">Inspiration</span><span class="pill-tag pt-purple">Identity</span></td>
+      </tr>
+      <tr>
+        <td>Twitter / X</td>
+        <td>Controversial takes, threads, wit, breaking news</td>
+        <td><span class="pill-tag pt-cyan">Anger</span><span class="pill-tag pt-mag">Humour</span></td>
+      </tr>
+      <tr>
+        <td>LinkedIn</td>
+        <td>Career stories, lessons, counter-intuitive insights</td>
+        <td><span class="pill-tag pt-yellow">Awe</span><span class="pill-tag pt-purple">Recognition</span></td>
+      </tr>
+      <tr>
+        <td>Pinterest</td>
+        <td>Beautiful how-tos, infographics, evergreen tips</td>
+        <td><span class="pill-tag pt-cyan">Inspiration</span><span class="pill-tag pt-mag">Aspiration</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 5 — PRACTICAL -->
+  <div class="sh">
+    <div class="sh-accent"></div>
+    <div class="sh-body">
+      <div class="sh-cat">The Mechanics</div>
+      <h2>Make Sharing as Easy and Immediate as Possible</h2>
+    </div>
+  </div>
+  <p>
+    Even the most compelling content loses shares to friction. Every extra step between the impulse to share and the actual share loses a percentage of your audience. Make sharing one-tap simple. Add prominent share buttons. Write the caption they should post alongside it. Create a ready-made tweet. Pull the most shareable quote from your content and make it a standalone image. The window between "I want to share this" and "I just shared it" is measured in seconds — remove every obstacle within that window and your share rate will climb dramatically.
+  </p>
+
+  <hr class="rule"/>
+
+  <!-- CHECKLIST -->
+  <div class="checklist">
+    <div class="cl-grid">
+      <div class="cl-item"><span class="cl-icon">→</span>Lead with a high-intensity emotion</div>
+      <div class="cl-item"><span class="cl-icon">→</span>Ask "what does sharing say about them?"</div>
+      <div class="cl-item"><span class="cl-icon">→</span>Write 20 headlines — use the best one</div>
+      <div class="cl-item"><span class="cl-icon">→</span>Create a genuine curiosity gap</div>
+      <div class="cl-item"><span class="cl-icon">→</span>Match format to the platform natively</div>
+      <div class="cl-item"><span class="cl-icon">→</span>Make sharing one-tap simple</div>
+      <div class="cl-item"><span class="cl-icon">→</span>Publish when your audience is most active</div>
+      <div class="cl-item"><span class="cl-icon">→</span>Include a highly shareable pull quote</div>
+      <div class="cl-item"><span class="cl-icon">→</span>Front-load your strongest content</div>
+      <div class="cl-item"><span class="cl-icon">→</span>Promote in the first 60 minutes of publishing</div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <p>
+    Viral content is not a lightning bolt that strikes randomly. It is an outcome — predictable enough to engineer, repeatable enough to systematise, and learnable enough that any creator willing to study the principles can dramatically increase their chances of creating something that spreads. Understand why people share. Trigger the right emotions. Give sharing social value. Reduce every point of friction. And publish on platforms where your content can find its natural audience.
+  </p>
+  <p>
+    Not every piece you create will go viral. But every piece you create with these principles in mind will perform better than content created without them — and occasionally, one will catch fire in a way that changes everything.
+  </p>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-inner">
+    <div class="cta-label">✦ Your Content Is Ready to Spread</div>
+    <h3>MAKE YOUR<br/><span class="mag">NEXT PIECE</span><br/><span class="stroke">GO VIRAL</span></h3>
+    <p>Apply these principles to your next piece of content. Engineer the emotion. Build in the shareability. Then publish and promote.</p>
+    <div class="cta-btns">
+      <a class="cbtn mag" href="#">Start Creating ✦</a>
+      <a class="cbtn outline" href="#">Download Checklist</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
