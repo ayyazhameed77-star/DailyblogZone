@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How to Get Your First 1000 Email Subscribers</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:       #faf6f0;
+    --paper:    #ffffff;
+    --ink:      #160e08;
+    --red:      #c42020;
+    --red2:     #e03030;
+    --crimson:  #8a1a1a;
+    --sand:     #f0e8d8;
+    --cream:    #fdf8f0;
+    --gold:     #c88020;
+    --gold2:    #e8a030;
+    --forest:   #1e5c38;
+    --border:   #e0d4c0;
+    --muted:    #7a6858;
+    --slate:    #3a4858;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-weight: 400;
+    min-height: 100vh;
+  }
+
+  /* ── TOP ALERT STRIP ── */
+  .alert-strip {
+    background: var(--red);
+    color: #fff;
+    text-align: center;
+    padding: 10px 24px;
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+  }
+  .alert-strip strong {
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: .28em;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '1000';
+    position: absolute;
+    right: -30px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(12rem, 25vw, 22rem);
+    color: rgba(255,255,255,.03);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -.02em;
+  }
+
+  .mast-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 72px 36px 64px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 48px;
+    align-items: start;
+    position: relative; z-index: 2;
+  }
+  @media(max-width:680px){ .mast-inner { grid-template-columns: 1fr; gap: 32px; } }
+
+  .mast-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: .82rem;
+    color: var(--gold2);
+    letter-spacing: .12em;
+    margin-bottom: 20px;
+  }
+  .mast-kicker::before {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--gold2);
+    flex-shrink: 0;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.2rem, 7vw, 5.8rem);
+    line-height: .96;
+    letter-spacing: .02em;
+    margin-bottom: 22px;
+  }
+  h1 .hl { color: var(--red2); }
+  h1 .sm {
+    display: block;
+    font-size: .4em;
+    letter-spacing: .08em;
+    color: rgba(255,255,255,.35);
+    margin-top: 8px;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+  }
+
+  .mast-desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,.55);
+    line-height: 1.8;
+    max-width: 480px;
+    font-style: italic;
+  }
+
+  /* right — countdown panel */
+  .count-panel {
+    background: var(--red);
+    padding: 28px 24px;
+    position: relative;
+  }
+  .count-panel::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold2);
+  }
+  .cp-head {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .9rem;
+    letter-spacing: .2em;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 16px;
+  }
+  .cp-stat {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .cp-stat:last-child { border-bottom: none; }
+  .cp-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: #fff;
+    line-height: 1;
+  }
+  .cp-lbl {
+    font-size: .72rem;
+    color: rgba(255,255,255,.5);
+    text-align: right;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  /* ── MILESTONE BAR ── */
+  .milestone-bar {
+    background: var(--sand);
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .ms {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+    min-width: 80px;
+  }
+  .ms-dot {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .8rem;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: background .3s;
+  }
+  .ms-dot.active { background: var(--red); border-color: var(--red); color: #fff; }
+  .ms-line {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    min-width: 20px;
+  }
+  .ms-line.active { background: var(--red); }
+  .ms-label {
+    position: absolute;
+    top: 38px;
+    font-size: .6rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+  }
+  .milestone-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+    position: relative;
+    padding-bottom: 28px;
+    overflow-x: auto;
+  }
+  .ms-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .ms-connector {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    min-width: 40px;
+  }
+  .ms-connector.done { background: var(--red); }
+  .ms-circle {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .75rem;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .ms-circle.done { background: var(--red); border-color: var(--red); color: #fff; }
+  .ms-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .78rem;
+    color: var(--muted);
+    margin-top: 6px;
+    white-space: nowrap;
+  }
+
+  /* ── BODY ── */
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px 88px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.88;
+    margin-bottom: 1.5em;
+    color: #2a1a0e;
+  }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5.6rem;
+    line-height: .78;
+    margin: 5px 13px -4px 0;
+    color: var(--red);
+  }
+
+  /* ── SECTION HEADS ── */
+  .sh {
+    margin: 52px 0 14px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  .sh-n {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--red);
+    line-height: .9;
+    flex-shrink: 0;
+  }
+  .sh-body {}
+  .sh-cat {
+    font-size: .65rem;
+    font-weight: 500;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+    font-style: italic;
+  }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.65rem;
+    color: var(--ink);
+    line-height: 1.12;
+    letter-spacing: .03em;
+  }
+
+  /* ── STRATEGY CARD ── */
+  .strat-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    margin: 16px 0;
+    display: grid;
+    grid-template-columns: 4px 1fr;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .strat-card:hover { box-shadow: 0 4px 22px rgba(0,0,0,.07); }
+  .sc-bar { background: var(--red); }
+  .sc-bar.gold   { background: var(--gold); }
+  .sc-bar.forest { background: var(--forest); }
+  .sc-bar.slate  { background: var(--slate); }
+  .sc-inner { padding: 18px 22px; }
+  .sc-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.08rem;
+    color: var(--ink);
+    letter-spacing: .04em;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .sc-badge {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: .72rem;
+    font-weight: 500;
+    padding: 2px 9px;
+    border-radius: 20px;
+    letter-spacing: .06em;
+  }
+  .sc-badge.red    { background: #fdeaea; color: var(--red);    border: 1px solid #f4b0b0; }
+  .sc-badge.gold   { background: #fdf4e0; color: var(--gold);   border: 1px solid #f0d090; }
+  .sc-badge.forest { background: #e8f5ee; color: var(--forest); border: 1px solid #a0d8b8; }
+  .sc-badge.slate  { background: #eaecf4; color: var(--slate);  border: 1px solid #b8c4d8; }
+  .sc-desc {
+    font-size: .97rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--cream);
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    margin: 14px 0 6px;
+    font-size: .97rem;
+    color: #2a1a08;
+    line-height: 1.75;
+    font-style: italic;
+  }
+  .callout b { font-style: normal; color: var(--gold); font-weight: 600; }
+
+  /* ── GROWTH VISUAL ── */
+  .growth-vis {
+    background: var(--ink);
+    padding: 28px 28px 20px;
+    margin: 22px 0 8px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 140px;
+  }
+  .gv-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+  }
+  .gv-bar {
+    width: 100%;
+    background: var(--red);
+    opacity: .3;
+    transition: opacity .3s;
+    position: relative;
+  }
+  .gv-bar:hover { opacity: 1; }
+  .gv-bar.tall { opacity: .85; }
+  .gv-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .78rem;
+    color: rgba(255,255,255,.5);
+    white-space: nowrap;
+  }
+  .gv-month {
+    font-family: 'Crimson Pro', serif;
+    font-size: .68rem;
+    font-style: italic;
+    color: rgba(255,255,255,.3);
+    margin-top: 4px;
+  }
+  /* bar heights as % of 100px max */
+  .h10  { height: 10px; }
+  .h20  { height: 20px; }
+  .h35  { height: 35px; }
+  .h50  { height: 50px; }
+  .h65  { height: 65px; }
+  .h80  { height: 80px; }
+  .h100 { height: 100px; }
+
+  /* ── PULL QUOTE ── */
+  .pq {
+    background: var(--red);
+    color: #fff;
+    padding: 44px 50px;
+    margin: 52px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  @media(max-width:540px){ .pq { padding: 32px 24px; margin: 40px 0; } }
+  .pq::before {
+    content: '"';
+    position: absolute;
+    top: -28px; left: 14px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11rem;
+    color: rgba(0,0,0,.12);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .pq::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; right: -50px;
+    width: 200px; height: 200px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .pq p {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.52rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 600px;
+    position: relative; z-index: 1;
+  }
+  .pq-src {
+    display: block;
+    font-size: .67rem;
+    font-weight: 500;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-top: 18px;
+    position: relative; z-index: 1;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+  }
+
+  /* ── TOOLS TABLE ── */
+  .tools-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 22px 0 36px;
+    font-size: .97rem;
+  }
+  .tools-table thead tr { background: var(--ink); }
+  .tools-table th {
+    color: rgba(255,255,255,.6);
+    font-weight: 400;
+    font-size: .64rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+  }
+  .tools-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    color: #2a1a0e;
+    vertical-align: middle;
+    font-size: .95rem;
+  }
+  .tools-table tr:last-child td { border-bottom: none; }
+  .tools-table td:first-child {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: .04em;
+    color: var(--ink);
+    width: 28%;
+  }
+  .free-badge {
+    display: inline-block;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: .72rem;
+    padding: 2px 9px;
+    border-radius: 20px;
+  }
+  .fb-green  { background: #e8f5ee; color: var(--forest); border: 1px solid #a0d8b8; }
+  .fb-gold   { background: #fdf4e0; color: var(--gold);   border: 1px solid #f0d090; }
+  .fb-red    { background: #fdeaea; color: var(--red);    border: 1px solid #f4b0b0; }
+
+  /* ── RULE ── */
+  .rule { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+  /* ── MASTER CHECKLIST ── */
+  .master {
+    background: var(--sand);
+    border: 2px solid var(--ink);
+    padding: 30px 32px;
+    margin: 36px 0;
+    position: relative;
+  }
+  .master::before {
+    content: 'YOUR 1000-SUBSCRIBER ROADMAP';
+    position: absolute;
+    top: -12px; left: 20px;
+    background: var(--red);
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .2em;
+    padding: 3px 14px;
+  }
+  .master-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 28px;
+    margin-top: 10px;
+  }
+  @media(max-width:500px){ .master-grid { grid-template-columns: 1fr; } }
+  .mi {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: .95rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .mi:last-child { border-bottom: none; }
+  .mi-icon {
+    color: var(--red);
+    font-size: .8rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--ink);
+    color: #fff;
+    padding: 64px 44px;
+    text-align: center;
+    margin-top: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '1000';
+    position: absolute;
+    bottom: -20px; right: -10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12rem;
+    color: rgba(255,255,255,.03);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -.02em;
+  }
+  .cta-inner { position: relative; z-index: 1; }
+  .cta-eye {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: .82rem;
+    color: var(--gold2);
+    letter-spacing: .14em;
+    margin-bottom: 14px;
+  }
+  .cta h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.06;
+    letter-spacing: .04em;
+    margin-bottom: 14px;
+  }
+  .cta h3 .hl { color: var(--red2); }
+  .cta p {
+    color: rgba(255,255,255,.5);
+    font-size: 1rem;
+    font-style: italic;
+    max-width: 400px;
+    margin: 0 auto 30px;
+  }
+  .cta-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cbtn {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .95rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 14px 40px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all .2s;
+  }
+  .cbtn.red {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
+  }
+  .cbtn.red:hover { background: var(--red2); border-color: var(--red2); }
+  .cbtn.ghost {
+    background: transparent;
+    color: rgba(255,255,255,.55);
+    border-color: rgba(255,255,255,.18);
+  }
+  .cbtn.ghost:hover { border-color: rgba(255,255,255,.6); color: #fff; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .alert-strip { animation: fadeUp .4s ease both; }
+  .masthead    { animation: fadeUp .5s .05s ease both; }
+  .milestone-bar { animation: fadeUp .5s .1s ease both; }
+  .wrap        { animation: fadeUp .5s .14s ease both; }
+  .cta         { animation: fadeUp .5s .18s ease both; }
+</style>
+</head>
+<body>
+
+<!-- ALERT STRIP -->
+<div class="alert-strip">
+  <strong>The List-Building Playbook</strong> — Your first 1,000 subscribers are closer than you think
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-inner">
+    <div>
+      <div class="mast-kicker">Complete Growth Strategy</div>
+      <h1>How to Get Your<br/>First <span class="hl">1,000</span><br/>Email Subscribers
+        <span class="sm">The Definitive Guide for Bloggers</span>
+      </h1>
+      <p class="mast-desc">Building an email list is the single most valuable thing a blogger can do. Here is exactly how to reach your first thousand subscribers — step by step.</p>
+    </div>
+    <div class="count-panel">
+      <div class="cp-head">The Numbers</div>
+      <div class="cp-stat">
+        <div class="cp-val">1,000</div>
+        <div class="cp-lbl">Your first<br/>milestone</div>
+      </div>
+      <div class="cp-stat">
+        <div class="cp-val">$40</div>
+        <div class="cp-lbl">Email ROI per<br/>$1 invested</div>
+      </div>
+      <div class="cp-stat">
+        <div class="cp-val">6×</div>
+        <div class="cp-lbl">Higher click rate<br/>than social</div>
+      </div>
+      <div class="cp-stat">
+        <div class="cp-val">90 days</div>
+        <div class="cp-lbl">Realistic timeline<br/>with this guide</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MILESTONE BAR -->
+<div class="milestone-bar">
+  <div style="font-size:.64rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-family:'Crimson Pro',serif;font-style:italic;white-space:nowrap;margin-right:16px;">Your Journey</div>
+  <div style="flex:1;display:flex;align-items:flex-end;gap:0;padding-bottom:24px;min-width:0;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:.75rem;color:#fff;">0</div>
+      <div style="font-size:.6rem;font-family:'Crimson Pro',serif;font-style:italic;color:var(--muted);white-space:nowrap;">Day 1</div>
+    </div>
+    <div style="flex:1;height:2px;background:var(--red);min-width:24px;margin-bottom:18px;"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:.75rem;color:#fff;">50</div>
+      <div style="font-size:.6rem;font-family:'Crimson Pro',serif;font-style:italic;color:var(--muted);white-space:nowrap;">Week 2</div>
+    </div>
+    <div style="flex:1;height:2px;background:var(--border);min-width:24px;margin-bottom:18px;"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:.75rem;color:var(--muted);">250</div>
+      <div style="font-size:.6rem;font-family:'Crimson Pro',serif;font-style:italic;color:var(--muted);white-space:nowrap;">Month 1</div>
+    </div>
+    <div style="flex:1;height:2px;background:var(--border);min-width:24px;margin-bottom:18px;"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:.75rem;color:var(--muted);">500</div>
+      <div style="font-size:.6rem;font-family:'Crimson Pro',serif;font-style:italic;color:var(--muted);white-space:nowrap;">Month 2</div>
+    </div>
+    <div style="flex:1;height:2px;background:var(--border);min-width:24px;margin-bottom:18px;"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:.72rem;color:var(--muted);">1K</div>
+      <div style="font-size:.6rem;font-family:'Crimson Pro',serif;font-style:italic;color:var(--muted);white-space:nowrap;">Day 90</div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="wrap">
+
+  <!-- INTRO -->
+  <p class="drop-cap">
+    An email list is the most valuable asset a blogger can build. Unlike social media followers — who exist on platforms you do not own, governed by algorithms you cannot control — email subscribers are yours. When you send a message, it lands directly in their inbox. No feed. No algorithm deciding who sees it. No platform that can vanish overnight and take your audience with it. A list of one thousand engaged email subscribers is worth more than ten thousand social followers, and the bloggers who understand this early are the ones who build sustainable, long-term businesses.
+  </p>
+  <p>
+    The path from zero to one thousand subscribers is not mysterious — but it does require the right combination of a compelling offer, strategic placement, consistent content, and deliberate promotion. Here is exactly how to build that list, step by step, in ninety days or less.
+  </p>
+
+  <!-- STEP 1 — LEAD MAGNET -->
+  <div class="sh">
+    <div class="sh-n">01</div>
+    <div class="sh-body">
+      <div class="sh-cat">The Foundation</div>
+      <h2>Create an Irresistible Lead Magnet</h2>
+    </div>
+  </div>
+  <p>
+    Nobody gives away their email address for nothing. To build a list quickly, you need to offer something genuinely valuable in exchange — a lead magnet. The best lead magnets solve one specific, painful problem for a specific person in a short amount of time. A checklist, a short guide, a template, a mini email course, or a resource library all work brilliantly when they are tightly matched to your audience's exact needs.
+  </p>
+
+  <div class="strat-card">
+    <div class="sc-bar"></div>
+    <div class="sc-inner">
+      <div class="sc-title">🎁 High-Converting Lead Magnet Ideas <span class="sc-badge red">Highest Impact</span></div>
+      <div class="sc-desc">A one-page checklist, a five-day email course, a swipe file of templates, a resource library, a free mini guide (5–10 pages), or a printable worksheet. The simpler and more immediately useful it is, the higher your conversion rate will be.</div>
+    </div>
+  </div>
+
+  <div class="callout"><b>The Rule:</b> Your lead magnet should deliver one clear, tangible result within thirty minutes of downloading it. If it takes longer than that to be useful, simplify it.</div>
+
+  <!-- STEP 2 — SIGNUP FORMS -->
+  <div class="sh">
+    <div class="sh-n">02</div>
+    <div class="sh-body">
+      <div class="sh-cat">Placement Strategy</div>
+      <h2>Place Signup Forms Where Readers Actually Look</h2>
+    </div>
+  </div>
+  <p>
+    A great lead magnet buried at the bottom of your homepage will convert almost nobody. Strategic placement of your signup forms makes an enormous difference to your subscriber growth rate. Place a prominent opt-in form at the top of your homepage, within your most popular blog posts, and as an exit-intent popup that appears when a reader moves to leave. Test a content upgrade — a bonus resource specific to each post — and watch your conversion rate climb dramatically.
+  </p>
+
+  <div class="strat-card">
+    <div class="sc-bar gold"></div>
+    <div class="sc-inner">
+      <div class="sc-title">📍 Best Form Placement Locations <span class="sc-badge gold">High Visibility</span></div>
+      <div class="sc-desc">Homepage hero section, within post content (after the second paragraph), end of every post, sidebar, exit-intent popup, and your About page. Most bloggers underutilise their About page — it is one of the most visited pages and converts exceptionally well with a well-placed form.</div>
+    </div>
+  </div>
+
+  <!-- GROWTH BARS VISUAL -->
+  <div class="growth-vis">
+    <div class="gv-bar-wrap"><div class="gv-bar h10"></div><div class="gv-num">20</div><div class="gv-month">Wk 1</div></div>
+    <div class="gv-bar-wrap"><div class="gv-bar h20"></div><div class="gv-num">55</div><div class="gv-month">Wk 2</div></div>
+    <div class="gv-bar-wrap"><div class="gv-bar h35"></div><div class="gv-num">120</div><div class="gv-month">Wk 3</div></div>
+    <div class="gv-bar-wrap"><div class="gv-bar h50 tall"></div><div class="gv-num">240</div><div class="gv-month">Mo 1</div></div>
+    <div class="gv-bar-wrap"><div class="gv-bar h50 tall"></div><div class="gv-num">380</div><div class="gv-month">Mo 2</div></div>
+    <div class="gv-bar-wrap"><div class="gv-bar h65 tall"></div><div class="gv-num">520</div><div class="gv-month">Mo 3</div></div>
+    <div class="gv-bar-wrap"><div class="gv-bar h80 tall"></div><div class="gv-num">720</div><div class="gv-month">Mo 4</div></div>
+    <div class="gv-bar-wrap"><div class="gv-bar h100 tall"></div><div class="gv-num">1,000</div><div class="gv-month">Mo 5</div></div>
+  </div>
+
+  <!-- STEP 3 — TRAFFIC -->
+  <div class="sh">
+    <div class="sh-n">03</div>
+    <div class="sh-body">
+      <div class="sh-cat">Traffic Sources</div>
+      <h2>Drive the Right Traffic to Your Opt-In Pages</h2>
+    </div>
+  </div>
+  <p>
+    Signup forms with no traffic generate no subscribers. Growing your list requires deliberately sending visitors to pages where they encounter your opt-in offer. SEO-optimised blog posts that rank in Google provide compounding, passive traffic that works while you sleep. Pinterest is particularly powerful for lifestyle, food, and creative niches — a single well-designed pin can drive thousands of visitors to your lead magnet page. Guest posting on larger blogs in your niche puts your opt-in in front of an already-warm, relevant audience. And your own social media presence, even with a modest following, can generate consistent early subscribers if you promote your lead magnet regularly.
+  </p>
+
+  <!-- STEP 4 — NURTURE -->
+  <div class="sh">
+    <div class="sh-n">04</div>
+    <div class="sh-body">
+      <div class="sh-cat">Retention & Trust</div>
+      <h2>Send Emails That Make People Stay — and Share</h2>
+    </div>
+  </div>
+  <p>
+    Getting subscribers is only half the challenge. Keeping them — and turning them into advocates who recommend your list to others — requires consistent, genuinely valuable emails. Set up a welcome sequence that delivers your lead magnet, introduces who you are and why your list is different, and gives subscribers a reason to keep opening. Send at least one valuable email per week. Over time, loyal subscribers become your most powerful growth channel: they reply, share, and bring friends who subscribe too.
+  </p>
+
+  <!-- PULL QUOTE -->
+  <div class="pq">
+    <p>Your email list is the only audience platform you truly own. Social media is rented land. Your list is the house — build it like it matters, because it does.</p>
+    <span class="pq-src">— The List Builder's Manifesto</span>
+  </div>
+
+  <!-- TOOLS TABLE -->
+  <table class="tools-table">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Best For</th>
+        <th>Starting Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ConvertKit</td>
+        <td>Bloggers and creators — clean automations and forms</td>
+        <td><span class="free-badge fb-green">Free up to 1,000</span></td>
+      </tr>
+      <tr>
+        <td>MailerLite</td>
+        <td>Beginners — generous free plan with excellent templates</td>
+        <td><span class="free-badge fb-green">Free up to 1,000</span></td>
+      </tr>
+      <tr>
+        <td>Mailchimp</td>
+        <td>Familiarity — widely known, easy to start with</td>
+        <td><span class="free-badge fb-green">Free up to 500</span></td>
+      </tr>
+      <tr>
+        <td>Flodesk</td>
+        <td>Beautiful design — stunning email templates for creatives</td>
+        <td><span class="free-badge fb-gold">Flat monthly fee</span></td>
+      </tr>
+      <tr>
+        <td>Kajabi</td>
+        <td>All-in-one creators — email, courses, and products together</td>
+        <td><span class="free-badge fb-red">Paid plans only</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="rule"/>
+
+  <!-- MASTER ROADMAP -->
+  <div class="master">
+    <div class="master-grid">
+      <div class="mi"><span class="mi-icon">→</span>Create a specific, valuable lead magnet</div>
+      <div class="mi"><span class="mi-icon">→</span>Choose your email platform and set it up</div>
+      <div class="mi"><span class="mi-icon">→</span>Place opt-in forms in 5+ key locations</div>
+      <div class="mi"><span class="mi-icon">→</span>Write a 3-email welcome sequence</div>
+      <div class="mi"><span class="mi-icon">→</span>Publish 2 SEO-targeted posts per week</div>
+      <div class="mi"><span class="mi-icon">→</span>Promote lead magnet on social daily</div>
+      <div class="mi"><span class="mi-icon">→</span>Guest post on 2 relevant blogs per month</div>
+      <div class="mi"><span class="mi-icon">→</span>Add content upgrades to top 5 posts</div>
+      <div class="mi"><span class="mi-icon">→</span>Email your list every single week</div>
+      <div class="mi"><span class="mi-icon">→</span>Ask subscribers to share your lead magnet</div>
+      <div class="mi"><span class="mi-icon">→</span>Run a referral campaign at 500 subscribers</div>
+      <div class="mi"><span class="mi-icon">→</span>Review and optimise forms monthly</div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <p>
+    Your first thousand email subscribers will not arrive all at once — they will come in ones and twos and tens, building slowly and then suddenly with compound momentum. The bloggers who reach this milestone are not the ones with the most clever tactics. They are the ones who show up consistently, deliver genuine value in every email, and never stop improving their offer and their forms.
+  </p>
+  <p>
+    Start today. Create your lead magnet this week. Set up your form tomorrow. Send your first email before the week is out. One thousand subscribers is not a distant dream — it is a ninety-day project for anyone willing to work the plan with patience and consistency.
+  </p>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-inner">
+    <div class="cta-eye">Your list is waiting to be built</div>
+    <h3>Start Building Your<br/><span class="hl">1,000-Person List</span><br/>Today</h3>
+    <p>Create your lead magnet, set up your form, and send that first email. Everything begins with one subscriber.</p>
+    <div class="cta-btns">
+      <a class="cbtn red" href="#">Start My Email List ✦</a>
+      <a class="cbtn ghost" href="#">Download the Roadmap</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
