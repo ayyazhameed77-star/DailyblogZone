@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty blog · honest income report</title>
+  <style>
+    /* soft, clean, readable — like a beauty journal */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf6f3;  /* warm, paper-like base */
+      font-family: 'Georgia', 'Times New Roman', Times, serif;
+      line-height: 1.7;
+      color: #2e2e2e;
+      padding: 2rem 1.2rem;
+    }
+
+    .paper {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #ffffffdf;
+      backdrop-filter: blur(1px);
+      border-radius: 28px 28px 24px 24px;
+      box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.02),
+        0 2px 6px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+      padding: 2.8rem 2.2rem;
+    }
+
+    /* lipstick accent */
+    .badge {
+      display: inline-block;
+      background: #f2d9d3;   · soft blush
+      color: #6e3f3a;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #edd6cf;
+      margin-bottom: 1.4rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+      color: #3f2e2a;
+    }
+
+    .subhead {
+      font-size: 1.15rem;
+      color: #7a5e58;
+      margin-bottom: 1.8rem;
+      font-style: italic;
+      border-left: 4px solid #e9cfc2;
+      padding-left: 1.2rem;
+    }
+
+    .meta-line {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: #a38982;
+      margin-bottom: 2.4rem;
+      border-bottom: 1px dashed #e1cfc6;
+      padding-bottom: 1.2rem;
+    }
+
+    .meta-line span {
+      background: #fff3ef;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+    }
+
+    p {
+      margin-bottom: 1.6rem;
+      font-size: 1.07rem;
+      color: #342a27;
+    }
+
+    .income-block {
+      background: #fff8f5;
+      border-radius: 24px;
+      padding: 2rem 1.8rem;
+      margin: 2.2rem 0 2rem;
+      border: 1px solid #f5ded5;
+      box-shadow: inset 0 2px 4px #fffcfb, 0 6px 12px #ede0d9;
+    }
+
+    .income-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2rem;
+      margin-top: 1.2rem;
+    }
+
+    .income-item {
+      flex: 1 1 180px;
+    }
+
+    .income-item .label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #b0867a;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .income-item .amount {
+      font-size: 2.0rem;
+      font-weight: 380;
+      color: #3d2b26;
+      line-height: 1.2;
+      border-bottom: 2px dotted #edd2c9;
+      padding-bottom: 0.3rem;
+    }
+
+    .income-item .sub {
+      font-size: 0.85rem;
+      color: #8e6e66;
+    }
+
+    .expenses {
+      margin: 2rem 0 1.2rem;
+      padding: 1.2rem 0 0.6rem;
+      border-top: 2px solid #edd9d1;
+    }
+
+    .expense-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #fae3db;
+      font-size: 1.05rem;
+    }
+
+    .expense-line .cost {
+      font-weight: 500;
+      color: #5f4038;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 2px solid #dfc3b8;
+      color: #3e2b25;
+    }
+
+    .happy-message {
+      background: #f2e6e0;
+      border-radius: 40px 40px 40px 4px;
+      padding: 1.4rem 2rem;
+      margin: 2.2rem 0 2rem;
+      font-style: italic;
+      color: #4f3a33;
+      font-size: 1.1rem;
+      border: 1px solid #e8d9d2;
+    }
+
+    .lessons {
+      background: #fefcfb;
+      border-left: 6px solid #dbb9ae;
+      padding: 1.2rem 1.8rem;
+      margin: 2rem 0 1.6rem;
+      border-radius: 0 40px 40px 0;
+    }
+
+    .lessons h3 {
+      font-weight: 400;
+      color: #734d42;
+      letter-spacing: -0.2px;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .lessons ul {
+      list-style: none;
+    }
+
+    .lessons li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .lessons li::before {
+      content: "✨";
+      position: absolute;
+      left: 0;
+      color: #b27b6c;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dotted #e7cdc2;
+      margin: 2rem 0 1.2rem;
+    }
+
+    .signoff {
+      font-size: 1rem;
+      color: #a48176;
+      text-align: right;
+      margin-top: 2rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 500px) {
+      .paper { padding: 1.8rem 1.2rem; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="paper">
+  <div class="badge">💰 with glow & honesty</div>
+  <h1>Blogging income report<br>🌸 beauty & real talk</h1>
+  <div class="subhead">may 2025 — the month of peachy launches & small surprises</div>
+  
+  <div class="meta-line">
+    <span>📸 @petal.and.glow</span>
+    <span>✍️ 1,923 words</span>
+    <span>☕ 29 days in a row</span>
+  </div>
+
+  <p>If you’re new here — hi, I’m Mira. I’ve been writing about clean beauty, curly hair rituals, and the occasional mascara that doesn’t flake. Every few months I pull back the curtain and share what this little blog actually earns. No filtered numbers, no “six figure secret” fluff. Just the real income, expenses, and lessons learned while sipping too much matcha. </p>
+
+  <p>May turned out to be a surprise glow-up month. A couple of affiliate links randomly popped off, and a brand collaboration I pitched months ago finally went live. But also — my camera died, I had to buy new lighting, and I definitely impulse-bought a jade roller that I absolutely did not need. Let’s break it down. </p>
+
+  <!-- core income block : pretty & readable -->
+  <div class="income-block">
+    <div style="font-size: 1.2rem; font-weight: 400; color:#835e53;">💸 income · may 2025</div>
+    <div class="income-grid">
+      <div class="income-item">
+        <div class="label">affiliates</div>
+        <div class="amount">$1,423</div>
+        <div class="sub">skincare & reels</div>
+      </div>
+      <div class="income-item">
+        <div class="label">sponsored post</div>
+        <div class="amount">$800</div>
+        <div class="sub">organic skincare brand</div>
+      </div>
+      <div class="income-item">
+        <div class="label">display ads</div>
+        <div class="amount">$307</div>
+        <div class="sub">Mediavine</div>
+      </div>
+      <div class="income-item">
+        <div class="label">shop / e-books</div>
+        <div class="amount">$94</div>
+        <div class="sub">curly guide vol.2</div>
+      </div>
+    </div>
+
+    <!-- expenses built right in, human style -->
+    <div class="expenses">
+      <div class="expense-line"><span>📷 camera repair (二手)</span> <span class="cost">-$210</span></div>
+      <div class="expense-line"><span>💡 new softbox + stand</span> <span class="cost">-$97</span></div>
+      <div class="expense-line"><span>📦 products for testing</span> <span class="cost">-$135</span></div>
+      <div class="expense-line"><span>🌐 hosting & Canva pro</span> <span class="cost">-$28</span></div>
+      <div class="expense-line"><span>☁️ random treat (jade roller …)</span> <span class="cost">-$42</span></div>
+    </div>
+
+    <!-- final take-home, because we love clarity -->
+    <div class="total-row">
+      <span>💰 total net</span> <span>$2,112</span>
+    </div>
+    <div style="font-size:0.9rem; margin-top:0.6rem; color:#8a6e66;">* after expenses: $2,624 income – $512 costs</div>
+  </div>
+
+  <!-- The human part: wins, oops moments -->
+  <div class="happy-message">
+    🌟 biggest win? A single blog post about “serum layering” brought in $890 in affiliate commissions — mostly from a tiny mention of a French pharmacy brand. You never know what sticks.
+  </div>
+
+  <p>I also sent out my very first newsletter with a hand‑drawn header (it looked a bit like a friendly snail, but people liked it). That newsletter drove about 15% of the affiliate sales. So yes, email still works, even for beauty bloggers who sometimes forget their own password. </p>
+
+  <p>Now for the part that doesn’t fit into a neat spreadsheet: I turned down a sponsored post that didn’t align with my values (a “clean” brand that actually uses lots of perfume — nope). Turning down money is scary, but my DMs stayed peaceful and I slept better. </p>
+
+  <!-- lessons learned section (super human) -->
+  <div class="lessons">
+    <h3>✎ lessons from this month</h3>
+    <ul>
+      <li><strong>low‑effort posts keep earning</strong> — a two‑year old review of a vitamin C powder still brings $50–80/month. evergreens are magic.</li>
+      <li><strong>community > quick cash</strong> — the sponsored post I accepted came from a brand I already used. my story felt authentic, and my readers noticed.</li>
+      <li><strong>track every tiny expense</strong> — that jade roller was a silly tax, but I’ll write it off. also the softbox already improved my reels.</li>
+      <li><strong>beauty blogging is seasonal</strong> — may was sunny, so sunscreen roundups convert like crazy. I’ll prep a winter lip care post in june.</li>
+    </ul>
+  </div>
+
+  <hr>
+  <p>And before you ask — yes, I still have a part‑time freelance gig (copywriting for a sustainable brand). The blog alone doesn’t replace my full income yet, but it’s growing slower and steadier than a lash serum. And that’s fine by me. </p>
+
+  <p>If you’re thinking about starting a beauty blog or you’re in the messy middle: keep going. It’s a lot of unnoticed work — replying to comments, fixing broken links, testing lipsticks that look awful on me. But then a reader emails you saying they finally found a moisturizer that doesn’t sting, and it all feels worth it. </p>
+
+  <p>Next month I’m planning a “budget beauty series” — think drugstore finds under $15. And maybe a better system for tracking affiliate links, because my spreadsheet currently looks like a toddler drew on it. </p>
+
+  <!-- final numbers recap in plain sight -->
+  <div style="background: #f4ece7; border-radius: 30px; padding: 1.2rem 1.6rem; margin: 2rem 0 0.5rem;">
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center;">
+      <span style="font-size: 1.5rem;">📊 may at a glance</span>
+      <span style="font-family: monospace; background: #ffffffba; padding: 0.4rem 1.2rem; border-radius: 40px;">total income $2,624</span>
+      <span style="font-family: monospace; background: #ffffffba; padding: 0.4rem 1.2rem; border-radius: 40px;">expenses $512</span>
+      <span style="font-family: monospace; background: #e2cfc4; padding: 0.4rem 1.2rem; border-radius: 40px;">net $2,112</span>
+    </div>
+  </div>
+
+  <div class="signoff">
+    ♡ thanks for reading — next report in august (with spf stats)<br>
+    Mira ✨
+  </div>
+
+  <!-- tiny footer note to keep it human -->
+  <div style="font-size: 0.8rem; margin-top: 2.4rem; color: #bba99f; border-top: 1px solid #f0ddd4; padding-top: 1rem; text-align: center;">
+    this income report is 100% real talk — no AI fluff. made with tea & a bit of concealer.
+  </div>
+</div>
+</body>
+</html>
