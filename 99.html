@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How to Build a Blogging Team</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Bitter:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:       #f3f1ee;
+    --paper:    #ffffff;
+    --ink:      #14100c;
+    --copper:   #b86820;
+    --copper2:  #d88030;
+    --rust:     #8a3e18;
+    --sand:     #f0e8da;
+    --cream:    #faf6f0;
+    --slate:    #2e3d4e;
+    --slate2:   #3e5268;
+    --sky:      #e8eef5;
+    --teal:     #1a6e68;
+    --border:   #ddd4c4;
+    --muted:    #6e6050;
+    --near:     #1a1410;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Bitter', Georgia, serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ── TOP IDENTITY BAR ── */
+  .idbar {
+    background: var(--near);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .idb-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--copper2);
+  }
+  .idb-meta {
+    display: flex;
+    gap: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .68rem;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.3);
+  }
+  .idb-meta strong { color: rgba(255,255,255,.7); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--slate);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  /* topographic lines texture */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(
+        105deg,
+        transparent 0px, transparent 38px,
+        rgba(255,255,255,.025) 38px, rgba(255,255,255,.025) 39px
+      );
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--copper), var(--copper2), var(--teal));
+  }
+
+  .hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 40px 72px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 56px;
+    align-items: center;
+    position: relative; z-index: 2;
+  }
+  @media(max-width:700px){ .hero-inner { grid-template-columns: 1fr; gap: 36px; } }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--copper2);
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 2px;
+    background: var(--copper2);
+    flex-shrink: 0;
+  }
+
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-weight: 800;
+    line-height: .97;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  h1 .copper { color: var(--copper2); }
+  h1 .thin {
+    font-weight: 300;
+    letter-spacing: .05em;
+    display: block;
+    font-size: .62em;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 4px;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,.55);
+    line-height: 1.8;
+    max-width: 460px;
+    font-style: italic;
+  }
+
+  /* right — org chart preview */
+  .org-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .op-node {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 12px 18px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    transition: background .2s;
+  }
+  .op-node:hover { background: rgba(184,104,32,.2); }
+  .op-node.top {
+    background: var(--copper);
+    border-color: var(--copper);
+    width: 70%;
+  }
+  .op-node.top:hover { background: var(--copper2); }
+  .op-connector {
+    width: 2px;
+    height: 16px;
+    background: rgba(255,255,255,.15);
+    margin: 0 auto;
+  }
+  .op-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+  .op-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+  }
+  .op-sub {
+    font-size: .62rem;
+    color: rgba(255,255,255,.45);
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: .08em;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  /* ── ROLE RIBBON ── */
+  .role-ribbon {
+    background: var(--copper);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background-color: rgba(0,0,0,.12);
+  }
+  @media(max-width:560px){ .role-ribbon { grid-template-columns: 1fr 1fr; } }
+  .rr-cell {
+    background: var(--copper);
+    padding: 16px 12px;
+    text-align: center;
+    transition: background .2s;
+    cursor: default;
+  }
+  .rr-cell:hover { background: var(--copper2); }
+  .rr-emoji { font-size: 1.2rem; display: block; margin-bottom: 5px; }
+  .rr-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+  }
+
+  /* ── BODY ── */
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px 90px;
+  }
+
+  p {
+    font-size: 1.04rem;
+    line-height: 1.9;
+    margin-bottom: 1.5em;
+    color: #221810;
+  }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 5.6rem;
+    font-weight: 800;
+    line-height: .78;
+    margin: 4px 13px -4px 0;
+    color: var(--copper);
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION HEADS ── */
+  .sh {
+    margin: 54px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .sh-tag {
+    background: var(--slate);
+    color: var(--copper2);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    flex-shrink: 0;
+  }
+  .sh-line { flex: 1; height: 1px; background: var(--border); }
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  /* ── ROLE CARD ── */
+  .role-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    margin: 14px 0;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .role-card:hover { box-shadow: 0 4px 24px rgba(46,61,78,.1); }
+  .rc-left {
+    background: var(--slate);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 8px;
+    gap: 6px;
+  }
+  .rc-left.copper { background: var(--copper); }
+  .rc-left.teal   { background: var(--teal); }
+  .rc-left.rust   { background: var(--rust); }
+  .rc-left.dark   { background: var(--near); }
+  .rc-emoji { font-size: 1.5rem; }
+  .rc-type {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .55rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    text-align: center;
+    line-height: 1.3;
+  }
+  .rc-right { padding: 18px 22px; }
+  .rc-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .rc-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .58rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 2px;
+  }
+  .rb-first   { background: var(--sky); color: var(--slate2); }
+  .rb-early   { background: #fdf0e0; color: var(--copper); }
+  .rb-grow    { background: #e8f5f0; color: var(--teal); }
+  .rb-scale   { background: #f5eae8; color: var(--rust); }
+  .rc-desc {
+    font-size: .93rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--cream);
+    border-left: 4px solid var(--copper);
+    padding: 16px 20px;
+    margin: 14px 0 4px;
+    font-size: .97rem;
+    color: #221808;
+    line-height: 1.75;
+    font-style: italic;
+  }
+  .callout b { font-style: normal; color: var(--copper); font-weight: 600; }
+
+  /* ── COST TABLE ── */
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 22px 0 36px;
+    font-size: .94rem;
+  }
+  .cost-table thead tr { background: var(--slate); }
+  .cost-table th {
+    color: rgba(255,255,255,.6);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .65rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+  }
+  .cost-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    color: #1a1208;
+    vertical-align: middle;
+  }
+  .cost-table tr:last-child td { border-bottom: none; }
+  .cost-table td:first-child {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    width: 26%;
+  }
+  .cost-pill {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+  .cp-low  { background: #e8f5ee; color: var(--teal); }
+  .cp-mid  { background: #fdf0e0; color: var(--copper); }
+  .cp-high { background: #f5eae8; color: var(--rust); }
+
+  /* ── PULL QUOTE ── */
+  .pq {
+    background: var(--near);
+    color: #fff;
+    padding: 46px 52px;
+    margin: 54px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  @media(max-width:540px){ .pq { padding: 32px 24px; margin: 40px 0; } }
+  .pq::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, var(--copper), var(--teal));
+  }
+  .pq::after {
+    content: 'TEAM';
+    position: absolute;
+    bottom: -24px; right: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 8rem;
+    font-weight: 800;
+    color: rgba(255,255,255,.03);
+    line-height: 1;
+    letter-spacing: .04em;
+    pointer-events: none;
+    text-transform: uppercase;
+  }
+  .pq p {
+    font-family: 'Bitter', serif;
+    font-size: 1.48rem;
+    font-style: italic;
+    font-weight: 300;
+    color: #f0e8da;
+    line-height: 1.58;
+    margin: 0;
+    max-width: 600px;
+    position: relative; z-index: 1;
+  }
+  .pq-src {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .66rem;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--copper2);
+    margin-top: 18px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── PHASE TIMELINE ── */
+  .timeline {
+    margin: 22px 0 8px;
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 24px;
+    padding: 0 0 0 16px;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    position: absolute;
+    left: -22px; top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--copper);
+    border: 2px solid var(--bg);
+    z-index: 2;
+  }
+  .tl-dot.slate { background: var(--slate); }
+  .tl-dot.teal  { background: var(--teal); }
+  .tl-dot.near  { background: var(--near); }
+  .tl-phase {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 3px;
+  }
+  .tl-phase.slate { color: var(--slate2); }
+  .tl-phase.teal  { color: var(--teal); }
+  .tl-phase.near  { color: var(--muted); }
+  .tl-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: .03em;
+  }
+  .tl-desc {
+    font-size: .9rem;
+    color: var(--muted);
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* ── TIPS GRID ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 22px 0;
+  }
+  @media(max-width:500px){ .tips-grid { grid-template-columns: 1fr; } }
+  .tip-box {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--copper);
+    padding: 18px 18px;
+  }
+  .tip-box.slate-top { border-top-color: var(--slate); }
+  .tip-box.teal-top  { border-top-color: var(--teal); }
+  .tip-box.near-top  { border-top-color: var(--near); }
+  .tb-icon { font-size: 1.4rem; margin-bottom: 8px; display: block; }
+  .tb-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .92rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+  .tb-desc {
+    font-size: .82rem;
+    color: var(--muted);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ── RULE ── */
+  .rule { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+  /* ── MASTER CHECKLIST ── */
+  .master {
+    background: var(--sand);
+    border: 2px solid var(--slate);
+    padding: 30px 32px;
+    margin: 36px 0;
+    position: relative;
+  }
+  .master::before {
+    content: 'TEAM-BUILDING CHECKLIST';
+    position: absolute;
+    top: -12px; left: 18px;
+    background: var(--copper);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .66rem;
+    font-weight: 700;
+    letter-spacing: .22em;
+    padding: 3px 14px;
+  }
+  .master-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 28px;
+    margin-top: 12px;
+  }
+  @media(max-width:500px){ .master-grid { grid-template-columns: 1fr; } }
+  .mi {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: .92rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .mi:last-child { border-bottom: none; }
+  .mi-sq {
+    width: 8px; height: 8px;
+    background: var(--copper);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--slate);
+    color: #fff;
+    padding: 64px 44px;
+    text-align: center;
+    margin-top: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 30% 50%, rgba(184,104,32,.18) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(26,110,104,.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .cta::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--copper), var(--copper2), var(--teal));
+  }
+  .cta-inner { position: relative; z-index: 1; }
+  .cta-eye {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--copper2);
+    margin-bottom: 14px;
+  }
+  .cta h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .cta h3 .copper { color: var(--copper2); }
+  .cta p {
+    color: rgba(255,255,255,.45);
+    font-size: .97rem;
+    font-style: italic;
+    max-width: 420px;
+    margin: 0 auto 30px;
+  }
+  .cta-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cbtn {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: .84rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    padding: 14px 40px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all .2s;
+  }
+  .cbtn.copper {
+    background: var(--copper);
+    color: #fff;
+    border-color: var(--copper);
+  }
+  .cbtn.copper:hover { background: var(--copper2); border-color: var(--copper2); }
+  .cbtn.ghost {
+    background: transparent;
+    color: rgba(255,255,255,.5);
+    border-color: rgba(255,255,255,.2);
+  }
+  .cbtn.ghost:hover { border-color: rgba(255,255,255,.6); color: #fff; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .idbar       { animation: fadeUp .38s ease both; }
+  .hero        { animation: fadeUp .5s .05s ease both; }
+  .role-ribbon { animation: fadeUp .5s .1s ease both; }
+  .wrap        { animation: fadeUp .5s .14s ease both; }
+  .cta         { animation: fadeUp .5s .18s ease both; }
+</style>
+</head>
+<body>
+
+<!-- IDENTITY BAR -->
+<div class="idbar">
+  <div class="idb-brand">BlogTeam HQ</div>
+  <div class="idb-meta">
+    <span>Team Building</span>
+    <span>✦</span>
+    <span><strong>Growth Strategy</strong></span>
+    <span>✦</span>
+    <span>800 Words</span>
+    <span>✦</span>
+    <span>2025 Guide</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">The Blogger's Growth Playbook</div>
+      <h1>
+        <span class="thin">How to Build a</span>
+        BLOGGING<br/><span class="copper">TEAM</span>
+      </h1>
+      <p class="hero-desc">Going from solo blogger to team-powered content operation is the moment everything changes. Here is how to hire right, delegate smart, and scale without chaos.</p>
+    </div>
+    <!-- mini org chart -->
+    <div class="org-preview">
+      <div style="width:70%">
+        <div class="op-node top">
+          <span class="op-title">Blog Owner</span>
+          <span class="op-sub">You — Strategy & Vision</span>
+        </div>
+      </div>
+      <div class="op-connector"></div>
+      <div class="op-row">
+        <div class="op-node">
+          <span class="op-title">Writers</span>
+          <span class="op-sub">Content creation</span>
+        </div>
+        <div class="op-node">
+          <span class="op-title">Editor</span>
+          <span class="op-sub">Quality control</span>
+        </div>
+      </div>
+      <div style="height:8px"></div>
+      <div class="op-row">
+        <div class="op-node">
+          <span class="op-title">SEO Mgr</span>
+          <span class="op-sub">Rankings & research</span>
+        </div>
+        <div class="op-node">
+          <span class="op-title">VA</span>
+          <span class="op-sub">Admin & social</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROLE RIBBON -->
+<div class="role-ribbon">
+  <div class="rr-cell"><span class="rr-emoji">👑</span><span class="rr-name">Owner</span></div>
+  <div class="rr-cell"><span class="rr-emoji">✍️</span><span class="rr-name">Writers</span></div>
+  <div class="rr-cell"><span class="rr-emoji">🔍</span><span class="rr-name">Editor</span></div>
+  <div class="rr-cell"><span class="rr-emoji">📊</span><span class="rr-name">SEO Mgr</span></div>
+  <div class="rr-cell"><span class="rr-emoji">⚙️</span><span class="rr-name">Virtual Asst</span></div>
+</div>
+
+<!-- BODY -->
+<div class="wrap">
+
+  <!-- INTRO -->
+  <p class="drop-cap">
+    Every great blog that generates real income eventually reaches the same wall. One person can only write so many posts, research so many keywords, edit so many drafts, manage so many social channels, and answer so many emails before the growth simply stops. The blogs that break through this wall are not the ones with the most talented individual — they are the ones that made the transition from solo operation to coordinated team. Building a blogging team is not a luxury for established blogs. It is the strategy that creates them.
+  </p>
+  <p>
+    The good news is that you do not need a large budget, an office, or a formal hiring process to build a powerful blogging team. With the right roles, the right platforms, and the right onboarding process, a small team of two to four people can produce ten times the output of a single blogger working alone. Here is how to build that team deliberately, affordably, and with the quality control that protects everything you have built.
+  </p>
+
+  <!-- SECTION 1 — WHEN TO HIRE -->
+  <div class="sh">
+    <div class="sh-tag">Readiness</div>
+    <div class="sh-line"></div>
+  </div>
+  <h2>Know Exactly When You Are Ready to Hire</h2>
+  <p>
+    The most common mistake bloggers make is hiring too early — before they have a clear content process, a consistent publishing schedule, or enough revenue to make the investment sustainable. The second most common mistake is hiring too late — when they are so overwhelmed and burnt out that quality has already begun to decline. The right moment is when you have a documented process for at least your core content workflow, when your blog earns enough to cover the cost of one part-time hire, and when your time is genuinely better spent on strategy and growth than on execution.
+  </p>
+
+  <div class="callout"><b>The Signal:</b> When you are regularly declining writing opportunities, delaying posts because you are overwhelmed, or spending more than 80% of your time on execution rather than strategy — it is time to build your team.</div>
+
+  <!-- SECTION 2 — FIRST HIRE -->
+  <div class="sh">
+    <div class="sh-tag">First Hire</div>
+    <div class="sh-line"></div>
+  </div>
+  <h2>The First Role Every Blogger Should Hire</h2>
+  <p>
+    The single most impactful first hire for most bloggers is not another writer — it is a virtual assistant. A good VA can handle the repetitive, time-consuming tasks that consume your energy without requiring your expertise: formatting and publishing posts, scheduling social media, responding to standard emails, managing your editorial calendar, sourcing images, and handling basic customer service. For a modest hourly rate, a skilled VA can return three to five hours of your week immediately — hours you can redirect toward writing more, networking more, or simply recovering the creative energy that burnout has been slowly draining.
+  </p>
+
+  <div class="role-card">
+    <div class="rc-left">
+      <div class="rc-emoji">⚙️</div>
+      <div class="rc-type">First Hire</div>
+    </div>
+    <div class="rc-right">
+      <div class="rc-title">Virtual Assistant <span class="rc-badge rb-first">Hire First</span></div>
+      <div class="rc-desc">Handles publishing, formatting, social scheduling, image sourcing, email management, and editorial calendar coordination. Find on Upwork or OnlineJobs.ph. Budget $5–$15/hour for a skilled, reliable VA with blogging experience.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — WRITERS -->
+  <div class="sh">
+    <div class="sh-tag">Content Team</div>
+    <div class="sh-line"></div>
+  </div>
+  <h2>Hiring Writers Who Sound Like You</h2>
+  <p>
+    Adding freelance writers to your team allows you to multiply your publishing frequency without multiplying your working hours. The challenge is maintaining the consistent voice, quality, and accuracy that your audience has come to expect. The solution is a detailed style guide — a document that captures your tone, vocabulary preferences, formatting standards, and the specific way you approach topics in your niche. Provide it to every writer on your first day working with them. A writer following a thorough style guide can produce content that feels authentically yours even if you have never met them.
+  </p>
+
+  <div class="role-card">
+    <div class="rc-left copper">
+      <div class="rc-emoji">✍️</div>
+      <div class="rc-type">Content</div>
+    </div>
+    <div class="rc-right">
+      <div class="rc-title">Freelance Writers <span class="rc-badge rb-early">Early Stage</span></div>
+      <div class="rc-desc">Start with one reliable writer producing one to two posts per week. Give them a detailed brief for every post: target keyword, target word count, audience level, angle, and three to five internal links to include. Review every post yourself until you trust their judgment completely. Find on ProBlogger Job Board, Contena, or ClearVoice.</div>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="pq">
+    <p>The goal of building a blogging team is not to remove yourself from your blog. It is to remove yourself from the tasks that prevent you from doing your best work.</p>
+    <span class="pq-src">— The Team Builder's Principle</span>
+  </div>
+
+  <!-- SECTION 4 — EDITOR & SEO -->
+  <div class="sh">
+    <div class="sh-tag">Quality & Growth</div>
+    <div class="sh-line"></div>
+  </div>
+  <h2>The Roles That Protect and Scale Your Quality</h2>
+  <p>
+    As your writer roster grows, an editor becomes essential. A managing editor is the person who owns the quality of every piece before it goes live — checking facts, enforcing your style guide, improving headlines, and ensuring every post meets your standard. This role is particularly valuable because it frees you from the editorial bottleneck entirely. Meanwhile, an SEO manager or specialist handles keyword research, monitors rankings, identifies content gaps, and builds internal linking structures that compound your organic traffic over time. Together, these two roles transform a content team into a growth engine.
+  </p>
+
+  <div class="role-card">
+    <div class="rc-left teal">
+      <div class="rc-emoji">🔍</div>
+      <div class="rc-type">Quality</div>
+    </div>
+    <div class="rc-right">
+      <div class="rc-title">Managing Editor <span class="rc-badge rb-grow">Growing Stage</span></div>
+      <div class="rc-desc">Reviews all content before publishing, enforces your style guide, improves headlines and introductions, ensures factual accuracy, and manages the content calendar. Often a senior writer who has earned your trust through consistent quality. Budget $800–$2,000/month for a part-time editor.</div>
+    </div>
+  </div>
+
+  <div class="role-card">
+    <div class="rc-left rust">
+      <div class="rc-emoji">📊</div>
+      <div class="rc-type">Growth</div>
+    </div>
+    <div class="rc-right">
+      <div class="rc-title">SEO Manager <span class="rc-badge rb-scale">Scale Stage</span></div>
+      <div class="rc-desc">Conducts keyword research, tracks rankings, builds content clusters, manages internal linking, and identifies opportunities to update and repurpose existing content. One skilled SEO manager can double your organic traffic within twelve months. Find on LinkedIn or specialised SEO agencies.</div>
+    </div>
+  </div>
+
+  <!-- BUILD PHASES TIMELINE -->
+  <div class="sh">
+    <div class="sh-tag">Timeline</div>
+    <div class="sh-line"></div>
+  </div>
+  <h2>Your Team-Building Phases</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-phase">Phase One · Month 1–3</div>
+      <div class="tl-title">Hire Your First Virtual Assistant</div>
+      <div class="tl-desc">Document your core processes, create your first SOPs, and delegate all repetitive tasks. Reclaim five to ten hours per week immediately and redirect them into strategy and content.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot slate"></div>
+      <div class="tl-phase slate">Phase Two · Month 4–6</div>
+      <div class="tl-title">Add One Reliable Freelance Writer</div>
+      <div class="tl-desc">Test two or three writers with paid trial posts, build a style guide, and establish a clear brief template. Begin publishing three to four posts per week instead of one to two.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot teal"></div>
+      <div class="tl-phase teal">Phase Three · Month 7–12</div>
+      <div class="tl-title">Bring In an Editor and SEO Support</div>
+      <div class="tl-desc">Promote your best writer to managing editor, or hire specifically for this role. Add keyword research support to ensure every post targets the right traffic from the first draft.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot near"></div>
+      <div class="tl-phase near">Phase Four · Year Two</div>
+      <div class="tl-title">Scale Your Full Content Operation</div>
+      <div class="tl-desc">With systems, quality control, and trust established, expand your writer roster, add a social media manager, and begin publishing at scale. You are now running a content business.</div>
+    </div>
+  </div>
+
+  <!-- MANAGEMENT TIPS -->
+  <div class="sh">
+    <div class="sh-tag">Management</div>
+    <div class="sh-line"></div>
+  </div>
+  <h2>How to Manage Remote Team Members Well</h2>
+
+  <div class="tips-grid">
+    <div class="tip-box">
+      <span class="tb-icon">📋</span>
+      <div class="tb-title">Build SOPs for Everything</div>
+      <div class="tb-desc">Standard Operating Procedures remove ambiguity. Document every repeated process once and share it with every team member. Good SOPs make great work repeatable and easy to train.</div>
+    </div>
+    <div class="tip-box slate-top">
+      <span class="tb-icon">💬</span>
+      <div class="tb-title">Over-Communicate Expectations</div>
+      <div class="tb-desc">Remote teams fail when expectations are vague. Be explicit about deadlines, quality standards, communication frequency, and what success looks like for every role and every task.</div>
+    </div>
+    <div class="tip-box teal-top">
+      <span class="tb-icon">🎯</span>
+      <div class="tb-title">Pay Fairly and on Time</div>
+      <div class="tb-desc">The best writers and assistants have options. Paying a fair rate on time every time is the simplest, most powerful retention strategy available to any team leader.</div>
+    </div>
+    <div class="tip-box near-top">
+      <span class="tb-icon">📊</span>
+      <div class="tb-title">Track Output, Not Hours</div>
+      <div class="tb-desc">For remote creative workers, what matters is the quality and consistency of deliverables, not how many hours were clocked. Set clear deliverable expectations and measure against them.</div>
+    </div>
+  </div>
+
+  <!-- COST TABLE -->
+  <table class="cost-table">
+    <thead>
+      <tr><th>Role</th><th>Typical Monthly Cost</th><th>When to Hire</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Virtual Assistant</td>
+        <td>$200–$600/month part-time</td>
+        <td><span class="cost-pill cp-low">Month 1–3</span></td>
+      </tr>
+      <tr>
+        <td>Freelance Writer</td>
+        <td>$50–$200 per post</td>
+        <td><span class="cost-pill cp-low">Month 4–6</span></td>
+      </tr>
+      <tr>
+        <td>Managing Editor</td>
+        <td>$800–$2,000/month</td>
+        <td><span class="cost-pill cp-mid">Month 7–12</span></td>
+      </tr>
+      <tr>
+        <td>SEO Manager</td>
+        <td>$500–$1,500/month</td>
+        <td><span class="cost-pill cp-mid">Month 9–12</span></td>
+      </tr>
+      <tr>
+        <td>Social Media Mgr</td>
+        <td>$400–$1,000/month</td>
+        <td><span class="cost-pill cp-high">Year Two</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="rule"/>
+
+  <!-- CHECKLIST -->
+  <div class="master">
+    <div class="master-grid">
+      <div class="mi"><div class="mi-sq"></div>Document your core content process</div>
+      <div class="mi"><div class="mi-sq"></div>Create a detailed style guide</div>
+      <div class="mi"><div class="mi-sq"></div>Build your first SOP library</div>
+      <div class="mi"><div class="mi-sq"></div>Define each role with clear deliverables</div>
+      <div class="mi"><div class="mi-sq"></div>Post your first job on Upwork or ProBlogger</div>
+      <div class="mi"><div class="mi-sq"></div>Use paid trial posts before committing</div>
+      <div class="mi"><div class="mi-sq"></div>Create a brief template for every post type</div>
+      <div class="mi"><div class="mi-sq"></div>Set up a project management tool (Trello/Notion)</div>
+      <div class="mi"><div class="mi-sq"></div>Establish a weekly team check-in rhythm</div>
+      <div class="mi"><div class="mi-sq"></div>Pay fairly and always on time</div>
+      <div class="mi"><div class="mi-sq"></div>Give clear feedback after every deliverable</div>
+      <div class="mi"><div class="mi-sq"></div>Celebrate wins as a team publicly</div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <p>
+    A blogging team does not replace your voice, your vision, or your expertise. It amplifies them. When you free yourself from the tasks that do not require your unique perspective, you finally have the time and mental space to do the strategic, creative work that only you can do — the work that actually grows the blog and makes it worth reading. The right team does not dilute what makes your blog special. It protects it, scales it, and sends it further into the world than you could ever reach alone.
+  </p>
+  <p>
+    Start with one hire. Document one process. Trust one person with one task. The momentum of delegation, once begun, compounds in exactly the same way that great content does — slowly at first, then unstoppably.
+  </p>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-inner">
+    <div class="cta-eye">✦ You Do Not Have to Blog Alone</div>
+    <h3>BUILD YOUR<br/><span class="copper">BLOGGING TEAM</span><br/>TODAY</h3>
+    <p>Start by documenting one process and posting one job. The team that scales your blog begins with a single hire.</p>
+    <div class="cta-btns">
+      <a class="cbtn copper" href="#">Start Hiring ✦</a>
+      <a class="cbtn ghost" href="#">Download the Guide</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
