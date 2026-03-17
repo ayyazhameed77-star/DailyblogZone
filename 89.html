@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Content Marketing Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:       #f2f5f7;
+    --paper:    #ffffff;
+    --ink:      #0e1620;
+    --navy:     #0f2744;
+    --teal:     #1a7a6e;
+    --teal2:    #28a898;
+    --seafoam:  #e0f4f1;
+    --sky:      #eaf2f8;
+    --gold:     #c8922a;
+    --gold2:    #e8b040;
+    --border:   #d4dde8;
+    --muted:    #607080;
+    --slate:    #3a5068;
+    --rose:     #c04858;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 36px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .topbar-brand {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .04em;
+  }
+  .topbar-meta {
+    font-size: .67rem;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+    display: flex;
+    gap: 20px;
+  }
+  .topbar-meta strong { color: var(--gold2); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+  /* geometric accent lines */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 420px; height: 420px;
+    border: 1px solid rgba(255,255,255,.04);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 40px; right: 40px;
+    width: 260px; height: 260px;
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 36px 72px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  @media(max-width:680px){ .hero-inner { grid-template-columns: 1fr; } }
+
+  .hero-kicker {
+    font-size: .67rem;
+    font-weight: 600;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--teal2);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-kicker::before {
+    content: '';
+    display: block;
+    width: 28px; height: 2px;
+    background: var(--teal2);
+    flex-shrink: 0;
+  }
+  .hero h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin-bottom: 22px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal2);
+  }
+  .hero-desc {
+    font-size: .98rem;
+    color: rgba(255,255,255,.55);
+    line-height: 1.8;
+    max-width: 480px;
+  }
+
+  /* right column — pill stats */
+  .hero-pills {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .hero-pill {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hp-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .hp-text {}
+  .hp-text .hp-n {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold2);
+    line-height: 1;
+    display: block;
+  }
+  .hp-text .hp-l {
+    font-size: .68rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.38);
+    margin-top: 2px;
+  }
+
+  /* ── PHASE RIBBON ── */
+  .phase-ribbon {
+    background: var(--teal);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background-color: rgba(0,0,0,.15);
+  }
+  @media(max-width:560px){ .phase-ribbon { grid-template-columns: 1fr 1fr; } }
+  .pr-cell {
+    background: var(--teal);
+    padding: 18px 14px;
+    text-align: center;
+    cursor: default;
+    transition: background .2s;
+  }
+  .pr-cell:hover { background: var(--teal2); }
+  .pr-cell .pr-step {
+    font-size: .6rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 4px;
+  }
+  .pr-cell .pr-name {
+    font-family: 'Bodoni Moda', serif;
+    font-size: .95rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  /* ── ARTICLE BODY ── */
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px 88px;
+  }
+
+  p {
+    font-size: 1.03rem;
+    line-height: 1.9;
+    margin-bottom: 1.5em;
+    color: #1e2e3e;
+  }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 5.4rem;
+    font-weight: 900;
+    line-height: .78;
+    margin: 5px 12px -4px 0;
+    color: var(--teal);
+  }
+
+  /* ── SECTION HEADS ── */
+  .sh {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 52px 0 14px;
+  }
+  .sh-num {
+    background: var(--navy);
+    color: var(--gold2);
+    font-family: 'Bodoni Moda', serif;
+    font-size: .95rem;
+    font-weight: 700;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .sh-inner {
+    padding: 0 0 0 16px;
+    border-left: 3px solid var(--teal);
+    margin-left: 14px;
+  }
+  .sh-cat {
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 3px;
+  }
+  h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.22;
+  }
+
+  /* ── FUNNEL VISUAL ── */
+  .funnel {
+    margin: 26px 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+  .funnel-tier {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    max-width: 580px;
+  }
+  .ft-bar {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Bodoni Moda', serif;
+    font-size: .85rem;
+    font-weight: 700;
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background .2s;
+  }
+  .ft-bar:hover { background: var(--slate); }
+  .ft-bar.t2 { background: var(--teal);  }
+  .ft-bar.t2:hover { background: var(--teal2); }
+  .ft-bar.t3 { background: var(--teal2); }
+  .ft-bar.t3:hover { background: #36c0b0; }
+  .ft-bar .ft-label { font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+  .ft-pct {
+    font-size: .75rem;
+    font-weight: 600;
+    color: var(--gold2);
+    font-family: 'DM Sans', sans-serif;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+  /* tapering widths */
+  .funnel-tier:nth-child(1) .ft-bar { width: 100%; }
+  .funnel-tier:nth-child(2) .ft-bar { width: 78%; }
+  .funnel-tier:nth-child(3) .ft-bar { width: 56%; }
+
+  /* ── INFO BOX ── */
+  .infobox {
+    background: var(--seafoam);
+    border: 1px solid #b0dcd8;
+    border-left: 4px solid var(--teal);
+    padding: 18px 22px;
+    margin: 16px 0 4px;
+    font-size: .94rem;
+    color: #1a3830;
+    line-height: 1.7;
+    font-style: italic;
+  }
+  .infobox b { font-style: normal; color: var(--teal); font-weight: 600; }
+
+  /* ── CHANNEL GRID ── */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    margin: 22px 0 6px;
+  }
+  @media(max-width:500px){ .channel-grid { grid-template-columns: 1fr 1fr; } }
+  .ch-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy);
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .ch-card.teal-top { border-top-color: var(--teal); }
+  .ch-card.gold-top  { border-top-color: var(--gold); }
+  .ch-icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
+  .ch-name {
+    font-family: 'Bodoni Moda', serif;
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .ch-desc {
+    font-size: .78rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pq {
+    background: var(--navy);
+    color: #fff;
+    padding: 44px 48px;
+    margin: 52px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .pq::before {
+    content: '"';
+    position: absolute;
+    top: -28px; left: 12px;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 11rem;
+    font-weight: 900;
+    color: rgba(255,255,255,.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .pq::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .pq p {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #d8eae8;
+    line-height: 1.55;
+    margin: 0;
+    position: relative; z-index: 1;
+    max-width: 620px;
+  }
+  .pq-src {
+    display: block;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--teal2);
+    margin-top: 18px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── METRICS TABLE ── */
+  .metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 22px 0 36px;
+    font-size: .92rem;
+  }
+  .metrics-table thead tr {
+    background: var(--navy);
+  }
+  .metrics-table th {
+    color: rgba(255,255,255,.7);
+    font-weight: 500;
+    font-size: .66rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+  }
+  .metrics-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    color: #1e2e3e;
+    vertical-align: middle;
+  }
+  .metrics-table tr:last-child td { border-bottom: none; }
+  .metrics-table td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+    width: 32%;
+  }
+  .dot-good { color: var(--teal); font-weight: 700; font-size: 1.1rem; }
+  .dot-med  { color: var(--gold); font-weight: 700; font-size: 1.1rem; }
+
+  /* ── ACTION CHECKLIST ── */
+  .action-list {
+    background: var(--sky);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gold);
+    padding: 26px 30px;
+    margin: 36px 0;
+    position: relative;
+  }
+  .action-list::before {
+    content: 'YOUR ACTION PLAN';
+    position: absolute;
+    top: -11px; left: 18px;
+    background: var(--gold);
+    color: #fff;
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .22em;
+    padding: 2px 10px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .action-list ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 28px;
+    margin-top: 10px;
+  }
+  @media(max-width:480px){ .action-list ul { grid-template-columns: 1fr; } }
+  .action-list li {
+    font-size: .92rem;
+    color: #1a2a3a;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .action-list li::before {
+    content: '✦';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-size: .62rem;
+    top: 4px;
+  }
+
+  /* ── DIVIDER ── */
+  .rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  /* ── FOOTER CTA ── */
+  .cta {
+    background: linear-gradient(135deg, var(--teal) 0%, #0e5548 100%);
+    color: #fff;
+    padding: 60px 44px;
+    text-align: center;
+    margin-top: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 320px; height: 320px;
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .cta::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .cta h3 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    position: relative; z-index: 1;
+  }
+  .cta h3 em { font-style: italic; color: var(--gold2); }
+  .cta p {
+    color: rgba(255,255,255,.6);
+    font-size: .95rem;
+    max-width: 420px;
+    margin: 0 auto 30px;
+    position: relative; z-index: 1;
+  }
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold2);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: .82rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 15px 38px;
+    text-decoration: none;
+    border: 2px solid var(--gold2);
+    transition: background .2s, color .2s;
+    cursor: pointer;
+  }
+  .cta-btn:hover { background: transparent; color: var(--gold2); }
+  .cta-btn.ghost {
+    background: transparent;
+    color: rgba(255,255,255,.7);
+    border-color: rgba(255,255,255,.25);
+  }
+  .cta-btn.ghost:hover { border-color: #fff; color: #fff; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .topbar        { animation: fadeUp .4s ease both; }
+  .hero          { animation: fadeUp .5s .05s ease both; }
+  .phase-ribbon  { animation: fadeUp .5s .1s ease both; }
+  .wrap          { animation: fadeUp .5s .15s ease both; }
+  .cta           { animation: fadeUp .5s .2s ease both; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">Content Strategy Review</div>
+  <div class="topbar-meta">
+    <span>Marketing</span>
+    <span>✦</span>
+    <span><strong>Strategy Guide</strong></span>
+    <span>✦</span>
+    <span>800 Words</span>
+    <span>✦</span>
+    <span>2025 Edition</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-kicker">Complete Framework</div>
+      <h1>Content<br/>Marketing<br/><em>Strategy</em></h1>
+      <p class="hero-desc">Build a content engine that attracts the right audience, earns their trust, and converts them into loyal customers — consistently and predictably.</p>
+    </div>
+    <div class="hero-pills">
+      <div class="hero-pill">
+        <span class="hp-icon">📈</span>
+        <div class="hp-text">
+          <span class="hp-n">3× ROI</span>
+          <span class="hp-l">vs Paid Ads</span>
+        </div>
+      </div>
+      <div class="hero-pill">
+        <span class="hp-icon">🎯</span>
+        <div class="hp-text">
+          <span class="hp-n">6× Leads</span>
+          <span class="hp-l">More Than Outbound</span>
+        </div>
+      </div>
+      <div class="hero-pill">
+        <span class="hp-icon">⚙️</span>
+        <div class="hp-text">
+          <span class="hp-n">5 Phases</span>
+          <span class="hp-l">Full Framework</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE RIBBON -->
+<div class="phase-ribbon">
+  <div class="pr-cell"><div class="pr-step">Phase 01</div><div class="pr-name">Define</div></div>
+  <div class="pr-cell"><div class="pr-step">Phase 02</div><div class="pr-name">Create</div></div>
+  <div class="pr-cell"><div class="pr-step">Phase 03</div><div class="pr-name">Distribute</div></div>
+  <div class="pr-cell"><div class="pr-step">Phase 04</div><div class="pr-name">Promote</div></div>
+  <div class="pr-cell"><div class="pr-step">Phase 05</div><div class="pr-name">Measure</div></div>
+</div>
+
+<!-- BODY -->
+<div class="wrap">
+
+  <!-- INTRO -->
+  <p class="drop-cap">
+    Content marketing is the art and science of attracting, engaging, and retaining an audience by creating and sharing valuable, relevant content — rather than interrupting people with advertising they did not ask for. Done well, it is the most powerful long-term marketing strategy available to any business, blogger, or brand. It builds trust at scale, drives compounding organic traffic, and turns strangers into loyal customers who feel they already know you before they ever spend a penny.
+  </p>
+  <p>
+    But content marketing without a strategy is just publishing into the void. Millions of blog posts, videos, and social media updates are created every single day, and almost none of them achieve meaningful results because they were produced without intention or direction. A clear strategy is what separates content that compounds in value over time from content that disappears the moment it is published.
+  </p>
+
+  <!-- PHASE 1 -->
+  <div class="sh">
+    <div class="sh-num">01</div>
+    <div class="sh-inner">
+      <div class="sh-cat">Phase One · Foundation</div>
+      <h2>Define Your Audience, Goals, and Core Message</h2>
+    </div>
+  </div>
+  <p>
+    Every effective content strategy begins with ruthless clarity about three things: who you are trying to reach, what you want them to do, and what unique perspective you bring to the conversation. Your audience definition should be specific enough to describe a single real person — their problems, desires, daily frustrations, and the questions they are searching for answers to right now. Without this clarity, every content decision becomes a guess.
+  </p>
+  <div class="infobox">
+    <b>Foundation Question:</b> If your ideal reader could only read one piece of content from you before deciding whether to trust you, what would it say — and what would it prove about your unique value?
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="sh">
+    <div class="sh-num">02</div>
+    <div class="sh-inner">
+      <div class="sh-cat">Phase Two · Creation</div>
+      <h2>Build a Content Funnel That Guides Every Reader</h2>
+    </div>
+  </div>
+  <p>
+    The most effective content strategies map content to the three stages of your reader's journey — awareness, consideration, and decision. Awareness content attracts new audiences by answering broad questions about your topic. Consideration content helps readers understand their options and builds your authority as the trusted guide. Decision content converts ready buyers with specific, solution-focused pieces that make the next step obvious and compelling.
+  </p>
+
+  <div class="funnel">
+    <div class="funnel-tier">
+      <div class="ft-bar" style="width:100%">
+        <div>
+          <div style="font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px">Top of Funnel</div>
+          <div>Awareness — Broad Topics &amp; Education</div>
+        </div>
+        <span class="ft-pct">Attract</span>
+      </div>
+    </div>
+    <div class="funnel-tier">
+      <div class="ft-bar t2" style="width:78%">
+        <div>
+          <div style="font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px">Middle of Funnel</div>
+          <div>Consideration — Guides &amp; Comparisons</div>
+        </div>
+        <span class="ft-pct">Engage</span>
+      </div>
+    </div>
+    <div class="funnel-tier">
+      <div class="ft-bar t3" style="width:56%">
+        <div>
+          <div style="font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px">Bottom of Funnel</div>
+          <div>Decision — Case Studies &amp; Solutions</div>
+        </div>
+        <span class="ft-pct">Convert</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="sh">
+    <div class="sh-num">03</div>
+    <div class="sh-inner">
+      <div class="sh-cat">Phase Three · Distribution</div>
+      <h2>Choose the Right Channels for Your Audience</h2>
+    </div>
+  </div>
+  <p>
+    Creating great content is only half the job. The other half is getting it in front of the right people through the right channels. The most effective content marketers follow a simple rule: create once, distribute everywhere. Write a long-form blog post, then repurpose it into a newsletter, a set of social posts, a short video script, and an email sequence. One piece of high-quality content can power six to ten distribution touchpoints with minimal extra effort.
+  </p>
+
+  <div class="channel-grid">
+    <div class="ch-card">
+      <span class="ch-icon">📝</span>
+      <div class="ch-name">Blog / SEO</div>
+      <div class="ch-desc">Drives compounding organic traffic over months and years</div>
+    </div>
+    <div class="ch-card teal-top">
+      <span class="ch-icon">📧</span>
+      <div class="ch-name">Email List</div>
+      <div class="ch-desc">Highest ROI channel — direct access to your audience</div>
+    </div>
+    <div class="ch-card gold-top">
+      <span class="ch-icon">📱</span>
+      <div class="ch-name">Social Media</div>
+      <div class="ch-desc">Amplify reach, spark conversation, build community</div>
+    </div>
+    <div class="ch-card teal-top">
+      <span class="ch-icon">🎙️</span>
+      <div class="ch-name">Podcast / Video</div>
+      <div class="ch-desc">Builds the deepest personal connection with your audience</div>
+    </div>
+    <div class="ch-card">
+      <span class="ch-icon">🤝</span>
+      <div class="ch-name">Guest Content</div>
+      <div class="ch-desc">Borrows existing audiences and builds powerful backlinks</div>
+    </div>
+    <div class="ch-card gold-top">
+      <span class="ch-icon">🔍</span>
+      <div class="ch-name">SEO + Keywords</div>
+      <div class="ch-desc">Ensures content is found by people already searching</div>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="pq">
+    <p>The best content strategy is not the most complex one. It is the one you will actually execute consistently — month after month, year after year.</p>
+    <span class="pq-src">— The Content Marketer's Principle</span>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="sh">
+    <div class="sh-num">04</div>
+    <div class="sh-inner">
+      <div class="sh-cat">Phase Four · Promotion</div>
+      <h2>Promote Every Piece Like It Deserves to Be Seen</h2>
+    </div>
+  </div>
+  <p>
+    Many content creators spend ninety percent of their time creating and ten percent promoting. The most successful ones reverse this ratio. Every piece of content you publish deserves a deliberate promotion plan — an email to your list, several social posts scheduled across multiple days, outreach to people mentioned in the content, and a plan to update and re-promote the piece in three to six months when it is still relevant.
+  </p>
+
+  <!-- PHASE 5 -->
+  <div class="sh">
+    <div class="sh-num">05</div>
+    <div class="sh-inner">
+      <div class="sh-cat">Phase Five · Measurement</div>
+      <h2>Measure What Matters and Double Down on What Works</h2>
+    </div>
+  </div>
+  <p>
+    A content strategy without measurement is pure guesswork. Track the metrics that connect directly to your business goals — not vanity numbers like total page views, but meaningful signals like email subscribers gained, time-on-page, return visitor rate, and conversion rate from content to customer. Review your top-performing pieces every quarter, understand why they worked, and create more content that follows the same pattern.
+  </p>
+
+  <table class="metrics-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>What It Tells You</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Organic Traffic</td><td>How well your SEO and content discovery is working</td><td><span class="dot-good">●</span> High</td></tr>
+      <tr><td>Email Subscribers</td><td>How effectively content converts readers into your own audience</td><td><span class="dot-good">●</span> High</td></tr>
+      <tr><td>Time on Page</td><td>Whether readers find your content genuinely valuable</td><td><span class="dot-good">●</span> High</td></tr>
+      <tr><td>Conversion Rate</td><td>How many content visitors take a meaningful action</td><td><span class="dot-good">●</span> High</td></tr>
+      <tr><td>Social Shares</td><td>Emotional resonance — content people want to endorse</td><td><span class="dot-med">●</span> Medium</td></tr>
+      <tr><td>Bounce Rate</td><td>Whether landing pages match reader intent and expectation</td><td><span class="dot-med">●</span> Medium</td></tr>
+    </tbody>
+  </table>
+
+  <hr class="rule"/>
+
+  <!-- ACTION LIST -->
+  <div class="action-list">
+    <ul>
+      <li>Define your audience in one clear paragraph</li>
+      <li>Set three measurable 90-day content goals</li>
+      <li>Map content to all three funnel stages</li>
+      <li>Build a 12-post content calendar today</li>
+      <li>Choose two primary distribution channels</li>
+      <li>Start your email list this week</li>
+      <li>Repurpose every post into three formats</li>
+      <li>Review top performers every quarter</li>
+      <li>Promote each piece for at least 30 days</li>
+      <li>Update and re-publish older content annually</li>
+    </ul>
+  </div>
+
+  <!-- CLOSING -->
+  <p>
+    Content marketing is a long game — and that is precisely what makes it so valuable. While competitors chase paid traffic that stops the moment their budget runs out, a well-executed content strategy builds an asset that grows more powerful with every passing month. Each post, video, and email you create adds to a body of work that attracts, educates, and converts on your behalf around the clock.
+  </p>
+  <p>
+    Start today with clarity on your audience and one piece of genuinely useful content. Be consistent, measure what works, and build from there. The results will compound in ways that paid advertising never can — and the audience you build will belong entirely to you.
+  </p>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h3>Build Your Content<br/><em>Strategy Today</em></h3>
+  <p>Start with your audience definition and one solid content calendar. Everything else follows naturally from there.</p>
+  <div class="cta-row">
+    <a class="cta-btn" href="#">Download the Framework ✦</a>
+    <a class="cta-btn ghost" href="#">Read More Guides</a>
+  </div>
+</div>
+
+</body>
+</html>
