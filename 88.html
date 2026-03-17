@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Repurpose Blog Content — No. 88</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --sand:       #f7f0e6;
+    --sand-dark:  #ede4d6;
+    --parchment:  #faf6ef;
+    --terra:      #c4572a;
+    --terra-dk:   #9e3e1a;
+    --terra-lt:   rgba(196,87,42,0.1);
+    --terra-xlt:  rgba(196,87,42,0.05);
+    --teal:       #2a7a72;
+    --teal-lt:    rgba(42,122,114,0.1);
+    --gold:       #c49a2a;
+    --gold-lt:    rgba(196,154,42,0.1);
+    --plum:       #6b3a6e;
+    --plum-lt:    rgba(107,58,110,0.1);
+    --sky:        #2a6a9e;
+    --sky-lt:     rgba(42,106,158,0.1);
+    --ink:        #1e1810;
+    --charcoal:   #2e2620;
+    --text:       #3e3428;
+    --muted:      #8a7a6a;
+    --border:     #ddd0be;
+    --white:      #ffffff;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--parchment);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  /* ── TOP ORNAMENT BAR ── */
+  .ornament-bar {
+    background: var(--ink);
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 52px;
+    gap: 20px;
+  }
+
+  .ob-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .ob-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: var(--sand);
+    letter-spacing: 0.05em;
+  }
+
+  .ob-sep {
+    width: 1px;
+    height: 20px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .ob-tag {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(247,240,230,0.35);
+  }
+
+  .ob-issue {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--terra);
+    background: var(--terra-lt);
+    border: 1px solid rgba(196,87,42,0.3);
+    padding: 4px 14px;
+    border-radius: 100px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    padding: 88px 52px 80px;
+  }
+
+  /* Organic blob decorations */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(60px);
+  }
+
+  .blob-1 {
+    width: 500px; height: 500px;
+    background: rgba(196,87,42,0.12);
+    top: -150px; right: -100px;
+  }
+
+  .blob-2 {
+    width: 320px; height: 320px;
+    background: rgba(42,122,114,0.1);
+    bottom: -100px; left: -80px;
+  }
+
+  .blob-3 {
+    width: 200px; height: 200px;
+    background: rgba(196,154,42,0.08);
+    top: 40%; left: 40%;
+  }
+
+  /* Organic texture pattern */
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(196,87,42,0.06) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(42,122,114,0.05) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 780px;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .eyebrow-chip {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terra);
+    background: var(--terra-lt);
+    border: 1px solid rgba(196,87,42,0.25);
+    padding: 5px 14px;
+    border-radius: 4px;
+  }
+
+  .eyebrow-line {
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: rgba(247,240,230,0.1);
+  }
+
+  .eyebrow-sub {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(247,240,230,0.25);
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.0;
+    color: var(--sand);
+    letter-spacing: -0.01em;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--terra);
+    display: block;
+  }
+
+  .hero-sub {
+    margin-top: 26px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    font-size: 1.08rem;
+    color: rgba(247,240,230,0.5);
+    max-width: 520px;
+    line-height: 1.75;
+  }
+
+  .hero-bottom {
+    margin-top: 44px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hs-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--sand);
+    line-height: 1;
+  }
+
+  .hs-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(247,240,230,0.3);
+  }
+
+  .hero-div {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* ── TERRA STRIPE ── */
+  .terra-stripe {
+    height: 4px;
+    background: linear-gradient(90deg,
+      var(--terra) 0%, #e07040 25%,
+      var(--gold) 50%, var(--teal) 75%,
+      var(--plum) 100%
+    );
+  }
+
+  /* ── PAGE BODY ── */
+  .page {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 0 44px 100px;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    padding: 62px 0 54px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    gap: 52px;
+    align-items: center;
+  }
+
+  .intro-text {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--charcoal);
+    line-height: 1.7;
+  }
+
+  .intro-side {
+    background: var(--terra);
+    padding: 28px 26px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro-side::after {
+    content: '×7';
+    position: absolute;
+    bottom: -14px;
+    right: -8px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 6rem;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .intro-side-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.2rem;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .intro-side-label {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 56px;
+  }
+
+  .sec-tag {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 9px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .sec-tag::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--terra);
+    border-radius: 2px;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.85rem;
+    color: var(--ink);
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 18px;
+    line-height: 1.9;
+  }
+
+  p strong {
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  /* ── CONTENT TRANSFORMATION FLOW ── */
+  .flow-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .flow-title::before, .flow-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Center blog post hub */
+  .flow-wrap {
+    position: relative;
+    margin: 32px 0 44px;
+  }
+
+  .flow-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: center;
+  }
+
+  .flow-left-col, .flow-right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .flow-center {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .hub {
+    background: var(--terra);
+    color: var(--white);
+    border-radius: 12px;
+    padding: 20px 22px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(196,87,42,0.3);
+    position: relative;
+    z-index: 2;
+  }
+
+  .hub-icon {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+
+  .hub-label {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .hub-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+  }
+
+  .flow-arrow {
+    font-size: 1.2rem;
+    color: var(--terra);
+    text-align: center;
+    padding: 4px 0;
+    opacity: 0.5;
+  }
+
+  /* Format cards */
+  .fmt-card {
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1.5px solid;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.2s;
+    cursor: default;
+  }
+
+  .fmt-card:hover { transform: scale(1.02); }
+
+  .fmt-card .fmt-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .fmt-card .fmt-text { flex: 1; }
+
+  .fmt-card .fmt-name {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.87rem;
+    color: var(--ink);
+    margin-bottom: 1px;
+    letter-spacing: 0.01em;
+  }
+
+  .fmt-card .fmt-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .fmt-teal  { background: var(--teal-lt);  border-color: rgba(42,122,114,0.25); }
+  .fmt-gold  { background: var(--gold-lt);  border-color: rgba(196,154,42,0.25); }
+  .fmt-plum  { background: var(--plum-lt);  border-color: rgba(107,58,110,0.25); }
+  .fmt-sky   { background: var(--sky-lt);   border-color: rgba(42,106,158,0.25); }
+  .fmt-terra { background: var(--terra-xlt); border-color: rgba(196,87,42,0.2); }
+  .fmt-sand  { background: var(--sand-dark); border-color: var(--border); }
+
+  /* Connector lines */
+  .flow-connector-left, .flow-connector-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* ── STEP PROCESS ── */
+  .process-steps {
+    counter-reset: step;
+    list-style: none;
+    margin: 24px 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .process-steps li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0;
+    position: relative;
+  }
+
+  /* Vertical line connecting steps */
+  .process-steps li:not(:last-child) .step-line {
+    position: absolute;
+    left: 25px;
+    top: 44px;
+    bottom: -16px;
+    width: 2px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .step-num {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-num::before {
+    content: counter(step);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--terra);
+    color: var(--white);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    padding: 4px 0 36px 20px;
+  }
+
+  .step-content strong {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .step-content p {
+    margin-bottom: 0;
+    font-size: 0.96rem;
+    color: var(--text);
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: var(--sand-dark);
+    border: 1.5px solid var(--border);
+    border-left: 4px solid var(--teal);
+    padding: 24px 28px;
+    margin: 28px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .hb-label {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+
+  .highlight-box p {
+    margin-bottom: 0;
+    font-size: 0.97rem;
+  }
+
+  /* ── PLATFORM CHIPS ── */
+  .platform-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 28px;
+  }
+
+  .platform-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    border: 1.5px solid;
+    transition: transform 0.15s;
+    cursor: default;
+  }
+
+  .platform-chip:hover { transform: translateY(-2px); }
+
+  .pc-teal  { background: var(--teal-lt);  border-color: rgba(42,122,114,0.3);  color: var(--teal); }
+  .pc-terra { background: var(--terra-lt); border-color: rgba(196,87,42,0.3);   color: var(--terra-dk); }
+  .pc-gold  { background: var(--gold-lt);  border-color: rgba(196,154,42,0.3);  color: #8a6a10; }
+  .pc-plum  { background: var(--plum-lt);  border-color: rgba(107,58,110,0.3);  color: var(--plum); }
+  .pc-sky   { background: var(--sky-lt);   border-color: rgba(42,106,158,0.3);  color: var(--sky); }
+  .pc-ink   { background: var(--sand-dark); border-color: var(--border); color: var(--charcoal); }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 52px 0;
+    padding: 52px 48px 48px;
+    background: var(--sand-dark);
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    font-family: 'DM Serif Display', serif;
+    font-size: 14rem;
+    color: var(--terra);
+    opacity: 0.07;
+    position: absolute;
+    top: -40px;
+    left: 16px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .pq-text {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1.55rem;
+    color: var(--charcoal);
+    line-height: 1.55;
+    position: relative;
+  }
+
+  .pq-text em {
+    font-style: normal;
+    color: var(--terra);
+  }
+
+  /* ── REPURPOSE MATRIX ── */
+  .matrix {
+    margin: 28px 0 36px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .matrix-header {
+    background: var(--charcoal);
+    display: grid;
+    grid-template-columns: 1fr 1fr 80px;
+    padding: 12px 20px;
+    gap: 12px;
+  }
+
+  .matrix-header span {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(247,240,230,0.5);
+  }
+
+  .matrix-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 80px;
+    padding: 14px 20px;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    transition: background 0.2s;
+  }
+
+  .matrix-row:last-child { border-bottom: none; }
+  .matrix-row:hover { background: var(--sand); }
+
+  .mr-from {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--ink);
+  }
+
+  .mr-to {
+    font-size: 0.88rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mr-to::before {
+    content: '→';
+    color: var(--terra);
+    font-weight: 700;
+  }
+
+  .mr-effort {
+    display: flex;
+    gap: 3px;
+    justify-content: flex-end;
+  }
+
+  .dot-fill { width: 8px; height: 8px; border-radius: 50%; background: var(--terra); }
+  .dot-empty { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+
+  /* ── FINALE ── */
+  .finale {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 56px 52px;
+    margin-top: 68px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .finale-orbs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .finale-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+  }
+
+  .fo-1 { width:280px; height:280px; background:rgba(196,87,42,0.1);  top:-60px; right:-60px; }
+  .fo-2 { width:200px; height:200px; background:rgba(42,122,114,0.08); bottom:-40px; left:-40px; }
+
+  .finale-eyebrow {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .finale h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.1rem;
+    color: var(--sand);
+    margin-bottom: 24px;
+    line-height: 1.2;
+    position: relative;
+  }
+
+  .finale p {
+    color: rgba(247,240,230,0.55);
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .finale p strong {
+    color: rgba(247,240,230,0.88);
+    font-weight: 600;
+  }
+
+  .finale p:last-child { margin-bottom: 0; }
+
+  .finale-close {
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(247,240,230,0.28);
+    position: relative;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 4px solid var(--terra);
+    padding: 26px 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer span {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(247,240,230,0.2);
+  }
+
+  footer .ft-terra { color: var(--terra); opacity: 0.7; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes riseUp {
+    from { opacity:0; transform:translateY(22px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .hero-eyebrow { animation: riseUp 0.6s ease both 0.05s; }
+  h1            { animation: riseUp 0.6s ease both 0.2s; }
+  .hero-sub     { animation: riseUp 0.6s ease both 0.34s; }
+  .hero-bottom  { animation: riseUp 0.6s ease both 0.48s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 660px) {
+    .ornament-bar { padding: 0 22px; }
+    .hero { padding: 60px 24px 56px; }
+    .page { padding: 0 22px 80px; }
+    footer { padding: 20px 22px; }
+    .intro { grid-template-columns: 1fr; gap: 32px; }
+    .flow-grid { grid-template-columns: 1fr; }
+    .flow-center { padding: 12px 0; flex-direction: row; justify-content: center; gap: 16px; }
+    .flow-arrow { transform: rotate(90deg); }
+    .matrix-header, .matrix-row { grid-template-columns: 1fr 1fr; }
+    .mr-effort, .matrix-header span:last-child { display: none; }
+    .finale { padding: 36px 28px; }
+    .pull-quote { padding: 36px 28px 32px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="ornament-bar">
+  <div class="ob-left">
+    <span class="ob-logo">The Content Studio</span>
+    <span class="ob-sep"></span>
+    <span class="ob-tag">Repurposing Guide · 2025</span>
+  </div>
+  <span class="ob-issue">No. 88</span>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-chip">No. 88</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-sub">Content Strategy · Blogging</span>
+    </div>
+    <h1>How to<em>Repurpose</em>Blog Content</h1>
+    <p class="hero-sub">
+      One great post. Seven different formats. Ten times the reach. Here's how to turn every piece you write into a content engine that works across every platform.
+    </p>
+    <div class="hero-bottom">
+      <div class="hero-stat">
+        <span class="hs-num">7×</span>
+        <span class="hs-label">More Reach</span>
+      </div>
+      <div class="hero-div"></div>
+      <div class="hero-stat">
+        <span class="hs-num">~800</span>
+        <span class="hs-label">Words</span>
+      </div>
+      <div class="hero-div"></div>
+      <div class="hero-stat">
+        <span class="hs-num">6 min</span>
+        <span class="hs-label">Read Time</span>
+      </div>
+      <div class="hero-div"></div>
+      <div class="hero-stat">
+        <span class="hs-num">2025</span>
+        <span class="hs-label">Edition</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="terra-stripe"></div>
+
+<!-- BODY -->
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro">
+    <p class="intro-text">
+      Most bloggers write a post, publish it, share it once on social media, and move on to the next one. In doing so, they leave the vast majority of their content's value sitting untouched. Every blog post you write is not just an article — it is raw material waiting to be transformed into video, audio, visuals, and conversations that reach entirely new audiences.
+    </p>
+    <div class="intro-side">
+      <div class="intro-side-num">1 Post</div>
+      <div class="intro-side-label">can become 7+ different content formats across multiple platforms</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 — WHAT IS REPURPOSING -->
+  <div class="section">
+    <div class="sec-tag">Section 01</div>
+    <h2>What Does Repurposing Actually Mean?</h2>
+    <p>
+      Repurposing means taking content you've already created and adapting it into a different format for a different platform — without starting from scratch. It's not copying and pasting. It's <strong>reimagining the same core idea in the language of a new medium.</strong>
+    </p>
+    <p>
+      A 1,500-word blog post on budgeting tips becomes a 60-second TikTok video. The same post becomes five LinkedIn carousel slides. It becomes a podcast episode where you riff on the ideas aloud. It becomes a Pinterest infographic. It becomes a three-email welcome sequence. The research and thinking you did once produces content for months.
+    </p>
+
+    <!-- FLOW DIAGRAM -->
+    <div class="flow-title">Content Transformation Map</div>
+    <div class="flow-wrap">
+      <div class="flow-grid">
+        <!-- Left formats -->
+        <div class="flow-left-col">
+          <div class="fmt-card fmt-teal">
+            <span class="fmt-icon">🎙️</span>
+            <div class="fmt-text">
+              <div class="fmt-name">Podcast Episode</div>
+              <div class="fmt-desc">Narrate your post as a conversational audio piece</div>
+            </div>
+          </div>
+          <div class="fmt-card fmt-gold">
+            <span class="fmt-icon">📧</span>
+            <div class="fmt-text">
+              <div class="fmt-name">Email Newsletter</div>
+              <div class="fmt-desc">Condense your post into a punchy email sequence</div>
+            </div>
+          </div>
+          <div class="fmt-card fmt-plum">
+            <span class="fmt-icon">📊</span>
+            <div class="fmt-text">
+              <div class="fmt-name">Slide Carousel</div>
+              <div class="fmt-desc">Turn key points into swipeable LinkedIn or Instagram slides</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center hub -->
+        <div class="flow-center">
+          <div class="flow-arrow">◀</div>
+          <div class="hub">
+            <div class="hub-icon">📝</div>
+            <div class="hub-label">Blog Post</div>
+            <div class="hub-sub">The Source</div>
+          </div>
+          <div class="flow-arrow">▶</div>
+        </div>
+
+        <!-- Right formats -->
+        <div class="flow-right-col">
+          <div class="fmt-card fmt-terra">
+            <span class="fmt-icon">🎬</span>
+            <div class="fmt-text">
+              <div class="fmt-name">Short-form Video</div>
+              <div class="fmt-desc">One key tip per reel, TikTok, or YouTube Short</div>
+            </div>
+          </div>
+          <div class="fmt-card fmt-sky">
+            <span class="fmt-icon">🖼️</span>
+            <div class="fmt-text">
+              <div class="fmt-name">Infographic</div>
+              <div class="fmt-desc">Visualise your data or steps for Pinterest & sharing</div>
+            </div>
+          </div>
+          <div class="fmt-card fmt-sand">
+            <span class="fmt-icon">💬</span>
+            <div class="fmt-text">
+              <div class="fmt-name">Twitter / X Thread</div>
+              <div class="fmt-desc">Break the post into a numbered tweet thread</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — WHY -->
+  <div class="section">
+    <div class="sec-tag">Section 02</div>
+    <h2>Why Every Blogger Should Be Doing This</h2>
+    <p>
+      There are three powerful reasons to repurpose everything you write. First, different people consume content differently. Some read long posts. Others only watch short videos. Some prefer podcasts on their commute. Repurposing means your ideas reach all of them — not just the readers.
+    </p>
+    <p>
+      Second, <strong>content compounds when it appears in multiple places.</strong> A blog post that also becomes a YouTube video gains backlinks. A LinkedIn carousel drives professionals to your site. A podcast episode introduces your brand to listeners who would never have Googled you. Each format opens a new traffic channel.
+    </p>
+    <p>
+      Third, it respects your time. Creating from scratch for every platform is exhausting. Repurposing gives you a content calendar without the constant creative drain of starting with a blank page every single time.
+    </p>
+
+    <div class="highlight-box">
+      <div class="hb-label">💡 Key Insight</div>
+      <p>The average blog post takes 3–4 hours to research, write, and publish. That same investment, when repurposed across five formats, can produce a week's worth of content across multiple platforms. You're not working harder — you're multiplying what you've already done.</p>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <p class="pq-text">
+      You don't need to create more content. You need to let your <em>best content</em> travel further — into formats, platforms, and audiences it was never given the chance to reach.
+    </p>
+  </div>
+
+  <!-- SECTION 3 — HOW TO DO IT -->
+  <div class="section">
+    <div class="sec-tag">Section 03</div>
+    <h2>How to Repurpose a Blog Post Step by Step</h2>
+
+    <ul class="process-steps">
+      <li>
+        <div class="step-line"></div>
+        <div class="step-num"></div>
+        <div class="step-content">
+          <strong>Identify Your Evergreen Posts First</strong>
+          <p>Not every post is worth repurposing. Start with your best-performing content — posts that already get traffic, have strong search rankings, or consistently earn shares. Evergreen content (timeless how-tos, guides, and strategies) repurposes better than news or trend pieces because it stays relevant.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-line"></div>
+        <div class="step-num"></div>
+        <div class="step-content">
+          <strong>Extract the Core Ideas</strong>
+          <p>Read through the post and pull out the three to five most valuable points. These become the building blocks for every format. A 1,500-word post might have five distinct insights — each of those is a standalone short-form piece on social media.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-line"></div>
+        <div class="step-num"></div>
+        <div class="step-content">
+          <strong>Choose the Right Format for Each Platform</strong>
+          <p>Don't try to be everywhere at once. Pick two or three platforms where your audience spends time, and match your format to the platform's native language. LinkedIn loves carousels and thoughtful long-form posts. TikTok loves one sharp idea delivered fast. Pinterest rewards visual step-by-step content. Email rewards intimacy and directness.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-line"></div>
+        <div class="step-num"></div>
+        <div class="step-content">
+          <strong>Rewrite for the Medium — Don't Copy-Paste</strong>
+          <p>A video script is not a blog post read aloud. A tweet thread is not a paragraph chopped up. Adapt the tone, pacing, and structure to suit the medium. The core idea stays the same; the delivery changes completely. This is what separates repurposing from lazy recycling.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-line"></div>
+        <div class="step-num"></div>
+        <div class="step-content">
+          <strong>Always Link Back to the Original Post</strong>
+          <p>Every repurposed piece of content is a doorway back to your blog. The YouTube video description links to the full guide. The LinkedIn carousel ends with "read the full post." The email includes a "read on the blog" button. This turns social engagement into blog traffic — and blog traffic into an audience you own.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- SECTION 4 — EFFORT MATRIX -->
+  <div class="section">
+    <div class="sec-tag">Section 04</div>
+    <h2>Which Repurposing Formats Give the Best Return</h2>
+    <p>
+      Not all repurposing is equal in effort or impact. Here's a quick guide to the most valuable formats and how much work each one requires relative to the payoff:
+    </p>
+
+    <div class="matrix">
+      <div class="matrix-header">
+        <span>Original Format</span>
+        <span>Repurposed Into</span>
+        <span>Effort</span>
+      </div>
+      <div class="matrix-row">
+        <span class="mr-from">📝 Blog Post (How-To)</span>
+        <span class="mr-to">YouTube Tutorial Video</span>
+        <div class="mr-effort">
+          <div class="dot-fill"></div><div class="dot-fill"></div><div class="dot-fill"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="matrix-row">
+        <span class="mr-from">📝 Blog Post (List)</span>
+        <span class="mr-to">LinkedIn Carousel Slides</span>
+        <div class="mr-effort">
+          <div class="dot-fill"></div><div class="dot-fill"></div><div class="dot-empty"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="matrix-row">
+        <span class="mr-from">📝 Blog Post (Any)</span>
+        <span class="mr-to">Email Newsletter</span>
+        <div class="mr-effort">
+          <div class="dot-fill"></div><div class="dot-empty"></div><div class="dot-empty"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="matrix-row">
+        <span class="mr-from">📝 Blog Post (Guide)</span>
+        <span class="mr-to">Pinterest Infographic</span>
+        <div class="mr-effort">
+          <div class="dot-fill"></div><div class="dot-fill"></div><div class="dot-empty"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="matrix-row">
+        <span class="mr-from">📝 Blog Post (Any)</span>
+        <span class="mr-to">Twitter / X Thread</span>
+        <div class="mr-effort">
+          <div class="dot-fill"></div><div class="dot-empty"></div><div class="dot-empty"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="matrix-row">
+        <span class="mr-from">📝 Blog Post (Opinion)</span>
+        <span class="mr-to">Podcast Episode</span>
+        <div class="mr-effort">
+          <div class="dot-fill"></div><div class="dot-fill"></div><div class="dot-fill"></div><div class="dot-fill"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      For most bloggers, the <strong>email newsletter and social thread</strong> are the highest-return, lowest-effort starting points. Once those become habit, adding a carousel or short video becomes natural.
+    </p>
+
+    <div class="sec-tag" style="margin-top:32px;">Platform Quick Guide</div>
+    <div class="platform-row">
+      <span class="platform-chip pc-teal">🎙️ Spotify / Podcasts</span>
+      <span class="platform-chip pc-terra">🎬 TikTok / Reels</span>
+      <span class="platform-chip pc-gold">📌 Pinterest</span>
+      <span class="platform-chip pc-plum">💼 LinkedIn</span>
+      <span class="platform-chip pc-sky">▶️ YouTube</span>
+      <span class="platform-chip pc-ink">✉️ Email List</span>
+    </div>
+  </div>
+
+  <!-- FINALE -->
+  <div class="finale">
+    <div class="finale-orbs">
+      <div class="finale-orb fo-1"></div>
+      <div class="finale-orb fo-2"></div>
+    </div>
+    <div class="finale-eyebrow">Final Word — No.</div>
+    <h2>Write Once. Reach Everywhere.</h2>
+    <p>
+      The most productive bloggers in the world are not the ones writing the most. They're the ones <strong>extracting the most value from everything they write.</strong> Every hour you invest in a quality blog post should be earning you content across at least two or three other formats and platforms.
+    </p>
+    <p>
+      Start small. Take your single best-performing post this week. Strip out the five main points. Turn them into a Twitter thread, a short email, and one LinkedIn post. See what resonates. Then build a system around it: write, extract, repurpose, distribute, repeat.
+    </p>
+    <p>
+      <strong>Your best content deserves more than one audience.</strong> Give it the reach it was always capable of.
+    </p>
+    <p class="finale-close">
+      "Every great blog post is already ten pieces of content. Most bloggers only ever publish one of them."
+    </p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>How to Repurpose Blog Content</span>
+  <span class="ft-terra">No.</span>
+  <span>The Content Studio · 2025</span>
+</footer>
+
+</body>
+</html>
