@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How to Write Faster Blog Posts</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black:   #0e0c09;
+    --off:     #f5f0e8;
+    --paper:   #fffcf7;
+    --orange:  #e85d20;
+    --orange2: #ff7a3d;
+    --amber:   #f5a623;
+    --border:  #e0d8cc;
+    --muted:   #7a7060;
+    --ink:     #1e1a12;
+    --tan:     #e8e0d0;
+    --cream:   #faf6ee;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--off);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ── TICKER STRIP ── */
+  .ticker {
+    background: var(--orange);
+    color: #fff;
+    overflow: hidden;
+    padding: 8px 0;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    gap: 60px;
+    animation: ticker 22s linear infinite;
+    font-family: 'Syne', sans-serif;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+  }
+  .ticker-inner span { opacity: .7; }
+  .ticker-inner strong { opacity: 1; }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--black);
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    min-height: 480px;
+    overflow: hidden;
+    position: relative;
+  }
+  @media(max-width:700px){ .masthead { grid-template-columns: 1fr; } }
+
+  .mast-left {
+    padding: 64px 48px 64px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+  .mast-kicker {
+    font-family: 'Syne', sans-serif;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--orange2);
+    margin-bottom: 24px;
+  }
+  .mast-left h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -.02em;
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .mast-left h1 em {
+    font-style: italic;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    color: var(--orange2);
+  }
+  .mast-meta {
+    display: flex;
+    gap: 24px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,.1);
+    font-family: 'Syne', sans-serif;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+  }
+  .mast-meta strong { color: var(--amber); }
+
+  /* right panel — decorative */
+  .mast-right {
+    background: var(--orange);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media(max-width:700px){ .mast-right { min-height: 180px; } }
+  .mast-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent, transparent 18px,
+      rgba(0,0,0,.08) 18px, rgba(0,0,0,.08) 19px
+    );
+  }
+  .speed-num {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(5rem, 14vw, 10rem);
+    font-weight: 800;
+    color: rgba(255,255,255,.18);
+    line-height: 1;
+    position: absolute;
+    bottom: -10px; right: -10px;
+    letter-spacing: -.05em;
+    pointer-events: none;
+  }
+  .mast-badge {
+    position: relative; z-index: 2;
+    text-align: center;
+    color: #fff;
+  }
+  .mast-badge .big-icon { font-size: 3.5rem; display: block; margin-bottom: 10px; }
+  .mast-badge p {
+    font-family: 'Syne', sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin: 0; line-height: 1.5;
+  }
+
+  /* ── SPEED METERS ── */
+  .meters {
+    background: var(--black);
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1px;
+    background-color: #333;
+  }
+  @media(max-width:540px){ .meters { grid-template-columns: 1fr 1fr; } }
+  .meter-cell {
+    background: var(--black);
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .meter-cell .mn {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--orange2);
+    display: block; line-height: 1;
+  }
+  .meter-cell .ml {
+    font-family: 'Syne', sans-serif;
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.35);
+    margin-top: 5px;
+  }
+
+  /* ── BODY ── */
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 24px 88px;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.88;
+    margin-bottom: 1.5em;
+    color: #2e2818;
+  }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-family: 'Syne', sans-serif;
+    font-size: 5.4rem;
+    font-weight: 800;
+    line-height: .78;
+    margin: 5px 13px -4px 0;
+    color: var(--orange);
+  }
+
+  /* ── TIP ENTRY ── */
+  .tip-entry {
+    margin: 52px 0 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 22px;
+    align-items: start;
+  }
+  .te-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: .85;
+    color: var(--tan);
+    flex-shrink: 0;
+    margin-top: -6px;
+    min-width: 64px;
+    text-align: right;
+  }
+  .te-body {}
+  .te-cat {
+    font-family: 'Syne', sans-serif;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 5px;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 13px;
+    letter-spacing: -.01em;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--cream);
+    border-left: 4px solid var(--orange);
+    padding: 16px 20px;
+    margin: 14px 0 2px;
+    font-size: .94rem;
+    color: #3a2e18;
+    line-height: 1.7;
+    font-style: italic;
+  }
+  .callout b { font-style: normal; color: var(--orange); font-weight: 600; }
+
+  /* ── TIME-SPLIT VISUAL ── */
+  .time-split {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin: 20px 0 4px;
+  }
+  @media(max-width:460px){ .time-split { grid-template-columns: 1fr; } }
+  .ts-box {
+    border: 1px solid var(--border);
+    background: var(--paper);
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .ts-box .ts-pct {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--orange);
+    display: block; line-height: 1;
+    margin-bottom: 6px;
+  }
+  .ts-box.dark { background: var(--black); border-color: #333; }
+  .ts-box.dark .ts-pct { color: var(--amber); }
+  .ts-box .ts-lbl {
+    font-family: 'Syne', sans-serif;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .ts-box.dark .ts-lbl { color: rgba(255,255,255,.4); }
+
+  /* ── PULL QUOTE ── */
+  .pq {
+    margin: 52px -24px;
+    padding: 44px 48px;
+    background: var(--orange);
+    position: relative;
+    overflow: hidden;
+  }
+  @media(max-width:600px){ .pq { margin: 44px 0; padding: 36px 24px; } }
+  .pq::after {
+    content: '»';
+    position: absolute;
+    bottom: -30px; right: 20px;
+    font-family: 'Syne', sans-serif;
+    font-size: 10rem;
+    font-weight: 800;
+    color: rgba(0,0,0,.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .pq p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 620px;
+    position: relative; z-index: 1;
+  }
+  .pq-src {
+    font-family: 'Syne', sans-serif;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.6);
+    margin-top: 18px;
+    position: relative; z-index: 1;
+    display: block;
+  }
+
+  /* ── POWER CHECKLIST ── */
+  .checklist {
+    border: 2px solid var(--black);
+    padding: 28px 32px;
+    margin: 36px 0;
+    background: var(--paper);
+    position: relative;
+  }
+  .checklist::before {
+    content: 'SPEED CHECKLIST';
+    position: absolute;
+    top: -11px; left: 20px;
+    background: var(--orange);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .24em;
+    padding: 2px 10px;
+  }
+  .checklist ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 28px;
+    margin-top: 10px;
+  }
+  @media(max-width:480px){ .checklist ul { grid-template-columns: 1fr; } }
+  .checklist li {
+    font-family: 'Syne', sans-serif;
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--ink);
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .checklist li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--orange);
+    font-size: .85rem;
+  }
+
+  /* ── DIVIDER ── */
+  .rule {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 48px 0;
+  }
+  .rule.thick {
+    border-top: 4px solid var(--black);
+  }
+
+  /* ── FOOTER CTA ── */
+  .cta {
+    background: var(--black);
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 28px;
+    padding: 48px 44px;
+    margin-top: 72px;
+  }
+  @media(max-width:580px){ .cta { grid-template-columns: 1fr; text-align: center; } }
+  .cta-left h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    letter-spacing: -.01em;
+  }
+  .cta-left h3 em {
+    color: var(--orange2);
+    font-style: italic;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+  }
+  .cta-left p {
+    font-size: .9rem;
+    color: rgba(255,255,255,.5);
+    margin: 0;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: .8rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    text-decoration: none;
+    border: 2px solid var(--orange);
+    white-space: nowrap;
+    transition: background .2s, color .2s;
+    cursor: pointer;
+  }
+  .cta-btn:hover { background: transparent; color: var(--orange); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .ticker   { animation: fadeUp .4s ease both; }
+  .masthead { animation: fadeUp .55s .05s ease both; }
+  .meters   { animation: fadeUp .55s .1s ease both; }
+  .wrap     { animation: fadeUp .55s .15s ease both; }
+  .cta      { animation: fadeUp .55s .2s ease both; }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <strong>Write Faster</strong> <span>✦</span>
+    <strong>Publish More</strong> <span>✦</span>
+    <strong>Grow Your Blog</strong> <span>✦</span>
+    <strong>Stop Staring at Blank Screens</strong> <span>✦</span>
+    <strong>8 Proven Speed Strategies</strong> <span>✦</span>
+    <strong>800 Words</strong> <span>✦</span>
+    <strong>Write Faster</strong> <span>✦</span>
+    <strong>Publish More</strong> <span>✦</span>
+    <strong>Grow Your Blog</strong> <span>✦</span>
+    <strong>Stop Staring at Blank Screens</strong> <span>✦</span>
+    <strong>8 Proven Speed Strategies</strong> <span>✦</span>
+    <strong>800 Words</strong> <span>✦</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-left">
+    <div>
+      <div class="mast-kicker">✦ The Speed Writer's Playbook</div>
+      <h1>How to Write<br/><em>Faster</em><br/>Blog Posts</h1>
+    </div>
+    <div class="mast-meta">
+      <span>Writing</span>
+      <span>✦</span>
+      <span><strong>8 Strategies</strong></span>
+      <span>✦</span>
+      <span>800 Words</span>
+      <span>✦</span>
+      <span>For All Bloggers</span>
+    </div>
+  </div>
+  <div class="mast-right">
+    <div class="mast-badge">
+      <span class="big-icon">⚡</span>
+      <p>Write a full post<br/>in under 60 minutes</p>
+    </div>
+    <div class="speed-num">60</div>
+  </div>
+</div>
+
+<!-- SPEED METERS -->
+<div class="meters">
+  <div class="meter-cell"><span class="mn">60min</span><span class="ml">Target Post Time</span></div>
+  <div class="meter-cell"><span class="mn">3×</span><span class="ml">Output Increase</span></div>
+  <div class="meter-cell"><span class="mn">8</span><span class="ml">Strategies Inside</span></div>
+  <div class="meter-cell"><span class="mn">0</span><span class="ml">Excuses Remaining</span></div>
+</div>
+
+<!-- BODY -->
+<div class="wrap">
+
+  <!-- INTRO -->
+  <p class="drop-cap">
+    Slow writing is rarely a talent problem. Most bloggers who struggle to finish posts in a reasonable time are not lacking ideas, skill, or passion — they are lacking a system. They sit down to write without a clear direction, edit while they draft, lose momentum mid-post, and end up spending four hours on something that should take sixty minutes. The good news is that writing speed is a skill that can be learned, and these eight strategies will transform how fast you produce high-quality posts.
+  </p>
+  <p>
+    The bloggers who publish three, four, or even five posts a week are not superhuman. They have simply built habits that remove friction from every stage of writing — from the blank page all the way to the publish button. Master these habits and your output will multiply fast.
+  </p>
+
+  <!-- TIP 1 -->
+  <div class="tip-entry">
+    <div class="te-num">01</div>
+    <div class="te-body">
+      <div class="te-cat">Planning</div>
+      <h2>Always Start With a Rock-Solid Outline</h2>
+      <p>The single fastest thing you can do to speed up writing is to outline before you write a single sentence. An outline takes five to ten minutes and saves thirty to sixty minutes of staring at a blank screen wondering what to say next. Write down your headline, your main three to five points, and one sentence for each point describing what you will cover. That is your map. When you sit down to write, you are simply filling in the gaps — not figuring out the route.</p>
+      <div class="callout"><b>Quick Win:</b> Spend five minutes outlining every post the evening before you plan to write it. You will sit down the next morning already in motion.</div>
+    </div>
+  </div>
+
+  <!-- TIP 2 -->
+  <div class="tip-entry">
+    <div class="te-num">02</div>
+    <div class="te-body">
+      <div class="te-cat">Mindset</div>
+      <h2>Write Ugly First — Edit Later, Never Both at Once</h2>
+      <p>Editing while you write is the number one productivity killer in blogging. Every time you stop to fix a sentence, rewrite a paragraph, or question your word choice, you kill the momentum that makes fast drafting possible. Give yourself unconditional permission to write a messy, imperfect first draft. Close your editing brain completely. Write the whole post start to finish — ugly, rough, and unpolished. Then and only then go back to edit. You will be astonished how much faster the words come when perfection is off the table.</p>
+    </div>
+  </div>
+
+  <!-- TIME SPLIT -->
+  <div class="time-split">
+    <div class="ts-box">
+      <span class="ts-pct">50%</span>
+      <span class="ts-lbl">Drafting — write everything raw</span>
+    </div>
+    <div class="ts-box dark">
+      <span class="ts-pct">30%</span>
+      <span class="ts-lbl">Editing — polish after a break</span>
+    </div>
+    <div class="ts-box">
+      <span class="ts-pct">20%</span>
+      <span class="ts-lbl">Formatting — headlines, images, SEO</span>
+    </div>
+  </div>
+
+  <!-- TIP 3 -->
+  <div class="tip-entry">
+    <div class="te-num">03</div>
+    <div class="te-body">
+      <div class="te-cat">Environment</div>
+      <h2>Eliminate Every Distraction Before You Begin</h2>
+      <p>Your writing environment determines your writing speed more than most people realise. Close every browser tab that is unrelated to your current post. Put your phone in another room or switch it to aeroplane mode. Turn off all notifications. Use a full-screen writing app that removes everything visual except your words — iA Writer, Notion's distraction-free mode, or even a blank Google Doc in full screen. Every interruption, no matter how brief, costs you five to fifteen minutes of deep focus to recover from.</p>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="pq">
+    <p>You do not need more time to write faster. You need fewer interruptions, a better outline, and the courage to write something imperfect and publish it anyway.</p>
+    <span class="pq-src">— The Speed Blogger's Manifesto</span>
+  </div>
+
+  <!-- TIP 4 -->
+  <div class="tip-entry">
+    <div class="te-num">04</div>
+    <div class="te-body">
+      <div class="te-cat">Technique</div>
+      <h2>Use Timed Writing Sprints to Stay in Flow</h2>
+      <p>Open a timer. Set it to twenty-five minutes. Write nonstop until it rings — no pausing, no re-reading, no editing. Then take a five-minute break. Repeat. This is the Pomodoro Technique, and it is extraordinarily effective for bloggers because it makes the session feel finite and manageable. Knowing you only need to focus for twenty-five minutes removes the mental resistance that makes starting so hard. Most bloggers find they can complete a full draft in two or three sprints.</p>
+    </div>
+  </div>
+
+  <!-- TIP 5 -->
+  <div class="tip-entry">
+    <div class="te-num">05</div>
+    <div class="te-body">
+      <div class="te-cat">Tools</div>
+      <h2>Build Reusable Templates for Every Post Type</h2>
+      <p>If you regularly write how-to posts, listicles, product reviews, or opinion pieces, build a saved template for each format. A template is just a skeleton — the standard headings, section order, and structural elements your posts always share. Instead of starting from nothing each time, you start from a clear skeleton and just fill in the content. This single habit alone can cut your writing time by thirty to forty percent immediately.</p>
+    </div>
+  </div>
+
+  <hr class="rule"/>
+
+  <!-- TIP 6 -->
+  <div class="tip-entry">
+    <div class="te-num">06</div>
+    <div class="te-body">
+      <div class="te-cat">Research</div>
+      <h2>Research Before You Write — Never During</h2>
+      <p>Stopping mid-draft to look something up is a momentum disaster. One quick search turns into twenty minutes of tab-hopping, and your writing brain loses the thread completely. Instead, do all your research before you open your writing document. Take brief notes in a separate file. Then close your research, open your draft, and write from your notes. If you discover a gap mid-draft, insert a placeholder like [CHECK THIS] and keep writing. Fill the gaps after the draft is complete.</p>
+    </div>
+  </div>
+
+  <!-- TIP 7 -->
+  <div class="tip-entry">
+    <div class="te-num">07</div>
+    <div class="te-body">
+      <div class="te-cat">Habit</div>
+      <h2>Write at the Same Time Every Day — Without Exception</h2>
+      <p>Professional writers do not wait for inspiration. They sit down at the same time every day and write regardless of how they feel. Your brain is a pattern-recognition machine — once it associates a specific time and environment with deep writing, it begins priming itself automatically in the minutes beforehand. Even thirty minutes of consistent daily writing at a fixed time will produce more content per week than sporadic three-hour sessions whenever motivation strikes.</p>
+      <div class="callout"><b>The Rule:</b> Pick your writing time tonight. Put it in your calendar as a recurring appointment. Treat it like a meeting with your most important client — because it is.</div>
+    </div>
+  </div>
+
+  <!-- TIP 8 -->
+  <div class="tip-entry">
+    <div class="te-num">08</div>
+    <div class="te-body">
+      <div class="te-cat">Momentum</div>
+      <h2>End Every Session Mid-Sentence</h2>
+      <p>This is a little-known trick borrowed from novelist Ernest Hemingway: always stop writing when you still know what comes next. End your session in the middle of a thought, a paragraph, or even a sentence. When you sit down tomorrow, you will instantly know where to pick up — and your brain will have been quietly working on the continuation all day. Cold-starting a blank page is the hardest part of writing. This technique means you never face it.</p>
+    </div>
+  </div>
+
+  <hr class="rule thick"/>
+
+  <!-- CHECKLIST -->
+  <div class="checklist">
+    <ul>
+      <li>Outline before you open your draft</li>
+      <li>Write the full draft before editing</li>
+      <li>Remove all distractions first</li>
+      <li>Use 25-minute writing sprints</li>
+      <li>Build templates for every format</li>
+      <li>Research before, never during</li>
+      <li>Write at the same time daily</li>
+      <li>Stop mid-sentence to restart easily</li>
+      <li>Keep an idea file always open</li>
+      <li>Publish before it feels perfect</li>
+    </ul>
+  </div>
+
+  <!-- CLOSING -->
+  <p>
+    Writing faster is not about cutting corners or lowering your standards. It is about removing the friction, delay, and indecision that slow you down without adding any quality to your work. An outlined, focused, distraction-free sixty-minute writing session will almost always produce a better post than four hours of scattered, self-interrupting effort.
+  </p>
+  <p>
+    Pick two of these strategies and apply them to your very next post. Notice the difference in how quickly the words flow and how much lighter the writing feels. Then add two more. In a month, writing fast will not be a challenge you are trying to solve — it will simply be how you write.
+  </p>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-left">
+    <h3>Start Writing<br/><em>Faster Today</em></h3>
+    <p>Pick one tip. Apply it to your next post. Feel the difference immediately.</p>
+  </div>
+  <a class="cta-btn" href="#">Write Now ⚡</a>
+</div>
+
+</body>
+</html>
