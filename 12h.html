@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Insomnia: Causes & Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.8;
+            color: #e2e8f0;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 60px 50px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.6em;
+            color: #fbd38d;
+            margin-bottom: 12px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #a0aec0;
+            font-size: 1.15em;
+            margin-bottom: 45px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.5em;
+            color: #fbd38d;
+            margin: 40px 0 25px 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(251, 211, 141, 0.3);
+        }
+
+        .intro {
+            font-size: 1.15em;
+            color: #cbd5e0;
+            margin-bottom: 35px;
+            text-align: center;
+            line-height: 1.9;
+        }
+
+        .cause-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 22px;
+            border-left: 4px solid #e53e3e;
+            transition: all 0.3s ease;
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 22px;
+            border-left: 4px solid #38a169;
+            transition: all 0.3s ease;
+        }
+
+        .cause-card:hover, .solution-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .icon {
+            font-size: 1.6em;
+            margin-right: 15px;
+            opacity: 0.9;
+        }
+
+        h2 {
+            font-family: 'Georgia', serif;
+            font-size: 1.25em;
+            color: #f7fafc;
+            font-weight: 600;
+        }
+
+        p {
+            color: #a0aec0;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .highlight-red {
+            color: #fc8181;
+            font-weight: 500;
+        }
+
+        .highlight-green {
+            color: #68d391;
+            font-weight: 500;
+        }
+
+        .connection {
+            background: rgba(251, 211, 141, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 35px 0;
+            text-align: center;
+            border: 1px solid rgba(251, 211, 141, 0.2);
+        }
+
+        .connection p {
+            color: #fbd38d;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .closing {
+            margin-top: 45px;
+            padding: 35px;
+            background: linear-gradient(135deg, rgba(251, 211, 141, 0.15) 0%, rgba(251, 211, 141, 0.05) 100%);
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(251, 211, 141, 0.2);
+        }
+
+        .star-icon {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: #fbd38d;
+        }
+
+        .closing p {
+            color: #e2e8f0;
+            font-size: 1.15em;
+            line-height: 1.9;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 35px 25px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .cause-card, .solution-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>When Sleep Won't Come</h1>
+        <div class="subtitle">Understanding the roots of insomnia and pathways back to rest</div>
+        
+        <div class="intro">
+            Three in the morning. The world sleeps, but you're wide awake, watching the ceiling fan cast shadows while your mind races through tomorrow's worries and yesterday's regrets. Insomnia isn't just "trouble sleeping"—it's a complex disruption of one of our most fundamental biological needs. Understanding why it happens is the first step toward healing.
+        </div>
+
+        <div class="section-title">The Culprits Behind the Curtain</div>
+
+        <div class="cause-card">
+            <div class="card-header">
+                <span class="icon">🧠</span>
+                <h2>The Racing Mind</h2>
+            </div>
+            <p>Stress and anxiety are insomnia's most common companions. When your brain perceives threat—whether from an upcoming deadline or existential worry—it floods your system with cortisol. This <span class="highlight-red">ancient survival mechanism</span> was designed to keep you alert against predators, not to help you drift off peacefully. The result? Your body ready for battle, your mind refusing to quiet.</p>
+        </div>
+
+        <div class="cause-card">
+            <div class="card-header">
+                <span class="icon">📱</span>
+                <h2>Digital Overstimulation</h2>
+            </div>
+            <p>We are the first generation to bathe in blue light until midnight. Screens suppress melatonin production by up to 50%, while the endless scroll of information keeps our brains in a state of artificial urgency. Your phone's dopamine hits have rewired your reward system, making the slow, gentle descent into sleep feel impossibly boring.</p>
+        </div>
+
+        <div class="cause-card">
+            <div class="card-header">
+                <span class="icon">☕</span>
+                <h2>Chemical Disruptors</h2>
+            </div>
+            <p>That afternoon coffee lingers longer than you think. Caffeine's half-life stretches six hours, meaning your 4 PM latte is still coursing through your veins at 10 PM. Alcohol, often used as a sleep aid, fragments your sleep architecture—knocking you out initially but <span class="highlight-red">stealing your deep restorative phases</span>, leaving you exhausted despite hours in bed.</p>
+        </div>
+
+        <div class="cause-card">
+            <div class="card-header">
+                <span class="icon">🏠</span>
+                <h2>Environmental Mismatch</h2>
+            </div>
+            <p>Your bedroom might be working against you. Temperatures above 70 degrees interfere with the natural cooling your body needs to initiate sleep. Light pollution seeps through curtains, confusing your circadian rhythm. Even that comfortable mattress might be too old, causing micro-awakenings you don't consciously register but that fragment your rest.</p>
+        </div>
+
+        <div class="connection">
+            <p>"The good news? Insomnia is not a life sentence. Each cause has a corresponding key."</p>
+        </div>
+
+        <div class="section-title">Pathways Back to Rest</div>
+
+        <div class="solution-card">
+            <div class="card-header">
+                <span class="icon">🧘</span>
+                <h2>Cognitive Behavioral Therapy for Insomnia (CBT-I)</h2>
+            </div>
+            <p>Considered the gold standard, CBT-I retrains your brain to associate bed with sleep rather than frustration. It involves <span class="highlight-green">stimulus control</span>—getting up if you can't sleep after 20 minutes—and sleep restriction, which sounds counterintuitive but rebuilds your sleep drive. Studies show it outperforms sleeping pills long-term, addressing root causes rather than masking symptoms.</p>
+        </div>
+
+        <div class="solution-card">
+            <div class="card-header">
+                <span class="icon">🌅</span>
+                <h2>Light Management</h2>
+            </div>
+            <p>Embrace bright natural light within an hour of waking to anchor your circadian rhythm. Conversely, dim your environment as evening approaches. Consider amber glasses or blue-light filters after sunset. Your brain needs clear signals: <span class="highlight-green">bright days, dark nights</span>. This simple alignment can reset a disrupted clock within days.</p>
+        </div>
+
+        <div class="solution-card">
+            <div class="card-header">
+                <span class="icon">📝</span>
+                <h2>The Brain Dump</h2>
+            </div>
+            <p>If racing thoughts keep you hostage, try scheduled worry time. Two hours before bed, write down every concern, to-do, and what-if. This isn't toxic positivity—it's containment. By acknowledging these thoughts on paper, you give your brain permission to release them, preventing the 3 AM mental spirals.</p>
+        </div>
+
+        <div class="solution-card">
+            <div class="card-header">
+                <span class="icon">🌿</span>
+                <h2>Physiological Calming</h2>
+            </div>
+            <p>Activate your parasympathetic nervous system through deliberate practices. The 4-7-8 breathing technique—in for four, hold for seven, out for eight—can induce sleep in minutes for some. Progressive muscle relaxation, starting from toes and working upward, releases physical tension you didn't know you carried. <span class="highlight-green">Magnesium glycinate</span> and L-theanine offer gentle, non-habit-forming support.</p>
+        </div>
+
+        <div class="closing">
+            <div class="star-icon">✦</div>
+            <p>Insomnia often feels like a personal failure, but it's better understood as a mismatch between modern life and ancient biology. Be patient with your nervous system—it learned these patterns over months or years, and unlearning takes time. Start with one change. Tonight, perhaps just dim the lights and breathe deeply. Tomorrow night, add another gentle shift. Sleep is not a destination you force your way to; it's a state you allow yourself to fall into, softly, like snow.</p>
+        </div>
+    </div>
+</body>
+</html>
