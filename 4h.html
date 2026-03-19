@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Home Workouts for Beginners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 40px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .workout-grid {
+            display: grid;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .workout-card {
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workout-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .workout-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+        }
+
+        .card-squat {
+            background: linear-gradient(to right, #fff5f5, #ffe0e0);
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .card-pushup {
+            background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+            border-left: 5px solid #3b82f6;
+        }
+
+        .card-plank {
+            background: linear-gradient(to right, #f5f3ff, #ede9fe);
+            border-left: 5px solid #8b5cf6;
+        }
+
+        .card-cardio {
+            background: linear-gradient(to right, #fff7ed, #ffedd5);
+            border-left: 5px solid #f97316;
+        }
+
+        .card-glute {
+            background: linear-gradient(to right, #f0fdf4, #dcfce7);
+            border-left: 5px solid #22c55e;
+        }
+
+        h2 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.5em;
+        }
+
+        p {
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .tips-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+        }
+
+        .tips-section h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .conclusion {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8em; }
+            .content { padding: 20px; }
+            .hero-section { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                 alt="Woman doing home workout" 
+                 class="hero-image">
+            <div class="hero-overlay">
+                <h1>Best Home Workouts for Beginners</h1>
+                <p class="subtitle">Your Journey to Fitness Starts in Your Living Room</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                Starting your fitness journey from home is one of the smartest decisions you can make. No gym intimidation, no expensive memberships, and no commute—just you and your living room transforming into a personal wellness sanctuary. Whether you're looking to build strength, boost energy, or simply move your body more, these beginner-friendly exercises will help you establish a foundation that lasts.
+            </div>
+
+            <div class="workout-grid">
+                <div class="workout-card card-squat">
+                    <h2><span class="icon">🦵</span> The Classic Bodyweight Squat</h2>
+                    <p>Perfect for sculpting legs and glutes while improving mobility. Stand with feet shoulder-width apart, lower your hips back as if sitting in a chair, then rise. Start with three sets of ten repetitions. Feel the burn in your thighs while knowing you're building functional strength for everyday activities like lifting groceries or climbing stairs.</p>
+                </div>
+
+                <div class="workout-card card-pushup">
+                    <h2><span class="icon">💪</span> Modified Push-Ups</h2>
+                    <p>Don't let traditional push-ups scare you! Begin on your knees or against a wall to reduce intensity. Focus on keeping your core tight and lowering your chest with control. This movement strengthens your chest, shoulders, and triceps while engaging your core stability. Aim for two sets of eight to twelve reps, gradually progressing as you gain confidence and strength.</p>
+                </div>
+
+                <div class="workout-card card-plank">
+                    <h2><span class="icon">🔥</span> The Mighty Plank</h2>
+                    <p>Core stability is everything for overall fitness. Hold a forearm plank position for twenty to thirty seconds, ensuring your body forms a straight line from head to heels without sagging hips. This isometric hold builds deep abdominal strength and protects your lower back during daily movements. As you improve, challenge yourself to hold for forty-five seconds or one full minute.</p>
+                </div>
+
+                <div class="workout-card card-cardio">
+                    <h2><span class="icon">❤️</span> Jumping Jacks for Cardio</h2>
+                    <p>Get your heart pumping without any equipment needed. This nostalgic movement elevates your heart rate, improves coordination, and burns calories efficiently while being gentle on joints when performed correctly. Perform them for thirty seconds between strength exercises to keep your workout dynamic, or dedicate five minutes to continuous jumping jacks for a quick cardio burst that leaves you energized.</p>
+                </div>
+
+                <div class="workout-card card-glute">
+                    <h2><span class="icon">🍑</span> Glute Bridges</h2>
+                    <p>Lie on your back with knees bent and feet flat, then lift your hips toward the ceiling while squeezing your glutes at the top. This gentle yet effective exercise targets your posterior chain, helping to counteract hours of sitting at desks. Complete three sets of twelve repetitions, focusing on the mind-muscle connection and holding the squeeze for two seconds at the peak.</p>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h2>Creating Your Perfect Routine</h2>
+                <p>Combine these movements into a twenty-minute circuit: squats, push-ups, planks, jumping jacks, and glute bridges. Rest for one minute between rounds. Remember that consistency trumps intensity—showing up three times weekly matters more than perfect form on day one. Listen to your body, stay hydrated, and celebrate small victories along the way.</p>
+            </div>
+
+            <div class="conclusion">
+                Your fitness journey is uniquely yours, and these home workouts provide the perfect launching pad toward a stronger, more vibrant you. Start today, be patient with your progress, and watch as your body and confidence transform one workout at a time.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
