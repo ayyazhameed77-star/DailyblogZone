@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Remedies for Cold and Cough</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber:      #b85c00;
+    --deep-amber: #8a3f00;
+    --warm-amber: #d4780a;
+    --honey:      #f0a830;
+    --soft-honey: #fde8b8;
+    --turmeric:   #e8b84a;
+    --cream:      #fdf8f0;
+    --warm-white: #fffaf3;
+    --brown-soft: #6b4226;
+    --text:       #2c1a0e;
+    --text-mid:   #5a3820;
+    --text-light: #8a6644;
+    --white:      #ffffff;
+    --green:      #2e6b3e;
+    --soft-green: #e8f5ec;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    line-height: 1.85;
+  }
+
+  /* ── Top bar ── */
+  .top-bar {
+    background: var(--deep-amber);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 28px;
+    font-size: 0.79rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.6px;
+  }
+  .top-bar strong { color: var(--soft-honey); }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(148deg, #5a2500 0%, #8a3f00 40%, #b85c00 100%);
+    padding: 78px 24px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 58% 52% at 12% 65%, rgba(240,168,48,0.11) 0%, transparent 65%),
+      radial-gradient(ellipse 48% 48% at 88% 28%, rgba(253,232,184,0.08) 0%, transparent 62%);
+  }
+  .hero::after {
+    content: '❋';
+    position: absolute;
+    font-size: 400px;
+    color: rgba(255,255,255,0.022);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .hero-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(253,232,184,0.15);
+    border: 1px solid rgba(253,232,184,0.35);
+    color: var(--soft-honey);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    padding: 7px 22px;
+    border-radius: 30px;
+    margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    color: #fff;
+    line-height: 1.18;
+    max-width: 740px;
+    margin: 0 auto 18px;
+    font-weight: 700;
+    position: relative;
+  }
+  .hero h1 em {
+    color: var(--honey);
+    font-style: italic;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.58);
+    font-size: 1rem;
+    font-weight: 300;
+    position: relative;
+    letter-spacing: 0.3px;
+  }
+  .hero-accent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+    position: relative;
+  }
+  .hero-accent-line {
+    width: 44px; height: 2px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 2px;
+  }
+  .hero-accent-dot {
+    width: 8px; height: 8px;
+    background: var(--honey);
+    border-radius: 50%;
+  }
+
+  /* ── Article wrap ── */
+  .article-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 54px 24px 84px;
+  }
+
+  /* ── Intro box ── */
+  .intro-box {
+    background: linear-gradient(135deg, #fef3de 0%, #fffaf3 100%);
+    border-left: 5px solid var(--honey);
+    border-radius: 0 16px 16px 0;
+    padding: 28px 34px;
+    margin-bottom: 52px;
+    font-size: 1.08rem;
+    font-style: italic;
+    color: var(--deep-amber);
+    font-family: 'Lora', serif;
+    line-height: 1.92;
+  }
+
+  /* ── Tip section ── */
+  .tip-section { margin-bottom: 50px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  .section-icon {
+    width: 54px; height: 54px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--deep-amber), var(--warm-amber));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.55rem;
+    flex-shrink: 0;
+    box-shadow: 0 6px 20px rgba(90,37,0,0.28);
+  }
+  .title-group span {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--warm-amber);
+    margin-bottom: 3px;
+  }
+  .title-group h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.6rem;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.22;
+  }
+
+  .tip-body p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    margin-bottom: 14px;
+    line-height: 1.9;
+  }
+
+  /* ── Action card ── */
+  .action-card {
+    background: var(--white);
+    border: 1px solid #f0ddb8;
+    border-radius: 14px;
+    padding: 20px 26px;
+    margin-top: 18px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    box-shadow: 0 3px 16px rgba(184,92,0,0.07);
+  }
+  .ac-icon { font-size: 1.3rem; margin-top: 1px; flex-shrink: 0; }
+  .ac-text { font-size: 0.94rem; color: var(--text-mid); line-height: 1.78; }
+  .ac-text strong { color: var(--deep-amber); font-weight: 600; }
+
+  /* ── Divider ── */
+  .spice-divider {
+    text-align: center;
+    margin: 28px 0;
+    color: var(--honey);
+    font-size: 1rem;
+    letter-spacing: 14px;
+    opacity: 0.4;
+  }
+
+  /* ── Golden drink recipe card ── */
+  .recipe-card {
+    background: linear-gradient(135deg, var(--deep-amber), #c46800);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin: 42px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .recipe-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 80% 20%,
+      rgba(253,232,184,0.12) 0%, transparent 60%);
+  }
+  .recipe-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    color: var(--soft-honey);
+    font-style: italic;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .recipe-card > p {
+    color: rgba(255,255,255,0.58);
+    font-size: 0.87rem;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .recipe-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    position: relative;
+  }
+  @media (max-width: 500px) { .recipe-steps { grid-template-columns: 1fr; } }
+  .r-step {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(253,232,184,0.2);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .r-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 1px; }
+  .r-step-text h5 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 3px;
+  }
+  .r-step-text p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.55;
+  }
+
+  /* ── Grandma wisdom box ── */
+  .grandma-box {
+    background: linear-gradient(135deg, var(--soft-green), #f0faf3);
+    border: 1px solid #b8dfc4;
+    border-radius: 16px;
+    padding: 26px 30px;
+    margin: 36px 0;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .grandma-box .gm-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .grandma-box h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.08rem;
+    color: var(--green);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .grandma-box p {
+    font-size: 0.93rem;
+    color: #3a5e44;
+    line-height: 1.78;
+  }
+
+  /* ── Remedies quick grid ── */
+  .remedies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 22px;
+  }
+  @media (max-width: 560px) { .remedies-grid { grid-template-columns: 1fr 1fr; } }
+  .remedy-chip {
+    background: var(--white);
+    border: 1px solid #f0ddb8;
+    border-radius: 14px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    transition: transform 0.2s;
+  }
+  .remedy-chip:hover { transform: translateY(-3px); }
+  .remedy-chip .rc-icon { font-size: 1.9rem; margin-bottom: 9px; }
+  .remedy-chip h4 {
+    font-family: 'Lora', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--deep-amber);
+    margin-bottom: 5px;
+  }
+  .remedy-chip p { font-size: 0.77rem; color: var(--text-light); line-height: 1.55; }
+
+  /* ── Daily care habits ── */
+  .habits-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  @media (max-width: 560px) { .habits-row { grid-template-columns: 1fr; } }
+  .habit-tile {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 20px 22px;
+    border: 1px solid #f0ddb8;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .habit-tile .ht-icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .habit-tile h4 {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--deep-amber);
+    margin-bottom: 6px;
+  }
+  .habit-tile p { font-size: 0.85rem; color: var(--text-light); line-height: 1.65; }
+
+  /* ── Closing ── */
+  .closing {
+    background: linear-gradient(135deg, #fef3de 0%, #fffaf3 100%);
+    border-radius: 20px;
+    padding: 42px 36px;
+    text-align: center;
+    margin-top: 58px;
+    border: 1px solid #f0ddb8;
+  }
+  .closing p {
+    font-family: 'Lora', serif;
+    font-size: 1.28rem;
+    font-style: italic;
+    color: var(--deep-amber);
+    line-height: 1.8;
+    margin-bottom: 14px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .closing small {
+    font-size: 0.78rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--warm-amber);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>✦ Natural Wellness &amp; Home Healing</span>
+  <span><strong>~800 Words</strong> · Cold &amp; Cough Guide</span>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">🍯 Home Healing Remedies</div>
+  <h1>Home Remedies for<br><em>Cold &amp; Cough</em></h1>
+  <p class="hero-sub">Warm, gentle, time-tested healing from your own kitchen</p>
+  <div class="hero-accent">
+    <div class="hero-accent-line"></div>
+    <div class="hero-accent-dot"></div>
+    <div class="hero-accent-line"></div>
+  </div>
+</div>
+
+<div class="article-wrap">
+
+  <div class="intro-box">
+    There is something deeply comforting about being cared for with remedies that come straight from the kitchen — the warmth of ginger, the golden glow of turmeric, the sweetness of honey drizzled into a steaming cup. Long before pharmacies existed, our grandmothers knew exactly what to reach for when a cold arrived. And the beautiful truth is, many of these ancient remedies are backed by modern science too. When a cold wraps itself around you, nature's medicine cabinet is closer than you think.
+  </div>
+
+  <!-- 1. Honey & Ginger -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🍯</div>
+      <div class="title-group">
+        <span>Remedy No. 1</span>
+        <h2>Honey & Ginger — The Golden Duo</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>If there is one combination that has stood the test of time across every culture and continent, it is honey and ginger. Raw honey is nature's most powerful antimicrobial agent — it coats the throat, soothes irritation, suppresses coughing, and creates an environment where bacteria and viruses simply cannot thrive. Studies have shown that honey is actually more effective at calming nighttime coughs in children than many over-the-counter syrups.</p>
+      <p>Ginger brings its own powerful medicine. It contains gingerols and shogaols — natural compounds that are strongly anti-inflammatory, antiviral, and warming. Ginger loosens congestion, reduces throat inflammation, and generates internal warmth that helps the body sweat out a cold faster.</p>
+    </div>
+    <div class="action-card">
+      <div class="ac-icon">☕</div>
+      <div class="ac-text"><strong>How to make it:</strong> Slice five to six pieces of fresh ginger and simmer in two cups of water for ten minutes. Strain into a mug, stir in one tablespoon of raw honey and a squeeze of fresh lemon. Sip slowly while warm. Drink two to three cups a day at the first sign of a cold for best results. Add a pinch of black pepper to amplify ginger's healing power even further.</div>
+    </div>
+  </div>
+
+  <div class="spice-divider">❋ ❋ ❋</div>
+
+  <!-- 2. Turmeric Milk -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🌿</div>
+      <div class="title-group">
+        <span>Remedy No. 2</span>
+        <h2>Turmeric Golden Milk</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Called "haldi doodh" in South Asian homes and now celebrated worldwide as golden milk, this warm, comforting drink has been used for thousands of years as a remedy for colds, coughs, chest infections, and sore throats. Turmeric's active compound, curcumin, is one of the most potent natural anti-inflammatory and antiviral substances found in any food on earth.</p>
+      <p>Warm milk itself is deeply soothing for an irritated throat, and the combination with turmeric creates a powerfully healing bedtime ritual — one that calms your cough, reduces inflammation in the airways, and helps you fall into the deep, restorative sleep your body needs to heal quickly.</p>
+    </div>
+    <div class="action-card">
+      <div class="ac-icon">✨</div>
+      <div class="ac-text"><strong>How to make it:</strong> Heat one cup of milk — dairy or plant-based both work beautifully — and whisk in half a teaspoon of turmeric powder, a pinch of black pepper (which dramatically increases curcumin absorption), a pinch of cinnamon, and half a teaspoon of honey. Drink warm every night before bed until your symptoms ease. It is soothing, nourishing, and genuinely effective.</div>
+    </div>
+  </div>
+
+  <!-- Recipe card -->
+  <div class="recipe-card">
+    <h3>Your Kitchen Cold-Fighting Kit</h3>
+    <p>Six ingredients your pantry already has — six powerful healers</p>
+    <div class="recipe-steps">
+      <div class="r-step">
+        <div class="r-icon">🍋</div>
+        <div class="r-step-text">
+          <h5>Lemon</h5>
+          <p>Packed with Vitamin C that strengthens immunity and breaks up mucus fast.</p>
+        </div>
+      </div>
+      <div class="r-step">
+        <div class="r-icon">🧄</div>
+        <div class="r-step-text">
+          <h5>Garlic</h5>
+          <p>Allicin in raw garlic is powerfully antiviral and antibacterial — nature's antibiotic.</p>
+        </div>
+      </div>
+      <div class="r-step">
+        <div class="r-icon">🌶️</div>
+        <div class="r-step-text">
+          <h5>Black Pepper</h5>
+          <p>A natural decongestant that clears nasal passages and boosts other remedies.</p>
+        </div>
+      </div>
+      <div class="r-step">
+        <div class="r-icon">🌿</div>
+        <div class="r-step-text">
+          <h5>Tulsi (Holy Basil)</h5>
+          <p>Sacred in Ayurveda — deeply antiviral, expectorant, and immunity-building.</p>
+        </div>
+      </div>
+      <div class="r-step">
+        <div class="r-icon">🧂</div>
+        <div class="r-step-text">
+          <h5>Salt Water</h5>
+          <p>Gargling with warm salt water kills throat bacteria and reduces swelling within hours.</p>
+        </div>
+      </div>
+      <div class="r-step">
+        <div class="r-icon">💨</div>
+        <div class="r-step-text">
+          <h5>Steam Inhalation</h5>
+          <p>Eucalyptus steam loosens thick mucus and opens congested airways immediately.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spice-divider">❋ ❋ ❋</div>
+
+  <!-- 3. Steam & Salt -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">💨</div>
+      <div class="title-group">
+        <span>Remedy No. 3</span>
+        <h2>Steam Inhalation & Salt Water Gargle</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>When your nose is blocked and your chest feels heavy, steam is one of the fastest, most immediate forms of relief available. The warm, moist air loosens thick, stubborn mucus in the nasal passages and chest, making it easier to breathe and allowing your body to clear the infection more efficiently. Adding eucalyptus oil or fresh mint leaves to the water amplifies the relief significantly — the natural menthol acts as a powerful decongestant.</p>
+      <p>Salt water gargling is equally brilliant in its simplicity. A warm salt water solution draws fluid out of inflamed throat tissues through osmosis, directly reducing the painful swelling that makes swallowing difficult. It also washes away viral particles sitting on the throat's surface before they can embed more deeply.</p>
+    </div>
+    <div class="action-card">
+      <div class="ac-icon">🌊</div>
+      <div class="ac-text"><strong>How to do it:</strong> For steam, pour boiling water into a bowl, add three to four drops of eucalyptus oil, tent a towel over your head, and breathe deeply for eight to ten minutes. For the salt gargle, dissolve half a teaspoon of salt in a glass of warm water and gargle deeply for thirty seconds, three to four times a day. Both can bring noticeable relief within the first use.</div>
+    </div>
+  </div>
+
+  <div class="grandma-box">
+    <div class="gm-icon">👵</div>
+    <div>
+      <h3>A Grandmother's Wisdom Worth Keeping</h3>
+      <p>In many Asian households, the first response to any cold is a bowl of hot chicken broth or vegetable soup with ginger, garlic, and a handful of fresh herbs. This is not just comfort — science confirms it. Hot broth reduces upper respiratory inflammation, thins mucus secretions, provides electrolytes lost during illness, and the steam alone opens blocked airways. When your grandmother said "eat your soup," she was absolutely right.</p>
+    </div>
+  </div>
+
+  <div class="spice-divider">❋ ❋ ❋</div>
+
+  <!-- 4. Rest & Fluids -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">😴</div>
+      <div class="title-group">
+        <span>Remedy No. 4</span>
+        <h2>Rest, Warmth & Plenty of Fluids</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>No remedy in the world works properly if you push yourself through a cold without rest. Sleep is when your immune system does its most powerful work — producing and releasing the cytokines and antibodies that fight the virus directly. Cutting your sleep short to continue a normal routine genuinely extends the duration of a cold by days.</p>
+      <p>Staying warm keeps your blood circulating efficiently to the areas fighting infection, while staying well-hydrated keeps mucus thin and easy to expel, preventing it from thickening into a breeding ground for secondary bacterial infections. Herbal teas are especially wonderful during a cold — they hydrate, warm, and heal all at once.</p>
+    </div>
+    <div class="action-card">
+      <div class="ac-icon">🍵</div>
+      <div class="ac-text"><strong>Best teas for cold and cough:</strong> Ginger and lemon tea, tulsi and honey tea, peppermint tea for blocked noses, liquorice root tea for sore throats, and cinnamon tea for warming the body from within. Add honey to every cup — it turns each sip into medicine. Aim for six to eight warm drinks throughout the day.</div>
+    </div>
+  </div>
+
+  <div class="spice-divider">❋ ❋ ❋</div>
+
+  <!-- 5. Daily Prevention -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🛡️</div>
+      <div class="title-group">
+        <span>Remedy No. 5</span>
+        <h2>Daily Habits That Prevent Colds</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>The most powerful remedy of all is never needing one. These gentle daily habits strengthen your immune system over time, making your body far more resilient against the viruses that circulate all around us.</p>
+    </div>
+    <div class="habits-row">
+      <div class="habit-tile">
+        <div class="ht-icon">🌅</div>
+        <h4>Morning Warm Water</h4>
+        <p>Start every day with warm water and lemon on an empty stomach. It flushes toxins, alkalises the body, and boosts immunity gently.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🧄</div>
+        <h4>Raw Garlic Daily</h4>
+        <p>One crushed raw garlic clove daily — in food or swallowed with water — builds powerful antiviral defence over weeks and months.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🌞</div>
+        <h4>Vitamin D & Sunlight</h4>
+        <p>Vitamin D deficiency is directly linked to increased colds and flu. Twenty minutes of morning sunshine is your best daily immune booster.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🤲</div>
+        <h4>Hand Hygiene</h4>
+        <p>Most cold viruses enter through the hands touching the face. Washing hands thoroughly and regularly is your single best prevention tool.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <p>"Nature placed everything you need to heal right in your kitchen and your garden. A warm cup of ginger honey tea, a bowl of soup, a good night's rest — sometimes the oldest remedies are still the wisest ones."</p>
+    <small>✦ Sip it · Steam it · Rest it · Heal it ✦</small>
+  </div>
+
+</div>
+</body>
+</html>
