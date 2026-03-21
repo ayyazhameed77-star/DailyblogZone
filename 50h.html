@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Snacks for Weight Loss</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #f5f9f5;
+    --ink:          #0e180c;
+    --avocado:      #4a7c30;
+    --avocado-deep: #2e5018;
+    --lime:         #78b040;
+    --lime-pale:    #f0f8e8;
+    --coral:        #e05040;
+    --coral-pale:   #fdf2f0;
+    --gold:         #c89028;
+    --gold-pale:    #fdf8e8;
+    --plum:         #884870;
+    --plum-pale:    #fdf0f8;
+    --teal:         #1e7878;
+    --teal-pale:    #e8f5f5;
+    --berry:        #983050;
+    --berry-pale:   #fdf0f4;
+    --cream:        #eaf4e4;
+    --muted:        #506848;
+    --rule:         #b8d8a8;
+    --pale:         #f8fbf8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.95;
+  }
+
+  /* ══ HERO ══ */
+  .hero {
+    background: linear-gradient(155deg, #1a3010 0%, #2e5018 30%, #4a7c30 65%, #3a6020 100%);
+    min-height: 370px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Floating food dots */
+  .food-dots {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .fd {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    animation: dotFloat 8s ease-in-out infinite;
+  }
+  .fd:nth-child(1){ width:180px;height:180px;top:-40px;left:-40px; animation-delay:0s;   }
+  .fd:nth-child(2){ width:120px;height:120px;bottom:10%;right:-20px;animation-delay:2s;   }
+  .fd:nth-child(3){ width:80px; height:80px; top:40%;  left:8%;    animation-delay:4s;   }
+  .fd:nth-child(4){ width:100px;height:100px;bottom:5%;left:40%;   animation-delay:1s;   }
+  .fd:nth-child(5){ width:140px;height:140px;top:10%;  right:12%;  animation-delay:3s;   }
+  @keyframes dotFloat {
+    0%,100%{ transform:translateY(0) scale(1);     opacity:.8; }
+    50%    { transform:translateY(-16px) scale(1.05);opacity:.5; }
+  }
+
+  /* Leaf accents */
+  .hero-leaf {
+    position: absolute;
+    font-size: 5rem;
+    opacity: 0.07;
+    animation: leafSway 6s ease-in-out infinite;
+  }
+  .hero-leaf:nth-child(6) { top:10%;  left:4%;   animation-delay:0s;   }
+  .hero-leaf:nth-child(7) { bottom:5%;right:4%;  animation-delay:2s;   font-size:7rem; }
+  .hero-leaf:nth-child(8) { top:50%;  right:18%; animation-delay:4s;   font-size:4rem; }
+  @keyframes leafSway {
+    0%,100%{ transform:rotate(-10deg); }
+    50%    { transform:rotate( 10deg) translateY(-10px); }
+  }
+
+  /* Wavy bottom cut */
+  .hero::after {
+    content:'';
+    position:absolute;
+    bottom:-2px;left:0;right:0;
+    height:50px;
+    background:var(--bg);
+    clip-path:polygon(
+      0 100%,0 65%,
+      4% 45%,8% 62%,12% 40%,16% 58%,20% 36%,
+      24% 54%,28% 32%,32% 52%,36% 30%,40% 50%,
+      44% 28%,48% 48%,52% 26%,56% 46%,60% 24%,
+      64% 44%,68% 22%,72% 42%,76% 20%,80% 40%,
+      84% 18%,88% 38%,92% 16%,96% 36%,100% 14%,
+      100% 100%
+    );
+  }
+
+  .hero-inner {
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:58px 36px 80px;
+  }
+
+  .hero-eyebrow {
+    font-family:'Manrope',sans-serif;
+    font-size:0.7rem;
+    font-weight:700;
+    letter-spacing:0.38em;
+    text-transform:uppercase;
+    color:rgba(200,240,160,0.88);
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    animation:fadeUp .8s ease both .05s;
+  }
+  .hero-eyebrow::before,.hero-eyebrow::after{
+    content:'';width:44px;height:1px;
+    background:rgba(180,230,130,0.4);
+  }
+
+  .hero h1 {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(2.4rem,6.5vw,4.1rem);
+    font-weight:900;
+    color:#fff;
+    line-height:1.07;
+    letter-spacing:-0.02em;
+    margin-bottom:18px;
+    animation:fadeUp .8s ease both .15s;
+  }
+  .hero h1 em { font-style:italic; color:#c8f090; }
+
+  .hero-sub {
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:rgba(200,240,180,0.86);
+    max-width:580px;
+    margin:0 auto 28px;
+    line-height:1.68;
+    animation:fadeUp .8s ease both .24s;
+  }
+
+  /* Snack emoji row */
+  .snack-row {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    animation:fadeUp .8s ease both .33s;
+  }
+  .snack-row .sr-line{width:40px;height:1px;background:rgba(180,230,130,0.4);}
+  .snack-emoji {
+    font-size:1.9rem;
+    display:inline-block;
+    animation:snackBounce 3s ease-in-out infinite;
+  }
+  .snack-emoji:nth-child(2){animation-delay:.3s;}
+  .snack-emoji:nth-child(3){animation-delay:.6s;}
+  .snack-emoji:nth-child(4){animation-delay:.9s;}
+  .snack-emoji:nth-child(5){animation-delay:1.2s;}
+  .snack-emoji:nth-child(6){animation-delay:1.5s;}
+  @keyframes snackBounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-7px);}
+  }
+
+  /* ══ WRAPPER ══ */
+  .wrapper {
+    max-width:760px;
+    margin:0 auto;
+    padding:64px 34px 110px;
+  }
+
+  /* Byline */
+  .byline {
+    font-family:'Manrope',sans-serif;
+    font-size:0.72rem;
+    font-weight:600;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:44px;
+    padding-bottom:22px;
+    border-bottom:2px solid var(--ink);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  /* Body */
+  p { margin-bottom:1.55em; color:#141e10; }
+
+  p.lead::first-letter {
+    font-family:'Playfair Display',serif;
+    font-size:5.5rem;
+    font-weight:900;
+    color:var(--avocado);
+    float:left;
+    line-height:0.70;
+    margin-right:13px;
+    margin-top:12px;
+    padding-bottom:6px;
+  }
+  p.lead { font-size:1.08rem; }
+
+  /* ══ Section headings ══ */
+  h2 {
+    font-family:'Playfair Display',serif;
+    font-size:1.52rem;
+    font-weight:700;
+    color:var(--ink);
+    margin:3em 0 0.65em;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .h2-orb {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:50px;
+    height:50px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--avocado-deep),var(--avocado));
+    color:#fff;
+    font-size:1.5rem;
+    flex-shrink:0;
+    box-shadow:0 4px 16px rgba(74,124,48,0.30);
+    transition:transform .3s;
+  }
+  .h2-orb:hover { transform:rotate(-12deg) scale(1.12); }
+  .h2-txt {
+    flex:1;
+    border-bottom:1.5px solid var(--rule);
+    padding-bottom:7px;
+    line-height:1.25;
+  }
+
+  /* ══ Pull quote ══ */
+  blockquote {
+    margin:3.5em 0;
+    padding:36px 46px;
+    background:var(--cream);
+    border-top:5px solid var(--avocado);
+    border-bottom:1px solid var(--rule);
+    position:relative;
+    text-align:center;
+  }
+  blockquote::before {
+    content:'\201C';
+    font-family:'Playfair Display',serif;
+    font-size:9rem;
+    color:var(--lime);
+    opacity:.15;
+    position:absolute;
+    top:-16px;left:16px;
+    line-height:1;
+    pointer-events:none;
+  }
+  blockquote p {
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:1.48rem;
+    color:var(--avocado-deep);
+    line-height:1.56;
+    margin:0 0 12px;
+    position:relative;
+    z-index:1;
+  }
+  blockquote p em { color:var(--coral); font-style:normal; }
+  blockquote cite {
+    font-family:'Manrope',sans-serif;
+    font-size:0.73rem;
+    font-weight:700;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-style:normal;
+    display:block;
+    position:relative;
+    z-index:1;
+  }
+
+  /* ══ Call-out boxes ══ */
+  .cbox {
+    padding:22px 28px;
+    margin:2.2em 0;
+    border-radius:3px;
+    border:1px solid transparent;
+    border-left:5px solid transparent;
+  }
+  .cbox strong {
+    font-family:'Manrope',sans-serif;
+    font-size:0.71rem;
+    font-weight:700;
+    letter-spacing:0.26em;
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:10px;
+  }
+  .cbox p { margin:0; font-size:0.97rem; line-height:1.82; }
+
+  .cbox-lime  { background:var(--lime-pale);  border-color:#b8e890; border-left-color:var(--lime);  }
+  .cbox-lime  strong{color:var(--avocado);}   .cbox-lime  p{color:#162808;}
+
+  .cbox-coral { background:var(--coral-pale); border-color:#f0b0a0; border-left-color:var(--coral); }
+  .cbox-coral strong{color:var(--coral);}     .cbox-coral p{color:#381008;}
+
+  .cbox-gold  { background:var(--gold-pale);  border-color:#e8c870; border-left-color:var(--gold);  }
+  .cbox-gold  strong{color:var(--gold);}      .cbox-gold  p{color:#3c2400;}
+
+  .cbox-plum  { background:var(--plum-pale);  border-color:#d0a8c0; border-left-color:var(--plum);  }
+  .cbox-plum  strong{color:var(--plum);}      .cbox-plum  p{color:#301028;}
+
+  .cbox-teal  { background:var(--teal-pale);  border-color:#90c8c8; border-left-color:var(--teal);  }
+  .cbox-teal  strong{color:var(--teal);}      .cbox-teal  p{color:#082828;}
+
+  .cbox-berry { background:var(--berry-pale); border-color:#e0a0b8; border-left-color:var(--berry); }
+  .cbox-berry strong{color:var(--berry);}     .cbox-berry p{color:#300818;}
+
+  /* ══ Snack cards ══ */
+  .snack-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:14px;
+    margin:3em 0;
+  }
+  .snack-card {
+    background:var(--pale);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:24px 14px 18px;
+    text-align:center;
+    transition:all .3s ease;
+    cursor:default;
+    position:relative;
+    overflow:hidden;
+  }
+  .snack-card::after {
+    content:'';
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:4px;
+    transition:height .3s ease;
+  }
+  .snack-card.sc-green::after  { background:var(--avocado); }
+  .snack-card.sc-coral::after  { background:var(--coral);   }
+  .snack-card.sc-gold::after   { background:var(--gold);    }
+  .snack-card.sc-plum::after   { background:var(--plum);    }
+  .snack-card.sc-teal::after   { background:var(--teal);    }
+  .snack-card.sc-berry::after  { background:var(--berry);   }
+  .snack-card.sc-lime::after   { background:var(--lime);    }
+  .snack-card.sc-peach::after  { background:#e09040;        }
+
+  .snack-card:hover { transform:translateY(-5px); box-shadow:0 12px 30px rgba(74,124,48,0.15); }
+  .snack-card:hover::after { height:7px; }
+
+  .snack-card .sk-icon  { font-size:2.4rem; display:block; margin-bottom:9px; }
+  .snack-card .sk-name  {
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:.95rem;
+    color:var(--ink);
+    display:block;
+    margin-bottom:4px;
+  }
+  .snack-card .sk-cal {
+    font-family:'Manrope',sans-serif;
+    font-size:.82rem;
+    font-weight:700;
+    color:var(--avocado);
+    display:block;
+    margin-bottom:3px;
+  }
+  .snack-card .sk-note {
+    font-family:'Manrope',sans-serif;
+    font-size:.68rem;
+    color:var(--muted);
+    line-height:1.45;
+  }
+
+  /* ══ Calorie visual strip ══ */
+  .calorie-strip {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:2px;
+    margin:2.8em 0;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 4px 18px rgba(0,0,0,0.1);
+  }
+  .cs-cell {
+    background:var(--avocado-deep);
+    padding:20px 12px;
+    text-align:center;
+    transition:all .3s ease;
+    position:relative;
+  }
+  .cs-cell:nth-child(2){ background:#3e6a22; }
+  .cs-cell:nth-child(3){ background:#527e28; }
+  .cs-cell:nth-child(4){ background:#649232; }
+  .cs-cell:nth-child(5){ background:#78a83e; }
+  .cs-cell:nth-child(6){ background:var(--lime); }
+  .cs-cell:hover { filter:brightness(1.2); transform:scaleY(1.04); }
+  .cs-emoji { font-size:1.5rem; display:block; margin-bottom:6px; }
+  .cs-name {
+    font-family:'Manrope',sans-serif;
+    font-size:.68rem;
+    font-weight:700;
+    color:rgba(255,255,255,.88);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    display:block;
+    margin-bottom:4px;
+  }
+  .cs-cal {
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:#d8f8a8;
+    display:block;
+  }
+
+  /* ══ Ornament ══ */
+  .ornament {
+    text-align:center;
+    margin:38px 0;
+    font-size:1.05rem;
+    letter-spacing:.7em;
+    color:var(--lime);
+    opacity:.5;
+  }
+
+  /* ══ Warning banner ══ */
+  .warn-banner {
+    background:linear-gradient(135deg,#1a3010,#2e5018);
+    border-radius:3px;
+    padding:30px 34px;
+    margin:2.8em 0;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+  }
+  .warn-icon { font-size:2.4rem; flex-shrink:0; margin-top:2px; }
+  .warn-body h3 {
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:#c8f090;
+    margin-bottom:8px;
+    font-weight:400;
+  }
+  .warn-body p {
+    font-family:'Manrope',sans-serif;
+    font-size:.91rem;
+    color:rgba(200,240,160,.82);
+    margin:0;
+    line-height:1.75;
+  }
+
+  /* ══ Footer ══ */
+  .footer-bar {
+    margin-top:64px;
+    padding-top:22px;
+    border-top:2px solid var(--ink);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .footer-bar > span {
+    font-family:'Manrope',sans-serif;
+    font-size:.7rem;
+    font-weight:600;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .footer-badge {
+    background:linear-gradient(135deg,var(--avocado-deep),var(--avocado));
+    color:#d8f8b8;
+    font-family:'Manrope',sans-serif;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    padding:6px 18px;
+    border-radius:2px;
+  }
+
+  /* ══ Animations ══ */
+  @keyframes fadeUp {
+    from{opacity:0;transform:translateY(22px);}
+    to  {opacity:1;transform:translateY(0);   }
+  }
+  .wrapper > * { animation:fadeUp .75s ease both; }
+  .wrapper > *:nth-child(1) { animation-delay:.05s; }
+  .wrapper > *:nth-child(2) { animation-delay:.12s; }
+  .wrapper > *:nth-child(3) { animation-delay:.19s; }
+  .wrapper > *:nth-child(n+4){ animation-delay:.26s; }
+
+  @media(max-width:580px){
+    .wrapper     { padding:42px 18px 72px; }
+    .hero-inner  { padding:42px 20px 72px; }
+    blockquote   { padding:26px 22px; }
+    .snack-grid  { grid-template-columns:repeat(2,1fr); }
+    .calorie-strip{ grid-template-columns:repeat(3,1fr); }
+    .warn-banner { flex-direction:column; gap:12px; }
+    h2 { gap:12px; }
+    .h2-orb{ min-width:42px;height:42px;font-size:1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="food-dots">
+    <div class="fd"></div><div class="fd"></div>
+    <div class="fd"></div><div class="fd"></div><div class="fd"></div>
+  </div>
+  <span class="hero-leaf">🍃</span>
+  <span class="hero-leaf">🌿</span>
+  <span class="hero-leaf">🍃</span>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Smart Eating &nbsp;·&nbsp; Weight Loss &nbsp;·&nbsp; Feel-Good Food</div>
+    <h1>Snacks That Work<br>While You Work —<br><em>Beautifully</em></h1>
+    <p class="hero-sub">
+      The right snack does not sabotage your goals. It supports them —
+      keeping hunger quiet, energy steady, and the joy of eating
+      fully, deliciously alive.
+    </p>
+    <div class="snack-row">
+      <div class="sr-line"></div>
+      <span class="snack-emoji">🥑</span>
+      <span class="snack-emoji">🫐</span>
+      <span class="snack-emoji">🥕</span>
+      <span class="snack-emoji">🥜</span>
+      <span class="snack-emoji">🍎</span>
+      <span class="snack-emoji">🥚</span>
+      <div class="sr-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ARTICLE BODY ══ -->
+<div class="wrapper">
+
+  <div class="byline">
+    <span>Nutrition &amp; Weight Wellness Desk</span>
+    <span>800 Words &nbsp;·&nbsp; The Smart Snacking Guide</span>
+  </div>
+
+  <p class="lead">
+    Snacking has an unfair reputation. For decades, it was blamed for
+    waistlines that would not shrink, for hunger that would not obey,
+    for all the quiet, in-between moments when willpower crumbled and
+    a hand reached for something it should not. But the problem was
+    never snacking itself. The problem was always what was being snacked
+    on. A bag of crisps engineered to be impossible to stop eating. A
+    biscuit that spikes blood sugar and crashes it twenty minutes later,
+    leaving you hungrier than before you started. The snack was never
+    the enemy. The engineering behind it was. Replace that engineering
+    with nature — with food that actually nourishes, satisfies, and
+    supports your metabolism — and snacking becomes one of the most
+    powerful tools for weight loss available. Not in spite of eating
+    between meals, but precisely because of it.
+  </p>
+
+  <blockquote>
+    <p>It is not about eating less. It is about eating <em>right</em> — and snacking is where most people lose that battle before they know it has begun.</p>
+    <cite>— Nutrition Science Wisdom</cite>
+  </blockquote>
+
+  <!-- 1 -->
+  <h2>
+    <span class="h2-orb">🥚</span>
+    <span class="h2-txt">Hard-Boiled Eggs — The Perfect Portable Protein</span>
+  </h2>
+
+  <p>
+    If there is one snack that earns its place on every weight-loss plan
+    without argument, it is the hard-boiled egg. A single large egg contains
+    six grams of high-quality protein — the most bioavailable protein found
+    in any whole food — alongside healthy fats, B vitamins, choline for brain
+    function, and a remarkable richness of nutrients for just seventy-eight
+    calories. Protein is the most satiating macronutrient available. It
+    suppresses the hunger hormone ghrelin, stimulates satiety hormones, and
+    requires more energy to digest than either carbohydrates or fat — a
+    phenomenon called the thermic effect of food. Studies have consistently
+    shown that people who eat eggs as a morning snack consume significantly
+    fewer calories at their next meal than those who eat a carbohydrate-based
+    snack of identical calorie content. Boil a batch on Sunday. Keep them
+    in the refrigerator. Reach for one when hunger calls. It is one of the
+    most efficient weight management decisions a person can make.
+  </p>
+
+  <div class="cbox cbox-lime">
+    <strong>Why Protein Snacks Win Every Time</strong>
+    <p>Protein takes 20–30% of its own calories to digest — compared to just 5–10% for carbohydrates. This means a 100-calorie protein snack effectively delivers fewer net calories than a 100-calorie carbohydrate snack. Over the course of weeks and months, this difference accumulates into something meaningful and real.</p>
+  </div>
+
+  <!-- 2 -->
+  <h2>
+    <span class="h2-orb">🥕</span>
+    <span class="h2-txt">Vegetables with Hummus — Volume, Fibre, and Flavour</span>
+  </h2>
+
+  <p>
+    There is a principle in weight management called volumetrics — the idea
+    that the physical volume of food in the stomach matters enormously to
+    how full you feel, independent of the calorie content. Raw vegetables
+    are the most powerful expression of this principle in snack form.
+    Carrot sticks, cucumber slices, celery, bell pepper strips, and
+    broccoli florets are predominantly water and fibre — they fill the
+    stomach with almost no caloric consequence. Pair them with two
+    tablespoons of hummus — rich in plant protein, healthy fats from tahini,
+    and complex carbohydrates from chickpeas — and the combination becomes
+    a genuinely satisfying snack that holds hunger at bay for two to three
+    hours. The whole plate comes in under 150 calories. No other snack
+    offers so much volume, so much nutrition, and so much satisfaction
+    for so few calories. This is not diet food. This is intelligent food,
+    wearing colour and crunch.
+  </p>
+
+  <!-- Calorie strip -->
+  <div class="calorie-strip">
+    <div class="cs-cell">
+      <span class="cs-emoji">🥕</span>
+      <span class="cs-name">Carrots</span>
+      <span class="cs-cal">~35 cal</span>
+    </div>
+    <div class="cs-cell">
+      <span class="cs-emoji">🥒</span>
+      <span class="cs-name">Cucumber</span>
+      <span class="cs-cal">~16 cal</span>
+    </div>
+    <div class="cs-cell">
+      <span class="cs-emoji">🫑</span>
+      <span class="cs-name">Bell Pepper</span>
+      <span class="cs-cal">~31 cal</span>
+    </div>
+    <div class="cs-cell">
+      <span class="cs-emoji">🥦</span>
+      <span class="cs-name">Broccoli</span>
+      <span class="cs-cal">~31 cal</span>
+    </div>
+    <div class="cs-cell">
+      <span class="cs-emoji">🫘</span>
+      <span class="cs-name">Hummus</span>
+      <span class="cs-cal">~70 cal</span>
+    </div>
+    <div class="cs-cell">
+      <span class="cs-emoji">✨</span>
+      <span class="cs-name">Total</span>
+      <span class="cs-cal">~150 cal</span>
+    </div>
+  </div>
+
+  <div class="ornament">— 🌿 —</div>
+
+  <!-- 3 -->
+  <h2>
+    <span class="h2-orb">🫐</span>
+    <span class="h2-txt">Greek Yogurt and Berries — Creamy, Sweet, Powerful</span>
+  </h2>
+
+  <p>
+    Plain Greek yogurt is a weight-loss snack of exceptional quality. It
+    contains twice the protein of regular yogurt — around 17 to 20 grams
+    per cup — making it one of the most protein-dense whole foods available.
+    Its probiotic cultures support the gut microbiome, which in turn
+    regulates appetite hormones and reduces the inflammation associated
+    with obesity. Add a generous handful of fresh berries — blueberries,
+    raspberries, or strawberries — and you introduce a wave of antioxidants,
+    fibre, and natural sweetness that satisfies the craving for something
+    indulgent without coming close to triggering a blood sugar spike. The
+    entire bowl comes in at around 150 to 200 calories, keeps hunger
+    suppressed for three hours, and delivers genuine pleasure. This is the
+    snack that asks you to feel no guilt — because there is none to feel.
+  </p>
+
+  <div class="cbox cbox-berry">
+    <strong>Choose Plain, Not Flavoured</strong>
+    <p>Flavoured Greek yogurts often contain 15–25 grams of added sugar — more than a chocolate bar. Always choose full-fat or low-fat plain Greek yogurt and add your own fresh fruit. The difference in sugar content is dramatic, and the natural sweetness of fresh berries is more satisfying than any manufactured flavouring ever designed.</p>
+  </div>
+
+  <!-- 4 -->
+  <h2>
+    <span class="h2-orb">🌰</span>
+    <span class="h2-txt">A Small Handful of Nuts — Healthy Fat That Satisfies</span>
+  </h2>
+
+  <p>
+    Nuts are calorie-dense — this is what frightens people away from them.
+    But density is not the enemy. Satiety is the goal — and nuts are among
+    the most satiating snacks in existence. A small handful of almonds
+    (about 23 nuts, 160 calories) provides 6 grams of protein, 3.5 grams
+    of fibre, and 14 grams of healthy monounsaturated fat. This combination
+    slows digestion, stabilises blood sugar, and keeps hunger completely
+    silent for two to three hours. Multiple large studies have found that
+    people who eat nuts regularly do not gain more weight than non-nut
+    eaters — and often weigh less, because nuts replace more calorie-dense,
+    nutrient-poor snacks, and because a portion of the fat in whole nuts
+    is not fully absorbed by the body. Walnuts, almonds, pistachios, and
+    cashews — portioned into a small bowl so you can see exactly what you
+    are eating — are one of the wisest snacks available at any weight.
+  </p>
+
+  <div class="cbox cbox-gold">
+    <strong>The Portion Rule</strong>
+    <p>Never eat nuts from the bag. Always measure a portion — approximately 28 grams or one small handful — into a bowl or your palm before eating. This simple act of portion awareness consistently results in consuming 30–40% fewer calories from nuts than eating directly from the bag, without any sense of deprivation.</p>
+  </div>
+
+  <!-- 5 -->
+  <h2>
+    <span class="h2-orb">🍎</span>
+    <span class="h2-txt">Apple Slices with Almond Butter — Nature's Perfect Pairing</span>
+  </h2>
+
+  <p>
+    An apple is already a brilliant snack — 95 calories, 4 grams of fibre,
+    Vitamin C, and a natural sweetness that satisfies the craving for
+    something sugary without the consequences. But add one tablespoon of
+    almond butter and it becomes something extraordinary. The fat and
+    protein in almond butter slow the absorption of the apple's natural
+    sugars, eliminating the blood sugar spike and producing a smooth,
+    sustained release of energy that lasts for hours. The combination of
+    crunch, creaminess, sweetness, and nourishment hits every sensory note
+    that snacks are supposed to hit — and it comes in at around 200
+    calories with protein, fibre, healthy fat, and a generous serve of
+    micronutrients. This is the snack you eat when you want something that
+    feels like a treat and works like a meal.
+  </p>
+
+  <!-- 6 -->
+  <h2>
+    <span class="h2-orb">🥑</span>
+    <span class="h2-txt">Avocado on Rice Cakes — Creamy, Filling, Brilliant</span>
+  </h2>
+
+  <p>
+    Half an avocado spread over two rice cakes with a squeeze of lemon
+    and a pinch of sea salt is one of those rare snacks that manages to
+    feel genuinely luxurious while being genuinely good for you. Avocado
+    is rich in monounsaturated oleic acid — the same fat found in olive
+    oil — which reduces inflammation, improves cholesterol ratios, and
+    produces a powerful satiety signal in the brain. Studies have found
+    that people who eat avocado as part of a meal report a 23% higher
+    satisfaction and 28% lower desire to eat over the following five
+    hours compared to those who ate an equivalent calorie snack without
+    avocado. The fat in avocado is not a weight-loss obstacle. It is
+    one of weight loss's most powerful tools — because feeling full
+    is what makes choosing less, easier.
+  </p>
+
+  <div class="cbox cbox-teal">
+    <strong>The Avocado Satisfaction Study</strong>
+    <p>A study published in Nutrition Journal found that overweight adults who ate half a fresh avocado with lunch reported a 40% decreased desire to eat for up to three hours afterward and a 28% lower desire to snack in the five hours following the meal — without any increase in total daily calorie intake. Fullness is the most underrated weight management strategy available.</p>
+  </div>
+
+  <!-- Snack grid -->
+  <div class="snack-grid">
+    <div class="snack-card sc-lime">
+      <span class="sk-icon">🥚</span>
+      <span class="sk-name">Hard-Boiled Egg</span>
+      <span class="sk-cal">~78 calories</span>
+      <span class="sk-note">6g protein, zero sugar</span>
+    </div>
+    <div class="snack-card sc-coral">
+      <span class="sk-icon">🥕</span>
+      <span class="sk-name">Veggies + Hummus</span>
+      <span class="sk-cal">~150 calories</span>
+      <span class="sk-note">High volume, high fibre</span>
+    </div>
+    <div class="snack-card sc-berry">
+      <span class="sk-icon">🫐</span>
+      <span class="sk-name">Greek Yogurt</span>
+      <span class="sk-cal">~160 calories</span>
+      <span class="sk-note">17–20g protein per cup</span>
+    </div>
+    <div class="snack-card sc-gold">
+      <span class="sk-icon">🌰</span>
+      <span class="sk-name">Handful of Nuts</span>
+      <span class="sk-cal">~160 calories</span>
+      <span class="sk-note">Protein, fat & fibre trio</span>
+    </div>
+    <div class="snack-card sc-green">
+      <span class="sk-icon">🍎</span>
+      <span class="sk-name">Apple + Almond Butter</span>
+      <span class="sk-cal">~200 calories</span>
+      <span class="sk-note">Sweet, creamy & sustained</span>
+    </div>
+    <div class="snack-card sc-teal">
+      <span class="sk-icon">🥑</span>
+      <span class="sk-name">Avocado Rice Cakes</span>
+      <span class="sk-cal">~190 calories</span>
+      <span class="sk-note">Hours of satisfaction</span>
+    </div>
+    <div class="snack-card sc-plum">
+      <span class="sk-icon">🍓</span>
+      <span class="sk-name">Mixed Berries</span>
+      <span class="sk-cal">~85 calories</span>
+      <span class="sk-note">Antioxidants & low sugar</span>
+    </div>
+    <div class="snack-card sc-peach">
+      <span class="sk-icon">🧀</span>
+      <span class="sk-name">Cottage Cheese</span>
+      <span class="sk-cal">~110 calories</span>
+      <span class="sk-note">Casein protein, very filling</span>
+    </div>
+  </div>
+
+  <div class="warn-banner">
+    <span class="warn-icon">💡</span>
+    <div class="warn-body">
+      <h3>The Golden Rule of Smart Snacking</h3>
+      <p>A weight-loss snack should do two things above all else: contain protein or fibre (or both), and be portioned in advance. Snack from a bowl, never from a bag. Snack on real food, never on engineered food. Snack with intention — because hunger is not an enemy to be suppressed. It is a signal to be answered wisely.</p>
+    </div>
+  </div>
+
+  <div class="cbox cbox-plum">
+    <strong>Timing Matters Too</strong>
+    <p>The best time to snack is when genuine hunger appears — typically 2–3 hours after a meal. Eating before hunger arrives keeps the body in a constant fed state that makes weight loss harder. Eating too long after hunger appears leads to ravenous overeating at the next meal. Snack at the right time, with the right food, in the right amount — and the body rewards you with balance it could not find otherwise.</p>
+  </div>
+
+  <p>
+    Weight loss does not require hunger. It does not require deprivation,
+    boredom, or the grim resignation of eating food you do not enjoy.
+    It requires only the knowledge of what to reach for — and the habit
+    of reaching for it. A hard-boiled egg in the refrigerator. A bag of
+    almonds measured into a small bowl. A container of Greek yogurt waiting
+    beside a punnet of berries. An avocado ripe and ready. These things
+    ask almost nothing of you except that you plan for them — and in
+    return, they keep you full, nourished, energised, and moving steadily
+    toward a body and a life that feels as good as the food that built it.
+    Snack wisely. Snack joyfully. And let every small, delicious choice
+    be the evidence that caring for yourself never had to feel like punishment.
+  </p>
+
+  <div class="footer-bar">
+    <span>Nutrition &amp; Weight Wellness Desk — Smart Snacking Guide</span>
+    <span class="footer-badge">~800 Words</span>
+  </div>
+
+</div>
+</body>
+</html>
