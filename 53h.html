@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tips for Healthy Bones</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #faf8f5;
+    --ink:          #1a140a;
+    --ivory:        #d4b878;
+    --ivory-deep:   #9a7830;
+    --ivory-pale:   #fdf8ec;
+    --sand:         #c8a050;
+    --bone:         #e8d8b8;
+    --stone:        #8a7860;
+    --steel:        #4878a0;
+    --steel-pale:   #eaf2f8;
+    --sage:         #4a7848;
+    --sage-pale:    #eef5ee;
+    --rust:         #b84820;
+    --rust-pale:    #fdf2ec;
+    --plum:         #784878;
+    --plum-pale:    #f8f0f8;
+    --cream:        #f5eedf;
+    --muted:        #7a6848;
+    --rule:         #ddd0b0;
+    --pale:         #fdfaf5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18.5px;
+    line-height: 1.95;
+  }
+
+  /* ══ HERO ══ */
+  .hero {
+    background: linear-gradient(155deg, #100c04 0%, #2a2010 30%, #5a4818 60%, #9a7830 100%);
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* X-ray / bone texture circles */
+  .xray-rings {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .xr {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(212,184,120,0.1);
+    animation: xrayPulse 6s ease-in-out infinite;
+  }
+  .xr:nth-child(1){ width:250px;height:250px;top:50%;left:10%; transform:translate(-50%,-50%);animation-delay:0s;  }
+  .xr:nth-child(2){ width:180px;height:180px;top:30%;right:8%; transform:translate(50%,-50%); animation-delay:1.5s;}
+  .xr:nth-child(3){ width:320px;height:320px;bottom:-80px;right:-60px;                         animation-delay:3s;  }
+  .xr:nth-child(4){ width:140px;height:140px;top:70%;left:30%;                                  animation-delay:4.5s;}
+  @keyframes xrayPulse {
+    0%,100%{ opacity:.5; transform:translate(-50%,-50%) scale(1);    }
+    50%    { opacity:.9; transform:translate(-50%,-50%) scale(1.06); }
+  }
+  .xr:nth-child(2){ animation: xrayPulse2 6s ease-in-out 1.5s infinite; }
+  .xr:nth-child(3){ animation: xrayPulse3 6s ease-in-out 3s infinite;  }
+  .xr:nth-child(4){ animation: xrayPulse4 6s ease-in-out 4.5s infinite;}
+  @keyframes xrayPulse2{0%,100%{opacity:.4;} 50%{opacity:.8;}}
+  @keyframes xrayPulse3{0%,100%{opacity:.3;} 50%{opacity:.7;}}
+  @keyframes xrayPulse4{0%,100%{opacity:.4;} 50%{opacity:.8;}}
+
+  /* Radial glow */
+  .hero::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(ellipse at 25% 50%, rgba(212,184,120,0.15) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 35%, rgba(200,160,80,0.10) 0%, transparent 50%);
+    pointer-events:none;
+  }
+
+  /* Carved bottom edge */
+  .hero::after {
+    content:'';
+    position:absolute;
+    bottom:-2px;left:0;right:0;
+    height:50px;
+    background:var(--bg);
+    clip-path:polygon(
+      0 100%,0 70%,
+      3% 50%,6% 68%,9% 46%,12% 65%,15% 43%,18% 62%,
+      21% 40%,24% 60%,27% 38%,30% 58%,33% 36%,36% 56%,
+      39% 34%,42% 54%,45% 32%,48% 52%,51% 30%,54% 50%,
+      57% 28%,60% 48%,63% 26%,66% 46%,69% 24%,72% 44%,
+      75% 22%,78% 42%,81% 20%,84% 40%,87% 18%,90% 38%,
+      93% 16%,96% 36%,100% 14%,100% 100%
+    );
+  }
+
+  .hero-inner {
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:60px 36px 84px;
+  }
+
+  .hero-eyebrow {
+    font-family:'Mulish',sans-serif;
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.38em;
+    text-transform:uppercase;
+    color:rgba(240,220,160,.88);
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    animation:fadeUp .8s ease both .05s;
+  }
+  .hero-eyebrow::before,.hero-eyebrow::after{
+    content:'';width:44px;height:1px;background:rgba(220,190,120,.4);
+  }
+
+  .hero h1 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.5rem,6.5vw,4.2rem);
+    font-weight:700;
+    color:#fff;
+    line-height:1.07;
+    letter-spacing:-.02em;
+    margin-bottom:18px;
+    animation:fadeUp .8s ease both .15s;
+  }
+  .hero h1 em { font-style:italic; color:#f8dea0; }
+
+  .hero-sub {
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.12rem;
+    color:rgba(240,218,170,.84);
+    max-width:580px;
+    margin:0 auto 28px;
+    line-height:1.7;
+    animation:fadeUp .8s ease both .24s;
+  }
+
+  /* Bone icon row */
+  .bone-row {
+    display:flex;align-items:center;justify-content:center;
+    gap:10px;
+    animation:fadeUp .8s ease both .32s;
+  }
+  .bone-row .br-line{width:50px;height:1px;background:rgba(220,190,120,.38);}
+  .bone-icon{
+    font-size:1.9rem;display:inline-block;
+    animation:boneGlow 3s ease-in-out infinite;
+  }
+  .bone-icon:nth-child(2){animation-delay:.5s;}
+  .bone-icon:nth-child(3){animation-delay:1s; font-size:1.3rem;}
+  .bone-icon:nth-child(4){animation-delay:1.5s;}
+  .bone-icon:nth-child(5){animation-delay:2s;}
+  @keyframes boneGlow{
+    0%,100%{transform:scale(1);   opacity:1;  }
+    50%    {transform:scale(1.12);opacity:.8; }
+  }
+
+  /* ══ WRAPPER ══ */
+  .wrapper{
+    max-width:760px;
+    margin:0 auto;
+    padding:64px 34px 110px;
+  }
+
+  /* Byline */
+  .byline{
+    font-family:'Mulish',sans-serif;
+    font-size:.72rem;font-weight:600;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:44px;padding-bottom:22px;
+    border-bottom:2px solid var(--ink);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+
+  /* Body */
+  p{margin-bottom:1.55em;color:#1e1408;}
+
+  p.lead::first-letter{
+    font-family:'Cormorant Garamond',serif;
+    font-size:5.6rem;font-weight:700;
+    color:var(--ivory-deep);
+    float:left;line-height:.70;
+    margin-right:13px;margin-top:12px;padding-bottom:6px;
+  }
+  p.lead{font-size:1.09rem;}
+
+  /* ══ Section headings ══ */
+  h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.58rem;font-weight:700;
+    color:var(--ink);
+    margin:3em 0 .65em;
+    display:flex;align-items:center;gap:16px;
+  }
+  .h2-orb{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:50px;height:50px;border-radius:50%;
+    background:linear-gradient(135deg,var(--ivory-deep),var(--ivory));
+    color:#fff;font-size:1.45rem;flex-shrink:0;
+    box-shadow:0 4px 16px rgba(154,120,48,.32);
+    transition:transform .3s ease;
+  }
+  .h2-orb:hover{transform:rotate(-10deg) scale(1.12);}
+  .h2-txt{
+    flex:1;
+    border-bottom:1.5px solid var(--rule);
+    padding-bottom:7px;line-height:1.25;
+  }
+
+  /* ══ Pull quote ══ */
+  blockquote{
+    margin:3.5em 0;
+    background:linear-gradient(150deg,#100c04,#3a2e14);
+    border-radius:4px;
+    padding:40px 48px;
+    text-align:center;
+    position:relative;overflow:hidden;
+  }
+  blockquote::before{
+    content:'\201C';
+    font-family:'Cormorant Garamond',serif;
+    font-size:10rem;color:rgba(212,184,120,.12);
+    position:absolute;top:-20px;left:14px;line-height:1;
+    pointer-events:none;
+  }
+  /* decorative inner frame */
+  blockquote::after{
+    content:'';
+    position:absolute;inset:8px;
+    border:1px solid rgba(212,184,120,.18);
+    border-radius:2px;pointer-events:none;
+  }
+  blockquote p{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-size:1.52rem;
+    color:#f8f0dc;line-height:1.56;
+    margin:0 0 14px;
+    position:relative;z-index:1;
+  }
+  blockquote p em{color:#f8dea0;font-style:normal;font-weight:600;}
+  blockquote cite{
+    font-family:'Mulish',sans-serif;
+    font-size:.73rem;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(240,210,140,.72);font-style:normal;
+    display:block;position:relative;z-index:1;
+  }
+
+  /* ══ Call-out boxes ══ */
+  .cbox{
+    padding:22px 28px;margin:2.2em 0;
+    border-radius:3px;
+    border:1px solid transparent;border-left:5px solid transparent;
+  }
+  .cbox strong{
+    font-family:'Mulish',sans-serif;font-size:.71rem;font-weight:700;
+    letter-spacing:.26em;text-transform:uppercase;display:block;margin-bottom:10px;
+  }
+  .cbox p{margin:0;font-size:.97rem;line-height:1.82;}
+
+  .cbox-ivory  {background:var(--ivory-pale); border-color:#e8d080;border-left-color:var(--ivory); }
+  .cbox-ivory  strong{color:var(--ivory-deep);} .cbox-ivory  p{color:#3c2800;}
+  .cbox-steel  {background:var(--steel-pale); border-color:#90b8d8;border-left-color:var(--steel); }
+  .cbox-steel  strong{color:var(--steel);    } .cbox-steel  p{color:#081828;}
+  .cbox-sage   {background:var(--sage-pale);  border-color:#90c890;border-left-color:var(--sage);  }
+  .cbox-sage   strong{color:var(--sage);     } .cbox-sage   p{color:#0e2010;}
+  .cbox-rust   {background:var(--rust-pale);  border-color:#e0a888;border-left-color:var(--rust);  }
+  .cbox-rust   strong{color:var(--rust);     } .cbox-rust   p{color:#381000;}
+  .cbox-plum   {background:var(--plum-pale);  border-color:#d0a8d0;border-left-color:var(--plum);  }
+  .cbox-plum   strong{color:var(--plum);     } .cbox-plum   p{color:#281028;}
+  .cbox-sand   {background:var(--ivory-pale); border-color:#e8c870;border-left-color:var(--sand);  }
+  .cbox-sand   strong{color:var(--stone);    } .cbox-sand   p{color:#301800;}
+
+  /* ══ Bone density timeline ══ */
+  .timeline{
+    margin:3em 0;
+    position:relative;
+    padding-left:28px;
+  }
+  .timeline::before{
+    content:'';
+    position:absolute;left:0;top:8px;bottom:8px;
+    width:3px;
+    background:linear-gradient(180deg,var(--ivory-deep),var(--ivory),var(--bone),var(--stone));
+    border-radius:2px;
+  }
+  .tl-item{
+    position:relative;
+    margin-bottom:28px;
+    padding-left:28px;
+  }
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-dot{
+    position:absolute;
+    left:-34px;top:8px;
+    width:16px;height:16px;border-radius:50%;
+    background:var(--ivory);
+    border:3px solid var(--bg);
+    box-shadow:0 0 0 2px var(--ivory-deep);
+  }
+  .tl-age{
+    font-family:'Mulish',sans-serif;
+    font-size:.72rem;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ivory-deep);
+    display:block;margin-bottom:3px;
+  }
+  .tl-desc{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1rem;color:var(--ink);
+    line-height:1.6;
+  }
+
+  /* ══ Tip cards ══ */
+  .tip-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+    gap:14px;
+    margin:3em 0;
+  }
+  .tip-card{
+    background:var(--pale);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:24px 14px 18px;
+    text-align:center;
+    transition:all .3s ease;
+    cursor:default;
+    position:relative;overflow:hidden;
+  }
+  .tip-card::before{
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;height:4px;
+    background:var(--ivory);
+    transition:height .3s ease;
+  }
+  .tip-card:nth-child(2)::before{background:var(--steel); }
+  .tip-card:nth-child(3)::before{background:var(--sage);  }
+  .tip-card:nth-child(4)::before{background:var(--rust);  }
+  .tip-card:nth-child(5)::before{background:var(--plum);  }
+  .tip-card:nth-child(6)::before{background:var(--sand);  }
+  .tip-card:nth-child(7)::before{background:#1878a0;      }
+  .tip-card:nth-child(8)::before{background:#b04860;      }
+
+  .tip-card:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(154,120,48,.15);}
+  .tip-card:hover::before{height:7px;}
+
+  .tc-icon {font-size:2.3rem;display:block;margin-bottom:10px;}
+  .tc-name {
+    font-family:'Cormorant Garamond',serif;font-weight:700;font-size:.98rem;
+    color:var(--ink);display:block;margin-bottom:4px;
+  }
+  .tc-note {
+    font-family:'Mulish',sans-serif;font-size:.68rem;
+    color:var(--muted);line-height:1.48;
+  }
+
+  /* ══ Calcium foods strip ══ */
+  .calcium-strip{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+    gap:2px;
+    margin:2.8em 0;
+    border-radius:4px;overflow:hidden;
+    box-shadow:0 4px 18px rgba(0,0,0,.1);
+  }
+  .ca-cell{
+    background:var(--ivory-deep);
+    padding:18px 10px;text-align:center;
+    transition:all .3s ease;
+  }
+  .ca-cell:nth-child(2){background:#7a5820;}
+  .ca-cell:nth-child(3){background:#986a24;}
+  .ca-cell:nth-child(4){background:#b87c28;}
+  .ca-cell:nth-child(5){background:#c88e30;}
+  .ca-cell:nth-child(6){background:var(--ivory);}
+  .ca-cell:hover{filter:brightness(1.2);transform:scaleY(1.04);}
+  .ca-emoji{font-size:1.5rem;display:block;margin-bottom:7px;}
+  .ca-food{
+    font-family:'Mulish',sans-serif;font-size:.65rem;font-weight:700;
+    color:rgba(255,245,220,.88);text-transform:uppercase;
+    letter-spacing:.08em;display:block;margin-bottom:4px;
+  }
+  .ca-mg{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:1.05rem;color:#f8dea0;display:block;
+  }
+
+  /* ══ Ornament ══ */
+  .ornament{
+    text-align:center;margin:38px 0;
+    font-size:1.05rem;letter-spacing:.7em;
+    color:var(--ivory);opacity:.5;
+  }
+
+  /* ══ Footer ══ */
+  .footer-bar{
+    margin-top:64px;padding-top:22px;
+    border-top:2px solid var(--ink);
+    display:flex;justify-content:space-between;
+    align-items:center;flex-wrap:wrap;gap:10px;
+  }
+  .footer-bar > span{
+    font-family:'Mulish',sans-serif;font-size:.7rem;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+  }
+  .footer-badge{
+    background:linear-gradient(135deg,var(--ivory-deep),var(--ivory));
+    color:#fff8e8;
+    font-family:'Mulish',sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;
+    padding:6px 18px;border-radius:2px;
+  }
+
+  /* ══ Animations ══ */
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(22px);}
+    to  {opacity:1;transform:translateY(0);   }
+  }
+  .wrapper > *{animation:fadeUp .75s ease both;}
+  .wrapper > *:nth-child(1) {animation-delay:.05s;}
+  .wrapper > *:nth-child(2) {animation-delay:.12s;}
+  .wrapper > *:nth-child(3) {animation-delay:.19s;}
+  .wrapper > *:nth-child(n+4){animation-delay:.26s;}
+
+  @media(max-width:580px){
+    .wrapper    {padding:42px 18px 72px;}
+    .hero-inner {padding:42px 20px 74px;}
+    blockquote  {padding:28px 22px;}
+    .tip-grid   {grid-template-columns:repeat(2,1fr);}
+    .calcium-strip{grid-template-columns:repeat(3,1fr);}
+    h2          {gap:12px;}
+    .h2-orb     {min-width:42px;height:42px;font-size:1.2rem;}
+    .timeline   {padding-left:20px;}
+    .tl-item    {padding-left:20px;}
+    .tl-dot     {left:-26px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="xray-rings">
+    <div class="xr"></div><div class="xr"></div>
+    <div class="xr"></div><div class="xr"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Bone Health &nbsp;·&nbsp; Calcium &amp; Strength &nbsp;·&nbsp; Lifelong Framework</div>
+    <h1>The <em>Silent Architecture</em><br>That Carries You<br>Through Every Day</h1>
+    <p class="hero-sub">
+      Your bones are not inert — they are living, breathing, constantly
+      rebuilding tissue. What you do today determines how strongly they
+      carry you for the next fifty years.
+    </p>
+    <div class="bone-row">
+      <div class="br-line"></div>
+      <span class="bone-icon">🦴</span>
+      <span class="bone-icon">🥛</span>
+      <span class="bone-icon">✦</span>
+      <span class="bone-icon">☀️</span>
+      <span class="bone-icon">🏋️</span>
+      <div class="br-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ARTICLE BODY ══ -->
+<div class="wrapper">
+
+  <div class="byline">
+    <span>Bone Health &amp; Nutrition Desk</span>
+    <span>800 Words &nbsp;·&nbsp; The Complete Bone Strength Guide</span>
+  </div>
+
+  <p class="lead">
+    Most people think of their bones the way they think of the walls of a
+    building — fixed, permanent, passively present. Once built, simply there.
+    But this is a profound misunderstanding of what bone actually is. Bone is
+    living tissue, constantly being broken down and rebuilt in a dynamic
+    process called remodelling — a process that happens every single day,
+    inside every single bone in your body, silently and ceaselessly from birth
+    to death. What you eat, how you move, how much sunlight you receive, and
+    the habits you build or neglect across a lifetime all write themselves
+    directly into the density, strength, and resilience of your skeletal
+    system. Build your bones well, and they carry you through life with
+    quiet, reliable power. Neglect them, and they become fragile long before
+    you realise the damage is done — often not until a fracture reveals what
+    decades of depletion have made invisible.
+  </p>
+
+  <blockquote>
+    <p>Bones are not tombstones. They are <em>living libraries</em> — recording every meal, every step, every hour of sunlight you have ever given them.</p>
+    <cite>— Bone Biology Research</cite>
+  </blockquote>
+
+  <!-- Bone density timeline -->
+  <h2>
+    <span class="h2-orb">⏳</span>
+    <span class="h2-txt">The Bone Density Lifecycle — When the Work Must Begin</span>
+  </h2>
+
+  <p>
+    Understanding when bone density is built, peaks, and begins to decline
+    is one of the most important pieces of health knowledge a person can
+    possess — because it determines when intervention matters most, and why
+    beginning early is not optional but essential.
+  </p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-age">Birth to Age 20</span>
+      <span class="tl-desc">The bone-building years. Up to 90% of peak bone mass is accumulated by age 18 in girls and 20 in boys. Calcium, Vitamin D, and physical activity during this window are irreplaceable investments.</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-age">Ages 25–30</span>
+      <span class="tl-desc">Peak bone mass is reached. The skeleton is at its densest and strongest. Maintaining this density through nutrition and exercise becomes the primary goal.</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-age">Ages 30–50</span>
+      <span class="tl-desc">Bone remodelling stays roughly in balance. Gradual and manageable loss begins. Lifestyle choices determine how slowly this process unfolds.</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-age">Age 50 and Beyond</span>
+      <span class="tl-desc">Bone loss accelerates — particularly in women after menopause when oestrogen, which protects bone density, falls sharply. Prevention and active maintenance become critical here.</span>
+    </div>
+  </div>
+
+  <!-- 1. Calcium -->
+  <h2>
+    <span class="h2-orb">🥛</span>
+    <span class="h2-txt">Feed Your Bones — Calcium Is the Foundation Stone</span>
+  </h2>
+
+  <p>
+    Calcium is the primary mineral that gives bone its hardness, density,
+    and strength — and the body cannot manufacture it. Every gram must
+    come from what you eat. When the diet does not supply enough calcium,
+    the body does something ruthless and necessary: it withdraws calcium
+    from the bones to maintain blood calcium levels, which are critical for
+    heart function, nerve signalling, and muscle contraction. Over time,
+    this withdrawal hollows the bones from within. Adults require
+    approximately 1,000 milligrams of calcium per day — rising to
+    1,200 milligrams for women over fifty and men over seventy. Dairy
+    products are the richest and most bioavailable sources, but they are
+    not the only ones. Dark leafy greens such as kale and bok choy,
+    canned sardines and salmon with bones, tofu set with calcium sulphate,
+    fortified plant milks, and almonds all contribute meaningfully to
+    daily calcium intake.
+  </p>
+
+  <!-- Calcium strip -->
+  <div class="calcium-strip">
+    <div class="ca-cell">
+      <span class="ca-emoji">🥛</span>
+      <span class="ca-food">Milk</span>
+      <span class="ca-mg">~300 mg</span>
+    </div>
+    <div class="ca-cell">
+      <span class="ca-emoji">🧀</span>
+      <span class="ca-food">Cheese</span>
+      <span class="ca-mg">~200 mg</span>
+    </div>
+    <div class="ca-cell">
+      <span class="ca-emoji">🥬</span>
+      <span class="ca-food">Kale</span>
+      <span class="ca-mg">~180 mg</span>
+    </div>
+    <div class="ca-cell">
+      <span class="ca-emoji">🐟</span>
+      <span class="ca-food">Sardines</span>
+      <span class="ca-mg">~350 mg</span>
+    </div>
+    <div class="ca-cell">
+      <span class="ca-emoji">🫘</span>
+      <span class="ca-food">Tofu</span>
+      <span class="ca-mg">~250 mg</span>
+    </div>
+    <div class="ca-cell">
+      <span class="ca-emoji">🌰</span>
+      <span class="ca-food">Almonds</span>
+      <span class="ca-mg">~76 mg</span>
+    </div>
+  </div>
+
+  <!-- 2. Vitamin D -->
+  <h2>
+    <span class="h2-orb">☀️</span>
+    <span class="h2-txt">Vitamin D — Without It, Calcium Cannot Work</span>
+  </h2>
+
+  <p>
+    Vitamin D is the gatekeeper of calcium. Without adequate Vitamin D,
+    the intestines absorb only 10 to 15 percent of the calcium you consume —
+    regardless of how calcium-rich your diet may be. With sufficient Vitamin D,
+    absorption rises to 30 to 40 percent. This single nutrient is the difference
+    between a calcium-rich diet that protects bones and one that does very
+    little. The skin manufactures Vitamin D when exposed to UVB sunlight —
+    fifteen to thirty minutes of midday sun on the arms and legs several
+    times a week is sufficient in summer months at most latitudes. But
+    in winter, in cloudy climates, and in anyone who works indoors, levels
+    fall rapidly. Fatty fish, egg yolks, and fortified foods provide dietary
+    sources, but supplementation — typically 1,000 to 2,000 IU daily —
+    is widely recommended for those at risk of deficiency, which includes
+    a remarkable proportion of the global population.
+  </p>
+
+  <div class="cbox cbox-steel">
+    <strong>The D3 and K2 Partnership</strong>
+    <p>Vitamin D3 increases calcium absorption from the gut, but Vitamin K2 ensures that calcium is deposited into bones and teeth rather than accumulating in arteries and soft tissue. These two vitamins work in powerful synergy for skeletal health. If you supplement with D3, consider combining it with K2 — particularly MK-7 form — for optimal bone and cardiovascular protection.</p>
+  </div>
+
+  <div class="ornament">— 🦴 —</div>
+
+  <!-- 3. Weight-bearing exercise -->
+  <h2>
+    <span class="h2-orb">🏋️</span>
+    <span class="h2-txt">Load Your Bones — Exercise Builds What Nutrition Begins</span>
+  </h2>
+
+  <p>
+    Bone responds to mechanical stress by becoming denser and stronger —
+    a biological principle called Wolff's Law, first described in 1892 and
+    confirmed repeatedly in every generation of research since. When you
+    walk, run, jump, lift, or climb, the impact and muscle pull transmitted
+    to the skeleton signals bone-building cells called osteoblasts to
+    deposit new mineral matrix. Weight-bearing exercise — walking, jogging,
+    dancing, hiking, resistance training — is one of the most powerful
+    stimuli for maintaining and increasing bone density at any age.
+    Resistance training with weights is particularly effective, because
+    the forces generated by muscle contraction against resistance are
+    transmitted through the bones in ways that cardiovascular exercise
+    cannot replicate. Even people in their seventies and eighties who
+    begin resistance training show measurable improvements in bone
+    density within six months. It is never too late to begin. And
+    starting earlier means far more of a lifetime spent building rather
+    than defending.
+  </p>
+
+  <div class="cbox cbox-sage">
+    <strong>The Best Bone-Building Exercises</strong>
+    <p>Walking and jogging build lower body bone density. Resistance training with weights builds density throughout the skeleton. Dancing, tennis, and hiking are all excellent. Swimming and cycling — though wonderful for cardiovascular fitness — are non-weight-bearing and provide minimal bone stimulus. Aim for at least 30 minutes of weight-bearing activity five days a week, and add two sessions of resistance training per week.</p>
+  </div>
+
+  <!-- 4. Avoid bone robbers -->
+  <h2>
+    <span class="h2-orb">⚠️</span>
+    <span class="h2-txt">The Bone Robbers — What Silently Depletes Your Skeleton</span>
+  </h2>
+
+  <p>
+    Building strong bones is only half the task. The other half is
+    understanding — and removing — the habits that quietly leach calcium
+    from the skeleton and accelerate bone loss. Excessive salt consumption
+    increases calcium excretion through the kidneys — every extra gram of
+    sodium causes the kidneys to flush additional calcium in the urine.
+    Excessive alcohol consumption interferes with the liver's ability to
+    activate Vitamin D and directly inhibits osteoblast activity. Smoking
+    reduces blood supply to the bones, impairs calcium absorption, and
+    accelerates bone density loss in women by hastening the onset of
+    menopause. Excessive caffeine — more than four cups of coffee daily —
+    mildly increases calcium excretion. And a sedentary life allows the
+    slow, unchallenged thinning of bone that only physical stress can prevent.
+    Each of these factors is controllable. None of them is inevitable.
+  </p>
+
+  <div class="cbox cbox-rust">
+    <strong>Bone Robbers to Limit</strong>
+    <p>Excessive salt (raises urinary calcium loss) · Alcohol (inhibits bone-building cells and Vitamin D activation) · Smoking (reduces bone blood supply) · Excessive caffeine over 4 cups daily · Prolonged sitting and physical inactivity · Very high-dose protein supplements without adequate calcium · Long-term use of corticosteroid medications (discuss with your doctor if relevant).</p>
+  </div>
+
+  <!-- 5. Collagen and Magnesium -->
+  <h2>
+    <span class="h2-orb">🌿</span>
+    <span class="h2-txt">Beyond Calcium — The Unsung Nutrients of Bone Health</span>
+  </h2>
+
+  <p>
+    Calcium and Vitamin D dominate the conversation around bone health —
+    but they are not the only players in the story. Magnesium, found
+    in nuts, seeds, leafy greens, and whole grains, is required for over
+    three hundred enzymatic reactions in the body, including the conversion
+    of Vitamin D to its active form. Without adequate magnesium, Vitamin D
+    cannot function properly — and calcium cannot be efficiently absorbed
+    or utilised. Collagen forms approximately 30 percent of bone's dry
+    weight — providing the flexible matrix that calcium crystals are
+    deposited into and that gives bone its resistance to fracture. Vitamin C
+    is essential for collagen synthesis, making citrus, kiwi, and berries
+    important components of bone health beyond their immune benefits.
+    Phosphorus, found in protein-rich foods, partners with calcium in
+    bone mineralisation. Potassium, from fruits and vegetables, reduces
+    the urinary calcium losses caused by dietary acid load. Strong bones
+    are built from a diverse, colourful, whole-food diet — not from a
+    single supplement taken in isolation.
+  </p>
+
+  <div class="cbox cbox-plum">
+    <strong>The Bone Nutrient Team</strong>
+    <p>Calcium · Vitamin D3 · Vitamin K2 · Magnesium · Phosphorus · Collagen (Vitamin C) · Potassium · Zinc · Boron. Every one of these nutrients contributes to the complex biochemistry of bone formation and maintenance. The best way to obtain them all is through a varied, whole-food diet rich in dairy or alternatives, leafy greens, fish, legumes, nuts, seeds, and fruit — supplemented where diet falls short after medical guidance.</p>
+  </div>
+
+  <!-- Tip cards -->
+  <div class="tip-grid">
+    <div class="tip-card">
+      <span class="tc-icon">🥛</span>
+      <span class="tc-name">Calcium Daily</span>
+      <span class="tc-note">1,000–1,200 mg from food first</span>
+    </div>
+    <div class="tip-card">
+      <span class="tc-icon">☀️</span>
+      <span class="tc-name">Sunlight</span>
+      <span class="tc-note">15–30 mins midday, skin exposed</span>
+    </div>
+    <div class="tip-card">
+      <span class="tc-icon">🏋️</span>
+      <span class="tc-name">Weight Training</span>
+      <span class="tc-note">2x per week, all ages benefit</span>
+    </div>
+    <div class="tip-card">
+      <span class="tc-icon">🚭</span>
+      <span class="tc-name">Quit Smoking</span>
+      <span class="tc-note">Smoking accelerates bone loss</span>
+    </div>
+    <div class="tip-card">
+      <span class="tc-icon">🥬</span>
+      <span class="tc-name">Eat Greens</span>
+      <span class="tc-note">Magnesium, Vitamin K1 & calcium</span>
+    </div>
+    <div class="tip-card">
+      <span class="tc-icon">🐟</span>
+      <span class="tc-name">Fatty Fish</span>
+      <span class="tc-note">Vitamin D3 and omega-3</span>
+    </div>
+    <div class="tip-card">
+      <span class="tc-icon">🚶</span>
+      <span class="tc-name">Walk Daily</span>
+      <span class="tc-note">Weight-bearing impact builds bone</span>
+    </div>
+    <div class="tip-card">
+      <span class="tc-icon">🧪</span>
+      <span class="tc-name">Get Tested</span>
+      <span class="tc-note">DEXA scan after 50 to check density</span>
+    </div>
+  </div>
+
+  <div class="cbox cbox-sand">
+    <strong>A Word About Bone Density Testing</strong>
+    <p>A DEXA scan — dual-energy X-ray absorptiometry — is the gold standard test for bone density and takes less than fifteen minutes. Women should ideally have their first scan at age 65, or earlier if risk factors such as early menopause, smoking, or a family history of osteoporosis are present. Men should discuss testing with their doctor from age 70. Knowing your bone density gives you the information to act — before a fracture delivers the same information far more painfully.</p>
+  </div>
+
+  <p>
+    Your skeleton has been carrying you since you drew your first breath.
+    It has held you upright through every storm, every stumble, every year
+    that asked more of you than you thought you had to give. It asks so little
+    in return — a glass of milk, a walk in the morning light, thirty minutes
+    of effort with a weight in each hand, a plate that includes vegetables
+    of every colour. These are not sacrifices. They are the smallest possible
+    acknowledgement of a structure that has never once let you fall without
+    catching you first. Nourish your bones today — with the same quiet,
+    faithful consistency with which they have always, wordlessly,
+    nourished everything else about you.
+  </p>
+
+  <div class="footer-bar">
+    <span>Bone Health &amp; Nutrition Desk — The Complete Bone Strength Guide</span>
+    <span class="footer-badge">~800 Words</span>
+  </div>
+
+</div>
+</body>
+</html>
