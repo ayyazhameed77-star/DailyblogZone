@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Stay Hydrated</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ocean:        #0a4a7a;
+    --deep-ocean:   #052a4a;
+    --mid-ocean:    #0e6aaa;
+    --sky-blue:     #1a9ad4;
+    --aqua:         #28c4e0;
+    --aqua-pale:    #e0f8fc;
+    --aqua-soft:    #f0fcfe;
+    --teal:         #0e8a7a;
+    --teal-soft:    #e0f5f2;
+    --sky-pale:     #e8f5fd;
+    --sky-soft:     #f4faff;
+    --gold:         #d08a10;
+    --warm-gold:    #f0aa30;
+    --gold-pale:    #fff8e8;
+    --coral:        #e05840;
+    --coral-soft:   #fff0ed;
+    --cream:        #f5fbfe;
+    --warm-white:   #f8fdff;
+    --text:         #052030;
+    --text-mid:     #0a3a58;
+    --text-light:   #4a7a98;
+    --white:        #ffffff;
+    --green:        #1a7a50;
+    --green-soft:   #e8f5ee;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Raleway', sans-serif;
+    color: var(--text);
+    line-height: 1.85;
+  }
+
+  .top-bar {
+    background: var(--deep-ocean);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 28px;
+    font-size: 0.79rem;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.7px;
+  }
+  .top-bar strong { color: var(--aqua); }
+
+  .hero {
+    background: linear-gradient(150deg, #020f1a 0%, #052a4a 28%, #0a4a7a 55%, #0e6aaa 80%, #1a9ad4 100%);
+    padding: 0;
+    min-height: 480px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(40,196,224,0.12);
+    animation: rippleout 8s ease-out infinite;
+    pointer-events: none;
+  }
+  .ripple:nth-child(1){ width:200px;height:200px;top:30%;right:10%; animation-delay:0s; }
+  .ripple:nth-child(2){ width:340px;height:340px;top:18%;right:4%;  animation-delay:2s; animation-duration:9s; }
+  .ripple:nth-child(3){ width:480px;height:480px;top:5%;right:-2%;  animation-delay:4s; animation-duration:10s; }
+  @keyframes rippleout {
+    0%   { transform: scale(0.6); opacity:0; }
+    20%  { opacity:1; }
+    100% { transform: scale(1.3); opacity:0; }
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 50% at 8% 72%, rgba(40,196,224,0.1) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 44% at 92% 20%, rgba(14,138,122,0.08) 0%, transparent 58%);
+  }
+  .hero-deco {
+    position: absolute;
+    bottom: -40px; right: -10px;
+    font-family: 'Crimson Text', serif;
+    font-size: 18vw;
+    color: rgba(255,255,255,0.022);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -4px;
+    font-weight: 600;
+  }
+  .hero-content {
+    position: relative;
+    padding: 86px 32px 62px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 2;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(40,196,224,0.14);
+    border: 1px solid rgba(40,196,224,0.3);
+    color: var(--aqua);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    padding: 7px 22px;
+    border-radius: 30px;
+    margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Crimson Text', serif;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    color: #fff;
+    line-height: 1.08;
+    max-width: 700px;
+    font-weight: 600;
+  }
+  .hero h1 em { color: #a8eef8; font-style: italic; }
+  .hero-sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 1.02rem;
+    font-weight: 300;
+    margin-top: 16px;
+    max-width: 500px;
+    line-height: 1.65;
+  }
+  .hero-stats { display: flex; gap: 28px; margin-top: 36px; flex-wrap: wrap; }
+  .hero-stat .hs-num {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.4rem;
+    color: var(--aqua);
+    line-height: 1;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .hero-stat .hs-label {
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.42);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+  }
+  .hero-bar {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--deep-ocean), var(--ocean), var(--sky-blue), var(--aqua), var(--teal), var(--green));
+  }
+
+  .article-wrap { max-width: 800px; margin: 0 auto; padding: 56px 24px 90px; }
+
+  .intro-box {
+    background: linear-gradient(135deg, var(--aqua-pale), var(--aqua-soft));
+    border-left: 5px solid var(--sky-blue);
+    border-radius: 0 16px 16px 0;
+    padding: 28px 34px;
+    margin-bottom: 52px;
+    font-size: 1.08rem;
+    font-style: italic;
+    color: var(--ocean);
+    font-family: 'Crimson Text', serif;
+    line-height: 1.92;
+  }
+
+  .warning-strip {
+    background: linear-gradient(135deg, var(--coral-soft), #fff5f3);
+    border: 1px solid #f0b8a8;
+    border-radius: 18px;
+    padding: 26px 30px;
+    margin-bottom: 48px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .warning-strip .ws-icon { font-size: 2.4rem; flex-shrink: 0; margin-top: 2px; }
+  .warning-strip h3 { font-family: 'Crimson Text', serif; font-size: 1.12rem; color: var(--coral); font-style: italic; margin-bottom: 8px; }
+  .warning-strip p { font-size: 0.93rem; color: #6a2018; line-height: 1.8; }
+  .warning-strip p strong { color: #4a1008; font-weight: 700; }
+
+  .tip-section { margin-bottom: 52px; }
+  .section-header { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+  .section-icon {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--deep-ocean), var(--mid-ocean));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; flex-shrink: 0;
+    box-shadow: 0 6px 22px rgba(5,42,74,0.3);
+  }
+  .title-group span { display: block; font-size: 10px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: var(--sky-blue); margin-bottom: 3px; }
+  .title-group h2 { font-family: 'Crimson Text', serif; font-size: 1.65rem; color: var(--text); font-weight: 600; line-height: 1.22; }
+  .tip-body p { font-size: 1rem; color: var(--text-mid); margin-bottom: 14px; line-height: 1.92; }
+
+  .action-card {
+    background: var(--white);
+    border: 1px solid #a8ddf0;
+    border-radius: 14px;
+    padding: 20px 26px;
+    margin-top: 18px;
+    display: flex; gap: 16px; align-items: flex-start;
+    box-shadow: 0 3px 18px rgba(10,74,122,0.07);
+  }
+  .ac-icon { font-size: 1.3rem; margin-top: 1px; flex-shrink: 0; }
+  .ac-text { font-size: 0.94rem; color: var(--text-mid); line-height: 1.78; }
+  .ac-text strong { color: var(--ocean); font-weight: 700; }
+
+  .wave-divider { display: flex; align-items: center; gap: 16px; margin: 30px 0; }
+  .wd-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--aqua), transparent); }
+  .wd-icon { font-size: 1.3rem; }
+
+  .hydration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 28px 0; }
+  @media(max-width:600px){ .hydration-grid { grid-template-columns: 1fr 1fr; } }
+  .hydration-card {
+    border-radius: 16px; padding: 20px 14px; text-align: center;
+    border: 1px solid transparent;
+    transition: transform 0.22s, box-shadow 0.22s; cursor: default;
+  }
+  .hydration-card:hover { transform: translateY(-5px); box-shadow: 0 14px 34px rgba(0,0,0,0.1); }
+  .hydration-card.water { background:linear-gradient(135deg,var(--aqua-pale),var(--aqua-soft)); border-color:#a8e8f8; }
+  .hydration-card.fruit { background:linear-gradient(135deg,#fdeaea,#fff6f6); border-color:#f0b8b8; }
+  .hydration-card.coco  { background:linear-gradient(135deg,#f0f8e8,#f8fdf4); border-color:#b8d898; }
+  .hydration-card.herb  { background:linear-gradient(135deg,#e8f5f0,#f4fbf8); border-color:#a0d8c0; }
+  .hydration-card.veg   { background:linear-gradient(135deg,#fff8e8,#fffef4); border-color:#f0d878; }
+  .hydration-card.milk  { background:linear-gradient(135deg,#f5f5f5,#fcfcfc); border-color:#d8d8d8; }
+  .hydration-card .hc-icon { font-size: 2.2rem; margin-bottom: 10px; }
+  .hydration-card h4 { font-family: 'Crimson Text', serif; font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .hydration-card .hc-pct { display: inline-block; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 6px; }
+  .hydration-card.water h4 { color: var(--ocean); }
+  .hydration-card.fruit h4 { color: #8a1818; }
+  .hydration-card.coco  h4 { color: #2a5a10; }
+  .hydration-card.herb  h4 { color: var(--teal); }
+  .hydration-card.veg   h4 { color: #7a5800; }
+  .hydration-card.milk  h4 { color: #4a4a4a; }
+  .hydration-card.water .hc-pct { background:#c8f0f8; color:var(--ocean); }
+  .hydration-card.fruit .hc-pct { background:#fce0e0; color:#8a1818; }
+  .hydration-card.coco  .hc-pct { background:#d8f0c8; color:#2a5a10; }
+  .hydration-card.herb  .hc-pct { background:#c8f0e8; color:var(--teal); }
+  .hydration-card.veg   .hc-pct { background:#fce8b0; color:#7a5800; }
+  .hydration-card.milk  .hc-pct { background:#e8e8e8; color:#4a4a4a; }
+  .hydration-card p { font-size: 0.77rem; line-height: 1.58; color: var(--text-light); }
+
+  .intake-block {
+    background: linear-gradient(145deg, var(--deep-ocean), var(--ocean));
+    border-radius: 22px; padding: 40px 34px; margin: 44px 0;
+    position: relative; overflow: hidden;
+  }
+  .intake-block::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 65% 55% at 88% 8%, rgba(40,196,224,0.14) 0%, transparent 62%);
+  }
+  .intake-block::after {
+    content: '💧'; position: absolute; font-size: 150px;
+    bottom: -15px; right: 18px; pointer-events: none; opacity: 0.1; line-height: 1;
+  }
+  .intake-block h3 { font-family: 'Crimson Text', serif; font-size: 1.55rem; color: var(--aqua); font-style: italic; margin-bottom: 6px; position: relative; }
+  .intake-block > p { color: rgba(255,255,255,0.5); font-size: 0.87rem; margin-bottom: 26px; position: relative; }
+  .intake-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; position: relative; }
+  @media(max-width:500px){ .intake-grid { grid-template-columns: 1fr; } }
+  .ig-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(40,196,224,0.22);
+    border-radius: 14px; padding: 18px 20px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .ig-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 1px; }
+  .ig-text h5 { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .ig-text p  { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.58; }
+
+  .urine-guide {
+    background: var(--white); border: 1px solid #a8ddf0;
+    border-radius: 18px; padding: 28px 30px; margin: 36px 0;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.05);
+  }
+  .urine-guide h3 { font-family: 'Crimson Text', serif; font-size: 1.12rem; color: var(--ocean); font-style: italic; margin-bottom: 6px; }
+  .urine-guide > p { font-size: 0.86rem; color: var(--text-light); margin-bottom: 22px; }
+  .urine-bars { display: flex; flex-direction: column; gap: 11px; }
+  .ub-row { display: flex; align-items: center; gap: 14px; }
+  .ub-swatch { width: 44px; height: 22px; border-radius: 6px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.06); }
+  .ub-label { width: 120px; font-size: 0.82rem; font-weight: 700; flex-shrink: 0; }
+  .ub-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.45; }
+  .ub-row.clr1 .ub-swatch { background: #fffff0; }
+  .ub-row.clr2 .ub-swatch { background: #fffde0; }
+  .ub-row.clr3 .ub-swatch { background: #fff3a0; }
+  .ub-row.clr4 .ub-swatch { background: #f8d860; }
+  .ub-row.clr5 .ub-swatch { background: #e0a820; }
+  .ub-row.clr6 .ub-swatch { background: #b87018; }
+  .ub-row.clr1 .ub-label { color: #2a8a2a; }
+  .ub-row.clr2 .ub-label { color: #2a8a2a; }
+  .ub-row.clr3 .ub-label { color: #8a7a00; }
+  .ub-row.clr4 .ub-label { color: #8a5000; }
+  .ub-row.clr5 .ub-label { color: #8a2800; }
+  .ub-row.clr6 .ub-label { color: #6a1800; }
+
+  .science-box {
+    background: linear-gradient(135deg, var(--teal-soft), #f0fdf9);
+    border: 1px solid #90d0c0; border-radius: 18px; padding: 28px 32px; margin: 36px 0;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .science-box .sb-icon { font-size: 2.4rem; flex-shrink: 0; margin-top: 2px; }
+  .science-box h3 { font-family: 'Crimson Text', serif; font-size: 1.1rem; color: var(--teal); font-style: italic; margin-bottom: 8px; }
+  .science-box p { font-size: 0.93rem; color: #0a3028; line-height: 1.8; }
+  .science-box p strong { color: var(--teal); }
+
+  .habits-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media(max-width:560px){ .habits-row { grid-template-columns: 1fr; } }
+  .habit-tile {
+    background: var(--white); border-radius: 14px; padding: 22px 22px;
+    border: 1px solid #a8ddf0; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .habit-tile .ht-icon { font-size: 1.7rem; margin-bottom: 10px; }
+  .habit-tile h4 { font-family: 'Crimson Text', serif; font-size: 1.05rem; font-weight: 600; color: var(--ocean); margin-bottom: 7px; }
+  .habit-tile p { font-size: 0.85rem; color: var(--text-light); line-height: 1.66; }
+
+  .closing {
+    background: linear-gradient(145deg, var(--deep-ocean), var(--mid-ocean));
+    border-radius: 22px; padding: 50px 38px; text-align: center; margin-top: 64px;
+    position: relative; overflow: hidden;
+  }
+  .closing::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(40,196,224,0.1) 0%, transparent 65%);
+  }
+  .closing-icon {
+    font-size: 3rem; margin-bottom: 18px; display: block; position: relative;
+    animation: droplet 3s ease-in-out infinite;
+  }
+  @keyframes droplet {
+    0%,100% { transform: translateY(0) scale(1); }
+    50%      { transform: translateY(-8px) scale(1.1); }
+  }
+  .closing p {
+    font-family: 'Crimson Text', serif; font-size: 1.3rem; font-style: italic;
+    color: rgba(255,255,255,0.9); line-height: 1.82; margin-bottom: 16px;
+    max-width: 580px; margin-left: auto; margin-right: auto; position: relative;
+  }
+  .closing small {
+    font-size: 0.78rem; letter-spacing: 2.5px; text-transform: uppercase;
+    color: rgba(40,196,224,0.65); font-weight: 700; position: relative;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>✦ Wellness &amp; Vital Health</span>
+  <span><strong>~800 Words</strong> · Hydration Guide</span>
+</div>
+
+<div class="hero">
+  <div class="ripple"></div>
+  <div class="ripple"></div>
+  <div class="ripple"></div>
+  <div class="hero-deco">FLOW</div>
+  <div class="hero-content">
+    <div class="hero-badge">💧 Daily Hydration Guide</div>
+    <h1>How to Stay<br><em>Hydrated</em></h1>
+    <p class="hero-sub">The simplest, most overlooked act of self-care — and the one that changes absolutely everything</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-num">60%</div><div class="hs-label">Of the human body is water</div></div>
+      <div class="hero-stat"><div class="hs-num">2–3L</div><div class="hs-label">Daily intake recommended</div></div>
+      <div class="hero-stat"><div class="hs-num">75%</div><div class="hs-label">Of people are chronically dehydrated</div></div>
+    </div>
+  </div>
+  <div class="hero-bar"></div>
+</div>
+
+<div class="article-wrap">
+
+  <div class="intro-box">
+    Water is not a wellness trend. It is not something you need to buy from a beautifully designed bottle or infuse with exotic fruits to make it count. It is the most fundamental requirement of every single cell in your body — and three quarters of the world's population walk around every day in a state of quiet, chronic dehydration, wondering why they feel tired, foggy, heavy, and dull. The good news is that no single habit you can build today will reward you more quickly, more noticeably, and more completely than simply learning to drink enough water.
+  </div>
+
+  <div class="warning-strip">
+    <div class="ws-icon">⚠️</div>
+    <div>
+      <h3>What Dehydration Is Actually Doing to You Right Now</h3>
+      <p>By the time you feel thirsty, <strong>you are already 1–2% dehydrated</strong> — and at that level, cognitive performance drops by up to 10%, physical performance drops by 20%, and fatigue sets in measurably. Chronic mild dehydration is linked to kidney stones, constipation, urinary tract infections, headaches, poor skin quality, joint pain, and impaired kidney function. Most people living in air-conditioned offices, drinking primarily coffee and tea, are in this state almost every single day without realising it.</p>
+    </div>
+  </div>
+
+  <!-- 1. Why water matters -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">💧</div>
+      <div class="title-group">
+        <span>Tip No. 1</span>
+        <h2>Understand Why Water Is Everything to Your Body</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Water is not simply a thirst-quencher. It is the medium in which every single biochemical process in your body takes place. It carries nutrients and oxygen to cells, flushes waste and toxins through the kidneys, regulates body temperature through sweat and respiration, lubricates joints to prevent pain and stiffness, cushions organs and the brain, and maintains the electrical balance of nerve signals. Without adequate water, none of these processes work properly — they slow, strain, and falter in ways that show up as fatigue, brain fog, headaches, and physical discomfort.</p>
+      <p>Your brain alone is about seventy-three percent water. When you are dehydrated, even slightly, brain cells shrink, communication between neurons slows, and the brain actually physically pulls away from the skull — which is why dehydration headaches feel so unpleasantly specific and persistent. Even mild dehydration causes significant drops in mood, focus, and mental clarity that many people mistakenly attribute to stress, poor sleep, or an overloaded schedule. In reality, they simply need a glass of water.</p>
+    </div>
+    <div class="action-card">
+      <div class="ac-icon">🌅</div>
+      <div class="ac-text"><strong>Start with morning hydration:</strong> Your body loses approximately 500ml of water overnight through breathing and perspiration alone. Drinking one to two large glasses of water immediately upon waking — before coffee, before checking your phone, before anything else — replenishes this overnight loss, activates your metabolism, and sets the foundation for a well-hydrated day from its very first moment.</div>
+    </div>
+  </div>
+
+  <div class="wave-divider"><div class="wd-line"></div><div class="wd-icon">🌊</div><div class="wd-line"></div></div>
+
+  <!-- Sources grid -->
+  <div class="hydration-grid">
+    <div class="hydration-card water"><div class="hc-icon">💧</div><h4>Plain Water</h4><div class="hc-pct">Best source</div><p>Zero calories, zero additives — the purest, most effective hydration available anywhere</p></div>
+    <div class="hydration-card fruit"><div class="hc-icon">🍉</div><h4>Water-Rich Fruits</h4><div class="hc-pct">90–96% water</div><p>Watermelon, cucumber, strawberries — hydration plus vitamins and antioxidants together</p></div>
+    <div class="hydration-card coco"><div class="hc-icon">🥥</div><h4>Coconut Water</h4><div class="hc-pct">Electrolytes</div><p>Natural potassium and electrolytes make it ideal for post-exercise rehydration naturally</p></div>
+    <div class="hydration-card herb"><div class="hc-icon">🍵</div><h4>Herbal Teas</h4><div class="hc-pct">Caffeine-free</div><p>Count fully toward daily intake — chamomile, peppermint, and hibiscus hydrate and heal</p></div>
+    <div class="hydration-card veg"><div class="hc-icon">🥦</div><h4>Water-Rich Veg</h4><div class="hc-pct">85–95% water</div><p>Celery, lettuce, courgette, and tomatoes contribute meaningfully to daily hydration goals</p></div>
+    <div class="hydration-card milk"><div class="hc-icon">🥛</div><h4>Milk &amp; Plant Milks</h4><div class="hc-pct">88% water</div><p>Highly hydrating and provide electrolytes — one of the best post-exercise recovery drinks</p></div>
+  </div>
+
+  <div class="wave-divider"><div class="wd-line"></div><div class="wd-icon">🌊</div><div class="wd-line"></div></div>
+
+  <!-- 2. How much -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🥤</div>
+      <div class="title-group">
+        <span>Tip No. 2</span>
+        <h2>How Much Water Do You Actually Need Each Day?</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>The old advice of "eight glasses a day" is a reasonable starting point — but it is too simplistic to be genuinely useful. Your ideal daily water intake depends on your body weight, how active you are, the climate you live in, and how much water you get from food. A reliable general guideline from the European Food Safety Authority is 2 litres for women and 2.5 litres for men per day from all sources, including food which typically provides around 20 percent of total intake from fruits, vegetables, soups, and other water-rich foods.</p>
+      <p>If you exercise vigorously, live in a hot climate, are pregnant or breastfeeding, or spend long hours in air-conditioned environments, your requirements increase substantially. Athletes can lose between one and three litres per hour of intense exercise. The simplest and most practical way to monitor your hydration in real time is to observe the colour of your urine throughout the day — it tells you everything you need to know instantly, honestly, and for free.</p>
+    </div>
+  </div>
+
+  <!-- Intake dark block -->
+  <div class="intake-block">
+    <h3>Smart Hydration Strategies — Making It Effortless</h3>
+    <p>Four practical approaches that make drinking enough water natural and automatic</p>
+    <div class="intake-grid">
+      <div class="ig-card"><div class="ig-icon">⏰</div><div class="ig-text"><h5>Drink by the Clock</h5><p>Set a gentle hourly reminder. One glass per hour between 8 AM and 8 PM equals 12 glasses daily with zero effort or thought required from you.</p></div></div>
+      <div class="ig-card"><div class="ig-icon">🍋</div><div class="ig-text"><h5>Infuse It With Flavour</h5><p>Add lemon, cucumber, mint, or berries to your water jug. The flavour makes water far more appealing and dramatically increases how much you drink naturally.</p></div></div>
+      <div class="ig-card"><div class="ig-icon">🫙</div><div class="ig-text"><h5>Use a Large Visible Bottle</h5><p>A 1-litre bottle on your desk means you only need to drink two full bottles to reach your goal. What is visible in front of you gets consumed — every time.</p></div></div>
+      <div class="ig-card"><div class="ig-icon">🍽️</div><div class="ig-text"><h5>One Glass Before Every Meal</h5><p>This single habit adds three glasses automatically, aids digestion, reduces overeating by creating fullness, and takes zero extra time or planning whatsoever.</p></div></div>
+    </div>
+  </div>
+
+  <!-- Urine colour guide -->
+  <div class="urine-guide">
+    <h3>The Urine Colour Test — Your Free, Instant Hydration Monitor</h3>
+    <p>Check the colour every time you use the bathroom — it never lies about your hydration status</p>
+    <div class="urine-bars">
+      <div class="ub-row clr1"><div class="ub-swatch"></div><div class="ub-label">Clear / White</div><div class="ub-desc">Over-hydrated — slightly reduce water intake, you are drinking more than needed</div></div>
+      <div class="ub-row clr2"><div class="ub-swatch"></div><div class="ub-label">Pale Straw ✓</div><div class="ub-desc">Perfect — you are beautifully hydrated. This is exactly where you want to be every day</div></div>
+      <div class="ub-row clr3"><div class="ub-swatch"></div><div class="ub-label">Light Yellow ✓</div><div class="ub-desc">Good — still well-hydrated. Drink your next glass at your normal, comfortable pace</div></div>
+      <div class="ub-row clr4"><div class="ub-swatch"></div><div class="ub-label">Dark Yellow</div><div class="ub-desc">Mildly dehydrated — drink a full glass of water now and increase today's overall intake</div></div>
+      <div class="ub-row clr5"><div class="ub-swatch"></div><div class="ub-label">Amber / Orange</div><div class="ub-desc">Dehydrated — drink 500ml immediately and significantly increase the rest of your day</div></div>
+      <div class="ub-row clr6"><div class="ub-swatch"></div><div class="ub-label">Brown / Dark</div><div class="ub-desc">Severely dehydrated or possible kidney issue — seek medical advice promptly and urgently</div></div>
+    </div>
+  </div>
+
+  <!-- 3. Skin and beauty -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">✨</div>
+      <div class="title-group">
+        <span>Tip No. 3</span>
+        <h2>Hydration Is Your Skin's Most Powerful Beauty Treatment</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Of all the expensive serums, creams, and treatments in the beauty industry, none can do what consistent, deep hydration does for your skin from the inside. Skin is the body's largest organ and is predominantly composed of water. When you are well-hydrated, skin cells are plump, full, and elastic — fine lines are less visible, the complexion looks clearer and more luminous, and the skin barrier functions properly to protect against environmental damage and infection.</p>
+      <p>When you are chronically dehydrated, skin cells shrink, the barrier weakens, sensitivity and redness increase, the appearance of fine lines deepens noticeably, and the skin takes on the dull, flat, tired look that no foundation or highlighter can truly fix. Dermatologists consistently rate hydration as the single most impactful and most underused skincare tool available — and it is completely free, visibly effective from the very first day, and has no side effects except perhaps more trips to the bathroom.</p>
+    </div>
+  </div>
+
+  <!-- Science box -->
+  <div class="science-box">
+    <div class="sb-icon">🧬</div>
+    <div>
+      <h3>Electrolytes — Why Water Alone Is Sometimes Not Enough</h3>
+      <p>Electrolytes — sodium, potassium, magnesium, and calcium — are minerals dissolved in your body's fluids that conduct the electrical signals keeping your heart beating, muscles contracting, and brain communicating. If you drink a great deal of plain water without replacing electrolytes lost through sweat, you can actually dilute your body's balance — causing dizziness, muscle cramps, headaches, and fatigue despite drinking plenty. <strong>After exercise, hot weather, or illness, always add electrolytes</strong> — coconut water, a pinch of sea salt in water, or an electrolyte drink — to ensure your hydration is truly complete and absorbed.</p>
+    </div>
+  </div>
+
+  <!-- Daily habits -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🌊</div>
+      <div class="title-group">
+        <span>Daily Practice</span>
+        <h2>Small Rituals That Keep You Beautifully Hydrated All Day</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Staying hydrated is not about willpower or discipline — it is about building small, automatic rituals that make water an effortless, ever-present part of every moment of your day.</p>
+    </div>
+    <div class="habits-row">
+      <div class="habit-tile">
+        <div class="ht-icon">🌅</div>
+        <h4>Two Glasses Before Breakfast</h4>
+        <p>Keep a full glass of water on your bedside table every night. Drink it the moment you wake — before you stand up, before your phone, before anything. Ten seconds. It sets your hydration for the entire day.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">☕</div>
+        <h4>Match Coffee with Water</h4>
+        <p>Caffeine is a mild diuretic. For every cup of coffee or tea you drink, follow it immediately with a glass of water. This one habit alone prevents the gradual dehydration that coffee drinkers often experience unknowingly all day.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🍽️</div>
+        <h4>Eat Your Water Too</h4>
+        <p>Build every meal around water-rich vegetables and fruits — cucumber, courgette, tomatoes, watermelon, strawberries, and lettuce. Up to 20% of your daily hydration comes effortlessly from food when your diet is plant-rich.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🌙</div>
+        <h4>End the Day With a Glass</h4>
+        <p>Drink one last full glass of water thirty minutes before bed. Your body continues using and losing water through the night — ending the day well-hydrated means you begin the next morning in a far better, more energised place.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <span class="closing-icon">💧</span>
+    <p>"Your body is sixty percent water — and it is asking for more of what it is made of, every single hour of every single day. Give it that gift. Simply, consistently, lovingly. Everything in your body runs better when it runs on water."</p>
+    <small>✦ Drink it · Flow with it · Glow from it ✦</small>
+  </div>
+
+</div>
+</body>
+</html>
