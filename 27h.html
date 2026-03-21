@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Exercises for Abs</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --paper: #faf6ef;
+    --accent: #c0392b;
+    --gold: #b8860b;
+    --muted: #6b5e4e;
+    --rule: #d4c8b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.85;
+    font-size: 17px;
+  }
+
+  /* Grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.5;
+  }
+
+  .wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 30px 100px;
+  }
+
+  /* Issue label */
+  .issue-tag {
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .issue-tag::before, .issue-tag::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.4;
+  }
+
+  /* Main headline */
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* Deck / subtitle */
+  .deck {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--gold);
+    padding-left: 18px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+
+  hr.ornament {
+    border: none;
+    text-align: center;
+    margin: 36px 0;
+    color: var(--gold);
+    font-size: 1.3rem;
+    letter-spacing: 0.4em;
+  }
+  hr.ornament::before { content: '✦  ✦  ✦'; }
+
+  hr.thin {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 30px 0;
+  }
+
+  /* Body text */
+  p {
+    margin-bottom: 1.4em;
+    color: #2c2013;
+  }
+
+  p.lead {
+    font-size: 1.12rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* Section headings */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 2.2em 0 0.6em;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  h2 .num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+    min-width: 32px;
+  }
+
+  /* Pull quote */
+  blockquote {
+    margin: 2.5em 0;
+    padding: 28px 32px;
+    background: #f0ebe1;
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* Tip box */
+  .tip-box {
+    background: #fff8ee;
+    border: 1px solid #e8d9b8;
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin: 2em 0;
+    border-radius: 2px;
+  }
+
+  .tip-box strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .tip-box p {
+    margin: 0;
+    font-size: 0.97rem;
+    color: var(--muted);
+  }
+
+  /* Author / byline */
+  .byline {
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+
+  /* Word count badge */
+  .footer-note {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid var(--ink);
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Fade-in animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .wrapper > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .wrapper > *:nth-child(1) { animation-delay: 0.05s; }
+  .wrapper > *:nth-child(2) { animation-delay: 0.12s; }
+  .wrapper > *:nth-child(3) { animation-delay: 0.19s; }
+  .wrapper > *:nth-child(4) { animation-delay: 0.26s; }
+  .wrapper > *:nth-child(n+5) { animation-delay: 0.32s; }
+
+  @media (max-width: 600px) {
+    .wrapper { padding: 40px 20px 70px; }
+    h1 { font-size: 2.1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="issue-tag">Fitness &amp; Wellness</div>
+
+  <h1>The <em>Best</em> Exercises for Abs — And Why They Actually Work</h1>
+
+  <p class="byline">By Fitness &amp; Health Desk &nbsp;·&nbsp; 800 Words</p>
+
+  <p class="deck">
+    Strong abdominals are not built on crunches alone. They are carved through
+    intention, consistency, and the right movements — performed with honesty and patience.
+  </p>
+
+  <hr class="thin">
+
+  <p class="lead">
+    Everyone wants a strong, defined core. But most people spend years chasing the wrong
+    exercises, burning energy without building real strength. The truth is simpler — and more
+    demanding — than any shortcut suggests. The best ab exercises are not flashy. They are
+    precise, deliberate, and deeply effective when done with care.
+  </p>
+
+  <p>
+    Your core is not just the front of your stomach. It wraps entirely around your torso —
+    the rectus abdominis in front, the obliques on the sides, and the deep transverse abdominis
+    underneath. A truly strong core means training all of these layers together, not just
+    chasing the mirror muscles you can see.
+  </p>
+
+  <blockquote>
+    <p>"Your abs are not just decoration. They are the engine behind every movement your body makes — lifting, twisting, standing tall, and staying balanced."</p>
+  </blockquote>
+
+  <h2><span class="num">01</span> The Plank</h2>
+
+  <p>
+    Deceptively simple, endlessly rewarding. The plank is the king of core exercises because
+    it demands total body tension — your abs, glutes, shoulders, and back must all work together
+    to hold one still, perfect line. Lie face down, rise onto your forearms and toes, and squeeze
+    every muscle as if bracing for a slow-motion punch. Hold for 30 to 60 seconds. When you
+    can hold it for two minutes without shaking, you have earned a genuinely strong core.
+  </p>
+
+  <h2><span class="num">02</span> Dead Bug</h2>
+
+  <p>
+    The dead bug sounds funny. The results are not. Lying on your back with arms pointing at
+    the ceiling and knees bent at 90 degrees, you slowly lower opposite arm and leg toward the
+    floor — without letting your lower back lift away from the ground. This single rule is where
+    the magic lives. It forces your deep core muscles to stabilize your spine under moving weight,
+    which is exactly what your body needs in real life. Three sets of eight repetitions per side
+    will humble even experienced gym-goers.
+  </p>
+
+  <div class="tip-box">
+    <strong>Pro Tip</strong>
+    <p>Press your lower back firmly into the floor throughout the entire dead bug movement. The moment it rises, the exercise becomes too easy — and too ineffective.</p>
+  </div>
+
+  <h2><span class="num">03</span> Bicycle Crunch</h2>
+
+  <p>
+    Among all crunching variations, the bicycle crunch stands out because it trains the obliques
+    directly. Lying on your back, you bring opposite elbow to opposite knee in a slow, controlled
+    pedaling motion — never rushing, never pulling your neck. The rotation is what makes it powerful.
+    Most people race through these and feel nothing. Slow them down to a two-count each side, and
+    your obliques will remind you they exist for several days afterward.
+  </p>
+
+  <h2><span class="num">04</span> Hanging Knee Raise</h2>
+
+  <p>
+    Find a pull-up bar and hang from it with straight arms. From there, draw your knees up toward
+    your chest slowly, pause for one second at the top, and lower them with control. No swinging,
+    no momentum. This exercise is extraordinary for the lower abdominal region — the area that
+    stubbornly resists most floor exercises. It also builds grip strength as a generous bonus. Start
+    with three sets of ten, and progress toward straight-leg raises as you grow stronger.
+  </p>
+
+  <h2><span class="num">05</span> Ab Wheel Rollout</h2>
+
+  <p>
+    Few tools are more humbling — or more effective — than a simple ab wheel. Kneeling on the floor,
+    you roll the wheel forward until your body forms a long diagonal line, then pull back using your
+    core alone. The full range of motion taxes every layer of your abdominals simultaneously. Beginners
+    should start with short rollouts and build distance over weeks. Do not rush this one. Rushing
+    leads to back pain, not abs.
+  </p>
+
+  <hr class="ornament">
+
+  <h2><span class="num">06</span> Mountain Climbers</h2>
+
+  <p>
+    Begin in a push-up position and drive your knees alternately toward your chest in a rapid,
+    running motion. Mountain climbers elevate your heart rate while demanding constant core
+    bracing — making them a rare exercise that builds both strength and cardiovascular fitness
+    at once. They also prepare your abs for dynamic, real-world movement rather than isolated,
+    gym-only patterns.
+  </p>
+
+  <h2><span class="num">07</span> Russian Twist</h2>
+
+  <p>
+    Seated on the floor with knees slightly bent and feet lifted, you rotate your torso side to side,
+    touching the floor on each pass. Add a light weight plate or medicine ball to increase the demand.
+    The Russian twist is one of the finest oblique exercises available — and it also challenges your
+    hip flexors and lower back in a way that transfers directly to sport and everyday movement.
+  </p>
+
+  <div class="tip-box">
+    <strong>Remember</strong>
+    <p>No amount of ab training will reveal your core if nutrition is ignored. Consistency in the kitchen and the gym together is what makes the difference — not any single exercise.</p>
+  </div>
+
+  <p>
+    The final truth about training your abs is the one nobody wants to hear: there are no
+    shortcuts. These seven exercises, performed three to four times per week with full
+    attention and proper form, will build a core that is genuinely strong — not just
+    camera-ready, but functional, durable, and capable. Start today. Start slowly. And
+    let the work speak for itself.
+  </p>
+
+  <div class="footer-note">
+    <span>Fitness &amp; Health Desk</span>
+    <span>
+      Words</span>
+  </div>
+
+</div>
+</body>
+</html>
