@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tips to Control Blood Pressure</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f7f4f9;
+    --ink:       #180a28;
+    --plum:      #6b2d6b;
+    --rose:      #c0395a;
+    --lavender:  #9b7ec8;
+    --soft:      #ede8f5;
+    --cream:     #fdf8ff;
+    --muted:     #7a6890;
+    --rule:      #d0c4e0;
+    --red-light: #fdf0f3;
+    --purple-light: #f3eeff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 17.5px;
+    line-height: 1.92;
+  }
+
+  /* Heartbeat top bar */
+  .top-bar {
+    background: var(--plum);
+    padding: 14px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .top-bar span {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #e8d8f8;
+  }
+  .top-bar .pulse {
+    width: 28px;
+    height: 2px;
+    background: var(--rose);
+    position: relative;
+    overflow: visible;
+  }
+  .heartbeat-line {
+    font-size: 1.3rem;
+    color: var(--rose);
+    animation: beat 1.2s ease infinite;
+  }
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }
+
+  .wrapper {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 64px 32px 100px;
+  }
+
+  /* Category tag */
+  .tag-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+  .tag {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--rose);
+    padding: 4px 14px;
+    border-radius: 2px;
+  }
+  .tag-line {
+    flex: 1;
+    height: 1px;
+    background: var(--rose);
+    opacity: 0.3;
+  }
+
+  /* Title */
+  h1 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(2.4rem, 5.8vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--plum);
+  }
+
+  /* Deck */
+  .deck {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 1.13rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--lavender);
+    padding-left: 18px;
+  }
+
+  /* Byline */
+  .byline {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 44px;
+    padding-bottom: 28px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  /* Body text */
+  p { margin-bottom: 1.5em; color: #2a1040; }
+
+  /* Drop cap */
+  p.lead::first-letter {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 5.2rem;
+    font-weight: 700;
+    color: var(--plum);
+    float: left;
+    line-height: 0.72;
+    margin-right: 12px;
+    margin-top: 10px;
+  }
+  p.lead { font-size: 1.07rem; }
+
+  /* Section headings */
+  h2 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 2.6em 0 0.55em;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 38px;
+    background: var(--plum);
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Pull quote */
+  blockquote {
+    margin: 3em 0;
+    background: var(--soft);
+    border-top: 4px solid var(--plum);
+    border-bottom: 1px solid var(--rule);
+    padding: 32px 36px;
+    text-align: center;
+  }
+  blockquote p {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 1.45rem;
+    color: var(--plum);
+    line-height: 1.55;
+    margin: 0;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  /* Info boxes */
+  .info-box {
+    background: var(--purple-light);
+    border: 1px solid #c8b0e8;
+    border-left: 5px solid var(--lavender);
+    padding: 22px 26px;
+    margin: 2em 0;
+    border-radius: 3px;
+  }
+  .info-box strong {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--plum);
+    display: block;
+    margin-bottom: 9px;
+  }
+  .info-box p { margin: 0; font-size: 0.97rem; color: #300850; line-height: 1.78; }
+
+  /* Warning box */
+  .warn-box {
+    background: var(--red-light);
+    border: 1px solid #e8b0c0;
+    border-left: 5px solid var(--rose);
+    padding: 22px 26px;
+    margin: 2em 0;
+    border-radius: 3px;
+  }
+  .warn-box strong {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    display: block;
+    margin-bottom: 9px;
+  }
+  .warn-box p { margin: 0; font-size: 0.97rem; color: #500820; line-height: 1.78; }
+
+  /* Ornament */
+  .ornament {
+    text-align: center;
+    margin: 36px 0;
+    font-size: 1.1rem;
+    letter-spacing: 0.65em;
+    color: var(--lavender);
+    opacity: 0.7;
+  }
+
+  /* BP numbers visual */
+  .bp-visual {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 2.5em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .bp-num {
+    text-align: center;
+  }
+  .bp-num .value {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--plum);
+    line-height: 1;
+  }
+  .bp-num .label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .bp-slash {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3rem;
+    color: var(--rule);
+    font-weight: 300;
+  }
+  .bp-caption {
+    width: 100%;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  /* Footer */
+  .footer-bar {
+    margin-top: 60px;
+    padding-top: 22px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer-bar span {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .footer-bar .badge {
+    background: var(--plum);
+    color: #fff;
+    padding: 5px 16px;
+    font-size: 0.7rem;
+    border-radius: 2px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  /* Animations */
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .wrapper > * {
+    animation: riseIn 0.8s ease both;
+  }
+  .wrapper > *:nth-child(1) { animation-delay: 0.05s; }
+  .wrapper > *:nth-child(2) { animation-delay: 0.13s; }
+  .wrapper > *:nth-child(3) { animation-delay: 0.21s; }
+  .wrapper > *:nth-child(n+4) { animation-delay: 0.29s; }
+
+  @media (max-width: 580px) {
+    .wrapper { padding: 40px 18px 70px; }
+    h1 { font-size: 2.1rem; }
+    blockquote { padding: 22px 20px; }
+    .bp-visual { gap: 16px; padding: 20px; }
+    .bp-num .value { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>Heart Health</span>
+  <span class="heartbeat-line">♥</span>
+  <span>Blood Pressure Guide</span>
+  <span class="heartbeat-line">♥</span>
+  <span>Live Well</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="tag-row">
+    <span class="tag">Health</span>
+    <div class="tag-line"></div>
+  </div>
+
+  <h1>Your Heart Is <em>Speaking.</em><br>Are You Listening?</h1>
+
+  <p class="deck">
+    High blood pressure rarely announces itself with pain or drama. It works in silence —
+    for years — until one day it cannot be ignored. These are the habits that quiet it.
+  </p>
+
+  <div class="byline">Heart Health Desk &nbsp;·&nbsp; 800 Words &nbsp;·&nbsp; A Guide for Every Age</div>
+
+  <p class="lead">
+    High blood pressure is called the silent killer for a reason. It causes no obvious pain.
+    It produces no dramatic symptoms in its early stages. It simply sits inside your arteries,
+    pressing quietly against the walls of your blood vessels, wearing them down year by year —
+    until one day the damage surfaces as a heart attack, a stroke, or kidney failure. Around
+    one billion people worldwide live with high blood pressure, and a stunning number of them
+    do not know it yet. But here is what matters most: it is one of the most controllable
+    conditions in medicine — if you are willing to make the right choices every single day.
+  </p>
+
+  <div class="bp-visual">
+    <div class="bp-num">
+      <div class="value">120</div>
+      <div class="label">Systolic (mmHg)</div>
+    </div>
+    <div class="bp-slash">/</div>
+    <div class="bp-num">
+      <div class="value">80</div>
+      <div class="label">Diastolic (mmHg)</div>
+    </div>
+    <div class="bp-caption">Normal Blood Pressure — The Target to Aim For</div>
+  </div>
+
+  <blockquote>
+    <p>"Every time your heart beats, it is working to keep you alive. The least you can do is make that work a little easier."</p>
+    <cite>— Cardiology Wisdom</cite>
+  </blockquote>
+
+  <h2><span class="num-badge">1</span> Reduce Your Salt Intake — Seriously</h2>
+
+  <p>
+    Sodium is the single most direct dietary trigger of high blood pressure in most people.
+    When you consume too much salt, your body retains water to dilute it — and that extra
+    fluid increases the volume of blood pressing through your arteries. The World Health
+    Organization recommends no more than five grams of salt per day. Most people consume
+    nearly double that without realizing it, because salt hides in bread, canned foods,
+    restaurant meals, sauces, and processed snacks. Reading labels and cooking at home with
+    herbs and spices instead of salt can lower your systolic blood pressure by four to five
+    points within weeks. That is not a small number — that is meaningful protection.
+  </p>
+
+  <h2><span class="num-badge">2</span> Move Your Body Every Day</h2>
+
+  <p>
+    Exercise is one of the most powerful blood pressure medications that exists — and it has
+    no side effects except feeling better. Thirty minutes of moderate aerobic exercise most
+    days of the week — walking briskly, cycling, swimming, or dancing — strengthens the
+    heart muscle so it can pump blood more efficiently with less effort. When the heart works
+    more efficiently, the pressure inside your arteries falls. Regular exercise can reduce
+    systolic blood pressure by five to eight points in people with hypertension. The key word
+    is regular. Three days of walking after months of stillness will not change much. But
+    thirty minutes every day, over thirty days, absolutely will.
+  </p>
+
+  <div class="info-box">
+    <strong>Quick Tip</strong>
+    <p>You do not need a gym. A 30-minute walk in the evening after dinner is one of the most effective and accessible blood pressure interventions available — and it also aids digestion and reduces stress simultaneously.</p>
+  </div>
+
+  <h2><span class="num-badge">3</span> Eat for Your Heart — The DASH Way</h2>
+
+  <p>
+    The DASH diet — Dietary Approaches to Stop Hypertension — is the most thoroughly researched
+    eating pattern for reducing blood pressure, and its principles are simpler than any fad diet.
+    Eat more fruits, vegetables, whole grains, legumes, and low-fat dairy. Eat less red meat,
+    sugar, and saturated fat. The potassium in bananas, sweet potatoes, and spinach actively
+    counteracts sodium's pressure-raising effect. The magnesium in nuts, seeds, and leafy greens
+    relaxes blood vessel walls. Eating this way can lower systolic pressure by up to eleven points
+    — more than some medications achieve — when followed consistently over two months.
+  </p>
+
+  <div class="ornament">— ♥ —</div>
+
+  <h2><span class="num-badge">4</span> Manage Stress — It Is Not Optional</h2>
+
+  <p>
+    Every moment of acute stress causes your body to release adrenaline and cortisol — hormones
+    that temporarily spike your blood pressure by narrowing blood vessels and increasing heart
+    rate. In short bursts, this is survivable. As a chronic daily state — which describes the
+    lives of millions of modern people — it contributes significantly to sustained hypertension.
+    Deep breathing exercises, meditation, yoga, time in nature, and even ten minutes of quiet
+    reading have all been shown to reduce cortisol levels and lower blood pressure measurably.
+    The mind and the heart are not separate systems. What you feel in your thoughts, your
+    arteries feel too.
+  </p>
+
+  <h2><span class="num-badge">5</span> Limit Alcohol and Quit Smoking</h2>
+
+  <p>
+    Alcohol, in amounts beyond one drink per day for women and two for men, raises blood pressure
+    consistently and meaningfully — and it interferes with blood pressure medications, making
+    them less effective. Smoking is even more damaging: every single cigarette causes an
+    immediate spike in blood pressure and progressively damages the walls of the arteries,
+    making them stiffer and narrower over time. People who quit smoking see measurable
+    improvements in blood pressure within weeks. These are not small lifestyle tweaks — they
+    are among the highest-impact changes a person with hypertension can make.
+  </p>
+
+  <h2><span class="num-badge">6</span> Sleep Well — Your Heart Recovers at Night</h2>
+
+  <p>
+    During deep sleep, blood pressure naturally falls by ten to twenty percent — a restorative
+    dip that allows the heart and arteries to recover from the demands of the day. People who
+    regularly get less than six hours of sleep do not experience this recovery fully, and their
+    baseline blood pressure climbs over time as a result. Aim for seven to nine hours of quality
+    sleep each night. Keep a consistent bedtime. Darken your room completely. Avoid screens in
+    the final hour before sleep. These habits protect your heart in ways that no supplement
+    can replicate.
+  </p>
+
+  <h2><span class="num-badge">7</span> Monitor It — Knowledge Is Protection</h2>
+
+  <p>
+    You cannot manage what you do not measure. A simple home blood pressure monitor costs very
+    little and gives you something priceless — awareness. Check your blood pressure at the same
+    time each day, in a quiet seated position, after five minutes of rest. Record the numbers.
+    Share them with your doctor. Patterns reveal themselves over weeks, and early action on a
+    rising trend prevents the emergencies that happen when it is ignored for years. Knowing your
+    numbers is not anxiety — it is responsibility.
+  </p>
+
+  <div class="warn-box">
+    <strong>When to See a Doctor Immediately</strong>
+    <p>If your blood pressure reads consistently above 140/90 mmHg, or if you experience sudden severe headache, chest pain, vision changes, or difficulty breathing — seek medical attention right away. Natural habits support health beautifully, but some cases require medical treatment alongside lifestyle changes.</p>
+  </div>
+
+  <p>
+    Controlling blood pressure is not about one dramatic change. It is about a quiet, steady
+    commitment — the salt you skip today, the walk you take this evening, the screen you put
+    down before bed. None of these acts feel heroic in the moment. But together, sustained
+    over months and years, they add up to a heart that beats stronger, longer, and with
+    far less strain. Your heart has been working for you every second of every day since
+    before you were born. These seven habits are how you work for it in return.
+  </p>
+
+  <div class="footer-bar">
+    <span>Heart Health Desk — Hypertension Guide</span>
+    <span class="badge">~800 Words</span>
+  </div>
+
+</div>
+</body>
+</html>
