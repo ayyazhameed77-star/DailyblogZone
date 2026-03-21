@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Improve Eyesight Naturally</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a2a;
+    --deep-green: #234d35;
+    --mid-green: #2e6b47;
+    --sage: #5a9e72;
+    --mint: #a8d5b5;
+    --gold: #d4a843;
+    --warm-gold: #f0c96a;
+    --cream: #faf7f0;
+    --soft: #f2ede3;
+    --text: #1c2b22;
+    --text-mid: #3d5449;
+    --text-light: #6b8577;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    line-height: 1.85;
+  }
+
+  /* ── Top bar ── */
+  .top-bar {
+    background: var(--forest);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 28px;
+    font-size: 0.79rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.6px;
+  }
+  .top-bar strong { color: var(--mint); }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(150deg, var(--forest) 0%, var(--deep-green) 40%, var(--mid-green) 100%);
+    padding: 78px 24px 65px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 55% at 15% 60%, rgba(168,213,181,0.1) 0%, transparent 65%),
+      radial-gradient(ellipse 45% 50% at 85% 35%, rgba(212,168,67,0.08) 0%, transparent 60%);
+  }
+  /* decorative large eye shape */
+  .hero::after {
+    content: '◉';
+    position: absolute;
+    font-size: 380px;
+    color: rgba(255,255,255,0.022);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .hero-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(168,213,181,0.15);
+    border: 1px solid rgba(168,213,181,0.35);
+    color: var(--mint);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    padding: 7px 22px;
+    border-radius: 30px;
+    margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    color: #fff;
+    line-height: 1.18;
+    max-width: 740px;
+    margin: 0 auto 18px;
+    font-weight: 700;
+    position: relative;
+  }
+  .hero h1 em {
+    color: var(--warm-gold);
+    font-style: italic;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 1rem;
+    font-weight: 300;
+    position: relative;
+    letter-spacing: 0.3px;
+  }
+  .hero-accent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+    position: relative;
+  }
+  .hero-accent-line {
+    width: 40px;
+    height: 2px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+  }
+  .hero-accent-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  /* ── Article ── */
+  .article-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 54px 24px 84px;
+  }
+
+  /* ── Intro ── */
+  .intro-box {
+    background: linear-gradient(135deg, #e6f4ec 0%, #f4faf7 100%);
+    border-left: 5px solid var(--sage);
+    border-radius: 0 16px 16px 0;
+    padding: 28px 34px;
+    margin-bottom: 52px;
+    font-size: 1.08rem;
+    font-style: italic;
+    color: var(--deep-green);
+    font-family: 'Libre Baskerville', serif;
+    line-height: 1.92;
+  }
+
+  /* ── Section ── */
+  .tip-section { margin-bottom: 48px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  .section-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--forest), var(--sage));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.55rem;
+    flex-shrink: 0;
+    box-shadow: 0 6px 20px rgba(26,58,42,0.28);
+  }
+  .title-group span {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 3px;
+  }
+  .title-group h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.6rem;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .tip-body p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    margin-bottom: 14px;
+    line-height: 1.9;
+  }
+
+  /* ── Action card ── */
+  .action-card {
+    background: var(--white);
+    border: 1px solid #c8e5d4;
+    border-radius: 14px;
+    padding: 20px 26px;
+    margin-top: 18px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    box-shadow: 0 3px 16px rgba(46,107,71,0.07);
+  }
+  .ac-icon { font-size: 1.3rem; margin-top: 1px; flex-shrink: 0; }
+  .ac-text { font-size: 0.94rem; color: var(--text-mid); line-height: 1.75; }
+  .ac-text strong { color: var(--forest); font-weight: 700; }
+
+  /* ── Divider ── */
+  .leaf-divider {
+    text-align: center;
+    margin: 28px 0;
+    color: var(--sage);
+    font-size: 1rem;
+    letter-spacing: 14px;
+    opacity: 0.38;
+  }
+
+  /* ── Foods grid ── */
+  .foods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 22px;
+  }
+  @media (max-width: 560px) { .foods-grid { grid-template-columns: 1fr 1fr; } }
+  .food-card {
+    background: var(--white);
+    border: 1px solid #d4eadc;
+    border-radius: 14px;
+    padding: 18px 16px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    transition: transform 0.2s;
+  }
+  .food-card:hover { transform: translateY(-3px); }
+  .food-card .f-icon { font-size: 1.9rem; margin-bottom: 9px; }
+  .food-card h4 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--deep-green);
+    margin-bottom: 5px;
+  }
+  .food-card p { font-size: 0.78rem; color: var(--text-light); line-height: 1.55; }
+
+  /* ── Exercise highlight ── */
+  .exercise-block {
+    background: linear-gradient(135deg, var(--forest), var(--mid-green));
+    border-radius: 20px;
+    padding: 38px 32px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .exercise-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 80% 20%, rgba(168,213,181,0.12) 0%, transparent 60%);
+  }
+  .exercise-block h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    color: var(--warm-gold);
+    font-style: italic;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .exercise-block > p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.88rem;
+    margin-bottom: 22px;
+    position: relative;
+  }
+  .ex-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    position: relative;
+  }
+  @media (max-width: 500px) { .ex-steps { grid-template-columns: 1fr; } }
+  .ex-step {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(168,213,181,0.22);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .ex-num {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--mint);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .ex-step-text h5 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 3px;
+  }
+  .ex-step-text p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.55;
+  }
+
+  /* ── Daily habits ── */
+  .habits-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  @media (max-width: 560px) { .habits-row { grid-template-columns: 1fr; } }
+  .habit-tile {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 20px 22px;
+    border: 1px solid #dbeee4;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .habit-tile .ht-icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .habit-tile h4 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--deep-green);
+    margin-bottom: 6px;
+  }
+  .habit-tile p { font-size: 0.85rem; color: var(--text-light); line-height: 1.65; }
+
+  /* ── Closing ── */
+  .closing {
+    background: linear-gradient(135deg, #e4f2eb 0%, #f4faf7 100%);
+    border-radius: 20px;
+    padding: 42px 36px;
+    text-align: center;
+    margin-top: 58px;
+    border: 1px solid #bfe0ce;
+  }
+  .closing p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--deep-green);
+    line-height: 1.78;
+    margin-bottom: 14px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .closing small {
+    font-size: 0.78rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>✦ Natural Beauty &amp; Wellness</span>
+  <span><strong>~800 Words</strong> · Eyesight Guide</span>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">🌿 Natural Vision Care</div>
+  <h1>How to Improve<br><em>Eyesight Naturally</em></h1>
+  <p class="hero-sub">Gentle, proven ways to nourish and strengthen your vision every day</p>
+  <div class="hero-accent">
+    <div class="hero-accent-line"></div>
+    <div class="hero-accent-dot"></div>
+    <div class="hero-accent-line"></div>
+  </div>
+</div>
+
+<div class="article-wrap">
+
+  <div class="intro-box">
+    Your eyes are the first thing people notice about you — and the windows through which you experience every colour, every face, every sunrise. Yet most of us only think about our eyes when something goes wrong. The truth is, eyesight is not simply a matter of genetics or ageing. The foods you eat, the habits you keep, the rest you give yourself — all of it shapes the quality of your vision. And the beautiful part? Nature has given us everything we need to keep our eyes strong, clear, and vibrant for a lifetime.
+  </div>
+
+  <!-- 1. Eat for Your Eyes -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🥕</div>
+      <div class="title-group">
+        <span>Step No. 1</span>
+        <h2>Feed Your Eyes the Right Foods</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Every part of your body runs on what you eat — and your eyes are no exception. The retina, the lens, and the delicate blood vessels inside your eyes all depend on specific vitamins and antioxidants to function well and resist the damage that comes with age and daily stress.</p>
+      <p>Lutein and zeaxanthin — found abundantly in leafy greens — are nature's own sunglasses. They filter harmful blue light and protect the macula, the part of the eye responsible for sharp, central vision. Vitamin A, found in orange and yellow vegetables, supports the production of rhodopsin, a pigment your eyes need to see in low light.</p>
+    </div>
+    <div class="foods-grid">
+      <div class="food-card">
+        <div class="f-icon">🥬</div>
+        <h4>Spinach & Kale</h4>
+        <p>Rich in lutein and zeaxanthin — the retina's best protectors</p>
+      </div>
+      <div class="food-card">
+        <div class="f-icon">🥕</div>
+        <h4>Carrots</h4>
+        <p>Loaded with beta-carotene that converts to Vitamin A for night vision</p>
+      </div>
+      <div class="food-card">
+        <div class="f-icon">🐟</div>
+        <h4>Fatty Fish</h4>
+        <p>Omega-3s in salmon and sardines support tear quality and retinal health</p>
+      </div>
+      <div class="food-card">
+        <div class="f-icon">🫐</div>
+        <h4>Blueberries</h4>
+        <p>Anthocyanins reduce eye fatigue and improve night-time vision clarity</p>
+      </div>
+      <div class="food-card">
+        <div class="f-icon">🥚</div>
+        <h4>Eggs</h4>
+        <p>Yolks deliver lutein, zeaxanthin, and zinc — all vital for eye health</p>
+      </div>
+      <div class="food-card">
+        <div class="f-icon">🍊</div>
+        <h4>Citrus Fruits</h4>
+        <p>Vitamin C protects the lens and reduces cataract risk over time</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="leaf-divider">✦ ✦ ✦</div>
+
+  <!-- 2. Eye Exercises -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🧘</div>
+      <div class="title-group">
+        <span>Step No. 2</span>
+        <h2>Practice Daily Eye Exercises</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Just as you would stretch and strengthen your body with exercise, your eyes respond beautifully to regular movement and relaxation. Eye exercises improve the flexibility of the eye's focusing muscles, boost circulation to the optic nerve, and relieve the tension that builds up from hours of fixed-distance staring at screens.</p>
+      <p>These simple techniques take only a few minutes each day, yet their benefits — reduced strain, sharper focus, and less fatigue — are deeply felt by anyone who practises them consistently.</p>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>4 Eye Exercises to Try Daily</h3>
+    <p>Each takes under 2 minutes — powerful results with gentle effort</p>
+    <div class="ex-steps">
+      <div class="ex-step">
+        <div class="ex-num">01</div>
+        <div class="ex-step-text">
+          <h5>Eye Rolling</h5>
+          <p>Slowly roll your eyes in full circles — clockwise, then anti-clockwise. Repeat 5 times each direction to loosen tight focusing muscles.</p>
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-num">02</div>
+        <div class="ex-step-text">
+          <h5>Near & Far Focus</h5>
+          <p>Hold your thumb 10cm from your face, focus on it for 10 seconds, then shift focus to something 6 metres away. Repeat 10 times.</p>
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-num">03</div>
+        <div class="ex-step-text">
+          <h5>Palming</h5>
+          <p>Warm your palms by rubbing them together, then cup them gently over closed eyes. Hold for one minute. Deeply relaxing for the optic nerves.</p>
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-num">04</div>
+        <div class="ex-step-text">
+          <h5>Figure-Eight Tracing</h5>
+          <p>Imagine a large figure-eight on a wall 3 metres away and trace it slowly with your eyes. This builds smooth eye muscle control.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="leaf-divider">✦ ✦ ✦</div>
+
+  <!-- 3. Sunlight & Outdoor Time -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">☀️</div>
+      <div class="title-group">
+        <span>Step No. 3</span>
+        <h2>Spend Time Outdoors in Natural Light</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>One of the most underestimated remedies for healthy eyesight is simply going outside. Natural sunlight triggers the release of dopamine in the retina, which helps the eye maintain its correct shape and focus. Research has consistently shown that children and adults who spend more time outdoors in natural daylight have significantly lower rates of myopia — short-sightedness — than those who stay indoors.</p>
+      <p>Looking at distant natural landscapes also gives your eye muscles a genuine, restorative rest. Unlike the fixed focus of a screen, outdoor vision constantly shifts — near, middle, far — which is exactly the variety your eyes are designed for.</p>
+      <div class="action-card">
+        <div class="ac-icon">🌳</div>
+        <div class="ac-text"><strong>Daily goal:</strong> Aim for at least 30 to 60 minutes of outdoor time each day. Morning light is especially beneficial — it sets your body's natural rhythm and gives your eyes their most gentle, natural stimulation of the day. Always wear UV-protective sunglasses in bright sunshine to protect without depriving yourself of the benefits.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="leaf-divider">✦ ✦ ✦</div>
+
+  <!-- 4. Rest & Sleep -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🌙</div>
+      <div class="title-group">
+        <span>Step No. 4</span>
+        <h2>Prioritise Deep, Restful Sleep</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Sleep is when your entire body repairs itself — and your eyes are no different. During sleep, the eyes are continuously flushed with a nourishing fluid that clears out waste products, delivers oxygen, and repairs the microscopic cellular damage that accumulates throughout the day. Chronic sleep deprivation disrupts this process and is directly linked to dry eyes, blurry vision, light sensitivity, and accelerated deterioration of eyesight over time.</p>
+      <div class="action-card">
+        <div class="ac-icon">😴</div>
+        <div class="ac-text"><strong>Beauty sleep for your eyes:</strong> Aim for 7 to 9 hours of quality sleep each night. Keep screens out of the bedroom, use blackout curtains, and try a few drops of rose water on closed eyelids before sleeping — a centuries-old Ayurvedic ritual that soothes and hydrates the delicate skin and surface of the eye overnight.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="leaf-divider">✦ ✦ ✦</div>
+
+  <!-- 5. Daily Habits -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">💚</div>
+      <div class="title-group">
+        <span>Step No. 5</span>
+        <h2>Build These Daily Protective Habits</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Improving your eyesight naturally is not about one magic remedy — it is about consistently choosing your eyes every single day. These small, loving habits compound over time into lasting, meaningful vision health.</p>
+    </div>
+    <div class="habits-row">
+      <div class="habit-tile">
+        <div class="ht-icon">💧</div>
+        <h4>Stay Deeply Hydrated</h4>
+        <p>Dehydration reduces tear production, making eyes dry, irritated, and blurry. Drink 8+ glasses of water daily as a non-negotiable.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🚭</div>
+        <h4>Avoid Smoking</h4>
+        <p>Smoking dramatically increases the risk of cataracts and macular degeneration — two leading causes of vision loss worldwide.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🩺</div>
+        <h4>Regular Eye Check-ups</h4>
+        <p>Visit an eye specialist once a year. Many vision conditions are completely silent in the early stages — early detection protects you.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🧴</div>
+        <h4>Rose Water Rinse</h4>
+        <p>A gentle splash of pure rose water on closed eyes each morning reduces redness, soothes fatigue, and brings a natural, beautiful brightness.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <p>"Clear vision is not just about seeing the world sharply — it is about truly experiencing every precious detail of the life you are living. Nature has given you everything you need to protect that gift."</p>
+    <small>✦ Nourish them · Move them · Rest them · Protect them ✦</small>
+  </div>
+
+</div>
+</body>
+</html>
