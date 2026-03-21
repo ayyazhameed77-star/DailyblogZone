@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Importance of Regular Exercise</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal:     #1a1a2e;
+    --deep-dark:    #16213e;
+    --navy:         #0f3460;
+    --electric:     #e94560;
+    --electric-soft:#ff6b8a;
+    --amber:        #f5a623;
+    --amber-pale:   #fff8ed;
+    --silver:       #c8d6e5;
+    --cream:        #faf9f7;
+    --off-white:    #f2f0ec;
+    --text:         #1a1a2e;
+    --text-mid:     #3d4a6b;
+    --text-light:   #7a88a8;
+    --white:        #ffffff;
+    --green-vital:  #00b894;
+    --green-bg:     #e6faf6;
+    --orange:       #fd7949;
+    --orange-bg:    #fff2ed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    line-height: 1.85;
+  }
+
+  /* ── Top bar ── */
+  .top-bar {
+    background: var(--charcoal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px;
+    font-size: 0.79rem;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.8px;
+  }
+  .top-bar strong { color: var(--electric-soft); }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--charcoal);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  /* Animated diagonal stripes background */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%);
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 40px,
+      rgba(233,69,96,0.04) 40px,
+      rgba(233,69,96,0.04) 42px
+    );
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 75% 30%, rgba(233,69,96,0.14) 0%, transparent 65%),
+      radial-gradient(ellipse 45% 50% at 10% 80%, rgba(245,166,35,0.08) 0%, transparent 60%);
+  }
+  /* big decorative text */
+  .hero-deco {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    font-family: 'Fraunces', serif;
+    font-size: 22vw;
+    font-weight: 900;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -4px;
+  }
+  .hero-content {
+    position: relative;
+    padding: 72px 32px 64px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(233,69,96,0.18);
+    border: 1px solid rgba(233,69,96,0.38);
+    color: var(--electric-soft);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    padding: 7px 20px;
+    border-radius: 30px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.6rem, 7vw, 4.8rem);
+    color: #fff;
+    line-height: 1.08;
+    max-width: 680px;
+    font-weight: 900;
+    letter-spacing: -1px;
+  }
+  .hero h1 em {
+    color: var(--electric);
+    font-style: italic;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.52);
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-top: 18px;
+    max-width: 520px;
+    letter-spacing: 0.2px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    text-align: left;
+  }
+  .hero-stat .hs-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-stat .hs-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+  }
+  .hero-accent-bar {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--electric), var(--amber), var(--green-vital));
+    margin-top: 0;
+  }
+
+  /* ── Article wrap ── */
+  .article-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 56px 24px 90px;
+  }
+
+  /* ── Intro ── */
+  .intro-box {
+    background: var(--charcoal);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .intro-box::before {
+    content: '"';
+    font-family: 'Fraunces', serif;
+    font-size: 160px;
+    color: rgba(233,69,96,0.08);
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .intro-box p {
+    font-family: 'Fraunces', serif;
+    font-size: 1.12rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.9;
+    position: relative;
+  }
+
+  /* ── Section ── */
+  .tip-section { margin-bottom: 52px; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 22px;
+  }
+  .section-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--charcoal), var(--navy));
+    border: 2px solid var(--electric);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--electric);
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(233,69,96,0.2);
+  }
+  .title-group span {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--electric-soft);
+    margin-bottom: 4px;
+  }
+  .title-group h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.65rem;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .tip-body p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    margin-bottom: 15px;
+    line-height: 1.92;
+  }
+
+  /* ── Highlight card ── */
+  .highlight-card {
+    background: var(--white);
+    border-left: 4px solid var(--electric);
+    border-radius: 0 14px 14px 0;
+    padding: 20px 26px;
+    margin-top: 20px;
+    box-shadow: 0 4px 20px rgba(233,69,96,0.08);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .hc-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+  .hc-text { font-size: 0.94rem; color: var(--text-mid); line-height: 1.78; }
+  .hc-text strong { color: var(--charcoal); font-weight: 700; }
+
+  /* ── Divider ── */
+  .run-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 32px 0;
+    opacity: 0.25;
+  }
+  .run-divider-line { flex: 1; height: 1px; background: var(--electric); }
+  .run-divider span { font-size: 1.2rem; color: var(--electric); }
+
+  /* ── Benefits strip ── */
+  .benefits-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 32px 0;
+  }
+  @media(max-width:560px){ .benefits-strip { grid-template-columns: 1fr 1fr; } }
+  .benefit-chip {
+    background: var(--white);
+    border: 1px solid #e8e4de;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .benefit-chip:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(233,69,96,0.1);
+  }
+  .benefit-chip .bc-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .benefit-chip h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 5px;
+  }
+  .benefit-chip p { font-size: 0.76rem; color: var(--text-light); line-height: 1.55; }
+
+  /* ── Dark feature block ── */
+  .feature-block {
+    background: linear-gradient(145deg, var(--charcoal), var(--navy));
+    border-radius: 22px;
+    padding: 40px 34px;
+    margin: 44px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-block::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 65% 55% at 90% 10%, rgba(233,69,96,0.12) 0%, transparent 60%),
+      repeating-linear-gradient(
+        -55deg, transparent, transparent 40px,
+        rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 42px
+      );
+  }
+  .feature-block h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    color: var(--amber);
+    font-style: italic;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .feature-block > p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.87rem;
+    margin-bottom: 26px;
+    position: relative;
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    position: relative;
+  }
+  @media(max-width:500px){ .feature-grid { grid-template-columns: 1fr; } }
+  .fg-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(233,69,96,0.2);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .fg-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 1px; }
+  .fg-text h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .fg-text p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.58;
+  }
+
+  /* ── Mental health special box ── */
+  .mental-box {
+    background: linear-gradient(135deg, var(--green-bg), #f0fef9);
+    border: 1px solid #b2eadf;
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin: 36px 0;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .mental-box .mb-icon { font-size: 2.4rem; flex-shrink: 0; margin-top: 2px; }
+  .mental-box h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    color: #006b54;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  .mental-box p {
+    font-size: 0.94rem;
+    color: #1a4d3e;
+    line-height: 1.8;
+  }
+
+  /* ── Exercise minutes visual ── */
+  .minutes-track {
+    background: var(--white);
+    border: 1px solid #e8e4de;
+    border-radius: 18px;
+    padding: 28px 28px;
+    margin: 36px 0;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.05);
+  }
+  .minutes-track h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.12rem;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+  .minutes-track > p {
+    font-size: 0.86rem;
+    color: var(--text-light);
+    margin-bottom: 22px;
+  }
+  .mt-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .mt-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .mt-label {
+    width: 110px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    flex-shrink: 0;
+  }
+  .mt-track {
+    flex: 1;
+    height: 12px;
+    background: #f0ede8;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .mt-fill {
+    height: 100%;
+    border-radius: 10px;
+  }
+  .mt-fill.red    { background: linear-gradient(90deg, var(--electric), #ff8ca8); }
+  .mt-fill.amber  { background: linear-gradient(90deg, var(--amber), #ffc85c); }
+  .mt-fill.green  { background: linear-gradient(90deg, var(--green-vital), #48d9b0); }
+  .mt-fill.orange { background: linear-gradient(90deg, var(--orange), #ffaa7a); }
+  .mt-value {
+    width: 72px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-mid);
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* ── Habits row ── */
+  .habits-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  @media(max-width:560px){ .habits-row { grid-template-columns: 1fr; } }
+  .habit-tile {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 22px 22px;
+    border: 1px solid #e8e4de;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .habit-tile .ht-icon { font-size: 1.7rem; margin-bottom: 10px; }
+  .habit-tile h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 7px;
+  }
+  .habit-tile p { font-size: 0.85rem; color: var(--text-light); line-height: 1.68; }
+
+  /* ── Closing ── */
+  .closing {
+    background: var(--charcoal);
+    border-radius: 22px;
+    padding: 48px 38px;
+    text-align: center;
+    margin-top: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 55% at 50% 50%,
+        rgba(233,69,96,0.1) 0%, transparent 65%);
+  }
+  .closing-icon {
+    font-size: 2.6rem;
+    margin-bottom: 18px;
+    display: block;
+    position: relative;
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+  .closing p {
+    font-family: 'Fraunces', serif;
+    font-size: 1.32rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .closing small {
+    font-size: 0.78rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--electric-soft);
+    font-weight: 600;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>✦ Health &amp; Lifestyle Wellness</span>
+  <span><strong>~800 Words</strong> · Exercise Guide</span>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco">MOVE</div>
+  <div class="hero-content">
+    <div class="hero-badge">💪 Fitness &amp; Vitality Guide</div>
+    <h1>Importance of<br><em>Regular Exercise</em></h1>
+    <p class="hero-sub">The one habit that transforms your body, your mind, your mood — and your entire life</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hs-num">150</div>
+        <div class="hs-label">Min/week recommended</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-num">35%</div>
+        <div class="hs-label">Heart disease risk reduced</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-num">48%</div>
+        <div class="hs-label">Depression risk lowered</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-accent-bar"></div>
+</div>
+
+<div class="article-wrap">
+
+  <div class="intro-box">
+    <p>There is a single habit that strengthens your heart, sharpens your mind, lifts your mood, improves your sleep, protects you from disease, gives you more energy, helps you live longer, and makes you feel genuinely, deeply alive in your own body. It does not come in a bottle. It does not require a prescription. It costs almost nothing. It is regular exercise — and it may be the most powerful medicine ever discovered by the human race.</p>
+  </div>
+
+  <!-- 1. Physical Health -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="title-group">
+        <span>First Reason</span>
+        <h2>It Transforms Your Body From the Inside Out</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>When you exercise regularly, the physical changes that happen inside your body are nothing short of extraordinary. Your heart grows stronger — literally. The heart is a muscle, and like every muscle, it responds to regular training by becoming larger, more efficient, and more powerful. A trained heart pumps more blood with each beat, which means it does not have to work as hard and lasts far longer.</p>
+      <p>Your lungs expand their capacity. Your blood pressure drops. Your arteries become more flexible and resistant to the dangerous plaque build-up that causes heart attacks and strokes. Your bones become denser and more resistant to fractures. Your joints are cushioned by the synovial fluid that movement stimulates. Your immune system — the army that protects you from illness every day — becomes significantly stronger and more responsive. Regular exercise is, by any scientific measure, the most effective way to maintain a healthy, resilient, long-lasting body.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="hc-icon">💡</div>
+      <div class="hc-text"><strong>Remarkable fact:</strong> Just 30 minutes of moderate exercise five days a week reduces the risk of early death by up to 35%, cuts heart disease risk by 35%, reduces type 2 diabetes risk by 50%, and lowers the risk of certain cancers by up to 20%. No medication in history has achieved this breadth of benefit in a single intervention.</div>
+    </div>
+  </div>
+
+  <div class="run-divider">
+    <div class="run-divider-line"></div>
+    <span>🏃</span>
+    <div class="run-divider-line"></div>
+  </div>
+
+  <!-- Benefits strip -->
+  <div class="benefits-strip">
+    <div class="benefit-chip">
+      <div class="bc-icon">❤️</div>
+      <h4>Stronger Heart</h4>
+      <p>A trained heart pumps more blood per beat and lasts far longer</p>
+    </div>
+    <div class="benefit-chip">
+      <div class="bc-icon">🦴</div>
+      <h4>Denser Bones</h4>
+      <p>Weight-bearing exercise builds bone mass and prevents osteoporosis</p>
+    </div>
+    <div class="benefit-chip">
+      <div class="bc-icon">🩸</div>
+      <h4>Better Blood Sugar</h4>
+      <p>Muscles absorb glucose directly — reducing diabetes risk dramatically</p>
+    </div>
+    <div class="benefit-chip">
+      <div class="bc-icon">⚡</div>
+      <h4>More Energy</h4>
+      <p>Exercise increases mitochondria in cells — giving you more fuel all day</p>
+    </div>
+    <div class="benefit-chip">
+      <div class="bc-icon">🛡️</div>
+      <h4>Immune Shield</h4>
+      <p>Regular movement activates immune cells and reduces chronic inflammation</p>
+    </div>
+    <div class="benefit-chip">
+      <div class="bc-icon">⚖️</div>
+      <h4>Weight Balance</h4>
+      <p>Exercise raises metabolism and burns fat long after the workout ends</p>
+    </div>
+  </div>
+
+  <!-- 2. Mental Health -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="title-group">
+        <span>Second Reason</span>
+        <h2>It Is the Most Powerful Antidepressant Known</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>The relationship between exercise and mental health is one of the most well-documented and consistently confirmed findings in all of modern medicine. Every time you exercise, your brain releases a cascade of neurochemicals — endorphins, serotonin, dopamine, and BDNF — that are responsible for feelings of joy, calm, confidence, and clarity. This is not a metaphor. Exercise physically changes your brain chemistry in ways that are measurable, immediate, and lasting.</p>
+      <p>Multiple large-scale studies have found that regular exercise is as effective as antidepressants for treating mild to moderate depression — and unlike medication, it comes with zero side effects and a long list of additional physical benefits. People who exercise regularly have significantly lower rates of anxiety, depression, chronic stress, and cognitive decline. They sleep better, feel more confident in their bodies, and report dramatically higher levels of overall life satisfaction.</p>
+    </div>
+  </div>
+
+  <div class="mental-box">
+    <div class="mb-icon">🧠</div>
+    <div>
+      <h3>What Happens to Your Brain During Exercise</h3>
+      <p>Within minutes of starting to move, your brain begins flooding with endorphins — natural painkillers and mood elevators. Serotonin rises, reducing anxiety and creating a sense of wellbeing. Dopamine spikes, sharpening focus and motivation. And BDNF — Brain-Derived Neurotrophic Factor — is released, stimulating the growth of new brain cells and protecting existing ones from age-related damage. Regular exercisers literally have larger, more connected, more resilient brains. Exercise is not just good for your mood — it makes you measurably more intelligent.</p>
+    </div>
+  </div>
+
+  <div class="run-divider">
+    <div class="run-divider-line"></div>
+    <span>🧘</span>
+    <div class="run-divider-line"></div>
+  </div>
+
+  <!-- 3. Types of Exercise -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="title-group">
+        <span>Third Reason</span>
+        <h2>Every Type of Movement Has Its Own Gift</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Exercise is not one thing — it is a rich, varied world of movement, each type offering its own unique and beautiful contribution to your health. Understanding the different kinds of exercise and what each one does for your body allows you to build a genuinely complete and joyful fitness practice.</p>
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <h3>Four Pillars of a Complete Exercise Life</h3>
+    <p>Each one addresses a different dimension of your health and strength</p>
+    <div class="feature-grid">
+      <div class="fg-card">
+        <div class="fg-icon">🏃</div>
+        <div class="fg-text">
+          <h5>Cardio — Your Heart's Best Friend</h5>
+          <p>Walking, running, cycling, swimming — raises your heart rate, burns fat, strengthens lungs, and floods the brain with happiness chemicals.</p>
+        </div>
+      </div>
+      <div class="fg-card">
+        <div class="fg-icon">🏋️</div>
+        <div class="fg-text">
+          <h5>Strength Training — Built to Last</h5>
+          <p>Lifting, bodyweight exercises, resistance bands — builds lean muscle, raises metabolism, strengthens bones, and improves posture and confidence.</p>
+        </div>
+      </div>
+      <div class="fg-card">
+        <div class="fg-icon">🧘</div>
+        <div class="fg-text">
+          <h5>Flexibility — Move Without Pain</h5>
+          <p>Yoga, stretching, Pilates — reduces injury risk, eases chronic pain, improves posture, and creates deep physical and mental relaxation.</p>
+        </div>
+      </div>
+      <div class="fg-card">
+        <div class="fg-icon">⚖️</div>
+        <div class="fg-text">
+          <h5>Balance — The Foundation of Ageing Well</h5>
+          <p>Tai chi, single-leg exercises, stability work — prevents falls, strengthens the core, and maintains the coordination your body needs for a full life.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How much exercise -->
+  <div class="minutes-track">
+    <h3>How Much Exercise Do You Really Need?</h3>
+    <p>WHO global recommendations — minimum targets for meaningful health benefits</p>
+    <div class="mt-bars">
+      <div class="mt-row">
+        <div class="mt-label">Adults (Daily)</div>
+        <div class="mt-track"><div class="mt-fill red" style="width:43%"></div></div>
+        <div class="mt-value">30 min/day</div>
+      </div>
+      <div class="mt-row">
+        <div class="mt-label">Weekly Cardio</div>
+        <div class="mt-track"><div class="mt-fill amber" style="width:62%"></div></div>
+        <div class="mt-value">150 min/week</div>
+      </div>
+      <div class="mt-row">
+        <div class="mt-label">Strength Training</div>
+        <div class="mt-track"><div class="mt-fill green" style="width:38%"></div></div>
+        <div class="mt-value">2× per week</div>
+      </div>
+      <div class="mt-row">
+        <div class="mt-label">Ideal (Active Life)</div>
+        <div class="mt-track"><div class="mt-fill orange" style="width:80%"></div></div>
+        <div class="mt-value">300 min/week</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Starting a Habit -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="title-group">
+        <span>Fourth Reason</span>
+        <h2>It Is Never Too Late — and It Is Simpler Than You Think</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>One of the most beautiful and encouraging facts about exercise is that the human body responds to physical activity at every age and at every fitness level. A 70-year-old who begins walking thirty minutes a day will see measurable improvements in cardiovascular health, muscle strength, mood, and cognitive function within just a few weeks. The body does not care about your past — only about what you do next.</p>
+      <p>Starting small is not just acceptable — it is the right approach. Research consistently shows that people who begin with small, enjoyable, manageable movement habits are far more likely to maintain them long-term than those who launch into intense regimes that feel punishing. The goal is not to suffer. The goal is to move — joyfully, consistently, and with genuine care for the extraordinary body you were given.</p>
+    </div>
+    <div class="habits-row">
+      <div class="habit-tile">
+        <div class="ht-icon">🌅</div>
+        <h4>Start With a Morning Walk</h4>
+        <p>Ten minutes before breakfast. Then fifteen. Then twenty. The body adapts quickly and the habit builds naturally — before the day can get in the way.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🎵</div>
+        <h4>Make It Something You Love</h4>
+        <p>Dance, swim, cycle, do yoga, play with your children, garden vigorously. Movement you enjoy is movement you will actually do, for the rest of your life.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">👯</div>
+        <h4>Find Your People</h4>
+        <p>Exercising with a friend, partner, or group dramatically increases consistency. Accountability, laughter, and shared effort make the habit stick far more reliably.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">📅</div>
+        <h4>Schedule It Like a Meeting</h4>
+        <p>Exercise that is planned is exercise that happens. Put it in your calendar with the same non-negotiable respect you give your most important commitments.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <span class="closing-icon">💪</span>
+    <p>"Your body was built to move — to run, to bend, to lift, to stretch, to dance. Every step you take is a vote for the life you want to live. Begin today. Begin small. But begin."</p>
+    <small>✦ Move it · Strengthen it · Rest it · Love it ✦</small>
+  </div>
+
+</div>
+</body>
+</html>
