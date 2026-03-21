@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foods That Lower Blood Sugar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #f4f8f2;
+    --ink:          #0e1f0c;
+    --forest:       #2d5a27;
+    --leaf:         #4a8c3f;
+    --lime:         #7ab648;
+    --earth:        #8b5e3c;
+    --cream:        #eef5e8;
+    --pale:         #f9fcf7;
+    --muted:        #5a7055;
+    --rule:         #c0d8b8;
+    --amber-box:    #fdf8ee;
+    --amber-border: #d4a843;
+    --red-box:      #fdf4f0;
+    --red-border:   #c85a30;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.9;
+  }
+
+  /* Top decorative stripe */
+  .stripe {
+    height: 6px;
+    background: linear-gradient(90deg,
+      var(--forest) 0%,
+      var(--leaf) 30%,
+      var(--lime) 55%,
+      var(--earth) 80%,
+      var(--forest) 100%);
+  }
+
+  /* Header */
+  .site-header {
+    background: var(--forest);
+    padding: 16px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .site-header span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #c8e8b8;
+  }
+  .site-header .dot { color: var(--lime); font-size: 0.5rem; }
+
+  /* Main wrapper */
+  .wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 68px 34px 110px;
+  }
+
+  /* Label */
+  .label-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+  .label-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--leaf);
+    padding: 5px 16px;
+    border-radius: 20px;
+  }
+  .label-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--leaf), transparent);
+  }
+
+  /* Title */
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.08;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  h1 .em-green { color: var(--forest); font-style: italic; }
+  h1 .em-earth { color: var(--earth); }
+
+  /* Deck */
+  .deck {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--muted);
+    line-height: 1.72;
+    margin-bottom: 18px;
+    padding: 0 0 0 20px;
+    border-left: 4px solid var(--lime);
+  }
+
+  /* Byline */
+  .byline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  /* Drop cap */
+  p.lead::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.4rem;
+    font-weight: 900;
+    color: var(--forest);
+    float: left;
+    line-height: 0.72;
+    margin-right: 12px;
+    margin-top: 10px;
+    padding-bottom: 6px;
+  }
+  p.lead { font-size: 1.08rem; font-weight: 400; }
+
+  p { margin-bottom: 1.5em; color: #1a2e18; }
+
+  /* Section heading */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 2.8em 0 0.6em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .food-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  }
+  .h2-text { border-bottom: 2px solid var(--rule); flex: 1; padding-bottom: 6px; }
+
+  /* Pull quote */
+  blockquote {
+    margin: 3em 0;
+    padding: 34px 40px;
+    background: var(--cream);
+    border-top: 4px double var(--forest);
+    border-bottom: 4px double var(--forest);
+    text-align: center;
+    position: relative;
+  }
+  blockquote::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    color: var(--lime);
+    opacity: 0.35;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    line-height: 1;
+  }
+  blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--forest);
+    line-height: 1.55;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  /* Tip box — amber */
+  .tip-box {
+    background: var(--amber-box);
+    border: 1px solid #e8c870;
+    border-left: 5px solid var(--amber-border);
+    padding: 22px 28px;
+    margin: 2.2em 0;
+    border-radius: 3px;
+  }
+  .tip-box strong {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--amber-border);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .tip-box p { margin: 0; font-size: 0.97rem; color: #4a3010; line-height: 1.78; }
+
+  /* Note box — red/warm */
+  .note-box {
+    background: var(--red-box);
+    border: 1px solid #e8b090;
+    border-left: 5px solid var(--red-border);
+    padding: 22px 28px;
+    margin: 2.2em 0;
+    border-radius: 3px;
+  }
+  .note-box strong {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--red-border);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .note-box p { margin: 0; font-size: 0.97rem; color: #401808; line-height: 1.78; }
+
+  /* Green science box */
+  .science-box {
+    background: var(--pale);
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--forest);
+    padding: 22px 28px;
+    margin: 2.2em 0;
+    border-radius: 3px;
+  }
+  .science-box strong {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--forest);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .science-box p { margin: 0; font-size: 0.97rem; color: #162414; line-height: 1.78; }
+
+  /* Ornament divider */
+  .ornament {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 1.05rem;
+    letter-spacing: 0.7em;
+    color: var(--leaf);
+    opacity: 0.6;
+  }
+
+  /* Food card grid */
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 2.5em 0;
+  }
+  .food-card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 18px 16px;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+  .food-card:hover { transform: translateY(-3px); }
+  .food-card .fc-icon { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .food-card .fc-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--forest);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .food-card .fc-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* Footer */
+  .footer-bar {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer-bar span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .footer-badge {
+    background: var(--forest);
+    color: #c8e8b8;
+    padding: 6px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  /* Animations */
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .wrapper > * {
+    animation: riseIn 0.75s ease both;
+  }
+  .wrapper > *:nth-child(1) { animation-delay: 0.05s; }
+  .wrapper > *:nth-child(2) { animation-delay: 0.12s; }
+  .wrapper > *:nth-child(3) { animation-delay: 0.19s; }
+  .wrapper > *:nth-child(4) { animation-delay: 0.26s; }
+  .wrapper > *:nth-child(n+5) { animation-delay: 0.33s; }
+
+  @media (max-width: 580px) {
+    .wrapper { padding: 42px 18px 72px; }
+    h1 { font-size: 2.2rem; }
+    blockquote { padding: 24px 22px; }
+    .food-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stripe"></div>
+
+<div class="site-header">
+  <span>Nutrition</span>
+  <span class="dot">●</span>
+  <span>Blood Sugar Balance</span>
+  <span class="dot">●</span>
+  <span>Natural Health</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="label-row">
+    <span class="label-pill">Nutrition &amp; Wellness</span>
+    <div class="label-line"></div>
+  </div>
+
+  <h1>The <span class="em-green">Foods</span> Your Blood Sugar Has Been <span class="em-earth">Waiting For</span></h1>
+
+  <p class="deck">
+    Nature has always offered an answer to blood sugar imbalance — long before insulin
+    was discovered, long before modern medicine gave it a name. The answer grows in gardens,
+    hangs from trees, and sits quietly on kitchen shelves.
+  </p>
+
+  <div class="byline">Nutrition &amp; Wellness Desk &nbsp;·&nbsp; 800 Words &nbsp;·&nbsp; A Guide to Eating for Balance</div>
+
+  <p class="lead">
+    Every time you eat, your blood sugar rises. That is not a problem — it is biology.
+    The problem begins when it rises too high, too fast, and stays elevated too long.
+    Over years, chronically high blood sugar quietly damages nerves, kidneys, blood vessels,
+    and eyes. It paves the way for type 2 diabetes, heart disease, and fatigue so deep that
+    people mistake it for simply getting older. But food — the very thing that raises blood
+    sugar — can also be the most powerful tool for keeping it in a healthy range. You do not
+    need a pharmacy. You need to know what to put on your plate.
+  </p>
+
+  <p>
+    The foods that lower and stabilize blood sugar share a common thread: they slow the release
+    of glucose into the bloodstream, improve the body's sensitivity to insulin, reduce
+    inflammation, or do all three at once. They are not exotic or expensive. Most of them
+    are humble, ordinary ingredients that have nourished human beings for thousands of years.
+  </p>
+
+  <blockquote>
+    <p>Let food be thy medicine and medicine be thy food.</p>
+    <cite>— Hippocrates, 400 BC</cite>
+  </blockquote>
+
+  <h2><span class="food-icon">🥬</span><span class="h2-text">Leafy Green Vegetables</span></h2>
+
+  <p>
+    Spinach, kale, collard greens, Swiss chard — these are among the most blood-sugar-friendly
+    foods on earth. They are extraordinarily low in digestible carbohydrates, which means they
+    cause virtually no spike in blood glucose after eating. At the same time, they are dense with
+    magnesium — a mineral that plays a critical role in insulin signalling. Studies consistently
+    show that people with the highest magnesium intake have significantly lower rates of type 2
+    diabetes. A large handful of spinach sautéed in olive oil each day is not just delicious —
+    it is a quiet, daily act of metabolic protection.
+  </p>
+
+  <h2><span class="food-icon">🫐</span><span class="h2-text">Berries — Sweet Without the Spike</span></h2>
+
+  <p>
+    Blueberries, strawberries, raspberries, and blackberries are nature's most generous paradox:
+    they taste sweet but behave gently on blood sugar. Their natural sugars are accompanied by
+    extraordinary amounts of fibre and polyphenol antioxidants — particularly anthocyanins, the
+    pigments that give berries their deep colour. These compounds have been shown to improve
+    insulin sensitivity and reduce blood sugar spikes after meals. A cup of mixed berries with
+    breakfast transforms an ordinary morning into a metabolically intelligent one.
+  </p>
+
+  <div class="science-box">
+    <strong>The Science</strong>
+    <p>Research published in the Journal of Nutrition found that consuming blueberries daily for six weeks significantly improved insulin sensitivity in overweight, insulin-resistant adults — even without changes to their overall diet or exercise habits.</p>
+  </div>
+
+  <h2><span class="food-icon">🫘</span><span class="h2-text">Legumes — The Slow-Burn Fuel</span></h2>
+
+  <p>
+    Lentils, chickpeas, black beans, kidney beans — legumes are among the most powerful
+    blood-sugar-stabilizing foods available, and among the most underrated. They are rich in
+    both soluble fibre and plant protein, a combination that dramatically slows the digestion
+    of carbohydrates and the release of glucose into the blood. Their glycaemic index is
+    remarkably low — black beans, for example, score just 30 on the glycaemic index scale,
+    compared to white bread at 70. A bowl of lentil soup is not a compromise meal. It is one
+    of the smartest choices a person managing blood sugar can make.
+  </p>
+
+  <div class="ornament">— ✦ —</div>
+
+  <h2><span class="food-icon">🥑</span><span class="h2-text">Avocado — Fat That Protects</span></h2>
+
+  <p>
+    Avocado contains almost no sugar and is rich in monounsaturated fats — the same heart-healthy
+    fats found in olive oil. These fats slow the absorption of any carbohydrates eaten in the same
+    meal, smoothing out blood sugar spikes that would otherwise occur. Avocado also provides
+    significant amounts of potassium and magnesium, both of which support healthy insulin function.
+    Half an avocado added to a meal is one of the simplest and most satisfying upgrades you can
+    make to your blood sugar management without changing anything else about what you eat.
+  </p>
+
+  <h2><span class="food-icon">🐟</span><span class="h2-text">Fatty Fish — Omega-3 for Insulin Health</span></h2>
+
+  <p>
+    Salmon, mackerel, sardines, and trout contain no carbohydrates and are extraordinarily rich
+    in omega-3 fatty acids, which reduce the chronic low-grade inflammation that underlies insulin
+    resistance. When cells are inflamed, they respond poorly to insulin's signal to absorb glucose
+    — and blood sugar rises as a result. Regular consumption of fatty fish reduces this inflammation
+    at the cellular level, gradually improving insulin sensitivity. Two to three servings per week
+    makes a measurable difference. It is protein, it is omega-3, and it keeps blood sugar precisely
+    where it belongs — stable and quiet.
+  </p>
+
+  <h2><span class="food-icon">🌰</span><span class="h2-text">Nuts and Seeds — Small but Mighty</span></h2>
+
+  <p>
+    Almonds, walnuts, chia seeds, and flaxseeds are dense with fibre, healthy fats, and protein —
+    a trio that makes them among the most stabilizing snacks available. Studies show that eating
+    a small handful of almonds with a high-carbohydrate meal significantly reduces the post-meal
+    blood sugar spike compared to eating the same meal without them. Chia seeds, meanwhile, absorb
+    water and form a gel in the digestive tract that physically slows glucose absorption. Sprinkle
+    them on yogurt, blend them into smoothies, or eat them soaked overnight. Few things this small
+    do this much good.
+  </p>
+
+  <div class="tip-box">
+    <strong>Daily Practice</strong>
+    <p>Try eating a small handful of walnuts or almonds before your largest meal of the day. This single habit — taking just thirty seconds — has been shown to measurably reduce post-meal blood sugar spikes in people with and without diabetes.</p>
+  </div>
+
+  <h2><span class="food-icon">🧄</span><span class="h2-text">Garlic, Cinnamon &amp; Apple Cider Vinegar</span></h2>
+
+  <p>
+    These three kitchen staples deserve special mention because they work through entirely different
+    mechanisms — and all three work well. Garlic contains allicin, a compound shown to lower fasting
+    blood sugar and improve insulin sensitivity. Cinnamon mimics insulin's action at the cell level,
+    helping glucose enter cells more efficiently — even half a teaspoon daily has shown measurable
+    effects in clinical studies. Apple cider vinegar, taken diluted in water before a meal, slows
+    gastric emptying and reduces post-meal glucose spikes by up to 30 percent in some studies. None
+    of these are miracle cures. But all three, used consistently, add quiet power to a
+    blood-sugar-conscious kitchen.
+  </p>
+
+  <!-- Food at a glance grid -->
+  <div class="food-grid">
+    <div class="food-card">
+      <span class="fc-icon">🥬</span>
+      <span class="fc-name">Leafy Greens</span>
+      <span class="fc-note">Rich in magnesium</span>
+    </div>
+    <div class="food-card">
+      <span class="fc-icon">🫐</span>
+      <span class="fc-name">Berries</span>
+      <span class="fc-note">Low glycaemic, high antioxidants</span>
+    </div>
+    <div class="food-card">
+      <span class="fc-icon">🫘</span>
+      <span class="fc-name">Legumes</span>
+      <span class="fc-note">Fibre + plant protein</span>
+    </div>
+    <div class="food-card">
+      <span class="fc-icon">🥑</span>
+      <span class="fc-name">Avocado</span>
+      <span class="fc-note">Slows glucose absorption</span>
+    </div>
+    <div class="food-card">
+      <span class="fc-icon">🐟</span>
+      <span class="fc-name">Fatty Fish</span>
+      <span class="fc-note">Omega-3 & zero carbs</span>
+    </div>
+    <div class="food-card">
+      <span class="fc-icon">🌰</span>
+      <span class="fc-name">Nuts & Seeds</span>
+      <span class="fc-note">Stabilise every meal</span>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Important Reminder</strong>
+    <p>These foods support healthy blood sugar as part of a balanced lifestyle — but they are not a substitute for medical care. If you have been diagnosed with diabetes or prediabetes, work with your doctor or a registered dietitian alongside any dietary changes. Food is powerful medicine, but some conditions also require prescribed medication.</p>
+  </div>
+
+  <p>
+    Blood sugar balance is not achieved in one dramatic meal. It is built slowly, patiently,
+    one plate at a time — through the spinach you add to your eggs, the berries you reach for
+    instead of a biscuit, the lentil soup you make on a Sunday evening. None of these choices
+    feel like sacrifice. They feel like care — for a body that has been working tirelessly on
+    your behalf, every single day, asking only that you feed it wisely. Start today. Start with
+    one food. Then another. The body keeps a careful record of every kind thing you do for it.
+  </p>
+
+  <div class="footer-bar">
+    <span>Nutrition &amp; Wellness Desk — Blood Sugar Guide</span>
+    <span class="footer-badge"> Words</span>
+  </div>
+
+</div>
+</body>
+</html>
