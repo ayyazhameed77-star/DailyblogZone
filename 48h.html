@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Importance of Fibre in Diet</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #f7f3ee;
+    --ink:          #1c1208;
+    --wheat:        #a06820;
+    --wheat-light:  #fdf8ec;
+    --sienna:       #8a3e18;
+    --sienna-light: #fdf2ec;
+    --forest:       #2e6030;
+    --forest-light: #eef5ee;
+    --oat:          #c89848;
+    --oat-light:    #fdf8e8;
+    --clay:         #905030;
+    --sky:          #1e6080;
+    --sky-light:    #eaf4f8;
+    --cream:        #f0e8da;
+    --muted:        #7a6040;
+    --rule:         #d8c8a8;
+    --pale:         #faf7f3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 17.5px;
+    line-height: 1.97;
+  }
+
+  /* ══ HERO ══ */
+  .hero {
+    background: linear-gradient(150deg, #1e0e04 0%, #5a2e0c 35%, #a06820 70%, #8a5018 100%);
+    padding: 0;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Grain texture feel */
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(200,152,72,0.15) 0%, transparent 45%),
+      radial-gradient(circle at 80% 70%, rgba(200,152,72,0.10) 0%, transparent 45%),
+      radial-gradient(circle at 60% 20%, rgba(255,255,255,0.04) 0%, transparent 35%);
+    pointer-events: none;
+  }
+
+  /* Wheat stalks illustrated */
+  .stalk {
+    position: absolute;
+    bottom: 0;
+    opacity: 0.12;
+    animation: sway 5s ease-in-out infinite;
+    font-size: 4rem;
+    line-height: 1;
+  }
+  .stalk:nth-child(1){ left:5%;   animation-delay:0s;   }
+  .stalk:nth-child(2){ left:12%;  animation-delay:1s;   font-size:5rem; }
+  .stalk:nth-child(3){ right:5%;  animation-delay:0.5s; }
+  .stalk:nth-child(4){ right:12%; animation-delay:1.5s; font-size:5rem; }
+  .stalk:nth-child(5){ left:25%;  animation-delay:2s;   font-size:3.5rem; }
+  .stalk:nth-child(6){ right:25%; animation-delay:2.5s; font-size:3.5rem; }
+  @keyframes sway {
+    0%,100% { transform: rotate(-6deg) translateY(0);    }
+    50%      { transform: rotate( 6deg) translateY(-8px); }
+  }
+
+  /* Jagged bottom */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 48px;
+    background: var(--bg);
+    clip-path: polygon(
+      0 100%, 0 70%, 2% 50%, 4% 68%, 6% 45%,
+      8% 62%, 10% 40%, 12% 58%, 14% 36%,
+      16% 55%, 18% 33%, 20% 52%, 22% 30%,
+      24% 50%, 26% 28%, 28% 48%, 30% 26%,
+      32% 46%, 34% 24%, 36% 44%, 38% 22%,
+      40% 42%, 42% 20%, 44% 40%, 46% 18%,
+      48% 38%, 50% 16%, 52% 36%, 54% 14%,
+      56% 34%, 58% 12%, 60% 32%, 62% 10%,
+      64% 30%, 66% 8%,  68% 28%, 70% 6%,
+      72% 26%, 74% 4%,  76% 24%, 78% 2%,
+      80% 22%, 82% 0%,  84% 20%, 86% 0%,
+      88% 18%, 90% 0%,  92% 16%, 94% 0%,
+      96% 14%, 98% 0%,  100% 12%, 100% 100%
+    );
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 58px 36px 80px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: rgba(240,210,160,0.88);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    animation: fadeUp 0.8s ease both 0.05s;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    width: 44px; height: 1px;
+    background: rgba(240,210,160,0.4);
+  }
+
+  .hero h1 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    animation: fadeUp 0.8s ease both 0.15s;
+  }
+  .hero h1 em { font-style: italic; color: #f8d888; }
+
+  .hero-sub {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.08rem;
+    color: rgba(248,224,184,0.86);
+    max-width: 580px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+    animation: fadeUp 0.8s ease both 0.24s;
+  }
+
+  /* Grain icon row */
+  .grain-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: fadeUp 0.8s ease both 0.32s;
+  }
+  .grain-row .gr-line { width: 50px; height: 1px; background: rgba(240,210,160,0.35); }
+  .grain-icon {
+    font-size: 1.9rem;
+    display: inline-block;
+    animation: grainPulse 3s ease-in-out infinite;
+  }
+  .grain-icon:nth-child(2){ animation-delay:0.5s; }
+  .grain-icon:nth-child(3){ animation-delay:1s;   font-size:1.4rem; }
+  .grain-icon:nth-child(4){ animation-delay:1.5s; }
+  .grain-icon:nth-child(5){ animation-delay:2s;   }
+  @keyframes grainPulse {
+    0%,100% { transform: scale(1);    opacity:1;   }
+    50%      { transform: scale(1.12); opacity:0.8; }
+  }
+
+  /* ══ WRAPPER ══ */
+  .wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 66px 34px 110px;
+  }
+
+  /* Byline */
+  .byline {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 44px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Body text */
+  p { margin-bottom: 1.55em; color: #201408; }
+
+  /* Drop cap */
+  p.lead::first-letter {
+    font-family: 'Merriweather', serif;
+    font-size: 5.5rem;
+    font-weight: 900;
+    color: var(--wheat);
+    float: left;
+    line-height: 0.70;
+    margin-right: 13px;
+    margin-top: 12px;
+    padding-bottom: 6px;
+  }
+  p.lead { font-size: 1.07rem; font-weight: 300; }
+
+  /* ══ Section headings ══ */
+  h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 3em 0 0.65em;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .h2-orb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sienna), var(--wheat));
+    color: #fff;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(138,62,24,0.28);
+    transition: transform 0.3s ease;
+  }
+  .h2-orb:hover { transform: rotate(-10deg) scale(1.1); }
+  .h2-txt {
+    flex: 1;
+    border-bottom: 1.5px solid var(--rule);
+    padding-bottom: 7px;
+    line-height: 1.25;
+  }
+
+  /* ══ Pull quote ══ */
+  blockquote {
+    margin: 3.5em 0;
+    position: relative;
+    padding: 36px 46px;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+  }
+  .bq-accent {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, var(--wheat), var(--sienna));
+    border-radius: 2px 0 0 2px;
+  }
+  blockquote::before {
+    content: '\201C';
+    font-family: 'Merriweather', serif;
+    font-size: 8rem;
+    color: var(--oat);
+    opacity: 0.18;
+    position: absolute;
+    top: -14px; left: 28px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  blockquote p {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.45rem;
+    color: var(--sienna);
+    line-height: 1.58;
+    margin: 0 0 12px;
+    position: relative;
+    z-index: 1;
+  }
+  blockquote cite {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+
+  /* ══ Coloured call-out boxes ══ */
+  .cbox {
+    padding: 22px 28px;
+    margin: 2.2em 0;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-left: 5px solid transparent;
+  }
+  .cbox strong {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.71rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .cbox p { margin: 0; font-size: 0.96rem; line-height: 1.83; }
+
+  .cbox-oat    { background:var(--oat-light);    border-color:#e8c870; border-left-color:var(--oat);    }
+  .cbox-oat    strong { color:var(--wheat); }     .cbox-oat    p { color:#3c2400; }
+
+  .cbox-forest { background:var(--forest-light); border-color:#90c890; border-left-color:var(--forest); }
+  .cbox-forest strong { color:var(--forest); }   .cbox-forest p { color:#0e2010; }
+
+  .cbox-sienna { background:var(--sienna-light); border-color:#e0a888; border-left-color:var(--sienna); }
+  .cbox-sienna strong { color:var(--sienna); }   .cbox-sienna p { color:#381008; }
+
+  .cbox-sky    { background:var(--sky-light);    border-color:#90c0d8; border-left-color:var(--sky);    }
+  .cbox-sky    strong { color:var(--sky); }       .cbox-sky    p { color:#082030; }
+
+  .cbox-wheat  { background:var(--wheat-light);  border-color:#e0c870; border-left-color:var(--wheat);  }
+  .cbox-wheat  strong { color:var(--wheat); }     .cbox-wheat  p { color:#3c2000; }
+
+  /* ══ Fibre types comparison ══ */
+  .fibre-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 2.8em 0;
+  }
+  .fc-panel {
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+  .fc-head {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .fc-head span { font-size: 1.8rem; }
+  .fc-head h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .fc-head small {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .fc-body {
+    padding: 18px 20px;
+    background: var(--pale);
+  }
+  .fc-body p {
+    font-size: 0.93rem;
+    margin: 0;
+    color: #281808;
+    line-height: 1.75;
+  }
+  .fc-soluble .fc-head   { background: linear-gradient(135deg, var(--forest), #4a9848); }
+  .fc-insoluble .fc-head { background: linear-gradient(135deg, var(--sienna), var(--clay)); }
+
+  /* ══ Daily fibre sources grid ══ */
+  .source-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+    gap: 14px;
+    margin: 3em 0;
+  }
+  .s-card {
+    background: var(--pale);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 22px 14px 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default;
+    border-bottom: 4px solid var(--rule);
+  }
+  .s-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(160,104,32,0.18);
+  }
+  .s-card.sc-wheat:hover   { background:#fdf8ec; border-bottom-color: var(--wheat);   }
+  .s-card.sc-forest:hover  { background:#eef5ee; border-bottom-color: var(--forest);  }
+  .s-card.sc-sienna:hover  { background:#fdf2ec; border-bottom-color: var(--sienna);  }
+  .s-card.sc-sky:hover     { background:#eaf4f8; border-bottom-color: var(--sky);     }
+  .s-card.sc-oat:hover     { background:#fdf8e8; border-bottom-color: var(--oat);     }
+  .s-card.sc-clay:hover    { background:#fdf3ec; border-bottom-color: var(--clay);    }
+
+  .sc-icon  { font-size: 2.3rem; display: block; margin-bottom: 10px; }
+  .sc-name {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .sc-gram {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--wheat);
+    display: block;
+    margin-bottom: 3px;
+  }
+  .sc-note {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.68rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  /* ══ Gut bacteria visual ══ */
+  .gut-banner {
+    background: var(--ink);
+    border-radius: 3px;
+    padding: 32px 36px;
+    margin: 2.8em 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .gut-banner::before {
+    content: '🦠';
+    position: absolute;
+    font-size: 8rem;
+    opacity: 0.06;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+  }
+  .gut-banner h3 {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.3rem;
+    color: #f8d888;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .gut-banner p {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.92rem;
+    color: rgba(240,220,180,0.82);
+    margin: 0;
+    line-height: 1.78;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ══ Ornament ══ */
+  .ornament {
+    text-align: center;
+    margin: 38px 0;
+    font-size: 1.05rem;
+    letter-spacing: 0.7em;
+    color: var(--oat);
+    opacity: 0.55;
+  }
+
+  /* ══ Footer ══ */
+  .footer-bar {
+    margin-top: 64px;
+    padding-top: 22px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer-bar > span {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .footer-badge {
+    background: linear-gradient(135deg, var(--sienna), var(--wheat));
+    color: #fff8ec;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 2px;
+  }
+
+  /* ══ Animations ══ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+  .wrapper > * { animation: fadeUp 0.75s ease both; }
+  .wrapper > *:nth-child(1)  { animation-delay: 0.05s; }
+  .wrapper > *:nth-child(2)  { animation-delay: 0.12s; }
+  .wrapper > *:nth-child(3)  { animation-delay: 0.19s; }
+  .wrapper > *:nth-child(n+4){ animation-delay: 0.26s; }
+
+  @media (max-width: 580px) {
+    .wrapper      { padding: 42px 18px 72px; }
+    .hero-inner   { padding: 42px 20px 72px; }
+    blockquote    { padding: 26px 22px 26px 28px; }
+    .fibre-compare{ grid-template-columns: 1fr; }
+    .source-grid  { grid-template-columns: repeat(2, 1fr); }
+    h2            { gap: 12px; }
+    .h2-orb       { min-width: 42px; height: 42px; font-size: 1.2rem; }
+    .gut-banner   { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-texture"></div>
+  <div class="stalk">🌾</div>
+  <div class="stalk">🌾</div>
+  <div class="stalk">🌾</div>
+  <div class="stalk">🌾</div>
+  <div class="stalk">🌾</div>
+  <div class="stalk">🌾</div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Gut Health &nbsp;·&nbsp; Nutrition Science &nbsp;·&nbsp; The Overlooked Nutrient</div>
+    <h1>The Nutrient Nobody<br>Talks About — But<br><em>Everybody Needs</em></h1>
+    <p class="hero-sub">
+      It is not a vitamin. It is not a mineral. The body cannot even digest it.
+      Yet without fibre, every system inside you begins to quietly, steadily fall apart.
+    </p>
+    <div class="grain-row">
+      <div class="gr-line"></div>
+      <span class="grain-icon">🌾</span>
+      <span class="grain-icon">🫘</span>
+      <span class="grain-icon">✦</span>
+      <span class="grain-icon">🥦</span>
+      <span class="grain-icon">🍎</span>
+      <div class="gr-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ARTICLE BODY ══ -->
+<div class="wrapper">
+
+  <div class="byline">
+    <span>Nutrition Science Desk</span>
+    <span>800 Words &nbsp;·&nbsp; The Complete Fibre Guide</span>
+  </div>
+
+  <!-- Opening -->
+  <p class="lead">
+    Of all the nutrients the human body depends on, fibre is the strangest.
+    Unlike vitamins, minerals, or macronutrients, the body cannot break it down
+    or absorb it. It passes through the digestive system largely intact —
+    seemingly doing nothing, contributing no calories, yielding no energy of its
+    own. And yet, remove it from the diet entirely, and the consequences are
+    catastrophic — constipation, ballooning cholesterol, spiking blood sugar,
+    colon cancer risk, a devastated gut microbiome, and a body that slowly loses
+    its ability to regulate itself. Fibre is the nutrient that works by not being
+    digested. It is the quiet scaffolding that holds the entire architecture of
+    digestive health together — and most people in the modern world are getting
+    desperately, dangerously little of it.
+  </p>
+
+  <p>
+    The average adult requires between 25 and 38 grams of dietary fibre per day.
+    The average person in a Western diet consumes roughly 15 grams. We are eating
+    less than half of what our bodies were designed to receive — and we are paying
+    for that deficiency in ways that have become so common we have started to
+    mistake them for normal. Bloating. Fatigue. Irregular digestion. Rising
+    cholesterol. Blood sugar that refuses to behave. None of these things are
+    inevitable. Most of them are the language a fibre-starved body speaks when
+    it is trying, patiently and persistently, to ask for what it needs.
+  </p>
+
+  <blockquote>
+    <div class="bq-accent"></div>
+    <p>All disease begins in the gut. And in the gut, all healing begins with what you choose to feed it.</p>
+    <cite>— Inspired by Hippocrates</cite>
+  </blockquote>
+
+  <!-- SOLUBLE vs INSOLUBLE -->
+  <h2>
+    <span class="h2-orb">🌿</span>
+    <span class="h2-txt">Two Kinds of Fibre — Both Essential</span>
+  </h2>
+
+  <p>
+    Fibre is not a single substance. It is a broad family of plant-based compounds
+    that fall into two distinct and complementary categories — each with its own
+    remarkable set of functions, and each found in different foods. Understanding
+    the difference is not merely academic. It explains why eating a wide variety
+    of plant foods matters far more than simply choosing one fibre-rich food and
+    eating it every day.
+  </p>
+
+  <div class="fibre-compare">
+    <div class="fc-panel fc-soluble">
+      <div class="fc-head">
+        <span>💧</span>
+        <div>
+          <h3>Soluble Fibre</h3>
+          <small>Dissolves in water</small>
+        </div>
+      </div>
+      <div class="fc-body">
+        <p>Forms a gel in the digestive tract. Slows digestion, lowers LDL cholesterol, stabilises blood sugar, and feeds beneficial gut bacteria. Found in oats, apples, barley, beans, and citrus.</p>
+      </div>
+    </div>
+    <div class="fc-panel fc-insoluble">
+      <div class="fc-head">
+        <span>🌾</span>
+        <div>
+          <h3>Insoluble Fibre</h3>
+          <small>Does not dissolve</small>
+        </div>
+      </div>
+      <div class="fc-body">
+        <p>Adds bulk to stool, speeds transit through the intestines, prevents constipation, and reduces colon cancer risk. Found in whole wheat, brown rice, vegetables, nuts, and seeds.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUT -->
+  <h2>
+    <span class="h2-orb">🦠</span>
+    <span class="h2-txt">Fibre Feeds the Community Living Inside You</span>
+  </h2>
+
+  <p>
+    Inside your large intestine, approximately 100 trillion microorganisms —
+    bacteria, fungi, viruses — form a living ecosystem called the gut microbiome.
+    This community is not merely a passenger in your body. It produces vitamins,
+    trains your immune system, synthesises neurotransmitters, and protects the
+    intestinal lining from infection and inflammation. It is, in every meaningful
+    sense, an organ — and like every organ, it needs to be fed. Its preferred food
+    is fibre. When soluble fibre reaches the large intestine undigested, the
+    beneficial bacteria ferment it and produce short-chain fatty acids — butyrate,
+    propionate, and acetate. Butyrate is the primary fuel source for the cells
+    lining your colon, and it is profoundly anti-inflammatory, reducing colon
+    cancer risk, strengthening the intestinal wall, and dampening the chronic
+    low-grade inflammation that underlies almost every modern chronic disease.
+    Feed your microbiome with fibre, and it feeds you back with health you
+    cannot get any other way.
+  </p>
+
+  <div class="gut-banner">
+    <h3>The Microbiome — Your Inner Garden</h3>
+    <p>People who eat 30 or more different plant foods per week — including vegetables, fruits, legumes, whole grains, nuts, and seeds — have measurably more diverse gut microbiomes than those who eat fewer than 10. Diversity is everything. Each different fibre feeds a different bacterial species. More variety in your diet means a richer, more resilient microbial community — and a vastly more protected body.</p>
+  </div>
+
+  <div class="ornament">— ✦ —</div>
+
+  <!-- HEART -->
+  <h2>
+    <span class="h2-orb">❤️</span>
+    <span class="h2-txt">Fibre Protects Your Heart More Powerfully Than You Know</span>
+  </h2>
+
+  <p>
+    The relationship between dietary fibre and cardiovascular health is one of
+    the most consistently proven findings in nutritional epidemiology. Soluble
+    fibre — particularly the beta-glucan in oats and barley — binds to bile acids
+    in the intestine and prevents them from being reabsorbed. The liver must then
+    draw cholesterol from the bloodstream to manufacture new bile acids, lowering
+    circulating LDL levels measurably and reliably. Studies have shown that
+    eating just 3 grams of oat beta-glucan daily — equivalent to a bowl of
+    porridge — can reduce LDL cholesterol by 5 to 10 percent within six weeks.
+    Beyond cholesterol, fibre reduces blood pressure, lowers triglycerides, and
+    reduces arterial inflammation — three of the most important factors
+    determining whether the heart beats for decades or falters too soon.
+  </p>
+
+  <div class="cbox cbox-oat">
+    <strong>The Oat Prescription</strong>
+    <p>A single bowl of oat porridge each morning provides approximately 3 grams of soluble beta-glucan — enough to produce clinically significant LDL cholesterol reductions when eaten daily over six weeks. Top it with sliced banana, ground flaxseed, and a handful of berries, and you transform breakfast into one of the most heart-protective meals possible.</p>
+  </div>
+
+  <!-- BLOOD SUGAR -->
+  <h2>
+    <span class="h2-orb">🩸</span>
+    <span class="h2-txt">Fibre Steadies Blood Sugar and Prevents Diabetes</span>
+  </h2>
+
+  <p>
+    Every meal containing refined carbohydrates — white bread, white rice, sugary
+    drinks, processed snacks — sends a rapid pulse of glucose into the bloodstream,
+    demanding a surge of insulin in response. Repeated thousands of times over
+    years, this pattern erodes insulin sensitivity, exhausts the pancreas, and
+    paves the way for type 2 diabetes. Fibre interrupts this process with quiet
+    precision. By slowing the emptying of the stomach and the absorption of
+    glucose in the small intestine, fibre smooths the blood sugar curve — the
+    same meal eaten with adequate fibre produces a significantly lower and
+    slower glucose response than the same meal eaten without it. People with
+    the highest dietary fibre intake have a 20 to 30 percent lower risk of
+    developing type 2 diabetes compared to those with the lowest intake.
+    The difference between a spike and a gentle rise is often just a handful
+    of vegetables and a slice of whole grain bread.
+  </p>
+
+  <div class="cbox cbox-sky">
+    <strong>The Glycaemic Buffer</strong>
+    <p>Adding fibre to a meal fundamentally changes how the body responds to the carbohydrates in that meal. A plain white baguette has a glycaemic index of approximately 95. The same bread eaten with a bowl of lentil soup — rich in soluble fibre — produces a combined glycaemic response closer to 50. Fibre does not just feed you. It changes the metabolic character of everything you eat alongside it.</p>
+  </div>
+
+  <!-- CANCER -->
+  <h2>
+    <span class="h2-orb">🛡️</span>
+    <span class="h2-txt">Fibre Reduces the Risk of Colon Cancer Significantly</span>
+  </h2>
+
+  <p>
+    Colon cancer is the third most common cancer worldwide — and dietary fibre
+    is one of the most powerful protective factors against it. The mechanisms
+    are multiple and interconnected. Insoluble fibre speeds transit time through
+    the colon, reducing the time carcinogenic compounds in waste material are in
+    contact with the intestinal wall. Butyrate, produced by bacterial fermentation
+    of soluble fibre, directly inhibits the growth of cancer cells in the colon
+    lining while promoting the healthy turnover of normal cells. A comprehensive
+    analysis of twenty-five studies found that each 10-gram increase in daily
+    fibre intake was associated with a 10 percent reduction in colon cancer risk.
+    Ten grams is not an enormous amount — it is a cup of cooked lentils, a large
+    apple, or a bowl of bran cereal. The protection is real, it is meaningful,
+    and it comes wrapped in an ordinary meal.
+  </p>
+
+  <div class="cbox cbox-sienna">
+    <strong>The 30-gram Goal</strong>
+    <p>Aim for at least 25–30 grams of dietary fibre daily from a wide variety of sources. Increase intake gradually — adding too much fibre too quickly causes gas and bloating. Drink plenty of water alongside it, as fibre needs water to do its work. Think of each meal as an opportunity: add beans to soup, choose whole grain bread, snack on fruit and nuts, and pile vegetables generously onto every plate.</p>
+  </div>
+
+  <!-- Source cards -->
+  <div class="source-grid">
+    <div class="s-card sc-forest">
+      <span class="sc-icon">🫘</span>
+      <span class="sc-name">Lentils</span>
+      <span class="sc-gram">15g per cup</span>
+      <span class="sc-note">Soluble & insoluble</span>
+    </div>
+    <div class="s-card sc-oat">
+      <span class="sc-icon">🌾</span>
+      <span class="sc-name">Oats</span>
+      <span class="sc-gram">4g per cup</span>
+      <span class="sc-note">Rich in beta-glucan</span>
+    </div>
+    <div class="s-card sc-wheat">
+      <span class="sc-icon">🍎</span>
+      <span class="sc-name">Apple</span>
+      <span class="sc-gram">4g per fruit</span>
+      <span class="sc-note">Pectin for gut bacteria</span>
+    </div>
+    <div class="s-card sc-sienna">
+      <span class="sc-icon">🥦</span>
+      <span class="sc-name">Broccoli</span>
+      <span class="sc-gram">5g per cup</span>
+      <span class="sc-note">Insoluble & anti-cancer</span>
+    </div>
+    <div class="s-card sc-sky">
+      <span class="sc-icon">🌱</span>
+      <span class="sc-name">Chia Seeds</span>
+      <span class="sc-gram">10g per oz</span>
+      <span class="sc-note">Highest density source</span>
+    </div>
+    <div class="s-card sc-clay">
+      <span class="sc-icon">🍠</span>
+      <span class="sc-name">Sweet Potato</span>
+      <span class="sc-gram">4g per medium</span>
+      <span class="sc-note">Prebiotic for microbiome</span>
+    </div>
+  </div>
+
+  <div class="cbox cbox-forest">
+    <strong>Start Simply — Start Today</strong>
+    <p>You do not need a fibre supplement, a special food product, or a dramatic dietary overhaul. Simply choose whole grain bread over white. Add a handful of beans to your next soup or salad. Reach for a piece of fruit instead of a biscuit. Leave the skin on your apple, your potato, your pear. These small, unremarkable choices — made consistently, meal after meal — add up to the full daily fibre intake your body has been quietly waiting for. Begin today. Your gut will know the difference by morning.</p>
+  </div>
+
+  <p>
+    Fibre is the most unglamorous nutrient in the human diet. It has no
+    dramatic marketing campaign. It appears on no bestselling supplement.
+    It cannot be injected, infused, or sold in a luxury format. It is simply
+    there — in the humble bean, the unpeeled apple, the bowl of oat porridge,
+    the handful of mixed seeds — waiting patiently to do something remarkable
+    inside you. Feed your gut with fibre every day, and it will feed you back
+    with a steady heart, a balanced blood sugar, a thriving microbiome, a
+    protected colon, and a body that moves through the world with a quiet
+    ease that no pill, no powder, and no shortcut can manufacture. The
+    most powerful medicine for the gut is already in your kitchen. It
+    always has been. It is simply waiting to be chosen.
+  </p>
+
+  <div class="footer-bar">
+    <span>Nutrition Science Desk — The Complete Fibre Guide</span>
+    <span class="footer-badge">~ Words</span>
+  </div>
+
+</div>
+</body>
+</html>
