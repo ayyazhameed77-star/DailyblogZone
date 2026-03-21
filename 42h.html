@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benefits of Drinking Lemon Water</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lemon-deep:   #8a6a00;
+    --lemon-mid:    #b88a00;
+    --lemon-bright: #f0c800;
+    --lemon-pale:   #fff9d6;
+    --lemon-soft:   #fffdf0;
+    --citrus:       #e8a800;
+    --citrus-warm:  #f5c842;
+    --lime-green:   #5a8a00;
+    --lime-soft:    #f0f8e0;
+    --lime-mid:     #78a820;
+    --sky:          #1a7fa8;
+    --sky-soft:     #e8f6fd;
+    --cream:        #fdfbf0;
+    --warm-white:   #fffef5;
+    --text:         #2a2000;
+    --text-mid:     #4a3800;
+    --text-light:   #8a7040;
+    --white:        #ffffff;
+    --coral:        #e05828;
+    --coral-soft:   #fff2ee;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text);
+    line-height: 1.85;
+  }
+
+  /* ── Top bar ── */
+  .top-bar {
+    background: var(--lemon-deep);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 28px;
+    font-size: 0.79rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.6px;
+  }
+  .top-bar strong { color: var(--citrus-warm); }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(150deg, #5a4200 0%, #8a6a00 30%, #c89000 62%, #f0c800 100%);
+    padding: 0;
+    min-height: 460px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  /* Lemon slice decorative circles */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -120px;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%,
+        rgba(255,255,255,0.18) 0%,
+        rgba(255,255,255,0.08) 30%,
+        rgba(255,255,255,0.03) 55%,
+        transparent 70%);
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+  /* Inner lemon ring */
+  .hero-lemon-ring {
+    position: absolute;
+    top: -40px;
+    right: -50px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: transparent;
+  }
+  .hero-lemon-ring::before {
+    content: '';
+    position: absolute;
+    top: 30px; left: 30px;
+    right: 30px; bottom: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 65%);
+  }
+  /* Segment lines */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 50% at 10% 80%,
+        rgba(255,255,255,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 90% 85%,
+        rgba(90,138,0,0.1) 0%, transparent 55%);
+  }
+  .hero-content {
+    position: relative;
+    padding: 82px 32px 58px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 2;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.9);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    padding: 7px 22px;
+    border-radius: 30px;
+    margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+    color: #fff;
+    line-height: 1.1;
+    max-width: 680px;
+    font-weight: 700;
+  }
+  .hero h1 em {
+    color: #fff9d6;
+    font-style: italic;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.02rem;
+    font-weight: 300;
+    margin-top: 16px;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+  /* Pill stats */
+  .hero-pills {
+    display: flex;
+    gap: 12px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+  .hero-pill {
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px;
+    padding: 8px 18px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.88);
+    font-weight: 500;
+  }
+  .hero-pill strong { color: #fff9b0; }
+  .hero-bar {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg,
+      var(--lemon-bright), var(--citrus),
+      var(--lime-mid), var(--sky));
+  }
+
+  /* ── Article wrap ── */
+  .article-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 56px 24px 88px;
+  }
+
+  /* ── Intro box ── */
+  .intro-box {
+    background: linear-gradient(135deg, var(--lemon-pale), var(--lemon-soft));
+    border-left: 5px solid var(--citrus);
+    border-radius: 0 16px 16px 0;
+    padding: 28px 34px;
+    margin-bottom: 52px;
+    font-size: 1.08rem;
+    font-style: italic;
+    color: var(--lemon-deep);
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.92;
+  }
+
+  /* ── Tip section ── */
+  .tip-section { margin-bottom: 52px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  .section-icon {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--lemon-deep), var(--citrus));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    box-shadow: 0 6px 22px rgba(138,106,0,0.28);
+  }
+  .title-group span {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--citrus);
+    margin-bottom: 3px;
+  }
+  .title-group h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.65rem;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.22;
+  }
+
+  .tip-body p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    margin-bottom: 14px;
+    line-height: 1.92;
+  }
+
+  /* ── Action card ── */
+  .action-card {
+    background: var(--white);
+    border: 1px solid #ffe070;
+    border-radius: 14px;
+    padding: 20px 26px;
+    margin-top: 18px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    box-shadow: 0 3px 18px rgba(138,106,0,0.08);
+  }
+  .ac-icon { font-size: 1.3rem; margin-top: 1px; flex-shrink: 0; }
+  .ac-text { font-size: 0.94rem; color: var(--text-mid); line-height: 1.78; }
+  .ac-text strong { color: var(--lemon-deep); font-weight: 700; }
+
+  /* ── Lemon divider ── */
+  .lemon-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 30px 0;
+  }
+  .ld-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--citrus-warm), transparent); }
+  .ld-icon { font-size: 1.3rem; }
+
+  /* ── Benefits grid ── */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 28px 0;
+  }
+  @media(max-width:560px){ .benefits-grid { grid-template-columns: 1fr 1fr; } }
+  .benefit-card {
+    background: var(--white);
+    border: 1px solid #ffe070;
+    border-radius: 14px;
+    padding: 20px 14px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(138,106,0,0.12);
+  }
+  .benefit-card .bc-icon { font-size: 2rem; margin-bottom: 10px; }
+  .benefit-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--lemon-deep);
+    margin-bottom: 5px;
+  }
+  .benefit-card p { font-size: 0.77rem; color: var(--text-light); line-height: 1.58; }
+
+  /* ── Dark lemon recipe block ── */
+  .recipe-block {
+    background: linear-gradient(145deg, #3a2800, #6a4e00);
+    border-radius: 22px;
+    padding: 40px 34px;
+    margin: 44px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .recipe-block::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 90% 5%,
+        rgba(240,200,0,0.13) 0%, transparent 65%);
+  }
+  .recipe-block::after {
+    content: '🍋';
+    position: absolute;
+    font-size: 160px;
+    bottom: -20px;
+    right: 16px;
+    pointer-events: none;
+    line-height: 1;
+    opacity: 0.15;
+  }
+  .recipe-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    color: var(--citrus-warm);
+    font-style: italic;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .recipe-block > p {
+    color: rgba(255,255,255,0.52);
+    font-size: 0.87rem;
+    margin-bottom: 26px;
+    position: relative;
+  }
+  .recipe-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    position: relative;
+  }
+  @media(max-width:500px){ .recipe-steps { grid-template-columns: 1fr; } }
+  .rs-step {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(240,200,0,0.2);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .rs-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 1px; }
+  .rs-text h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .rs-text p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.56);
+    line-height: 1.58;
+  }
+
+  /* ── Vitamin C beauty box ── */
+  .beauty-box {
+    background: linear-gradient(135deg, var(--lime-soft), #f8fdf0);
+    border: 1px solid #c0dca0;
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin: 36px 0;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .beauty-box .bb-icon { font-size: 2.4rem; flex-shrink: 0; margin-top: 2px; }
+  .beauty-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--lime-green);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .beauty-box p { font-size: 0.93rem; color: #2a4a10; line-height: 1.8; }
+
+  /* ── Morning ritual card ── */
+  .morning-ritual {
+    background: linear-gradient(135deg, var(--lemon-pale), var(--lemon-soft));
+    border: 1px solid #ffe070;
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+  .morning-ritual h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--lemon-deep);
+    font-style: italic;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ritual-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ritual-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(255,255,255,0.65);
+    border-radius: 12px;
+    padding: 14px 18px;
+    border: 1px solid #ffe8a0;
+  }
+  .ritual-step .rnum {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--citrus);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 1px;
+    min-width: 28px;
+  }
+  .ritual-step p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+  .ritual-step strong { color: var(--lemon-deep); }
+
+  /* ── Caution box ── */
+  .caution-box {
+    background: linear-gradient(135deg, var(--coral-soft), #fff8f5);
+    border: 1px solid #f8c8b8;
+    border-radius: 16px;
+    padding: 22px 28px;
+    margin: 32px 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .caution-box .cb-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
+  .caution-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--coral);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .caution-box p { font-size: 0.88rem; color: #7a3020; line-height: 1.75; }
+
+  /* ── Habits row ── */
+  .habits-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  @media(max-width:560px){ .habits-row { grid-template-columns: 1fr; } }
+  .habit-tile {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 22px 22px;
+    border: 1px solid #ffe070;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .habit-tile .ht-icon { font-size: 1.7rem; margin-bottom: 10px; }
+  .habit-tile h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--lemon-deep);
+    margin-bottom: 7px;
+  }
+  .habit-tile p { font-size: 0.85rem; color: var(--text-light); line-height: 1.66; }
+
+  /* ── Closing ── */
+  .closing {
+    background: linear-gradient(145deg, #5a4200, #b88a00);
+    border-radius: 22px;
+    padding: 48px 38px;
+    text-align: center;
+    margin-top: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 65% 60% at 50% 50%,
+        rgba(240,200,0,0.12) 0%, transparent 65%);
+  }
+  .closing-icon {
+    font-size: 3rem;
+    margin-bottom: 18px;
+    display: block;
+    position: relative;
+    animation: lemonspin 6s ease-in-out infinite;
+  }
+  @keyframes lemonspin {
+    0%,100% { transform: rotate(-8deg) scale(1); }
+    50%      { transform: rotate(8deg) scale(1.1); }
+  }
+  .closing p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.82;
+    margin-bottom: 16px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .closing small {
+    font-size: 0.78rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,240,150,0.75);
+    font-weight: 600;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>✦ Natural Health &amp; Wellness</span>
+  <span><strong>~800 Words</strong> · Lemon Water Guide</span>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-lemon-ring"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🍋 Wellness Morning Ritual</div>
+    <h1>Benefits of Drinking<br><em>Lemon Water</em></h1>
+    <p class="hero-sub">One glass every morning — one of the simplest, most powerful rituals you can give yourself</p>
+    <div class="hero-pills">
+      <div class="hero-pill"><strong>Vitamin C</strong> — immunity shield</div>
+      <div class="hero-pill"><strong>Digestion</strong> — morning reset</div>
+      <div class="hero-pill"><strong>Skin</strong> — natural glow</div>
+      <div class="hero-pill"><strong>Hydration</strong> — all day energy</div>
+    </div>
+  </div>
+  <div class="hero-bar"></div>
+</div>
+
+<div class="article-wrap">
+
+  <div class="intro-box">
+    There are mornings when the world asks too much before you have even opened your eyes. And yet the simplest rituals are often the most transformative ones. A glass of warm water with freshly squeezed lemon juice — taken first thing in the morning, before coffee, before food, before the noise of the day — is one of the most beloved wellness practices across cultures for thousands of years. It takes thirty seconds to prepare. And what it does for your body is nothing short of remarkable.
+  </div>
+
+  <!-- 1. Vitamin C & Immunity -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🍋</div>
+      <div class="title-group">
+        <span>Benefit No. 1</span>
+        <h2>A Powerful Dose of Vitamin C Every Morning</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>A single lemon contains between 30 and 50 milligrams of Vitamin C — which is a significant portion of your recommended daily intake in one small, bright fruit. Vitamin C is one of the most essential nutrients the human body requires, yet unlike most animals, we cannot produce it ourselves. We must get it entirely from food and drink — and lemon water is one of the most effortless and delicious ways to do exactly that.</p>
+      <p>Vitamin C is the cornerstone of a strong immune system. It stimulates the production and activity of white blood cells, the soldiers your body sends to fight infections, viruses, and bacteria. It is a powerful antioxidant that neutralises free radicals — the unstable molecules that damage cells, accelerate ageing, and contribute to chronic disease. People who consistently maintain high Vitamin C levels get sick less often, recover faster when they do, and show measurably slower signs of cellular ageing over time.</p>
+    </div>
+    <div class="action-card">
+      <div class="ac-icon">✨</div>
+      <div class="ac-text"><strong>How to get the most from it:</strong> Use freshly squeezed lemon juice — never bottled. Roll the lemon firmly on the counter before cutting to release more juice. Use warm water rather than boiling hot, as extreme heat destroys Vitamin C. Half a lemon in a large glass of warm water every morning is all you need to begin feeling the difference within days.</div>
+    </div>
+  </div>
+
+  <div class="lemon-divider">
+    <div class="ld-line"></div>
+    <div class="ld-icon">🍋</div>
+    <div class="ld-line"></div>
+  </div>
+
+  <!-- Benefits grid -->
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="bc-icon">🛡️</div>
+      <h4>Immunity Boost</h4>
+      <p>Vitamin C activates white blood cells and shortens cold duration significantly</p>
+    </div>
+    <div class="benefit-card">
+      <div class="bc-icon">✨</div>
+      <h4>Glowing Skin</h4>
+      <p>Collagen production fuelled by Vitamin C keeps skin firm, bright and youthful</p>
+    </div>
+    <div class="benefit-card">
+      <div class="bc-icon">⚡</div>
+      <h4>Natural Energy</h4>
+      <p>Hydration first thing eliminates morning fatigue better than a second cup of coffee</p>
+    </div>
+    <div class="benefit-card">
+      <div class="bc-icon">🔥</div>
+      <h4>Boosts Metabolism</h4>
+      <p>Warm lemon water activates digestion and gently raises metabolic rate from morning</p>
+    </div>
+    <div class="benefit-card">
+      <div class="bc-icon">💧</div>
+      <h4>Deep Hydration</h4>
+      <p>Electrolytes in lemon help cells absorb water more effectively than plain water alone</p>
+    </div>
+    <div class="benefit-card">
+      <div class="bc-icon">🫀</div>
+      <h4>Heart Protection</h4>
+      <p>Potassium in lemon supports heart rhythm and helps maintain healthy blood pressure</p>
+    </div>
+  </div>
+
+  <div class="lemon-divider">
+    <div class="ld-line"></div>
+    <div class="ld-icon">🍋</div>
+    <div class="ld-line"></div>
+  </div>
+
+  <!-- 2. Digestion & Detox -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">🌿</div>
+      <div class="title-group">
+        <span>Benefit No. 2</span>
+        <h2>It Wakes Up Your Digestion & Cleanses Your Liver</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Your digestive system goes quiet during the night. By morning, the stomach is empty, the digestive juices are low, and the whole system is waiting to be activated. Warm lemon water is one of the most effective ways to wake up your digestion gently and thoroughly before you eat anything. The acidity of lemon juice mimics the body's own digestive acid, stimulating the production of bile in the liver and encouraging the digestive system to begin working efficiently from the very first moment of the day.</p>
+      <p>Lemon water is also deeply supportive of the liver — the body's master detoxification organ. Citric acid in lemon juice helps the liver produce enzymes and flush out toxins that accumulate overnight. Unlike the dramatic "detox cleanses" sold in expensive packages, this simple daily habit supports the liver's own natural, elegant cleaning processes. After just two weeks of consistent morning lemon water, many people report reduced bloating, better digestion, and a noticeably flatter, more comfortable stomach throughout the day.</p>
+    </div>
+    <div class="action-card">
+      <div class="ac-icon">🌱</div>
+      <div class="ac-text"><strong>For digestion:</strong> Drink your lemon water 20 to 30 minutes before breakfast to give it time to activate digestion before food arrives. Add a small pinch of pink Himalayan salt for extra electrolytes, or a thin slice of fresh ginger for an anti-inflammatory, stomach-soothing upgrade that also reduces bloating and nausea beautifully.</div>
+    </div>
+  </div>
+
+  <!-- Lemon variations dark block -->
+  <div class="recipe-block">
+    <h3>Four Ways to Make Your Lemon Water Even Better</h3>
+    <p>Upgrade your daily glass with these powerful, delicious additions</p>
+    <div class="recipe-steps">
+      <div class="rs-step">
+        <div class="rs-icon">🍯</div>
+        <div class="rs-text">
+          <h5>Lemon + Honey</h5>
+          <p>Add one teaspoon of raw honey for antibacterial power, throat soothing, and a gentle natural sweetness that makes the ritual feel like a treat.</p>
+        </div>
+      </div>
+      <div class="rs-step">
+        <div class="rs-icon">🫚</div>
+        <div class="rs-text">
+          <h5>Lemon + Ginger</h5>
+          <p>A few slices of fresh ginger add anti-inflammatory gingerols, reduce bloating, fight nausea, and give your morning a warming, energising kick.</p>
+        </div>
+      </div>
+      <div class="rs-step">
+        <div class="rs-icon">🌶️</div>
+        <div class="rs-text">
+          <h5>Lemon + Cayenne</h5>
+          <p>A tiny pinch of cayenne pepper activates metabolism, improves circulation, and turns your lemon water into a gentle, effective fat-burning morning tonic.</p>
+        </div>
+      </div>
+      <div class="rs-step">
+        <div class="rs-icon">🌿</div>
+        <div class="rs-text">
+          <h5>Lemon + Mint</h5>
+          <p>Fresh mint leaves add digestive power, a refreshing flavour, and menthol that opens airways and sharpens morning mental clarity instantly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Skin and Beauty -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">✨</div>
+      <div class="title-group">
+        <span>Benefit No. 3</span>
+        <h2>It Gives Your Skin a Natural, Radiant Glow</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>Lemon water is one of the most beloved beauty drinks in the world — and the reasons are deeply scientific, not just anecdotal. Vitamin C is the essential cofactor in collagen synthesis — the process by which your body builds the protein that gives skin its firmness, elasticity, and youthful structure. Without adequate Vitamin C, collagen production falters and skin begins to lose its plumpness and resilience. With consistent, generous Vitamin C intake, the difference is visible.</p>
+      <p>The antioxidants in lemon water also fight oxidative stress — one of the primary drivers of premature skin ageing, dark spots, uneven skin tone, and dullness. People who drink lemon water consistently often notice that their skin looks clearer, brighter, and more even-toned within just a few weeks. The hydration aspect matters enormously too — properly hydrated skin simply looks better, smoother, and more luminous than dehydrated skin, and lemon water makes plain water more appealing and therefore easier to drink in greater quantities.</p>
+    </div>
+  </div>
+
+  <!-- Beauty box -->
+  <div class="beauty-box">
+    <div class="bb-icon">💆</div>
+    <div>
+      <h3>The Collagen Connection — Lemon Water as a Beauty Ritual</h3>
+      <p>Vitamin C is so critical to collagen production that ancient sailors who went months without citrus fruits developed scurvy — a disease characterised by skin that bruised, bled, and fell apart at the cellular level. We do not reach that extreme today, but subclinical Vitamin C deficiency — not quite scurvy but not optimal either — is far more common than we realise. It shows up as dull skin, slow wound healing, fragile nails, and tired-looking eyes. A daily glass of lemon water addresses this quietly, consistently, and beautifully from the inside out.</p>
+    </div>
+  </div>
+
+  <!-- Morning ritual -->
+  <div class="morning-ritual">
+    <h3>🌅 The Perfect Morning Lemon Water Ritual</h3>
+    <div class="ritual-steps">
+      <div class="ritual-step">
+        <div class="rnum">1</div>
+        <p>Upon waking, <strong>before coffee or food</strong>, heat a large glass of water to warm — not boiling. Your body has been fasting for 7–8 hours and is ready to absorb.</p>
+      </div>
+      <div class="ritual-step">
+        <div class="rnum">2</div>
+        <p><strong>Squeeze half a fresh lemon</strong> — roll it on the counter first to release more juice. Add a slice of ginger or a teaspoon of honey if desired for extra benefit.</p>
+      </div>
+      <div class="ritual-step">
+        <div class="rnum">3</div>
+        <p><strong>Drink it slowly</strong> — sip mindfully over five to ten minutes. This is your quiet morning moment. Let your body receive it fully before the day begins.</p>
+      </div>
+      <div class="ritual-step">
+        <div class="rnum">4</div>
+        <p><strong>Wait 20–30 minutes</strong> before breakfast. Rinse your mouth with plain water after drinking to protect tooth enamel from the lemon's natural acidity.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Caution -->
+  <div class="caution-box">
+    <div class="cb-icon">⚠️</div>
+    <div>
+      <h3>One Small But Important Caution</h3>
+      <p>Lemon juice is mildly acidic, and regular exposure can erode tooth enamel over time if not managed carefully. Always drink through a straw when possible, or rinse your mouth with plain water immediately after drinking. Never brush your teeth for at least 30 minutes after lemon water — brushing on softened enamel causes more wear than the acid itself. These simple precautions let you enjoy all the benefits with zero risk to your smile.</p>
+    </div>
+  </div>
+
+  <!-- Daily habits -->
+  <div class="tip-section">
+    <div class="section-header">
+      <div class="section-icon">💛</div>
+      <div class="title-group">
+        <span>Daily Practice</span>
+        <h2>Small Habits That Make It Effortless</h2>
+      </div>
+    </div>
+    <div class="tip-body">
+      <p>The best wellness habit is the one you actually do every day without thinking. These small practical habits make lemon water a seamless, joyful, non-negotiable part of your morning — for life.</p>
+    </div>
+    <div class="habits-row">
+      <div class="habit-tile">
+        <div class="ht-icon">🛒</div>
+        <h4>Always Have Lemons</h4>
+        <p>Keep a bowl of fresh lemons on your kitchen counter — visible, ready, and beautiful. When they are in front of you, you will always use them without having to think.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🥛</div>
+        <h4>Prepare the Night Before</h4>
+        <p>Place your glass and a lemon on the counter each evening. Reducing morning friction means the habit happens automatically before your sleepy brain can skip it.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">📅</div>
+        <h4>Link It to Something You Always Do</h4>
+        <p>Drink your lemon water while the kettle boils for your morning tea or while you check your phone. Attaching it to an existing habit makes it stick effortlessly.</p>
+      </div>
+      <div class="habit-tile">
+        <div class="ht-icon">🧊</div>
+        <h4>Cold Lemon Water Works Too</h4>
+        <p>Prefer cold? Ice-cold lemon water is equally beneficial and wonderfully refreshing as a hot-weather morning drink or an afternoon energy reset at any time of day.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <span class="closing-icon">🍋</span>
+    <p>"One lemon. One glass of warm water. Thirty seconds of your morning. And a body that wakes up brighter, cleaner, and more alive than the day before. Some of the most beautiful things in life are breathtakingly simple."</p>
+    <small>✦ Squeeze it · Sip it · Glow with it · Love it ✦</small>
+  </div>
+
+</div>
+</body>
+</html>
