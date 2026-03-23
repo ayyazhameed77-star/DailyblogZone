@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Lifestyle Tips — Article No. 58</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage:    #4a7c59;
+    --mint:    #7fbf8e;
+    --leaf:    #b5d5b0;
+    --lime:    #d4eda3;
+    --deep:    #0f1f14;
+    --forest:  #1e3d28;
+    --mid:     #2e5c3a;
+    --cream:   #f7fdf4;
+    --soft:    #edf7e8;
+    --text:    #172310;
+    --muted:   #5a7a60;
+    --gold:    #c8a84b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 440px;
+    background: linear-gradient(150deg, #0f1f14 0%, #1e3d28 40%, #2e5c3a 70%, #4a7c59 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 90px 28px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* radial glow */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(181,213,176,0.18) 0%, rgba(74,124,89,0.1) 50%, transparent 70%);
+    animation: breathe 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* floating leaf shapes */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(127,191,142,0.08) 60px, transparent 60px),
+      radial-gradient(circle at 85% 75%, rgba(127,191,142,0.06) 80px, transparent 80px),
+      radial-gradient(circle at 60% 10%, rgba(212,237,163,0.07) 50px, transparent 50px);
+    pointer-events: none;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.8; }
+    50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 1;   }
+  }
+
+  .ghost-num {
+    position: absolute;
+    bottom: -10px; right: 16px;
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(120px, 20vw, 220px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(181,213,176,0.12);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--leaf);
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .hero-icon {
+    font-size: 66px;
+    display: block;
+    margin-bottom: 18px;
+    animation: sway 3.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(181,213,176,0.5));
+    position: relative;
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-4deg) scale(1); }
+    50%       { transform: rotate(4deg) scale(1.06); }
+  }
+
+  .hero h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(38px, 8vw, 78px);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .hero h1 em {
+    color: var(--lime);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(247,253,244,0.68);
+    max-width: 480px;
+    font-style: italic;
+    position: relative;
+  }
+
+  /* ── ARTICLE ── */
+  .article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 68px 28px 80px;
+  }
+
+  .intro {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--mid);
+    border-left: 3px solid var(--sage);
+    padding-left: 24px;
+    margin-bottom: 54px;
+    line-height: 1.88;
+  }
+
+  /* section */
+  .section {
+    margin-bottom: 52px;
+    opacity: 0;
+    transform: translateY(22px);
+    animation: rise 0.65s ease forwards;
+  }
+  .section:nth-child(1){ animation-delay: 0.05s }
+  .section:nth-child(2){ animation-delay: 0.15s }
+  .section:nth-child(3){ animation-delay: 0.25s }
+  .section:nth-child(4){ animation-delay: 0.35s }
+  .section:nth-child(5){ animation-delay: 0.45s }
+  .section:nth-child(6){ animation-delay: 0.55s }
+  .section:nth-child(7){ animation-delay: 0.65s }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .sec-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10.5px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 9px;
+    font-weight: 600;
+  }
+  .sec-label::before {
+    content: '';
+    width: 28px; height: 2px;
+    background: linear-gradient(90deg, var(--sage), var(--mint));
+    display: inline-block;
+    border-radius: 2px;
+  }
+
+  h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 16.5px;
+    line-height: 1.92;
+    color: #1e3820;
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+
+  /* pillars grid */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 44px 0;
+  }
+
+  .pillar {
+    background: var(--soft);
+    border: 1px solid rgba(74,124,89,0.22);
+    border-radius: 12px;
+    padding: 24px 18px;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .pillar::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sage), var(--mint));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .pillar:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(74,124,89,0.16);
+    background: #f0faea;
+  }
+  .pillar:hover::after { transform: scaleX(1); }
+
+  .pillar .p-icon { font-size: 34px; display: block; margin-bottom: 10px; }
+  .pillar strong {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--forest);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .pillar span { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  /* pull quote */
+  .pullquote {
+    background: linear-gradient(135deg, #1e3d28, #3a6645);
+    border-radius: 8px;
+    padding: 42px 44px;
+    margin: 52px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .pullquote::before {
+    content: '\201C';
+    font-family: 'Bodoni Moda', serif;
+    font-size: 200px;
+    color: rgba(181,213,176,0.1);
+    position: absolute;
+    top: -40px; left: 8px;
+    line-height: 1;
+  }
+  .pullquote::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(127,191,142,0.07);
+  }
+  .pullquote p {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 21px;
+    font-style: italic;
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    line-height: 1.72;
+  }
+  .pullquote p em { color: var(--lime); }
+
+  /* checklist */
+  .checklist {
+    margin: 36px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--soft);
+    border-radius: 8px;
+    padding: 16px 20px;
+    border: 1px solid rgba(74,124,89,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .check-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(74,124,89,0.12);
+  }
+  .check-dot {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage), var(--mint));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .check-item .c-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 2px;
+  }
+  .check-item .c-text span { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* highlight box */
+  .note-box {
+    background: #f0faea;
+    border-left: 4px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+    padding: 22px 26px;
+    margin: 36px 0;
+  }
+  .note-box p { font-size: 15.5px; color: #254030; margin: 0; line-height: 1.8; }
+  .note-box strong { color: var(--sage); }
+
+  /* footer */
+  .art-footer {
+    text-align: center;
+    padding: 52px 24px 64px;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--soft) 100%);
+    border-top: 1px solid rgba(74,124,89,0.15);
+  }
+  .footer-icon { font-size: 40px; display: block; margin-bottom: 12px; }
+  .footer-meta {
+    font-size: 11.5px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="ghost-num">58</div>
+  <span class="hero-tag">Health &amp; Wellness · Article No. 58</span>
+  <span class="hero-icon">🌿</span>
+  <h1>The Art of<br>Living<br><em>Healthy</em></h1>
+  <p class="hero-sub">Simple, beautiful habits that quietly transform everything</p>
+</header>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <p class="intro">
+    A healthy life is not a perfect life. It is not a life of strict rules, punishing routines, or giving up everything you love. It is, at its heart, a series of small, thoughtful choices made daily — choices that stack quietly, one on top of another, until one day you look up and realise you feel genuinely, deeply well.
+  </p>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <span class="sec-label">The Foundation</span>
+    <h2>Health Is Built in the Ordinary Moments</h2>
+    <p>
+      We tend to imagine that good health belongs to people with elaborate meal plans, personal trainers, and perfect willpower. But the research tells a different story. The healthiest people in the world are not the most disciplined — they are the ones who have made healthy choices easy, automatic, and even enjoyable. They do not fight their lifestyle. They have simply designed one that works.
+    </p>
+    <p>
+      The most powerful shift you can make is this: stop looking for the single dramatic change that will fix everything, and start building small, consistent habits that are sustainable for life. Health is not a destination. It is a direction — and every day you can choose to face it.
+    </p>
+  </div>
+
+  <!-- PILLARS GRID -->
+  <div class="pillars">
+    <div class="pillar">
+      <span class="p-icon">🥗</span>
+      <strong>Eat Real Food</strong>
+      <span>Whole foods over processed ones — most of the time</span>
+    </div>
+    <div class="pillar">
+      <span class="p-icon">🏃</span>
+      <strong>Move Daily</strong>
+      <span>30 minutes of movement changes everything</span>
+    </div>
+    <div class="pillar">
+      <span class="p-icon">😴</span>
+      <strong>Sleep Well</strong>
+      <span>7–9 hours is where healing truly happens</span>
+    </div>
+    <div class="pillar">
+      <span class="p-icon">💧</span>
+      <strong>Hydrate</strong>
+      <span>Water powers every system in your body</span>
+    </div>
+    <div class="pillar">
+      <span class="p-icon">🧘</span>
+      <strong>Manage Stress</strong>
+      <span>Calm is not a luxury — it's medicine</span>
+    </div>
+    <div class="pillar">
+      <span class="p-icon">🤝</span>
+      <strong>Stay Connected</strong>
+      <span>Relationships are as vital as diet and exercise</span>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <span class="sec-label">Nourishment</span>
+    <h2>Feed Your Body Like It Matters — Because It Does</h2>
+    <p>
+      You do not need a complicated diet. You do not need to count every calorie, eliminate entire food groups, or follow the latest trending protocol. The simplest eating advice remains the most powerful: eat mostly whole, minimally processed foods. Vegetables, fruits, whole grains, lean proteins, legumes, nuts, and seeds form the bedrock of nearly every healthy diet studied around the world.
+    </p>
+    <p>
+      Eat slowly and with attention. Research consistently shows that people who eat mindfully — tasting their food, sitting down, eliminating distractions — consume less, enjoy more, and maintain healthier weights effortlessly. Colour your plate generously. Variety is not just aesthetically pleasing; it ensures a wide spectrum of vitamins, minerals, and antioxidants that no single superfood can provide alone.
+    </p>
+  </div>
+
+  <!-- PULLQUOTE -->
+  <div class="pullquote">
+    <p>You don't need a perfect diet.<br>You need a <em>kind relationship</em> with food,<br>your body, and your time.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <span class="sec-label">Movement</span>
+    <h2>Your Body Was Designed to Move — Let It</h2>
+    <p>
+      Exercise is often framed as punishment — a tax paid for enjoying life. That framing is both inaccurate and counterproductive. Movement is one of the most generous gifts you can give yourself. It floods your brain with endorphins and serotonin, reduces anxiety, sharpens memory, lowers blood pressure, regulates blood sugar, strengthens your heart, and extends your lifespan. No single medication comes close to replicating its benefits.
+    </p>
+    <p>
+      You do not need a gym membership or an hour-long class. Walking is among the most studied and celebrated forms of exercise on the planet — a brisk 30-minute walk daily reduces all-cause mortality by over 30%. Dance in your kitchen. Take the stairs. Stretch in the morning. Ride a bicycle on weekends. The best exercise is the one you actually do, joyfully and often.
+    </p>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="checklist">
+    <div class="check-item">
+      <div class="check-dot">☀️</div>
+      <div class="c-text">
+        <strong>Start your morning with water and light</strong>
+        <span>Rehydrate after sleep and get natural sunlight within an hour of waking to set your circadian rhythm.</span>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-dot">🥦</div>
+      <div class="c-text">
+        <strong>Add a vegetable to every meal</strong>
+        <span>You don't need to overhaul your diet — just add one more plant to each plate, consistently.</span>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-dot">📵</div>
+      <div class="c-text">
+        <strong>Put your phone down 60 minutes before bed</strong>
+        <span>Blue light suppresses melatonin and delays deep sleep. This one habit alone can transform your sleep quality.</span>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-dot">🌬️</div>
+      <div class="c-text">
+        <strong>Breathe deeply and deliberately — daily</strong>
+        <span>Five minutes of deep, slow breathing activates the parasympathetic nervous system, lowering cortisol and heart rate.</span>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-dot">💬</div>
+      <div class="c-text">
+        <strong>Nurture at least one meaningful relationship</strong>
+        <span>Loneliness is as harmful to health as smoking 15 cigarettes a day. Connection is not optional — it's biological.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <span class="sec-label">Rest & Mind</span>
+    <h2>Sleep and Stillness Are Not Weakness — They Are Wisdom</h2>
+    <p>
+      In a culture that glorifies busyness, rest has been quietly stripped of its dignity. But the science is unambiguous: sleep is when your brain clears toxic waste products, when your muscles repair, when your hormones reset, and when your immune system prepares for tomorrow. Adults who consistently sleep fewer than six hours a night have dramatically higher rates of heart disease, obesity, diabetes, depression, and early death.
+    </p>
+    <p>
+      Mental health sits at the centre of all physical health. Chronic stress, unresolved anxiety, and emotional disconnection corrode the body from the inside. Meditation, journalling, therapy, time in nature, creative pursuits — these are not indulgences. They are maintenance. Caring for your mind is not separate from caring for your body. It is, in every sense, the same act.
+    </p>
+  </div>
+
+  <!-- NOTE BOX -->
+  <div class="note-box">
+    <p><strong>Remember this above all:</strong> Healthy living is not about being perfect on Monday and giving up by Friday. It is about being gentle with yourself, returning to your good habits after every slip, and trusting that small, consistent actions — taken with love and patience — will always lead somewhere beautiful.</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <span class="sec-label">The Long Game</span>
+    <h2>Choose Progress, Not Perfection</h2>
+    <p>
+      The healthiest people are not those who never have a bad day, skip a workout, or eat something indulgent. They are the ones who have stopped using imperfection as a reason to quit. They understand that health is cumulative — that every glass of water, every early night, every walk around the block is a deposit into an account that pays the richest possible interest: energy, clarity, joy, and years of good living.
+    </p>
+    <p>
+      You do not have to change everything today. Choose one thing. Do it well, and do it consistently. When it becomes effortless, add another. Build slowly. Build sustainably. Build a life you are proud to live inside — because in the end, a healthy lifestyle is simply a life lived with intention, with care, and with deep, quiet love for the extraordinary body that carries you through it all.
+    </p>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer class="art-footer">
+  <span class="footer-icon">🌿</span>
+  <p class="footer-meta">≈ 800 Words &nbsp;·&nbsp; Article No. 58 &nbsp;·&nbsp; Health &amp; Wellness</p>
+</footer>
+
+</body>
+</html>
