@@ -1,108 +1,432 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Fitness Goals for Beginners: A Comprehensive Guide</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Fitness Goals for Beginners | Gentle Start, Strong Finish</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fef9f0 0%, #fff6ea 100%);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #2c241a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* smooth container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* hero section */
+    .hero {
+      text-align: center;
+      padding: 2.5rem 0 1.8rem;
+      border-bottom: 2px solid rgba(236, 184, 118, 0.3);
+      margin-bottom: 2.8rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #f7e5cf;
+      color: #b45f2b;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2b2a27, #6b4e2e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      color: #5c4b34;
+      max-width: 680px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* card & layout */
+    .intro-card {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      background: #fffef7;
+      border-radius: 2rem;
+      padding: 2rem 2rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #f3e5d2;
+    }
+
+    .intro-text {
+      font-size: 1.1rem;
+      color: #3d3529;
+      margin-bottom: 1rem;
+    }
+
+    .quote {
+      font-style: italic;
+      border-left: 4px solid #e7b874;
+      padding-left: 1.4rem;
+      margin: 1.6rem 0 0.6rem;
+      color: #6c4f2c;
+      font-weight: 450;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin: 1.8rem 0 1rem;
+      color: #3c2c1c;
+      display: inline-block;
+      border-bottom: 3px solid #e9c48b;
+      padding-bottom: 0.2rem;
+    }
+
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .goal-card {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.5rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f1e4d4;
+      background: #ffffff;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-6px);
+      border-color: #e2cfb5;
+      box-shadow: 0 20px 30px -12px rgba(99, 65, 32, 0.12);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .goal-card h3 {
+      font-size: 1.55rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #4b3822;
+    }
+
+    .goal-card p {
+      color: #5f4e3a;
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+    }
+
+    .micro-list {
+      padding-left: 1.2rem;
+      margin-top: 0.8rem;
+      list-style-type: none;
+    }
+
+    .micro-list li {
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .micro-list li::before {
+      content: "✨";
+      font-size: 0.8rem;
+    }
+
+    .strategy-block {
+      background: #fbf7f0;
+      border-radius: 1.8rem;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0;
+    }
+
+    .tip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .tip {
+      background: white;
+      border-radius: 2rem;
+      padding: 0.7rem 1.4rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #765d3c;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eedfcb;
+    }
+
+    .weekly-routine {
+      background: #fff8f0;
+      border-radius: 1.8rem;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      border: 1px solid #eedbbc;
+    }
+
+    .routine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .day {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 0.8rem 1rem;
+      text-align: center;
+      font-weight: 500;
+      border: 1px solid #f0e0ce;
+      transition: all 0.1s;
+    }
+
+    .day strong {
+      color: #b4652c;
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .day span {
+      font-size: 0.85rem;
+      color: #6f5a42;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #eedfcb;
+      color: #8b7358;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+      .container {
+        padding: 1.2rem 1.2rem 3rem;
+      }
+      .hero {
+        padding: 1rem 0 1.2rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      .goal-card h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #f9efdf 0%, #f9efdf 40%, transparent 60%);
+      font-weight: 500;
+      padding: 0 0.2rem;
+    }
+
+    .button-soft {
+      display: inline-block;
+      background: #e9daca;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #5c3e20;
+      margin-top: 0.8rem;
+    }
+  </style>
 </head>
 <body>
-<h1>Fitness Goals for Beginners: A Comprehensive Guide</h1>
-<p>Starting a fitness journey can be overwhelming, especially for beginners. With so many options and advice available, it's hard to know where to start. In this article, we'll break down realistic fitness goals for beginners and provide a clear plan to help you achieve success.</p>
+<div class="container">
+  <div class="hero">
+    <div class="hero-badge">✨ fresh start ✨</div>
+    <h1>Fitness goals for beginners</h1>
+    <div class="hero-sub">No overwhelm, no perfection — just your first joyful step toward movement and strength.</div>
+  </div>
 
-```<h2>Why Set Fitness Goals?</h2>
-<p>Setting fitness goals helps you stay motivated, focused, and committed to your fitness journey. It gives you a clear direction and allows you to track your progress.</p>
+  <div class="intro-card">
+    <div class="intro-text">
+      <strong>Welcome, brave beginner.</strong> 🧘🏽‍♀️ If you’re reading this, you’ve already taken the most important step: deciding to show up for yourself. Fitness isn’t about punishing workouts or extreme diets — it’s about building a <span class="highlight">sustainable, loving relationship</span> with your body. 
+    </div>
+    <div class="intro-text">
+      Whether you want to feel more energetic, build a little muscle, sleep better, or simply find joy in moving, setting the <strong>right goals</strong> from the start makes all the difference. Let’s walk this path together — gently, realistically, beautifully.
+    </div>
+    <div class="quote">
+      “Start where you are. Use what you have. Do what you can.” — Arthur Ashe
+    </div>
+  </div>
 
-<h2>Beginner Fitness Goals</h2>
-<ol>
-	<li>
-		<h3>Start Small</h3>
-		<p>Begin with short, achievable goals like:</p>
-		<ul>
-			<li>Walking for 10-15 minutes a day</li>
-			<li>Doing 5-10 push-ups daily</li>
-			<li>Drinking 8 glasses of water a day</li>
-		</ul>
-	</li>
-	<li>
-		<h3>Focus on Consistency</h3>
-		<p>Aim to exercise 2-3 times a week, with at least one rest day in between. Consistency is key to building a habit.</p>
-	</li>
-	<li>
-		<h3>Improve Flexibility and Mobility</h3>
-		<p>Start with simple stretches and mobility exercises like:</p>
-		<ul>
-			<li>Hamstring stretches</li>
-			<li>Quadriceps stretches</li>
-			<li>Shoulder rolls</li>
-		</ul>
-	</li>
-	<li>
-		<h3>Build Strength</h3>
-		<p>Focus on bodyweight exercises like:</p>
-		<ul>
-			<li>Squats</li>
-			<li>Push-ups</li>
-			<li>Lunges</li>
-		</ul>
-	</li>
-	<li>
-		<h3>Increase Endurance</h3>
-		<p>Start with low-intensity cardio like:</p>
-		<ul>
-			<li>Brisk walking</li>
-			<li>Jogging</li>
-			<li>Cycling</li>
-		</ul>
-	</li>
-</ol>
+  <h2>🌱 4 beginner-friendly goals that actually stick</h2>
+  <div class="goal-grid">
+    <div class="goal-card">
+      <div class="card-icon">💪🏼</div>
+      <h3>Consistency over intensity</h3>
+      <p>The #1 goal for any beginner is <strong>showing up</strong> — not crushing yourself in one session. Three 20-minute walks per week beats one exhausting two-hour gym session that leaves you sore for days.</p>
+      <ul class="micro-list">
+        <li>Commit to 3–4 movement days</li>
+        <li>Track habits, not just results</li>
+        <li>Celebrate “done” over “perfect”</li>
+      </ul>
+    </div>
+    <div class="goal-card">
+      <div class="card-icon">🧘🏽‍♀️</div>
+      <h3>Functional mobility & joy</h3>
+      <p>Flexibility, balance, and feeling good in daily life matter more than lifting heavy weights at first. Aim to move in ways that make you smile — dancing, hiking, playful stretching.</p>
+      <ul class="micro-list">
+        <li>10 min morning mobility routine</li>
+        <li>Try one new fun activity / month</li>
+        <li>Focus on posture & breath</li>
+      </ul>
+    </div>
+    <div class="goal-card">
+      <div class="card-icon">🥗✨</div>
+      <h3>Nourishment, not restriction</h3>
+      <p>Instead of harsh diets, set a goal to fuel your body with foods that give you energy. Hydration, adding colorful veggies, and listening to hunger cues are gentle wins.</p>
+      <ul class="micro-list">
+        <li>Drink water before coffee ☕</li>
+        <li>One extra veggie per meal</li>
+        <li>Eat mindfully without guilt</li>
+      </ul>
+    </div>
+    <div class="goal-card">
+      <div class="card-icon">😴🔄</div>
+      <h3>Recovery & self-care</h3>
+      <p>Progress happens when you rest. Many beginners overlook sleep, stress management, and active recovery. Make rest a non-negotiable goal — it’s part of the workout.</p>
+      <ul class="micro-list">
+        <li>7–8 hours of sleep target</li>
+        <li>Stretch or foam roll 2x/week</li>
+        <li>One full rest day with calm walks</li>
+      </ul>
+    </div>
+  </div>
 
-<h2>Creating a Fitness Plan</h2>
-<ol>
-	<li>
-		<h3>Set Realistic Goals</h3>
-		<p>Make sure your goals are specific, measurable, achievable, relevant, and time-bound (SMART).</p>
-	</li>
-	<li>
-		<h3>Create a Schedule</h3>
-		<p>Plan out your workouts and stick to it. Start with 2-3 times a week and gradually increase frequency.</p>
-	</li>
-	<li>
-		<h3>Track Progress</h3>
-		<p>Use a fitness tracker or journal to monitor your progress. Celebrate small wins along the way!</p>
-	</li>
-</ol>
+  <div class="strategy-block">
+    <h2 style="margin-top: 0;">🗺️ How to set smart fitness goals (that you’ll actually enjoy)</h2>
+    <div class="intro-text" style="margin-bottom: 0.8rem;">
+      Beginner fitness shouldn’t feel like a chore. Use the <strong>S.M.A.R.T.E.R</strong> framework — Specific, Measurable, Achievable, Relevant, Time-bound, Evaluated, and Rewarded. But more than that, infuse it with <span class="highlight">compassion and flexibility</span>.
+    </div>
+    <div class="tip-list">
+      <div class="tip">🎯 Instead of "get fit" → "Walk 20 min after lunch, 4 days a week"</div>
+      <div class="tip">📈 Instead of "lose weight fast" → "Eat 3 balanced meals + notice energy levels"</div>
+      <div class="tip">🧘 Instead of "get flexible" → "Do 5 min of stretching after every workout"</div>
+      <div class="tip">💪 Instead of "get strong" → "Learn proper squat form & do 8–10 reps twice a week"</div>
+    </div>
+    <div class="quote" style="margin-top: 1.2rem;">
+      🌟 Pro tip: Set one “minimum baseline” goal that feels almost too easy — like putting on workout clothes, or a single push-up. That tiny win sparks momentum!
+    </div>
+  </div>
 
-<h2>Staying Motivated</h2>
-<ol>
-	<li>
-		<h3>Find a Workout Buddy</h3>
-		<p>Exercise with a friend or family member to stay motivated and accountable.</p>
-	</li>
-	<li>
-		<h3>Reward Yourself</h3>
-		<p>Treat yourself to something nice when you reach a milestone.</p>
-	</li>
-	<li>
-		<h3>Mix It Up</h3>
-		<p>Try new exercises and activities to avoid boredom and prevent plateaus.</p>
-	</li>
-</ol>
+  <h2>📆 A gentle weekly rhythm for absolute beginners</h2>
+  <div class="weekly-routine">
+    <p style="margin-bottom: 0.5rem; font-weight: 500;">✨ No gym? No equipment? No problem. This routine uses only your bodyweight, a mat, and open space. Mix & match based on how you feel.</p>
+    <div class="routine-grid">
+      <div class="day"><strong>Monday</strong> <span>🌿 15-min full body flow + brisk walk</span></div>
+      <div class="day"><strong>Tuesday</strong> <span>💪 Beginner strength: bodyweight squats, wall push-ups, bird-dog</span></div>
+      <div class="day"><strong>Wednesday</strong> <span>🚶‍♀️ Active rest: 20–30 min walk & gentle stretching</span></div>
+      <div class="day"><strong>Thursday</strong> <span>🧘 Mobility & core: cat-cow, glute bridges, plank holds (20 sec)</span></div>
+      <div class="day"><strong>Friday</strong> <span>🏋🏽‍♀️ Fun cardio: dance, jump rope (easy pace) or hike</span></div>
+      <div class="day"><strong>Saturday</strong> <span>🎉 Choice day: yoga, recreational sport, or longer nature walk</span></div>
+      <div class="day"><strong>Sunday</strong> <span>😴 Full rest + hydration focus + 10 min meditation</span></div>
+    </div>
+    <div class="button-soft">🔁 Repeat for 3–4 weeks, then add 5 min more or light dumbbells</div>
+  </div>
 
-<h2>Common Mistakes to Avoid</h2>
-<ol>
-	<li>
-		<h3>Setting Unrealistic Goals</h3>
-		<p>Don't try to do too much too soon. Start small and gradually increase intensity.</p>
-	</li>
-	<li>
-		<h3>Not Listening to Your Body</h3>
-		<p>Rest when needed, and don't push yourself too hard.</p>
-	</li>
-	<li>
-		<h3>Comparing Yourself to Others</h3>
-		<p>Focus on your own progress and journey.</p>
-	</li>
-</ol>
+  <h2>❤️ Common beginner pitfalls — and how to side-step with kindness</h2>
+  <div class="goal-grid" style="margin-top: 0.5rem;">
+    <div class="goal-card">
+      <h3>🚫 All-or-nothing mindset</h3>
+      <p>“I missed Monday, so this week is ruined.” — Sound familiar? Instead, aim for the <strong>“never two in a row”</strong> rule: never miss two consecutive planned sessions. One missed day is simply a rest day; get back with self-compassion.</p>
+    </div>
+    <div class="goal-card">
+      <h3>📊 Comparing to others</h3>
+      <p>Your journey is uniquely yours. The person lifting heavy or running marathons started exactly where you are. Track your own improvements: more energy, better mood, one extra squat rep — those are victories.</p>
+    </div>
+    <div class="goal-card">
+      <h3>🔥 Doing too much too soon</h3>
+      <p>Enthusiasm is beautiful, but burnout isn’t. Start with low-to-moderate intensity. Let your joints, muscles, and nervous system adapt. Progress comes through <strong>patience and cumulative effort</strong>, not intensity spikes.</p>
+    </div>
+  </div>
 
-<p>Starting a fitness journey is a personal and rewarding experience. Stay committed, be patient, and celebrate your progress!</p>
-```
+  <div class="intro-card" style="background: #fef5e9;">
+    <h2 style="margin-top: 0;">🌟 Your first 30-day journey: small promises</h2>
+    <div class="intro-text">
+      Instead of setting huge outcome goals (“lose 10 lbs”), set <strong>behavioral goals</strong> that build identity. For the next 30 days:
+    </div>
+    <ul class="micro-list" style="margin-bottom: 1rem;">
+      <li>📅 Move your body in any way for at least 15 minutes, 4 days/week.</li>
+      <li>💧 Drink 6–8 glasses of water daily (add lemon or mint for joy).</li>
+      <li>😴 Prioritize sleep by setting a wind-down alarm 30 min before bed.</li>
+      <li>📝 Write down one win each day — even “I showed up for my walk” counts.</li>
+    </ul>
+    <div class="quote" style="margin-bottom: 0;">
+      🌈 Remember: the goal isn’t to become a different person overnight. It’s to become <strong>the person who honors their body</strong> with small, loving choices. Over time, those choices compound into transformation.
+    </div>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 1.8rem; justify-content: space-between; margin: 2rem 0 1rem;">
+    <div style="flex: 1; min-width: 200px;">
+      <h2>🧘🏼‍♂️ Mindset anchors</h2>
+      <div style="background: #fff; border-radius: 1.5rem; padding: 1.2rem 1.5rem; border: 1px solid #f0e1cf;">
+        <p style="margin-bottom: 0.6rem;">✨ <strong>“I am enough, exactly as I am today.”</strong></p>
+        <p style="margin-bottom: 0.6rem;">✨ <strong>“Progress over perfection — every step counts.”</strong></p>
+        <p>✨ <strong>“My fitness journey is my own; I move with joy and gratitude.”</strong></p>
+      </div>
+    </div>
+    <div style="flex: 1; min-width: 200px;">
+      <h2>📝 Track your wins</h2>
+      <div style="background: #fff; border-radius: 1.5rem; padding: 1.2rem 1.5rem; border: 1px solid #f0e1cf;">
+        <p>✔️ Did I move today? ___  <br>
+        ✔️ Did I honor my hunger? ___ <br>
+        ✔️ Did I rest or stretch? ___ <br>
+        ✔️ One non-scale victory this week: ________</p>
+        <div class="button-soft" style="display: inline-block; margin-top: 0.6rem;">celebrate small 🌸</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #e7dccf30; border-radius: 2rem; padding: 1.5rem 2rem; margin: 1.8rem 0;">
+    <p style="font-size: 1.1rem; font-weight: 500; text-align: center;">💬 “Your body can stand almost anything. It’s your mind that you have to convince.” — start with gentle conversations with yourself. Fitness is not punishment; it’s self-respect in motion.</p>
+  </div>
+
+  <footer>
+    🌻 Remember — every expert was once a beginner. Breathe, be kind, and enjoy the beautiful process of becoming stronger, inside and out.<br>
+    © 2025 — crafted with warmth for your fresh start. ✨
+  </footer>
+</div>
 </body>
 </html>
