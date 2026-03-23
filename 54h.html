@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>54 Calcium-Rich Foods — Nourish Your Bones</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-50: #f0f9e8;
+    --green-100: #d8f0bd;
+    --green-200: #b5dc84;
+    --green-400: #78b83a;
+    --green-600: #4a8020;
+    --green-800: #2d5413;
+    --green-900: #1a3209;
+    --cream: #faf8f3;
+    --warm-white: #fffef9;
+    --text-dark: #1c1a14;
+    --text-mid: #3d3a2e;
+    --text-light: #6b6553;
+    --border: #e4dfce;
+    --card-bg: #ffffff;
+    --shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--text-dark);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #1a3209 0%, #2d5413 40%, #4a8020 100%);
+    padding: 80px 24px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(120,184,58,0.15) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(181,220,132,0.1) 0%, transparent 40%);
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-200);
+    border: 1px solid rgba(181,220,132,0.35);
+    padding: 6px 18px;
+    border-radius: 30px;
+    margin-bottom: 24px;
+    position: relative;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.15;
+    max-width: 800px;
+    margin: 0 auto 16px;
+    position: relative;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    color: var(--green-200);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255,255,255,0.7);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    position: relative;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    position: relative;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .stat {
+    text-align: center;
+    color: white;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--green-200);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── WAVE ── */
+  .wave-sep {
+    height: 60px;
+    background: linear-gradient(160deg, #2d5413, #4a8020);
+    clip-path: ellipse(55% 100% at 50% 0%);
+    margin-top: -1px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── INTRO ── */
+  .intro-section {
+    padding: 60px 0 40px;
+    text-align: center;
+  }
+
+  .intro-section p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-mid);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .intro-section strong {
+    color: var(--green-600);
+    font-weight: 600;
+  }
+
+  .pull-quote {
+    border-left: 4px solid var(--green-400);
+    padding: 20px 28px;
+    margin: 40px auto;
+    max-width: 640px;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-mid);
+    background: var(--green-50);
+    border-radius: 0 12px 12px 0;
+    text-align: left;
+  }
+
+  /* ── CATEGORY SECTIONS ── */
+  .category {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .category.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .category-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--green-400), var(--green-600));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(74,128,32,0.3);
+  }
+
+  .category-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  .category-desc {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    margin-left: 64px;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* ── FOOD GRID ── */
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+
+  .food-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: default;
+  }
+
+  .food-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(74,128,32,0.12);
+    border-color: var(--green-200);
+  }
+
+  .food-emoji {
+    font-size: 26px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .food-body { flex: 1; }
+
+  .food-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .food-amount {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--green-600);
+    background: var(--green-50);
+    border: 1px solid var(--green-100);
+    border-radius: 20px;
+    padding: 2px 10px;
+    margin-bottom: 6px;
+  }
+
+  .food-desc {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.65;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+  }
+
+  /* ── TIP BOX ── */
+  .tip-box {
+    background: linear-gradient(135deg, var(--green-800), var(--green-600));
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin: 50px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tip-box::before {
+    content: '✦';
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-size: 80px;
+    opacity: 0.07;
+    color: white;
+    line-height: 1;
+  }
+
+  .tip-box-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green-200);
+    margin-bottom: 10px;
+  }
+
+  .tip-box h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .tip-box p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.82);
+    max-width: 600px;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    padding: 50px 0 80px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  .closing p {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.9;
+  }
+
+  .closing-leaf {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 60px 0 0;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .divider-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--green-400);
+    border-radius: 50%;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 60px 20px 80px; }
+    .hero-stats { gap: 28px; }
+    .food-grid { grid-template-columns: 1fr; }
+    .category-desc { margin-left: 0; }
+    .tip-box { padding: 28px 24px; }
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    background: var(--green-600);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(74,128,32,0.35);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.2s;
+    z-index: 100;
+  }
+
+  .scroll-top.show { opacity: 1; }
+  .scroll-top:hover { transform: translateY(-2px); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">Nutrition &amp; Wellness Guide</div>
+  <h1>54 Calcium-Rich Foods<br><em>Your Body Will Thank You For</em></h1>
+  <p class="hero-sub">A warm, honest guide to nourishing your bones — one delicious bite at a time.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">54</span><span class="stat-label">Foods Listed</span></div>
+    <div class="stat"><span class="stat-num">8</span><span class="stat-label">Categories</span></div>
+    <div class="stat"><span class="stat-num">~800</span><span class="stat-label">Words of Care</span></div>
+  </div>
+</header>
+<div class="wave-sep"></div>
+
+<!-- MAIN -->
+<main class="container">
+
+  <!-- INTRO -->
+  <section class="intro-section">
+    <p>Think of calcium as the quiet architect inside your body — working day and night to keep your bones strong, your heart beating steadily, and your muscles moving without complaint. Most people know they need it, yet far too many of us simply don't get enough. The good news? Nature has hidden calcium in the most wonderful, flavourful places — from creamy dairy to humble seeds and vibrant greens. This guide walks you through <strong>54 foods rich in calcium</strong>, each one worth knowing and worth eating.</p>
+
+    <div class="pull-quote">
+      "Calcium isn't just for children growing tall — it is for every human being who wants to move through life with strength and grace."
+    </div>
+  </section>
+
+  <!-- CATEGORY 1: DAIRY -->
+  <div class="section-divider"><div class="divider-dot"></div></div>
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon">🥛</div>
+      <h2 class="category-title">Dairy Classics — The Old Faithfuls</h2>
+    </div>
+    <p class="category-desc">Dairy has long been the most celebrated calcium source, and for good reason. The calcium in milk and its relatives is highly bioavailable — meaning your body actually absorbs most of what you consume.</p>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-emoji">🥛</div><div class="food-body"><div class="food-name">Whole Milk</div><span class="food-amount">~300 mg per cup</span><p class="food-desc">The classic. Rich, satisfying, and one of the most natural sources of calcium available to humans for thousands of years.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🧀</div><div class="food-body"><div class="food-name">Parmesan Cheese</div><span class="food-amount">~330 mg per 30g</span><p class="food-desc">Aged hard cheeses like Parmesan pack extraordinary calcium into a small serving — grate it over everything without guilt.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🫙</div><div class="food-body"><div class="food-name">Plain Yogurt</div><span class="food-amount">~415 mg per cup</span><p class="food-desc">Yogurt edges out milk in calcium content, and its probiotics help create a healthy gut that absorbs nutrients more readily.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🧀</div><div class="food-body"><div class="food-name">Mozzarella</div><span class="food-amount">~222 mg per 30g</span><p class="food-desc">Soft, mild, and versatile — mozzarella melts beautifully on everything and delivers meaningful calcium in every slice.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🍦</div><div class="food-body"><div class="food-name">Ricotta Cheese</div><span class="food-amount">~257 mg per ½ cup</span><p class="food-desc">Creamy ricotta works in both sweet and savoury dishes — and your bones love every spoonful.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🥛</div><div class="food-body"><div class="food-name">Kefir</div><span class="food-amount">~300 mg per cup</span><p class="food-desc">A fermented milk drink with a tangy personality. Packed with calcium and living cultures that support your gut and immunity.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🧀</div><div class="food-body"><div class="food-name">Cheddar Cheese</div><span class="food-amount">~204 mg per 30g</span><p class="food-desc">Sharp, satisfying cheddar brings bold flavour and solid calcium — a daily cheese board staple worth embracing.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🥛</div><div class="food-body"><div class="food-name">Skimmed Milk</div><span class="food-amount">~302 mg per cup</span><p class="food-desc">Lower in fat but identical in calcium to whole milk. A straightforward, daily calcium ritual for millions of people.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CATEGORY 2: PLANT BASED -->
+  <div class="section-divider"><div class="divider-dot"></div></div>
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon">🥬</div>
+      <h2 class="category-title">Plant-Based Wonders — Green, Seed &amp; Bean</h2>
+    </div>
+    <p class="category-desc">If you avoid dairy or simply want more variety, the plant kingdom offers a generous bounty. These foods bring calcium alongside fibre, antioxidants, and plant compounds that work together beautifully inside your body.</p>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-emoji">🌿</div><div class="food-body"><div class="food-name">Collard Greens (cooked)</div><span class="food-amount">~268 mg per cup</span><p class="food-desc">A southern American staple and one of the most calcium-dense vegetables you can put on your plate.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🥬</div><div class="food-body"><div class="food-name">Kale (cooked)</div><span class="food-amount">~177 mg per cup</span><p class="food-desc">Kale's calcium is surprisingly well absorbed — better than spinach — making it a truly smart green choice.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🫘</div><div class="food-body"><div class="food-name">White Beans</div><span class="food-amount">~131 mg per ½ cup</span><p class="food-desc">Humble and hearty, white beans bring calcium, protein, and fibre — a trio that keeps you full and your bones happy.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🟢</div><div class="food-body"><div class="food-name">Edamame</div><span class="food-amount">~98 mg per cup</span><p class="food-desc">Young soybeans, gently salted, make a perfect snack with a gentle but consistent calcium contribution.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🌱</div><div class="food-body"><div class="food-name">Tofu (calcium-set)</div><span class="food-amount">~350 mg per ½ cup</span><p class="food-desc">When made using calcium sulphate, tofu becomes a calcium powerhouse. Check the label and celebrate.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🫘</div><div class="food-body"><div class="food-name">Chickpeas</div><span class="food-amount">~80 mg per cup</span><p class="food-desc">Roast them, blend into hummus, or toss into a curry. Chickpeas bring steady calcium and a wonderful nutty warmth.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🟤</div><div class="food-body"><div class="food-name">Black Beans</div><span class="food-amount">~46 mg per ½ cup</span><p class="food-desc">Modest individually but eaten often in many cultures — they add up beautifully over a week of good meals.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🌿</div><div class="food-body"><div class="food-name">Turnip Greens (cooked)</div><span class="food-amount">~197 mg per cup</span><p class="food-desc">Often overlooked, the leafy tops of turnips are calcium goldmines. Braise them with garlic and olive oil.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CATEGORY 3: SEEDS & NUTS -->
+  <div class="section-divider"><div class="divider-dot"></div></div>
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon">🌰</div>
+      <h2 class="category-title">Seeds &amp; Nuts — Small But Mighty</h2>
+    </div>
+    <p class="category-desc">Do not be fooled by their tiny size. Seeds and nuts deliver calcium in concentrated, portable form — just a spoonful can meaningfully boost your daily intake.</p>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-emoji">⚪</div><div class="food-body"><div class="food-name">Sesame Seeds</div><span class="food-amount">~88 mg per tablespoon</span><p class="food-desc">Sprinkle on salads, stir into tahini, bake into bread. Sesame seeds are quietly extraordinary calcium providers.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🤍</div><div class="food-body"><div class="food-name">Chia Seeds</div><span class="food-amount">~179 mg per 2 tbsp</span><p class="food-desc">Two small tablespoons contain more calcium than half a cup of milk. Soak them into pudding and revel in their power.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🥜</div><div class="food-body"><div class="food-name">Almonds</div><span class="food-amount">~76 mg per 30g</span><p class="food-desc">A handful delivers calcium along with healthy fats and vitamin E. The ideal mid-morning handful for bone health.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🟡</div><div class="food-body"><div class="food-name">Flaxseeds</div><span class="food-amount">~71 mg per 2 tbsp</span><p class="food-desc">Rich in omega-3s and calcium both. Ground flaxseeds stir into smoothies, oats, or yogurt without any fuss.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🌰</div><div class="food-body"><div class="food-name">Brazil Nuts</div><span class="food-amount">~45 mg per 30g</span><p class="food-desc">Just two or three Brazil nuts hit your selenium needs — and they bring calcium along for the ride too.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🟤</div><div class="food-body"><div class="food-name">Hazelnuts</div><span class="food-amount">~56 mg per 30g</span><p class="food-desc">Buttery, sweet, wonderful with dark chocolate — hazelnuts are a delightful way to sneak in calcium daily.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CATEGORY 4: SEAFOOD -->
+  <div class="section-divider"><div class="divider-dot"></div></div>
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon">🐟</div>
+      <h2 class="category-title">From the Sea — Fishes Rich in Calcium</h2>
+    </div>
+    <p class="category-desc">Fish with edible bones are among nature's most generous calcium gifts. Unlike plant sources, the calcium in fish bones is already in a form your body finds very easy to use.</p>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-emoji">🐟</div><div class="food-body"><div class="food-name">Canned Sardines (with bones)</div><span class="food-amount">~325 mg per 85g</span><p class="food-desc">The tiny soft bones inside canned sardines are entirely edible and remarkably rich in calcium. Toast, lemon, joy.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🐠</div><div class="food-body"><div class="food-name">Canned Salmon (with bones)</div><span class="food-amount">~212 mg per 85g</span><p class="food-desc">Mashed into fish cakes or stirred into pasta, canned salmon with soft bones is a practical weekly calcium ritual.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🦐</div><div class="food-body"><div class="food-name">Shrimp</div><span class="food-amount">~52 mg per 85g</span><p class="food-desc">Lean, flavourful, and quietly calcium-contributive. Shrimp earns its place in any varied, bone-nourishing diet.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🐚</div><div class="food-body"><div class="food-name">Oysters</div><span class="food-amount">~94 mg per 85g</span><p class="food-desc">Briny, oceanic, and nutritionally generous — oysters bring calcium alongside zinc and iron in one elegant bite.</p></div></div>
+    </div>
+  </section>
+
+  <!-- TIP BOX -->
+  <div class="tip-box">
+    <div class="tip-box-label">A Word of Wisdom</div>
+    <h3>Calcium Needs Vitamin D to Shine</h3>
+    <p>Without enough sunlight or Vitamin D from foods like eggs, fatty fish, or fortified products, much of the calcium you consume may simply pass through unused. Pair calcium-rich meals with time outdoors or a good Vitamin D source — your bones will feel the difference over months and years of careful living.</p>
+  </div>
+
+  <!-- CATEGORY 5: FORTIFIED -->
+  <div class="section-divider"><div class="divider-dot"></div></div>
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon">🥣</div>
+      <h2 class="category-title">Fortified Foods — Modern Calcium Helpers</h2>
+    </div>
+    <p class="category-desc">Food technology has allowed manufacturers to add calcium to everyday products — giving even picky eaters a path to meeting their daily needs.</p>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-emoji">🥛</div><div class="food-body"><div class="food-name">Fortified Soy Milk</div><span class="food-amount">~300 mg per cup</span><p class="food-desc">For those who skip dairy, fortified soy milk matches cow's milk calcium almost precisely. A kind, creamy alternative.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🥣</div><div class="food-body"><div class="food-name">Fortified Breakfast Cereal</div><span class="food-amount">~100–1000 mg per serving</span><p class="food-desc">Many cereals are enriched with calcium. Check labels — some deliver 100% of your daily need in a single morning bowl.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🍊</div><div class="food-body"><div class="food-name">Fortified Orange Juice</div><span class="food-amount">~300 mg per cup</span><p class="food-desc">The morning glass of sunshine, now with bone-building benefits. A simple, enjoyable way to start the day right.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🍞</div><div class="food-body"><div class="food-name">Fortified Bread</div><span class="food-amount">~200 mg per 2 slices</span><p class="food-desc">Many commercial breads are calcium-fortified. Sometimes the most ordinary loaf is quietly doing you a great service.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🥛</div><div class="food-body"><div class="food-name">Fortified Almond Milk</div><span class="food-amount">~450 mg per cup</span><p class="food-desc">Fortified almond milk often outperforms dairy in calcium. Light, nutty, and remarkably bone-friendly.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🥛</div><div class="food-body"><div class="food-name">Fortified Oat Milk</div><span class="food-amount">~350 mg per cup</span><p class="food-desc">Creamy and sweet with a gentle oat flavour — fortified oat milk has become a modern calcium staple for millions.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CATEGORY 6: VEGETABLES -->
+  <div class="section-divider"><div class="divider-dot"></div></div>
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon">🥦</div>
+      <h2 class="category-title">More Vegetables Worth Knowing</h2>
+    </div>
+    <p class="category-desc">Beyond the famous greens, a wonderful range of everyday vegetables contribute to your calcium intake — quietly, reliably, beautifully.</p>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-emoji">🥦</div><div class="food-body"><div class="food-name">Broccoli (cooked)</div><span class="food-amount">~62 mg per cup</span><p class="food-desc">Broccoli's calcium is highly absorbable, and it comes bundled with vitamin K and C — both essential to bone health.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🌿</div><div class="food-body"><div class="food-name">Bok Choy</div><span class="food-amount">~158 mg per cup</span><p class="food-desc">A staple of Asian cooking, bok choy is mild, crunchy when raw, silky when cooked, and generously stocked with calcium.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🟢</div><div class="food-body"><div class="food-name">Okra (cooked)</div><span class="food-amount">~88 mg per cup</span><p class="food-desc">Beloved across South Asia and the American South, okra is wonderfully versatile and brings steady calcium to the table.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🥗</div><div class="food-body"><div class="food-name">Mustard Greens (cooked)</div><span class="food-amount">~165 mg per cup</span><p class="food-desc">Peppery, bold, and deeply nourishing. Mustard greens pair beautifully with lentils or simple fragrant rice.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CATEGORY 7: FRUITS & SPICES -->
+  <div class="section-divider"><div class="divider-dot"></div></div>
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon">🍊</div>
+      <h2 class="category-title">Fruits, Spices &amp; Surprising Others</h2>
+    </div>
+    <p class="category-desc">Nature hides calcium in the most unexpected corners — from dried fruit to ancient spice jars sitting quietly on your kitchen shelf.</p>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-emoji">🌿</div><div class="food-body"><div class="food-name">Dried Figs</div><span class="food-amount">~121 mg per 5 figs</span><p class="food-desc">One of the few fruits genuinely rich in calcium. Sweet, chewy, and lovely with cheese or a handful of walnuts.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🍊</div><div class="food-body"><div class="food-name">Oranges</div><span class="food-amount">~65 mg per orange</span><p class="food-desc">Fresh oranges offer calcium and vitamin C simultaneously — which helps build the collagen surrounding bone tissue.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🌿</div><div class="food-body"><div class="food-name">Blackstrap Molasses</div><span class="food-amount">~200 mg per tablespoon</span><p class="food-desc">The dark, intense by-product of sugar refining is shockingly rich in calcium. Stir into warm milk — old wisdom worth reviving.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🌿</div><div class="food-body"><div class="food-name">Dried Thyme &amp; Oregano</div><span class="food-amount">~80 mg per tablespoon</span><p class="food-desc">Herbs used daily in cooking add up beautifully — a tablespoon of dried thyme carries meaningful calcium. Season generously.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CATEGORY 8: ANCIENT GRAINS -->
+  <div class="section-divider"><div class="divider-dot"></div></div>
+  <section class="category">
+    <div class="category-header">
+      <div class="category-icon">🌾</div>
+      <h2 class="category-title">Ancient Grains — Nutritional Heritage</h2>
+    </div>
+    <p class="category-desc">Long before modern nutrition science existed, ancient civilisations thrived on these grains. Their calcium content is one reason why.</p>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-emoji">🌾</div><div class="food-body"><div class="food-name">Amaranth (cooked)</div><span class="food-amount">~116 mg per cup</span><p class="food-desc">An ancient grain with a nutty warmth and notable calcium content. Beautiful cooked into porridge or used like quinoa.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🌾</div><div class="food-body"><div class="food-name">Teff (cooked)</div><span class="food-amount">~123 mg per cup</span><p class="food-desc">Ethiopia's beloved grain, used to make injera, is quietly rich in calcium. An adventurous, deeply nourishing staple.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🟤</div><div class="food-body"><div class="food-name">Quinoa (cooked)</div><span class="food-amount">~31 mg per cup</span><p class="food-desc">Modest in calcium but eaten so widely and so often that it earns its place in any bone-building weekly plan.</p></div></div>
+      <div class="food-card"><div class="food-emoji">🌾</div><div class="food-body"><div class="food-name">Oats (cooked)</div><span class="food-amount">~19 mg per cup</span><p class="food-desc">The humble breakfast bowl. Pair with fortified milk and chia seeds and your morning meal becomes a calcium powerhouse.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <span class="closing-leaf">🌿</span>
+    <p>The path to strong bones and a well-nourished body is not complicated — it is simply a matter of eating widely and with intention. Whether your plate is built around creamy cheeses, garden greens, ancient grains, or little silver fish from a tin, nature has made sure that calcium hides in the loveliest places. Eat thoughtfully, eat joyfully, and your bones will carry you well for decades to come.</p>
+  </section>
+
+</main>
+
+<!-- SCROLL TO TOP BUTTON -->
+<button class="scroll-top" id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Scroll top button
+  const btn = document.getElementById('scrollBtn');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('show', window.scrollY > 400);
+  });
+
+  // Intersection observer for category animations
+  const categories = document.querySelectorAll('.category');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  categories.forEach(cat => observer.observe(cat));
+</script>
+</body>
+</html>
