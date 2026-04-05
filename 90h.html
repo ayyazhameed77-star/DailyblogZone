@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Intermittent Fasting Guide: A Gentle, Human Approach | The Flexible Faster</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #edece4;
+      font-family: 'Inter', system-ui, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      line-height: 1.68;
+      color: #2c2a26;
+      padding: 2rem 1rem;
+    }
+
+    .blog-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 48px;
+      box-shadow: 0 30px 45px -18px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+    }
+
+    .hero {
+      background: linear-gradient(125deg, #faf5e8 0%, #f2ecd9 100%);
+      padding: 2.6rem 2rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid #e5dccb;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #c18f5e;
+      color: #fefaf5;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.3rem 1.4rem;
+      border-radius: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #7c5b3e;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.2px;
+    }
+
+    .hero .subhead {
+      font-size: 1.08rem;
+      color: #b38b65;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .byline {
+      display: flex;
+      justify-content: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e0d2bc;
+      color: #b88960;
+    }
+
+    .visual-if {
+      background: #fefcf9;
+      padding: 1.8rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid #f0e4d6;
+    }
+
+    .if-animation {
+      max-width: 300px;
+      margin: 0 auto;
+      animation: gentleGlide 5s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    @keyframes gentleGlide {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .if-svg {
+      max-width: 280px;
+      width: 100%;
+    }
+
+    .caption-if {
+      font-size: 0.75rem;
+      color: #c9986e;
+      margin-top: 12px;
+    }
+
+    .content {
+      padding: 2.2rem 2.5rem 2.8rem;
+    }
+
+    .content p {
+      margin-bottom: 1.35rem;
+      font-size: 1.06rem;
+      color: #3d3934;
+    }
+
+    .content h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #ce8b5a;
+      margin: 2rem 0 1rem 0;
+      border-left: 6px solid #eedbc8;
+      padding-left: 1.2rem;
+    }
+
+    .content h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #e09e6e;
+      margin: 1.5rem 0 0.6rem 0;
+    }
+
+    .method-card {
+      background: #fefaf5;
+      border-radius: 32px;
+      padding: 1.3rem 1.8rem;
+      margin: 1.8rem 0;
+      border-left: 8px solid #e6bc99;
+    }
+
+    .method-card strong {
+      color: #cc8557;
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .content ul, .content ol {
+      margin: 0.8rem 0 1.3rem 1.8rem;
+    }
+
+    .content li {
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+    }
+
+    .quote-if {
+      background: #fef5ea;
+      padding: 1.3rem 2rem;
+      border-radius: 36px;
+      font-weight: 450;
+      margin: 1.8rem 0;
+      color: #be835a;
+      border: 1px solid #f9e6d4;
+    }
+
+    .quote-if span {
+      font-style: italic;
+    }
+
+    hr {
+      margin: 2rem 0;
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, #f1e0cf, #e6bc99, #f1e0cf);
+    }
+
+    .caution-if {
+      background: #fef7f0;
+      border-radius: 32px;
+      padding: 1.3rem 1.8rem;
+      margin: 1.6rem 0;
+      border: 1px solid #f3e2cf;
+    }
+
+    .footer-if {
+      background: #fef8f2;
+      border-radius: 32px;
+      padding: 1.6rem;
+      text-align: center;
+      margin-top: 2.2rem;
+      font-size: 0.95rem;
+      color: #b98159;
+    }
+
+    .footer-if a {
+      color: #e09a68;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid #f2dbc8;
+    }
+
+    .footer-if a:hover {
+      color: #bb7348;
+    }
+
+    @media (max-width: 680px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .content {
+        padding: 1.5rem;
+      }
+      .content h2 {
+        font-size: 1.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="blog-container">
+  <div class="hero">
+    <div class="badge">⏰ eat · fast · repeat</div>
+    <h1>Intermittent Fasting Guide: A Gentle Start for Real People</h1>
+    <div class="subhead">No starvation, no crazy rules — just flexible timing that works with your life and your biology.</div>
+    <div class="byline">
+      <span>✍️ by Nora Chen — certified nutritionist & IF enthusiast</span>
+      <span>📅 April 5, 2026</span>
+      <span>⏱️ 8 min read</span>
+    </div>
+  </div>
+
+  <div class="visual-if">
+    <div class="if-animation">
+      <svg class="if-svg" viewBox="0 0 320 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="intermittent fasting clock illustration">
+        <circle cx="90" cy="65" r="28" fill="#FCE6D4" stroke="#C58E64" stroke-width="2" />
+        <path d="M90 50 L90 65 L100 72" stroke="#C58E64" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="230" cy="65" r="28" fill="#FCE6D4" stroke="#C58E64" stroke-width="2" />
+        <path d="M230 50 L230 65 L240 72" stroke="#C58E64" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="58" y="112" font-size="9" fill="#B87A4E">🍽️ eat window</text>
+        <text x="200" y="112" font-size="9" fill="#B87A4E">🌙 fast window</text>
+      </svg>
+    </div>
+    <div class="caption-if">
+      ✨ It's not about starving — it's about timing.
+    </div>
+  </div>
+
+  <div class="content">
+    <p>Let’s be honest: when you hear “intermittent fasting,” you might picture extreme hunger, grumpiness, or some complicated diet cult. But here’s the truth: intermittent fasting (IF) is simply <strong>scheduling your meals</strong> so that you eat during a certain window and fast the rest of the time. That’s it. No weird foods, no calorie counting, no giving up your favorite meals. Humans have been fasting for centuries — we just forgot how natural it is. This guide will walk you through the most approachable methods, the real benefits, and how to start without suffering.</p>
+
+    <div class="quote-if">
+      <span>💬 “I thought fasting would make me hangry. Turns out, skipping breakfast and eating from 12-8 PM actually gave me more energy and stopped my afternoon crashes.” — Jamie, 34</span>
+    </div>
+
+    <h2>What Is Intermittent Fasting (Really)?</h2>
+    <p>Intermittent fasting isn't a diet — it's an <strong>eating pattern</strong>. You cycle between periods of eating and fasting. During the fasting window, you consume zero or very few calories (water, black coffee, and herbal tea are fine). The eating window is when you eat your normal meals. That's it. No special shakes, no forbidden food groups. The magic happens because fasting gives your body a break from constant digestion, allowing it to tap into fat stores, reduce inflammation, and trigger cellular repair.</p>
+
+    <h2>Popular Methods (Pick What Fits Your Life)</h2>
+    <div class="method-card">
+      <strong>🌙 16:8 Method (The Goldilocks for beginners)</strong>
+      Fast for 16 hours, eat during an 8-hour window. Example: eat between 12 PM and 8 PM, fast from 8 PM to 12 PM next day. Most people skip breakfast and have lunch as their first meal. This is the most studied and sustainable method.
+    </div>
+    <div class="method-card">
+      <strong>🍽️ 14:10 Method (Extra gentle start)</strong>
+      Fast for 14 hours, eat for 10 hours. Great if 16 hours feels too long. Example: eat 9 AM to 7 PM, fast 7 PM to 9 AM. Perfect for those who need a morning meal.
+    </div>
+    <div class="method-card">
+      <strong>📅 5:2 Method</strong>
+      Eat normally for 5 days a week. On 2 non-consecutive days, reduce calories to 500-600. More advanced, but effective for weight loss.
+    </div>
+    <div class="method-card">
+      <strong>⚡ Eat-Stop-Eat</strong>
+      One or two 24-hour fasts per week (e.g., dinner to dinner). Not for beginners, but some love the simplicity.
+    </div>
+
+    <h2>What Can You Drink During the Fast?</h2>
+    <p>This is the #1 question. Good news: <strong>water, black coffee, and unsweetened herbal tea</strong> are fine. They won't break your fast. Avoid any calories — no milk, sugar, honey, or creamer. Sparkling water is great. Some people add a pinch of salt to water to prevent headaches (electrolytes). Avoid diet sodas (artificial sweeteners may spike insulin in some people).</p>
+    <ul>
+      <li>☕ <strong>Pro tip:</strong> Black coffee actually boosts autophagy (cellular cleanup) and suppresses appetite.</li>
+      <li>🍵 <strong>Herbal teas:</strong> Peppermint, chamomile, ginger — all perfect during fasting.</li>
+    </ul>
+
+    <h2>Real Benefits You Might Notice</h2>
+    <p>People try IF for many reasons. Here's what science (and thousands of users) report:</p>
+    <ul>
+      <li>🔥 <strong>Weight & belly fat loss:</strong> Natural calorie reduction + hormone changes that make fat burning easier.</li>
+      <li>🧠 <strong>Mental clarity:</strong> Many report sharper focus during fasting windows (no food coma).</li>
+      <li>🩸 <strong>Better blood sugar control:</strong> Lower insulin levels, reduced risk of type 2 diabetes.</li>
+      <li>🔄 <strong>Autophagy:</strong> Your body cleans out damaged cells (anti-aging benefit).</li>
+      <li>⏰ <strong>Simplicity:</strong> Fewer meals to plan, pack, and clean up. Freedom from constant snacking.</li>
+    </ul>
+    <div class="quote-if">
+      <span>🔄 “After a month of 16:8, my bloating vanished, my skin cleared up, and I stopped craving sugar at night. I didn't expect any of that.” — Michael, 42</span>
+    </div>
+
+    <h2>How to Start Without Suffering</h2>
+    <p>The biggest mistake people make? Going from 3 meals + snacks to a 16-hour fast overnight. Don't do that. Here's a gentle ramp-up:</p>
+    <ol>
+      <li><strong>Week 1:</strong> Just stop eating 3 hours before bed. No late-night snacks. Push breakfast 30-60 minutes later than usual.</li>
+      <li><strong>Week 2:</strong> Aim for a 12-hour overnight fast (e.g., 8 PM to 8 AM). This is easy — it's just sleeping + skipping late-night eating.</li>
+      <li><strong>Week 3:</strong> Try 14:10 a few days a week. Eat your first meal at 10 AM, last at 8 PM.</li>
+      <li><strong>Week 4:</strong> Attempt 16:8 on most days. Eat between 12 PM and 8 PM. Stay busy in the morning — drink coffee, go for a walk.</li>
+    </ol>
+    <p>Stay hydrated. If you feel dizzy or overly irritable, eat something. Listen to your body, not the clock.</p>
+
+    <h2>What to Eat During Your Eating Window</h2>
+    <p>This is key: IF is not a license to eat junk food all day. To feel good, focus on <strong>whole foods</strong>: protein (eggs, chicken, fish, tofu), healthy fats (avocado, olive oil, nuts), fiber (veggies, beans, whole grains), and complex carbs (sweet potatoes, oats). Avoid breaking your fast with a sugar bomb — it'll spike insulin and crash your energy. A balanced first meal (e.g., eggs + avocado + greens) sets you up for success.</p>
+    <div class="method-card">
+      <strong>🥗 Sample eating window (12 PM - 8 PM):</strong><br>
+      12 PM: Lunch — grilled chicken salad with quinoa and olive oil.<br>
+      3 PM: Snack — Greek yogurt with berries.<br>
+      7 PM: Dinner — salmon, roasted sweet potatoes, broccoli.<br>
+      8 PM: End of window. Hydrate with herbal tea.
+    </div>
+
+    <h2>Who Should NOT Fast (Important!)</h2>
+    <p>Intermittent fasting is safe for many, but not everyone. Avoid IF if you:</p>
+    <ul>
+      <li>Are pregnant, breastfeeding, or trying to conceive</li>
+      <li>Have a history of eating disorders</li>
+      <li>Are underweight or malnourished</li>
+      <li>Have type 1 diabetes or blood sugar regulation issues (talk to your doctor)</li>
+      <li>Take medications that require food</li>
+    </ul>
+    <div class="caution-if">
+      <p><strong>Always consult your healthcare provider</strong> before starting any fasting regimen, especially if you have medical conditions or take medications.</p>
+    </div>
+
+    <h2>Common Questions (No Stupid Ones)</h2>
+    <p><strong>Will I lose muscle?</strong> No — if you eat enough protein during your eating window, IF preserves muscle while burning fat. Growth hormone increases during fasting, which protects muscle.</p>
+    <p><strong>Can I exercise while fasting?</strong> Yes! Many people do light cardio or strength training in a fasted state. Listen to your energy levels. For intense workouts, eat first.</p>
+    <p><strong>What if I'm hungry?</strong> Hunger comes in waves. Drink water, black coffee, or herbal tea. Often, hunger passes in 15-20 minutes. If it's severe or painful, eat something — and try a shorter fast next time.</p>
+    <p><strong>Will fasting slow my metabolism?</strong> Short-term fasts (up to 24 hours) actually boost metabolism by increasing norepinephrine. Chronic severe calorie restriction slows metabolism — but IF is not starvation.</p>
+
+    <hr>
+
+    <p><strong>Final gentle nudge:</strong> Intermittent fasting is a tool, not a test of willpower. It should make you feel better, not worse. Start slow, stay curious, and give your body time to adapt. Some people thrive on 16:8; others do better with 14:10 or no fasting at all. There's no moral scoreboard. The goal is to find a rhythm that supports your energy, health, and sanity. Be kind to yourself along the way.</p>
+
+    <div class="footer-if">
+      🧡 <strong>Share this guide with a friend who's curious about IF.</strong> Let them start gently. <br>
+      📖 <strong>Read next:</strong> <a href="#">Best Foods to Break Your Fast</a> | <a href="#">Fasting for Women: What You Need to Know</a>
+      <div style="margin-top: 0.8rem; font-size: 0.8rem;">🌿 Fast with flexibility, eat with joy — your body knows balance.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
