@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Complete Guide to Healthy Living | The Whole Human Blueprint</title>
+  <meta name="description" content="The complete guide to healthy living for real people. Nutrition, movement, sleep, mindset, and connection — all without perfectionism. Start your holistic journey here.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eef2f0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.65;
+      color: #1c2a1e;
+      padding: 2rem 1rem;
+    }
+
+    .guide-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+    }
+
+    /* hero section */
+    .hero {
+      background: linear-gradient(125deg, #d9e6cf 0%, #c2ddbc 100%);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid #bdd6b2;
+    }
+
+    .guide-label {
+      background: #2a5c2e;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #1f3b20;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.3px;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #2a532d;
+      background: #fef9e6;
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      margin-top: 0.6rem;
+    }
+
+    .byline-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: #2c532e;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+
+    /* content */
+    .content-body {
+      padding: 2rem 2rem 2.5rem 2rem;
+    }
+
+    .intro-card {
+      background: #fefae0;
+      border-radius: 1.5rem;
+      padding: 1.3rem 1.8rem;
+      margin-bottom: 2rem;
+      border-left: 8px solid #84a56f;
+      font-size: 1.08rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 2rem 0 0.8rem 0;
+      color: #2c6e2f;
+      border-left: 5px solid #a7c393;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 1.2rem 0 0.5rem 0;
+      color: #477a34;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.02rem;
+      color: #2c2b24;
+    }
+
+    .pillar-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .pillar {
+      background: #fafaf2;
+      border-radius: 1.3rem;
+      padding: 1rem 1.3rem;
+      border: 1px solid #e2ebdb;
+      transition: 0.1s;
+    }
+
+    .pillar strong {
+      font-size: 1.1rem;
+      color: #466b37;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .checklist-simple {
+      background: #f4f8ef;
+      border-radius: 1.2rem;
+      padding: 1.3rem 1.8rem;
+      margin: 1.5rem 0;
+    }
+
+    .checklist-simple ul {
+      margin-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .quote-block {
+      background: #fff3e0;
+      padding: 1.2rem 1.8rem;
+      border-radius: 1.5rem;
+      margin: 1.8rem 0;
+      font-style: italic;
+      border-left: 5px solid #e2b76a;
+    }
+
+    hr {
+      margin: 2rem 0;
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, #cfe2c3, transparent);
+    }
+
+    .routine-table {
+      background: #ffffffea;
+      border-radius: 1.5rem;
+      border: 1px solid #dbe9d2;
+      padding: 0.8rem;
+      margin: 1.2rem 0;
+    }
+
+    .routine-row {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #e2ebd6;
+      padding: 0.8rem 0.6rem;
+    }
+
+    .routine-time {
+      font-weight: 700;
+      width: 95px;
+      color: #5b7c4a;
+    }
+
+    .routine-desc {
+      flex: 1;
+    }
+
+    @media (max-width: 600px) {
+      .content-body, .hero {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .routine-row {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .routine-time {
+        width: auto;
+      }
+    }
+
+    .footer-note {
+      background: #f1f7ed;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #4a6741;
+      border-top: 1px solid #ddecd3;
+    }
+  </style>
+</head>
+<body>
+<div class="guide-container">
+  <div class="hero">
+    <div class="guide-label">📘 THE COMPLETE BLUEPRINT</div>
+    <h1>Complete guide to healthy living<br> (for real humans, not robots)</h1>
+    <div class="tagline">🌿 Nourish · Move · Rest · Connect · Thrive</div>
+    <div class="byline-row">
+      <span>✍️ By Dr. Elena Marchetti & The Wellness Collective</span>
+      <span>📅 April 5, 2026</span>
+      <span>⏱️ 9 min read</span>
+    </div>
+  </div>
+
+  <div class="content-body">
+    <div class="intro-card">
+      🧡 <strong>Let’s clear the air:</strong> Healthy living isn’t about kale smoothies at 5 AM or punishing workouts. It’s about feeling <em>alive, energetic, and at peace</em> in your own skin. This complete guide breaks down wellness into five simple pillars — no dogma, no perfectionism. Whether you're starting from zero or resetting your habits, these principles will meet you where you are. Ready to build a life that feels as good as it looks? Let’s go.
+    </div>
+
+    <h2>🌱 Pillar 1: Real-food nutrition (fuel with joy)</h2>
+    <p>Forget diets that cut out entire food groups. True healthy eating is <strong>flexible, colorful, and satisfying</strong>. Focus on whole foods: vegetables, fruits, lean proteins, legumes, whole grains, and healthy fats. But also allow room for your grandma’s cookies or pizza with friends. The 80/20 rule works wonders: 80% nutrient-dense, 20% soul-nourishing.</p>
+    <div class="pillar-grid">
+      <div class="pillar"><strong>🥗 Easy first steps:</strong> Add one extra veggie to lunch & dinner. Swap sugary drinks for sparkling water + fruit. Eat protein at every meal to stabilize energy.</div>
+      <div class="pillar"><strong>🍳 Hydration secret:</strong> Keep a water bottle visible. Herbal teas and infused water count too. Thirst often disguises as hunger — drink before snacking.</div>
+    </div>
+
+    <h2>🚶‍♀️ Pillar 2: Movement that feels good</h2>
+    <p>Exercise should never be punishment. Find ways to move that make you smile: dancing, walking in nature, yoga, swimming, or even gardening. Aim for <strong>150 minutes of moderate activity weekly</strong> — but start with 10-minute daily walks if you're new. Strength matters too: bodyweight moves (squats, push-ups) twice a week keep bones and metabolism happy.</p>
+    <ul style="margin: 0.8rem 0 1rem 1.8rem;">
+      <li>🌟 Pro tip: “habit stacking” — after brushing teeth, do 10 jumping jacks.</li>
+      <li>👟 Weekend adventure: hike, bike, or simply explore a new park.</li>
+    </ul>
+
+    <div class="quote-block">
+      💬 “Movement is a celebration of what your body can do, not a punishment for what you ate.” — Anonymous wise soul.
+    </div>
+
+    <h2>😴 Pillar 3: Restorative sleep & recovery</h2>
+    <p>Sleep is when your body repairs, your brain clears toxins, and your mood resets. Most adults need <strong>7–9 hours</strong>. Create a wind-down ritual: dim lights, no screens 45 minutes before bed, and a consistent bedtime. If you struggle with sleep, try morning sunlight exposure (it sets your internal clock) and avoid caffeine after 2 PM.</p>
+    <div class="checklist-simple">
+      <strong>🌙 Sleep hygiene checklist (start with 2 items):</strong>
+      <ul>
+        <li>🕯️ Keep bedroom cool (18–20°C / 65–68°F).</li>
+        <li>📵 Charge phone outside the bedroom.</li>
+        <li>📖 Read fiction or listen to calm music before bed.</li>
+        <li>🛌 Same wake-up time even on weekends (yes, really!).</li>
+      </ul>
+    </div>
+
+    <h2>🧘 Pillar 4: Mental & emotional resilience</h2>
+    <p>Health isn't just physical — your inner world matters enormously. Chronic stress wreaks havoc on immunity, digestion, and happiness. Build tiny mental habits: <strong>daily gratitude</strong> (list 3 things you’re thankful for), <strong>deep breathing</strong> (2 minutes of slow belly breaths), and setting boundaries. Therapy, journaling, or talking to a friend counts as self-care, not indulgence.</p>
+    <div class="pillar-grid">
+      <div class="pillar"><strong>🧠 60-second reset:</strong> Close your eyes. Breathe in for 4 counts, hold for 4, exhale for 6. Repeat 5 times. Lowers cortisol instantly.</div>
+      <div class="pillar"><strong>📓 Digital sanity:</strong> Create “no-phone zones” — dinner table and bedroom. Your brain will thank you.</div>
+    </div>
+
+    <h2>🤝 Pillar 5: Connection & purpose</h2>
+    <p>Loneliness is a hidden health risk. Humans are wired for community. Nurture relationships: call a friend, join a walking group, volunteer. Also, find a sense of purpose — something that makes you feel useful, whether it’s painting, mentoring, or caring for a pet. Purpose lowers stress and adds meaning to daily life.</p>
+    <ul>
+      <li>💌 Weekly habit: send one voice note or text to someone you appreciate.</li>
+      <li>🌻 Get involved: community gardens, book clubs, or fitness classes build social bonds.</li>
+    </ul>
+
+    <hr />
+
+    <h2>📋 The complete healthy daily rhythm (sample day)</h2>
+    <div class="routine-table">
+      <div class="routine-row"><span class="routine-time">🌅 Morning</span><span class="routine-desc">Wake up naturally → 1 glass water → 5 min sunlight/stretch → oatmeal with berries + nuts.</span></div>
+      <div class="routine-row"><span class="routine-time">🚶 Mid-morning</span><span class="routine-desc">Movement snack (10 min walk or stairs) + mindful breathing (2 min).</span></div>
+      <div class="routine-row"><span class="routine-time">🥗 Lunch</span><span class="routine-desc">Half-plate veggies + protein + whole grain. Hydrate. Post-meal 5-min stroll.</span></div>
+      <div class="routine-row"><span class="routine-time">🌤️ Afternoon</span><span class="routine-desc">Fruit + nut snack. Stand up every hour. 3 deep breaths before email check.</span></div>
+      <div class="routine-row"><span class="routine-time">🌙 Evening</span><span class="routine-desc">Light dinner (veg + lean protein). Wind-down: no screens 45 min, journaling, gratitude.</span></div>
+      <div class="routine-row"><span class="routine-time">🛌 Sleep</span><span class="routine-desc">Bed by 10:30 PM, dark cool room. 7–8 hours of deep rest.</span></div>
+    </div>
+
+    <h2>⚖️ The big secret: consistency over perfection</h2>
+    <p>The biggest mistake beginners make? Trying to change everything at once. Instead, pick <strong>ONE habit from each pillar</strong> over the next month. Maybe it’s drinking water in the morning, taking a 10-min walk, and writing one grateful thought before bed. Small changes compound into a transformed life. And when you slip (we all do), treat yourself with kindness, not criticism. Healthy living is a lifelong practice, not a 30-day challenge.</p>
+    
+    <div class="quote-block" style="background:#eef3e8;">
+      🌟 “Take care of your body. It's the only place you have to live.” — Jim Rohn. <br>
+      And take care of your mind — because they are not separate.
+    </div>
+
+    <h2>🛠️ Your 7-day starter toolkit</h2>
+    <div class="checklist-simple">
+      <ul>
+        <li>✅ Week 1 focus: Hydration + 10-minute daily walk + 7 hours of sleep.</li>
+        <li>✅ Week 2 add: One veggie at every meal + 2 minutes of morning sunlight.</li>
+        <li>✅ Week 3 add: 5 minutes of journaling or deep breathing before bed.</li>
+        <li>✅ Week 4 add: Call a friend or family member twice a week.</li>
+      </ul>
+      <p><strong>Remember:</strong> If you only complete half of these, you're still ahead of where you were. Progress > perfection.</p>
+    </div>
+
+    <h2>🚫 Let go of these myths</h2>
+    <p><strong>Myth 1:</strong> “Healthy food is expensive.” — Frozen veggies, beans, oats, and seasonal fruit are cheap and nutritious.<br>
+    <strong>Myth 2:</strong> “You need to exercise for an hour.” — 10-minute bursts are highly effective.<br>
+    <strong>Myth 3:</strong> “You must be motivated every day.” — No, you need discipline wrapped in self-compassion. Motivation follows action.<br>
+    <strong>Myth 4:</strong> “Healthy living is boring.” — Spices, new recipes, fun workouts, and rest days make it vibrant.</p>
+
+    <hr />
+
+    <div style="background: #faf4e2; border-radius: 1.5rem; padding: 1.4rem; margin: 1rem 0;">
+      <p style="font-size: 1.05rem; font-weight: 600;">💌 A note from the author:</p>
+      <p>If you feel overwhelmed right now — take a breath. You don’t have to apply everything today. Read this guide, bookmark it, and choose just <strong>one</strong> small shift. Tomorrow, maybe another. Healthy living is not a destination; it’s the way you treat yourself along the journey. You are worthy of feeling good, right now, exactly as you are. Now go drink some water and step outside for 2 minutes. Future you is cheering. 🌼</p>
+    </div>
+
+    <p style="margin-top: 1rem; font-size: 0.9rem; text-align: center;">✨ <strong>Share this complete guide</strong> with a friend who needs a gentle, realistic map to better health. Because wellness should be inclusive, not intimidating.</p>
+  </div>
+
+  <div class="footer-note">
+    🌿 The Whole Human Guide · evidence-informed, compassion-first. <br>
+    © 2026 · Live well, not perfectly.
+  </div>
+</div>
+</body>
+</html>
