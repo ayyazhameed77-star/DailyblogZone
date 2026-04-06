@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Korea Travel Guide: Discover the Land of Morning Calm</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #0047A0 0%, #CD2E3A 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flag {
+            width: 120px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #0047A0;
+        }
+        .city-card {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .city-content {
+            padding: 25px;
+        }
+        .city-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .city-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #CD2E3A;
+        }
+        h2 {
+            color: #0047A0;
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+        .description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background-color: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #0047A0;
+        }
+        
+        /* Comment Section Styles */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .comments-title {
+            color: #0047A0;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+        .comment-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: #CD2E3A;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #0047A0;
+        }
+        .comment-list {
+            margin-top: 30px;
+        }
+        .comment {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #CD2E3A;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .comment-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+            border-top: 2px solid #ddd;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8em; }
+            .city-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/25340ad168c2459df32c6f7cd561c4c38336b704.jpg" alt="South Korea Flag" class="flag">
+    <h1>South Korea Travel Guide</h1>
+    <div class="subtitle">The Land of Morning Calm & K-Culture Magic</div>
+</div>
+
+<div class="intro">
+    <p><strong>South Korea</strong>, officially the Republic of Korea, is a dynamic nation in East Asia where ancient traditions harmoniously coexist with cutting-edge modernity. Known as the "Land of Morning Calm" (Joseon), this peninsula nation offers visitors a captivating blend of serene Buddhist temples, futuristic cities, volcanic landscapes, and a cultural wave (Hallyu) that has swept across the globe. From the bustling streets of Seoul to the tranquil beaches of Jeju, South Korea presents an intoxicating mix of experiences that cater to every type of traveler.</p>
+    
+    <p>What makes Korea truly special is its ability to preserve its 5,000-year history while racing toward the future at breakneck speed. Here, you can spend the morning exploring a 14th-century palace, the afternoon shopping in ultra-modern districts, and the evening enjoying world-class cuisine that ranges from sizzling street food to Michelin-starred fine dining. Whether you're a history buff, a nature lover, a foodie, or a K-pop fan, South Korea welcomes you with open arms and boundless energy.</p>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/utwadmin.b-cdn.net/fe6acbd0fa71fb8e461fb91de67471def20be9ec.jpg" alt="Gyeongbokgung Palace Seoul" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏛️</span>
+            <div>
+                <h2>Seoul</h2>
+                <div class="location">Northwest South Korea, Capital City (37.5665° N, 126.9780° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The vibrant capital of South Korea, <span class="highlight">Seoul</span> is a city that never sleeps, where ancient palaces stand in the shadow of glittering skyscrapers. With a population of nearly 10 million in the city proper and 25 million in the metropolitan area, Seoul is one of the world's most dynamic megacities. The majestic <strong>Gyeongbokgung Palace</strong>, the largest of the Five Grand Palaces built during the Joseon Dynasty, offers visitors a chance to witness the changing of the guard ceremony and wander through centuries-old halls and gardens.</p>
+            
+            <p>Beyond the palace walls, Seoul reveals its multifaceted personality. The bustling district of Myeongdong is a shopper's paradise, with cosmetics shops, fashion boutiques, and street food vendors serving everything from tteokbokki (spicy rice cakes) to hotteok (sweet pancakes). Ascend Namsan Mountain to visit the iconic N Seoul Tower, where love locks adorn the fences and panoramic views of the city unfold in every direction. As night falls, explore the neon-lit streets of Hongdae, known for its indie music scene and youthful energy, or experience the traditional tea houses of Insadong. Seoul is a city that rewards exploration, where every alleyway holds a new surprise.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/www.cktravels.com/219ebb99dc7e0de598323e9a099a9f14814cc452.jpg" alt="Busan Beach" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🌊</span>
+            <div>
+                <h2>Busan</h2>
+                <div class="location">Southeast South Korea, Gyeongsangnam-do (35.1796° N, 129.0756° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>South Korea's second-largest city, <span class="highlight">Busan</span> is a coastal gem that offers a refreshing contrast to the capital's intensity. Known for its stunning beaches, fresh seafood, and laid-back atmosphere, Busan is where Koreans come to relax and play. The famous <strong>Haeundae Beach</strong> stretches along the eastern coast, offering golden sands, crystal-clear waters, and a backdrop of modern skyscrapers that create a uniquely Korean seaside experience. During summer, the beach comes alive with festivals and fireworks displays.</p>
+            
+            <p>But Busan is more than just beaches. The colorful Gamcheon Culture Village, with its brightly painted houses stacked like Lego blocks on hillsides, has become an Instagram sensation and a testament to the city's artistic spirit. Visit the bustling Jagalchi Fish Market, Korea's largest seafood market, where you can select your own fish and have it prepared fresh on the spot. For a spiritual experience, head to Haedong Yonggungsa Temple, a rare seaside temple perched dramatically on rocky cliffs overlooking the ocean. As the sun sets, the Gwangan Bridge lights up, creating a spectacular display that reflects off the water—proof that Busan combines natural beauty with urban sophistication.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/www.new7wonders.com/4acaa5bdded1ebffe54264adc96b8410a1027eca.jpg" alt="Jeju Island Seongsan Ilchulbong" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🌋</span>
+            <div>
+                <h2>Jeju Island</h2>
+                <div class="location">Jeju Strait, Southwest of Korean Peninsula (33.4996° N, 126.5312° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Often called the "Hawaii of South Korea," <span class="highlight">Jeju Island</span> is a volcanic paradise that offers a completely different side of Korean culture and landscape. This UNESCO World Heritage site and one of the New7Wonders of Nature boasts pristine beaches, dramatic volcanic formations, and a unique matriarchal culture centered around the legendary <em>haenyeo</em> (female free divers) who harvest seafood from the ocean depths without breathing equipment.</p>
+            
+            <p>The island's crown jewel is <strong>Hallasan Mountain</strong>, South Korea's highest peak, which rises 1,950 meters above sea level and features a crater lake at its summit. Hike through forests of cedar and pine to reach the top, or explore the otherworldly Manjanggul Cave, one of the longest lava tubes in the world. The iconic Seongsan Ilchulbong (Sunrise Peak), a tuff cone crater formed by hydrovolcanic eruptions, offers breathtaking sunrise views that draw visitors from across Asia. With its mild climate year-round, Jeju is perfect for cycling the coastal Olle Trails, visiting citrus groves, or simply relaxing at one of the many luxury resorts. Whether you're swimming in the emerald waters of Hamdeok Beach or sampling Jeju's famous black pork barbecue, this island paradise will steal your heart.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/travelodgehotels.asia/77469170bf974b1e003dcfd9d5373128cf184a1d.webp" alt="Myeongdong Shopping Seoul" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🛍️</span>
+            <div>
+                <h2>Experience Korean Culture</h2>
+                <div class="location">Throughout South Korea</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Beyond its cities, South Korea offers cultural experiences that leave lasting impressions. Stay in a traditional <em>hanok</em> (wooden house) in Jeonju Hanok Village, where over 700 traditional homes have been preserved, offering visitors the chance to sleep on heated floors (<em>ondol</em>) and wear elegant <em>hanbok</em> (traditional clothing) while exploring cobblestone streets. Visit the demilitarized zone (DMZ), the world's most heavily fortified border, to understand the peninsula's divided history and hopes for reunification.</p>
+            
+            <p>Korean cuisine, recognized by UNESCO as an Intangible Cultural Heritage, is a journey in itself. From the communal experience of Korean barbecue, where you grill marinated meats at your table, to the comfort of a steaming bowl of kimchi jjigae (kimchi stew), every meal is an event. Don't miss the 100+ must-visit tourist spots promoted by the Korea Tourism Organization, including the serene bamboo forests of Damyang, the historic Bulguksa Temple in Gyeongju, and the futuristic Dongdaemun Design Plaza. Whether you're soaking in a jjimjilbang (traditional bathhouse), watching a K-pop concert, or hiking the trails of Seoraksan National Park, South Korea promises an adventure that engages all your senses.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h3 class="comments-title">💬 Traveler Comments</h3>
+    
+    <div class="comment-form">
+        <h4 style="margin-top: 0; color: #333;">Leave a Comment</h4>
+        <form onsubmit="event.preventDefault(); alert('Thank you for your comment! It will be posted after moderation.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" placeholder="Share your thoughts about South Korea or ask a question..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🌸 Kim Soo-yeon</span>
+                <span class="comment-date">April 6, 2026</span>
+            </div>
+            <div class="comment-text">
+                Just came back from Jeju Island and I'm already planning my next trip! The haenyeo divers are incredible - watching them work was so inspiring. The black pork barbecue is a must-try, and the sunrise at Seongsan Ilchulbong was absolutely magical. Highly recommend renting a car to explore the island!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🍜 David Thompson</span>
+                <span class="comment-date">April 4, 2026</span>
+            </div>
+            <div class="comment-text">
+                Seoul is amazing! I spent 3 days exploring the palaces and Myeongdong. The contrast between Gyeongbokgung's ancient architecture and the modern skyscrapers is mind-blowing. Don't miss the street food in Gwangjang Market - the mung bean pancakes (bindaetteok) are delicious! Also, get a T-money card for easy subway travel.
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🏔️ Maria Garcia</span>
+                <span class="comment-date">March 30, 2026</span>
+            </div>
+            <div class="comment-text">
+                Busan was the highlight of my Korea trip! Haeundae Beach at sunset is beautiful, and Gamcheon Village is like something out of a fairy tale. The seafood at Jagalchi Market was so fresh - I tried live octopus (sannakji) for the first time! Also, the Busan Metro is super easy to navigate. Can't wait to go back!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>✨ South Korea awaits with ancient palaces, pristine beaches, volcanic wonders, and the warmest hospitality. Your Korean adventure starts here! 🇰🇷✨</p>
+    <p><small>Flag image courtesy of Tourist Korea | City images from Encounters Travel, CK Travels, New7Wonders, and Travelodge Hotels</small></p>
+</div>
+
+</body>
+</html>
