@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippines Travel Guide: Discover the Pearl of the Orient Seas</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #0038A8 0%, #CE1126 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flag {
+            width: 120px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #0038A8;
+        }
+        .city-card {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .city-content {
+            padding: 25px;
+        }
+        .city-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .city-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #CE1126;
+        }
+        h2 {
+            color: #0038A8;
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+        .description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background-color: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #1565c0;
+        }
+        
+        /* Comment Section Styles */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .comments-title {
+            color: #0038A8;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+        .comment-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: #CE1126;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #0038A8;
+        }
+        .comment-list {
+            margin-top: 30px;
+        }
+        .comment {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #CE1126;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .comment-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+            border-top: 2px solid #ddd;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8em; }
+            .city-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/3d3292a29ddfcce730afbeb9493cd45f81fbc5c1.png" alt="Philippines Flag" class="flag">
+    <h1>Philippines Travel Guide</h1>
+    <div class="subtitle">The Pearl of the Orient Seas & Tropical Paradise</div>
+</div>
+
+<div class="intro">
+    <p><strong>The Philippines</strong>, officially the Republic of the Philippines, is an archipelagic nation in Southeast Asia comprising over 7,600 islands that stretch across the western Pacific Ocean. Known as the "Pearl of the Orient Seas," this tropical paradise boasts some of the world's most stunning beaches, crystal-clear waters, and warm, hospitable people. With a unique blend of Malay, Spanish, Chinese, and American influences, the Philippines offers a rich cultural tapestry set against a backdrop of breathtaking natural beauty.</p>
+    
+    <p>From the bustling streets of Manila to the pristine islands of Palawan, from the surf breaks of Siargao to the chocolate hills of Bohol, the Philippines captivates travelers with its diversity. Whether you're seeking world-class diving, ancient rice terraces, vibrant festivals, or simply relaxation on powdery white sands, this nation delivers unforgettable experiences. The Filipino spirit of <em>bayanihan</em> (community cooperation) and genuine hospitality ensures that every visitor feels like family.</p>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/t4.ftcdn.net/92b2643b10fa5dbdd56ead0e3273b331678a8042.jpg" alt="Manila Skyline" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏙️</span>
+            <div>
+                <h2>Manila</h2>
+                <div class="location">Luzon Island, Capital City (14.5995° N, 120.9842° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The vibrant capital of the Philippines, <span class="highlight">Manila</span> is a bustling metropolis that serves as the gateway to the country's 7,000+ islands. This city of contrasts blends Spanish colonial architecture with modern skyscrapers, creating a unique urban landscape that tells the story of the nation's complex history. The historic walled district of <strong>Intramuros</strong> transports visitors back to the Spanish colonial era, with cobblestone streets, ancient churches, and the impressive Fort Santiago.</p>
+            
+            <p>Explore the baroque San Agustin Church, a UNESCO World Heritage site dating back to 1607, or visit Rizal Park where national hero José Rizal was martyred. For a taste of local life, ride a colorful jeepney—the country's iconic mode of transport—or sample street food at Binondo, the world's oldest Chinatown. As night falls, Manila's rooftop bars offer spectacular views of the bay, while the districts of Makati and Bonifacio Global City showcase the country's modern, cosmopolitan side. Manila may be chaotic, but it's an essential introduction to Filipino culture and history.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/26e0e30accb328f498cf9e7deb385514a52fe413.jpg" alt="El Nido Palawan" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏝️</span>
+            <div>
+                <h2>Palawan</h2>
+                <div class="location">Mimaropa Region, Western Philippines (9.8347° N, 118.7384° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Often called the "Last Frontier" of the Philippines, <span class="highlight">Palawan</span> is an island province that consistently ranks among the world's most beautiful destinations. This elongated strip of paradise features dramatic limestone cliffs, hidden lagoons, and waters so clear they seem unreal. <strong>El Nido</strong>, located at the northern tip, serves as the gateway to the stunning Bacuit Archipelago, where towering karst formations rise from turquoise waters like sentinels of an ancient world.</p>
+            
+            <p>Take a traditional bangka boat to explore secret beaches, snorkel in coral gardens teeming with marine life, or kayak through emerald lagoons surrounded by towering cliffs. Further south, the Puerto Princesa Subterranean River—a UNESCO World Heritage site and one of the New7Wonders of Nature—offers boat tours through an 8-kilometer underground river system. For divers, Coron Bay features hauntingly beautiful World War II shipwrecks resting in crystal-clear waters. Whether you're watching the sunset at Nacpan Beach or swimming in the hidden Kayangan Lake, Palawan embodies the tropical paradise of your dreams.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/www.shoreexcursions.asia/e54ea2dff703ca0503f2e5d038076daddd790d17.jpg" alt="Boracay White Beach" class="city-image">
+    <div class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🌴</span>
+            <div>
+                <h2>Boracay</h2>
+                <div class="location">Western Visayas, Central Philippines (11.9674° N, 121.9248° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Small but perfectly formed, <span class="highlight">Boracay</span> is a tiny island that packs a massive punch. Measuring just 7 kilometers long and 1 kilometer wide at its narrowest point, this island is famous for <strong>White Beach</strong>—a 4-kilometer stretch of powdery white sand so fine it feels like talcum powder between your toes. The beach is divided into three stations: Station 1 for luxury resorts and relative peace, Station 2 for the bustling center and nightlife, and Station 3 for budget-friendly accommodations.</p>
+            
+            <p>Beyond the beach, Boracay offers a range of activities from parasailing and helmet diving to cliff jumping at Ariel's Point. Watch the sunset from Willy's Rock, a volcanic formation with a statue of the Blessed Virgin Mary that has become the island's iconic symbol. For a different perspective, hike to Mount Luho, the island's highest point, for panoramic views. After a six-month closure for environmental rehabilitation in 2018, Boracay has reopened with stricter environmental regulations, ensuring that its beauty will be preserved for generations to come.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/ik.imagekit.io/b3350b7606648d2993e1c49dbe3c36b4e9ef4b43.jpg" alt="Cebu Beaches" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🐠</span>
+            <div>
+                <h2>Cebu</h2>
+                <div class="location">Central Visayas, Central Philippines (10.3157° N, 123.8854° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The oldest city in the Philippines, <span class="highlight">Cebu</span> is a vibrant province that offers the perfect blend of historical significance and natural beauty. As the first Spanish settlement in the country, Cebu City is home to Magellan's Cross, planted by Ferdinand Magellan in 1521, and the Basilica Minore del Santo Niño, which houses the oldest religious relic in the Philippines. The nearby Fort San Pedro, a triangular military defense structure, offers a glimpse into the colonial past.</p>
+            
+            <p>But Cebu is perhaps best known for its natural wonders. The northern tip of the island features Malapascua Island, famous for thresher shark diving. In the south, <strong>Oslob</strong> offers the controversial but popular whale shark encounters, while Moalboal on the west coast is renowned for the Sardine Run—millions of sardines forming massive swirling schools just meters from shore. Inland, the turquoise waters of <strong>Kawasan Falls</strong> cascade through lush jungle, offering canyoneering adventures and bamboo rafting. With international airports, modern infrastructure, and diverse attractions, Cebu serves as the perfect hub for exploring the Central Philippines.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/www.travelandleisure.com/91c530b3d0114a09a7f6e71b424e43d15d720228.jpg" alt="Chocolate Hills" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">⛰️</span>
+            <div>
+                <h2>Bohol</h2>
+                <div class="location">Central Visayas, Central Philippines (9.8499° N, 124.1435° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The island province of <span class="highlight">Bohol</span> is home to one of the world's most unusual geological formations—the <strong>Chocolate Hills</strong>. Over 1,200 perfectly cone-shaped hills spread across 50 square kilometers, turning chocolate brown during the dry season, hence their name. These mysterious formations, believed to be ancient coral deposits uplifted by tectonic forces, create a landscape that seems otherworldly, especially at sunrise when mist clings to the valleys between the mounds.</p>
+            
+            <p>Beyond the hills, Bohol offers pristine beaches on Panglao Island, including the famous Alona Beach with its white sand and vibrant nightlife. Visit the Tarsier Sanctuary to see the world's smallest primates—delicate, wide-eyed creatures that fit in the palm of your hand. Take a relaxing cruise along the Loboc River on a floating restaurant while being serenaded by local musicians, or explore the historic Baclayon Church, one of the oldest stone churches in the Philippines. For adventure seekers, dive at Balicasag Island to spot sea turtles and vibrant coral reefs. Bohol perfectly combines natural wonders, wildlife encounters, and cultural heritage.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h3 class="comments-title">💬 Traveler Comments</h3>
+    
+    <div class="comment-form">
+        <h4 style="margin-top: 0; color: #333;">Leave a Comment</h4>
+        <form onsubmit="event.preventDefault(); alert('Thank you for your comment! It will be posted after moderation.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" placeholder="Share your thoughts about the Philippines or ask a question..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🏝️ Maria Santos</span>
+                <span class="comment-date">April 7, 2026</span>
+            </div>
+            <div class="comment-text">
+                Just came back from El Nido and I'm speechless! The island hopping tour was incredible - we visited the Big Lagoon and Small Lagoon. The water was so clear and turquoise. Pro tip: book tours in advance during peak season. Also, don't miss the sunset at Nacpan Beach, it's absolutely magical!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🌴 James Wilson</span>
+                <span class="comment-date">April 5, 2026</span>
+            </div>
+            <div class="comment-text">
+                Spent a week in Boracay and it was paradise! White Beach lives up to the hype - the sand is incredibly soft. Station 2 has great nightlife but if you want peace, stay at Station 1. We did paragliding and it was amazing! The new environmental rules mean less crowds which is great.
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🐋 Sarah Chen</span>
+                <span class="comment-date">April 3, 2026</span>
+            </div>
+            <div class="comment-text">
+                Cebu was fantastic! We did the canyoneering at Kawasan Falls and it was the highlight of our trip - jumping off cliffs into turquoise pools. Also visited the Chocolate Hills in Bohol on a day trip. The tarsiers are so cute! Filipino hospitality is the best I've experienced anywhere.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>✨ The Philippines awaits with 7,000 islands, endless adventures, and the warmest smiles. Mabuhay! 🇵🇭✨</p>
+    <p><small>Flag image courtesy of Wikimedia Commons | City images from FTCDN, Shore Excursions Asia, TripAdvisor, and Travel + Leisure</small></p>
+</div>
+
+</body>
+</html>
