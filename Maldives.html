@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maldives Travel Guide: Discover Paradise on Earth</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #00796B 0%, #D32F2F 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flag {
+            width: 120px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #00796B;
+        }
+        .city-card {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .city-content {
+            padding: 25px;
+        }
+        .city-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .city-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #00796B;
+        }
+        h2 {
+            color: #00796B;
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+        .description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background-color: #e0f2f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #00695c;
+        }
+        
+        /* Comment Section Styles */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .comments-title {
+            color: #00796B;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e0f2f1;
+            padding-bottom: 10px;
+        }
+        .comment-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: #D32F2F;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #00796B;
+        }
+        .comment-list {
+            margin-top: 30px;
+        }
+        .comment {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #00796B;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .comment-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+            border-top: 2px solid #ddd;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8em; }
+            .city-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://kimi-web-img.moonshot.cn/img/www.printscorpio.fi/433d6e1f59a2955dc23f58104e71bbe7c7bfdd32.jpg" alt="Maldives Flag" class="flag">
+    <h1>Maldives Travel Guide</h1>
+    <div class="subtitle">The Sunny Side of Life & Paradise on Earth</div>
+</div>
+
+<div class="intro">
+    <p><strong>The Maldives</strong>, officially the Republic of Maldives, is a tropical paradise located in the Indian Ocean, southwest of Sri Lanka and India. Comprising 1,192 coral islands grouped into 26 atolls, this low-lying island nation is the smallest country in Asia by land area and population, yet it boasts some of the world's most spectacular natural beauty. Known as "The Sunny Side of Life," the Maldives has become synonymous with luxury tourism, honeymoon getaways, and unparalleled marine biodiversity.</p>
+    
+    <p>With an average ground level of just 1.5 meters above sea level, the Maldives is also the world's lowest-lying country, making it incredibly vulnerable to climate change. Yet this geographic reality has created a unique destination where crystal-clear turquoise lagoons, powdery white sand beaches, and vibrant coral reefs combine to create a paradise that seems almost too perfect to be real. From the bustling capital of Malé to the bioluminescent beaches of Vaadhoo Island and the luxury overwater villas scattered across countless atolls, the Maldives offers an escape from reality that will leave you breathless.</p>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/www.maldivestourism.net/dfa0842bd8f4eeeb1736fbdcbf80639c01e1ebd7.jpg" alt="Malé Aerial View" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏙️</span>
+            <div>
+                <h2>Malé</h2>
+                <div class="location">North Malé Atoll, Capital City (4.1755° N, 73.5093° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The vibrant capital of the Maldives, <span class="highlight">Malé</span> is one of the world's smallest and most densely populated capital cities. Spread across just 6 square kilometers, this bustling island city offers a fascinating contrast to the resort islands that draw most tourists. With a population of over 200,000 packed into this tiny space, Malé presents a colorful mosaic of high-rise buildings, narrow streets, and a waterfront that buzzes with activity day and night.</p>
+            
+            <p>Begin your exploration at the <strong>Islamic Centre</strong>, home to the magnificent Grand Friday Mosque with its gleaming golden dome that dominates the city's skyline. Nearby, the <strong>Hukuru Miskiy</strong> (Old Friday Mosque), built in 1658 from coral stone with intricate carvings, stands as one of the oldest surviving mosques in the country. Visit the bustling <strong>Malé Fish Market</strong> to witness the daily tuna hauls, or explore the <strong>National Museum</strong> housed in Sultan Park to learn about the country's rich history. The <strong>Tsunami Monument</strong> offers a poignant reminder of the 2004 disaster while providing a peaceful spot for reflection. Don't miss <strong>Artificial Beach</strong>, a crescent-shaped swimming area popular with locals, or take a stroll across the <strong>Sinamale Bridge</strong> connecting Malé to Hulhulé Island and the airport.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/soneva-offload-media-library.storage.googleapis.com/aa097ad42e527170c0c581dabd46f8736e81683e.jpg" alt="Overwater Villas" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏝️</span>
+            <div>
+                <h2>Resort Islands & Overwater Villas</h2>
+                <div class="location">Scattered across 26 atolls</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The Maldives has perfected the art of luxury hospitality with its iconic <span class="highlight">overwater villas</span> and private island resorts. These exclusive properties offer the ultimate in privacy and indulgence, featuring glass floors that reveal the marine life below, private infinity pools, direct lagoon access, and personalized butler service. Resorts like Soneva Jani, Gili Lankanfushi, and the Conrad Maldives Rangali Island (home to the world's first underwater villa, The Muraka) have set new standards for luxury travel.</p>
+            
+            <p>Each resort typically occupies its own private island, offering all-inclusive experiences that range from family-friendly water parks to adults-only romantic retreats. Wake up to uninterrupted views of the Indian Ocean, dine at underwater restaurants surrounded by sharks and rays, or enjoy spa treatments in overwater bungalows with glass floors. Many resorts feature their own house reefs accessible directly from your villa, allowing you to snorkel among tropical fish, sea turtles, and manta rays whenever the mood strikes. Whether you're seeking a honeymoon paradise, a family adventure, or a wellness retreat, the Maldives' resort islands deliver an unparalleled tropical luxury experience.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/visitmaldives.s3.amazonaws.com/bb7ced5c51cbe6d3c49243793241efa53c4049a0.jpg" alt="Addu Atoll" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🌴</span>
+            <div>
+                <h2>Addu Atoll</h2>
+                <div class="location">Southernmost Maldives (0.6255° S, 73.1030° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Located at the southernmost tip of the Maldives, straddling the equator, <span class="highlight">Addu Atoll</span> (also known as Seenu Atoll) offers a different side of the Maldives. This is the country's second-largest urban area and the only region where you can cycle between islands via causeways—a unique experience in this nation of water. The atoll's proximity to the equator means it lies outside the typical monsoon patterns, offering more consistent weather year-round than the northern atolls.</p>
+            
+            <p>The main island of <strong>Gan</strong> features a rich history as a former British Royal Air Force base during World War II, with remnants of the military occupation still visible including old bunkers and the longest runway in the Maldives. <strong>Maradhoo</strong> and neighboring islands offer excellent diving and snorkeling opportunities with vibrant coral reefs and abundant marine life. The atoll's unique geography creates "kandus" (channels) that attract manta rays and sharks, making it a premier dive destination. Unlike the exclusive resort islands of the north, Addu offers a more authentic Maldivian experience with local guesthouses, traditional fishing villages, and the opportunity to interact with locals while enjoying the same pristine beaches and turquoise waters that make the Maldives famous.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/848c054d603de86248864488aa292a8c559454a2.jpg" alt="Turquoise Waters" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">✨</span>
+            <div>
+                <h2>Vaadhoo Island & Natural Wonders</h2>
+                <div class="location">Raa Atoll (5.3523° N, 72.9253° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Famous worldwide for its magical <span class="highlight">"Sea of Stars"</span> phenomenon, <strong>Vaadhoo Island</strong> in Raa Atoll offers one of nature's most mesmerizing displays. Between June and October, bioluminescent plankton (dinoflagellates) in the waters around the island emit a brilliant blue glow when disturbed, creating the illusion of stars scattered across the shoreline. As waves break on the beach or as you walk through the shallow water, every step triggers a cascade of ethereal blue light—a truly unforgettable experience that has made Vaadhoo one of the most sought-after destinations in the Maldives.</p>
+            
+            <p>Beyond the bioluminescence, the Maldives offers countless natural wonders. The <strong>Baa Atoll</strong> is a UNESCO Biosphere Reserve and home to Hanifaru Bay, where the world's largest gathering of manta rays occurs between May and November, sometimes numbering in the hundreds. <strong>South Ari Atoll</strong> offers year-round whale shark encounters, allowing visitors to swim alongside these gentle giants—the largest fish in the ocean. For diving enthusiasts, sites like <strong>HP Reef</strong> (Rainbow Reef) and <strong>Banana Reef</strong> showcase vibrant coral gardens, reef sharks, barracudas, and an astonishing diversity of tropical fish. Whether you're exploring shipwrecks, drift diving through channels, or simply floating above a coral garden, the Maldives' underwater world is nothing short of spectacular.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/e2a95e8dc3d5a420dfc19a7745561d472ccdb94f.jpg" alt="Maldives Beach Aerial" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🐠</span>
+            <div>
+                <h2>Local Islands & Culture</h2>
+                <div class="location">Various atolls including Kaafu, Alif, and Vaavu</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>While luxury resorts dominate the Maldives' tourism image, the rise of local island tourism has opened up this paradise to budget travelers and cultural explorers. Islands like <strong>Maafushi</strong>, <strong>Thulusdhoo</strong>, and <strong>Dhiffushi</strong> in Kaafu Atoll offer affordable guesthouses, local cuisine, and authentic Maldivian hospitality while providing access to the same stunning beaches and dive sites as the expensive resorts.</p>
+            
+            <p>These local islands offer a glimpse into traditional Maldivian life. Watch fishermen bring in their daily catch, learn about the intricate art of boat building, or sample local dishes like <em>mas huni</em> (tuna with coconut and onion) and <em>garudhiya</em> (fish soup) at family-run cafés. Visit the <strong>Utheemu Palace</strong> in Haa Alifu Atoll, the childhood home of Sultan Mohamed Thakurufaanu, a national hero who liberated the Maldives from Portuguese rule. Many local islands feature "bikini beaches"—designated tourist beaches where more relaxed dress codes are permitted. With affordable ferry connections from Malé and a growing number of quality guesthouses, exploring the Maldives on a budget has never been easier, proving that this paradise is accessible to all types of travelers.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h3 class="comments-title">💬 Traveler Comments</h3>
+    
+    <div class="comment-form">
+        <h4 style="margin-top: 0; color: #333;">Leave a Comment</h4>
+        <form onsubmit="event.preventDefault(); alert('Thank you for your comment! It will be posted after moderation.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" placeholder="Share your thoughts about the Maldives or ask a question..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🏝️ Jessica Miller</span>
+                <span class="comment-date">April 7, 2026</span>
+            </div>
+            <div class="comment-text">
+                Just returned from my honeymoon in the Maldives and it was absolute paradise! We stayed in an overwater villa at a resort in South Ari Atoll and swimming with whale sharks was the highlight of our trip. The water is unbelievably clear and turquoise. Expensive but worth every penny for a once-in-a-lifetime experience!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🐠 David Chen</span>
+                <span class="comment-date">April 5, 2026</span>
+            </div>
+            <div class="comment-text">
+                Spent a week on Maafushi (local island) and it was amazing! Much more affordable than the resorts but still beautiful beaches and great snorkeling. Took day trips to resort islands for the luxury experience at a fraction of the cost. The Sea of Stars at Vaadhoo is magical - we saw it in August and the glow was incredible!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🤿 Sarah Thompson</span>
+                <span class="comment-date">April 3, 2026</span>
+            </div>
+            <div class="comment-text">
+                Best diving I've ever experienced! Went to Baa Atoll during manta ray season and saw over 30 mantas feeding in Hanifaru Bay. The coral reefs are pristine and the marine life is abundant. Addu Atoll in the south has amazing WWII wreck diving too. Can't wait to go back!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>✨ The Maldives awaits with crystal waters, pristine beaches, and unforgettable experiences. The Sunny Side of Life is calling! 🌴✨</p>
+    <p><small>Flag image courtesy of Printscorpio | City images from Soneva, Visit Maldives, Freepik, and iStock</small></p>
+</div>
+
+</body>
+</html>
