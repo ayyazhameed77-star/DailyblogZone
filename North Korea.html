@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Korea Travel Guide: Discover the DPRK</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #024FA2 0%, #ED1C27 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flag {
+            width: 120px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #024FA2;
+        }
+        .notice {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        .city-card {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .city-content {
+            padding: 25px;
+        }
+        .city-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .city-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #ED1C27;
+        }
+        h2 {
+            color: #024FA2;
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+        .description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background-color: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #024FA2;
+        }
+        
+        /* Comment Section Styles */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .comments-title {
+            color: #024FA2;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+        .comment-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: #ED1C27;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #024FA2;
+        }
+        .comment-list {
+            margin-top: 30px;
+        }
+        .comment {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ED1C27;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .comment-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+            border-top: 2px solid #ddd;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8em; }
+            .city-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/7143aeb526b05396c8096f755d07997dccb45088.png" alt="North Korea Flag" class="flag">
+    <h1>North Korea Travel Guide</h1>
+    <div class="subtitle">The Democratic People's Republic of Korea</div>
+</div>
+
+<div class="intro">
+    <p><strong>North Korea</strong>, officially the Democratic People's Republic of Korea (DPRK), is a country in East Asia occupying the northern portion of the Korean Peninsula. Known as the "Hermit Kingdom" due to its isolationist policies, North Korea remains one of the least visited countries in the world, making it a destination of intrigue for adventurous travelers. With a history dating back thousands of years and a unique political system, the DPRK offers a travel experience unlike any other—one that challenges perceptions and provides insight into a nation largely misunderstood by the outside world.</p>
+    
+    <p>From the grand monuments of Pyongyang to the ancient capital of Kaesong and the sacred peaks of Mount Paektu, North Korea possesses a rich cultural heritage and stunning natural landscapes. While tourism is strictly controlled and visitors must travel with state-approved guides, those who venture here discover meticulously maintained historical sites, grand socialist architecture, and opportunities to interact with locals in ways that reveal the human side of this enigmatic nation.</p>
+</div>
+
+<div class="notice">
+    <strong>Travel Notice:</strong> Tourism in North Korea is strictly regulated. All visitors must book through approved tour operators and are accompanied by official guides at all times. Travel restrictions and requirements change frequently—consult with specialized tour operators like Koryo Tours or Young Pioneer Tours for current information.
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/media-cdn.tripadvisor.com/9eda562e0dfc5222f99d92efc243a803248c26ea.jpg" alt="Pyongyang Skyline" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏛️</span>
+            <div>
+                <h2>Pyongyang</h2>
+                <div class="location">Northwest North Korea, Capital City (39.0392° N, 125.7625° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The capital and largest city of the DPRK, <span class="highlight">Pyongyang</span> is the showcase of North Korea—a city of wide boulevards, monumental architecture, and meticulously maintained public spaces. With a population of over 3 million, Pyongyang is surprisingly modern, featuring a newly developed waterfront, contemporary apartments, and leisure facilities that include water parks, dolphinariums, and riding clubs. The city's skyline is dominated by the iconic Ryugyong Hotel, a 105-story pyramid-shaped skyscraper, and the Juche Tower, a 170-meter granite monument topped with a flickering flame.</p>
+            
+            <p>Visitors to Pyongyang will explore grand socialist monuments including the Mansudae Grand Monument, featuring massive bronze statues of Kim Il Sung and Kim Jong Il. The Victorious Fatherland Liberation War Museum offers a unique perspective on the Korean War, including the captured American spy ship USS Pueblo. For a glimpse of daily life, the Kwangbok Supermarket allows foreigners to shop using local currency. As evening falls, take a cruise on the Taedong River or witness the spectacular Arirang Mass Games (when operating)—a choreographed display involving tens of thousands of performers. Pyongyang is clean, orderly, and presents a fascinating window into North Korean ideology and urban planning.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/koryogroup.com/af20c9e019efde1dc6819e331c233750e1c5eb04.jpg" alt="Kaesong Old Town" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏯</span>
+            <div>
+                <h2>Kaesong</h2>
+                <div class="location">North Hwanghae Province, near South Korean border (37.9383° N, 126.5878° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Once the capital of the Koryo Dynasty that ruled Korea from 918 to 1392 AD, <span class="highlight">Kaesong</span> is one of the few cities in North Korea that retains significant pre-20th century architecture. Unlike Pyongyang, which was heavily bombed during the Korean War, Kaesong escaped relatively unscathed, preserving its historic old town with traditional Korean hanok houses and cobblestone streets. The city boasts 12 UNESCO World Heritage sites and serves as a living museum of Korean history.</p>
+            
+            <p>The Koryo Museum, housed in the former Songgyungwan Confucian academy (founded in 992 AD), displays ancient pottery, Buddhist artifacts, and royal relics. Nearby, the tomb of King Kongmin offers insight into Koryo Dynasty burial practices. Don't miss Sonjuk Bridge, a small stone bridge dating to 1216, famous as the site where statesman Jeong Mong-ju was assassinated in 1392—an event that marked the end of the Koryo Dynasty. Kaesong is also the gateway to the DMZ (Demilitarized Zone) at Panmunjom, where visitors can stand at the border between North and South Korea. The city offers unique accommodation at the Minsok Folk Hotel, where guests sleep in traditional Korean courtyards on heated floors.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/traveltomorrow.com/deb3cd2c1151dd53b28b84d4bc182c698c0b1a45.jpg" alt="Mount Paektu" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🗻</span>
+            <div>
+                <h2>Mount Paektu</h2>
+                <div class="location">Ryanggang Province, China-North Korea border (41.9883° N, 128.0731° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>At 2,750 meters, <span class="highlight">Mount Paektu</span> (Paekdusan) is the highest mountain on the Korean Peninsula and holds profound significance in Korean mythology and culture. Considered the mythical birthplace of the Korean people and the legendary birthplace of Kim Jong Il, this active volcano is sacred to both North and South Koreans. The mountain features a stunning crater lake known as Heaven Lake (Lake Chon)—the deepest mountain lake in the world at over 380 meters deep—surrounded by dramatic volcanic rock formations.</p>
+            
+            <p>Access to Mount Paektu requires flying from Pyongyang to Samjiyon, a picturesque alpine town that serves as the base for exploration. From here, visitors can hike or take a funicular to the summit for breathtaking views of the crater lake. The Rimyongsu Waterfalls, fed by underground sources from Heaven Lake, flow year-round due to geothermal heat. The Paektusan Secret Camp features preserved log cabins said to be the birthplace of Kim Jong Il, set amid pristine forest. Despite its political significance, Mount Paektu is undeniably beautiful—a wild landscape of alpine meadows, crystal-clear lakes, and snow-capped peaks that was recently designated a UNESCO Global Geopark.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/5cbfd0f99cfc03daa570bfd6120149794a2d8637.jpg" alt="Juche Tower Pyongyang" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🌊</span>
+            <div>
+                <h2>Wonsan</h2>
+                <div class="location">Kangwon Province, East Coast (39.1536° N, 127.4458° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Located on North Korea's eastern coast along the Sea of Japan (East Sea), <span class="highlight">Wonsan</span> is a port city and emerging tourist destination known for its beaches and relaxed atmosphere. As the gateway to the scenic Mount Kumgang region, Wonsan offers visitors a glimpse of North Korean seaside culture. The city is undergoing significant development as the government promotes tourism, including the new Wonsan Kalma Coastal Tourist Area.</p>
+            
+            <p>Visitors can enjoy the sandy beaches of Wonsan Bay, where locals swim and relax during summer months. The Songdowon International Children's Union Camp, a massive recreational facility, showcases the country's commitment to youth programs. Nearby, the Chongsan Cooperative Farm offers insights into North Korean agricultural practices. For history enthusiasts, the Wonsan Revolutionary Museum documents the city's role in the Korean War. The city also serves as the departure point for cruises to Mount Kumgang (Diamond Mountain), renowned for its dramatic granite peaks, Buddhist temples, and waterfalls. Wonsan represents a different side of North Korea—coastal, relaxed, and focused on leisure rather than politics.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h3 class="comments-title">💬 Traveler Comments</h3>
+    
+    <div class="comment-form">
+        <h4 style="margin-top: 0; color: #333;">Leave a Comment</h4>
+        <form onsubmit="event.preventDefault(); alert('Thank you for your comment! It will be posted after moderation.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" placeholder="Share your thoughts about North Korea or ask a question..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🌍 Alex Thompson</span>
+                <span class="comment-date">April 7, 2026</span>
+            </div>
+            <div class="comment-text">
+                I visited North Korea in 2019 and it was an eye-opening experience. Pyongyang is much more modern than I expected, and the guides were professional and friendly. The Juche Tower at sunset was spectacular. Anyone planning to go should definitely visit Mount Paektu if possible—the landscape there is breathtaking and unlike anything else in the country.
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">📸 Maria Kim</span>
+                <span class="comment-date">April 5, 2026</span>
+            </div>
+            <div class="comment-text">
+                Just returned from a tour that included Kaesong and the DMZ. The old town in Kaesong feels like stepping back in time—the traditional architecture is beautiful. The DMZ experience was intense but historically fascinating. Make sure to bring cash in small denominations and respect the local customs. The food was surprisingly good too!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🏔️ David Chen</span>
+                <span class="comment-date">March 28, 2026</span>
+            </div>
+            <div class="comment-text">
+                Can anyone confirm if tours are currently operating? I've been trying to book through Koryo Tours but haven't heard back about 2026 dates. Also, what's the best time of year to visit Mount Paektu? I heard September is ideal for clear views of Heaven Lake. Any advice would be appreciated!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>✨ North Korea offers a unique journey into one of the world's most enigmatic destinations. Travel responsibly and keep an open mind. ✨</p>
+    <p><small>Flag image courtesy of Wikimedia Commons | City images from TripAdvisor, Koryo Tours, and Travel Tomorrow</small></p>
+</div>
+
+</body>
+</html>
