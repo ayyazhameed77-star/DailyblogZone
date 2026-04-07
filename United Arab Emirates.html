@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE Travel Guide: Where Vision Meets Tradition</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #00732f 0%, #ffffff 50%, #000000 100%);
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00732f 0%, #ffffff 50%, #000000 100%);
+            opacity: 0.9;
+            z-index: 0;
+        }
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        .flag {
+            width: 120px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            object-fit: cover;
+            border: 2px solid white;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #000;
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.9;
+            color: #333;
+            font-weight: bold;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #00732f;
+        }
+        .city-card {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .city-content {
+            padding: 25px;
+        }
+        .city-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .city-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #ff0000;
+        }
+        h2 {
+            color: #00732f;
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+        .description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background-color: #e8f5e9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #00732f;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+            border-top: 2px solid #ddd;
+        }
+        
+        /* Comments Section Styles */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+            border-top: 4px solid #ff0000;
+        }
+        .comments-section h3 {
+            color: #00732f;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .comments-section h3::before {
+            content: "💬";
+            margin-right: 10px;
+        }
+        .comment-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #00732f 0%, #000000 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .submit-btn:hover {
+            transform: scale(1.05);
+        }
+        .comments-list {
+            margin-top: 30px;
+        }
+        .comment {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #00732f;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #00732f;
+            display: flex;
+            align-items: center;
+        }
+        .comment-author::before {
+            content: "👤";
+            margin-right: 8px;
+        }
+        .comment-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8em; }
+            .city-image { height: 200px; }
+            .comments-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <img src="https://kimi-web-img.moonshot.cn/img/www.protocol.dubai.ae/e3914e8b9cfd111fc639adf068f643d0fb564b92.webp" alt="UAE Flag" class="flag">
+        <h1>UAE Travel Guide</h1>
+        <div class="subtitle">Where Vision Meets Tradition</div>
+    </div>
+</div>
+
+<div class="intro">
+    <p><strong>The United Arab Emirates</strong>, a federation of seven emirates on the eastern part of the Arabian Peninsula, stands as one of the most remarkable transformation stories of the modern world. From a modest pearl-diving and trading region to a global powerhouse of innovation and luxury in just five decades, the UAE captivates visitors with its audacious architecture, rich Bedouin heritage, and boundless ambition. Home to over 9.9 million people from more than 200 nationalities, this is truly a melting pot where ancient desert traditions coexist harmoniously with futuristic visions.</p>
+    
+    <p>The UAE's flag—featuring green for fertility, white for neutrality, black for the oil wealth that fueled its growth, and red for unity—perfectly encapsulates the nation's journey. Whether you're gazing up at the world's tallest building, skiing indoors while it's 45°C outside, exploring ancient forts that whisper tales of pearl divers, or experiencing the timeless hospitality of Bedouin culture in the golden dunes, the UAE offers a sensory feast that challenges every expectation. This is a land where impossibilities become landmarks, where luxury knows no bounds, yet where the call to prayer still echoes authentically across the desert at sunset.</p>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/ww3.rics.org/8a62e44a4d401d2e45e5a542d34fc79258bd6add.jpg" alt="Dubai Skyline Burj Khalifa" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏙️</span>
+            <div>
+                <h2>Dubai</h2>
+                <div class="location">Emirate of Dubai, UAE (25.2048° N, 55.2708° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p><span class="highlight">Dubai</span> is the city that needs no introduction—a dazzling metropolis that has redefined what's possible in urban development. Rising from the desert sands, this global icon boasts the <strong>Burj Khalifa</strong>, the world's tallest building at 828 meters, where visitors can gaze down at clouds from the observation deck on the 148th floor. But Dubai is far more than its skyscrapers; it's a testament to human ambition. The Palm Jumeirah, an artificial archipelago shaped like a palm tree visible from space, hosts luxury resorts including Atlantis, The Palm, with its underwater suites and Aquaventure waterpark.</p>
+            
+            <p>Beyond the glamour lies a city of contrasts. Wander through the Al Fahidi Historical Neighborhood, where wind-tower architecture and narrow lanes transport you to the Dubai of the 1890s. Explore the vibrant souks—Gold Souk where jewelry gleams in every window, Spice Souk where aromatic frankincense fills the air, and Textile Souk bursting with colorful fabrics. For adrenaline seekers, skydive over the Palm, ski indoors at Mall of the Emirates, or dune bash in the desert at sunset followed by a traditional Bedouin dinner under the stars. Dubai's culinary scene matches its diversity, from Michelin-starred restaurants to humble shawarma stands serving the city's best late-night bites.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/fhl.lhscdn.com/6796b66b63008b20681e8cae43bee6c6fd05b779.jpg" alt="Sheikh Zayed Grand Mosque Abu Dhabi" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🕌</span>
+            <div>
+                <h2>Abu Dhabi</h2>
+                <div class="location">Emirate of Abu Dhabi, UAE (24.4539° N, 54.3773° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>As the UAE's capital and largest emirate, <span class="highlight">Abu Dhabi</span> offers a more refined and culturally rich experience than its glitzy neighbor Dubai. The crown jewel is undoubtedly the <strong>Sheikh Zayed Grand Mosque</strong>, one of the world's largest mosques and an architectural masterpiece of white Macedonian marble. Its 82 domes, over 1,000 columns, and the world's largest hand-knotted carpet create an atmosphere of serene grandeur that leaves visitors breathless, especially when illuminated at night against the dark desert sky.</p>
+            
+            <p>Abu Dhabi balances tradition with cutting-edge culture. Saadiyat Island hosts the Louvre Abu Dhabi, designed by Jean Nouvel as a "museum city" under a stunning geometric dome that creates a "rain of light," alongside the upcoming Guggenheim. The Qasr Al Watan presidential palace offers insight into Arabian governance and craftsmanship, while the Heritage Village recreates traditional oasis life. For thrill-seekers, Ferrari World houses the world's fastest roller coaster, and Yas Island's entertainment district pulses with energy. The Corniche waterfront promenade offers pristine beaches and cycling paths with views of the city's evolving skyline. Abu Dhabi moves at a more measured pace, inviting deeper exploration of Emirati culture and values.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/www.pelago.com/af71a74b57d9829740e1e3468b11c4f91d633177.jpg" alt="Sharjah Cultural City" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">📚</span>
+            <div>
+                <h2>Sharjah</h2>
+                <div class="location">Emirate of Sharjah, UAE (25.3463° N, 55.4209° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Designated by UNESCO as the Cultural Capital of the Arab World, <span class="highlight">Sharjah</span> offers an authentic glimpse into Emirati heritage and Islamic culture, standing in beautiful contrast to the commercial focus of Dubai. Strict preservation laws have maintained the emirate's traditional character—here you'll find no skyscrapers overshadowing historical sites, no alcohol in restaurants, and a deep commitment to arts and education. The Sharjah Museum of Islamic Civilization houses over 5,000 artifacts spanning 1,400 years, housed in a stunning building with a golden dome visible from across the waterfront.</p>
+            
+            <p>The Heart of Sharjah restoration project brings the old city back to life with traditional souks, heritage houses, and the magnificent Al Noor Mosque open to non-Muslim visitors. The Blue Souk (Central Market), with its distinctive Islamic architecture, offers everything from carpets and antiques to gold and electronics in a more relaxed atmosphere than Dubai's malls. Art enthusiasts flock to the Sharjah Art Foundation's contemporary spaces in the Al Mureijah Art Precinct. For families, the Sharjah Desert Park combines a natural history museum, botanical garden, and children's farm. The nearby Khor Fakkan on the east coast offers beautiful beaches between dramatic mountains and the Gulf of Oman, showcasing the UAE's diverse geography.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/visitrasalkhaimah.com/4723350c3845921035cfe8e6a268ce5071314c19.jpg" alt="Ras Al Khaimah Mountains" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">⛰️</span>
+            <div>
+                <h2>Ras Al Khaimah</h2>
+                <div class="location">Emirate of Ras Al Khaimah, UAE (25.8007° N, 55.9762° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Known as the "Nature Emirate," <span class="highlight">Ras Al Khaimah</span> offers a dramatic departure from the UAE's urban landscapes, showcasing the country's most diverse terrain. The emirate is dominated by the Hajar Mountains, where <strong>Jebel Jais</strong>—the UAE's highest peak at 1,934 meters—provides breathtaking vistas and the world's longest zipline, allowing adventurers to soar at speeds up to 150 km/h over craggy canyons. The mountain's cooler temperatures (often 10-15°C lower than the coast) create a refreshing escape, with hiking trails revealing ancient fossils and abandoned villages.</p>
+            
+            <p>The coastline offers 64 kilometers of pristine beaches, luxury resorts, and the historic Dhayah Fort, the only hilltop fort remaining in the UAE and the site of the final battle against British forces in 1819. Ras Al Khaimah's rich history includes millennia of human settlement, evidenced by archaeological sites like Julphar, a thriving medieval port. The emirate's commitment to sustainable tourism is evident in developments like Al Hamra Village and the protected mangroves of Al Rams. For a truly unique experience, camp in the desert at the Ritz-Carlton Al Wadi, where luxury tents offer stargazing and falconry displays, or explore the ghost town of Al Jazirah Al Hamra, abandoned in the 1960s and frozen in time.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/desertteam.me/a02915cfb4457fd8ce94357752353668c7e0af8c.jpg" alt="Ajman City View" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🌊</span>
+            <div>
+                <h2>Ajman</h2>
+                <div class="location">Emirate of Ajman, UAE (25.4052° N, 55.5136° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The smallest emirate by area, <span class="highlight">Ajman</span> offers an intimate, laid-back alternative to the UAE's bustling megacities, preserving a charm that feels increasingly rare in the region. With a population of just over 500,000, Ajman maintains a close-knit community atmosphere while offering beautiful beaches along the Arabian Gulf. The Ajman Corniche provides a peaceful promenade for evening strolls, with dhows bobbing in the harbor and the scent of grilled fish wafting from beachside restaurants serving the day's catch.</p>
+            
+            <p>The 18th-century Ajman Fort, now the Ajman Museum, offers insights into the emirate's pearl-diving past and Bedouin traditions through well-curated exhibits in a historic setting. The nearby Al Zorah Nature Reserve protects mangrove forests and tidal flats that attract over 58 bird species, including flamingos and herons, offering kayaking tours through peaceful waterways. Ajman's dhow building yard remains one of the last places where traditional wooden boats are crafted by hand, preserving skills passed down through generations. The emirate's affordability compared to Dubai and Abu Dhabi makes it attractive for extended stays, with excellent value resorts along Ajman Beach. For an authentic experience, visit the bustling fish market at dawn or explore the traditional souk where gold, spices, and textiles are traded as they have been for decades.</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>✨ The United Arab Emirates awaits with endless innovation, timeless traditions, and desert dreams turned reality. Pack your sense of wonder and prepare to be amazed. Safe travels! ✨</p>
+    <p><small>Flag image courtesy of Dubai Protocol Department | City images from various travel sources</small></p>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h3>Leave a Comment</h3>
+    <p style="color: #666; margin-bottom: 20px;">Share your thoughts about the UAE or ask questions for fellow travelers!</p>
+    
+    <div class="comment-form">
+        <form id="commentForm" onsubmit="handleComment(event)">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email (will not be published)</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Your Comment</label>
+                <textarea id="comment" name="comment" placeholder="Share your experience or thoughts about the UAE..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+        </form>
+    </div>
+    
+    <div class="comments-list" id="commentsList">
+        <h3 style="color: #00732f; margin-bottom: 20px;">Recent Comments</h3>
+        
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">Mohammed Al-Rashid</span>
+                <span class="comment-date">April 6, 2026</span>
+            </div>
+            <div class="comment-text">
+                Just spent a week exploring all seven emirates and I'm blown away by the diversity! Ras Al Khaimah's mountains were the highlight—did the Jebel Jais zipline and it was incredible. Much more authentic than Dubai. Don't skip the smaller emirates! 🏔️
+            </div>
+        </div>
+        
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">Sophie Chen</span>
+                <span class="comment-date">April 3, 2026</span>
+            </div>
+            <div class="comment-text">
+                The Sheikh Zayed Grand Mosque in Abu Dhabi brought me to tears. The marble work is beyond anything I've seen. Make sure to visit at sunset when the lighting is magical. Also recommend the Louvre Abu Dhabi—stunning architecture and world-class exhibitions.
+            </div>
+        </div>
+        
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">David Thompson</span>
+                <span class="comment-date">March 30, 2026</span>
+            </div>
+            <div class="comment-text">
+                Planning a family trip in July. I know it'll be hot, but are the indoor attractions worth it? Also looking for recommendations on where to stay in Dubai with kids (ages 8 and 12). Is Atlantis worth the hype or should we look at other options? Thanks! 🌴
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function handleComment(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const comment = document.getElementById('comment').value;
+        const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        
+        const newComment = document.createElement('div');
+        newComment.className = 'comment';
+        newComment.innerHTML = `
+            <div class="comment-header">
+                <span class="comment-author">${name}</span>
+                <span class="comment-date">${date}</span>
+            </div>
+            <div class="comment-text">${comment}</div>
+        `;
+        
+        const commentsList = document.getElementById('commentsList');
+        commentsList.insertBefore(newComment, commentsList.children[1]);
+        
+        document.getElementById('commentForm').reset();
+        alert('Thank you for your comment! It has been posted successfully.');
+    }
+</script>
+
+</body>
+</html>
