@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thailand Travel Guide: Discover the Land of Smiles</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #A51931 0%, #2D2A4A 50%, #A51931 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flag {
+            width: 120px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #A51931;
+        }
+        .city-card {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .city-content {
+            padding: 25px;
+        }
+        .city-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .city-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #A51931;
+        }
+        h2 {
+            color: #2D2A4A;
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+        .description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background-color: #fff3e0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #e65100;
+        }
+        
+        /* Comment Section Styles */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .comments-title {
+            color: #A51931;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #fce4ec;
+            padding-bottom: 10px;
+        }
+        .comment-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: #A51931;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #2D2A4A;
+        }
+        .comment-list {
+            margin-top: 30px;
+        }
+        .comment {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #A51931;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .comment-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+            border-top: 2px solid #ddd;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8em; }
+            .city-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/fb831a0204cc4fdb6d785bacc0b153d1ee4d7766.jpg" alt="Thailand Flag" class="flag">
+    <h1>Thailand Travel Guide</h1>
+    <div class="subtitle">The Land of Smiles & Golden Temples</div>
+</div>
+
+<div class="intro">
+    <p><strong>Thailand</strong>, formerly known as Siam, is a Southeast Asian gem that has captured the hearts of travelers for decades. Known as the "Land of Smiles" for the warm hospitality of its people, this tropical paradise offers an irresistible combination of pristine beaches, ancient temples, vibrant cities, and world-renowned cuisine. From the bustling streets of Bangkok to the serene mountains of Chiang Mai and the crystal-clear waters of the Andaman Sea, Thailand presents a diverse tapestry of experiences that cater to every type of traveler.</p>
+    
+    <p>With a history dating back thousands of years and a culture deeply rooted in Buddhism, Thailand boasts over 40,000 temples, countless festivals, and traditions that remain vibrant in modern daily life. Whether you're seeking spiritual enlightenment at a meditation retreat, adventure in limestone caves, culinary delights at floating markets, or simply relaxation on powdery white sands, Thailand delivers memories that last a lifetime. The country's unique ability to blend the ancient with the contemporary makes it one of the most visited and beloved destinations in the world.</p>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/static.wixstatic.com/9187922838e4459d9a006e9cf755bb174e6c6d4e.jpg" alt="Grand Palace Bangkok" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏛️</span>
+            <div>
+                <h2>Bangkok</h2>
+                <div class="location">Central Thailand, Capital City (13.7563° N, 100.5018° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The vibrant capital of Thailand since 1782, <span class="highlight">Bangkok</span> is a city that assaults the senses in the best possible way—a dazzling mix of golden temples, towering skyscrapers, chaotic markets, and world-class dining. At the heart of the city lies the magnificent <strong>Grand Palace</strong>, a sprawling complex that served as the royal residence for 150 years and houses the revered Emerald Buddha, Thailand's most sacred religious icon. The intricate architecture, gilded spires, and detailed murals make this one of Asia's most impressive royal compounds.</p>
+            
+            <p>Nearby, <strong>Wat Pho</strong> (Temple of the Reclining Buddha) showcases a 46-meter-long gilded Buddha statue and is considered the birthplace of traditional Thai massage. As the sun sets, cruise along the Chao Phraya River, the "River of Kings," passing glittering temples and modern hotels while enjoying authentic Thai cuisine. Don't miss the floating markets where vendors sell tropical fruits and fragrant dishes from wooden boats, or the bustling Chatuchak Weekend Market with over 15,000 stalls. Bangkok's street food scene is legendary—sample pad thai, mango sticky rice, and tom yum goong from street vendors who've perfected their craft over generations. This city truly never sleeps, offering everything from rooftop bars with panoramic views to quiet canalside communities where time seems to stand still.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/cdn.i-scmp.com/febb1a2dce2646dffc5504fb28a17dba3eeea012.jpg" alt="Chiang Mai Temples" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🌸</span>
+            <div>
+                <h2>Chiang Mai</h2>
+                <div class="location">Northern Thailand, Cultural Capital (18.7883° N, 98.9853° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Nestled in the mountains of northern Thailand, <span class="highlight">Chiang Mai</span> offers a refreshing contrast to Bangkok's intensity. Known as "The Rose of the North," this cultural capital is surrounded by lush countryside, tribal villages, and over 300 ancient temples—more than anywhere else in Thailand. The heart of the city is its Old Town, still partially encircled by medieval walls and a moat, where traditional teak houses stand alongside trendy cafes and art galleries.</p>
+            
+            <p>The crown jewel is <strong>Wat Phra That Doi Suthep</strong>, a golden temple perched 1,073 meters up a mountain, accessible by a winding road or a 309-step naga (serpent) staircase. The views of Chiang Mai and the surrounding valleys are spectacular, especially at sunrise or during the Loy Krathong festival when thousands of lanterns float into the night sky. Within the Old City, <strong>Wat Chedi Luang</strong> impresses with its massive, partially ruined pagoda. Beyond the temples, Chiang Mai is the gateway to hill tribe treks, where you can meet the Karen, Hmong, and Lahu peoples, learn about their traditions, and purchase hand-woven textiles. The city is also famous for its cooking schools, night bazaars, and the annual Yi Peng Lantern Festival—an unforgettable spectacle where the sky fills with floating lights representing released worries and new beginnings.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/cdn.sanity.io/106d76e1945d6df6026c6f570968efe9da0e3664.jpg" alt="Phuket Beach" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏝️</span>
+            <div>
+                <h2>Phuket</h2>
+                <div class="location">Southern Thailand, Andaman Sea (7.8804° N, 98.3923° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Thailand's largest island, <span class="highlight">Phuket</span> is the country's premier beach destination, offering something for everyone—from luxury seekers to backpackers, families to party enthusiasts. The west coast boasts famous beaches like Patong, known for its vibrant nightlife and water sports, and the more relaxed Kata and Karon beaches with their soft golden sands and clear turquoise waters. For those seeking tranquility, the hidden Yanui Beach offers a peaceful escape.</p>
+            
+            <p>But Phuket is more than just beaches. The island's Old Town features beautifully preserved Sino-Portuguese architecture, colorful shophouses, and excellent local restaurants serving Peranakan (Straits Chinese) cuisine. Visit the 45-meter-tall Big Buddha sitting atop Nakkerd Hill for panoramic island views, or explore <strong>Wat Chalong</strong>, the island's most important Buddhist temple. Phuket serves as the gateway to the stunning Phi Phi Islands—famous for Maya Bay, where "The Beach" was filmed—and the Similan Islands, one of the world's top diving destinations with vibrant coral reefs and abundant marine life. Whether you're snorkeling in crystal-clear waters, watching the sunset from a beachfront bar, or exploring hidden coves by longtail boat, Phuket epitomizes tropical paradise.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/jonistravelling.com/cda09ca7fdc051f8be4c92322796490fc874c1ef.jpg" alt="Ayutthaya Ruins" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏛️</span>
+            <div>
+                <h2>Ayutthaya</h2>
+                <div class="location">Central Thailand, UNESCO World Heritage Site (14.3532° N, 100.5680° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Just a short day trip from Bangkok lies <span class="highlight">Ayutthaya</span>, the former capital of the Kingdom of Siam and one of Thailand's most historically significant destinations. Founded in 1350, this magnificent city was once one of the world's largest and most cosmopolitan cities, a center of global diplomacy and commerce until its destruction by the Burmese army in 1767. Today, the <strong>Ayutthaya Historical Park</strong> is a UNESCO World Heritage site featuring hauntingly beautiful ruins that look like something from a lost civilization.</p>
+            
+            <p>The park encompasses 289 hectares filled with crimson-roofed temples, towering prangs (reliquary towers), and headless Buddha statues draped in saffron robes. The most iconic sight is <strong>Wat Mahathat</strong>, where a Buddha head has become entwined in the roots of a Bodhi tree—a powerful symbol of nature reclaiming history. <strong>Wat Chaiwatthanaram</strong>, with its Khmer-style architecture reminiscent of Angkor Wat, offers stunning photo opportunities, especially at sunset. The best way to explore is by bicycle, pedaling between ruins shaded by tamarind trees. For a different perspective, take a boat tour around the island city, viewing the temples from the water as traders did centuries ago. Ayutthaya is not just a collection of ruins; it's a journey back to Thailand's golden age, a place where history whispers through the stone.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h3 class="comments-title">💬 Traveler Comments</h3>
+    
+    <div class="comment-form">
+        <h4 style="margin-top: 0; color: #333;">Leave a Comment</h4>
+        <form onsubmit="event.preventDefault(); alert('Thank you for your comment! It will be posted after moderation.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" placeholder="Share your thoughts about Thailand or ask a question..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🌴 Jessica Wong</span>
+                <span class="comment-date">April 7, 2026</span>
+            </div>
+            <div class="comment-text">
+                Just returned from 2 weeks in Thailand and I'm already planning my next trip! Bangkok's Grand Palace was even more stunning in person than in photos. The street food on Khao San Road was incredible - especially the mango sticky rice! Chiang Mai's Sunday Walking Street is a must-visit for handmade crafts. Can't wait to go back!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🏖️ Mark Thompson</span>
+                <span class="comment-date">April 5, 2026</span>
+            </div>
+            <div class="comment-text">
+                Phuket was amazing but definitely visit during the dry season (Nov-Apr). We did a day trip to Phi Phi Islands and the water was crystal clear. Pro tip: wake up early to see the Big Buddha at sunrise - no crowds and the view is spectacular. Also, Ayutthaya is totally worth the day trip from Bangkok. Bring comfortable shoes for cycling around the ruins!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🙏 Sarah Miller</span>
+                <span class="comment-date">April 3, 2026</span>
+            </div>
+            <div class="comment-text">
+                Chiang Mai was the highlight of our trip! We took a Thai cooking class and visited an ethical elephant sanctuary. The Yi Peng festival was magical - thousands of lanterns in the sky is something I'll never forget. Temples are everywhere and so beautiful. Make sure to try Khao Soi (Northern Thai curry noodles) - it's delicious!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>✨ Thailand awaits with golden temples, turquoise waters, and the warmest smiles in the world. Sawasdee! 🙏✨</p>
+    <p><small>Flag image courtesy of Britannica | City images from Wix, SCMP, Sanity.io, and Jonistravelling</small></p>
+</div>
+
+</body>
+</html>
