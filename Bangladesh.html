@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Travel Guide: The Land of Rivers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bd-green: #006A4E;
+            --bd-red: #F42A41;
+            --bd-gold: #FFD700;
+            --text-dark: #1a1a1a;
+            --text-light: #5a5a5a;
+            --bg-warm: #F5F5DC;
+            --bg-cream: #FFFEF7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 106, 78, 0.9), rgba(0,0,0,0.7)), 
+                        url('https://kimi-web-img.moonshot.cn/img/i.natgeofe.com/122f30e59c98d37b06dfb630e31a17d3803cb665.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(244,42,65,0.1)" stroke-width="2"/></svg>');
+            background-size: 300px;
+            opacity: 0.3;
+            animation: pulse 20s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            padding: 0 20px;
+        }
+        
+        .flag-container {
+            margin-bottom: 2rem;
+            animation: wave 4s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(-3deg) scale(1); }
+            50% { transform: rotate(3deg) scale(1.02); }
+        }
+        
+        .flag {
+            width: 150px;
+            height: 90px;
+            background: var(--bd-green);
+            position: relative;
+            display: inline-block;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .flag::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--bd-red);
+            border-radius: 50%;
+            top: 50%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            font-size: 1.6rem;
+            font-weight: 300;
+            opacity: 0.95;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: 'Noto Sans Bengali', sans-serif;
+        }
+        
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--bd-green);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--bd-red);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--bd-green);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 6rem;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--bd-green);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .intro h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--bd-red);
+        }
+        
+        .intro p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 2;
+            text-align: justify;
+            text-align-last: center;
+        }
+        
+        /* City Cards */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            border-top: 4px solid transparent;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0, 106, 78, 0.2);
+            border-top-color: var(--bd-red);
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .city-card:hover .city-image {
+            transform: scale(1.08);
+        }
+        
+        .city-content {
+            padding: 2rem;
+        }
+        
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 106, 78, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--bd-green);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 106, 78, 0.2);
+        }
+        
+        .city-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .city-content p {
+            color: var(--text-light);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--bd-green), #004d38);
+            color: white;
+            padding: 3.5rem;
+            border-radius: 16px;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '🇧🇩';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+            filter: grayscale(100%);
+        }
+        
+        .highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .highlight-box p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            margin-top: 5rem;
+            border-top: 5px solid var(--bd-green);
+        }
+        
+        .comments-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .comments-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .comments-header p {
+            color: var(--text-light);
+        }
+        
+        .comment-form {
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--bd-green);
+            box-shadow: 0 0 0 3px rgba(0, 106, 78, 0.1);
+        }
+        
+        .submit-btn {
+            background: var(--bd-red);
+            color: white;
+            border: none;
+            padding: 1.1rem 3rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(244, 42, 65, 0.3);
+        }
+        
+        .submit-btn:hover {
+            background: #d91a2f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 42, 65, 0.4);
+        }
+        
+        .comments-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .comment {
+            background: var(--bg-cream);
+            padding: 1.8rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--bd-green);
+            animation: slideIn 0.5s ease-out;
+            transition: transform 0.2s;
+        }
+        
+        .comment:hover {
+            transform: translateX(5px);
+            background: white;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .comment-author {
+            font-weight: 700;
+            color: var(--bd-green);
+            font-size: 1.15rem;
+        }
+        
+        .comment-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .comment-text {
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+        
+        .empty-state {
+            text-align: center;
+            color: var(--text-light);
+            padding: 3rem;
+            font-style: italic;
+            background: var(--bg-cream);
+            border-radius: 12px;
+            border: 2px dashed #ddd;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--bd-red);
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .cities-grid { grid-template-columns: 1fr; }
+            .intro h2 { font-size: 2rem; }
+            nav ul { gap: 1.5rem; }
+            .comments-section { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="flag-container">
+                <div class="flag"></div>
+            </div>
+            <h1>Bangladesh</h1>
+            <p class="subtitle">The Land of Rivers • Golden Bengal</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">History</a></li>
+            <li><a href="#dhaka">Dhaka</a></li>
+            <li><a href="#chittagong">Chattogram</a></li>
+            <li><a href="#coxs">Cox's Bazar</a></li>
+            <li><a href="#sylhet">Sylhet</a></li>
+            <li><a href="#sundarbans">Sundarbans</a></li>
+            <li><a href="#comments">Stories</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Introduction -->
+        <section id="about" class="intro">
+            <h2>Where Rivers Write the Story</h2>
+            <p>
+                Bangladesh defies logic. Here is a nation roughly the size of Iowa, yet cradling 170 million souls, woven together by 700 rivers that braid across the land like silver threads on green silk. The flag tells the tale simply: a blood-red sun rising over a field of lush green, symbolizing the sacrifice of those who died for independence in 1971 and the verdant vitality of a delta that feeds millions. This is the largest delta in the world, created by the Ganges, Brahmaputra, and Meghna rivers, depositing fertile silt that makes the land bloom with three rice crops a year.
+                
+                But Bangladesh is more than its geography. This is a nation that earned its freedom through a brutal Liberation War, emerging from the ashes of conflict with a resilience that humbles visitors. The Bengali spirit—poetic, passionate, and endlessly hospitable—permeates every interaction. You'll hear it in the call to prayer mixing with the chant of ancient Baul folk songs on village paths. You'll taste it in the mustard-infused hilsa fish curry, in the sweetness of roshogolla, in the street-side cha spiced with cardamom and poured from pot to cup in long, theatrical streams.
+                
+                What surprises first-time visitors is the joy. Despite poverty that would crush other nations, Bangladeshis possess a capacity for celebration that erupts during Pohela Boishakh (Bengali New Year) when the entire country dons red and white, or during cricket matches when the streets become open-air theaters of collective euphoria. Yes, the traffic in Dhaka is legendary, a ballet of rickshaws, CNGs, and buses that somehow never collide. Yes, the humidity can be oppressive. But when a boatman offers you tea on the Buriganga River at sunset, or when you watch the orange sun sink into the Bay of Bengal at Cox's Bazar, you understand: Bangladesh doesn't just exist, it overflows with life.
+            </p>
+        </section>
+
+        <!-- Cities Grid -->
+        <div class="cities-grid">
+            <!-- Dhaka -->
+            <article id="dhaka" class="city-card">
+                <img src="https://kimi-web-img.moonshot.cn/img/media.gettyimages.com/a120a23d6afb166f6199e79bebdbf35fa48cfad1.jpg" alt="Dhaka City Skyline" class="city-image">
+                <div class="city-content">
+                    <div class="location-badge">
+                        <span>📍</span> 23.8103° N, 90.4125° E
+                    </div>
+                    <h3>Dhaka</h3>
+                    <p>
+                        The world's most densely populated city thrums with chaotic energy. In Old Dhaka, the scent of biryani wafts from century-old restaurants like Fakruddin and Haji Biryani, while the Pink Palace (Ahsan Manzil) stands as a faded reminder of the Nawabs' opulence. The Buriganga River still serves as the city's artery, with wooden boats ferrying passengers past Sadarghat, one of Asia's busiest ports. Don't miss the Star Mosque's intricate tile work or the genuine warmth you'll find in the narrow lanes of Shankhari Bazaar, where artisans still craft conch shell bracelets as they have for generations.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Chittagong/Chattogram -->
+            <article id="chittagong" class="city-card">
+                <img src="https://kimi-web-img.moonshot.cn/img/chittagongportagent.com/56a2de05cf69d1d4dd17305f23aad4f9ab25e190.webp" alt="Chittagong Port" class="city-image">
+                <div class="city-content">
+                    <div class="location-badge">
+                        <span>📍</span> 22.3569° N, 91.7832° E
+                    </div>
+                    <h3>Chattogram</h3>
+                    <p>
+                        The commercial capital sits nestled between the Bay of Bengal and the Chittagong Hill Tracts. The port here handles 90% of Bangladesh's trade, but the city's soul lies in its hills and beaches. Drive down to Patenga Beach where fishermen mend nets against a backdrop of container ships, or venture to the Buddhist temples at Sitakunda. The city's ship-breaking yards—though controversial—represent the gritty reality of Bangladesh's industrial might. For a breath of fresh air, hike up to the Foy's Lake amusement park surrounded by forested hills, a surprising oasis in this working-class city.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Cox's Bazar -->
+            <article id="coxs" class="city-card">
+                <img src="https://kimi-web-img.moonshot.cn/img/media-cdn.tripadvisor.com/99205a6523978f2ad460ee5906199317d9f5cce9.jpg" alt="Cox's Bazar Longest Beach" class="city-image">
+                <div class="city-content">
+                    <div class="location-badge">
+                        <span>📍</span> 21.4272° N, 92.0058° E
+                    </div>
+                    <h3>Cox's Bazar</h3>
+                    <p>
+                        Stretching 120 kilometers unbroken, this is the longest natural sea beach on Earth. The beach here isn't just sand and water; it's a living tapestry of Burmese-influenced Buddhist culture, with pagodas dotting the nearby hills. Watch the sun set over the Bay of Bengal from Laboni Beach, where the sky turns shades of tangerine and violet. Visit Himchari National Park for waterfalls that tumble directly onto the beach, or take a boat to Saint Martin's Island, Bangladesh's only coral island, where the water turns turquoise and you can walk between islands during low tide.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Sylhet -->
+            <article id="sylhet" class="city-card">
+                <img src="https://kimi-web-img.moonshot.cn/img/grandsylhet.com/273e08b2db3d018779de5ebdd77e26b87137c194.webp" alt="Sylhet Tea Gardens" class="city-image">
+                <div class="city-content">
+                    <div class="location-badge">
+                        <span>📍</span> 24.8949° N, 91.8687° E
+                    </div>
+                    <h3>Sylhet</h3>
+                    <p>
+                        The northeast region feels like another country—rolling hills carpeted in emerald tea gardens that produce some of the world's finest brews. Walk through the plantations at Srimangal, the tea capital, where women in colorful saris pluck leaves with practiced fingers. The region is also the spiritual heartland of Bangladesh, home to the shrine of Shah Jalal, a revered Sufi saint. Visit Ratargul Swamp Forest, Bangladesh's only freshwater swamp forest, where you boat through submerged trees that create a cathedral of green, or trek to the stone quarries of Jaflong on the Indian border.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Sundarbans -->
+            <article id="sundarbans" class="city-card">
+                <img src="https://kimi-web-img.moonshot.cn/img/i.natgeofe.com/122f30e59c98d37b06dfb630e31a17d3803cb665.jpg" alt="Sundarbans Mangrove Forest" class="city-image">
+                <div class="city-content">
+                    <div class="location-badge">
+                        <span>📍</span> 22.4167° N, 89.6167° E
+                    </div>
+                    <h3>Sundarbans</h3>
+                    <p>
+                        The world's largest mangrove forest straddles Bangladesh and India, a UNESCO World Heritage site where the Bengal tiger still prowls. Navigate through narrow creeks where spotted deer flee across mudflats and crocodiles sun themselves on riverbanks. The forest breathes—literally, as the mangrove roots filter salt water and exhale oxygen. Stay on a houseboat to experience the profound silence broken only by the calls of masked finfoot birds or the splash of Irrawaddy dolphins. This is wilderness in its rawest form, where man is definitely not at the top of the food chain, and the mythical Bonbibi goddess is still worshipped for protection from tiger attacks.
+                    </p>
+                </div>
+            </article>
+        </div>
+
+        <!-- Highlight Box -->
+        <div class="highlight-box">
+            <h3>Traveler's Wisdom</h3>
+            <p>Visit between November and February when the monsoon has passed but the countryside remains lush. Always carry cash—Bangladesh runs on taka, not cards. Learn "Apni kemon achen?" (How are you?) and doors will open. And never refuse tea; it's not just a drink here, it's a ritual of hospitality.</p>
+        </div>
+
+        <!-- Comments Section -->
+        <section id="comments" class="comments-section">
+            <div class="comments-header">
+                <h2>Traveler Chronicles 💬</h2>
+                <p>Share your Bangladesh memories or ask fellow travelers</p>
+            </div>
+
+            <form class="comment-form" id="commentForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Story</label>
+                    <textarea id="message" rows="5" required placeholder="Share your experience in the Land of Rivers..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Share Story</button>
+            </form>
+
+            <div id="commentsList" class="comments-list">
+                <div class="empty-state">No stories yet. Be the first to share your Bangladesh adventure!</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bangladesh Travel Guide. Crafted with ❤️ for Sonar Bangla.</p>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+        </div>
+    </footer>
+
+    <script>
+        // Comments functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('commentForm');
+            const commentsList = document.getElementById('commentsList');
+            const STORAGE_KEY = 'bangladeshTravelComments';
+            
+            // Load existing comments
+            let comments = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            renderComments();
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value.trim();
+                const message = document.getElementById('message').value.trim();
+                const date = new Date().toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                const newComment = {
+                    id: Date.now(),
+                    name,
+                    message,
+                    date
+                };
+                
+                comments.unshift(newComment);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+                
+                renderComments();
+                form.reset();
+                
+                // Visual feedback
+                const btn = form.querySelector('.submit-btn');
+                const originalText = btn.textContent;
+                btn.textContent = 'Posted! ✓';
+                btn.style.background = '#27ae60';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            });
+            
+            function renderComments() {
+                if (comments.length === 0) {
+                    commentsList.innerHTML = '<div class="empty-state">No stories yet. Be the first to share your Bangladesh adventure!</div>';
+                    return;
+                }
+                
+                commentsList.innerHTML = comments.map(comment => `
+                    <div class="comment" data-id="${comment.id}">
+                        <div class="comment-header">
+                            <span class="comment-author">${escapeHtml(comment.name)}</span>
+                            <span class="comment-date">${comment.date}</span>
+                        </div>
+                        <p class="comment-text">${escapeHtml(comment.message)}</p>
+                    </div>
+                `).join('');
+            }
+            
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        });
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
