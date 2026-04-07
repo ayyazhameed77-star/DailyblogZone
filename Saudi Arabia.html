@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudi Arabia Travel Guide: Discover the Kingdom's Hidden Treasures</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #006C35 0%, #006C35 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flag {
+            width: 120px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #006C35;
+        }
+        .city-card {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .city-content {
+            padding: 25px;
+        }
+        .city-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .city-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #006C35;
+        }
+        h2 {
+            color: #006C35;
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+        .description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background-color: #e8f5e9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .holy-notice {
+            background: #fff3e0;
+            border-left: 4px solid #e65100;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #e65100;
+        }
+        
+        /* Comment Section Styles */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .comments-title {
+            color: #006C35;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e8f5e9;
+            padding-bottom: 10px;
+        }
+        .comment-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: #006C35;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #004d26;
+        }
+        .comment-list {
+            margin-top: 30px;
+        }
+        .comment {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #006C35;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .comment-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+            border-top: 2px solid #ddd;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8em; }
+            .city-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/3f8efe514902bd5ea26f0fb6f6ffdb24d11e209a.png" alt="Saudi Arabia Flag" class="flag">
+    <h1>Saudi Arabia Travel Guide</h1>
+    <div class="subtitle">The Kingdom of Saudi Arabia & Land of the Two Holy Mosques</div>
+</div>
+
+<div class="intro">
+    <p><strong>Saudi Arabia</strong>, officially the Kingdom of Saudi Arabia (KSA), is a land of captivating contrasts and ancient mysteries that has only recently opened its doors to international tourists. As the birthplace of Islam and home to the religion's two holiest cities, Mecca and Medina, the kingdom has long held spiritual significance for 1.8 billion Muslims worldwide. However, with the ambitious Vision 2030 program transforming the nation, Saudi Arabia is rapidly emerging as one of the most exciting and accessible travel destinations in the Middle East.</p>
+    
+    <p>Spanning the vast majority of the Arabian Peninsula, Saudi Arabia is the 12th largest country in the world, encompassing dramatic desert landscapes, ancient archaeological sites that rival Petra, cosmopolitan modern cities, and pristine Red Sea coastlines. From the breathtaking rock formations of Al-Ula to the bustling streets of Riyadh and the historic coral houses of Jeddah, the kingdom offers a journey through time—from ancient Nabataean civilizations to futuristic megacities. Whether you're seeking spiritual fulfillment, archaeological wonders, desert adventures, or cultural immersion, Saudi Arabia welcomes visitors with Arabian hospitality and reveals treasures that have remained hidden from the world for decades.</p>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/96a8897b178b01407a278fe1571ccc46d013e0cb.jpg" alt="Riyadh Skyline" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏙️</span>
+            <div>
+                <h2>Riyadh</h2>
+                <div class="location">Najd Region, Capital City (24.7136° N, 46.6753° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The political and administrative capital of Saudi Arabia, <span class="highlight">Riyadh</span> is a dazzling metropolis where ultramodern skyscrapers rise from the desert sands alongside ancient mud-brick fortresses. With a population of nearly 8 million, this booming city represents the face of modern Saudi Arabia—ambitious, futuristic, and rapidly transforming. The iconic <strong>Kingdom Centre Tower</strong> dominates the skyline with its distinctive parabolic arch, offering panoramic views from its Sky Bridge, while the nearby <strong>Al Faisaliyah Tower</strong> stands as the kingdom's first skyscraper with its elegant glass globe near the summit.</p>
+            
+            <p>But Riyadh's true charm lies in its ability to blend the ancient with the ultramodern. Visit the <strong>Diriyah Historical District</strong> on the city's outskirts, the birthplace of the Saudi nation and a UNESCO World Heritage site featuring beautifully restored mud-brick architecture along Wadi Hanifa. The <strong>Masmak Fortress</strong>, a 19th-century clay and mud-brick fort, stands as a symbol of Saudi unification, while the <strong>Saudi National Museum</strong> offers world-class exhibits spanning Arabian history from prehistoric times to the modern kingdom. For adventure seekers, the legendary <strong>Edge of the World (Jebel Fihrayn)</strong> lies just 90 kilometers from the city—a dramatic 300-meter cliff escarpment offering breathtaking views over an ancient sea bed, making it one of the kingdom's most spectacular natural wonders.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/scth.scene7.com/229b543969daa57859f0b96321a137ab3c0ecbf9" alt="Jeddah Waterfront" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🌊</span>
+            <div>
+                <h2>Jeddah</h2>
+                <div class="location">Western Province, Red Sea Coast (21.4858° N, 39.1925° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Known as the "Gateway to Mecca," <span class="highlight">Jeddah</span> is Saudi Arabia's commercial capital and most cosmopolitan city, serving as the main entry point for millions of pilgrims undertaking the Hajj and Umrah journeys. Located on the Red Sea coast, Jeddah offers a refreshing blend of historic charm and modern luxury, with a laid-back atmosphere that's distinctly more liberal than the capital. The city's crown jewel is <strong>Al-Balad</strong>, the historic old town and UNESCO World Heritage site, featuring traditional Hijazi architecture with distinctive coral stone buildings and elaborately carved wooden balconies (rawasheen) that create a mesmerizing labyrinth of narrow alleyways.</p>
+            
+            <p>The <strong>Jeddah Corniche</strong>, stretching 30 kilometers along the Red Sea, offers beautiful waterfront promenades, art installations, and the iconic <strong>King Fahd's Fountain</strong>—the tallest fountain in the world, shooting water 312 meters into the air. The <strong>Floating Mosque</strong> (Masjid Al Rahma) appears to drift on the water at high tide, creating an ethereal sight especially beautiful at sunset. For diving enthusiasts, the Red Sea offers pristine coral reefs with exceptional visibility, often ranked among the world's best diving destinations. Jeddah's thriving arts scene, diverse dining options reflecting its multicultural population, and the historic Nassif House (once home to King Abdulaziz) make it the perfect introduction to Saudi Arabia's rich coastal culture and trading heritage.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/3353e0d1ccb4dd0994b5cad5b649b0b1eddc7c2b.jpg" alt="Masjid al-Haram Mecca" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🕋</span>
+            <div>
+                <h2>Mecca (Makkah)</h2>
+                <div class="location">Makkah Province, Western Saudi Arabia (21.3891° N, 39.8579° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The holiest city in Islam and the birthplace of the Prophet Muhammad, <span class="highlight">Mecca (Makkah)</span> is the spiritual heart of the Islamic world, drawing millions of Muslim pilgrims annually for the Hajj and Umrah pilgrimages. At the center of the city stands the magnificent <strong>Grand Mosque (Masjid al-Haram)</strong>, the largest mosque in the world, capable of accommodating over 4 million worshippers. Within its courtyard lies the <strong>Kaaba</strong>, the black cubic structure draped in black silk and gold embroidery (Kiswah) that Muslims worldwide face during their daily prayers—a tradition that has united the Islamic world for over 1,400 years.</p>
+            
+            <p>Surrounding the Grand Mosque is a skyline of towering luxury hotels and apartment complexes, including the iconic <strong>Abraj Al Bait Clock Tower</strong>, the third-tallest building in the world, which features a massive clock face visible from miles away. Pilgrims perform the Tawaf ritual, circling the Kaaba seven times in a counterclockwise direction, while others drink from the sacred <strong>Zamzam Well</strong>, whose water is believed to have miraculous properties. Beyond the mosque, visitors can explore the <strong>Cave of Hira</strong> on Jabal al-Nour (Mountain of Light), where the Prophet Muhammad received his first revelation, or visit the historic sites of <strong>Mina</strong>, <strong>Muzdalifah</strong>, and <strong>Arafat</strong>, where the standing prayer (Wuqoof) during Hajj takes place. The spiritual energy of Mecca is palpable, creating an atmosphere of devotion and unity that transcends nationality, language, and culture.</p>
+            
+            <div class="holy-notice">
+                <strong>Important Note:</strong> Entry to Mecca is strictly restricted to Muslims only. Non-Muslims are prohibited from entering the city boundaries by Saudi law. Visitors must obtain special Hajj or Umrah visas, and women under 45 must be accompanied by a male guardian (mahram).
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/zamzam.com/79b0d480128004b22ba3ac09eb8f4d69d3c30f1f.jpg" alt="Prophet's Mosque Medina" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🕌</span>
+            <div>
+                <h2>Medina (Madinah)</h2>
+                <div class="location">Medina Province, Western Saudi Arabia (24.5247° N, 39.5692° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The second holiest city in Islam and the final resting place of the Prophet Muhammad, <span class="highlight">Medina (Madinah al-Munawwarah)</span> radiates a peaceful, contemplative atmosphere distinct from the intensity of Mecca. Known as the "City of the Prophet," Medina is where the Prophet Muhammad established the first Islamic community after migrating from Mecca in 622 CE, marking the beginning of the Islamic calendar (Hijri). The city's centerpiece is the <strong>Prophet's Mosque (Al-Masjid an-Nabawi)</strong>, an architectural masterpiece that can accommodate over 1 million worshippers, featuring ten minarets and the iconic <strong>Green Dome</strong> that marks the Prophet's tomb.</p>
+            
+            <p>Unlike Mecca, non-Muslims are permitted to enter Medina city, though they cannot enter the mosque itself or the area immediately surrounding the Prophet's tomb. Beyond the mosque, visit the <strong>Quba Mosque</strong>, the first mosque built in Islam, where the Prophet himself laid the foundation stones. <strong>Mount Uhud</strong>, site of the famous battle, offers historical significance and panoramic views, while the <strong>Baqi Cemetery</strong> contains the graves of many of the Prophet's companions and family members. The <strong>Seven Mosques</strong> (Saba Masajid) complex marks the location of the Battle of the Trench. Medina's date farms produce some of the world's finest dates, particularly the Ajwa variety mentioned in Islamic tradition. The city's relaxed pace, cooler climate than Mecca, and deeply spiritual atmosphere make it a place of reflection and connection with Islamic history.</p>
+            
+            <div class="holy-notice">
+                <strong>Important Note:</strong> While non-Muslims can enter Medina city, they are strictly prohibited from entering the Prophet's Mosque (Al-Masjid an-Nabawi) or the sacred area (Haram) surrounding it. Respectful behavior and modest dress are required throughout the city.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/westwards.de/c11bb19fae9405414bc296e681aa9f1d64f9c517.jpg" alt="Hegra Al-Ula" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏛️</span>
+            <div>
+                <h2>Al-Ula</h2>
+                <div class="location">Al Madinah Region, Northwest Saudi Arabia (26.6167° N, 37.9167° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Hidden in the northwestern desert lies <span class="highlight">Al-Ula</span>, one of the world's most extraordinary archaeological treasures and Saudi Arabia's crown jewel of tourism. This ancient oasis was once a crucial crossroads of civilizations along the incense trade route, and today it reveals secrets that rival Jordan's Petra. The highlight is <strong>Hegra (Al-Hijr)</strong>, the kingdom's first UNESCO World Heritage site and the southern capital of the Nabataean Kingdom. Here, over 130 remarkably preserved tombs are carved directly into massive sandstone outcrops, featuring intricate facades that have stood for 2,000 years—yet unlike Petra, Hegra remains blissfully uncrowded, allowing visitors to explore this ancient wonder in serene solitude.</p>
+            
+            <p>Beyond Hegra, Al-Ula offers the stunning <strong>Elephant Rock (Jabal AlFil)</strong>, a natural sandstone formation shaped by wind and water over millions of years into the uncanny likeness of a pachyderm, which has become an iconic symbol of the region. The <strong>Maraya Concert Hall</strong>, the world's largest mirrored building, reflects the desert landscape so perfectly it seems to disappear into the scenery, hosting world-class concerts and art exhibitions. Explore the <strong>Al-Ula Old Town</strong>, a labyrinth of 900 mud-brick houses dating to the 12th century that was inhabited until the 1980s, now carefully preserved and illuminated at night to create a magical atmosphere. With hot air balloon rides over the desert at sunrise, luxury desert camps under star-filled skies, and the nearby oasis of Dadan offering even more archaeological wonders, Al-Ula represents Saudi Arabia's most compelling destination for history lovers and adventure seekers alike.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/www.visitsaudi.com/2499649069c6a32cbca6be9c9cbe6fd9dbbe3fc5.jpg" alt="Edge of the World" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">⛰️</span>
+            <div>
+                <h2>Natural Wonders</h2>
+                <div class="location">Throughout the Kingdom</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Beyond its cities, Saudi Arabia harbors breathtaking natural landscapes that remain largely unexplored by international visitors. The <strong>Asir Mountains</strong> in the southwest, including the misty peaks of <strong>Soudah</strong> (the kingdom's highest point at 3,000 meters), offer a surprising contrast to the desert stereotype, with terraced farms, juniper forests, and cool temperatures that attract Saudis seeking refuge from summer heat. The <strong>Farasan Islands</strong> in the Red Sea provide pristine beaches, mangrove forests, and exceptional diving with pristine coral reefs untouched by mass tourism.</p>
+            
+            <p>The <strong>Empty Quarter (Rub' al Khali)</strong>, the largest sand desert in the world, offers the ultimate desert adventure—towering sand dunes that stretch across four countries, ancient lake beds, and the challenge of crossing one of Earth's most inhospitable landscapes. Closer to Riyadh, the <strong>Al Wahbah Crater</strong>, a massive volcanic crater filled with white sodium phosphate crystals, creates an otherworldly moonscape perfect for hiking and camping. Whether you're watching the sunset paint the desert sands gold, stargazing in some of the world's darkest skies, or exploring the Red Sea's underwater treasures, Saudi Arabia's natural diversity will challenge everything you thought you knew about this desert kingdom.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h3 class="comments-title">💬 Traveler Comments</h3>
+    
+    <div class="comment-form">
+        <h4 style="margin-top: 0; color: #333;">Leave a Comment</h4>
+        <form onsubmit="event.preventDefault(); alert('Thank you for your comment! It will be posted after moderation.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" placeholder="Share your thoughts about Saudi Arabia or ask a question..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🏜️ Sarah Johnson</span>
+                <span class="comment-date">April 7, 2026</span>
+            </div>
+            <div class="comment-text">
+                Just returned from Al-Ula and it was absolutely mind-blowing! Hegra is like Petra but without the crowds - we had entire tombs to ourselves. The Elephant Rock at sunset was magical. Also visited the Edge of the World near Riyadh - the views are incredible but make sure you have a 4x4 vehicle!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🌊 David Chen</span>
+                <span class="comment-date">April 5, 2026</span>
+            </div>
+            <div class="comment-text">
+                Jeddah's Al-Balad old town is stunning! The coral houses with wooden balconies are so unique. I loved the Corniche at sunset - the King Fahd Fountain is impressive. The Red Sea diving was world-class, saw turtles and reef sharks. Saudi Arabia is changing so fast, very different from what I expected!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🕋 Ahmed Hassan</span>
+                <span class="comment-date">April 3, 2026</span>
+            </div>
+            <div class="comment-text">
+                Performed Umrah in Mecca and visited Medina - the spiritual experience is indescribable. The Grand Mosque is magnificent, especially during Fajr prayer. Medina's Prophet Mosque has such a peaceful atmosphere. The organization for pilgrims has improved tremendously. May Allah invite everyone to visit His House!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>✨ Saudi Arabia awaits with ancient wonders, modern marvels, and Arabian hospitality. Ahlan wa Sahlan! 🇸🇦✨</p>
+    <p><small>Flag image courtesy of Wikimedia Commons | City images from iStock, Visit Saudi, Britannica, Zamzam, and Westwards.de</small></p>
+</div>
+
+</body>
+</html>
