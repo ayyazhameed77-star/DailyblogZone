@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qatar Travel Guide: Discover Where Tradition Meets Tomorrow</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #8A1538 0%, #5E0D26 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flag {
+            width: 120px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #8A1538;
+        }
+        .city-card {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .city-content {
+            padding: 25px;
+        }
+        .city-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .city-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #8A1538;
+        }
+        h2 {
+            color: #8A1538;
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+        .description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background-color: #fce4ec;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #880e4f;
+        }
+        
+        /* Comment Section Styles */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .comments-title {
+            color: #8A1538;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #fce4ec;
+            padding-bottom: 10px;
+        }
+        .comment-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: #8A1538;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #5E0D26;
+        }
+        .comment-list {
+            margin-top: 30px;
+        }
+        .comment {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8A1538;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .comment-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+            border-top: 2px solid #ddd;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8em; }
+            .city-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/287d9d5d7d3ec28adb2c1e524b0e6deaddaedd1b.png" alt="Qatar Flag" class="flag">
+    <h1>Qatar Travel Guide</h1>
+    <div class="subtitle">Where Tradition Meets Tomorrow</div>
+</div>
+
+<div class="intro">
+    <p><strong>Qatar</strong>, officially the State of Qatar, is a small but mighty peninsula nation jutting into the Arabian Gulf, where ancient Bedouin traditions blend seamlessly with ultramodern architecture and ambitious vision. Despite being smaller than the state of Connecticut, this wealthy Gulf nation has emerged as one of the Middle East's most exciting destinations, particularly after hosting the 2022 FIFA World Cup. With the world's third-largest natural gas reserves, Qatar has transformed itself from a humble pearl-diving nation into a global hub for culture, sports, and luxury.</p>
+    
+    <p>The name "Qatar" may derive from the Arabic word for "drop" or "raindrop," an apt description for this desert nation where water is precious and hospitality is abundant. From the dazzling skyline of Doha to the serene Inland Sea where desert dunes meet the ocean, Qatar offers a unique travel experience that combines Arabian heritage with cutting-edge innovation. Whether you're exploring world-class museums, wandering through traditional souqs, or experiencing the thrill of desert dune bashing, Qatar proves that great things truly come in small packages.</p>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/icom.org.qa/e30104a28e3f766715234260cdae57ed477a629c.jpg" alt="Doha Skyline and Museum of Islamic Art" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏙️</span>
+            <div>
+                <h2>Doha</h2>
+                <div class="location">Capital City, Eastern Qatar (25.2854° N, 51.5310° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The glittering capital of Qatar, <span class="highlight">Doha</span> is a city that has undergone a spectacular transformation, emerging as a world-class destination where futuristic skyscrapers stand alongside traditional dhow boats bobbing in the harbor. The city's skyline, best viewed from the <strong>Corniche</strong> promenade, features architectural marvels like the <strong>Museum of Islamic Art</strong>—a masterpiece designed by I.M. Pei that appears to float on its own island, housing one of the world's most comprehensive collections of Islamic art spanning 1,400 years.</p>
+            
+            <p>Nearby, the <strong>National Museum of Qatar</strong>, designed by Jean Nouvel to resemble a desert rose crystal, tells the story of the nation's journey from pearl diving to prosperity. For a taste of authentic Qatari culture, <strong>Souq Waqif</strong> offers labyrinthine alleys filled with spices, perfumes, textiles, and falcons, where you can sip karak tea (spiced milk tea) and watch the world go by. The nearby <strong>Katara Cultural Village</strong> showcases galleries, theaters, and the stunning Katara Amphitheatre against a backdrop of traditional architecture. As night falls, the <strong>West Bay</strong> district comes alive with rooftop bars, world-class restaurants, and the dazzling lights of skyscrapers reflecting off the Arabian Gulf—proving that Doha truly never sleeps.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/visitqatar.com/f2697ff1d093a6cdb8b43fb23641e6fa798c547e.jpeg" alt="Katara Cultural Village" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🎭</span>
+            <div>
+                <h2>Lusail</h2>
+                <div class="location">North of Doha, Al Daayen Municipality (25.4145° N, 51.4907° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Just north of Doha lies <span class="highlight">Lusail</span>, Qatar's "City of the Future"—a smart, sustainable metropolis built from scratch on the desert coast. This ambitious $45 billion development showcases Qatar's vision for urban living, featuring the iconic <strong>Lusail Stadium</strong>, the golden bowl-shaped venue that hosted the 2022 FIFA World Cup final. The <strong>Lusail Marina</strong> is a stunning waterfront promenade lined with luxury yachts, upscale restaurants, and the spectacular <strong>Lusail Boulevard</strong>, a pedestrian-friendly avenue that rivals the Champs-Élysées.</p>
+            
+            <p>The <strong>Place Vendôme Mall</strong> brings Parisian elegance to the Gulf with its stunning architecture and luxury boutiques. <strong>Qanat Quartier</strong> offers a slice of Venice with turquoise canals, arched bridges, and candy-colored buildings perfect for Instagram-worthy photos. The <strong>Katara Towers</strong>, shaped like crossed swords, have become the new symbol of modern Qatar, housing luxury hotels and residences. Lusail represents Qatar's ambition and innovation—a gleaming testament to what the future holds in this dynamic nation.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/visitqatar.com/72f5b3b6e1bab545da1229f51a0fab8a7daf8aa8.jpeg" alt="Inland Sea Khor Al Adaid" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏜️</span>
+            <div>
+                <h2>Khor Al Adaid (Inland Sea)</h2>
+                <div class="location">Southeast Qatar, Saudi Arabia border (24.6167° N, 51.2167° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>One of Qatar's most extraordinary natural wonders, <span class="highlight">Khor Al Adaid</span>, known as the "Inland Sea," is a UNESCO-recognized natural reserve where the sea encroaches deep into the desert, creating a landscape of towering sand dunes that plunge directly into turquoise waters. This is one of the few places in the world where the desert meets the sea in such dramatic fashion, offering a surreal and breathtaking spectacle that must be seen to be believed.</p>
+            
+            <p>Accessible only by 4x4 vehicles through challenging desert terrain, the journey to the Inland Sea is an adventure in itself—expert drivers navigate steep dunes in a thrilling activity known as "dune bashing." As you reach the crest of a 40-meter sand dune, the view opens up to reveal the pristine inlet surrounded by golden sands, with Saudi Arabia visible on the opposite shore. The <strong>singing dunes</strong> produce ethereal humming sounds as the wind shifts the sands. Visitors can enjoy camel rides, sandboarding, and camping under the stars in this pristine wilderness. Whether watching the sunset paint the dunes in shades of gold and crimson or experiencing the silence of the desert at dawn, the Inland Sea represents the magical intersection of land and water that makes Qatar unique.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/www.discoverqatar.qa/5c6192db4e1e932f5fa8955f49a30dd8c9d7702e" alt="Al Wakrah" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">⚓</span>
+            <div>
+                <h2>Al Wakrah</h2>
+                <div class="location">Al Wakrah Municipality, South of Doha (25.1659° N, 51.5976° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Located just 15 kilometers south of Doha, <span class="highlight">Al Wakrah</span> offers a charming escape from the capital's skyscrapers, preserving the atmosphere of a traditional Qatari fishing village while embracing modern development. The <strong>Al Wakrah Souq</strong> is a beautifully reconstructed traditional market featuring mud-daubed buildings, wind towers, and maze-like alleyways that transport visitors back to the Qatar of the pearl diving era. Unlike the bustling Souq Waqif, Al Wakrah's souq offers a more relaxed, authentic experience where locals shop and socialize.</p>
+            
+            <p>The <strong>Al Wakrah Corniche</strong> features a stunning promenade perfect for evening strolls, with traditional dhow boats moored along the shore and the cooling sea breeze providing relief from the heat. The <strong>Al Janoub Stadium</strong>, designed by the late Zaha Hadid to resemble a traditional dhow boat, was one of the venues for the 2022 World Cup and stands as a architectural masterpiece. The nearby beaches offer pristine sands and calm waters perfect for families. With its laid-back atmosphere, traditional architecture, and excellent seafood restaurants, Al Wakrah provides the perfect balance to Doha's modern energy.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/f1f750aa2f2c97994ce6933d62a00bdf9fd993f0.jpg" alt="Museum of Islamic Art" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏛️</span>
+            <div>
+                <h2>Al Khor & Al Thakhira</h2>
+                <div class="location">Al Khor Municipality, Northern Qatar (25.6804° N, 51.4967° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>North of Doha lies <span class="highlight">Al Khor</span>, a historic coastal town that once served as Qatar's center for pearl diving and fishing. Today, it's known for the <strong>Al Khor Park</strong>, one of the largest parks in the country, and the <strong>Al Khor Corniche</strong>, offering beautiful waterfront views and a more relaxed pace of life. The nearby <strong>Al Thakhira Mangroves</strong> provide a surprising natural escape—kayak through the tranquil waterways surrounded by dense mangrove forests that serve as a sanctuary for flamingos, herons, and other bird species.</p>
+            
+            <p>The <strong>Purple Island (Jazirat Bin Ghanim)</strong> is an archaeological site where ancient traders extracted purple dye from mollusks over 4,000 years ago. Today, it offers a peaceful retreat with hiking trails through mangroves and sandy beaches. The nearby <strong>Fuwairit Beach</strong> is famous for its turtle nesting site, where the endangered hawksbill sea turtles come ashore to lay their eggs between April and July. For those seeking authentic Qatari culture away from the capital's glitz, Al Khor offers traditional fishing harbors, local restaurants serving fresh seafood, and a glimpse into the country's maritime heritage.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h3 class="comments-title">💬 Traveler Comments</h3>
+    
+    <div class="comment-form">
+        <h4 style="margin-top: 0; color: #333;">Leave a Comment</h4>
+        <form onsubmit="event.preventDefault(); alert('Thank you for your comment! It will be posted after moderation.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" placeholder="Share your thoughts about Qatar or ask a question..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🏜️ Sarah Johnson</span>
+                <span class="comment-date">April 10, 2026</span>
+            </div>
+            <div class="comment-text">
+                Just returned from Qatar and the Inland Sea was absolutely magical! The dune bashing was thrilling and watching sunset over the dunes meeting the water was unforgettable. Doha's Museum of Islamic Art is stunning inside and out. Souq Waqif at night has such a great atmosphere. Highly recommend!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🏙️ Ahmed Hassan</span>
+                <span class="comment-date">April 8, 2026</span>
+            </div>
+            <div class="comment-text">
+                Katara Cultural Village was beautiful! The amphitheatre and the beach made for a perfect evening. Lusail Marina is impressive and the Place Vendôme mall is gorgeous. Qatar is small but packed with amazing architecture. The metro system is super modern and clean too. Great destination!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🌊 Emma Wilson</span>
+                <span class="comment-date">April 5, 2026</span>
+            </div>
+            <div class="comment-text">
+                Kayaking in the Al Thakhira Mangroves was so peaceful—we saw flamingos! Al Wakrah Souq is much quieter than Souq Waqif and feels more authentic. The Corniche walk at sunset with the Doha skyline views is a must-do. Qatar exceeded all my expectations, especially for food and culture!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>✨ Qatar awaits with futuristic cities, desert adventures, and Arabian hospitality. Marhaba! 🇶🇦✨</p>
+    <p><small>Flag image courtesy of Wikimedia Commons | City images from ICOM Qatar, Visit Qatar, Discover Qatar, and Britannica</small></p>
+</div>
+
+</body>
+</html>
