@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oman Travel Guide: Discover Arabia's Best Kept Secret</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #ED1C24 0%, #009739 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flag {
+            width: 120px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #ED1C24;
+        }
+        .city-card {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .city-content {
+            padding: 25px;
+        }
+        .city-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .city-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #ED1C24;
+        }
+        h2 {
+            color: #009739;
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+        .description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background-color: #e8f5e9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        /* Comment Section Styles */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .comments-title {
+            color: #ED1C24;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e8f5e9;
+            padding-bottom: 10px;
+        }
+        .comment-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: #ED1C24;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #009739;
+        }
+        .comment-list {
+            margin-top: 30px;
+        }
+        .comment {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ED1C24;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .comment-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+            border-top: 2px solid #ddd;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8em; }
+            .city-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/32b268303cd26fdab530eb9e1a5d14f900b1f437.png" alt="Oman Flag" class="flag">
+    <h1>Oman Travel Guide</h1>
+    <div class="subtitle">Arabia's Best Kept Secret & The Pearl of Arabia</div>
+</div>
+
+<div class="intro">
+    <p><strong>Oman</strong>, officially the Sultanate of Oman, is a hidden gem on the southeastern coast of the Arabian Peninsula that offers a refreshing alternative to the glitzy modernity of its Gulf neighbors. Unlike the skyscraper-dominated skylines of Dubai or Doha, Oman preserves an authentic Arabian atmosphere where ancient forts, traditional souqs, and Bedouin culture thrive alongside modern infrastructure. Known as the "Pearl of Arabia," this enchanting sultanate boasts dramatic desert landscapes, emerald-green wadis, pristine beaches, and rugged mountains that captivate travelers seeking genuine cultural experiences.</p>
+    
+    <p>With a history dating back over 5,000 years, Oman was once a powerful maritime empire that controlled trade routes between East Africa, India, and the Far East. Today, the country welcomes visitors with legendary Omani hospitality, stunning natural beauty, and a peaceful atmosphere that makes it one of the safest destinations in the Middle East. Whether you're exploring the historic forts of Nizwa, swimming in the turquoise pools of Wadi Shab, or watching sea turtles nest on moonlit beaches, Oman offers an Arabian adventure that feels timeless and authentic.</p>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/worldarchitecture.org/2d0f6278b67e3e4a18745ed603a775e28dce3c39.jpg" alt="Sultan Qaboos Grand Mosque Muscat" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏙️</span>
+            <div>
+                <h2>Muscat</h2>
+                <div class="location">Capital City, Northern Oman (23.5880° N, 58.3829° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>The enchanting capital of Oman, <span class="highlight">Muscat</span> is a city of surprising beauty and tranquility that defies expectations of a modern Arabian capital. Unlike neighboring Gulf cities, Muscat has strict building height limits that preserve views of the rugged Hajar Mountains, creating a low-rise cityscape of whitewashed buildings, elegant minarets, and fortress towers. The city's crown jewel is the magnificent <strong>Sultan Qaboos Grand Mosque</strong>, a stunning example of modern Islamic architecture that accommodates 20,000 worshippers. Its main prayer hall features an enormous chandelier and a single-piece Persian carpet that took 600 women four years to weave.</p>
+            
+            <p>Stroll along the <strong>Muttrah Corniche</strong>, the picturesque waterfront promenade where traditional dhow boats bob in the harbor against a backdrop of rocky mountains and historic forts. The nearby <strong>Muttrah Souq</strong> is one of the oldest marketplaces in the Arab world, a labyrinth of narrow alleyways filled with the scent of frankincense, myrrh, and exotic spices. Visit the <strong>Al Alam Palace</strong>, the Sultan's official residence, with its striking gold and blue columns, or explore the <strong>Old City</strong> with its Portuguese-built forts and traditional Omani architecture. Muscat's relaxed atmosphere, stunning natural setting, and authentic character make it one of the most pleasant capital cities in the Arabian Peninsula.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/dca808241f63ab75db023c2c1434ae2f05a58332.jpg" alt="Nizwa Fort" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏛️</span>
+            <div>
+                <h2>Nizwa</h2>
+                <div class="location">Ad Dakhiliyah Region, Interior Oman (22.9188° N, 57.5326° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Known as the "Pearl of Islam" and the cultural capital of Oman, <span class="highlight">Nizwa</span> was once the seat of power for Omani rulers and remains the country's religious and cultural heart. This ancient city offers the most authentic glimpse into traditional Omani life, surrounded by date palm oases and the dramatic peaks of the Hajar Mountains. The iconic <strong>Nizwa Fort</strong> dominates the skyline with its massive cylindrical tower—Oman's largest fort tower—built in the 17th century by Imam Sultan Bin Saif Al Ya'rubi. Unlike many forts that offer passive viewing, Nizwa Fort encourages exploration through its maze of rooms, secret passages, and trapdoors designed to protect against invaders.</p>
+            
+            <p>The adjacent <strong>Nizwa Souq</strong> is one of the most traditional markets in the Gulf, famous for its Friday cattle auction where locals haggle over goats and sheep according to centuries-old traditions. Browse stalls selling intricate silver jewelry, traditional <em>khanjars</em> (curved daggers), pottery, and aromatic spices. Nearby, the <strong>Jabrin Castle</strong> (Jibreen Castle) stands as one of Oman's most beautiful fortifications, built in 1670 with elaborate interior decorations, wooden balconies, and painted ceilings that showcase the sophistication of Omani architecture. Nizwa is also the gateway to <strong>Jebel Akhdar</strong> (Green Mountain), where terraced rose gardens and fruit orchards flourish at 2,000 meters above sea level.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/gosalalahtour.com/443a95b54036001eb9e455d6d75255e684762d3d.png" alt="Salalah Khareef Season" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🌿</span>
+            <div>
+                <h2>Salalah</h2>
+                <div class="location">Dhofar Region, Southern Oman (17.0156° N, 54.0944° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Located in the southern Dhofar region, <span class="highlight">Salalah</span> offers a side of Arabia that most travelers never knew existed—a lush, tropical landscape that transforms dramatically during the annual <strong>Khareef</strong> (monsoon) season from June to September. When the rest of the Arabian Peninsula swelters in summer heat, Salalah enjoys cool mists, gentle rains, and verdant greenery that blankets the mountains in emerald vegetation. Coconut palms, banana plantations, and frankincense trees create a landscape more reminiscent of Southeast Asia than the Middle East.</p>
+            
+            <p>Beyond the monsoon magic, Salalah is the historic center of the frankincense trade that once made southern Arabia fabulously wealthy. Visit the <strong>Land of Frankincense</strong> UNESCO World Heritage site to learn about this precious resin that was worth more than gold in ancient times. The <strong>Mughsail Blowholes</strong> create spectacular plumes of water when waves crash into the coastal rock formations, while nearby <strong>Wadi Darbat</strong> offers waterfalls and lakes surrounded by lush vegetation during the Khareef. The pristine beaches of the region are nesting sites for endangered green sea turtles, and the <strong>Sumhuram Archaeological Park</strong> reveals the remains of an ancient port that once controlled the frankincense trade route. Salalah's unique climate, rich history, and natural beauty make it one of Oman's most fascinating destinations.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media.tacdn.com/d5aa409c7fad021801e835c55bfb29d0d720189f.jpg" alt="Wahiba Sands Desert" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">🏜️</span>
+            <div>
+                <h2>Wahiba Sands</h2>
+                <div class="location">Ash Sharqiyah Region, Eastern Oman (22.0000° N, 58.5000° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>For the quintessential Arabian desert experience, the <span class="highlight">Wahiba Sands</span> (also known as Sharqiyah Sands) offer a vast sea of rolling dunes that stretch as far as the eye can see. This 12,500-square-kilometer desert features dramatic orange-red sand dunes that rise up to 100 meters high, creating a landscape of ever-changing patterns and shadows that shift with the sun. Named after the Wahiba Bedouin tribe that calls this desert home, the sands offer an authentic glimpse into traditional nomadic life that has remained largely unchanged for centuries.</p>
+            
+            <p>The best way to experience Wahiba Sands is to stay overnight in a <strong>Bedouin camp</strong>, ranging from traditional goat-hair tents to luxurious glamping accommodations. Climb the dunes at sunset to watch the sands turn golden, then enjoy a traditional Omani dinner under a canopy of stars in one of the darkest skies in the region. Activities include <strong>dune bashing</strong> in 4x4 vehicles, camel treks, sandboarding, and visiting Bedouin families to learn about their ancient desert survival skills. The desert's silence, broken only by the whisper of wind across the sands, creates a profound sense of peace and connection with nature. Whether you seek adventure or tranquility, Wahiba Sands delivers an unforgettable desert experience.</p>
+        </div>
+    </div>
+</div>
+
+<div class="city-card">
+    <img src="https://kimi-web-img.moonshot.cn/img/i.natgeofe.com/20aacaa5e87fd18a0bcc4d7f56be122040f1ee61.jpg" alt="Wadi Shab" class="city-image">
+    <div class="city-content">
+        <div class="city-header">
+            <span class="city-icon">💦</span>
+            <div>
+                <h2>Wadi Shab</h2>
+                <div class="location">Ash Sharqiyah Region, Eastern Oman (22.4000° N, 59.2000° E)</div>
+            </div>
+        </div>
+        <div class="description">
+            <p>Perhaps the most famous of Oman's stunning <em>wadis</em> (valleys), <span class="highlight">Wadi Shab</span> is a desert oasis that seems almost too beautiful to be real. This spectacular gorge features emerald-green pools of crystal-clear water surrounded by towering limestone cliffs, date palms, and banana plantations—a tropical paradise hidden within the arid landscape. The adventure begins with a short boat ride across the river mouth, followed by a 45-minute hike along a rocky trail that winds through the canyon, offering ever-more spectacular views.</p>
+            
+            <p>As you progress deeper into the wadi, the pools become more inviting, and visitors swim through a series of turquoise pools, scrambling over rocks and wading through narrow passages. The ultimate reward awaits those who swim through a narrow cave opening to discover a <strong>secret waterfall</strong> cascading into a hidden chamber—an otherworldly experience that feels like discovering a lost world. Nearby <strong>Wadi Bani Khalid</strong> offers a more accessible alternative with its large emerald pools and facilities, while the <strong>Bimmah Sinkhole</strong>—a spectacular limestone crater filled with turquoise water—provides another unique swimming experience. These desert oases demonstrate Oman's remarkable natural diversity and provide the perfect respite from the desert heat.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h3 class="comments-title">💬 Traveler Comments</h3>
+    
+    <div class="comment-form">
+        <h4 style="margin-top: 0; color: #333;">Leave a Comment</h4>
+        <form onsubmit="event.preventDefault(); alert('Thank you for your comment! It will be posted after moderation.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" placeholder="Share your thoughts about Oman or ask a question..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🏜️ Sarah Johnson</span>
+                <span class="comment-date">April 10, 2026</span>
+            </div>
+            <div class="comment-text">
+                Just returned from Oman and I'm completely in love! Wadi Shab was the highlight - swimming through the cave to reach the secret waterfall was magical. We stayed overnight in Wahiba Sands and the stargazing was incredible. Nizwa Fort is so well preserved. Oman is so peaceful and the people are incredibly welcoming!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-icon">🏛️ Mark Thompson</span>
+                <span class="comment-date">April 8, 2026</span>
+            </div>
+            <div class="comment-text">
+                Sultan Qaboos Grand Mosque in Muscat is breathtaking! The carpet and chandelier are stunning. The Muttrah Souq has such great atmosphere - loved buying frankincense and silver jewelry. We drove to Jebel Akhdar and the mountain views are spectacular. Oman is the perfect mix of culture and nature!
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-header">
+                <span class="comment-author">🌿 Emma Wilson</span>
+                <span class="comment-date">April 5, 2026</span>
+            </div>
+            <div class="comment-text">
+                Visited Salalah during Khareef season and it was like being in a different country! The greenery, waterfalls, and misty mountains were so unexpected. Mughsail Blowholes were spectacular. The frankincense trees are fascinating. Oman exceeded all my expectations - it's authentic, beautiful, and safe. Can't wait to return!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>✨ Oman awaits with desert dunes, emerald wadis, ancient forts, and legendary hospitality. Ahlan wa Sahlan! 🇴🇲✨</p>
+    <p><small>Flag image courtesy of Wikimedia Commons | City images from World Architecture, TripAdvisor, Go Salalah Tour, Viator, and National Geographic</small></p>
+</div>
+
+</body>
+</html>
