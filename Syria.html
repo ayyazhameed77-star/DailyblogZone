@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syria Travel Guide: Cradle of Civilization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flag-section {
+            background: white;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .syria-flag {
+            width: 300px;
+            height: 150px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 3px solid #ddd;
+            position: relative;
+        }
+
+        .flag-stripe {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .red { background: #ce1126; }
+        .white { 
+            background: white; 
+            position: relative;
+        }
+        .black { background: #000000; }
+
+        .green-stars {
+            position: absolute;
+            color: #007a3d;
+            font-size: 24px;
+            letter-spacing: 10px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+
+        .city-section {
+            background: white;
+            margin: 40px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .city-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .city-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            position: relative;
+        }
+
+        .city-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .location-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .city-content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .city-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .city-image:hover {
+            transform: scale(1.02);
+        }
+
+        .city-description {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .highlights {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .highlights h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlights li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .highlights li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .damascus-header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+        .aleppo-header { background: linear-gradient(135deg, #8e44ad 0%, #c39bd3 100%); }
+        .palmyra-header { background: linear-gradient(135deg, #d35400 0%, #e67e22 100%); }
+        .latakia-header { background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%); }
+
+        .tips-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .tips-section h2 {
+            color: #d35400;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tip-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .comment-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .comment-section h2 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .comment-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .comment-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .comments-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .comment {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .comment-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: background 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 50px 50px 0 0;
+            margin-top: 50px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .city-content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .city-header h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🇸🇾 Syria Travel Guide</h1>
+        <p class="subtitle">Journey to the Cradle of Civilization</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Country Overview -->
+        <div class="flag-section">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; font-size: 2em;">The Syrian Arab Republic</h2>
+            
+            <div class="syria-flag">
+                <div class="flag-stripe red"></div>
+                <div class="flag-stripe white">
+                    <div class="green-stars">★ ★</div>
+                </div>
+                <div class="flag-stripe black"></div>
+            </div>
+            
+            <div class="intro-text">
+                <p><strong>Syria</strong>, often called the "Cradle of Civilization," is a land where human history began its first chapters. Located in the heart of the Middle East, this ancient land has been continuously inhabited for over 8,000 years, serving as the birthplace of writing, agriculture, and urban life. From the ancient Sumerians and Akkadians to the Romans, Byzantines, and Ottomans, Syria has been the crossroads of empires and the meeting point of cultures.</p>
+                
+                <p>Today, Syria is home to six UNESCO World Heritage sites, including the legendary ancient city of <strong>Palmyra</strong>, the world's oldest continuously inhabited city of <strong>Damascus</strong>, and the magnificent <strong>Aleppo Citadel</strong>. The country's diverse landscapes range from the Mediterranean coastline to the Syrian Desert, offering travelers a unique blend of archaeological wonders, vibrant markets, and warm hospitality that has defined Syrian culture for millennia.</p>
+                
+                <p>Beyond its ancient treasures, Syria offers an authentic Middle Eastern experience. Wander through the labyrinthine souks where the scent of spices fills the air, sip traditional Arabic coffee in centuries-old courtyards, and witness layers of history visible in every stone. The Syrian people's legendary hospitality welcomes visitors with open arms, offering a glimpse into a culture that has preserved its traditions while embracing the modern world.</p>
+            </div>
+        </div>
+
+        <!-- Damascus -->
+        <div class="city-section">
+            <div class="city-header damascus-header">
+                <h2>Damascus</h2>
+                <span class="location-tag">📍 Southwest Syria | 33.5138° N, 36.2765° E</span>
+            </div>
+            <div class="city-content">
+                <div>
+                    <img src="https://kimi-web-img.moonshot.cn/img/syrianguides.com/fe2044de9ea8a8c5c682d64704485d72fa80a4d3.jpg" alt="Umayyad Mosque Damascus" class="city-image">
+                </div>
+                <div class="city-description">
+                    <p><strong>Damascus</strong>, known locally as Al-Sham, holds the extraordinary distinction of being the world's oldest continuously inhabited city, with evidence of settlement dating back to 8,000-10,000 BCE. This ancient metropolis has witnessed the rise and fall of countless civilizations, from the Arameans and Romans to the Umayyads and Ottomans, each leaving their indelible mark on its storied streets.</p>
+                    
+                    <p>The heart of Damascus is the <strong>Umayyad Mosque (Great Mosque of Damascus)</strong>, one of Islam's holiest sites and a masterpiece of early Islamic architecture built in the early 8th century. Its golden mosaics and octagonal Dome of the Clock pavilion are iconic symbols of the city. Nearby, the <strong>Straight Street (Souq Midhat Pasha)</strong> follows the path of the ancient Roman Via Recta, mentioned in the Bible as where Saul was led to regain his sight. The street is lined with Roman arches and bustling markets. Don't miss <strong>Khan As'ad Pasha</strong>, the largest caravanserai in the Old City, built in 1752, where merchants once rested and traded their goods. The <strong>Azem Palace</strong> showcases beautiful Ottoman residential architecture, while the <strong>Chapel of St. Ananias</strong>, one of the world's oldest churches, represents the city's deep Christian heritage.</p>
+                    
+                    <div class="highlights">
+                        <h3>Must-See Highlights</h3>
+                        <ul>
+                            <li>Umayyad Mosque (8th-century Islamic masterpiece)</li>
+                            <li>Straight Street (ancient Roman Via Recta)</li>
+                            <li>Khan As'ad Pasha (Ottoman caravanserai)</li>
+                            <li>Azem Palace (Ottoman architecture)</li>
+                            <li>Chapel of St. Ananias (ancient Christian site)</li>
+                            <li>Al-Hamidiyeh Souq (historic covered market)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aleppo -->
+        <div class="city-section">
+            <div class="city-header aleppo-header">
+                <h2>Aleppo</h2>
+                <span class="location-tag">📍 Northern Syria | 36.2021° N, 37.1343° E</span>
+            </div>
+            <div class="city-content">
+                <div class="city-description">
+                    <p><strong>Aleppo</strong> (Halab) stands as one of the oldest cities in the world, with roots stretching back over 8,000 years to the third millennium BCE. Mentioned in ancient texts from Ebla and Mari, this northern Syrian metropolis flourished as a key stop on the Silk Road, where caravans from Asia and Europe exchanged goods, ideas, and cultures. The city's strategic location between the Mediterranean and the Euphrates made it a prize for empires including the Hittites, Assyrians, Romans, and Ottomans.</p>
+                    
+                    <p>Dominating the skyline is the magnificent <strong>Aleppo Citadel</strong>, a massive medieval fortress built atop a hill that has been fortified since at least the 3rd millennium BCE. The citadel represents one of the most impressive examples of Arab military architecture from the 12th to 14th centuries, with its moat, walls, and towers telling stories of Crusaders and conquerors. Below the citadel lies the <strong>Al-Madina Souq</strong>, one of the world's largest covered markets, with over 13 kilometers of winding alleys dedicated to different trades—from textiles and spices to copper and gold. The <strong>Great Mosque of Aleppo</strong>, founded under the Umayyads and rebuilt in the 12th century, showcases the city's religious significance. Despite recent conflicts, Aleppo is rebuilding, with restoration projects bringing new life to its ancient monuments and a resilient spirit that defines this historic city.</p>
+                    
+                    <div class="highlights">
+                        <h3>Must-See Highlights</h3>
+                        <ul>
+                            <li>Aleppo Citadel (medieval fortress)</li>
+                            <li>Al-Madina Souq (ancient covered market)</li>
+                            <li>Great Mosque of Aleppo (12th-century)</li>
+                            <li>Al-Jdeideh (historic Christian quarter)</li>
+                            <li>Bab al-Faraj Square (city center)</li>
+                            <li>Traditional hammams and caravanserais</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://kimi-web-img.moonshot.cn/img/archnet-3-prod-iiif-cloud-c0fe51f0b9ac.herokuapp.com/95c5c674cd878bd4f407f5284c3dd15be186e48b" alt="Aleppo Citadel" class="city-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Palmyra -->
+        <div class="city-section">
+            <div class="city-header palmyra-header">
+                <h2>Palmyra</h2>
+                <span class="location-tag">📍 Homs Governorate | 34.5509° N, 38.2681° E</span>
+            </div>
+            <div class="city-content">
+                <div>
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.thoughtco.com/812d86ec43a2f7ec21af4adae7da2f300d60caef.jpg" alt="Palmyra Ancient Ruins" class="city-image">
+                </div>
+                <div class="city-description">
+                    <p>Rising from the Syrian desert like a mirage, <strong>Palmyra (Tadmor)</strong> stands as one of the most magnificent archaeological sites in the world. This ancient oasis city flourished from the 1st to the 2nd century CE as a vital caravan stop connecting Persia, India, and China with the Roman Empire. The unique art and architecture of Palmyra married Graeco-Roman techniques with local traditions and Persian influences, creating a distinctive style that influenced Western architecture for centuries.</p>
+                    
+                    <p>The centerpiece of Palmyra is the <strong>Grand Colonnade</strong>, a 1,100-meter-long street lined with towering Corinthian columns that once formed the city's monumental axis. At one end stands the <strong>Temple of Ba'al</strong>, one of the most important religious buildings of the 1st century CE in the Middle East. The <strong>Arch of Triumph</strong>, though damaged, remains an iconic symbol of the city's former glory. The <strong>Roman Theater</strong>, with its semicircular seating and stage wall, once hosted performances for thousands. Outside the city walls lie the <strong>Valley of the Tombs</strong>, with tower-shaped burial monuments that housed the city's elite. Despite recent destruction, restoration efforts are underway to preserve this UNESCO World Heritage site, which remains a powerful testament to the grandeur of ancient civilizations and the resilience of human heritage.</p>
+                    
+                    <div class="highlights">
+                        <h3>Must-See Highlights</h3>
+                        <ul>
+                            <li>Grand Colonnade (1,100-meter colonnaded street)</li>
+                            <li>Temple of Ba'al (ancient religious center)</li>
+                            <li>Arch of Triumph (monumental gateway)</li>
+                            <li>Roman Theater (ancient performance venue)</li>
+                            <li>Valley of the Tombs (tower tombs)</li>
+                            <li>Diocletian's Camp (Roman military complex)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latakia -->
+        <div class="city-section">
+            <div class="city-header latakia-header">
+                <h2>Latakia</h2>
+                <span class="location-tag">📍 Mediterranean Coast | 35.5317° N, 35.7908° E</span>
+            </div>
+            <div class="city-content">
+                <div class="city-description">
+                    <p><strong>Latakia</strong> (Al-Ladhiqiyah) is Syria's principal port city and a gateway to the country's beautiful Mediterranean coastline. Founded by the Phoenicians in the 2nd millennium BCE and later named Laodicea by the Seleucids, this coastal city offers a refreshing contrast to Syria's inland desert landscapes. With its mild climate, sandy beaches, and turquoise waters, Latakia serves as the perfect place to relax and enjoy Syria's natural beauty.</p>
+                    
+                    <p>The city is home to the ancient site of <strong>Ugarit (Ras Shamra)</strong>, located just north of Latakia, where the world's first alphabet was discovered, revolutionizing human communication. In Latakia itself, the <strong>Citadel of Latakia</strong> offers panoramic views of the sea, while the <strong>Al-Mahaba Festival</strong> celebrates the region's culture and heritage. The nearby <strong>Sahel al-Sin</strong> (Blue Beach) and other coastal resorts offer pristine beaches and fresh seafood. The surrounding mountains hide treasures like the <strong>Salah al-Din Castle</strong> and <strong>Al-Marqab Castle</strong>, Crusader fortresses that once guarded this strategic coastline. Latakia's laid-back atmosphere, combined with its rich history and beautiful setting, makes it an essential stop on any Syrian itinerary.</p>
+                    
+                    <div class="highlights">
+                        <h3>Must-See Highlights</h3>
+                        <ul>
+                            <li>Ugarit (Ras Shamra) - birthplace of the alphabet</li>
+                            <li>Latakia Citadel (historic fortress)</li>
+                            <li>Blue Beach (Mediterranean coastline)</li>
+                            <li>Salah al-Din Castle (Crusader fortress)</li>
+                            <li>Al-Marqab Castle (mountain fortress)</li>
+                            <li>Fresh seafood restaurants and cafes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/8332bdb84815d08bab148995f57b2d87f3c4c8f6.jpg" alt="Latakia Mediterranean Coast" class="city-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="tips-section">
+            <h2>Essential Travel Tips for Syria</h2>
+            <p style="font-size: 1.1em; color: #555; margin-bottom: 20px;">Navigate the cradle of civilization with respect and awareness</p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">🛂</div>
+                    <h3>Visa & Entry</h3>
+                    <p>Most nationalities require visas to enter Syria. Check current travel advisories and entry requirements before planning your trip. Some areas may have restrictions. Ensure your passport is valid for at least 6 months.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">👕</div>
+                    <h3>Dress Code</h3>
+                    <p>Syria is a conservative country. Dress modestly, especially when visiting religious sites—cover shoulders and knees. Women should carry a headscarf for mosques. In coastal areas like Latakia, dress codes are more relaxed.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">💰</div>
+                    <h3>Money Matters</h3>
+                    <p>Syrian Pound (SYP) is the currency. Due to international sanctions, credit cards are generally not accepted. Bring cash in USD or Euros and exchange at official money changers. ATMs are limited and may not work with foreign cards.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🍽️</div>
+                    <h3>Culinary Delights</h3>
+                    <p>Don't miss kibbeh (bulgur and meat), fattoush salad, and Syrian kebabs. Try the famous Aleppo pepper and pistachios. Arabic coffee and sweet tea are ubiquitous. Street food like falafel and shawarma is delicious and affordable.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🗣️</div>
+                    <h3>Language & Culture</h3>
+                    <p>Arabic is the official language. English is limited outside major hotels. Learn basic greetings: "Marhaba" (hello), "Shukran" (thank you). Syrians are famously hospitable—accepting tea invitations is a wonderful way to experience local culture.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🌸</div>
+                    <h3>Best Time to Visit</h3>
+                    <p>Spring (March-May) and Autumn (September-November) offer ideal temperatures. Summer (June-August) can be extremely hot, especially in Palmyra and Damascus. Winter is mild on the coast but cold in the interior.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comment-section">
+            <h2>Traveler Stories & Comments</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Share your Syria experiences or ask questions below!</p>
+            
+            <div class="comment-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (not published)</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Your Comment</label>
+                    <textarea id="comment" rows="4" placeholder="Share your thoughts about Syria or ask a question..." required></textarea>
+                </div>
+                <button class="submit-btn" onclick="addComment()">Post Comment</button>
+            </div>
+
+            <div class="comments-list" id="commentsList">
+                <!-- Sample comments -->
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Thomas Anderson</span>
+                        <div>
+                            <span class="comment-date">April 8, 2026</span>
+                            <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
+                        </div>
+                    </div>
+                    <p class="comment-text">Just returned from an incredible journey through Syria! Walking through the Umayyad Mosque in Damascus was a spiritual experience I'll never forget. The people were incredibly welcoming despite everything they've been through. Palmyra at sunset is hauntingly beautiful.</p>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Maria Rodriguez</span>
+                        <div>
+                            <span class="comment-date">March 25, 2026</span>
+                            <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
+                        </div>
+                    </div>
+                    <p class="comment-text">Planning a trip to Syria later this year. Has anyone visited Krak des Chevaliers recently? I heard it's one of the best-preserved Crusader castles in the world. Also, any recommendations for local guides in Aleppo?</p>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Ahmed Hassan</span>
+                        <div>
+                            <span class="comment-date">March 12, 2026</span>
+                            <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
+                        </div>
+                    </div>
+                    <p class="comment-text">The food in Syria is absolutely incredible! Don't miss trying the Aleppo kebab and the famous pistachios from the region. The old souks are a photographer's paradise—every corner tells a story. Make sure to spend time just drinking tea with locals.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="scroll-top" onclick="scrollToTop()">↑</div>
+
+    <footer>
+        <p style="font-size: 1.2em; margin-bottom: 10px;">Syria Travel Guide 2026</p>
+        <p>Discover the ancient heart of human civilization</p>
+        <div class="social-links">
+            <a href="#">📧</a>
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+            <a href="#">🐦</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">© 2026 Syria Travel Blog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll to top functionality
+        window.onscroll = function() {
+            const scrollBtn = document.querySelector('.scroll-top');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Comment functionality
+        function addComment() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const commentText = document.getElementById('comment').value;
+
+            if (!name || !email || !commentText) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            const commentsList = document.getElementById('commentsList');
+            const newComment = document.createElement('div');
+            newComment.className = 'comment';
+            
+            const date = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            newComment.innerHTML = `
+                <div class="comment-header">
+                    <span class="comment-author">${escapeHtml(name)}</span>
+                    <div>
+                        <span class="comment-date">${date}</span>
+                        <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
+                    </div>
+                </div>
+                <p class="comment-text">${escapeHtml(commentText)}</p>
+            `;
+
+            commentsList.insertBefore(newComment, commentsList.firstChild);
+
+            // Clear form
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('comment').value = '';
+
+            // Animation
+            newComment.style.animation = 'none';
+            setTimeout(() => {
+                newComment.style.animation = 'slideIn 0.5s ease';
+            }, 10);
+        }
+
+        function deleteComment(btn) {
+            if (confirm('Are you sure you want to delete this comment?')) {
+                const comment = btn.closest('.comment');
+                comment.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    comment.remove();
+                }, 300);
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Add slideOut animation dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideOut {
+                to {
+                    opacity: 0;
+                    transform: translateX(20px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
