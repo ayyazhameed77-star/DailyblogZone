@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Travel Guide: Discover the Treasures of the Middle East</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flag-section {
+            background: white;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .jordan-flag {
+            width: 300px;
+            height: 150px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #ddd;
+        }
+
+        .jordan-flag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 33.33%;
+            background: #000000;
+        }
+
+        .jordan-flag::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 33.33%;
+            background: #007a3d;
+        }
+
+        .red-triangle {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 100px solid #ce1126;
+            border-top: 75px solid transparent;
+            border-bottom: 75px solid transparent;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 30px;
+            z-index: 3;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+
+        .city-section {
+            background: white;
+            margin: 40px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .city-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .city-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            position: relative;
+        }
+
+        .city-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .location-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .city-content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .city-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .city-image:hover {
+            transform: scale(1.02);
+        }
+
+        .city-description {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .highlights {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .highlights h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlights li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .highlights li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .petra-header { background: linear-gradient(135deg, #8e44ad 0%, #c39bd3 100%); }
+        .amman-header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+        .wadirum-header { background: linear-gradient(135deg, #d35400 0%, #e67e22 100%); }
+        .aqaba-header { background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%); }
+
+        .tips-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .tips-section h2 {
+            color: #d35400;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tip-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .comment-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .comment-section h2 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .comment-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .comment-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .comments-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .comment {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .comment-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: background 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 50px 50px 0 0;
+            margin-top: 50px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .city-content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .city-header h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🇯🇴 Jordan Travel Guide</h1>
+        <p class="subtitle">Discover the Treasures of the Middle East</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Country Overview -->
+        <div class="flag-section">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; font-size: 2em;">The Hashemite Kingdom of Jordan</h2>
+            
+            <div class="jordan-flag">
+                <div class="red-triangle"></div>
+                <div class="star">★</div>
+            </div>
+            
+            <div class="intro-text">
+                <p><strong>Jordan</strong> is a land of mesmerizing contrasts and ancient wonders, where dramatic desert landscapes meet the crystal-clear waters of the Red Sea. This small but remarkable Middle Eastern kingdom has been a crossroads of civilizations for millennia, offering travelers an unparalleled journey through history, culture, and natural beauty. From the rose-red city of Petra to the Martian-like terrain of Wadi Rum, Jordan packs more world-class attractions per square kilometer than almost any other destination on Earth.</p>
+                
+                <p>Strategically located at the heart of the Middle East, Jordan has welcomed travelers since ancient times. The famous King's Highway has carried pilgrims, traders, and armies for thousands of years, connecting Damascus to the Red Sea. Today, this stable and welcoming nation offers visitors a safe haven to explore some of humanity's greatest archaeological treasures while experiencing legendary Arab hospitality. Whether you're floating effortlessly in the Dead Sea, exploring Roman ruins that rival those in Italy, or sleeping under the stars in a Bedouin camp, Jordan promises experiences that will stay with you forever.</p>
+                
+                <p>Beyond its iconic sites, Jordan is a country of warm smiles and open doors. The Jordanian people take pride in their reputation for hospitality, often inviting strangers into their homes for tea or meals. This genuine warmth, combined with world-class historical sites and stunning natural landscapes, makes Jordan not just a destination to visit, but a place to fall in love with.</p>
+            </div>
+        </div>
+
+        <!-- Petra -->
+        <div class="city-section">
+            <div class="city-header petra-header">
+                <h2>Petra</h2>
+                <span class="location-tag">📍 Ma'an Governorate | 30.3285° N, 35.4444° E</span>
+            </div>
+            <div class="city-content">
+                <div>
+                    <img src="https://kimi-web-img.moonshot.cn/img/universes.art/44372e674e36e5dcaa92716918e3773ec470d921.jpg" alt="Petra Treasury Al-Khazneh" class="city-image">
+                </div>
+                <div class="city-description">
+                    <p><strong>Petra</strong>, the "Rose City," is not just Jordan's most famous attraction—it's one of the New Seven Wonders of the World and a UNESCO World Heritage site that exceeds every expectation. Carved directly into vibrant pink, red, and orange sandstone cliffs by the Nabataeans over 2,000 years ago, this ancient city remained hidden from the Western world until its rediscovery by Swiss explorer Johann Ludwig Burckhardt in 1812.</p>
+                    
+                    <p>The journey to Petra begins with the <strong>Siq</strong>, a narrow, winding canyon that builds anticipation with every step. Suddenly, the canyon opens to reveal the <strong>Treasury (Al-Khazneh)</strong>, a 40-meter-high facade of intricate Hellenistic architecture that takes your breath away. But Petra is far more than just the Treasury. The site spans 264 square kilometers and includes hundreds of carved tombs, temples, a Roman-style theater, and the impressive <strong>Monastery (Ad-Deir)</strong>, which requires an 800-step climb but rewards visitors with even grander views. For the full experience, visit Petra by night when the Siq and Treasury are illuminated by thousands of candles, creating a magical atmosphere that transports you back to ancient times.</p>
+                    
+                    <div class="highlights">
+                        <h3>Must-See Highlights</h3>
+                        <ul>
+                            <li>The Treasury (Al-Khazneh) - iconic facade</li>
+                            <li>The Siq - narrow canyon entrance</li>
+                            <li>The Monastery (Ad-Deir) - largest monument</li>
+                            <li>Royal Tombs - elaborate burial facades</li>
+                            <li>Roman Theater - 6,000-seat amphitheater</li>
+                            <li>Petra by Night - candlelit experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Amman -->
+        <div class="city-section">
+            <div class="city-header amman-header">
+                <h2>Amman</h2>
+                <span class="location-tag">📍 Northwest Jordan | 31.9454° N, 35.9284° E</span>
+            </div>
+            <div class="city-content">
+                <div class="city-description">
+                    <p>Spread across seven hills like a Middle Eastern Rome, <strong>Amman</strong> is one of the world's oldest continuously inhabited cities, dating back to 7250 BCE. This vibrant capital of 4 million people seamlessly blends ancient history with modern cosmopolitan energy. Known in antiquity as Philadelphia (the "City of Brotherly Love"), Amman was once part of the Roman Decapolis league and served as a major hub on ancient trade routes.</p>
+                    
+                    <p>Today, Amman captivates visitors with its layered history. The <strong>Citadel (Jabal al-Qal'a)</strong> crowns the highest hill, offering panoramic views and archaeological treasures including the Temple of Hercules and the Umayyad Palace. Below, the magnificently restored <strong>Roman Theater</strong> seats 6,000 spectators and still hosts performances. Downtown Amman (Al-Balad) buzzes with life in its traditional souks, where the aroma of cardamom coffee mingles with the calls of vendors selling everything from spices to gold. Don't miss the legendary <strong>Hashem Restaurant</strong> for falafel, or Rainbow Street for trendy cafes and nightlife. Amman serves as the perfect introduction to Jordan's warmth and hospitality.</p>
+                    
+                    <div class="highlights">
+                        <h3>Must-See Highlights</h3>
+                        <ul>
+                            <li>Amman Citadel - ancient hilltop fortress</li>
+                            <li>Roman Theater - 2nd-century amphitheater</li>
+                            <li>Rainbow Street - trendy dining and nightlife</li>
+                            <li>King Abdullah Mosque - blue-domed landmark</li>
+                            <li>Downtown Souks - traditional markets</li>
+                            <li>Duke's Diwan - historic townhouse museum</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/76534a9cb1a8aa05ab88e57c5c180951034f8caf.jpg" alt="Amman Roman Theater" class="city-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Wadi Rum -->
+        <div class="city-section">
+            <div class="city-header wadirum-header">
+                <h2>Wadi Rum</h2>
+                <span class="location-tag">📍 Southern Desert | 29.5370° N, 35.5441° E</span>
+            </div>
+            <div class="city-content">
+                <div>
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.airpano.com/9cfc87f3cb8d9d2798dd68ee75a3eac69cdb04e8.jpg" alt="Wadi Rum Desert Landscape" class="city-image">
+                </div>
+                <div class="city-description">
+                    <p>Known as the <strong>"Valley of the Moon,"</strong> Wadi Rum is a protected desert wilderness that looks like it belongs on another planet. This UNESCO World Heritage site features a surreal landscape of towering sandstone mountains, narrow canyons, natural arches, and endless red sand dunes that have captivated travelers for centuries. T.E. Lawrence (Lawrence of Arabia) famously described his time here during the Arab Revolt, and the desert still retains that same timeless, mystical quality.</p>
+                    
+                    <p>Wadi Rum offers adventure and tranquility in equal measure. Ride a 4x4 across the desert to see ancient <strong>Nabataean petroglyphs</strong> and inscriptions, climb the famous <strong>Burdah Rock Bridge</strong>, or watch the sunset paint the rocks in shades of crimson and gold. For the ultimate experience, spend a night in a <strong>Bedouin camp</strong>, where you'll enjoy traditional zarb (underground barbecue), sip sweet tea by the fire, and sleep under a canopy of stars that seem close enough to touch. The silence and vastness of Wadi Rum create a spiritual experience that stays with visitors long after they leave. It's no wonder this landscape has served as the backdrop for films like "The Martian" and "Dune."</p>
+                    
+                    <div class="highlights">
+                        <h3>Must-See Highlights</h3>
+                        <ul>
+                            <li>Seven Pillars of Wisdom - iconic rock formation</li>
+                            <li>Burdah Rock Bridge - natural arch</li>
+                            <li>Khazali Canyon - ancient petroglyphs</li>
+                            <li>Um Fruth Rock Bridge - climbing spot</li>
+                            <li>Bedouin camping under the stars</li>
+                            <li>Jeep tours and camel treks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aqaba -->
+        <div class="city-section">
+            <div class="city-header aqaba-header">
+                <h2>Aqaba</h2>
+                <span class="location-tag">📍 Red Sea Coast | 29.5320° N, 35.0063° E</span>
+            </div>
+            <div class="city-content">
+                <div class="city-description">
+                    <p>Jordan's only coastal city, <strong>Aqaba</strong> offers a refreshing contrast to the country's desert landscapes with its pristine beaches and crystal-clear waters on the northern tip of the Red Sea. This relaxed port city serves as the perfect place to unwind after exploring Petra and Wadi Rum, offering world-class diving, water sports, and beachside relaxation.</p>
+                    
+                    <p>The <strong>Red Sea</strong> here is renowned for its coral reefs and marine biodiversity, with over 1,000 species of fish and 240 types of coral. The <strong>Aqaba Marine Park</strong> protects several kilometers of coastline where divers can explore shipwrecks, coral gardens, and encounter sea turtles, dolphins, and even whale sharks. Above water, Aqaba's <strong>15th-century Mamluk Fort</strong> and the <strong>Aqaba Archaeological Museum</strong> offer historical insights, while the modern <strong>Aqaba Special Economic Zone</strong> provides duty-free shopping. Whether you're snorkeling among vibrant corals, enjoying fresh seafood by the beach, or simply watching the sunset over the Sinai Mountains, Aqaba provides a blissful coastal finale to any Jordanian adventure.</p>
+                    
+                    <div class="highlights">
+                        <h3>Must-See Highlights</h3>
+                        <ul>
+                            <li>Red Sea diving and snorkeling</li>
+                            <li>Aqaba Marine Park - coral reefs</li>
+                            <li>Aqaba Fort - 15th-century Mamluk castle</li>
+                            <li>Berenice Beach Club - luxury relaxation</li>
+                            <li>Islamic-era Ayla ruins</li>
+                            <li>Duty-free shopping zone</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.muchbetteradventures.com/cf867ca4311641f95c558cc5f0cf8518ef44ab6f.jpeg" alt="Aqaba Red Sea" class="city-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="tips-section">
+            <h2>Essential Travel Tips for Jordan</h2>
+            <p style="font-size: 1.1em; color: #555; margin-bottom: 20px;">Navigate the Kingdom with confidence and cultural awareness</p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">🎫</div>
+                    <h3>Jordan Pass</h3>
+                    <p>Buy the Jordan Pass online before arrival (70-80 JOD). It includes visa fees and entry to over 40 attractions including Petra, Jerash, and Amman Citadel. Valid for 12 months, it pays for itself if visiting Petra alone.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">👕</div>
+                    <h3>Dress Code</h3>
+                    <p>Jordan is relatively liberal but modest dress is appreciated. Cover shoulders and knees, especially at religious sites. In beach resorts like Aqaba, swimwear is acceptable. Bring layers for desert temperature swings.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">💰</div>
+                    <h3>Money Matters</h3>
+                    <p>Jordanian Dinar (JOD) is the currency. Credit cards are accepted in major hotels and restaurants, but carry cash for souks and smaller towns. ATMs are widely available. Tipping 10% is customary in restaurants.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🍽️</div>
+                    <h3>Culinary Delights</h3>
+                    <p>Don't miss mansaf (Jordan's national dish of lamb with yogurt sauce), falafel, hummus, and knafeh (sweet cheese dessert). Try mint tea and cardamom coffee. Street food is delicious and generally safe.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🚗</div>
+                    <h3>Getting Around</h3>
+                    <p>Minibuses connect major cities but renting a car offers flexibility. Driving is on the right side. Taxis are affordable—agree on prices beforehand or insist on the meter. Uber operates in Amman.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🌸</div>
+                    <h3>Best Time to Visit</h3>
+                    <p>Spring (March-May) and Autumn (September-November) offer ideal temperatures. Summer (June-August) is extremely hot, especially in Petra and Wadi Rum. Winter can be cold and rainy, with occasional snow in Petra.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comment-section">
+            <h2>Traveler Stories & Comments</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Share your Jordan experiences or ask questions below!</p>
+            
+            <div class="comment-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (not published)</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Your Comment</label>
+                    <textarea id="comment" rows="4" placeholder="Share your thoughts about Jordan or ask a question..." required></textarea>
+                </div>
+                <button class="submit-btn" onclick="addComment()">Post Comment</button>
+            </div>
+
+            <div class="comments-list" id="commentsList">
+                <!-- Sample comments -->
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Rachel Thompson</span>
+                        <div>
+                            <span class="comment-date">April 10, 2026</span>
+                            <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
+                        </div>
+                    </div>
+                    <p class="comment-text">Just returned from an incredible week in Jordan! Petra by night was absolutely magical—walking through the candlelit Siq gave me chills. The Bedouin hospitality in Wadi Rum was unforgettable. We stayed at a luxury camp and woke up to the most beautiful sunrise over the red sand dunes. Highly recommend!</p>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Ahmed Hassan</span>
+                        <div>
+                            <span class="comment-date">March 28, 2026</span>
+                            <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
+                        </div>
+                    </div>
+                    <p class="comment-text">Planning a family trip with kids (ages 8 and 12). Is Petra too strenuous for children? Also, would you recommend hiring a guide for Jerash or is it easy to explore on your own? Any family-friendly hotels in Amman would be appreciated!</p>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Sophie Martin</span>
+                        <div>
+                            <span class="comment-date">March 15, 2026</span>
+                            <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
+                        </div>
+                    </div>
+                    <p class="comment-text">The Dead Sea experience was surreal! Floating effortlessly while reading a newspaper is a must-do. Pro tip: Don't shave for a few days before—the salt stings! Also, the mud at the Dead Sea resorts is great for your skin. Jordan exceeded all my expectations!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="scroll-top" onclick="scrollToTop()">↑</div>
+
+    <footer>
+        <p style="font-size: 1.2em; margin-bottom: 10px;">Jordan Travel Guide 2026</p>
+        <p>Discover the warmth, history, and beauty of the Hashemite Kingdom</p>
+        <div class="social-links">
+            <a href="#">📧</a>
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+            <a href="#">🐦</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">© 2026 Jordan Travel Blog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll to top functionality
+        window.onscroll = function() {
+            const scrollBtn = document.querySelector('.scroll-top');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Comment functionality
+        function addComment() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const commentText = document.getElementById('comment').value;
+
+            if (!name || !email || !commentText) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            const commentsList = document.getElementById('commentsList');
+            const newComment = document.createElement('div');
+            newComment.className = 'comment';
+            
+            const date = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            newComment.innerHTML = `
+                <div class="comment-header">
+                    <span class="comment-author">${escapeHtml(name)}</span>
+                    <div>
+                        <span class="comment-date">${date}</span>
+                        <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
+                    </div>
+                </div>
+                <p class="comment-text">${escapeHtml(commentText)}</p>
+            `;
+
+            commentsList.insertBefore(newComment, commentsList.firstChild);
+
+            // Clear form
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('comment').value = '';
+
+            // Animation
+            newComment.style.animation = 'none';
+            setTimeout(() => {
+                newComment.style.animation = 'slideIn 0.5s ease';
+            }, 10);
+        }
+
+        function deleteComment(btn) {
+            if (confirm('Are you sure you want to delete this comment?')) {
+                const comment = btn.closest('.comment');
+                comment.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    comment.remove();
+                }, 300);
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Add slideOut animation dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideOut {
+                to {
+                    opacity: 0;
+                    transform: translateX(20px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
