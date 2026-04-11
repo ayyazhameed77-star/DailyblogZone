@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>France Travel Guide - Discover the Heart of Europe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f9f6f0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #002654 0%, #ffffff 50%, #ed2939 100%);
+            color: #002654;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .flag-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .flag {
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(to right, #002654 33%, #ffffff 33%, #ffffff 66%, #ed2939 66%);
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .country-info {
+            text-align: left;
+        }
+        
+        .country-info h2 {
+            color: #002654;
+            margin-bottom: 10px;
+        }
+        
+        .intro-text {
+            font-size: 1.1em;
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #ed2939;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .city-content {
+            padding: 30px;
+        }
+        
+        .city-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .city-name {
+            font-size: 2em;
+            color: #002654;
+            font-weight: bold;
+        }
+        
+        .location-tag {
+            background: #ed2939;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .city-description {
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.9;
+        }
+        
+        .highlights {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f0f4f8;
+            border-radius: 10px;
+        }
+        
+        .highlights h4 {
+            color: #002654;
+            margin-bottom: 10px;
+        }
+        
+        .highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .highlights li {
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .highlights li:before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #ed2939;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            background: #002654;
+            color: white;
+            border-radius: 20px;
+        }
+        
+        .footer p {
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .city-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>🇫🇷 France Travel Guide</h1>
+            <p class="subtitle">Discover the Heart of Europe</p>
+        </div>
+        
+        <!-- Country Overview -->
+        <div class="flag-section">
+            <div class="flag"></div>
+            <div class="country-info">
+                <h2>France</h2>
+                <p><strong>Capital:</strong> Paris</p>
+                <p><strong>Population:</strong> ~68 million</p>
+                <p><strong>Language:</strong> French</p>
+                <p><strong>Currency:</strong> Euro (€)</p>
+            </div>
+        </div>
+        
+        <!-- Introduction -->
+        <div class="intro-text">
+            <p>France, the land of romance, revolution, and refined culture, has captivated travelers for centuries. From the glittering lights of Paris to the sun-drenched coastlines of the Mediterranean, this country offers an extraordinary tapestry of experiences. Whether you're wandering through lavender fields in Provence, sipping world-class wine in Bordeaux, or exploring ancient castles in the Loire Valley, France promises memories that will last a lifetime. Join me as we explore five of France's most magnificent cities, each offering its own unique charm and character.</p>
+        </div>
+        
+        <!-- Paris -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/as2.ftcdn.net/5442cd84c7f1ae795bd3a1f77969f0a838848056.jpg" alt="Paris Skyline with Eiffel Tower" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Paris</h3>
+                    <span class="location-tag">📍 North-Central France</span>
+                </div>
+                <p class="city-description">
+                    The City of Light needs little introduction. Paris is the beating heart of France, where art, fashion, gastronomy, and culture converge in spectacular fashion. Standing beneath the iron lattice of the Eiffel Tower as it sparkles at night, wandering through the bohemian streets of Montmartre, or marveling at the Mona Lisa in the Louvre—these are the moments that define a Parisian adventure. The Seine River weaves through the city like a silver ribbon, connecting iconic landmarks from Notre-Dame to the Musée d'Orsay. Don't miss the charming cafés of Saint-Germain-des-Prés, where philosophers once debated and where you can now enjoy a perfect croissant with your morning coffee.
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>Eiffel Tower – The iconic iron lady of Paris</li>
+                        <li>Louvre Museum – Home to the world's most famous smile</li>
+                        <li>Montmartre – Artistic soul of the city with Sacré-Cœur views</li>
+                        <li>Champs-Élysées – The world's most beautiful avenue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lyon -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/media.gettyimages.com/21affc2deb448fc8b257055754cbc5bb0e1e7636.jpg" alt="Lyon Old Town Aerial View" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Lyon</h3>
+                    <span class="location-tag">📍 East-Central France</span>
+                </div>
+                <p class="city-description">
+                    Often called France's gastronomic capital, Lyon sits at the confluence of the Rhône and Saône rivers, offering a feast for both the eyes and the palate. This UNESCO World Heritage city boasts one of Europe's largest Renaissance old towns, Vieux Lyon, with its secret traboules (hidden passageways) and colorful facades. The city's culinary reputation is legendary—visit a traditional "bouchon" to sample Lyonnaise specialties like coq au vin and quenelles. From the panoramic views of Fourvière Hill, where the magnificent Basilica overlooks the city, to the vibrant Presqu'île district, Lyon seamlessly blends ancient history with contemporary French culture.
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>Vieux Lyon – Renaissance architecture and traboules</li>
+                        <li>Basilica of Notre-Dame de Fourvière – Stunning hilltop church</li>
+                        <li>Parc de la Tête d'Or – Beautiful urban park with a zoo</li>
+                        <li>Les Halles de Lyon – Food market paradise</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nice -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/static.seetheworld.com/f8e64aa7467f0012503185cb5e8a23bd35eb92be.jpg" alt="Nice Promenade des Anglais Beach" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Nice</h3>
+                    <span class="location-tag">📍 French Riviera (Southeast)</span>
+                </div>
+                <p class="city-description">
+                    Where the azure waters of the Mediterranean meet the foothills of the Alps, Nice basks in sunshine and elegance. The famous Promenade des Anglais curves along the Baie des Anges, inviting leisurely strolls past Belle Époque hotels and palm trees swaying in the sea breeze. The city's heart beats in the Vieille Ville (Old Town), a maze of narrow streets bursting with colorful markets, authentic Niçoise cuisine, and the scent of lavender and fresh flowers. Castle Hill offers breathtaking panoramas of the terracotta rooftops against the deep blue sea. Nice is the perfect gateway to the glamorous Côte d'Azur, yet retains an authentic charm that makes it beloved by locals and visitors alike.
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>Promenade des Anglais – Iconic seaside walkway</li>
+                        <li>Castle Hill – Panoramic views of the city and sea</li>
+                        <li>Cours Saleya Market – Flower and food market</li>
+                        <li>Vieille Ville – Charming old town with narrow streets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Marseille -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/static.wixstatic.com/c0759025bf8368078ee272af7a2f5500a2942204.jpg" alt="Marseille Port Harbor" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Marseille</h3>
+                    <span class="location-tag">📍 Mediterranean Coast (Southeast)</span>
+                </div>
+                <p class="city-description">
+                    France's oldest city and its second-largest metropolis, Marseille pulses with a unique energy that sets it apart from the rest of the country. The Vieux-Port (Old Port) has been the city's lifeline for 2,600 years, where fishing boats still unload their daily catch alongside sleek yachts. Above the city, the magnificent Notre-Dame de la Garde basilica watches over sailors and citizens alike, its golden Virgin Mary gleaming in the Mediterranean sun. Marseille is a cultural melting pot, reflected in its vibrant street art, diverse cuisine (don't miss the authentic bouillabaisse!), and the recently developed MuCEM museum celebrating Mediterranean civilizations. The nearby Calanques—dramatic limestone cliffs plunging into turquoise waters—offer some of France's most spectacular natural scenery.
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>Vieux-Port – Historic harbor and heart of the city</li>
+                        <li>Notre-Dame de la Garde – Iconic hilltop basilica</li>
+                        <li>Calanques National Park – Stunning coastal fjords</li>
+                        <li>Le Panier – Oldest neighborhood with colorful streets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bordeaux -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/media.architecturaldigest.com/3fd7ececf9d5dad1125a26f66e7a20183510dbeb.jpg" alt="Bordeaux Place de la Bourse" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Bordeaux</h3>
+                    <span class="location-tag">📍 Southwest France</span>
+                </div>
+                <p class="city-description">
+                    Elegant, sophisticated, and utterly charming—Bordeaux is the wine capital of the world and a UNESCO World Heritage treasure. The city's 18th-century architecture, particularly the stunning Place de la Bourse with its mesmerizing water mirror (Miroir d'eau), creates an atmosphere of timeless beauty. Beyond the city limits, rolling vineyards stretch toward the horizon, producing some of the world's most prestigious wines—from Margaux to Saint-Émilion. The recently opened Cité du Vin, a futuristic wine museum, celebrates this liquid heritage with interactive exhibits and tastings. Bordeaux's revitalized riverfront, the Garonne's gentle flow, and the city's commitment to gastronomy make it a paradise for oenophiles and culture lovers. Stroll through the Chartrons district, explore the Grand Théâtre, and discover why Bordeaux has become one of France's most desirable destinations.
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>Place de la Bourse & Miroir d'eau – Architectural masterpiece</li>
+                        <li>Cité du Vin – World-class wine museum</li>
+                        <li>Saint-Émilion – Medieval wine village nearby</li>
+                        <li>Chartrons District – Antique shops and wine bars</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>"France is not just a destination—it's a feeling, a flavor, and a forever memory."</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Bon voyage! 🥐✈️</p>
+        </div>
+    </div>
+</body>
+</html>
