@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falasteen Travel Guide - Palestine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --palestine-red: #ce1126;
+            --palestine-green: #00732f;
+            --palestine-black: #000000;
+            --stone-50: #fafaf9;
+            --stone-100: #f5f5f4;
+            --stone-200: #e7e5e4;
+            --stone-600: #57534e;
+            --stone-700: #44403c;
+            --stone-800: #292524;
+            --stone-900: #1c1917;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--stone-50);
+            color: var(--stone-800);
+            line-height: 1.6;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--stone-100);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--stone-600);
+            border-radius: 4px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 40px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a1a2e" width="1200" height="800"/><polygon fill="%23ce1126" points="0,0 400,400 0,800"/><rect fill="%23000000" x="400" y="0" width="800" height="267"/><rect fill="%23ffffff" x="400" y="267" width="800" height="266"/><rect fill="%2300732f" x="400" y="533" width="800" height="267"/></svg>') center/cover;
+            opacity: 0.2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Palestine Flag Display */
+        .flag-container {
+            margin-bottom: 30px;
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+        }
+
+        .palestine-flag {
+            width: 280px;
+            height: 180px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .flag-stripes {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .flag-stripe {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .flag-stripe.black { background: #000000; }
+        .flag-stripe.white { background: #ffffff; }
+        .flag-stripe.green { background: var(--palestine-green); }
+
+        .flag-triangle {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background: var(--palestine-red);
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+        }
+
+        .flag-pole {
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            bottom: -10px;
+            width: 12px;
+            background: linear-gradient(to right, #8B4513, #D2691E, #8B4513);
+            border-radius: 6px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .flag-pole-top {
+            position: absolute;
+            left: -22px;
+            top: -20px;
+            width: 26px;
+            height: 26px;
+            background: linear-gradient(135deg, #FFD700, #B8860B);
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+
+        .flag-caption {
+            margin-top: 15px;
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .flag-icon {
+            width: 24px;
+            height: 16px;
+            position: relative;
+        }
+
+        .flag-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, #000 33%, #fff 33%, #fff 66%, #00732f 66%);
+            clip-path: polygon(40% 0, 100% 0, 100% 100%, 40% 100%, 0 50%);
+        }
+
+        .flag-icon::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background: #ce1126;
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-title span {
+            color: var(--palestine-red);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator div {
+            width: 24px;
+            height: 40px;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+        }
+
+        .scroll-indicator div::after {
+            content: '';
+            width: 4px;
+            height: 8px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 2px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--stone-800);
+            margin-bottom: 16px;
+        }
+
+        .section-divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--palestine-red), white, var(--palestine-green));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--stone-600);
+            font-size: 1.1rem;
+            margin-top: 16px;
+        }
+
+        /* Flag Info Section */
+        .flag-section {
+            background: linear-gradient(135deg, var(--stone-900), #2d2d2d);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .flag-info {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .flag-display-large {
+            width: 320px;
+            height: 200px;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            overflow: hidden;
+            animation: flagWave 4s ease-in-out infinite;
+        }
+
+        @keyframes flagWave {
+            0%, 100% { transform: perspective(500px) rotateY(-3deg) rotateX(2deg); }
+            50% { transform: perspective(500px) rotateY(3deg) rotateX(-2deg); }
+        }
+
+        .flag-display-large .flag-stripes {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .flag-display-large .flag-stripe {
+            flex: 1;
+        }
+
+        .flag-display-large .flag-triangle {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background: var(--palestine-red);
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+        }
+
+        .flag-meaning {
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+        }
+
+        .flag-meaning h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .flag-meaning h3 .icon {
+            font-size: 2rem;
+        }
+
+        .color-meaning {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .color-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+
+        .color-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .color-box.black { background: #000; }
+        .color-box.white { background: #fff; }
+        .color-box.green { background: var(--palestine-green); }
+        .color-box.red { background: var(--palestine-red); }
+
+        .color-text {
+            font-size: 0.95rem;
+        }
+
+        .color-text strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .color-text span {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            background: linear-gradient(to bottom, var(--stone-50), var(--stone-100));
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--stone-700);
+            margin-bottom: 24px;
+        }
+
+        .blog-content p:first-child::first-letter {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--palestine-red);
+            float: left;
+            line-height: 1;
+            margin-right: 12px;
+            margin-top: -8px;
+        }
+
+        .blog-content strong {
+            color: var(--stone-800);
+            font-weight: 600;
+        }
+
+        /* Cities Section */
+        .cities-section {
+            background: white;
+        }
+
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .city-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .city-image {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .city-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .city-card:hover .city-image img {
+            transform: scale(1.1);
+        }
+
+        .city-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+
+        .city-image-content {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            color: white;
+        }
+
+        .city-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .city-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-family: monospace;
+        }
+
+        .city-content {
+            padding: 24px;
+        }
+
+        .city-description {
+            color: var(--stone-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .city-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .highlight-tag {
+            background: var(--stone-100);
+            color: var(--stone-700);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(135deg, var(--stone-900), var(--stone-800));
+            color: white;
+        }
+
+        .tips-section .section-title {
+            color: white;
+        }
+
+        .tips-section .section-subtitle {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .tip-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-4px);
+        }
+
+        .tip-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+        }
+
+        .tip-icon.red { background: rgba(206, 17, 38, 0.2); }
+        .tip-icon.white { background: rgba(255, 255, 255, 0.2); }
+        .tip-icon.green { background: rgba(0, 115, 47, 0.2); }
+        .tip-icon.black { background: rgba(0, 0, 0, 0.3); }
+
+        .tip-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tip-text {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        /* Comments Section */
+        .comments-section {
+            background: var(--stone-50);
+        }
+
+        .comments-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .comment-form {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+
+        .form-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--stone-800);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--stone-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--palestine-red);
+            box-shadow: 0 0 0 3px rgba(206, 17, 38, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--palestine-red), #a50e1f);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(206, 17, 38, 0.3);
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .comment-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .comment-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--palestine-red), #a50e1f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .comment-meta {
+            flex: 1;
+        }
+
+        .comment-name {
+            font-weight: 600;
+            color: var(--stone-800);
+        }
+
+        .comment-date {
+            font-size: 0.8rem;
+            color: var(--stone-500);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .comment-text {
+            color: var(--stone-600);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-like {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            color: var(--stone-500);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+
+        .btn-like:hover {
+            color: var(--palestine-red);
+            background: rgba(206, 17, 38, 0.1);
+        }
+
+        .btn-like.liked {
+            color: var(--palestine-red);
+        }
+
+        .btn-like svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-like:hover svg {
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--stone-900);
+            color: white;
+            padding: 48px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand h3 span {
+            color: var(--palestine-red);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+        }
+
+        .footer-flag {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-flag .flag-stripe {
+            width: 50px;
+            height: 14px;
+        }
+
+        .footer-flag .flag-stripe.black { background: #000; }
+        .footer-flag .flag-stripe.white { background: #fff; }
+        .footer-flag .flag-stripe.green { background: var(--palestine-green); }
+
+        .footer-flag .flag-triangle {
+            width: 0;
+            height: 0;
+            border-top: 21px solid transparent;
+            border-bottom: 21px solid transparent;
+            border-left: 35px solid var(--palestine-red);
+            margin-left: 4px;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin-bottom: 24px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p:last-child {
+            margin-top: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .palestine-flag {
+                width: 220px;
+                height: 140px;
+            }
+
+            .flag-display-large {
+                width: 260px;
+                height: 160px;
+            }
+
+            .flag-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 60px 16px;
+            }
+            
+            .comment-form {
+                padding: 24px;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background: rgba(206, 17, 38, 0.3);
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Hero Section with Flag -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <!-- Palestine Flag -->
+            <div class="flag-container">
+                <div class="palestine-flag">
+                    <div class="flag-pole"></div>
+                    <div class="flag-pole-top"></div>
+                    <div class="flag-triangle"></div>
+                    <div class="flag-stripes">
+                        <div class="flag-stripe black"></div>
+                        <div class="flag-stripe white"></div>
+                        <div class="flag-stripe green"></div>
+                    </div>
+                </div>
+                <p class="flag-caption">🇵🇸 Flag of Palestine</p>
+            </div>
+
+            <div class="hero-badge">
+                <div class="flag-icon"></div>
+                <span>Discover the Holy Land</span>
+                <div class="flag-icon"></div>
+            </div>
+            <h1 class="hero-title"><span>Falasteen</span> Travel Guide</h1>
+            <p class="hero-subtitle">Palestine - Where History Meets Hospitality</p>
+            <div class="hero-badges">
+                <span class="badge">🧭 6 Amazing Cities</span>
+                <span class="badge">📸 UNESCO Heritage Sites</span>
+                <span class="badge">❤️ Authentic Experience</span>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div></div>
+        </div>
+    </section>
+
+    <!-- Flag Meaning Section -->
+    <section class="flag-section">
+        <div class="container">
+            <div class="flag-info">
+                <div class="flag-display-large">
+                    <div class="flag-triangle"></div>
+                    <div class="flag-stripes">
+                        <div class="flag-stripe black"></div>
+                        <div class="flag-stripe white"></div>
+                        <div class="flag-stripe green"></div>
+                    </div>
+                </div>
+                <div class="flag-meaning">
+                    <h3><span class="icon">🇵🇸</span> Palestine Flag Meaning</h3>
+                    <div class="color-meaning">
+                        <div class="color-item">
+                            <div class="color-box black"></div>
+                            <div class="color-text">
+                                <strong>Black Stripe</strong>
+                                <span>The Abbasid and Arab dynasties, representing Arab identity</span>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-box white"></div>
+                            <div class="color-text">
+                                <strong>White Stripe</strong>
+                                <span>The Umayyad dynasty, symbolizing peace and purity</span>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-box green"></div>
+                            <div class="color-text">
+                                <strong>Green Stripe</strong>
+                                <span>The Fatimid dynasty, representing fertility and Islam</span>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-box red"></div>
+                            <div class="color-text">
+                                <strong>Red Triangle</strong>
+                                <span>The Hashemite dynasty, symbolizing the blood of martyrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Welcome to Palestine</h2>
+                <div class="section-divider"></div>
+            </div>
+            <article class="blog-content">
+                <p>Palestine, known in Arabic as <strong>Falasteen</strong>, is a land of profound historical significance, cultural richness, and unmatched hospitality. Nestled in the heart of the Middle East, this remarkable destination offers travelers an extraordinary journey through thousands of years of human civilization, where ancient traditions blend seamlessly with contemporary life.</p>
+                
+                <p>The country's landscape is as diverse as its heritage, ranging from the sacred hills of Jerusalem to the fertile valleys of Jericho, from the bustling markets of Nablus to the serene monasteries perched on cliffs. Each city tells its own unique story, woven into the fabric of this ancient land that has witnessed the rise and fall of empires, the birth of major world religions, and the enduring spirit of its people.</p>
+                
+                <p><strong>Jerusalem (Al-Quds)</strong>, the crown jewel of Palestine, stands as one of the holiest cities in the world. The golden Dome of the Rock glistens in the Mediterranean sun, while the ancient stones of the Old City whisper tales of prophets, kings, and pilgrims who have walked these paths for millennia. The Western Wall, the Church of the Holy Sepulchre, and the Al-Aqsa Mosque coexist in this compact space, creating an unparalleled spiritual atmosphere that touches every visitor's soul.</p>
+                
+                <p>In <strong>Bethlehem</strong>, the birthplace of Jesus Christ, the Church of the Nativity welcomes millions of Christian pilgrims annually. The city's Manger Square comes alive during Christmas celebrations, while the nearby Shepherd's Field and Milk Grotto offer intimate glimpses into biblical history. The separation wall, adorned with powerful street art, serves as a poignant reminder of the region's complex reality.</p>
+                
+                <p><strong>Hebron (Al-Khalil)</strong>, one of the oldest continuously inhabited cities on Earth, preserves the legacy of the Prophet Ibrahim (Abraham) at the magnificent Ibrahimi Mosque. The city's ancient bazaar, with its covered alleyways and traditional workshops, offers authentic Palestinian crafts, from hand-blown glass to intricately patterned keffiyehs.</p>
+                
+                <p><strong>Jericho (Ariha)</strong>, the world's oldest city, dates back over 11,000 years. The Mount of Temptation, accessible by cable car, provides breathtaking views of the Jordan Valley, while the nearby Dead Sea offers the unique experience of floating in its mineral-rich waters. Hisham's Palace showcases stunning Umayyad mosaics that have survived centuries.</p>
+                
+                <p><strong>Nablus</strong> enchants visitors with its legendary knafeh, a sweet cheese pastry that has made the city famous throughout the Arab world. The Old City's soap factories continue centuries-old traditions of olive oil soap production, while the bustling markets overflow with spices, textiles, and Palestinian delicacies.</p>
+                
+                <p><strong>Ramallah</strong>, the vibrant cultural capital, represents modern Palestine with its thriving arts scene, excellent restaurants, and lively nightlife. The Yasser Arafat Museum provides deep insights into Palestinian history, while the city's cafes and galleries showcase contemporary Palestinian creativity.</p>
+                
+                <p>Beyond the cities, Palestine's true magic lies in its people. Palestinians are renowned for their extraordinary hospitality, welcoming visitors with open arms, traditional meals, and stories passed down through generations. Whether sharing a cup of cardamom-scented coffee in a Bedouin tent or enjoying a home-cooked maqluba with a local family, these human connections create the most lasting memories.</p>
+                
+                <p>Palestinian cuisine is a delightful journey of flavors, from the smoky baba ganoush and creamy hummus to the savory musakhan and sweet kunafa. Each dish carries the history of the land and the creativity of its people, using olive oil, za'atar, sumac, and fresh local ingredients.</p>
+                
+                <p>Visiting Palestine is more than tourism; it's an immersion into a living tapestry of history, culture, and resilience. It's an opportunity to witness ancient traditions thriving alongside modern aspirations, to taste authentic flavors, to hear stories that textbooks cannot capture, and to understand why this small piece of land has captivated humanity for millennia. Welcome to Falasteen – where every stone has a story, and every encounter becomes a cherished memory.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Cities Section -->
+    <section class="cities-section" id="cities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Famous Cities</h2>
+                <p class="section-subtitle">Explore the most beautiful destinations in Palestine, each offering unique experiences and unforgettable memories</p>
+            </div>
+            <div class="cities-grid">
+                <!-- Jerusalem -->
+                <div class="city-card">
+                    <div class="city-image">
+                        <img src="https://images.unsplash.com/photo-1542259681-d4cd3839ae29?w=800&q=80" alt="Jerusalem">
+                        <div class="city-image-overlay"></div>
+                        <div class="city-image-content">
+                            <h3 class="city-name">Jerusalem (Al-Quds)</h3>
+                            <div class="city-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                31.7683° N, 35.2137° E
+                            </div>
+                        </div>
+                    </div>
+                    <div class="city-content">
+                        <p class="city-description">The Holy City, sacred to Islam, Christianity, and Judaism. Home to the iconic Dome of the Rock and Al-Aqsa Mosque.</p>
+                        <div class="city-highlights">
+                            <span class="highlight-tag">Dome of the Rock</span>
+                            <span class="highlight-tag">Al-Aqsa Mosque</span>
+                            <span class="highlight-tag">Western Wall</span>
+                            <span class="highlight-tag">Old City</span>
+                            <span class="highlight-tag">Mount of Olives</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bethlehem -->
+                <div class="city-card">
+                    <div class="city-image">
+                        <img src="https://images.unsplash.com/photo-1529079875474-0a62b09e929a?w=800&q=80" alt="Bethlehem">
+                        <div class="city-image-overlay"></div>
+                        <div class="city-image-content">
+                            <h3 class="city-name">Bethlehem (Bayt Lahm)</h3>
+                            <div class="city-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                31.7054° N, 35.2024° E
+                            </div>
+                        </div>
+                    </div>
+                    <div class="city-content">
+                        <p class="city-description">The birthplace of Jesus Christ, a UNESCO World Heritage site and major Christian pilgrimage destination.</p>
+                        <div class="city-highlights">
+                            <span class="highlight-tag">Church of Nativity</span>
+                            <span class="highlight-tag">Manger Square</span>
+                            <span class="highlight-tag">Milk Grotto</span>
+                            <span class="highlight-tag">Separation Wall</span>
+                            <span class="highlight-tag">Old City</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hebron -->
+                <div class="city-card">
+                    <div class="city-image">
+                        <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80" alt="Hebron">
+                        <div class="city-image-overlay"></div>
+                        <div class="city-image-content">
+                            <h3 class="city-name">Hebron (Al-Khalil)</h3>
+                            <div class="city-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                31.5326° N, 35.0998° E
+                            </div>
+                        </div>
+                    </div>
+                    <div class="city-content">
+                        <p class="city-description">One of the oldest continuously inhabited cities, home to the Ibrahimi Mosque and historic Old City bazaar.</p>
+                        <div class="city-highlights">
+                            <span class="highlight-tag">Ibrahimi Mosque</span>
+                            <span class="highlight-tag">Old City Bazaar</span>
+                            <span class="highlight-tag">Glass Factory</span>
+                            <span class="highlight-tag">Keffiyeh Factory</span>
+                            <span class="highlight-tag">Al-Shuhada Street</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jericho -->
+                <div class="city-card">
+                    <div class="city-image">
+                        <img src="https://images.unsplash.com/photo-1509023464722-18d996393ca8?w=800&q=80" alt="Jericho">
+                        <div class="city-image-overlay"></div>
+                        <div class="city-image-content">
+                            <h3 class="city-name">Jericho (Ariha)</h3>
+                            <div class="city-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                31.8595° N, 35.4929° E
+                            </div>
+                        </div>
+                    </div>
+                    <div class="city-content">
+                        <p class="city-description">The oldest city in the world, dating back over 11,000 years, located in the Jordan Valley.</p>
+                        <div class="city-highlights">
+                            <span class="highlight-tag">Mount of Temptation</span>
+                            <span class="highlight-tag">Hisham Palace</span>
+                            <span class="highlight-tag">Dead Sea View</span>
+                            <span class="highlight-tag">Tel Jericho</span>
+                            <span class="highlight-tag">Nabi Musa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nablus -->
+                <div class="city-card">
+                    <div class="city-image">
+                        <img src="https://images.unsplash.com/photo-1591284768466-97393e893494?w=800&q=80" alt="Nablus">
+                        <div class="city-image-overlay"></div>
+                        <div class="city-image-content">
+                            <h3 class="city-name">Nablus</h3>
+                            <div class="city-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                32.2211° N, 35.2544° E
+                            </div>
+                        </div>
+                    </div>
+                    <div class="city-content">
+                        <p class="city-description">Famous for its knafeh dessert, traditional soap factories, and vibrant Old City markets.</p>
+                        <div class="city-highlights">
+                            <span class="highlight-tag">Old City</span>
+                            <span class="highlight-tag">Knafeh Shops</span>
+                            <span class="highlight-tag">Soap Factory</span>
+                            <span class="highlight-tag">Jacob's Well</span>
+                            <span class="highlight-tag">Mount Gerizim</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ramallah -->
+                <div class="city-card">
+                    <div class="city-image">
+                        <img src="https://images.unsplash.com/photo-1580137189272-c9379f8864fd?w=800&q=80" alt="Ramallah">
+                        <div class="city-image-overlay"></div>
+                        <div class="city-image-content">
+                            <h3 class="city-name">Ramallah</h3>
+                            <div class="city-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                31.9074° N, 35.5350° E
+                            </div>
+                        </div>
+                    </div>
+                    <div class="city-content">
+                        <p class="city-description">The cultural and political capital of Palestine, known for its vibrant nightlife and modern atmosphere.</p>
+                        <div class="city-highlights">
+                            <span class="highlight-tag">Yasser Arafat Museum</span>
+                            <span class="highlight-tag">Al-Manara Square</span>
+                            <span class="highlight-tag">Mahmoud Darwish Museum</span>
+                            <span class="highlight-tag">Old City</span>
+                            <span class="highlight-tag">Nightlife</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Travel Tips</h2>
+                <p class="section-subtitle">Essential information for your Palestinian adventure</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon red">📅</div>
+                    <h3 class="tip-title">Best Time</h3>
+                    <p class="tip-text">March-May & September-November for pleasant weather and comfortable temperatures</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon white">💱</div>
+                    <h3 class="tip-title">Currency</h3>
+                    <p class="tip-text">Israeli Shekel (ILS), Jordanian Dinar (JOD), US Dollar widely accepted</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon green">🗣️</div>
+                    <h3 class="tip-title">Language</h3>
+                    <p class="tip-text">Arabic is official, English widely understood in tourist areas</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon black">❤️</div>
+                    <h3 class="tip-title">Hospitality</h3>
+                    <p class="tip-text">Palestinians are famous for their warm welcome and generous hospitality</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="comments-section" id="comments">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">💬 Traveler Comments</h2>
+                <p class="section-subtitle">Share your experience or read what others say about Palestine</p>
+            </div>
+            <div class="comments-container">
+                <!-- Comment Form -->
+                <div class="comment-form">
+                    <h3 class="form-title">Leave a Comment</h3>
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="commentName" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-textarea" id="commentMessage" placeholder="Share your thoughts about Palestine..."></textarea>
+                    </div>
+                    <button class="btn-submit" onclick="submitComment()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        Post Comment
+                    </button>
+                </div>
+
+                <!-- Comments List -->
+                <div class="comments-list" id="commentsList">
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">S</div>
+                            <div class="comment-meta">
+                                <div class="comment-name">Sarah Ahmed</div>
+                                <div class="comment-date">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    2024-12-15
+                                </div>
+                            </div>
+                        </div>
+                        <p class="comment-text">Palestine is absolutely beautiful! I visited Jerusalem and Bethlehem last year and it was a life-changing experience. The people are so welcoming and the history is incredible.</p>
+                        <div class="comment-actions">
+                            <button class="btn-like" onclick="toggleLike(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                <span>24</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">M</div>
+                            <div class="comment-meta">
+                                <div class="comment-name">Mohammed Khan</div>
+                                <div class="comment-date">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    2024-12-10
+                                </div>
+                            </div>
+                        </div>
+                        <p class="comment-text">The Old City of Nablus has the best knafeh I have ever tasted! Highly recommend visiting the traditional soap factories too.</p>
+                        <div class="comment-actions">
+                            <button class="btn-like" onclick="toggleLike(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                <span>18</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">E</div>
+                            <div class="comment-meta">
+                                <div class="comment-name">Emma Wilson</div>
+                                <div class="comment-date">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    2024-12-05
+                                </div>
+                            </div>
+                        </div>
+                        <p class="comment-text">Jericho was amazing - floating in the Dead Sea was such a unique experience. The Mount of Temptation monastery is breathtaking!</p>
+                        <div class="comment-actions">
+                            <button class="btn-like" onclick="toggleLike(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                <span>31</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3><span>Falasteen</span> Travel Guide</h3>
+                    <p>Discover the beauty and heritage of Palestine</p>
+                </div>
+                <div class="footer-flag">
+                    <div class="flag-stripe black"></div>
+                    <div class="flag-stripe white"></div>
+                    <div class="flag-stripe green"></div>
+                    <div class="flag-triangle"></div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>© 2024 Falasteen Travel Guide. All rights reserved.</p>
+                <p>Made with ❤️ for Palestine 🇵🇸</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Submit Comment Function
+        function submitComment() {
+            const nameInput = document.getElementById('commentName');
+            const messageInput = document.getElementById('commentMessage');
+            const name = nameInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!name || !message) {
+                alert('Please enter both your name and message!');
+                return;
+            }
+
+            const commentsList = document.getElementById('commentsList');
+            const today = new Date().toISOString().split('T')[0];
+            const initial = name.charAt(0).toUpperCase();
+
+            const newComment = document.createElement('div');
+            newComment.className = 'comment-card';
+            newComment.innerHTML = `
+                <div class="comment-header">
+                    <div class="comment-avatar">${initial}</div>
+                    <div class="comment-meta">
+                        <div class="comment-name">${name}</div>
+                        <div class="comment-date">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            ${today}
+                        </div>
+                    </div>
+                </div>
+                <p class="comment-text">${message}</p>
+                <div class="comment-actions">
+                    <button class="btn-like" onclick="toggleLike(this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        <span>0</span>
+                    </button>
+                </div>
+            `;
+
+            commentsList.insertBefore(newComment, commentsList.firstChild);
+            nameInput.value = '';
+            messageInput.value = '';
+        }
+
+        // Toggle Like Function
+        function toggleLike(btn) {
+            const svg = btn.querySelector('svg');
+            const countSpan = btn.querySelector('span');
+            let count = parseInt(countSpan.textContent);
+
+            if (btn.classList.contains('liked')) {
+                btn.classList.remove('liked');
+                svg.setAttribute('fill', 'none');
+                countSpan.textContent = count - 1;
+            } else {
+                btn.classList.add('liked');
+                svg.setAttribute('fill', 'currentColor');
+                countSpan.textContent = count + 1;
+            }
+        }
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.city-card, .tip-card, .comment-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
