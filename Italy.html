@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italy Travel Guide - La Dolce Vita Awaits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #faf8f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #009246 0%, #ffffff 50%, #ce2b37 100%);
+            color: #2c3e50;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .flag-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .flag {
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(to right, #009246 33%, #ffffff 33%, #ffffff 66%, #ce2b37 66%);
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .country-info {
+            text-align: left;
+        }
+        
+        .country-info h2 {
+            color: #009246;
+            margin-bottom: 10px;
+        }
+        
+        .intro-text {
+            font-size: 1.1em;
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #ce2b37;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .city-content {
+            padding: 30px;
+        }
+        
+        .city-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .city-name {
+            font-size: 2em;
+            color: #009246;
+            font-weight: bold;
+        }
+        
+        .location-tag {
+            background: #ce2b37;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .city-description {
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.9;
+        }
+        
+        .highlights {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f5f9f6;
+            border-radius: 10px;
+        }
+        
+        .highlights h4 {
+            color: #009246;
+            margin-bottom: 10px;
+        }
+        
+        .highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .highlights li {
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .highlights li:before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #ce2b37;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            background: #009246;
+            color: white;
+            border-radius: 20px;
+        }
+        
+        .footer p {
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .city-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>🇮🇹 Italy Travel Guide</h1>
+            <p class="subtitle">La Dolce Vita Awaits</p>
+        </div>
+        
+        <!-- Country Overview -->
+        <div class="flag-section">
+            <div class="flag"></div>
+            <div class="country-info">
+                <h2>Italy</h2>
+                <p><strong>Capital:</strong> Rome</p>
+                <p><strong>Population:</strong> ~59 million</p>
+                <p><strong>Language:</strong> Italian</p>
+                <p><strong>Currency:</strong> Euro (€)</p>
+            </div>
+        </div>
+        
+        <!-- Introduction -->
+        <div class="intro-text">
+            <p>Italy, the birthplace of the Renaissance and the heart of Western civilization, beckons travelers with its intoxicating blend of art, history, cuisine, and natural beauty. From the ancient ruins of Rome to the romantic canals of Venice, from the Renaissance masterpieces of Florence to the fashion-forward streets of Milan, Italy offers an endless tapestry of experiences. This boot-shaped peninsula, kissed by the Mediterranean sun, has given the world pizza, pasta, opera, and some of humanity's greatest artistic achievements. Whether you're savoring gelato while watching the sunset over the Amalfi Coast, exploring medieval hill towns in Tuscany, or standing in awe before Michelangelo's David, Italy promises to steal your heart and feed your soul. Join me as we explore five of Italy's most magnificent destinations.</p>
+        </div>
+        
+        <!-- Rome -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/images.presentationgo.com/416d7524730697b40742b031538b84cb3cf877e8.jpg" alt="Rome Colosseum at Dusk" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Rome</h3>
+                    <span class="location-tag">📍 Central Italy (Lazio)</span>
+                </div>
+                <p class="city-description">
+                    The Eternal City, where ancient history and modern life dance together in perfect harmony. Rome is an open-air museum where every cobblestone tells a story of emperors, gladiators, and popes. The Colosseum stands as a majestic testament to Roman engineering, its weathered stones echoing with the roar of crowds from two millennia ago. Wander through the Roman Forum, where Julius Caesar once walked, and toss a coin into the Trevi Fountain to ensure your return. The Vatican City, an independent country within Rome, houses St. Peter's Basilica and the Sistine Chapel, where Michelangelo's ceiling will leave you breathless. Rome isn't just about monuments—it's about the art of living. Enjoy aperitivo in Trastevere's winding streets, savor authentic carbonara in a family-run trattoria, and experience why Romans truly live "la dolce vita."
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>Colosseum – The iconic symbol of Imperial Rome</li>
+                        <li>Vatican City – St. Peter's Basilica and Sistine Chapel</li>
+                        <li>Trevi Fountain – Baroque masterpiece and coin-tossing tradition</li>
+                        <li>Pantheon – Ancient temple with the world's largest unreinforced dome</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Venice -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.tripsavvy.com/aec22f1de5943a54266ec2c4e7925ebe74f13d68.jpg" alt="Venice Grand Canal Gondola" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Venice</h3>
+                    <span class="location-tag">📍 Northeast Italy (Veneto)</span>
+                </div>
+                <p class="city-description">
+                    Venice defies imagination—a floating city built on 118 islands connected by over 400 bridges, where cars are replaced by boats and gondolas. The Grand Canal, Venice's liquid main street, winds through the heart of the city, lined with palaces that once belonged to wealthy merchants and noble families. St. Mark's Square, with its stunning basilica and the Doge's Palace, represents the height of Venetian Gothic architecture. Getting lost in Venice's labyrinthine alleys is not just expected—it's essential. Each turn reveals hidden squares, quiet canals, and artisan workshops where traditional crafts like glassblowing and mask-making continue centuries-old traditions. As the sun sets, the city transforms into a golden dream, with reflections dancing on the water. Venice is fragile, magical, and utterly unforgettable—a place that must be seen to be believed.
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>St. Mark's Square – The heart of Venice with stunning architecture</li>
+                        <li>Grand Canal – Venice's main waterway lined with palaces</li>
+                        <li>Rialto Bridge – The oldest bridge across the Grand Canal</li>
+                        <li>Murano Island – Famous for traditional glassblowing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Florence -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.italiandualcitizenship.net/e07b1eeb01017f130cf62f80d9680d2424e87ee5.jpg" alt="Florence Duomo Cathedral" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Florence</h3>
+                    <span class="location-tag">📍 Central Italy (Tuscany)</span>
+                </div>
+                <p class="city-description">
+                    The Cradle of the Renaissance, Florence is where art and beauty reached their zenith. Walking through this compact city feels like stepping into a living gallery, where every corner reveals another masterpiece. The Duomo, with Brunelleschi's revolutionary dome, dominates the skyline and represents the triumph of human ingenuity. The Uffizi Gallery houses the world's finest collection of Renaissance art—Botticelli's "Birth of Venus," Leonardo's "Annunciation," and countless other treasures. But Florence is more than museums; it's the scent of leather from the Ponte Vecchio's artisan shops, the taste of bistecca alla fiorentina grilled to perfection, and the golden light that inspired generations of artists. Cross the Arno River at sunset, gelato in hand, and watch the city glow in shades of amber and rose. Florence taught the world to see beauty, and it continues to open visitors' eyes to the extraordinary in the everyday.
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>Duomo (Santa Maria del Fiore) – Brunelleschi's magnificent dome</li>
+                        <li>Uffizi Gallery – World's finest Renaissance art collection</li>
+                        <li>Ponte Vecchio – Medieval bridge lined with jewelry shops</li>
+                        <li>Accademia Gallery – Home to Michelangelo's David</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Milan -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/pisa1940.com/8dfa79c2174c18909ae2971c48b4ddd719f1b756.png" alt="Milan Duomo Cathedral at Sunset" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Milan</h3>
+                    <span class="location-tag">📍 Northern Italy (Lombardy)</span>
+                </div>
+                <p class="city-description">
+                    Italy's fashion and design capital, Milan pulses with cosmopolitan energy and sophisticated style. The Duomo di Milano, a Gothic masterpiece that took nearly six centuries to complete, stands as the city's crown jewel—its marble spires and statues creating a stone forest against the sky. Climb to the rooftop for panoramic views and a close-up of the cathedral's intricate details. Next door, the Galleria Vittorio Emanuele II, one of the world's oldest shopping malls, dazzles with its glass-domed ceiling and luxury boutiques. Milan is the engine room of Italian industry, yet it cherishes its cultural heritage—Leonardo da Vinci's "The Last Supper" resides here in the convent of Santa Maria delle Grazie. The city's Navigli district comes alive at night with trendy bars and restaurants along the canals. Milan proves that Italy isn't just about the past—it's a dynamic, forward-looking nation that honors tradition while embracing innovation.
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>Duomo di Milano – Spectacular Gothic cathedral</li>
+                        <li>The Last Supper – Leonardo da Vinci's masterpiece</li>
+                        <li>Galleria Vittorio Emanuele II – Historic luxury shopping gallery</li>
+                        <li>Navigli District – Trendy canalside neighborhood</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Amalfi Coast -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.hadjiyiannis.com.cy/a1a6b65f537394c76aa32cbdc226c9c098f5fade.jpg" alt="Amalfi Coast Positano Colorful Houses" class="city-image">
+            <div class="city-content">
+                <div class="city-header">
+                    <h3 class="city-name">Amalfi Coast</h3>
+                    <span class="location-tag">📍 Southern Italy (Campania)</span>
+                </div>
+                <p class="city-description">
+                    Where mountains meet the sea in dramatic fashion, the Amalfi Coast is Italy's most breathtaking stretch of coastline. Declared a UNESCO World Heritage site, this 50-kilometer ribbon of road clings to cliffs that plunge into the turquoise Mediterranean. Positano, the coast's most photogenic town, cascades down the mountainside in a cascade of pastel-colored houses, boutique hotels, and flowering terraces. Each village along the coast—Amalfi with its magnificent cathedral, Ravello with its cliff-edge gardens, and Praiano with its quiet charm—offers its own unique character. The scent of lemon groves fills the air, and the local limoncello provides a zesty end to every meal. Take a boat trip to discover hidden coves, hike the Path of the Gods for jaw-dropping views, or simply relax with a spritz as the sun sets over the sea. The Amalfi Coast isn't just a destination—it's a state of mind, a place where beauty overwhelms the senses and time seems to slow down.
+                </p>
+                <div class="highlights">
+                    <h4>Must-See Highlights:</h4>
+                    <ul>
+                        <li>Positano – Iconic cliffside village with colorful houses</li>
+                        <li>Amalfi Cathedral – Stunning 9th-century cathedral</li>
+                        <li>Ravello – Beautiful gardens and panoramic views</li>
+                        <li>Path of the Gods – Spectacular hiking trail above the coast</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>"Italy is a dream that keeps returning for the rest of your life."</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Buon viaggio! 🍕🍷</p>
+        </div>
+    </div>
+</body>
+</html>
