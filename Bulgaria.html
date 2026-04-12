@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulgaria Travel Guide: Ancient History and Black Sea Beauty</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flag-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .bulgaria-flag {
+            width: 200px;
+            height: 130px;
+            background: linear-gradient(to bottom, #ffffff 33.33%, #00966e 33.33%, #00966e 66.66%, #d62612 66.66%);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-left: 5px solid #d32f2f;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #b71c1c;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #d32f2f;
+            transition: width 0.3s ease;
+        }
+        
+        h2:hover::after {
+            width: 100%;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+        }
+        
+        .city-image-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-image {
+            transform: scale(1.1);
+        }
+        
+        .location-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(211, 47, 47, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        
+        .city-content {
+            padding: 35px;
+        }
+        
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(120deg, #ffebee 0%, #ffebee 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.4em;
+            background-position: 0 88%;
+            padding: 0 4px;
+            font-weight: 600;
+        }
+        
+        .fact-box {
+            background: linear-gradient(135deg, #00695c 0%, #00897b 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fact-box::before {
+            content: '🇧🇬';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 150px;
+            opacity: 0.1;
+        }
+        
+        .fact-box h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            border-bottom: 1px dashed rgba(255,255,255,0.3);
+        }
+        
+        .tips-list li::before {
+            content: '🏛️';
+            position: absolute;
+            left: 0;
+        }
+        
+        .footer-section {
+            text-align: center;
+            padding: 40px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: #d32f2f;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4);
+        }
+        
+        .cta-button:hover {
+            background: #b71c1c;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(211, 47, 47, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .city-image-container { height: 250px; }
+            .intro-section, .city-content { padding: 25px; }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Discover Bulgaria</h1>
+            <p class="subtitle">Where Ancient History Meets Black Sea Beauty</p>
+            <div class="flag-container">
+                <div class="bulgaria-flag"></div>
+                <p style="margin-top: 15px; font-size: 0.9em;">🇧🇬 Republic of Bulgaria</p>
+            </div>
+        </header>
+
+        <section class="intro-section scroll-reveal">
+            <h2>The Crossroads of Civilizations</h2>
+            <p>Bulgaria, nestled in the heart of the Balkan Peninsula, stands as one of Europe's most fascinating yet underrated destinations. Covering 110,994 square kilometers—roughly the size of Tennessee—this nation of 6.8 million people boasts a history that stretches back over 7,500 years, making it one of the continent's oldest continuously inhabited regions. From ancient Thracian civilizations and Roman emperors to Byzantine glory and Ottoman influence, Bulgaria's cultural layers run deep and complex.</p>
+            
+            <p style="margin-top: 20px;">What makes Bulgaria extraordinary is its remarkable diversity packed into an accessible, affordable package. <span class="highlight-text">The country features everything from snow-capped mountains and golden beaches to ancient theaters and vibrant cities</span>, often at prices that make Western European travelers do a double-take. Whether you're wandering through Roman ruins older than Rome itself, skiing in world-class resorts, or sipping wine in valleys where viticulture predates recorded history, Bulgaria offers authentic experiences without the crowds or costs of better-known destinations. This is Europe as it once was—raw, real, and waiting to be discovered.</p>
+        </section>
+
+        <div class="fact-box scroll-reveal">
+            <h3>🇧🇬 Quick Facts</h3>
+            <ul class="tips-list">
+                <li><strong>Capital:</strong> Sofia (population ~1.2 million)</li>
+                <li><strong>Population:</strong> 6.8 million</li>
+                <li><strong>Official Language:</strong> Bulgarian (Cyrillic script)</li>
+                <li><strong>Currency:</strong> Bulgarian Lev (BGN)</li>
+                <li><strong>Famous For:</strong> Rose oil, yogurt, ancient history, Black Sea resorts</li>
+                <li><strong>UNESCO Sites:</strong> 10 World Heritage Sites including Rila Monastery and Nessebar</li>
+            </ul>
+        </div>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.griven.com/ed351a0d9c68dd8f11b2777dadd010e862739d20.jpg" alt="Sofia Alexander Nevsky Cathedral" class="city-image">
+                <div class="location-badge">📍 42.6977° N, 23.3219° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Sofia: The Dynamic Capital</h3>
+                <p>Sofia captivates visitors with its unique blend of ancient history and youthful energy. Dominating the city center, <span class="highlight-text">the Alexander Nevsky Cathedral</span> stands as one of the world's largest Orthodox churches, its golden domes and intricate mosaics creating an unforgettable silhouette against the Vitosha Mountain backdrop. But Sofia's true magic lies in its layers—Roman ruins sit beside Ottoman mosques, Soviet monuments neighbor trendy cafes, and ancient thermal springs still bubble beneath the streets.</p>
+                
+                <p style="margin-top: 15px;">The city center is wonderfully compact and walkable, with Vitosha Boulevard serving as the main pedestrian artery lined with outdoor cafes and shops. Don't miss the 4th-century St. George Rotunda, Sofia's oldest building, or the stunning National Theatre. Just 30 minutes from the city center, Vitosha Mountain offers hiking trails and ski slopes, making Sofia one of Europe's few capitals where you can hike in the morning and explore museums in the afternoon. The city's food scene is booming, with traditional mehanas serving hearty banitsa and shopska salad alongside innovative restaurants reimagining Bulgarian cuisine.</p>
+            </div>
+        </section>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/freeplovdivtour.com/3fb691d01ecf6a9981b8645ab4ddd2ea2ac327bb.jpg" alt="Plovdiv Roman Theatre" class="city-image">
+                <div class="location-badge">📍 42.1354° N, 24.7453° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Plovdiv: Europe's Ancient Cultural Capital</h3>
+                <p>Plovdiv isn't just Bulgaria's second city—it's one of Europe's oldest continuously inhabited cities, with over 7,500 years of history that predates Troy and Mycenae. The crown jewel is the <span class="highlight-text">Ancient Theatre of Plovdiv</span>, a remarkably preserved Roman amphitheater built in the 1st century AD that still hosts concerts and operas today, with the Rhodope Mountains as a natural backdrop. This alone makes Plovdiv worth the trip, but the city offers so much more.</p>
+                
+                <p style="margin-top: 15px;">The Kapana district ("The Trap") has transformed from a craftsmen's quarter into the city's creative heart, with cobblestone streets lined with galleries, boutique shops, and some of Bulgaria's best restaurants and craft breweries. Plovdiv's Old Town features beautifully preserved 19th-century Bulgarian Revival houses with distinctive painted facades and overhanging upper floors. As the 2019 European Capital of Culture, Plovdiv has invested heavily in its arts scene, making it a hub for contemporary creativity while honoring its ancient roots. The city's laid-back atmosphere, affordable prices, and wealth of history make it a favorite among travelers seeking authentic Balkan experiences.</p>
+            </div>
+        </section>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/e1ec6405e250c032a8231d94cc5a90ec4d28c7df.jpg" alt="Varna Cathedral and Black Sea" class="city-image">
+                <div class="location-badge">📍 43.2141° N, 27.9147° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Varna: The Maritime Capital</h3>
+                <p>Varna serves as Bulgaria's gateway to the Black Sea and offers a compelling mix of beach resort and cultural destination. The city made global headlines with the discovery of the <span class="highlight-text">Varna Necropolis, containing the world's oldest gold treasure dating back to 5,000 BC</span>—now displayed in the excellent Archaeological Museum. The Cathedral of the Assumption of the Virgin dominates the city center with its distinctive golden domes and intricate interior frescoes, while the Sea Garden—the largest landscaped park in the Balkans—provides miles of promenades, beaches, and entertainment.</p>
+                
+                <p style="margin-top: 15px;">As Bulgaria's "sea capital," Varna combines urban sophistication with resort relaxation. The nearby beach resorts of Golden Sands and Sunny Beach draw summer crowds, but Varna itself offers a more authentic experience with its Roman baths, vibrant arts scene, and excellent dining options featuring fresh Black Sea fish. The city's nightlife rivals Sofia's, with beach clubs and cocktail bars staying open until dawn in summer. For a quieter experience, visit the nearby Aladzha Monastery carved into limestone cliffs, or take a boat trip along the coast. Varna proves that Bulgaria's Black Sea coast offers far more than just sun and sand—it's a window into ancient civilizations and contemporary Balkan culture.</p>
+            </div>
+        </section>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/chamurkov.com/c509029e28805bbb602ad95343bf2b3e65ff1897.jpeg" alt="Veliko Tarnovo Tsarevets Fortress" class="city-image">
+                <div class="location-badge">📍 43.0757° N, 25.6172° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Veliko Tarnovo: The City of Tsars</h3>
+                <p>Cascading down three hills above the Yantra River, Veliko Tarnovo captures the imagination like no other Bulgarian city. This was the capital of the Second Bulgarian Empire (12th-14th centuries), and the <span class="highlight-text">Tsarevets Fortress</span> still dominates the skyline with its massive stone walls and the reconstructed Patriarchal Cathedral glowing golden at night. The sound-and-light show that illuminates the fortress after dark transforms the entire city into a magical spectacle that draws visitors from across the region.</p>
+                
+                <p style="margin-top: 15px;">Veliko Tarnovo's charm extends beyond its medieval fortress. The city's houses seem to defy gravity, perched on steep slopes with red-tiled roofs and wooden balconies overhanging the narrow streets. The Samovodska Charshia street preserves traditional crafts, with workshops selling handmade pottery, woodcarvings, and jewelry. Nearby Arbanasi village features fortified churches with elaborate frescoes and mansions that once housed wealthy merchants. The city's dramatic topography creates stunning viewpoints at every turn, while its student population ensures a lively cafe culture and affordable prices. For history enthusiasts and romantics alike, Veliko Tarnovo offers an unforgettable journey into Bulgaria's medieval golden age.</p>
+            </div>
+        </section>
+
+        <section class="intro-section scroll-reveal">
+            <h2>Beyond the Cities</h2>
+            <p>Bulgaria's compact size makes it perfect for combining multiple experiences in a single trip. The Rila Mountains host the UNESCO-listed Rila Monastery, a spiritual center with stunning frescoes and architecture that has drawn pilgrims for centuries. The nearby Seven Rila Lakes offer some of Europe's most beautiful alpine hiking. In winter, ski resorts like Bansko and Pamporovo provide excellent slopes at fraction of Alpine prices, with modern facilities and vibrant après-ski scenes.</p>
+            
+            <p style="margin-top: 20px;">The Valley of Roses produces 70% of the world's rose oil, and the annual Rose Festival in Kazanlak celebrates this heritage with parades and traditional rituals. Bulgaria's wine culture surprises many visitors—the country has been producing wine for over 5,000 years, and regions like Melnik and the Thracian Valley are gaining international recognition for their indigenous grape varieties. Whether you're exploring the ancient Thracian tombs of Kazanlak, hiking in the Pirin National Park, or simply enjoying a sunset over the Black Sea, Bulgaria offers a depth of experience that belies its modest size and reputation. This is a destination that rewards curiosity and promises authentic discoveries at every turn.</p>
+        </section>
+
+        <footer class="footer-section scroll-reveal">
+            <h2 style="color: white; border: none;">Ready to Explore Bulgaria?</h2>
+            <p style="margin: 20px 0; font-size: 1.1em;">Pack your sense of adventure, bring your curiosity, and discover Europe's best-kept secret.</p>
+            <a href="#" class="cta-button">Start Planning Your Trip</a>
+            <p style="margin-top: 30px; opacity: 0.7; font-size: 0.9em;">🇧🇬 Bulgaria awaits • Добре дошли! • Dobre doshli!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
