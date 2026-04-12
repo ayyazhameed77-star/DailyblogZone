@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belgium Travel Guide: A Journey Through the Heart of Europe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flag-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .belgium-flag {
+            width: 200px;
+            height: 130px;
+            background: linear-gradient(to right, #000 33.33%, #FFD700 33.33%, #FFD700 66.66%, #ED2939 66.66%);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3c72;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+            transition: width 0.3s ease;
+        }
+        
+        h2:hover::after {
+            width: 100%;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+        }
+        
+        .city-image-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-image {
+            transform: scale(1.1);
+        }
+        
+        .location-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(231, 76, 60, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        
+        .city-content {
+            padding: 35px;
+        }
+        
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(120deg, #ffeaa7 0%, #ffeaa7 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.4em;
+            background-position: 0 88%;
+            padding: 0 4px;
+            font-weight: 600;
+        }
+        
+        .fact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fact-box::before {
+            content: '🇧🇪';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 150px;
+            opacity: 0.1;
+        }
+        
+        .fact-box h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            border-bottom: 1px dashed rgba(255,255,255,0.3);
+        }
+        
+        .tips-list li::before {
+            content: '✈️';
+            position: absolute;
+            left: 0;
+        }
+        
+        .footer-section {
+            text-align: center;
+            padding: 40px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
+        }
+        
+        .cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(231, 76, 60, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .city-image-container { height: 250px; }
+            .intro-section, .city-content { padding: 25px; }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Discover Belgium</h1>
+            <p class="subtitle">Where Medieval Charm Meets Modern Europe</p>
+            <div class="flag-container">
+                <div class="belgium-flag"></div>
+                <p style="margin-top: 15px; font-size: 0.9em;">🇧🇪 Kingdom of Belgium</p>
+            </div>
+        </header>
+
+        <section class="intro-section scroll-reveal">
+            <h2>The Heart of Europe</h2>
+            <p>Belgium, a compact yet captivating kingdom nestled in Western Europe, packs an extraordinary punch well beyond its modest size. Covering just 30,528 square kilometers—roughly the size of Maryland—this nation of 11.5 million people has been a crossroads of European civilization for centuries. <span class="highlight-text">Gaining independence from the Netherlands in 1830</span>, Belgium has evolved into a sophisticated, multilingual society where Dutch, French, and German intertwine to create a uniquely rich cultural tapestry.</p>
+            
+            <p style="margin-top: 20px;">What makes Belgium truly special is its remarkable ability to blend the old with the new. As the de facto capital of the European Union and NATO headquarters, Brussels buzzes with international diplomacy and modern innovation. Yet just a short train ride away, time seems to stand still in medieval cities where cobblestone streets wind past Gothic cathedrals and romantic canals. The country is divided into three distinct regions: Flanders in the Dutch-speaking north, Wallonia in the French-speaking south, and the bilingual capital region of Brussels—each offering its own distinct flavor and traditions.</p>
+        </section>
+
+        <div class="fact-box scroll-reveal">
+            <h3>🇧🇪 Quick Facts</h3>
+            <ul class="tips-list">
+                <li><strong>Capital:</strong> Brussels (also EU & NATO headquarters)</li>
+                <li><strong>Population:</strong> 11.5 million</li>
+                <li><strong>Official Languages:</strong> Dutch, French, German</li>
+                <li><strong>Currency:</strong> Euro (€)</li>
+                <li><strong>Famous For:</strong> Chocolate, beer, waffles, fries, and comics</li>
+                <li><strong>Best Time to Visit:</strong> April-October for mild weather</li>
+            </ul>
+        </div>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/1c7ea21ab08195c68e8e1b226bf57795bcbe1ea3.jpg" alt="Brussels Grand Place" class="city-image">
+                <div class="location-badge">📍 50.8503° N, 4.3517° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Brussels: The Cosmopolitan Capital</h3>
+                <p>Brussels serves as Belgium's vibrant heart and the administrative center of the European Union. While often criticized for being less "pretty" than its Belgian siblings, the city harbors extraordinary gems that reward curious travelers. The <span class="highlight-text">Grand Place (Grote Markt)</span> stands as one of Europe's most magnificent squares—a UNESCO World Heritage site where opulent guild houses with intricate facades create an almost overwhelming spectacle of gold leaf and Baroque grandeur.</p>
+                
+                <p style="margin-top: 15px;">Beyond the political institutions, Brussels delights with its quirky personality. The famous Manneken Pis statue embodies the city's irreverent humor, while the Art Nouveau architecture of Victor Horta adds artistic elegance to residential streets. Food lovers will find paradise here: Brussels claims to serve the world's best waffles, and its chocolate shops—from Pierre Marcolini to Neuhaus—produce confections that justify the city's reputation as the chocolate capital of the world.</p>
+            </div>
+        </section>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.nordicexperience.com/eb0ca915540e27fc0e6284694bb3aaaf0425b702.jpeg" alt="Bruges Canals" class="city-image">
+                <div class="location-badge">📍 51.2093° N, 3.2247° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Bruges: The Fairytale Venice of the North</h3>
+                <p>If Brussels represents Belgium's modern face, Bruges is its timeless soul. This remarkably preserved medieval city, <span class="highlight-text">entirely designated as a UNESCO World Heritage Site</span>, transports visitors back to the 15th century when Bruges was one of Europe's wealthiest trading centers. The entire historic center feels like an open-air museum, where swans glide along mirror-like canals beneath stone bridges and stepped-gable houses line cobblestone lanes.</p>
+                
+                <p style="margin-top: 15px;">Often called the "Venice of the North," Bruges enchants with its romantic atmosphere. Take a boat tour through the canals at sunset, climb the 366 steps of the Belfry for panoramic views, or visit the Church of Our Lady to see Michelangelo's Madonna and Child—the only sculpture by the master to leave Italy during his lifetime. Despite the tourist crowds, Bruges retains an undeniable magic, especially in winter when Christmas markets illuminate the Markt square or in spring when daffodils bloom along the waterways.</p>
+            </div>
+        </section>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/visit.gent.be/b7c3f31cb4801f5fc6a974ea9656d19e18c9a515.jpg" alt="Ghent Historic Center" class="city-image">
+                <div class="location-badge">📍 51.0543° N, 3.7174° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Ghent: Where History Meets Youthful Energy</h3>
+                <p>Ghent offers the perfect middle ground between Brussels' urban bustle and Bruges' museum-like preservation. As home to one of Belgium's largest universities, Ghent pulses with youthful energy that animates its medieval bones. The city's skyline is dominated by the "Three Towers"—St. Nicholas' Church, the Belfry, and St. Bavo's Cathedral—creating one of Europe's most distinctive cityscapes.</p>
+                
+                <p style="margin-top: 15px;">What sets Ghent apart is its vibrant, lived-in atmosphere. The Graslei and Korenlei quays along the Lys River buzz with students enjoying craft beers at canal-side cafes, while the imposing Gravensteen Castle (Castle of the Counts) offers a glimpse into medieval power structures. Don't miss the Adoration of the Mystic Lamb altarpiece by the Van Eyck brothers in St. Bavo's Cathedral—a masterpiece of Early Netherlandish painting. Ghent also pioneered vegetarian dining in Belgium and hosts one of Europe's largest music festivals, proving that historic cities can be thoroughly modern.</p>
+            </div>
+        </section>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/static.vecteezy.com/f5b28568661de7ed82e40dbd7df019b8c7a41421.jpg" alt="Antwerp Cathedral and Port" class="city-image">
+                <div class="location-badge">📍 51.2194° N, 4.4025° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Antwerp: The Diamond of Flanders</h3>
+                <p>Antwerp combines historic grandeur with cutting-edge cool, making it a favorite among return visitors to Belgium. As Europe's second-largest port and the world's diamond trading capital, the city has always been outward-looking and cosmopolitan. The Cathedral of Our Lady dominates the skyline with its 123-meter spire—the tallest in the Low Countries—while housing an extraordinary collection of Rubens paintings.</p>
+                
+                <p style="margin-top: 15px;">But Antwerp isn't stuck in the past. The city is a global fashion capital, home to the Royal Academy of Fine Arts that launched the careers of the "Antwerp Six" designers. The MAS Museum (Museum aan de Stroom) offers contemporary architecture and rooftop views, while the trendy Zuid district brims with art galleries and innovative restaurants. Fashionistas browse the boutiques of Nationalestraat, and nightlife enthusiasts find their groove in the former docklands. Antwerp proves that Belgium's cities each possess distinct personalities—this one confident, creative, and effortlessly stylish.</p>
+            </div>
+        </section>
+
+        <section class="intro-section scroll-reveal">
+            <h2>Beyond the Cities</h2>
+            <p>While Belgium's urban centers captivate, the countryside offers its own rewards. The Ardennes region in the southeast presents rolling forests, dramatic rock formations, and charming villages like Durbuy—officially the world's smallest city. The Belgian coast, though brief at 66 kilometers, features elegant Belle Époque resorts like Ostend and De Haan. And no visit is complete without sampling the country's liquid gold: Belgium produces over 1,500 varieties of beer, many brewed by Trappist monks using centuries-old traditions.</p>
+            
+            <p style="margin-top: 20px;">Belgium's compact size makes it perfect for multi-city itineraries. High-speed trains connect Brussels to Bruges in under an hour, Ghent in 30 minutes, and Antwerp in 45 minutes. Whether you're savoring pralines in a Grand Place cafe, cycling along canal paths, or raising a glass of lambic beer in a traditional brasserie, Belgium delivers an intensity of experience that belies its small stature. This is a country that understands the art of living well—and invites you to join the celebration.</p>
+        </section>
+
+        <footer class="footer-section scroll-reveal">
+            <h2 style="color: white; border: none;">Ready to Explore Belgium?</h2>
+            <p style="margin: 20px 0; font-size: 1.1em;">Pack your bags, bring your appetite, and prepare for medieval magic in the heart of Europe.</p>
+            <a href="#" class="cta-button">Start Planning Your Trip</a>
+            <p style="margin-top: 30px; opacity: 0.7; font-size: 0.9em;">🇧🇪 Belgium awaits • Bon voyage! • Goede reis!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
