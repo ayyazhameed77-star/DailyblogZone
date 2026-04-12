@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greece Travel Guide: Where Ancient Myths Meet Azure Seas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flag-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .greece-flag {
+            width: 200px;
+            height: 130px;
+            background: repeating-linear-gradient(
+                to bottom,
+                #0d5eaf 0px,
+                #0d5eaf 14.28px,
+                #ffffff 14.28px,
+                #ffffff 28.56px
+            );
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .greece-flag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 56px;
+            height: 71.4px;
+            background: #0d5eaf;
+        }
+        
+        .intro-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-left: 5px solid #1565c0;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #0d47a1;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #1565c0;
+            transition: width 0.3s ease;
+        }
+        
+        h2:hover::after {
+            width: 100%;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+        }
+        
+        .city-image-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-image {
+            transform: scale(1.1);
+        }
+        
+        .location-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(21, 101, 192, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        
+        .city-content {
+            padding: 35px;
+        }
+        
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(120deg, #e3f2fd 0%, #e3f2fd 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.4em;
+            background-position: 0 88%;
+            padding: 0 4px;
+            font-weight: 600;
+        }
+        
+        .fact-box {
+            background: linear-gradient(135deg, #00695c 0%, #00897b 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fact-box::before {
+            content: '🇬🇷';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 150px;
+            opacity: 0.1;
+        }
+        
+        .fact-box h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            border-bottom: 1px dashed rgba(255,255,255,0.3);
+        }
+        
+        .tips-list li::before {
+            content: '🏛️';
+            position: absolute;
+            left: 0;
+        }
+        
+        .footer-section {
+            text-align: center;
+            padding: 40px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: #1565c0;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(21, 101, 192, 0.4);
+        }
+        
+        .cta-button:hover {
+            background: #0d47a1;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(21, 101, 192, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .city-image-container { height: 250px; }
+            .intro-section, .city-content { padding: 25px; }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Discover Greece</h1>
+            <p class="subtitle">Where Ancient Myths Meet Azure Seas</p>
+            <div class="flag-container">
+                <div class="greece-flag"></div>
+                <p style="margin-top: 15px; font-size: 0.9em;">🇬🇷 Hellenic Republic</p>
+            </div>
+        </header>
+
+        <section class="intro-section scroll-reveal">
+            <h2>The Cradle of Western Civilization</h2>
+            <p>Greece, officially the Hellenic Republic, stands as the birthplace of democracy, philosophy, theater, and the Olympic Games. Located at the crossroads of Europe, Asia, and Africa, this nation of approximately 10.4 million people occupies a strategic position in the eastern Mediterranean. <span class="highlight-text">With over 7,500 years of continuous habitation</span>, Greece's influence on Western civilization cannot be overstated—from the mathematical theories of Pythagoras to the dramatic tragedies of Sophocles, from the architectural perfection of the Parthenon to the democratic ideals that still shape modern governance.</p>
+            
+            <p style="margin-top: 20px;">What makes Greece extraordinary is its remarkable diversity within a compact space. The country comprises more than 6,000 islands and islets, of which approximately 227 are inhabited, creating an archipelago that stretches across the Aegean, Ionian, and Mediterranean Seas. From the snow-capped peaks of Mount Olympus—the mythical home of the gods—to the volcanic calderas of Santorini, from ancient oracle sites at Delphi to vibrant street art in Athens, Greece offers layers of experience that reward curious travelers. Whether you're tracing the footsteps of Socrates, sailing between hidden coves, or simply savoring fresh seafood at a waterfront taverna, Greece promises an unforgettable journey through history, culture, and natural beauty.</p>
+        </section>
+
+        <div class="fact-box scroll-reveal">
+            <h3>🇬🇷 Quick Facts</h3>
+            <ul class="tips-list">
+                <li><strong>Capital:</strong> Athens (population ~3.8 million metro area)</li>
+                <li><strong>Population:</strong> 10.4 million</li>
+                <li><strong>Official Language:</strong> Greek</li>
+                <li><strong>Currency:</strong> Euro (€) - adopted 2002</li>
+                <li><strong>Famous For:</strong> Ancient ruins, islands, Mediterranean cuisine, philosophy</li>
+                <li><strong>UNESCO Sites:</strong> 18 World Heritage Sites including the Acropolis and Delphi</li>
+            </ul>
+        </div>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/images.contentstack.io/d4f4c12395a2c692e5d2f132b584ace5a3ac04e1.jpg" alt="Athens Acropolis and Parthenon" class="city-image">
+                <div class="location-badge">📍 37.9838° N, 23.7275° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Athens: The Birthplace of Democracy</h3>
+                <p>Athens stands as one of the world's oldest continuously inhabited cities, with a recorded history spanning over 3,400 years. The city reached its golden age in the 5th century BC under Pericles, when the <span class="highlight-text">Parthenon was constructed atop the Acropolis</span>—a hilltop citadel that remains the most iconic symbol of ancient Greece. Today, the Acropolis dominates Athens' skyline, its marble columns glowing golden at sunset while the modern city bustles below. The nearby Acropolis Museum houses extraordinary artifacts, including the original Caryatids from the Erechtheion temple.</p>
+                
+                <p style="margin-top: 15px;">But Athens is far from a museum piece. Neighborhoods like Plaka and Monastiraki offer winding lanes lined with bougainvillea-draped tavernas and artisan shops, while areas like Psiri and Gazi showcase the city's vibrant street art and nightlife scenes. The National Archaeological Museum ranks among the world's finest, housing treasures from across Greece including the Mask of Agamemnon. For a local experience, hike Lycabettus Hill for panoramic views, explore the Central Market on Athinas Street, or take a day trip to the Temple of Poseidon at Sounion, where ancient Greeks watched ships approach from the Aegean.</p>
+            </div>
+        </section>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.thireasuites.com/8b7107f551f764bbfd6921252d34a6936919e2b4.jpg" alt="Santorini Blue Domes and Caldera" class="city-image">
+                <div class="location-badge">📍 36.3932° N, 25.4615° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Santorini: The Volcanic Jewel</h3>
+                <p>Santorini captures the imagination like few places on Earth. This crescent-shaped island is essentially the rim of an enormous volcano that erupted around 1600 BC—an event that may have inspired the legend of Atlantis. The caldera, now filled with the deep blue Aegean Sea, creates one of the most dramatic backdrops in the Mediterranean. <span class="highlight-text">The village of Oia, perched on the northern cliffs, is famous for its blue-domed churches and whitewashed buildings</span> that cascade down the volcanic rock face, creating the quintessential Greek island image seen on countless postcards.</p>
+                
+                <p style="margin-top: 15px;">Beyond the iconic sunsets, Santorini offers remarkable depth. The ancient site of Akrotiri preserves a Minoan town buried by volcanic ash, with multi-story buildings, frescoes, and advanced drainage systems that rival Pompeii. The island's volcanic soil produces distinctive wines, particularly the crisp, mineral Assyrtiko whites grown in basket-shaped vines. Red, white, and black sand beaches offer variety along the coast, while the capital Fira buzzes with restaurants, bars, and boutiques. Whether you're sailing into the caldera at dawn, wine-tasting at a cliffside vineyard, or simply watching the sun sink into the sea from a terrace in Oia, Santorini delivers moments of pure magic.</p>
+            </div>
+        </section>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.greeka.com/cc9e9a112801bca16f45bb5065c896b179fa093f.jpg" alt="Thessaloniki White Tower" class="city-image">
+                <div class="location-badge">📍 40.6401° N, 22.9444° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Thessaloniki: The Cultural Capital</h3>
+                <p>Greece's second city, Thessaloniki, offers a compelling alternative to Athens with its own distinct character and 15 UNESCO World Heritage sites. Founded in 315 BC by Cassander of Macedon and named after Alexander the Great's half-sister, the city has served as a crucial Byzantine trading hub for millennia. <span class="highlight-text">The White Tower, a 15th-century Ottoman fortification on the waterfront</span>, has become the city's symbol and now houses a museum tracing Thessaloniki's complex history through Roman, Byzantine, Ottoman, and modern Greek periods.</p>
+                
+                <p style="margin-top: 15px;">Thessaloniki's charm lies in its walkability and vibrant street life. The waterfront promenade stretches for kilometers, perfect for evening strolls, while the Upper Town (Ano Poli) preserves traditional Ottoman-era houses and offers panoramic views. The Rotunda, originally built as a Roman mausoleum, later became a church and then a mosque, its walls covered in stunning Byzantine mosaics. The city's food scene is legendary—Thessaloniki claims to have more cafes per capita than any other European city, and specialties like bougatsa (cream-filled pastry) and koulouri (sesame bread rings) reflect its multicultural heritage. With Mount Olympus visible on clear days and the royal tombs of Vergina nearby, Thessaloniki serves as an excellent base for exploring northern Greece.</p>
+            </div>
+        </section>
+
+        <section class="city-card scroll-reveal">
+            <div class="city-image-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/creti.co/6e49e9e4c9f419cc3e3625f7785f47a667ef44a5.jpg" alt="Chania Venetian Harbor" class="city-image">
+                <div class="location-badge">📍 35.5138° N, 24.0180° E</div>
+            </div>
+            <div class="city-content">
+                <h3>Chania: Crete's Venetian Jewel</h3>
+                <p>Chania, the second-largest city on Crete—Greece's largest island—enchants visitors with its perfectly preserved Venetian harbor and labyrinthine old town. The harbor, built during Crete's Venetian period (1204-1669), features a distinctive lighthouse and waterfront promenade lined with cafes and restaurants housed in restored Venetian and Ottoman buildings. <span class="highlight-text">The old town is a maze of narrow alleys where medieval architecture meets modern Greek life</span>, with artisan workshops, boutique hotels, and family tavernas tucked behind every corner.</p>
+                
+                <p style="margin-top: 15px;">Crete itself is a world apart, with its own distinct culture, music, and cuisine that reflect centuries of independence and resistance. Beyond Chania, the island offers extraordinary diversity: the Samaria Gorge, one of Europe's longest canyons; the Palace of Knossos, center of the ancient Minoan civilization; and beaches ranging from the pink sands of Elafonisi to the palm forest of Vai. Cretan cuisine, emphasizing fresh olive oil, wild greens, and local cheeses, forms the basis of the celebrated Mediterranean diet. Whether you're exploring the archaeological museum in Heraklion, hiking through mountain villages where time seems to stand still, or simply enjoying raki (local grappa) with locals at a harbor-side table, Crete offers an authentic Greek experience that lingers long after you leave.</p>
+            </div>
+        </section>
+
+        <section class="intro-section scroll-reveal">
+            <h2>Beyond the Icons</h2>
+            <p>Greece's true magic often lies in its lesser-known corners. The monasteries of Meteora, perched atop towering sandstone pillars in central Greece, create one of Europe's most surreal landscapes. The Peloponnese peninsula harbors ancient sites like Mycenae and Epidaurus, where the theater's acoustics remain perfect after 2,400 years. Islands like Naxos, Paros, and Milos offer the beauty of Santorini and Mykonos without the crowds, while the Zagori region in northern Greece features stone villages and arched bridges in a landscape of deep gorges and dense forests.</p>
+            
+            <p style="margin-top: 20px;">Greek hospitality—philoxenia, or "friend to strangers"—remains a genuine cultural value, not just a tourism slogan. Whether you're invited to share homemade tsipouro in a mountain village, welcomed into a family's Easter celebration, or simply greeted with warmth at a local taverna, Greeks take pride in sharing their country with visitors. The best advice for traveling in Greece is to embrace the slow pace, linger over meals, and allow time for unexpected discoveries. From ancient theaters still hosting performances under the stars to hidden beaches accessible only by boat, from mountain monasteries to island vineyards, Greece rewards those who approach it with curiosity and an open heart. This is a country where the past is never far from the present, and where every sunset feels like a gift from the gods.</p>
+        </section>
+
+        <footer class="footer-section scroll-reveal">
+            <h2 style="color: white; border: none;">Ready to Explore Greece?</h2>
+            <p style="margin: 20px 0; font-size: 1.1em;">Pack your sense of wonder, bring your appetite for adventure, and prepare for the journey of a lifetime.</p>
+            <a href="#" class="cta-button">Start Planning Your Trip</a>
+            <p style="margin-top: 30px; opacity: 0.7; font-size: 0.9em;">🇬🇷 Greece awaits • Καλώς ήρθες! • Kalos irthes!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
