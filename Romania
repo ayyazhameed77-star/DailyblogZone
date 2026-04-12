@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romania: Where Legends Meet Landscapes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #002B7F;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: #CE1126;
+            font-size: 2.7em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .subtitle {
+            color: #666;
+            font-style: italic;
+            font-size: 1.2em;
+        }
+        .flag-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        .flag {
+            width: 240px;
+            height: 160px;
+            margin: 0 auto 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background: linear-gradient(to right, #002B7F 33%, #FCD116 33%, #FCD116 66%, #CE1126 66%);
+        }
+        .city-section {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+        .city-section:hover {
+            transform: translateY(-3px);
+        }
+        h2 {
+            color: #CE1126;
+            border-left: 5px solid #002B7F;
+            padding-left: 15px;
+            font-size: 1.9em;
+            margin-top: 0;
+        }
+        .location-tag {
+            display: inline-block;
+            background: #002B7F;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .city-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+        .intro {
+            font-size: 1.1em;
+            background: linear-gradient(135deg, #002B7F 0%, #001a4d 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+        }
+        .fun-fact {
+            background: #fff8dc;
+            border-left: 5px solid #FCD116;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .conclusion {
+            background: linear-gradient(135deg, #CE1126 0%, #8B0000 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .image-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🇷🇴 Romania</h1>
+    <p class="subtitle">Where Legends Meet Landscapes</p>
+</div>
+
+<div class="flag-section">
+    <div class="flag"></div>
+    <p><strong>The Romanian Flag</strong> — A vertical tricolor of blue, yellow, and red, these colors have deep historical roots in Romanian identity. The blue represents liberty and the sky over the Carpathian Mountains, yellow symbolizes justice and the country's wealth of grain fields, while red stands for fraternity and the blood spilled for independence. These colors were first used together during the 1848 revolution against Ottoman rule, inspired by the French revolutionary tricolor. The current design was officially adopted in 1989 after the fall of communism, though the colors themselves have represented Romanian lands for centuries.</p>
+</div>
+
+<div class="intro">
+    <p>Welcome to Romania — <em>România</em> — a land of dramatic contrasts where misty Carpathian peaks give way to rolling plains, where medieval castles perch on rocky crags, and where ancient traditions thrive alongside vibrant modern cities. This southeastern European gem, tucked between the Black Sea and the Carpathian Mountains, is a country that defies expectations and rewards the curious traveler with experiences found nowhere else.</p>
+    
+    <p>Romania is the land of Dracula — yes, Bram Stoker's famous vampire was inspired by the real Vlad the Impaler, a 15th-century prince who ruled Wallachia. But beyond the Gothic legends lies a country of warm hospitality, rich folklore, and stunning natural beauty. It's home to the largest population of brown bears in Europe outside Russia, the spectacular Danube Delta (a UNESCO biosphere reserve), and the last truly wild forests on the continent. From the painted monasteries of Bucovina to the Saxon villages of Transylvania, Romania offers an authentic European experience that feels like stepping back in time while moving forward.</p>
+</div>
+
+<div class="city-section">
+    <span class="location-tag">📍 Capital City — 44.4268° N, 26.1025° E</span>
+    <h2>Bucharest: The Little Paris of the East</h2>
+    
+    <img src="https://kimi-web-img.moonshot.cn/img/image-tc.galaxy.tf/5721323abc880c4e7e21169a39a5e607415f3b5f.jpg" alt="Palace of Parliament Bucharest" class="city-image">
+    <p class="image-caption">The Palace of Parliament — the world's heaviest building and second-largest administrative building</p>
+    
+    <p>Bucharest is a city of contradictions that somehow work together beautifully. Once nicknamed "Little Paris" for its Belle Époque architecture and French-inspired boulevards, the Romanian capital wears its complex history on its sleeve. The city's most striking feature is the Palace of Parliament — a colossal monument to communist excess ordered by Nicolae Ceaușescu. With 1,100 rooms, 12 stories high, and weighing over 4 million tons, it's the heaviest building in the world and the second-largest administrative building after the Pentagon.</p>
+    
+    <p>But Bucharest isn't defined by its communist past. The Old Town (<em>Centrul Vechi</em>) has transformed into a vibrant hub of cobblestone streets, outdoor cafes, and buzzing nightlife. The Romanian Athenaeum concert hall rivals Vienna's finest, while the Village Museum offers a fascinating open-air journey through traditional Romanian architecture. Tree-lined boulevards like Calea Victoriei showcase elegant 19th-century palaces, and the city's parks — particularly Herăstrău and Cișmigiu — provide green oases perfect for escaping the urban bustle.</p>
+    
+    <div class="fun-fact">
+        💡 <strong>Did you know?</strong> The Palace of Parliament was built using only Romanian materials — from the marble and crystal to the carpets and curtains. It's so massive that it sinks 6mm each year under its own weight!
+    </div>
+</div>
+
+<div class="city-section">
+    <span class="location-tag">📍 Transylvania — 45.6580° N, 25.6012° E</span>
+    <h2>Brașov: Gateway to Dracula's Realm</h2>
+    
+    <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/8005bb882acfa1bce43803d0f3e21a88920d4607.jpg" alt="Black Church Brasov" class="city-image">
+    <p class="image-caption">The Black Church, the largest Gothic church in Romania</p>
+    
+    <p>Brașov sits at the foot of the Carpathian Mountains like a medieval jewel, its Gothic spires and Baroque buildings framed by forested peaks. The city's Council Square (<em>Piața Sfatului</i>) is one of Europe's most beautiful medieval squares, dominated by the Black Church — so named because a 17th-century fire blackened its walls. This is the largest Gothic church in Romania and houses an impressive collection of Turkish carpets gifted by merchants who traded with the Ottoman Empire.</p>
+    
+    <p>But Brașov's real magic lies in its surroundings. Bran Castle — marketed as "Dracula's Castle" — sits just 30 kilometers away, a dramatic fortress perched on a rocky outcrop. The nearby Peleș Castle in Sinaia is a neo-Renaissance masterpiece that served as the summer residence of Romania's royal family. In winter, Poiana Brașov becomes Romania's premier ski resort, while summer offers hiking trails through pristine forests where bears and wolves still roam. The city's German name, Kronstadt (Crown City), reflects its history as a key settlement of the Transylvanian Saxons who built seven walled citadels in the region.</p>
+</div>
+
+<div class="city-section">
+    <span class="location-tag">📍 Transylvania — 45.7936° N, 24.1213° E</span>
+    <h2>Sibiu: European Capital of Culture</h2>
+    
+    <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/7c59bf7b829b1b65bd4272b2eb8d97d9ff9f941f.jpg" alt="Sibiu Old Town" class="city-image">
+    <p class="image-caption">Colorful medieval houses in Sibiu's old town</p>
+    
+    <p>Sibiu is arguably Romania's most charming city — and that's saying something. Named European Capital of Culture in 2007, this former Saxon stronghold features one of the best-preserved medieval centers in Europe. The city's signature feature? The "eyes of Sibiu" — small attic windows in the roofs of old houses that seem to watch you as you wander the cobblestone streets. It's delightfully quirky and slightly surreal.</p>
+    
+    <p>The Grand Square (<em>Piața Mare</em>) is surrounded by colorful baroque buildings, while the Brukenthal National Museum — housed in a palace built by the Habsburg governor — holds one of Romania's finest art collections. Cross the Bridge of Lies (legend says it collapses if you tell a fib while crossing) into the Lower Town, where medieval towers and fortified churches create a fairy-tale atmosphere. Sibiu is also the gateway to the Făgăraș Mountains and the Transfăgărășan Highway — dubbed "the best road in the world" by Top Gear — which winds through spectacular alpine scenery.</p>
+</div>
+
+<div class="city-section">
+    <span class="location-tag">📍 Transylvania — 46.7712° N, 23.6236° E</span>
+    <h2>Cluj-Napoca: The Youthful Heart of Transylvania</h2>
+    
+    <img src="https://kimi-web-img.moonshot.cn/img/roamingromania.com/a141f08eaeee7d3b2754297ffee027072e41c5a0.jpg" alt="St Michael Church Cluj" class="city-image">
+    <p class="caption">St. Michael's Church and the Matthias Corvinus Statue in Union Square</p>
+    
+    <p>Cluj-Napoca is Romania's unofficial second capital and its most dynamic city. Home to the country's largest university, Cluj pulses with youthful energy, cutting-edge art scenes, and a festival culture that rivals much larger European cities. The city center revolves around Union Square (<em>Piața Unirii</em>), dominated by the stunning St. Michael's Church — a Gothic masterpiece built over 200 years and one of the finest examples of ecclesiastical architecture in Transylvania.</p>
+    
+    <p>What sets Cluj apart is its perfect balance of history and modernity. You can explore medieval fortifications in the morning, visit contemporary art galleries in the afternoon, and dance at electronic music festivals by night. The city hosts Untold Festival, one of Europe's largest music festivals, transforming the city into a massive party each August. Yet Cluj never loses its soul — traditional Hungarian and Romanian cultures coexist harmoniously, reflected in the bilingual street signs and diverse culinary scene. The nearby Apuseni Mountains offer spectacular caving opportunities, including the Scarisoara Ice Cave with its 3,500-year-old glacier.</p>
+</div>
+
+<div class="conclusion">
+    <h2>Why Romania Will Captivate You</h2>
+    <p>Romania is Europe's best-kept secret — a country where you can still find authentic village life, where shepherds tend flocks on mountain slopes as they have for centuries, and where hospitality isn't just a word but a way of life. It's affordable, diverse, and surprisingly accessible, offering everything from Black Sea beaches to alpine hiking, from vibrant cities to medieval towns seemingly frozen in time.</p>
+    
+    <p>The food is hearty and delicious — try <em>sarmale</em> (cabbage rolls), <em>mămăligă</em> (polenta), and the famous <em>cozonac</em> sweet bread. The wine is excellent and underrated (Romania is one of Europe's largest wine producers). And the people? They'll welcome you with open arms, eager to share their country's treasures.</p>
+    
+    <p>Whether you're seeking Dracula's legend, pristine wilderness, or simply an authentic European adventure without the crowds, Romania delivers. Come with an open mind and leave with a full heart.</p>
+    
+    <p style="margin-top: 20px; font-size: 1.2em;">🧛 <em>Bun venit în România!</em> (Welcome to Romania!) 🇷🇴</p>
+</div>
+
+</body>
+</html>
