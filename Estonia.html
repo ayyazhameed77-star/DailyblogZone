@@ -1,0 +1,1886 @@
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estonia Travel Guide - Discover the Digital Nordic Gem</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Serif 4', serif;
+            background-color: #f7f5f0;
+            color: #2a2a2a;
+            line-height: 1.85;
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 750px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(160deg, #0072CE 0%, #004A9F 30%, #001a3a 60%, #000d1f 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1560969184-10fe8719e047?w=1600') center/cover no-repeat;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(transparent, #f7f5f0);
+            z-index: 2;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { width: 300px; height: 300px; top: 10%; left: -5%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 200px; height: 200px; top: 60%; right: -3%; animation-delay: 3s; }
+        .particle:nth-child(3) { width: 150px; height: 150px; bottom: 20%; left: 20%; animation-delay: 6s; }
+        .particle:nth-child(4) { width: 250px; height: 250px; top: 30%; right: 15%; animation-delay: 9s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
+            50% { transform: translateY(-30px) rotate(5deg); opacity: 0.15; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            padding: 20px;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .hero-flag-emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            font-weight: 900;
+            text-shadow: 3px 4px 10px rgba(0,0,0,0.5);
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+            line-height: 1.05;
+        }
+
+        .hero-content .hero-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 28px;
+        }
+
+        .hero-content .tagline {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.8;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.9;
+            font-style: italic;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 65px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            animation: scrollBounce 2.5s infinite;
+        }
+
+        .hero-scroll span {
+            display: block;
+            margin-top: 8px;
+            font-size: 1.2rem;
+        }
+
+        @keyframes scrollBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-12px); }
+            60% { transform: translateX(-50%) translateY(-6px); }
+        }
+
+        /* ===== SECTION LABELS ===== */
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #0072CE;
+            margin-bottom: 10px;
+        }
+
+        /* ===== FLAG SECTION ===== */
+        .flag-section {
+            background: #ffffff;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .flag-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #001a3a;
+            margin-bottom: 40px;
+        }
+
+        .flag-visual {
+            width: 440px;
+            height: 282px;
+            margin: 0 auto 45px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flag-stripe-est {
+            flex: 1;
+        }
+
+        .flag-blue { background-color: #0072CE; }
+        .flag-black { background-color: #000000; }
+        .flag-white-est { background-color: #FFFFFF; }
+
+        .flag-colors-grid {
+            max-width: 780px;
+            margin: 0 auto 35px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .flag-color-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: #f9f8f5;
+            border-radius: 14px;
+        }
+
+        .color-circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .flag-color-item h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #001a3a;
+            margin-bottom: 6px;
+        }
+
+        .flag-color-item p {
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .flag-history {
+            max-width: 780px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #e8f2fd, #dfeefb);
+            padding: 32px 35px;
+            border-radius: 16px;
+            border-left: 6px solid #0072CE;
+            font-size: 1.02rem;
+            color: #333;
+            line-height: 1.9;
+            text-align: left;
+        }
+
+        /* ===== COUNTRY BACKGROUND ===== */
+        .country-bg {
+            background: linear-gradient(160deg, #001a3a 0%, #00264d 40%, #003366 70%, #001a3a 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .country-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,114,206,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .country-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(0,114,206,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .country-bg .section-label {
+            color: #66b3ff;
+            text-align: center;
+            display: block;
+        }
+
+        .country-bg h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .country-bg p {
+            font-size: 1.08rem;
+            line-height: 2.05;
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 18px;
+            margin-top: 55px;
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
+            padding: 28px 18px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.12);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .info-card .icon {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+
+        .info-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            opacity: 0.65;
+        }
+
+        .info-card p {
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        /* ===== DIGITAL ESTONIA SECTION ===== */
+        .digital-section {
+            background: #f0f7ff;
+            padding: 90px 20px;
+        }
+
+        .digital-section .section-label {
+            text-align: center;
+            display: block;
+        }
+
+        .digital-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #001a3a;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .digital-grid {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .digital-card {
+            background: white;
+            padding: 35px 28px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            text-align: center;
+            border: 1px solid #e8f0fa;
+        }
+
+        .digital-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 50px rgba(0,114,206,0.12);
+            border-color: #0072CE;
+        }
+
+        .digital-card .d-icon {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .digital-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #001a3a;
+            margin-bottom: 10px;
+        }
+
+        .digital-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* ===== BLOG CONTENT ===== */
+        .blog-content {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        .blog-content .section-label {
+            text-align: center;
+            display: block;
+        }
+
+        .blog-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #001a3a;
+            margin-bottom: 32px;
+            text-align: center;
+            line-height: 1.25;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 2.1;
+            margin-bottom: 24px;
+            color: #3a3a3a;
+            text-align: justify;
+        }
+
+        .blog-content .drop-cap::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            float: left;
+            line-height: 0.72;
+            margin-right: 14px;
+            margin-top: 8px;
+            color: #0072CE;
+            font-weight: 900;
+        }
+
+        .quote-block {
+            background: linear-gradient(135deg, #e8f2fd, #dfeefb);
+            padding: 38px 42px;
+            border-radius: 18px;
+            margin: 38px 0;
+            border-left: 6px solid #0072CE;
+            position: relative;
+        }
+
+        .quote-block::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            color: #0072CE;
+            opacity: 0.12;
+            position: absolute;
+            top: 2px;
+            left: 18px;
+            line-height: 1;
+        }
+
+        .quote-block p {
+            font-style: italic;
+            font-size: 1.18rem;
+            color: #1a3a5c;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .quote-block .quote-author {
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 500;
+        }
+
+        .blog-highlight-box {
+            background: white;
+            border: 2px solid #0072CE;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 35px 0;
+            text-align: center;
+        }
+
+        .blog-highlight-box h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #0072CE;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .blog-highlight-box p {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        /* ===== FAMOUS CITIES ===== */
+        .cities-section {
+            padding: 100px 20px;
+            background: #efeae2;
+        }
+
+        .cities-section .section-label {
+            text-align: center;
+            display: block;
+        }
+
+        .cities-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            color: #001a3a;
+            margin-bottom: 10px;
+        }
+
+        .cities-section .section-subtitle {
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 65px;
+            font-weight: 400;
+        }
+
+        .city-card {
+            max-width: 1080px;
+            margin: 0 auto 55px;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.07);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            transition: all 0.4s ease;
+        }
+
+        .city-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 65px rgba(0,0,0,0.14);
+        }
+
+        .city-card.reverse .city-image-container { order: 2; }
+        .city-card.reverse .city-content { order: 1; }
+
+        .city-image-container {
+            position: relative;
+            min-height: 440px;
+            overflow: hidden;
+        }
+
+        .city-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .city-card:hover .city-image-container img {
+            transform: scale(1.07);
+        }
+
+        .city-number {
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            background: #0072CE;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 5px 18px rgba(0,114,206,0.4);
+            z-index: 2;
+        }
+
+        .location-badge {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            right: 18px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: #001a3a;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .location-badge .pin-icon {
+            color: #0072CE;
+            font-size: 1rem;
+        }
+
+        .city-content {
+            padding: 42px 38px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .city-content .city-region {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #0072CE;
+            margin-bottom: 6px;
+        }
+
+        .city-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            color: #001a3a;
+            margin-bottom: 6px;
+            line-height: 1.15;
+        }
+
+        .city-content .estonian-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #0072CE;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .city-content p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.88;
+            margin-bottom: 18px;
+        }
+
+        .city-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .highlight-tag {
+            background: #e8f2fd;
+            color: #0058a3;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.73rem;
+            font-weight: 500;
+            border: 1px solid #cde3f8;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-tag:hover {
+            background: #0072CE;
+            color: white;
+            border-color: #0072CE;
+        }
+
+        /* ===== BEAUTIFUL PLACES ===== */
+        .beautiful-section {
+            background: #ffffff;
+            padding: 100px 20px;
+        }
+
+        .beautiful-section .section-label {
+            text-align: center;
+            display: block;
+        }
+
+        .beautiful-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            color: #001a3a;
+            margin-bottom: 10px;
+        }
+
+        .beautiful-section .section-subtitle {
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 60px;
+        }
+
+        .beauty-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: auto;
+            gap: 22px;
+        }
+
+        .beauty-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            transition: all 0.45s ease;
+            height: 420px;
+        }
+
+        .beauty-card.tall {
+            grid-row: span 2;
+            height: auto;
+        }
+
+        .beauty-card.wide {
+            grid-column: span 2;
+        }
+
+        .beauty-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.18);
+        }
+
+        .beauty-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .beauty-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .beauty-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.88));
+            padding: 55px 25px 28px;
+            color: white;
+            transition: padding 0.3s ease;
+        }
+
+        .beauty-card:hover .beauty-overlay {
+            padding-bottom: 35px;
+        }
+
+        .beauty-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+
+        .beauty-overlay .beauty-location {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            opacity: 0.7;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .beauty-overlay p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.88;
+        }
+
+        /* ===== SEASONS SECTION ===== */
+        .seasons-section {
+            background: #f7f5f0;
+            padding: 90px 20px;
+        }
+
+        .seasons-section .section-label {
+            text-align: center;
+            display: block;
+        }
+
+        .seasons-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #001a3a;
+            margin-bottom: 50px;
+        }
+
+        .seasons-grid {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .season-card {
+            background: white;
+            border-radius: 18px;
+            padding: 35px 22px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .season-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+        }
+
+        .season-card.spring { border-top-color: #4CAF50; }
+        .season-card.summer { border-top-color: #FFB300; }
+        .season-card.autumn { border-top-color: #E65100; }
+        .season-card.winter { border-top-color: #0072CE; }
+
+        .season-card .season-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .season-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #001a3a;
+            margin-bottom: 5px;
+        }
+
+        .season-card .season-months {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            color: #0072CE;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .season-card p {
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.65;
+        }
+
+        /* ===== TRAVEL TIPS ===== */
+        .tips-section {
+            background: linear-gradient(160deg, #0072CE 0%, #0058a3 50%, #003d73 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .tips-section .section-label {
+            color: #99d6ff;
+            text-align: center;
+            display: block;
+        }
+
+        .tips-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .tips-grid {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 22px;
+        }
+
+        .tip-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            padding: 34px 26px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.12);
+            transition: all 0.4s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255,255,255,0.16);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .tip-card .tip-icon {
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+        }
+
+        .tip-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .tip-card p {
+            font-size: 0.92rem;
+            line-height: 1.78;
+            opacity: 0.82;
+        }
+
+        /* ===== MAP SECTION ===== */
+        .map-section {
+            background: white;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .map-section .section-label {
+            display: block;
+        }
+
+        .map-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #001a3a;
+            margin-bottom: 35px;
+        }
+
+        .map-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 18px 55px rgba(0,0,0,0.12);
+            border: 3px solid #e8f2fd;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        /* ===== ESTONIAN PHRASES ===== */
+        .phrases-section {
+            background: #f0f7ff;
+            padding: 80px 20px;
+        }
+
+        .phrases-section .section-label {
+            text-align: center;
+            display: block;
+        }
+
+        .phrases-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            color: #001a3a;
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .phrases-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+        }
+
+        .phrase-card {
+            background: white;
+            padding: 22px 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .phrase-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0,114,206,0.1);
+        }
+
+        .phrase-card .phrase-emoji {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .phrase-card .phrase-text {
+            flex: 1;
+        }
+
+        .phrase-card .phrase-text .estonian {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0072CE;
+            display: block;
+        }
+
+        .phrase-card .phrase-text .english {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: #888;
+            font-weight: 400;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #0a0a1a;
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .footer .footer-flag {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .footer .estonian-quote {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-size: 1.08rem;
+            opacity: 0.85;
+            margin: 22px auto;
+            max-width: 520px;
+            color: #66b3ff;
+            line-height: 1.75;
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #0072CE, #000000, #ffffff);
+            margin: 22px auto;
+            border-radius: 2px;
+        }
+
+        .footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.83rem;
+            opacity: 0.5;
+            margin-bottom: 5px;
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, #0072CE, #004A9F);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 6px 28px rgba(0,114,206,0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-top:hover {
+            background: linear-gradient(135deg, #004A9F, #001a3a);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(0,114,206,0.5);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .beauty-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .beauty-card.tall {
+                grid-row: span 1;
+                height: 420px;
+            }
+
+            .beauty-card.wide {
+                grid-column: span 2;
+            }
+
+            .seasons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero-content .hero-sub {
+                font-size: 0.95rem;
+                letter-spacing: 3px;
+            }
+
+            .city-card {
+                grid-template-columns: 1fr !important;
+            }
+
+            .city-card.reverse .city-image-container { order: 0; }
+            .city-card.reverse .city-content { order: 0; }
+
+            .city-image-container {
+                min-height: 300px;
+            }
+
+            .city-content {
+                padding: 30px 25px;
+            }
+
+            .city-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .beauty-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .beauty-card.wide,
+            .beauty-card.tall {
+                grid-column: span 1;
+                grid-row: span 1;
+                height: 380px;
+            }
+
+            .beauty-card {
+                height: 380px;
+            }
+
+            .flag-visual {
+                width: 320px;
+                height: 205px;
+            }
+
+            .flag-colors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .seasons-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .blog-content h2,
+            .cities-section h2,
+            .beautiful-section h2,
+            .country-bg h2 {
+                font-size: 2rem;
+            }
+
+            .map-container iframe {
+                height: 350px;
+            }
+
+            .phrases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .seasons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .digital-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">✦ Complete Travel Guide 2024 ✦</div>
+            <span class="hero-flag-emoji">🇪🇪</span>
+            <h1>Estonia</h1>
+            <p class="hero-sub">The Digital Nordic Gem of Northern Europe</p>
+            <p class="tagline">
+                Where medieval towers kiss the sky, primeval forests stretch to the horizon, and the world's most advanced digital society meets centuries-old traditions in perfect harmony.
+            </p>
+        </div>
+        <div class="hero-scroll">
+            Scroll to Discover
+            <span>↓</span>
+        </div>
+    </section>
+
+    <!-- ===== FLAG SECTION ===== -->
+    <section class="flag-section">
+        <div class="section-label">National Symbol</div>
+        <h2>🇪🇪 The Estonian Tricolor</h2>
+
+        <div class="flag-visual">
+            <div class="flag-stripe-est flag-blue"></div>
+            <div class="flag-stripe-est flag-black"></div>
+            <div class="flag-stripe-est flag-white-est"></div>
+        </div>
+
+        <div class="flag-colors-grid">
+            <div class="flag-color-item">
+                <div class="color-circle" style="background: #0072CE;"></div>
+                <h4>Blue</h4>
+                <p>Represents the sky, seas, lakes, and the loyalty and devotion of the Estonian people to their homeland</p>
+            </div>
+            <div class="flag-color-item">
+                <div class="color-circle" style="background: #000000;"></div>
+                <h4>Black</h4>
+                <p>Symbolizes the dark past of suffering and oppression, and the beloved Estonian soil and forests</p>
+            </div>
+            <div class="flag-color-item">
+                <div class="color-circle" style="background: #ffffff; border: 2px solid #ddd;"></div>
+                <h4>White</h4>
+                <p>Represents the snow, birch bark, hope for a bright future, and the aspiration for freedom</p>
+            </div>
+        </div>
+
+        <div class="flag-history">
+            The Estonian flag was first consecrated on <strong>June 4, 1884</strong>, by the Estonian Students' Society in Otepää. During the Soviet occupation, the flag was banned, but it was triumphantly re-raised atop the <strong>Pikk Hermann tower</strong> in Tallinn on February 24, 1989, becoming a powerful symbol of the Singing Revolution and Estonia's restored independence. Today, Estonians celebrate <strong>Flag Day</strong> every June 4th with deep pride and emotion.
+        </div>
+    </section>
+
+    <!-- ===== COUNTRY BACKGROUND ===== -->
+    <section class="country-bg">
+        <div class="container">
+            <div class="section-label">Country Overview</div>
+            <h2>🏛️ About Estonia</h2>
+            <p>
+                <strong>Estonia</strong> (Eesti Vabariik) is the northernmost and smallest of the three Baltic states, nestled on the shores of the Baltic Sea and the Gulf of Finland. Despite its modest size — roughly the area of the Netherlands — Estonia packs an extraordinary amount of natural beauty, cultural richness, and technological innovation into its borders. With a population of just 1.3 million people, this tiny nation has become one of the world's most remarkable success stories.
+            </p>
+            <p>
+                Estonia's history is a tale of resilience. For centuries, this land was conquered and ruled by Danes, Germans, Swedes, and Russians. Yet through it all, Estonians preserved their unique language — one of the oldest in Europe, closely related only to Finnish — their folk traditions, and their unbreakable spirit. The country achieved independence in 1918, lost it during World War II to Soviet occupation, and then regained it in 1991 through the extraordinary <strong>Singing Revolution</strong>, when hundreds of thousands gathered to sing patriotic songs in peaceful defiance.
+            </p>
+            <p>
+                Today, Estonia is a member of the European Union, NATO, and the Eurozone. It is globally renowned as a <strong>digital pioneer</strong> — the birthplace of Skype, the first country to offer e-Residency, and a nation where 99% of government services are available online. Yet beneath this digital exterior lies a country of ancient forests, pristine bogs, over 2,200 islands, medieval old towns, and a deep connection to nature that defines the Estonian soul.
+            </p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="icon">🏛️</div>
+                    <h3>Capital</h3>
+                    <p>Tallinn</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">🗣️</div>
+                    <h3>Language</h3>
+                    <p>Estonian</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">👥</div>
+                    <h3>Population</h3>
+                    <p>~1.3 Million</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">💶</div>
+                    <h3>Currency</h3>
+                    <p>Euro (€)</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">🌍</div>
+                    <h3>Continent</h3>
+                    <p>Europe (Baltic)</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">📏</div>
+                    <h3>Area</h3>
+                    <p>45,339 km²</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">🕐</div>
+                    <h3>Time Zone</h3>
+                    <p>EET (UTC+2/+3)</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">🏝️</div>
+                    <h3>Islands</h3>
+                    <p>2,222 Islands</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DIGITAL ESTONIA ===== -->
+    <section class="digital-section">
+        <div class="section-label">Innovation & Technology</div>
+        <h2>💻 Estonia: The World's Most Digital Nation</h2>
+
+        <div class="digital-grid">
+            <div class="digital-card">
+                <div class="d-icon">🌐</div>
+                <h3>E-Residency</h3>
+                <p>Estonia is the first country in the world to offer digital residency to non-citizens, allowing anyone to start and manage an EU business entirely online.</p>
+            </div>
+            <div class="digital-card">
+                <div class="d-icon">🗳️</div>
+                <h3>i-Voting</h3>
+                <p>Estonians can vote in elections from anywhere in the world using their digital ID — pioneering online democracy since 2005.</p>
+            </div>
+            <div class="digital-card">
+                <div class="d-icon">📱</div>
+                <h3>Birthplace of Skype</h3>
+                <p>The revolutionary video-calling platform Skype was created by Estonian developers in 2003, putting Estonia on the global tech map forever.</p>
+            </div>
+            <div class="digital-card">
+                <div class="d-icon">🏥</div>
+                <h3>Digital Healthcare</h3>
+                <p>99% of medical prescriptions are digital, and every citizen has a secure online health record accessible by authorized doctors anywhere.</p>
+            </div>
+            <div class="digital-card">
+                <div class="d-icon">🎓</div>
+                <h3>Digital Education</h3>
+                <p>Estonian schools teach coding from age 7. The Tiger Leap program made Estonia one of the most digitally literate nations on Earth.</p>
+            </div>
+            <div class="digital-card">
+                <div class="d-icon">🔐</div>
+                <h3>Blockchain Governance</h3>
+                <p>Estonia uses blockchain technology to secure government data — becoming the first nation to deploy blockchain at a national level in 2012.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG CONTENT ===== -->
+    <section class="blog-content">
+        <div class="section-label">Travel Blog</div>
+        <h2>🌿 Why Estonia Is Europe's Best-Kept Secret — And Why You Need to Visit Now</h2>
+
+        <p class="drop-cap">
+            Somewhere between the shimmering waters of the Baltic Sea and the vast, silent forests of Northern Europe lies a country that most travelers have yet to discover. Estonia — a tiny nation of just 1.3 million people — is one of Europe's most fascinating, beautiful, and underrated destinations. It is a land where the ancient and the ultramodern exist side by side in perfect harmony, where medieval cobblestone streets lead to world-class digital innovation hubs, and where nature remains so unspoiled that wolves, bears, and lynx still roam freely through primeval woodlands.
+        </p>
+
+        <p>
+            Your journey into Estonia almost certainly begins in <strong>Tallinn</strong>, the captivating capital city perched on the shores of the Gulf of Finland. Tallinn's Old Town is nothing short of magical — a UNESCO World Heritage Site that ranks among the best-preserved medieval cities in all of Europe. As you pass through the ancient city gates, you step into a world of winding cobblestone lanes, Gothic church spires, merchants' houses dating back to the 15th century, and charming café-lined squares where the aroma of freshly baked pastries and Estonian coffee fills the crisp northern air.
+        </p>
+
+        <div class="quote-block">
+            <p>Estonia is like a beautiful, well-kept secret that Europe whispers to only the most curious travelers. Once you hear it, you never forget.</p>
+            <span class="quote-author">— A Travel Writer's Journal</span>
+        </div>
+
+        <p>
+            Yet Tallinn is far more than its medieval past. The Telliskivi Creative City, a former industrial complex, pulses with contemporary art galleries, design studios, street food markets, and live music venues. The futuristic Lennusadam Seaplane Harbour museum showcases Estonia's maritime heritage in a spectacular setting. And the Kalamaja neighborhood — once a working-class fishing district — has blossomed into one of the coolest, most hipster-friendly quarters in all of Northern Europe, with wooden houses now housing boutique shops, craft breweries, and farm-to-table restaurants.
+        </p>
+
+        <p>
+            But the true magic of Estonia reveals itself beyond the capital. This small country is home to some of the most pristine natural landscapes in Europe. Over <strong>50% of Estonia is covered by forest</strong>, making it one of the greenest nations on the continent. The country has five national parks, each offering a unique window into the Estonian wilderness. <strong>Lahemaa National Park</strong>, just an hour from Tallinn, is a spectacular tapestry of coastal cliffs, boulder fields, pristine bogs, and manor houses surrounded by ancient woodland. Here, you can walk on bog shoes across amber-colored wetlands, spot elk grazing in meadows at dawn, and explore abandoned Soviet-era military installations reclaimed by nature.
+        </p>
+
+        <div class="blog-highlight-box">
+            <h4>🌲 Did You Know?</h4>
+            <p>Estonia has more than <strong>1,500 islands</strong> scattered along its coast, pristine <strong>bog landscapes</strong> covering 22% of the territory, and one of the highest concentrations of <strong>brown bears, wolves, and lynx</strong> in Europe. The air quality is among the cleanest on the planet.</p>
+        </div>
+
+        <p>
+            The Estonian islands are a world apart. <strong>Saaremaa</strong>, the largest island, is a tranquil paradise of ancient stone churches, windmills, dolomite cliffs, and healing spa traditions dating back centuries. The Kaali meteorite crater — formed by a massive impact 7,500 years ago — is one of the most remarkable geological sites in the Baltics. <strong>Hiiumaa</strong>, the second-largest island, is even more remote and unspoiled, home to one of the oldest lighthouses in the world and a way of life that has changed remarkably little over the centuries.
+        </p>
+
+        <p>
+            Estonian culture is deep, unique, and deeply connected to the natural world. The <strong>Estonian Song Festival</strong>, held every five years in Tallinn, is a breathtaking event where over 30,000 singers perform to audiences of 100,000 — a tradition so significant it is recognized by UNESCO as a Masterpiece of Intangible Heritage. It was during these song festivals that the Singing Revolution was born, proving that the power of music and unity could overcome even the might of a superpower.
+        </p>
+
+        <p>
+            Estonian cuisine has undergone a quiet revolution. Once known mainly for its hearty black bread (leib), smoked fish, and blood sausage, Estonia's food scene now features innovative restaurants that celebrate local ingredients — wild mushrooms foraged from ancient forests, hand-picked berries, artisan cheeses, and the freshest Baltic seafood. Tallinn's restaurant scene has earned international recognition, with several establishments appearing on prestigious European dining lists.
+        </p>
+
+        <div class="quote-block">
+            <p>In Estonia, you can walk through an 800-year-old medieval town in the morning, hike through a primeval bog at noon, relax in a traditional smoke sauna in the evening, and vote in an election from your phone before bed. No other country on Earth offers quite this combination.</p>
+            <span class="quote-author">— Lonely Planet, on Estonia</span>
+        </div>
+
+        <p>
+            The <strong>Estonian sauna tradition</strong> — particularly the smoke sauna (suitsusaun) of the Võro people in southern Estonia — has been inscribed on UNESCO's Intangible Cultural Heritage list. More than just bathing, the smoke sauna is a sacred space for healing, socializing, and spiritual renewal. Experiencing a traditional smoke sauna, followed by a plunge into a cold lake or a roll in fresh snow, is one of the most authentically Estonian experiences you can have.
+        </p>
+
+        <p>
+            Whether you're exploring Tallinn's enchanting medieval streets, wandering through the misty bogs of Soomaa National Park during the legendary "fifth season" (when spring floods transform the landscape into a vast inland sea), island-hopping to Saaremaa and Hiiumaa, or marveling at the Northern Lights dancing across the winter sky, Estonia will captivate you in ways you never expected. This small Baltic nation may be one of Europe's best-kept secrets — but once you visit, you'll understand why those who know it guard it so lovingly in their hearts.
+        </p>
+    </section>
+
+    <!-- ===== FAMOUS CITIES ===== -->
+    <section class="cities-section">
+        <div class="section-label">Must-Visit Destinations</div>
+        <h2>🏙️ Famous Cities of Estonia</h2>
+        <p class="section-subtitle">Discover the enchanting cities and towns across this Baltic gem</p>
+
+        <!-- Tallinn -->
+        <div class="city-card">
+            <div class="city-image-container">
+                <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?w=1200" alt="Tallinn Old Town - Medieval Towers and Red Rooftops">
+                <div class="city-number">1</div>
+                <div class="location-badge">
+                    <span class="pin-icon">📍</span>
+                    Northern Estonia, Harju County — 59.4370° N, 24.7536° E
+                </div>
+            </div>
+            <div class="city-content">
+                <div class="city-region">Harju County • Capital of Estonia</div>
+                <h3>Tallinn</h3>
+                <p class="estonian-name">Tallinna linn — "Danish Town"</p>
+                <p>
+                    Tallinn, the enchanting capital of Estonia, is a city where fairy-tale medieval architecture meets cutting-edge digital innovation. The UNESCO-listed Old Town is one of the best-preserved medieval cities in Europe, featuring ancient watchtowers, the magnificent Alexander Nevsky Cathedral, the 13th-century Town Hall Square (Raekoja plats), and narrow cobblestone lanes that have barely changed in 600 years. Beyond the old walls, Tallinn pulses with modern energy — the Telliskivi Creative City, the futuristic Lennusadam museum, and the hip Kalamaja district make this a city that appeals to history lovers and contemporary culture seekers alike. With a population of around 450,000, Tallinn is remarkably walkable, safe, and welcoming.
+                </p>
+                <div class="city-highlights">
+                    <span class="highlight-tag">🏰 Old Town (UNESCO)</span>
+                    <span class="highlight-tag">⛪ Alexander Nevsky Cathedral</span>
+                    <span class="highlight-tag">🎨 Telliskivi Creative City</span>
+                    <span class="highlight-tag">🚢 Lennusadam Museum</span>
+                    <span class="highlight-tag">🏠 Kalamaja District</span>
+                    <span class="highlight-tag">🗼 Toompea Castle</span>
+                    <span class="highlight-tag">🍴 Rataskaevu Street</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tartu -->
+        <div class="city-card reverse">
+            <div class="city-image-container">
+                <img src="https://images.unsplash.com/photo-1625050476977-aa6a4c630bff?w=1200" alt="Tartu - University Town and Emajõgi River">
+                <div class="city-number">2</div>
+                <div class="location-badge">
+                    <span class="pin-icon">📍</span>
+                    Southern Estonia, Tartu County — 58.3780° N, 26.7290° E
+                </div>
+            </div>
+            <div class="city-content">
+                <div class="city-region">Tartu County • Intellectual Capital</div>
+                <h3>Tartu</h3>
+                <p class="estonian-name">Tartu linn — "City of Good Thoughts"</p>
+                <p>
+                    Tartu is Estonia's second city and its intellectual and cultural heartbeat. Home to the prestigious <strong>University of Tartu</strong>, founded in 1632, Tartu has been the center of Estonian learning, science, and national identity for centuries. The city radiates youthful energy — with students making up a significant portion of the population — and boasts charming neoclassical architecture, the beautiful Emajõgi River, and a thriving arts and café culture. Tartu was named a <strong>European Capital of Culture for 2024</strong>, celebrating its creative spirit. The Estonian National Museum, housed in a spectacular modern building on a former Soviet airfield, is one of the finest museums in the Baltic states.
+                </p>
+                <div class="city-highlights">
+                    <span class="highlight-tag">🎓 University of Tartu</span>
+                    <span class="highlight-tag">🏛️ Estonian National Museum</span>
+                    <span class="highlight-tag">🎭 Capital of Culture 2024</span>
+                    <span class="highlight-tag">🏘️ Town Hall Square</span>
+                    <span class="highlight-tag">🌉 Angel's Bridge</span>
+                    <span class="highlight-tag">🔬 AHHAA Science Centre</span>
+                    <span class="highlight-tag">☕ Café Culture</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pärnu -->
+        <div class="city-card">
+            <div class="city-image-container">
+                <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1200" alt="Pärnu Beach - Summer Capital of Estonia">
+                <div class="city-number">3</div>
+                <div class="location-badge">
+                    <span class="pin-icon">📍</span>
+                    Western Estonia, Pärnu County — 58.3859° N, 24.4971° E
+                </div>
+            </div>
+            <div class="city-content">
+                <div class="city-region">Pärnu County • Summer Capital</div>
+                <h3>Pärnu</h3>
+                <p class="estonian-name">Pärnu linn — Estonia's Summer Capital</p>
+                <p>
+                    Pärnu is Estonia's beloved summer capital — a charming coastal resort town that has been attracting visitors to its beautiful sandy beach and healing mud spas since the 19th century. The wide, white-sand beach stretches along the gentle waters of Pärnu Bay, fringed by pine forests and a lively promenade. In summer, the town transforms into a festival hub with music events, outdoor concerts, and a vibrant nightlife. Beyond the beach, Pärnu offers elegant Art Nouveau and wooden architecture, cozy cafés, the Pärnu Museum, and the beautiful Vallikäär Park. The town's spa tradition — featuring mineral-rich mud treatments — makes it a popular wellness destination year-round.
+                </p>
+                <div class="city-highlights">
+                    <span class="highlight-tag">🏖️ White Sand Beach</span>
+                    <span class="highlight-tag">♨️ Spa & Mud Baths</span>
+                    <span class="highlight-tag">🎵 Summer Festivals</span>
+                    <span class="highlight-tag">🌳 Vallikäär Park</span>
+                    <span class="highlight-tag">🏛️ Pärnu Museum</span>
+                    <span class="highlight-tag">🌅 Sunset Promenade</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Narva -->
+        <div class="city-card reverse">
+            <div class="city-image-container">
+                <img src="https://images.unsplash.com/photo-1568797629557-40014e498866?w=1200" alt="Narva Castle - Border Fortress">
+                <div class="city-number">4</div>
+                <div class="location-badge">
+                    <span class="pin-icon">📍</span>
+                    Northeastern Estonia, Ida-Viru County — 59.3797° N, 28.1791° E
+                </div>
+            </div>
+            <div class="city-content">
+                <div class="city-region">Ida-Viru County • Border City</div>
+                <h3>Narva</h3>
+                <p class="estonian-name">Narva linn — Gateway Between East and West</p>
+                <p>
+                    Narva is Estonia's easternmost city and one of the most unique border towns in Europe. The magnificent <strong>Hermann Castle</strong> (Hermanni linnus), dating from the 13th century, stands on the banks of the Narva River, staring directly across at Russia's Ivangorod Fortress — creating one of the most dramatic and photographed border views in the world. This powerful visual symbolizes the meeting point of Western and Eastern civilizations. Narva is predominantly Russian-speaking, giving it a distinct cultural character. The Narva Museum inside the castle, the Kreenholm Manufacturing area (a stunning 19th-century industrial complex), and the nearby Narva-Jõesuu beach resort make this a fascinating and undervisited destination.
+                </p>
+                <div class="city-highlights">
+                    <span class="highlight-tag">🏰 Hermann Castle</span>
+                    <span class="highlight-tag">🇷🇺 Border Views</span>
+                    <span class="highlight-tag">🏭 Kreenholm Complex</span>
+                    <span class="highlight-tag">🏖️ Narva-Jõesuu Beach</span>
+                    <span class="highlight-tag">🏛️ Narva Museum</span>
+                    <span class="highlight-tag">🌊 Narva River</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Haapsalu -->
+        <div class="city-card">
+            <div class="city-image-container">
+                <img src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=1200" alt="Haapsalu - Bishop's Castle and Seaside Town">
+                <div class="city-number">5</div>
+                <div class="location-badge">
+                    <span class="pin-icon">📍</span>
+                    Western Estonia, Lääne County — 58.9431° N, 23.5414° E
+                </div>
+            </div>
+            <div class="city-content">
+                <div class="city-region">Lääne County • Romantic Seaside Town</div>
+                <h3>Haapsalu</h3>
+                <p class="estonian-name">Haapsalu linn — Town of Romance and Legend</p>
+                <p>
+                    Haapsalu is a romantic, picturesque seaside town that has charmed visitors for centuries with its healing waters, medieval ruins, and ghostly legends. The town's centerpiece is the stunning <strong>Bishop's Castle and Cathedral</strong>, dating from the 13th century, where legend says the ghost of the White Lady appears in a window on full moon nights in August. Haapsalu was a favorite spa destination of Russian Tsar Nicholas I and the composer Tchaikovsky, who composed some of his most beautiful works here. Today, Haapsalu is known for its wooden architecture, the unique Estonian Railway Museum, the Tchaikovsky Bench on the seaside promenade, and its warm, shallow bay — perfect for summer bathing. It serves as the gateway to the island of Hiiumaa.
+                </p>
+                <div class="city-highlights">
+                    <span class="highlight-tag">🏰 Bishop's Castle</span>
+                    <span class="highlight-tag">👻 White Lady Legend</span>
+                    <span class="highlight-tag">🎵 Tchaikovsky Bench</span>
+                    <span class="highlight-tag">🚂 Railway Museum</span>
+                    <span class="highlight-tag">♨️ Healing Mud Spa</span>
+                    <span class="highlight-tag">🏠 Wooden Architecture</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kuressaare -->
+        <div class="city-card reverse">
+            <div class="city-image-container">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200" alt="Kuressaare Castle - Saaremaa Island">
+                <div class="city-number">6</div>
+                <div class="location-badge">
+                    <span class="pin-icon">📍</span>
+                    Saaremaa Island, Saare County — 58.2480° N, 22.5039° E
+                </div>
+            </div>
+            <div class="city-content">
+                <div class="city-region">Saare County • Island Capital</div>
+                <h3>Kuressaare</h3>
+                <p class="estonian-name">Kuressaare linn — Capital of Saaremaa Island</p>
+                <p>
+                    Kuressaare is the charming capital of Saaremaa, Estonia's largest and most beloved island. The town's crown jewel is the magnificent <strong>Kuressaare Episcopal Castle</strong> — the only fully intact medieval stone castle in the Baltic states, surrounded by a star-shaped moat and beautiful parkland. This 14th-century fortress now houses the Saaremaa Museum. Kuressaare exudes a peaceful island atmosphere with its tree-lined boulevards, spa hotels using local dolomite mud for healing treatments, cozy restaurants serving fresh island cuisine, and the gentle shores of the Gulf of Riga. From Kuressaare, visitors explore Saaremaa's windmills, the extraordinary Kaali meteorite crater, Angla Windmill Hill, and the island's wild, unspoiled coastline.
+                </p>
+                <div class="city-highlights">
+                    <span class="highlight-tag">🏰 Episcopal Castle</span>
+                    <span class="highlight-tag">☄️ Kaali Crater</span>
+                    <span class="highlight-tag">♨️ Dolomite Mud Spa</span>
+                    <span class="highlight-tag">🌬️ Angla Windmills</span>
+                    <span class="highlight-tag">🍺 Saaremaa Brewery</span>
+                    <span class="highlight-tag">🏝️ Island Life</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BEAUTIFUL PLACES ===== -->
+    <section class="beautiful-section">
+        <div class="section-label">Natural Wonders</div>
+        <h2>✨ Beautiful Places in Estonia</h2>
+        <p class="section-subtitle">Pristine bogs, ancient forests, wild islands, and landscapes untouched by time</p>
+
+        <div class="beauty-grid">
+            <!-- Lahemaa National Park -->
+            <div class="beauty-card wide">
+                <img src="https://images.unsplash.com/photo-1570018144715-43110363d70a?w=1200" alt="Lahemaa National Park - Coastal Forest">
+                <div class="beauty-overlay">
+                    <h3>Lahemaa National Park</h3>
+                    <div class="beauty-location">📍 Harju & Lääne-Viru County, Northern Estonia</div>
+                    <p>Estonia's largest national park — a mesmerizing mosaic of coastal cliffs, boulder fields, ancient bogs, pristine forests, and elegant manor houses just an hour from Tallinn.</p>
+                </div>
+            </div>
+
+            <!-- Soomaa -->
+            <div class="beauty-card">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Soomaa National Park - Bog Landscape">
+                <div class="beauty-overlay">
+                    <h3>Soomaa National Park</h3>
+                    <div class="beauty-location">📍 Pärnu County, Central Estonia</div>
+                    <p>The "Land of Bogs" — famous for its legendary "fifth season" when spring floods create a vast inland sea, and visitors canoe through flooded forests.</p>
+                </div>
+            </div>
+
+            <!-- Viru Bog -->
+            <div class="beauty-card tall">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800" alt="Viru Bog Boardwalk at Sunrise">
+                <div class="beauty-overlay">
+                    <h3>Viru Bog Trail</h3>
+                    <div class="beauty-location">📍 Lahemaa, Harju County</div>
+                    <p>A magical boardwalk trail through an ancient raised bog — dark mirror-like pools, cotton grass, and silence so deep you can hear the earth breathe.</p>
+                </div>
+            </div>
+
+            <!-- Saaremaa Cliffs -->
+            <div class="beauty-card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt="Saaremaa Island Coastline">
+                <div class="beauty-overlay">
+                    <h3>Saaremaa Island</h3>
+                    <div class="beauty-location">📍 Saare County, Western Estonia</div>
+                    <p>Estonia's largest island — windmills, dolomite cliffs, the Kaali meteorite crater, ancient stone churches, and a peaceful way of life.</p>
+                </div>
+            </div>
+
+            <!-- Jägala Waterfall -->
+            <div class="beauty-card">
+                <img src="https://images.unsplash.com/photo-1432405972618-c6b0cfba0ae7?w=800" alt="Jägala Waterfall Estonia">
+                <div class="beauty-overlay">
+                    <h3>Jägala Waterfall</h3>
+                    <div class="beauty-location">📍 Harju County, Northern Estonia</div>
+                    <p>Estonia's widest and most impressive waterfall — an 8-meter cascade that freezes into a spectacular ice wall during the harsh Baltic winter.</p>
+                </div>
+            </div>
+
+            <!-- Matsalu -->
+            <div class="beauty-card wide">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200" alt="Matsalu Nature Reserve - Wetlands and Birds">
+                <div class="beauty-overlay">
+                    <h3>Matsalu National Park</h3>
+                    <div class="beauty-location">📍 Lääne County, Western Estonia</div>
+                    <p>One of Europe's most important wetland bird reserves — millions of migratory birds pass through each spring and autumn, making it a paradise for birdwatchers worldwide.</p>
+                </div>
+            </div>
+
+            <!-- Otepää -->
+            <div class="beauty-card">
+                <img src="https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=800" alt="Otepää Winter Landscape - Estonian Switzerland">
+                <div class="beauty-overlay">
+                    <h3>Otepää</h3>
+                    <div class="beauty-location">📍 Valga County, Southern Estonia</div>
+                    <p>"Estonian Switzerland" — rolling hills, pristine lakes, and the winter sports capital of Estonia. Birthplace of the Estonian flag.</p>
+                </div>
+            </div>
+
+            <!-- Northern Lights -->
+            <div class="beauty-card">
+                <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800" alt="Northern Lights Over Estonia">
+                <div class="beauty-overlay">
+                    <h3>Northern Lights</h3>
+                    <div class="beauty-location">📍 Northern & Western Estonia</div>
+                    <p>On clear winter nights, the aurora borealis paints the Estonian sky with ethereal greens and purples — best seen from September to March.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEASONS ===== -->
+    <section class="seasons-section">
+        <div class="section-label">When to Visit</div>
+        <h2>🗓️ Estonia Through the Seasons</h2>
+
+        <div class="seasons-grid">
+            <div class="season-card spring">
+                <div class="season-icon">🌸</div>
+                <h3>Spring</h3>
+                <div class="season-months">March – May</div>
+                <p>Nature awakens, migratory birds return to Matsalu, and Soomaa's "fifth season" floods create magical canoeing opportunities. Days grow rapidly longer.</p>
+            </div>
+            <div class="season-card summer">
+                <div class="season-icon">☀️</div>
+                <h3>Summer</h3>
+                <div class="season-months">June – August</div>
+                <p>White nights with nearly 24 hours of light, beach season in Pärnu, music festivals, island-hopping, and the magical Midsummer's Eve (Jaanipäev) celebrations.</p>
+            </div>
+            <div class="season-card autumn">
+                <div class="season-icon">🍂</div>
+                <h3>Autumn</h3>
+                <div class="season-months">September – November</div>
+                <p>Stunning golden foliage in ancient forests, mushroom and berry foraging season, fewer tourists, and the first chances to see the Northern Lights.</p>
+            </div>
+            <div class="season-card winter">
+                <div class="season-icon">❄️</div>
+                <h3>Winter</h3>
+                <div class="season-months">December – February</div>
+                <p>Snow-covered medieval towns, Christmas markets in Tallinn, frozen waterfalls, ice roads to islands, aurora borealis, and traditional smoke saunas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRAVEL TIPS ===== -->
+    <section class="tips-section">
+        <div class="section-label">Traveler's Handbook</div>
+        <h2>💡 Essential Travel Tips for Estonia</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">🌡️</div>
+                <h3>Dress for the Climate</h3>
+                <p>Summers are pleasantly mild (18-22°C) but winters are cold and snowy (-5 to -15°C). Layer your clothing, bring waterproofs for all seasons, and pack warm boots if visiting in winter. The wind from the Baltic can be biting!</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">💶</div>
+                <h3>Budget-Friendly Destination</h3>
+                <p>Estonia uses the Euro and is more affordable than Scandinavian neighbors. Cards are accepted almost everywhere — even small market stalls. Tallinn is pricier than smaller towns. Average meal: €8-15. Craft beer: €3-5.</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">📶</div>
+                <h3>World-Class WiFi Everywhere</h3>
+                <p>As the world's most digital nation, Estonia has free WiFi almost everywhere — cafés, parks, buses, even forests! You'll rarely be without connection. The country also has excellent 4G/5G mobile coverage.</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">🚌</div>
+                <h3>Getting Around</h3>
+                <p>Tallinn has free public transport for residents. Between cities, use Lux Express buses (comfortable and cheap) or Elron trains. Ferries connect the mainland to Saaremaa and Hiiumaa. Renting a car is ideal for exploring the countryside.</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">🧖</div>
+                <h3>Try the Sauna Culture</h3>
+                <p>Sauna is sacred in Estonia — it's where families bond, deals are made, and souls are cleansed. If invited to a sauna, accept! Try a traditional smoke sauna (suitsusaun) in southern Estonia for an authentic experience.</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">🍞</div>
+                <h3>Taste the Black Bread</h3>
+                <p>Estonian black rye bread (leib) is a national treasure — dense, dark, slightly sweet, and absolutely delicious. Also try kama (a traditional grain mixture), verivorst (blood sausage), and local craft beers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ESTONIAN PHRASES ===== -->
+    <section class="phrases-section">
+        <div class="section-label">Language Essentials</div>
+        <h2>🗣️ Useful Estonian Phrases</h2>
+
+        <div class="phrases-grid">
+            <div class="phrase-card">
+                <div class="phrase-emoji">👋</div>
+                <div class="phrase-text">
+                    <span class="estonian">Tere!</span>
+                    <span class="english">Hello!</span>
+                </div>
+            </div>
+            <div class="phrase-card">
+                <div class="phrase-emoji">🙏</div>
+                <div class="phrase-text">
+                    <span class="estonian">Aitäh!</span>
+                    <span class="english">Thank you!</span>
+                </div>
+            </div>
+            <div class="phrase-card">
+                <div class="phrase-emoji">😊</div>
+                <div class="phrase-text">
+                    <span class="estonian">Palun</span>
+                    <span class="english">Please / You're welcome</span>
+                </div>
+            </div>
+            <div class="phrase-card">
+                <div class="phrase-emoji">👍</div>
+                <div class="phrase-text">
+                    <span class="estonian">Jah / Ei</span>
+                    <span class="english">Yes / No</span>
+                </div>
+            </div>
+            <div class="phrase-card">
+                <div class="phrase-emoji">🍽️</div>
+                <div class="phrase-text">
+                    <span class="estonian">Head isu!</span>
+                    <span class="english">Bon appétit!</span>
+                </div>
+            </div>
+            <div class="phrase-card">
+                <div class="phrase-emoji">🥂</div>
+                <div class="phrase-text">
+                    <span class="estonian">Terviseks!</span>
+                    <span class="english">Cheers! (To health!)</span>
+                </div>
+            </div>
+            <div class="phrase-card">
+                <div class="phrase-emoji">🌅</div>
+                <div class="phrase-text">
+                    <span class="estonian">Tere hommikust!</span>
+                    <span class="english">Good morning!</span>
+                </div>
+            </div>
+            <div class="phrase-card">
+                <div class="phrase-emoji">👋</div>
+                <div class="phrase-text">
+                    <span class="estonian">Head aega!</span>
+                    <span class="english">Goodbye!</span>
+                </div>
+            </div>
+            <div class="phrase-card">
+                <div class="phrase-emoji">❤️</div>
+                <div class="phrase-text">
+                    <span class="estonian">Eesti on ilus!</span>
+                    <span class="english">Estonia is beautiful!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAP SECTION ===== -->
+    <section class="map-section">
+        <div class="section-label">Explore the Map</div>
+        <h2>🗺️ Discover Estonia</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1898789.4517789462!2d24.2131397!3d58.5953694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4692949de085ead3%3A0xcfcf654b36e92a4a!2sEstonia!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <section class="footer">
+        <div class="footer-flag">🇪🇪</div>
+        <h3>Estonia Travel Guide</h3>
+        <div class="estonian-quote">
+            "Ükskord sa tuled tagasi."<br>
+            <span style="font-size: 0.85rem; opacity: 0.7; font-style: normal;">(One day you will come back.)</span>
+        </div>
+        <div class="footer-divider"></div>
+        <p>© 2024 Estonia Travel Guide Blog | Crafted with 💙🖤🤍 for the Land of Digital Vikings</p>
+        <p>All images sourced from Unsplash. Travel information is for guidance only.</p>
+        <p style="margin-top: 15px; font-size: 0.78rem; opacity: 0.4;">Eesti — Where Ancient Forests Meet the Future 🌲💻</p>
+    </section>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+</body>
+</html>
+```
