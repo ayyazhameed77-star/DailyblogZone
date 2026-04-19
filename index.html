@@ -34,13 +34,12 @@
   --gray: #8892b0;
   --light-gray: #ccd6f6;
   --border: #233554;
-  --shadow-3d: 0 25px 50px -12px rgba(0, 212, 255, 0.25), 0 0 0 1px rgba(0, 212, 255, 0.1);
-  --shadow-3d-hover: 0 35px 60px -15px rgba(0, 212, 255, 0.4), 0 0 0 1px rgba(0, 212, 255, 0.3), 0 0 30px rgba(0, 212, 255, 0.2);
-  --shadow-float: 0 20px 40px rgba(0, 102, 255, 0.3), 0 0 0 1px rgba(0, 212, 255, 0.2);
-  --shadow-lg: 0 10px 40px rgba(0, 102, 255, 0.3), 0 0 60px rgba(0, 212, 255, 0.2);
-  --radius: 24px;
-  --radius-lg: 32px;
-  --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  --shadow-3d: 0 10px 30px -10px rgba(0, 153, 255, 0.3), 0 20px 40px -15px rgba(0, 102, 255, 0.2);
+  --shadow-3d-hover: 0 20px 50px -15px rgba(0, 212, 255, 0.5), 0 30px 60px -20px rgba(0, 153, 255, 0.4);
+  --shadow-float: 0 15px 35px rgba(0, 102, 255, 0.25), 0 5px 15px rgba(0, 0, 0, 0.1);
+  --radius: 16px;
+  --radius-lg: 24px;
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --font-display: 'Playfair Display', serif;
   --font-body: 'DM Sans', sans-serif;
 }
@@ -50,16 +49,13 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body { 
   font-family: var(--font-body); 
-  background: linear-gradient(135deg, #050a14 0%, #0a192f 50%, #112240 100%);
+  background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #0a192f 100%);
   background-attachment: fixed;
   color: var(--light-gray); 
   line-height: 1.6; 
   overflow-x: hidden;
   position: relative;
-  perspective: 1000px;
 }
-
-/* Animated Background with 3D Depth */
 body::before {
   content: '';
   position: fixed;
@@ -68,44 +64,12 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0, 153, 255, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 60% 60%, rgba(0, 212, 255, 0.08) 0%, transparent 40%);
-  pointer-events: none;
-  z-index: -1;
-  animation: bgPulse 8s ease-in-out infinite;
-}
-
-@keyframes bgPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-
-/* Floating Particles */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgba(0, 212, 255, 0.3) 0%, transparent 2%),
-    radial-gradient(circle at 80% 70%, rgba(0, 153, 255, 0.3) 0%, transparent 2%),
-    radial-gradient(circle at 40% 80%, rgba(0, 102, 255, 0.3) 0%, transparent 2%),
-    radial-gradient(circle at 60% 20%, rgba(0, 212, 255, 0.3) 0%, transparent 2%);
-  background-size: 100px 100px;
-  animation: float 20s linear infinite;
+    radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 153, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 50%);
   pointer-events: none;
   z-index: -1;
 }
-
-@keyframes float {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-100px) rotate(360deg); }
-}
-
 a { text-decoration: none; color: inherit; transition: var(--transition); }
 img { max-width: 100%; display: block; }
 ul { list-style: none; }
@@ -113,84 +77,38 @@ ul { list-style: none; }
 /* ===== CONTAINER ===== */
 .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-/* ===== HEADER - Glassmorphism 3D ===== */
+/* ===== HEADER ===== */
 .main-header {
-  position: fixed; 
-  top: 20px; 
-  left: 50%; 
-  transform: translateX(-50%);
-  right: auto;
-  width: calc(100% - 40px);
-  max-width: 1200px;
-  z-index: 1000;
-  background: rgba(17, 34, 64, 0.7);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: 20px;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(0, 212, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: var(--transition);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10, 25, 47, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 102, 255, 0.3), 0 0 50px rgba(0, 212, 255, 0.1);
+  transition: transform 0.35s ease, box-shadow 0.3s ease;
   transform-style: preserve-3d;
+  perspective: 1000px;
 }
-
-.main-header:hover {
-  box-shadow: 
-    0 12px 40px rgba(0, 212, 255, 0.2),
-    0 0 0 1px rgba(0, 212, 255, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateX(-50%) translateY(-2px);
-}
-
-.main-header .container { 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  height: 70px; 
-  gap: 20px; 
-}
-
+.main-header .container { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 20px; }
 .logo a { display: flex; align-items: center; }
 .logo h1 {
-  font-family: var(--font-display); 
-  font-size: 1.8rem; 
-  font-weight: 900;
+  font-family: var(--font-display); font-size: 1.8rem; font-weight: 900;
   background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #0066ff 100%);
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  background-clip: text;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   letter-spacing: -0.5px;
   filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
   transform: translateZ(20px);
-  animation: shimmer 3s linear infinite;
 }
 
-@keyframes shimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-/* ===== NAV - 3D Floating Effect ===== */
+/* ===== NAV ===== */
 .main-nav { flex: 1; display: flex; justify-content: center; }
-.nav-menu { display: flex; align-items: center; gap: 8px; }
-
+.nav-menu { display: flex; align-items: center; gap: 4px; }
 .nav-menu li a {
-  display: block; 
-  padding: 10px 18px; 
-  font-size: 0.9rem; 
-  font-weight: 500;
-  color: var(--gray); 
-  border-radius: 12px; 
-  transition: var(--transition); 
-  white-space: nowrap;
+  display: block; padding: 10px 15px; font-size: 0.9rem; font-weight: 500;
+  color: var(--gray); border-radius: 12px; transition: var(--transition); white-space: nowrap;
   position: relative;
   transform-style: preserve-3d;
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid transparent;
 }
-
 .nav-menu li a::before {
   content: '';
   position: absolute;
@@ -200,51 +118,64 @@ ul { list-style: none; }
   opacity: 0;
   transform: translateZ(-10px) scale(0.9);
   transition: var(--transition);
-  filter: blur(10px);
 }
-
-.nav-menu li a:hover, .nav-menu li a.active {
+.nav-menu li a:hover::before, .nav-menu li a.active::before { opacity: 0.15; transform: translateZ(-5px) scale(1); }
+.nav-menu li a:hover, .nav-menu li a.active { 
   color: var(--accent); 
-  background: rgba(0, 212, 255, 0.15);
-  border-color: rgba(0, 212, 255, 0.3);
-  transform: translateY(-3px) translateZ(10px);
-  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px) translateZ(10px);
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
-.nav-menu li a:hover::before {
-  opacity: 0.4;
-  transform: translateZ(-5px) scale(1);
-}
-
-/* ===== HEADER ACTIONS - 3D Buttons ===== */
+/* ===== HEADER ACTIONS ===== */
 .header-actions { display: flex; align-items: center; gap: 12px; }
-
-.header-search input {
-  padding: 10px 20px; 
-  border: 2px solid rgba(0, 212, 255, 0.2); 
+.btn-login, .btn-signup, .btn-dashboard {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; 
   border-radius: 50px;
-  font-family: var(--font-body); 
-  font-size: 0.85rem; 
-  outline: none;
+  font-size: 0.9rem; 
+  font-weight: 700; 
   transition: var(--transition); 
-  width: 200px; 
-  background: rgba(10, 25, 47, 0.6);
-  color: var(--light-gray);
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.header-search input:focus { 
-  border-color: var(--accent); 
+  cursor: pointer;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #0066ff 100%);
+  background-size: 200% auto;
+  color: #000000;
+  border: 2px solid rgba(0, 212, 255, 0.5);
   box-shadow: 
-    0 0 0 3px rgba(0, 212, 255, 0.2), 
-    0 8px 20px rgba(0, 153, 255, 0.4),
-    inset 0 2px 10px rgba(0, 0, 0, 0.3);
-  width: 250px;
-  background: rgba(17, 34, 64, 0.9);
-  transform: translateY(-2px);
+    0 8px 25px rgba(0, 153, 255, 0.5),
+    0 0 40px rgba(0, 212, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.5px;
+}
+.btn-login::before, .btn-signup::before, .btn-dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+.btn-login:hover::before, .btn-signup:hover::before, .btn-dashboard:hover::before {
+  left: 100%;
+}
+.btn-login:hover, .btn-signup:hover, .btn-dashboard:hover { 
+  background-position: right center;
+  transform: translateY(-5px) translateZ(15px) scale(1.08);
+  box-shadow: 
+    0 15px 40px rgba(0, 212, 255, 0.7),
+    0 0 60px rgba(0, 153, 255, 0.5),
+    0 0 80px rgba(0, 212, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-color: rgba(0, 212, 255, 0.8);
 }
 
-/* ===== MOBILE TOGGLE - 3D ===== */
+/* ===== MOBILE TOGGLE ===== */
 .mobile-menu-toggle {
   display: none; 
   flex-direction: column; 
@@ -253,25 +184,35 @@ ul { list-style: none; }
   background-size: 200% auto;
   border: 2px solid rgba(0, 212, 255, 0.5); 
   cursor: pointer; 
-  padding: 12px; 
+  padding: 10px; 
   border-radius: 12px; 
   transition: var(--transition);
   box-shadow: 
     0 4px 15px rgba(0, 153, 255, 0.5),
-    0 0 25px rgba(0, 212, 255, 0.3),
-    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    0 0 25px rgba(0, 212, 255, 0.3);
   position: relative;
   overflow: hidden;
-  transform-style: preserve-3d;
 }
-
+.mobile-menu-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
 .mobile-menu-toggle:hover { 
-  transform: translateY(-2px) scale(1.05);
+  background-position: right center;
   box-shadow: 
     0 8px 25px rgba(0, 212, 255, 0.7),
     0 0 40px rgba(0, 153, 255, 0.5);
+  transform: translateY(-2px);
 }
-
+.mobile-menu-toggle:hover::before {
+  left: 100%;
+}
 .mobile-menu-toggle span { 
   display: block; 
   width: 24px; 
@@ -281,286 +222,233 @@ ul { list-style: none; }
   transition: var(--transition);
   box-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
 }
+.mobile-menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ===== HERO - 3D Depth ===== */
+/* ===== HERO ===== */
 .hero-section {
-  min-height: 100vh; 
-  display: flex; 
-  align-items: center;
-  position: relative; 
-  overflow: hidden; 
-  padding-top: 120px;
-  transform-style: preserve-3d;
+  min-height: 100vh; display: flex; align-items: center;
+  background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #0a192f 100%);
+  position: relative; overflow: hidden; padding-top: 70px;
 }
-
 .hero-section::before {
-  content: ''; 
-  position: absolute; 
-  inset: 0;
+  content: ''; position: absolute; inset: 0;
   background: 
-    radial-gradient(ellipse 800px 600px at 70% 30%, rgba(0, 212, 255, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 600px 400px at 20% 80%, rgba(0, 153, 255, 0.15) 0%, transparent 60%);
+    radial-gradient(ellipse 600px 400px at 70% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 400px 300px at 20% 80%, rgba(0, 153, 255, 0.15) 0%, transparent 60%);
   pointer-events: none;
-  animation: heroGlow 6s ease-in-out infinite;
 }
-
-@keyframes heroGlow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.1); }
+.hero-section::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px; pointer-events: none;
 }
-
 .hero-content {
-  position: relative; 
-  z-index: 1; 
-  text-align: center;
-  max-width: 800px; 
-  margin: 0 auto; 
-  padding: 80px 0;
-  transform-style: preserve-3d;
-  animation: fadeUp 1s ease forwards;
+  position: relative; z-index: 1; text-align: center;
+  max-width: 760px; margin: 0 auto; padding: 80px 0;
+  animation: fadeUp 0.8s ease forwards;
 }
-
-@keyframes fadeUp { 
-  from { opacity: 0; transform: translateY(50px) rotateX(10deg); } 
-  to { opacity: 1; transform: translateY(0) rotateX(0); } 
-}
-
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .hero-content h1 {
-  font-family: var(--font-display); 
-  font-size: clamp(3rem, 7vw, 5rem);
-  font-weight: 900; 
-  color: var(--white); 
-  line-height: 1.1; 
-  margin-bottom: 24px; 
-  letter-spacing: -2px;
-  text-shadow: 
-    0 0 40px rgba(0, 212, 255, 0.5),
-    0 0 80px rgba(0, 153, 255, 0.3);
-  transform: translateZ(50px);
-  animation: titleFloat 6s ease-in-out infinite;
+  font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 20px; letter-spacing: -1px;
 }
+.hero-subtitle { font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.7); margin-bottom: 40px; font-weight: 300; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
-@keyframes titleFloat {
-  0%, 100% { transform: translateZ(50px) translateY(0); }
-  50% { transform: translateZ(60px) translateY(-10px); }
-}
-
-.hero-subtitle { 
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
-  color: rgba(255,255,255,0.8); 
-  margin-bottom: 50px; 
-  font-weight: 300; 
-  max-width: 600px; 
-  margin-left: auto; 
-  margin-right: auto; 
-  line-height: 1.8;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  transform: translateZ(30px);
-}
-
-/* ===== HERO SEARCH - 3D Glass ===== */
+/* ===== HERO SEARCH ===== */
 .hero-search {
-  display: flex; 
-  max-width: 600px; 
-  margin: 0 auto 60px;
-  background: rgba(255,255,255,0.05); 
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  border-radius: 50px; 
-  padding: 8px; 
-  backdrop-filter: blur(20px);
-  transition: var(--transition);
-  transform-style: preserve-3d;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 0 0 1px rgba(0, 212, 255, 0.1);
+  display: flex; max-width: 560px; margin: 0 auto 48px;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50px; padding: 6px; backdrop-filter: blur(12px); transition: var(--transition);
 }
-
-.hero-search:hover {
-  transform: translateY(-5px) translateZ(20px);
-  box-shadow: 
-    0 30px 60px rgba(0, 212, 255, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 0 0 1px rgba(0, 212, 255, 0.3);
-}
-
-.hero-search:focus-within { 
-  background: rgba(255,255,255,0.08); 
-  border-color: rgba(0, 212, 255, 0.6); 
-  box-shadow: 
-    0 0 0 3px rgba(0,212,255,0.2),
-    0 30px 60px rgba(0, 212, 255, 0.3);
-  transform: translateY(-5px) translateZ(30px);
-}
-
+.hero-search:focus-within { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); box-shadow: 0 0 0 3px rgba(233,69,96,0.2); }
 .search-wrapper { position: relative; flex: 1; }
-.hero-search input { 
-  width: 100%; 
-  background: none; 
-  border: none; 
-  outline: none; 
-  padding: 15px 25px; 
-  color: var(--white); 
-  font-family: var(--font-body); 
-  font-size: 1rem; 
-}
-
+.hero-search input { width: 100%; background: none; border: none; outline: none; padding: 12px 20px; color: var(--white); font-family: var(--font-body); font-size: 0.95rem; }
+.hero-search input::placeholder { color: rgba(255,255,255,0.5); }
 .hero-search button { 
-  background: var(--blue-gradient);
+  background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #0066ff 100%);
   background-size: 200% auto;
   color: #000000;
-  border: none;
-  padding: 15px 40px; 
+  border: 2px solid rgba(0, 212, 255, 0.5);
+  padding: 12px 32px; 
   border-radius: 50px; 
   font-family: var(--font-body); 
-  font-size: 1rem; 
+  font-size: 0.95rem; 
   font-weight: 700; 
   cursor: pointer; 
   transition: var(--transition); 
   white-space: nowrap;
   box-shadow: 
-    0 10px 30px rgba(0, 153, 255, 0.4),
-    0 0 20px rgba(0, 212, 255, 0.3);
+    0 8px 25px rgba(0, 153, 255, 0.5),
+    0 0 40px rgba(0, 212, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
-  transform-style: preserve-3d;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
 }
-
+.hero-search button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: 0.5s;
+}
 .hero-search button:hover { 
-  transform: translateY(-2px) scale(1.05);
+  background-position: right center;
+  transform: scale(1.08);
   box-shadow: 
-    0 15px 40px rgba(0, 212, 255, 0.6),
-    0 0 40px rgba(0, 153, 255, 0.4);
+    0 12px 35px rgba(0, 212, 255, 0.7),
+    0 0 60px rgba(0, 153, 255, 0.5),
+    0 0 80px rgba(0, 212, 255, 0.3);
+  border-color: rgba(0, 212, 255, 0.8);
+}
+.hero-search button:hover::before {
+  left: 100%;
 }
 
-/* ===== HERO STATS - 3D Cards ===== */
-.hero-stats { 
-  display: flex; 
-  justify-content: center; 
-  gap: 60px;
-  transform: translateZ(40px);
+/* ===== SEARCH SUGGESTIONS ===== */
+.search-suggestions {
+  position: absolute; top: calc(100% + 12px); left: 0; right: 0;
+  background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-lg);
+  overflow: hidden; border: 1px solid var(--border);
+  max-height: 0; opacity: 0; transition: var(--transition); z-index: 100;
 }
+.search-suggestions.open { max-height: 300px; opacity: 1; }
+.suggestion-item { display: flex; align-items: center; gap: 10px; padding: 12px 20px; font-size: 0.875rem; color: var(--primary); cursor: pointer; transition: var(--transition); border-bottom: 1px solid var(--light-gray); }
+.suggestion-item:hover { background: var(--light-gray); color: var(--accent); }
+.suggestion-item:last-child { border: none; }
 
-.stat { 
-  text-align: center; 
-  background: rgba(0, 212, 255, 0.1);
-  padding: 20px 40px;
-  border-radius: 20px;
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  backdrop-filter: blur(10px);
-  transition: var(--transition);
-  transform-style: preserve-3d;
-}
+/* ===== HERO STATS ===== */
+.hero-stats { display: flex; justify-content: center; gap: 48px; }
+.stat { text-align: center; }
+.stat-number { display: block; font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1; }
+.stat-label { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
 
-.stat:hover {
-  transform: translateY(-10px) translateZ(20px) rotateX(5deg);
-  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
-  border-color: rgba(0, 212, 255, 0.4);
-}
-
-.stat-number { 
-  display: block; 
-  font-family: var(--font-display); 
-  font-size: 2.5rem; 
-  font-weight: 900; 
-  color: var(--white); 
-  line-height: 1; 
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-}
-
-.stat-label { 
-  display: block; 
-  font-size: 0.85rem; 
-  color: rgba(255,255,255,0.6); 
-  text-transform: uppercase; 
-  letter-spacing: 2px; 
-  margin-top: 8px; 
-}
-
-/* ===== SECTIONS - 3D Depth ===== */
+/* ===== SECTIONS ===== */
 .content-section { 
-  padding: 120px 0;
+  padding: 90px 0;
   position: relative;
   transform-style: preserve-3d;
   perspective: 1000px;
 }
-
-.content-section:nth-child(even) { 
-  background: rgba(17, 34, 64, 0.3); 
-  backdrop-filter: blur(10px);
+.content-section:nth-child(even) { background: rgba(17, 34, 64, 0.5); }
+.health-section, .countries-section, .webdev-section { 
+  background: linear-gradient(135deg, rgba(17, 34, 64, 0.7), rgba(10, 25, 47, 0.8)); 
 }
+.earning-section, .social-section { background: rgba(10, 25, 47, 0.6); }
 
 .section-header { 
   text-align: center; 
-  margin-bottom: 80px;
-  transform-style: preserve-3d;
+  margin-bottom: 60px;
+  transform: translateZ(30px);
+  position: relative;
 }
-
 .section-header h2 {
   font-family: var(--font-display); 
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 900; 
   background: linear-gradient(135deg, #00d4ff 0%, #0099ff 25%, #0066ff 50%, #00d4ff 75%, #0099ff 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   position: relative; 
   display: inline-block;
-  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.5));
-  animation: shimmer 4s linear infinite;
-  transform: translateZ(30px);
+  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 60px rgba(0, 153, 255, 0.3));
+  animation: shimmer 3s linear infinite;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
 }
-
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+.section-header h2::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #00d4ff, #0099ff, #0066ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(20px);
+  opacity: 0.5;
+}
 .section-header h2::after {
   content: ''; 
   position: absolute; 
-  bottom: -15px; 
+  bottom: -12px; 
   left: 50%; 
   transform: translateX(-50%);
-  width: 100px; 
-  height: 4px; 
-  background: var(--blue-gradient);
-  border-radius: 2px;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+  width: 80px; 
+  height: 5px; 
+  background: linear-gradient(90deg, transparent, #00d4ff, #0099ff, #00d4ff, transparent);
+  border-radius: 3px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 153, 255, 0.5);
+  animation: glow 2s ease-in-out infinite;
 }
-
+@keyframes glow {
+  0%, 100% { opacity: 0.8; transform: translateX(-50%) scaleX(1); }
+  50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+}
 .section-header p { 
   color: var(--gray); 
-  font-size: 1.2rem; 
-  margin-top: 30px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  transform: translateZ(20px);
+  font-size: 1.1rem; 
+  margin-top: 24px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
 }
-
 .section-badge {
   display: inline-block; 
-  background: rgba(0, 212, 255, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  color: var(--accent);
-  font-size: 0.85rem; 
+  background: linear-gradient(135deg, #00d4ff, #0099ff, #0066ff);
+  background-size: 200% auto;
+  color: var(--white);
+  font-size: 0.8rem; 
   font-weight: 700; 
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase; 
-  padding: 12px 30px; 
+  padding: 10px 22px; 
   border-radius: 50px; 
-  margin-bottom: 20px;
-  backdrop-filter: blur(10px);
-  transform: translateZ(40px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 16px;
+  box-shadow: 0 8px 25px rgba(0, 153, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3);
+  transform: translateZ(20px);
+  animation: shimmer 3s linear infinite;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+.section-badge::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  animation: shine 3s ease-in-out infinite;
+}
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
 }
 
-/* ===== TOPICS GRID - 3D Cards ===== */
+/* ===== TOPICS GRID ===== */
 .topics-grid { 
   display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+  gap: 24px;
   transform-style: preserve-3d;
 }
-
 .topic-card-link { 
   text-decoration: none; 
   color: inherit; 
@@ -568,485 +456,565 @@ ul { list-style: none; }
   transform-style: preserve-3d;
   transition: var(--transition);
 }
-
+.topic-card-link:hover { 
+  transform: translateY(-12px) translateZ(15px);
+}
+.topic-card-link:hover .topic-card { 
+  border-color: var(--accent);
+  box-shadow: var(--shadow-3d-hover);
+}
 .topic-card {
-  background: linear-gradient(135deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(17, 34, 64, 0.9) 0%, rgba(10, 25, 47, 0.95) 100%);
   border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: var(--radius);
-  padding: 35px 30px;
+  padding: 22px 18px;
   transition: var(--transition);
   cursor: pointer;
   position: relative;
   overflow: hidden;
   height: 100%;
+  box-shadow: var(--shadow-3d);
   transform-style: preserve-3d;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(0, 212, 255, 0.1);
 }
-
 .topic-card::before {
   content: ''; 
   position: absolute; 
   inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
   opacity: 0; 
   transition: var(--transition);
 }
-
 .topic-card:hover { 
-  transform: translateY(-15px) rotateX(5deg) rotateY(-5deg) translateZ(30px);
-  box-shadow: 
-    0 40px 80px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(0, 212, 255, 0.3),
-    0 0 40px rgba(0, 212, 255, 0.2);
-  border-color: rgba(0, 212, 255, 0.5);
+  transform: translateY(-8px) translateZ(20px);
+  box-shadow: var(--shadow-3d-hover); 
+  border-color: var(--accent);
 }
-
 .topic-card:hover::before { opacity: 1; }
-
 .topic-icon { 
   display: block; 
-  font-size: 3.5rem; 
-  margin-bottom: 20px; 
-  transition: var(--transition);
-  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
-  transform: translateZ(30px);
-}
-
-.topic-card:hover .topic-icon { 
-  transform: scale(1.2) translateZ(50px) rotateY(10deg); 
-  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.8));
-}
-
-.topic-card h3 { 
-  font-size: 1.3rem; 
-  font-weight: 700; 
-  color: var(--white); 
+  font-size: 2.5rem; 
   margin-bottom: 12px; 
-  line-height: 1.4;
-  transform: translateZ(20px);
+  transition: var(--transition);
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+  transform: translateZ(15px);
 }
-
-.topic-card p { 
-  font-size: 0.95rem; 
-  color: var(--gray); 
-  line-height: 1.6;
+.topic-card:hover .topic-icon { transform: scale(1.15) translateZ(20px); }
+.topic-card h3 { 
+  font-size: 1.05rem; 
+  font-weight: 600; 
+  color: var(--light-gray); 
+  margin-bottom: 6px; 
+  line-height: 1.4;
   transform: translateZ(10px);
 }
-
-/* ===== COUNTRIES - 3D Glass Cards ===== */
-.countries-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-  gap: 30px; 
-}
-
-.country-group { 
-  background: rgba(17, 34, 64, 0.6); 
-  border-radius: var(--radius-lg); 
-  padding: 35px; 
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  backdrop-filter: blur(20px);
-  transition: var(--transition);
-  transform-style: preserve-3d;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(0, 212, 255, 0.1);
-}
-
-.country-group:hover { 
-  transform: translateY(-10px) translateZ(20px) rotateX(2deg);
-  box-shadow: 
-    0 40px 60px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(0, 212, 255, 0.3),
-    0 0 30px rgba(0, 212, 255, 0.2);
-  border-color: rgba(0, 212, 255, 0.4);
-}
-
-.country-group h3 { 
-  font-family: var(--font-display); 
-  font-size: 1.4rem; 
-  font-weight: 700; 
-  color: var(--white); 
-  margin-bottom: 25px; 
-  padding-bottom: 15px; 
-  border-bottom: 2px solid rgba(0, 212, 255, 0.3); 
-  display: flex; 
-  align-items: center; 
-  gap: 10px; 
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-}
-
-.country-group h3::before { content: '🗺️'; font-size: 1.2rem; filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5)); }
-
-.country-list { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 8px; 
-  max-height: 320px; 
-  overflow-y: auto; 
-  scrollbar-width: thin; 
-  scrollbar-color: var(--accent) transparent; 
-}
-
-.country-list::-webkit-scrollbar { width: 6px; }
-.country-list::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
-
-.country-link { 
-  display: block; 
-  padding: 10px 15px; 
-  font-size: 0.9rem; 
+.topic-card p { 
+  font-size: 0.85rem; 
   color: var(--gray); 
-  border-radius: 10px; 
+  line-height: 1.5;
+  transform: translateZ(5px);
+}
+.read-more-btn { 
+  display: inline-block; 
+  margin-top: 12px; 
+  font-size: 0.8rem; 
+  font-weight: 700; 
+  background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #0066ff 100%);
+  background-size: 200% auto;
+  color: #000000;
+  padding: 8px 18px; 
+  border-radius: 25px; 
+  opacity: 0; 
+  transform: translateX(-10px); 
   transition: var(--transition);
-  border: 1px solid transparent;
+  box-shadow: 
+    0 4px 15px rgba(0, 153, 255, 0.4),
+    0 0 20px rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+}
+.read-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: 0.5s;
+}
+.topic-card:hover .read-more-btn { 
+  opacity: 1; 
+  transform: translateX(0) translateZ(15px);
+}
+.read-more-btn:hover { 
+  background-position: right center;
+  box-shadow: 
+    0 8px 25px rgba(0, 212, 255, 0.6),
+    0 0 35px rgba(0, 153, 255, 0.4),
+    0 0 50px rgba(0, 212, 255, 0.2);
+  transform: translateY(-3px) translateZ(20px) scale(1.05);
+  border-color: rgba(0, 212, 255, 0.7);
+}
+.read-more-btn:hover::before {
+  left: 100%;
 }
 
-.country-link:hover { 
-  color: var(--accent); 
-  background: rgba(0, 212, 255, 0.1);
-  border-color: rgba(0, 212, 255, 0.2);
-  transform: translateX(10px) translateZ(10px);
-  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.1);
+.health-card::before, .earning-card::before, .webdev-card::before, .social-card::before { 
+  background: var(--blue-gradient);
+  opacity: 0.1;
 }
 
-/* ===== NEWSLETTER - 3D Glass ===== */
+/* ===== COUNTRIES ===== */
+.countries-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+.country-group { 
+  background: linear-gradient(135deg, rgba(17, 34, 64, 0.9), rgba(10, 25, 47, 0.95)); 
+  border-radius: var(--radius-lg); 
+  padding: 24px; 
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  transition: var(--transition);
+  box-shadow: var(--shadow-3d);
+}
+.country-group:hover { 
+  box-shadow: var(--shadow-3d-hover); 
+  border-color: var(--accent);
+  transform: translateY(-8px) translateZ(15px);
+}
+.country-group h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--light-gray); display: flex; align-items: center; gap: 8px; }
+.country-group h3::before { content: '🗺️'; font-size: 1rem; }
+.country-list { display: flex; flex-direction: column; gap: 4px; max-height: 320px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+.country-list::-webkit-scrollbar { width: 4px; }
+.country-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.country-link { display: block; padding: 7px 10px; font-size: 0.83rem; color: var(--gray); border-radius: 6px; transition: var(--transition); }
+.country-link:hover { color: var(--accent); background: rgba(59,130,246,0.08); padding-left: 14px; }
+
+/* ===== NEWSLETTER ===== */
 .newsletter-section { 
-  background: linear-gradient(135deg, rgba(10, 25, 47, 0.8), rgba(17, 34, 64, 0.8));
-  padding: 100px 0; 
+  background: linear-gradient(135deg, #0a192f, #112240);
+  padding: 80px 0; 
   position: relative; 
   overflow: hidden;
   border-top: 1px solid rgba(0, 212, 255, 0.2);
   border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-  backdrop-filter: blur(20px);
-  transform-style: preserve-3d;
 }
-
 .newsletter-section::before { 
   content: ''; 
   position: absolute; 
   inset: 0; 
-  background: radial-gradient(ellipse 600px 400px at 80% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 70%); 
+  background: radial-gradient(ellipse 500px 300px at 80% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%); 
   pointer-events: none; 
 }
-
-.newsletter-content { 
-  position: relative; 
-  z-index: 1; 
-  text-align: center; 
-  max-width: 600px; 
-  margin: 0 auto; 
-  transform: translateZ(30px);
-}
-
-.newsletter-content h2 { 
-  font-family: var(--font-display); 
-  font-size: 2.5rem; 
-  font-weight: 900; 
-  color: var(--white); 
-  margin-bottom: 20px;
-  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-}
-
-.newsletter-content p { 
-  color: rgba(255,255,255,0.7); 
-  font-size: 1.1rem; 
-  margin-bottom: 40px; 
-}
-
-.newsletter-form { 
-  display: flex; 
-  gap: 15px; 
-  max-width: 500px; 
-  margin: 0 auto; 
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-radius: 50px;
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.newsletter-form input { 
-  flex: 1; 
-  padding: 18px 30px; 
-  border: none; 
-  background: transparent; 
-  border-radius: 50px; 
-  color: var(--white); 
-  font-family: var(--font-body); 
-  font-size: 1rem; 
-  outline: none;
-}
-
+.newsletter-content { position: relative; z-index: 1; text-align: center; max-width: 560px; margin: 0 auto; }
+.newsletter-content h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.newsletter-content p { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 32px; }
+.newsletter-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; }
+.newsletter-form input { flex: 1; padding: 14px 20px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.1); border-radius: 50px; color: var(--white); font-family: var(--font-body); font-size: 0.9rem; outline: none; backdrop-filter: blur(10px); transition: var(--transition); }
 .newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
-
+.newsletter-form input:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); }
 .newsletter-form button { 
-  background: var(--blue-gradient);
+  background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #0066ff 100%);
   background-size: 200% auto;
   color: #000000;
-  border: none;
-  padding: 18px 40px; 
+  border: 2px solid rgba(0, 212, 255, 0.5);
+  padding: 14px 32px; 
   border-radius: 50px; 
   font-family: var(--font-body); 
-  font-size: 1rem; 
+  font-size: 0.95rem; 
   font-weight: 700; 
   cursor: pointer; 
-  transition: var(--transition);
-  box-shadow: 0 10px 30px rgba(0, 153, 255, 0.4);
-}
-
-.newsletter-form button:hover { 
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.6);
-}
-
-/* ===== FOOTER - 3D Depth ===== */
-.main-footer { 
-  background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(17, 34, 64, 0.95)); 
-  color: var(--gray); 
-  padding: 80px 0 0;
-  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  transition: var(--transition); 
+  white-space: nowrap;
+  box-shadow: 
+    0 8px 25px rgba(0, 153, 255, 0.5),
+    0 0 40px rgba(0, 212, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
 }
-
-.main-footer::before {
+.newsletter-form button::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
-  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: 0.5s;
+}
+.newsletter-form button:hover { 
+  background-position: right center;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    0 15px 40px rgba(0, 212, 255, 0.7),
+    0 0 60px rgba(0, 153, 255, 0.5),
+    0 0 80px rgba(0, 212, 255, 0.3);
+  border-color: rgba(0, 212, 255, 0.8);
+}
+.newsletter-form button:hover::before {
+  left: 100%;
 }
 
-.footer-grid { 
-  display: grid; 
-  grid-template-columns: 2fr 1fr 1fr 1fr; 
-  gap: 60px; 
-  padding-bottom: 60px; 
-  position: relative;
-  z-index: 1;
+/* =====FOOTER ===== */
+.main-footer { 
+  background: linear-gradient(135deg, #0a192f, #112240); 
+  color: var(--gray); 
+  padding: 64px 0 0;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
 }
-
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; }
 .footer-about h3 { 
   font-family: var(--font-display); 
-  font-size: 2rem; 
+  font-size: 1.5rem; 
   font-weight: 900; 
   background: var(--blue-gradient); 
   -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent; 
   background-clip: text; 
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4));
 }
-
-.footer-about p { 
-  font-size: 1rem; 
-  line-height: 1.8; 
-  margin-bottom: 30px; 
-  color: rgba(255,255,255,0.7);
-}
-
-.social-links { 
-  display: flex; 
-  gap: 15px; 
-}
-
+.footer-about p { font-size: 0.875rem; line-height: 1.7; margin-bottom: 20px; }
+.social-links { display: flex; gap: 10px; }
 .social-links a { 
   display: inline-flex; 
   align-items: center; 
   justify-content: center; 
-  width: 50px; 
-  height: 50px; 
+  width: 38px; 
+  height: 38px; 
   background: rgba(0, 212, 255, 0.1); 
-  border-radius: 15px; 
-  font-size: 1.3rem; 
+  border-radius: 8px; 
+  font-size: 1.1rem; 
   transition: var(--transition); 
   border: 1px solid rgba(0, 212, 255, 0.2);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
 .social-links a:hover { 
   background: var(--blue-gradient); 
   border-color: var(--accent); 
-  transform: translateY(-5px) rotateY(10deg);
-  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
 }
-
 .footer-links h4 { 
-  font-size: 1rem; 
-  font-weight: 700; 
-  color: var(--white); 
+  font-size: 0.85rem; 
+  font-weight: 600; 
+  color: var(--light-gray); 
   text-transform: uppercase; 
-  letter-spacing: 2px; 
-  margin-bottom: 25px;
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  letter-spacing: 1.5px; 
+  margin-bottom: 20px;
 }
-
-.footer-links ul { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 15px; 
-}
-
+.footer-links ul { display: flex; flex-direction: column; gap: 10px; }
 .footer-links ul li a { 
-  font-size: 1rem; 
+  font-size: 0.875rem; 
   transition: var(--transition); 
   display: inline-block;
   color: var(--gray);
-  padding: 5px 0;
 }
-
 .footer-links ul li a:hover { 
   color: var(--accent); 
-  transform: translateX(10px);
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  transform: translateX(4px);
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
 }
-
 .footer-bottom { 
   border-top: 1px solid rgba(0, 212, 255, 0.1); 
-  padding: 30px 0; 
+  padding: 20px 0; 
   text-align: center; 
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--gray);
-  position: relative;
-  z-index: 1;
 }
 
-/* ===== SCROLL TO TOP - 3D ===== */
+/* ===== SCROLL TO TOP ===== */
 #scrollTop {
-  position: fixed; 
-  bottom: 40px; 
-  right: 40px; 
-  width: 60px; 
-  height: 60px;
-  background: var(--blue-gradient);
-  color: #000000;
-  border: none; 
-  border-radius: 50%; 
-  font-size: 1.5rem; 
-  cursor: pointer; 
-  z-index: 999;
-  display: none; 
-  align-items: center; 
-  justify-content: center;
-  box-shadow: 
-    0 10px 30px rgba(0, 153, 255, 0.5),
-    0 0 0 5px rgba(0, 212, 255, 0.2),
-    0 0 30px rgba(0, 212, 255, 0.4);
-  transition: var(--transition);
-  transform-style: preserve-3d;
+  position: fixed; bottom: 30px; right: 30px; width: 46px; height: 46px;
+  background: linear-gradient(135deg, #60a5fa, #3b82f6); color: #000000;
+  border: none; border-radius: 50%; font-size: 1.2rem; cursor: pointer; z-index: 999;
+  display: none; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(59,130,246,0.4); transition: var(--transition);
 }
+#scrollTop:hover { transform: translateY(-3px) scale(1.05); background: linear-gradient(135deg, #93c5fd, #60a5fa); }
+#scrollTop.visible { display: flex; }
 
-#scrollTop:hover { 
-  transform: translateY(-10px) scale(1.1) rotateX(10deg);
-  box-shadow: 
-    0 20px 40px rgba(0, 212, 255, 0.6),
-    0 0 0 5px rgba(0, 212, 255, 0.3),
-    0 0 50px rgba(0, 212, 255, 0.6);
-}
 
-#scrollTop.visible { display: flex; animation: bounceIn 0.5s ease; }
 
-@keyframes bounceIn {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* ===== TOAST - Glass 3D ===== */
+/* ===== TOAST ===== */
 .toast {
-  position: fixed; 
-  bottom: 100px; 
-  right: 30px; 
-  background: rgba(17, 34, 64, 0.9);
-  backdrop-filter: blur(20px);
-  color: var(--white);
-  padding: 20px 30px; 
-  border-radius: 20px; 
-  font-size: 1rem; 
-  font-weight: 500;
-  z-index: 9999; 
-  transform: translateY(20px) translateZ(50px); 
-  opacity: 0; 
-  transition: var(--transition);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(0, 212, 255, 0.2),
-    0 0 30px rgba(0, 212, 255, 0.2);
-  border-left: 5px solid var(--accent);
+  position: fixed; bottom: 90px; right: 30px; background: var(--primary); color: var(--white);
+  padding: 14px 22px; border-radius: var(--radius); font-size: 0.875rem; font-weight: 500;
+  z-index: 9999; transform: translateY(20px); opacity: 0; transition: var(--transition);
+  box-shadow: var(--shadow-lg); max-width: 300px; border-left: 4px solid var(--accent);
 }
+.toast.show { transform: translateY(0); opacity: 1; }
 
-.toast.show { 
-  transform: translateY(0) translateZ(50px); 
-  opacity: 1; 
+/* ===== IN-PAGE SEARCH ===== */
+.header-search {
+  position: relative; display: flex; align-items: center;
 }
+.header-search input {
+  padding: 10px 16px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50px;
+  font-family: var(--font-body); font-size: 0.85rem; outline: none;
+  transition: var(--transition); width: 200px; 
+  background: rgba(17, 34, 64, 0.8);
+  color: var(--light-gray);
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
+}
+.header-search input:focus { 
+  border-color: var(--accent); 
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2), 0 8px 20px rgba(0, 153, 255, 0.4);
+  width: 250px;
+  background: rgba(17, 34, 64, 0.95);
+}
+.header-search input::placeholder { color: var(--gray); }
 
 /* ===== HIGHLIGHT STYLES ===== */
 mark.search-highlight {
-  background: rgba(0, 212, 255, 0.3); 
-  color: #fff; 
-  padding: 2px 6px; 
-  border-radius: 4px;
-  border: 1px solid rgba(0, 212, 255, 0.5);
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  background: #fbbf24; color: #000; padding: 2px 4px; border-radius: 3px;
+  box-shadow: 0 0 0 2px #f59e0b;
 }
 mark.search-highlight.current {
-  background: rgba(0, 212, 255, 0.6); 
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+  background: #f59e0b; box-shadow: 0 0 0 3px #d97706;
 }
+
+
+
+/* ===== LOGIN/SIGNUP MODAL ===== */
+.modal-overlay {
+  position: fixed; 
+  inset: 0; 
+  background: rgba(10, 25, 47, 0.85); 
+  backdrop-filter: blur(10px);
+  z-index: 10000; 
+  display: none; 
+  align-items: center; 
+  justify-content: center;
+  animation: fadeIn 0.4s ease;
+}
+.modal-overlay.active { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal-container {
+  background: linear-gradient(135deg, rgba(17, 34, 64, 0.98), rgba(10, 25, 47, 0.98));
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: var(--radius-lg); 
+  padding: 40px;
+  max-width: 450px; 
+  width: 90%; 
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(0, 212, 255, 0.2),
+    0 0 120px rgba(0, 153, 255, 0.1);
+  position: relative; 
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes slideUp { from { transform: translateY(50px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+.modal-close {
+  position: absolute; 
+  top: 15px; 
+  right: 15px; 
+  width: 36px; 
+  height: 36px;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #0066ff 100%);
+  background-size: 200% auto;
+  color: #000000;
+  border: 2px solid rgba(0, 212, 255, 0.5);
+  border-radius: 50%; 
+  font-size: 1.3rem; 
+  font-weight: 700;
+  cursor: pointer;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 153, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.modal-close::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: 0.5s;
+}
+.modal-close:hover { 
+  background-position: right center;
+  transform: scale(1.15) rotate(90deg);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.6);
+}
+.modal-close:hover::before {
+  left: 100%;
+}
+.modal-title {
+  font-family: var(--font-display); 
+  font-size: 2rem; 
+  font-weight: 900;
+  background: linear-gradient(135deg, #00d4ff, #0099ff, #0066ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px; 
+  text-align: center;
+  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4));
+}
+.modal-subtitle { 
+  color: var(--gray); 
+  font-size: 0.95rem; 
+  text-align: center; 
+  margin-bottom: 28px;
+  letter-spacing: 0.3px;
+}
+.modal-form { display: flex; flex-direction: column; gap: 16px; }
+.modal-form input {
+  padding: 14px 18px; 
+  border: 2px solid rgba(0, 212, 255, 0.2); 
+  border-radius: var(--radius);
+  font-family: var(--font-body); 
+  font-size: 0.95rem; 
+  outline: none; 
+  transition: var(--transition);
+  background: rgba(10, 25, 47, 0.6);
+  color: var(--light-gray);
+}
+.modal-form input::placeholder {
+  color: var(--gray);
+}
+.modal-form input:focus { 
+  border-color: var(--accent); 
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2), 0 0 20px rgba(0, 153, 255, 0.3);
+  background: rgba(10, 25, 47, 0.8);
+}
+.modal-form button {
+  background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #0066ff 100%);
+  background-size: 200% auto;
+  color: #000000;
+  border: 2px solid rgba(0, 212, 255, 0.5);
+  padding: 14px; 
+  border-radius: var(--radius); 
+  font-family: var(--font-body);
+  font-size: 1rem; 
+  font-weight: 700; 
+  cursor: pointer; 
+  transition: var(--transition); 
+  margin-top: 8px;
+  box-shadow: 0 8px 25px rgba(0, 153, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+}
+.modal-form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: 0.5s;
+}
+.modal-form button:hover { 
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 212, 255, 0.6);
+  border-color: rgba(0, 212, 255, 0.8);
+}
+.modal-form button:hover::before {
+  left: 100%;
+}
+.modal-switch { 
+  text-align: center; 
+  margin-top: 20px; 
+  color: var(--gray); 
+  font-size: 0.9rem;
+}
+.modal-switch a {
+  color: var(--accent); 
+  font-weight: 700; 
+  cursor: pointer; 
+  text-decoration: none;
+  transition: var(--transition);
+}
+.modal-switch a:hover { 
+  text-decoration: underline;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+.modal-divider {
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  margin: 20px 0;
+  color: var(--gray); 
+  font-size: 0.85rem;
+}
+.modal-divider::before, .modal-divider::after {
+  content: ''; 
+  flex: 1; 
+  height: 1px; 
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+}
+.social-login { display: flex; gap: 12px; margin-top: 12px; }
+.social-login button {
+  flex: 1; 
+  padding: 12px; 
+  border: 2px solid rgba(0, 212, 255, 0.2); 
+  background: rgba(10, 25, 47, 0.6);
+  border-radius: var(--radius); 
+  font-family: var(--font-body); 
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer; 
+  transition: var(--transition); 
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  gap: 8px;
+  color: var(--light-gray);
+}
+.social-login button:hover { 
+  border-color: var(--accent); 
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 153, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.animate-in { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.animate-in.visible { opacity: 1; transform: translateY(0); }
+.animate-in:nth-child(2) { transition-delay: 0.08s; }
+.animate-in:nth-child(3) { transition-delay: 0.12s; }
+.animate-in:nth-child(4) { transition-delay: 0.16s; }
+.animate-in:nth-child(5) { transition-delay: 0.20s; }
+.animate-in:nth-child(6) { transition-delay: 0.24s; }
+.section-header { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.section-header.visible { opacity: 1; transform: translateY(0); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .nav-menu li a { padding: 8px 12px; font-size: 0.8rem; }
-  .hero-stats { gap: 30px; }
-  .stat { padding: 15px 25px; }
+  .nav-menu li a { padding: 8px 10px; font-size: 0.8rem; }
 }
-
 @media (max-width: 768px) {
-  .main-header {
-    width: calc(100% - 20px);
-    top: 10px;
-  }
-  .main-nav { 
-    display: none; 
-    position: absolute; 
-    top: 80px; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    background: rgba(17, 34, 64, 0.98); 
-    border-radius: 20px;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    padding: 20px; 
-    backdrop-filter: blur(20px);
-  }
+  .main-nav { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); padding: 16px 24px; }
   .main-nav.open { display: block; }
-  .nav-menu { flex-direction: column; align-items: stretch; gap: 8px; }
-  .nav-menu li a { font-size: 1rem; padding: 15px; }
+  .nav-menu { flex-direction: column; align-items: stretch; gap: 4px; }
+  .nav-menu li a { font-size: 0.95rem; padding: 12px 16px; }
   .mobile-menu-toggle { display: flex; }
-  .hero-stats { flex-direction: column; gap: 20px; align-items: center; }
-  .hero-search { flex-direction: column; border-radius: 30px; padding: 15px; }
+  .hero-stats { gap: 24px; }
+  .hero-search { flex-direction: column; border-radius: var(--radius-lg); padding: 12px; }
+  .hero-search input { text-align: center; }
   .hero-search button { width: 100%; }
-  .topics-grid { grid-template-columns: 1fr; gap: 25px; }
+  .topics-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
   .countries-grid { grid-template-columns: 1fr; }
-  .newsletter-form { flex-direction: column; border-radius: 30px; }
+  .newsletter-form { flex-direction: column; }
   .newsletter-form button { width: 100%; }
-  .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-  .social-links { justify-content: center; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .header-actions .btn-signup { display: none; }
 }
-
 @media (max-width: 480px) {
-  .hero-content h1 { font-size: 2.5rem; }
-  .section-header h2 { font-size: 2rem; }
-  .stat { width: 100%; max-width: 300px; }
+  .topics-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+  .content-section { padding: 60px 0; }
 }
 </style>
 </head>
@@ -1063,7 +1031,7 @@ mark.search-highlight.current {
             <nav class="main-nav">
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#Wars">World War</a></li>
+                     <li><a href="#Wars">World War</a></li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#health">Health</a></li>
                     <li><a href="#countries">Countries</a></li>
@@ -1076,6 +1044,9 @@ mark.search-highlight.current {
                 <div class="header-search">
                     <input type="text" id="pageSearch" placeholder="Search & highlight..." onkeyup="handlePageSearch(event)">
                 </div>
+                <a href="login.html" class="btn-login" id="loginBtn">Log In</a>
+                <a href="log-in sign-up.html" class="btn-signup" id="signupBtn">Sign Up</a>
+                <a href="dashboard.html" class="btn-dashboard" id="dashboardBtn" style="display:none;">Dashboard</a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle Menu">
                 <span></span><span></span><span></span>
@@ -1100,42 +1071,24 @@ mark.search-highlight.current {
                     <div class="stat"><span class="stat-number">500+</span><span class="stat-label">Articles</span></div>
                     <div class="stat"><span class="stat-number">200+</span><span class="stat-label">Countries</span></div>
                     <div class="stat"><span class="stat-number">100+</span><span class="stat-label">Health Tips</span></div>
+                    
                 </div>
             </div>
         </div>
     </section>
-
     <!-- World War Section -->
     <section id="Wars" class="content-section Wars-section">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">⚔️ History</div>
-                <h2>World War History</h2>
-                <p>Comprehensive guides to understanding the World Wars</p>
+                <div class="section-badge">💚 Wars</div>
+                <h2>World War</h2>
+                 <p>World Wars</p>
             </div>
             <div class="topics-grid">
-                <a href="ww1-guide.html" class="topic-card-link">
-                    <div class="topic-card War-card">
-                        <span class="topic-icon">💣</span>
-                        <h3>World War 1 Complete Guide</h3>
-                        <p>Learn about the Great War, its causes, major battles, and global impact on modern history.</p>
-                    </div>
-                </a>
-                <a href="ww2-guide.html" class="topic-card-link">
-                    <div class="topic-card War-card">
-                        <span class="topic-icon">🛩️</span>
-                        <h3>World War 2 History</h3>
-                        <p>Explore the deadliest conflict in human history, from Pearl Harbor to the fall of Berlin.</p>
-                    </div>
-                </a>
-                <a href="cold-war.html" class="topic-card-link">
-                    <div class="topic-card War-card">
-                        <span class="topic-icon">☢️</span>
-                        <h3>Cold War Era</h3>
-                        <p>Understand the geopolitical tension between superpowers that shaped the 20th century.</p>
-                    </div>
-                </a>
-            </div>
+                <a href="#" class="topic-card-link"><div class="topic-card War-card"><span class="topic-icon">🌅</span><h3>Healthy morning routine tips</h3><p>Start your day with science-backed habits that boost energy, focus, and metabolism.</p></div></a>
+                <a href="#" class="topic-card-link"><div class="topic-card War-card"><span class="topic-icon">🌅</span><h3>Healthy morning routine tips</h3><p>Start your day with science-backed habits that boost energy, focus, and metabolism.</p></div></a>
+                <a href="#" class="topic-card-link"><div class="topic-card War-card"><span class="topic-icon">🌅</span><h3>Healthy morning routine tips</h3><p>Start your day with science-backed habits that boost energy, focus, and metabolism.</p></div></a>
+ </div>
         </div>
     </section>
    
@@ -1148,48 +1101,106 @@ mark.search-highlight.current {
                 <p>100+ Expert Blogging Topics to Help You Succeed Online</p>
             </div>
             <div class="topics-grid">
-                <a href="1.html" class="topic-card-link">
-                    <div class="topic-card">
-                        <span class="topic-icon">📝</span>
-                        <h3>How to start a blog in 2026</h3>
-                        <p>Complete beginner's guide to launching your successful blog. Every great blog starts with a single decision.</p>
-                    </div>
-                </a>
-                <a href="2.html" class="topic-card-link">
-                    <div class="topic-card">
-                        <span class="topic-icon">🚀</span>
-                        <h3>Best blogging platforms for beginners</h3>
-                        <p>Compare WordPress, Blogger, Medium and more. There has never been a better time to start a blog.</p>
-                    </div>
-                </a>
-                <a href="3.html" class="topic-card-link">
-                    <div class="topic-card">
-                        <span class="topic-icon">🎯</span>
-                        <h3>How to choose a blog niche</h3>
-                        <p>Finding your blog niche isn't just about keywords; it's about finding yourself.</p>
-                    </div>
-                </a>
-                <a href="4.html" class="topic-card-link">
-                    <div class="topic-card">
-                        <span class="topic-icon">🛠️</span>
-                        <h3>Best free blogging tools</h3>
-                        <p>Discover the friendliest platforms for beginners, from the ultra-simple to the seriously scalable.</p>
-                    </div>
-                </a>
-                <a href="5.html" class="topic-card-link">
-                    <div class="topic-card">
-                        <span class="topic-icon">❌</span>
-                        <h3>Blogging mistakes beginners make</h3>
-                        <p>Steer clear of these common pitfalls. Learn what not to do so you can grow your blog the right way.</p>
-                    </div>
-                </a>
-                <a href="6.html" class="topic-card-link">
-                    <div class="topic-card">
-                        <span class="topic-icon">🔍</span>
-                        <h3>How to write SEO friendly articles</h3>
-                        <p>Write SEO-friendly articles by using the main keyword in the title, headings, and naturally in the content.</p>
-                    </div>
-                </a>
+                <a href="1.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📝</span><h3>How to start a blog in 2026</h3><p>Complete beginner's guide to launching your successful blog.Every great blog starts with a single decision: where to plant your flag.Complete beginner's guide to launching your successful blog</p><span class="read-more-btn">Read More →</span></div></a>
+                <a href="2.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🚀</span><h3>Best blogging platforms for beginners</h3><p>Compare WordPress, Blogger, Medium and more.There has never been a better time to start a blog </p><span class="read-more-btn">Read More →</span></div></a>
+                <a href="3.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎯</span><h3>How to choose a blog niche</h3><p>Finding your blog niche isn't just about keywords; it’s about finding yourself. Discover how to blend passion, personality, and practicality to build a blog you’ll love forever.</p><span class="read-more-btn">Read More →</span></div></a>
+                <a href="4.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🛠️</span><h3>Best free blogging tools</h3><p>Ready to start a blog but don't know where to begin? Discover the friendliest platforms for beginners, from the ultra-simple to the seriously scalable.s</p></div></a>
+                <a href="5.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">❌</span><h3>Blogging mistakes beginners make</h3><p>Starting a blog? Steer clear of these common pitfalls. From inconsistent posting to ignoring SEO, learn what not to do so you can grow your blog the right way.</p></div></a>
+                <a href="6.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔍</span><h3>How to write SEO friendly articles</h3><p>Write SEO-friendly articles by using the main keyword in the title, headings, and naturally in the content.</p></div></a>
+                <a href="7.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📊</span><h3>Keyword research for beginners</h3><p>Keyword research means finding the words and phrases people search on Google related to your topic.</p></div></a>
+                <a href="8.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📈</span><h3>How to increase blog traffic</h3><p>Increase blog traffic by publishing SEO-optimized content regularly and promoting it on social media and search engines.</p></div></a>
+                <a href="9.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📋</span><h3>On-page SEO complete guide</h3><p>On-page SEO is the process of optimizing titles, headings, keywords, and internal links on a webpage to improve search engine rankings.</p></div></a>
+                <a href="10.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔗</span><h3>Off-page SEO strategies</h3><p>Off-page SEO strategies focus on building backlinks, social sharing, and online authority to improve a website’s search engine ranking.</p></div></a>
+                <a href="11.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔥</span><h3>How to write viral blog posts</h3><p>Write viral blog posts by creating engaging, valuable content with catchy headlines that people want to read and share.</p></div></a>
+                <a href="12.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">✍️</span><h3>Best content writing tips</h3><p>Use clear language, write valuable information for readers, and keep your content simple, engaging, and easy to understand.</p></div></a>
+                <a href="13.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📌</span><h3>How to find trending blog topics</h3><p>Stuck on what to write? Discover 5 simple, effective ways to find trending blog topics your audience is actually searching for right now.</p></div></a>
+                <a href="14.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">💰</span><h3>Blogging for passive income</h3><p> Want your blog to generate income on autopilot? Discover 5 proven ways to build passive income streams so you can earn money while you sleep</p></div></a>
+                <a href="15.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🤝</span><h3>Affiliate marketing for beginners</h3><p>New to affiliate marketing? Learn the simple steps to promote products, build trust with your audience, and earn your first commission—even as a total beginner.</p></div></a>
+                <a href="16.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">💵</span><h3>How to monetize a blog</h3><p>Ready to turn your blog into income? Discover 7 proven ways to monetize your content, from ads and affiliates to products and services.</p></div></a>
+                <a href="17.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔧</span><h3>Best free SEO tools</h3><p>Best free SEO tools help you find keywords, analyze websites, and improve search engine rankings without cost</p></div></a>
+                <a href="18.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📺</span><h3>Blogging vs YouTube earning</h3><p>Blogging and YouTube earning both make money through ads, affiliate marketing, and sponsorships, but YouTube uses video while blogging uses written content.</p></div></a>
+                <a href="19.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎨</span><h3>How to create blog logo</h3><p>Create a blog logo by using free online design tools and choosing simple colors, fonts, and a style that matches your blog brand.</p></div></a>
+                <a href="20.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">💻</span><h3>How to design blog website</h3><p>Design a blog website by choosing a clean layout, easy navigation, and a mobile-friendly theme to improve user experience and SEO.</p></div></a>
+                <a href="21.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">⚖️</span><h3>WordPress vs Blogger comparison</h3><p>WordPress offers more customization and plugins, while Blogger is simpler and easier for beginners to start blogging.</p></div></a>
+                <a href="22.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">⚙️</span><h3>How to install WordPress step by step</h3><p>Install WordPress by buying hosting, downloading WordPress, uploading it to your server, and completing the setup through the installation wizard.</p></div></a>
+                <a href="23.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎭</span><h3>Best WordPress themes for blogging</h3><p>Best WordPress themes for blogging are fast, customizable, and SEO-friendly designs that help bloggers create professional websites easily. Popular options include Astra, Kadence, and Neve, which are lightweight and ideal for blog website</p></div></a>
+                <a href="24.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔌</span><h3>Best WordPress plugins</h3><p>Best WordPress plugins help improve website SEO, speed, security, and features to make your blog more powerful and user-friendly. Popular examples include Yoast SEO, Rank Math, Elementor, and Akismet.</p></div></a>
+                <a href="25.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">⚡</span><h3>How to optimize website speed</h3><p>Optimize website speed by compressing images, using caching, and choosing fast hosting to make your website load faster.</p></div></a>
+                <a href="26.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">⏱️</span><h3>How to reduce website loading time</h3><p>Reduce website loading time by optimizing images, minimizing code files, and using caching or a CDN to load pages faster.</p></div></a>
+                <a href="27.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🆓</span><h3>Best free keyword research tools</h3><p>Provides accurate search volume and competition data directly from Google, essential for both SEO and PPC campaigns </p></div></a>
+                <a href="28.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">✅</span><h3>How to get Google AdSense approval</h3><p>To get Google AdSense approval, ensure your site has ample, high-quality, original content, essential pages like About and Privacy, and is at least a few months old to demonstrate authority</p></div></a>
+                <a href="29.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🚫</span><h3>AdSense mistakes to avoid</h3><p>The most common AdSense mistakes to avoid are clicking your own ads, placing ads too densely, and directing users to click on ads with misleading calls-to-action.</p></div></a>
+                <a href="30.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎯</span><h3>How to write high CTR titles</h3><p>To write high CTR titles, use powerful emotional triggers, include numbers, and promise a clear solution or benefit to the reader's specific problem.</p></div></a>
+                <a href="31.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🖼️</span><h3>How to create attractive thumbnails</h3><p>To create attractive thumbnails, use high-contrast colors, bold and readable text, and close-up shots of expressive faces to immediately grab attention in a crowded feed.</p></div></a>
+                <a href="32.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📱</span><h3>How to promote blog on social media</h3><p>To promote your blog on social media, share eye-catching visuals with short, compelling captions, engage genuinely in niche communities</p></div></a>
+                <a href="33.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📌</span><h3>Pinterest traffic for blogs</h3><p>To drive blog traffic with Pinterest, treat it as a visual search engine by creating multiple keyword-optimized pins per post,</p></div></a>
+                <a href="34.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">👥</span><h3>Facebook traffic strategy</h3><p>To drive traffic from Facebook, focus on posting native video content, engaging actively in relevant niche groups, and using a small budget to boost your best-performing posts.</p></div></a>
+                <a href="35.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📸</span><h3>Instagram traffic tips</h3><p>To drive traffic from Instagram, focus on creating engaging Reels to reach new audiences, add links to your Stories and bio, and use clear CTAs in your captions to guide followers to your blog.</p></div></a>
+                <a href="36.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📧</span><h3>Email marketing for bloggers</h3><p>To leverage email marketing for blogging, focus on building a list by offering a lead magnet, nurture subscribers with valuable content,</p></div></a>
+                <a href="37.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📮</span><h3>How to build email list</h3><p>To build an email list, offer a valuable lead magnet like an ebook or checklist in exchange for a visitor's email address, and use prominent signup forms on your blog.</p></div></a>
+                <a href="38.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎪</span><h3>Best blogging niches for beginners</h3><p>For beginners, the best blogging niches are those that balance personal passion with proven profitability, such as personal finance, health and wellness,</p></div></a>
+                <a href="39.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔬</span><h3>Micro niche blogging guide</h3><p>A micro niche blog focuses on a highly specific subtopic within a broader market, allowing you to build a dedicated audience quickly and rank higher in search engines with less competition.,</p></div></a>
+                <a href="40.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📃</span><h3>How to write list articles</h3><p>To write list articles, create a catchy headline with a number, use a clear introduction, and present each item with a bold subheading and a concise, valuable explanation.</p></div></a>
+                <a href="41.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">⭐</span><h3>How to write product reviews</h3><p>To write effective product reviews, provide an honest, balanced assessment based on personal experience, include high-quality photos, and clearly outline the pros, cons, and ideal user to help readers make informed purchase decisions.</p></div></a>
+                <a href="42.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">⚖️</span><h3>How to write comparison articles</h3><p>To write effective comparison articles, present a clear head-to-head analysis of two or more products, using a comparison table</p></div></a>
+                <a href="43.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔗</span><h3>How to get backlinks for blog</h3><p>To earn backlinks for your blog, create high-quality, original resources like data-driven studies or comprehensive guides</p></div></a>
+                <a href="44.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">✍️</span><h3>Guest posting guide</h3><p>A successful guest posting guide involves researching authoritative blogs in your niche, pitching unique, high-quality article ideas</p></div></a>
+                <a href="45.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔄</span><h3>Internal linking SEO strategy</h3><p>An effective internal linking strategy involves using keyword-rich anchor text to connect related posts on your site, which helps distribute page authority</p></div></a>
+                <a href="46.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📊</span><h3>How to improve Google ranking</h3><p>To improve your Google ranking in 2026, focus on demonstrating real-world experience (E-E-A-T) in your content, ensure your website is technically fast and mobile-friendly</p></div></a>
+                <a href="47.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📝</span><h3>How to write meta description</h3><p>To write an effective meta description, craft a compelling, concise summary of the page (under 160 characters) that includes the target keyword</p></div></a>
+                <a href="48.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🖼️</span><h3>How to optimize blog images</h3><p>To optimize blog images, compress them for faster loading times, use descriptive file names, and always fill out the alt text with relevant keywords to improve SEO and accessibility.</p></div></a>
+                <a href="49.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🗺️</span><h3>How to create sitemap</h3><p>To create a sitemap, you can use a plugin if you're on WordPress (like Yoast SEO), use an online generator for a one-time XML file/p></div></a>
+                <a href="50.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🌐</span><h3>How to submit website to Google</h3><p>To submit your website to Google, add and verify it in Google Search Console, then submit your sitemap and use the URL Inspection tool to request indexing for important pages.</p></div></a>
+                <a href="51.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔍</span><h3>Google Search Console guide</h3><p>Google Search Console is a free tool from Google that helps you monitor your site's performance in search results, identify and fix indexing issues</p></div></a>
+                <a href="52.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📈</span><h3>Google Analytics for beginners</h3><p>Google Analytics for beginners is a free tool that tracks and reports website traffic, providing essential insights into your audience, their behavior</p></div></a>
+                <a href="53.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📊</span><h3>How to track website traffic</h3><p>To track website traffic, implement Google Analytics (GA4) by adding its tracking code to your site, allowing you to monitor visitor numbers, sources, behavior</p></div></a>
+                <a href="54.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🖼️</span><h3>Best free stock image websites</h3><p>Here are the best free stock image websites, with the top recommendations being **Unsplash, Pexels, and Pixabay** for their massive, high-quality, and truly free libraries .</p></div></a>
+                <a href="55.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📅</span><h3>Blogging content calendar guide</h3><p>A blogging content calendar is a strategic schedule for planning, creating, and publishing your blog posts, helping you stay consistent, align content with key dates,</p></div></a>
+                <a href="56.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🤖</span><h3>AI tools for bloggers</h3><p>AI tools for bloggers in 2026 span the entire content lifecycle, from AI-powered research and brainstorming with tools like Sublime, Granola</p></div></a>
+                <a href="57.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📄</span><h3>How to write long-form content</h3><p>To write long-form content (typically over 1,500 words), start with in-depth research and a detailed outline, break the text into scannable sections with descriptive subheadings</p></div></a>
+                <a href="58.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🏛️</span><h3>How to create pillar content</h3><p>To create pillar content, develop a single, comprehensive, long-form article that serves as the authoritative main hub for a broad topic, which you then link out to multiple related, detailed cluster posts.</p></div></a>
+                <a href="59.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔮</span><h3>Blogging trends in 2026</h3><p>Blogging in 2026 is defined by the rise of Answer Engine Optimization (AEO) to get cited in AI overviews, a strategic comeback of blogs as owned media assets</p></div></a>
+                <a href="60.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎤</span><h3>Voice search SEO tips</h3><p>To optimize for voice search in 2026, focus on targeting long-tail, conversational question phrases, securing featured snippets with concise answers (under 40 words</p></div></a>
+                <a href="61.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📱</span><h3>Mobile SEO optimization</h3><p>Mobile SEO optimization involves designing your website to be responsive for all screen sizes, ensuring fast loading times on mobile networks</p></div></a>
+                <a href="62.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">⚡</span><h3>Core Web Vitals guide</h3><p>Core Web Vitals are a set of Google metrics—Largest Contentful Paint (LCP), Interaction to Next Paint (INP)</p></div></a>
+                <a href="63.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">✨</span><h3>How to write engaging introductions</h3><p>To write engaging introductions, start with a compelling hook like a surprising fact, question, or story, then clearly state what the reader will learn and why they should care.</p></div></a>
+                <a href="64.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">💬</span><h3>How to increase blog engagement</h3><p>To increase blog engagement, actively respond to every comment to build community, end your posts with a direct question to encourage discussion</p></div></a>
+                <a href="65.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📉</span><h3>How to reduce bounce rate</h3><p>To reduce bounce rate, ensure your content matches the promise of your title and meta description, improve page load speed</p></div></a>
+                <a href="66.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎨</span><h3>Blog design best practices</h3><p>Effective blog design prioritizes clean, uncluttered layouts with ample white space, fast loading speeds, and a responsive, mobile-friendly structure to ensure readability</p></div></a>
+                <a href="67.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎯</span><h3>Minimalist blog design tips</h3><p>Minimalist blog design focuses on using ample white space, a limited color palette, and clear, readable typography to create a distraction-free, elegant, and fast-loading user experience.</p></div></a>
+                <a href="68.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📁</span><h3>How to create blog categories</h3><p>To create blog categories, group your posts into broad, distinct topics that reflect your main content pillars, using clear and descriptive names to help readers easily navigate</p></div></a>
+                <a href="69.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔤</span><h3>Best fonts for websites</h3><p>The best fonts for websites balance readability with brand personality, with top choices including versatile sans-serifs like Inter, Roboto, and Open Sans for body text</p></div></a>
+                <a href="70.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎨</span><h3>Best color combinations for blogs</h3><p>The best color combinations for blogs balance aesthetics with readability and brand identity, often using a 60-30-10 rule (60% dominant neutral, 30% secondary, 10% accent)</p></div></a>
+                <a href="71.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🏆</span><h3>How to build authority website</h3><p>To build an authoritative website in 2026, consistently publish in-depth, expert-level content that demonstrates first-hand experience (E-E-A-T)</p></div></a>
+                <a href="72.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎯</span><h3>How to build niche website</h3><p>To build a niche website, first select a specific, focused topic you're passionate about with good monetization potential, then create targeted, high-quality content</p></div></a>
+                <a href="73.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📚</span><h3>Blogging case studies</h3><p>Here are compelling blogging case studies of individuals and businesses who achieved remarkable traffic growth and revenue through strategic pivots, relationship-building, and technical</p></div></a>
+                <a href="74.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">💰</span><h3>How bloggers earn money</h3><p>Bloggers earn money through diverse streams including display advertising (like Google AdSense or Mediavine)</p></div></a>
+                <a href="75.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">💵</span><h3>Passive income blogging strategies</h3><p>To build passive income through blogging, create and sell evergreen digital products like ebooks or online courses, publish content that consistently earns from ads and affiliate links</p></div></a>
+                <a href="76.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📦</span><h3>How to sell digital products</h3><p>To sell digital products successfully, first identify a clear problem your audience faces, create a high-value solution like an ebook or course</p></div></a>
+                <a href="77.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎓</span><h3>How to create online course</h3><p>To create an online course, start by defining a clear learning outcome and structuring your content into logical modules, then choose a platform to host your material</p></div></a>
+                <a href="78.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🤝</span><h3>Best affiliate programs</h3><p>The best affiliate programs are those that align with your niche and audience, with top performers in 2026 including high-paying options like Kajabi (avg. $112 per sale)</p></div></a>
+                <a href="79.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📦</span><h3>Amazon affiliate guide</h3><p>To succeed with the Amazon Associates program, focus on creating high-quality content that targets buyer intent, use multiple tracking IDs to analyze performance</p></div></a>
+                <a href="80.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">💹</span><h3>CPA marketing guide</h3><p>CPA marketing, or cost-per-action marketing, is a performance-based affiliate model where you earn commissions by promoting offers</p></div></a>
+                <a href="81.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">👤</span><h3>How to build personal brand</h3><p>To build a personal brand, consistently share your unique expertise and authentic story across platforms, engage genuinely with your audience</p></div></a>
+                <a href="82.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">⏱️</span><h3>Blogging productivity tips</h3><p>Boost your blogging productivity by batching similar tasks, using the Pomodoro technique for focused writing sprints, creating a content calendar</p></div></a>
+                <a href="83.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📅</span><h3>Time management for bloggers</h3><p>Effective time management for bloggers involves batching content creation, using a content calendar, prioritizing high-impact tasks like SEO</p></div></a>
+                <a href="84.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">💻</span><h3>Best laptop for blogging</h3><p>The best laptop for blogging in 2026 balances portability, a comfortable keyboard, and sufficient performance for writing and light photo editing, with top recommendations including </p></div></a>
+                <a href="85.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📱</span><h3>Best apps for bloggers</h3><p>The best apps for bloggers in 2026 form a complete toolkit covering creation, planning, and monetization: use CapCut and Canva for content design, Planoly or Buffer for scheduling</p></div></a>
+                <a href="86.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🤔</span><h3>Blogging myths and facts</h3><p>Common blogging myths include the belief that it's a get-rich-quick scheme or that it's dead as a medium, whereas the facts are that successful blogging requires consistent</p></div></a>
+                <a href="87.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">⚡</span><h3>How to write faster blog posts</h3><p>To write faster blog posts, start with a detailed outline to structure your thoughts, use the Pomodoro technique for focused writing sprints, and leverage AI tools for research, drafting</p></div></a>
+                <a href="88.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔄</span><h3>How to repurpose blog content</h3><p>To repurpose blog content effectively, transform your written posts into multiple formats like videos, podcasts, infographics, and social media snippets to reach new audiences</p></div></a>
+                <a href="89.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📢</span><h3>Content marketing strategy</h3><p>A content marketing strategy is a planned approach to creating and distributing valuable, relevant, and consistent content to attract and retain a clearly defined audience</p></div></a>
+                <a href="90.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">✅</span><h3>SEO checklist for bloggers</h3><p>An SEO checklist for bloggers includes conducting keyword research, optimizing on-page elements (titles, meta descriptions, headers, images)</p></div></a>
+                <a href="91.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📋</span><h3>Blog launch checklist</h3><p>A blog launch checklist includes choosing a domain and hosting, installing and designing your blog, creating essential pages (About, Contact, Privacy)</p></div></a>
+                <a href="92.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🏠</span><h3>How to create blog homepage</h3><p>To create an effective blog homepage, design a clean layout that features your latest or best content prominently, includes a clear value proposition</p></div></a>
+                <a href="93.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">👥</span><h3>Best blogging communities</h3><p>The best blogging communities in 2026 span across dedicated platforms like Mighty Networks and Circle for creator-owned spaces</p></div></a>
+                <a href="94.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🎯</span><h3>How to get first 1000 visitors</h3><p>To get your first 1,000 blog visitors, focus on a strong foundation: publish 10-15 high-quality, SEO-optimized posts upfront, maintain a consistent schedule</p></div></a>
+                <a href="95.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📧</span><h3>How to get first 1000 email subscribers</h3><p>To get your first 1,000 email subscribers, create a valuable lead magnet (like a checklist or ebook), place opt-in forms strategically on your website</p></div></a>
+                <a href="96.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔥</span><h3>How to create viral content</h3><p>To create viral content, focus on evoking strong emotions (like awe, anger, or amusement), telling a compelling story that people want to share</p></div></a>
+                <a href="97.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📊</span><h3>Blogging income report example</h3><p>A blogging income report is a detailed breakdown of a blog's earnings and expenses over a specific period, typically published monthly</p></div></a>
+                <a href="98.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">🔮</span><h3>Future of blogging</h3><p>The future of blogging in 2026 is a strategic evolution where the blog transforms from a simple publishing tool into a central "owned asset" for building authority</p></div></a>
+                <a href="99.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">👥</span><h3>How to build blogging team</h3><p>To build a successful blogging team, you should start by hiring a virtual assistant to handle administrative tasks, then bring on specialized freelance writers</p></div></a>
+                <a href="100.html" class="topic-card-link"><div class="topic-card"><span class="topic-icon">📖</span><h3>Complete blogging guide for beginners</h3><p>A complete blogging guide for beginners covers the entire journey from start to success: first, discover your passion and choose a focused niche</p></div></a>
             </div>
         </div>
     </section>
@@ -1203,51 +1214,111 @@ mark.search-highlight.current {
                 <p>100+ Health Tips for a Better Lifestyle</p>
             </div>
             <div class="topics-grid">
-                <a href="1h.html" class="topic-card-link">
-                    <div class="topic-card health-card">
-                        <span class="topic-icon">🌅</span>
-                        <h3>Healthy morning routine tips</h3>
-                        <p>Start your day with science-backed habits that boost energy, focus, and metabolism.</p>
-                    </div>
-                </a>
-                <a href="2h.html" class="topic-card-link">
-                    <div class="topic-card health-card">
-                        <span class="topic-icon">💧</span>
-                        <h3>Benefits of drinking water daily</h3>
-                        <p>Discover how proper hydration improves cognition, digestion, and overall vitality.</p>
-                    </div>
-                </a>
-                <a href="3h.html" class="topic-card-link">
-                    <div class="topic-card health-card">
-                        <span class="topic-icon">⚖️</span>
-                        <h3>How to lose weight naturally</h3>
-                        <p>Achieve sustainable weight loss with expert advice on nutrition and lifestyle changes.</p>
-                    </div>
-                </a>
-                <a href="4h.html" class="topic-card-link">
-                    <div class="topic-card health-card">
-                        <span class="topic-icon">🏋️</span>
-                        <h3>Best home workouts for beginners</h3>
-                        <p>Build strength and confidence with equipment-free exercises designed for any fitness level.</p>
-                    </div>
-                </a>
-                <a href="5h.html" class="topic-card-link">
-                    <div class="topic-card health-card">
-                        <span class="topic-icon">🥗</span>
-                        <h3>Healthy diet plan for beginners</h3>
-                        <p>Learn the fundamentals of balanced eating from qualified nutrition experts.</p>
-                    </div>
-                </a>
-                <a href="6h.html" class="topic-card-link">
-                    <div class="topic-card health-card">
-                        <span class="topic-icon">🛡️</span>
-                        <h3>Foods that boost immunity</h3>
-                        <p>Strengthen your body's defenses with nutrient-rich foods recommended by dietitians.</p>
-                    </div>
-                </a>
+                <a href="1h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌅</span><h3>Healthy morning routine tips</h3><p>Start your day with science-backed habits that boost energy, focus, and metabolism.</p></div></a>
+               <a href="2h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💧</span><h3>Benefits of drinking water daily</h3><p>Discover how proper hydration improves cognition, digestion, and overall vitality.</p></div></a>
+                <a href="3h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">⚖️</span><h3>How to lose weight naturally</h3><p>Achieve sustainable weight loss with expert advice on nutrition and lifestyle changes.</p></div></a>
+                <a href="4h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🏋️</span><h3>Best home workouts for beginners</h3><p>Build strength and confidence with equipment-free exercises designed for any fitness level.</p></div></a>
+                <a href="5h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🥗</span><h3>Healthy diet plan for beginners</h3><p>Learn the fundamentals of balanced eating from qualified nutrition experts.</p></div></a>
+                <a href="6h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🛡️</span><h3>Foods that boost immunity</h3><p>Strengthen your body's defenses with nutrient-rich foods recommended by dietitians.</p></div></a>
+                <a href="7h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌿</span><h3>How to improve digestion naturally</h3><p>Ease discomfort and enhance gut health with medically reviewed dietary adjustments.</p></div></a>
+                <a href="8h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🚶</span><h3>Benefits of walking daily</h3><p>Explore how this low-impact exercise improves heart health and mental well-being.</p></div></a>
+                <a href="9h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🔥</span><h3>Best exercises for weight loss</h3><p>Maximize calorie burn with expert-approved cardio and strength training routines.</p></div></a>
+                <a href="10h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🏠</span><h3>How to stay fit at home</h3><p>Maintain your fitness goals with effective, space-efficient home workouts.</p></div></a>
+                <a href="11h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">😴</span><h3>Tips for better sleep</h3><p>Improve sleep quality with clinically proven bedtime habits and environmental adjustments.</p></div></a>
+                <a href="12h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌙</span><h3>Causes of insomnia and solutions</h3><p>Understand sleep disruption triggers and evidence-based solutions for restful nights.</p></div></a>
+                <a href="13h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🧘</span><h3>Yoga for beginners</h3><p>Ease into yoga with basic poses that build flexibility and inner calm.</p></div></a>
+                <a href="14h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🧠</span><h3>Meditation benefits for mental health</h3><p>Reduce stress and enhance emotional resilience through guided mindfulness practices.</p></div></a>
+                <a href="15h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌸</span><h3>Stress management tips</h3><p>Learn clinically proven techniques to cope with daily pressures effectively.</p></div></a>
+                <a href="16h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌿</span><h3>Natural ways to reduce stress</h3><p>Find calm through nature-based remedies and relaxing activities.</p></div></a>
+                <a href="17h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🍳</span><h3>Healthy breakfast ideas</h3><p>Fuel your day with quick, dietitian-approved breakfasts that keep you satisfied.</p></div></a>
+                <a href="18h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">✨</span><h3>Foods for healthy skin</h3><p>Nourish your complexion from within with antioxidant-rich foods.</p></div></a>
+                <a href="19h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌿</span><h3>Natural remedies for acne</h3><p>Treat breakouts gently using dermatologist-recommended natural ingredients.</p></div></a>
+                <a href="20h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">✨</span><h3>How to get glowing skin naturally</h3><p>Achieve radiant skin with a holistic approach to diet and skincare.</p></div></a>
+                <a href="21h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💇</span><h3>Hair care tips for healthy hair</h3><p>Maintain strong, shiny hair with expert washing and styling practices.</p></div></a>
+                <a href="22h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌱</span><h3>Best foods for hair growth</h3><p>Promote hair strength with essential nutrients like biotin and iron.</p></div></a>
+                <a href="23h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌿</span><h3>Natural remedies for hair fall</h3><p>Combat thinning with proven scalp treatments and nutritional support.</p></div></a>
+                <a href="24h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">👁️</span><h3>Eye care tips for screen users</h3><p>Protect your vision with exercises and ergonomic adjustments for digital life.</p></div></a>
+                <a href="25h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">👁️</span><h3>How to improve eyesight naturally</h3><p>Support long-term eye health through nutrition and protective habits.</p></div></a>
+                <a href="26h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🎯</span><h3>Tips to reduce belly fat</h3><p>Target stubborn abdominal fat with effective exercises and a balanced diet.</p></div></a>
+                <a href="27h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💪</span><h3>Best exercises for abs</h3><p>Strengthen your core with these proven, expert-recommended moves.</p></div></a>
+                <a href="28h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🤸</span><h3>Benefits of stretching daily</h3><p>Increase flexibility and prevent injury by incorporating daily stretching.</p></div></a>
+                <a href="29h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🍯</span><h3>Home remedies for cold and cough</h3><p>Soothe symptoms quickly with natural ingredients found in your kitchen.</p></div></a>
+                <a href="30h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌿</span><h3>Natural remedies for sore throat</h3><p>Find fast relief using comforting, medically reviewed natural remedies.</p></div></a>
+                <a href="31h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">❤️</span><h3>Best foods for heart health</h3><p>Protect your cardiovascular system with cardiologist-approved food choices.</p></div></a>
+                <a href="32h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💓</span><h3>Tips to control blood pressure</h3><p>Manage hypertension through diet, exercise, and lifestyle modifications.</p></div></a>
+                <a href="33h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">📊</span><h3>How to maintain healthy cholesterol</h3><p>Balance cholesterol with smart food choices and regular physical activity.</p></div></a>
+                <a href="34h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🍎</span><h3>Foods that lower blood sugar</h3><p>Stabilize glucose levels with low-glycemic foods recommended by diabetes educators.</p></div></a>
+                <a href="35h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌿</span><h3>Natural ways to control diabetes</h3><p>Support blood sugar management alongside medical care with lifestyle approaches.</p></div></a>
+                <a href="36h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌟</span><h3>Healthy habits for long life</h3><p>Adopt daily practices that contribute to a longer, more vibrant life.s</p></div></a>
+                <a href="37h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🏃</span><h3>Importance of regular exercise</h3><p>Discover profound physical and mental benefits of consistent physical activity.</p></div></a>
+                <a href="38h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🛡️</span><h3>How to build strong immunity</h3><p>Create a resilient immune system through nutrition and healthy habits.</p></div></a>
+                <a href="39h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💊</span><h3>Best vitamins for body health</h3><p>Ensure optimal function by understanding essential vitamins from qualified sources.</p></div></a>
+                <a href="40h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">☀️</span><h3>Benefits of sunlight for health</h3><p>Learn how safe exposure boosts vitamin D and regulates sleep cycles.</p></div></a>
+                <a href="41h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌿</span><h3>How to detox your body naturally</h3><p>Support your body's cleansing processes with hydration and whole foods.</p></div></a>
+                <a href="42h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🍋</span><h3>Benefits of drinking lemon water</h3><p>Kickstart digestion with this simple, vitamin C-packed morning drink.</p></div></a>
+                <a href="43h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🍎</span><h3>Apple cider vinegar health benefits</h3><p>Explore evidence-based uses of ACV for digestion and blood sugar balance.</p></div></a>
+                <a href="44h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🍵</span><h3>Green tea health benefits</h3><p>Discover antioxidants in green tea that boost metabolism and brain health.</p></div></a>
+                <a href="45h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌿</span><h3>Herbal tea benefits</h3><p>Unwind with caffeine-free properties of various herbal teas.</p></div></a>
+                <a href="46h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🍎</span><h3>Benefits of eating fruits daily</h3><p>Get essential vitamins and antioxidants by making fruits part of your diet.</p></div></a>
+                <a href="47h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🥕</span><h3>Benefits of vegetables for health</h3><p>Provide your body with vital nutrients from a variety of vegetables.</p></div></a>
+                <a href="48h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌾</span><h3>Importance of fiber in diet</h3><p>Understand how fiber aids digestion and helps maintain healthy weight.</p></div></a>
+                <a href="49h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌱</span><h3>Best protein sources for vegetarians</h3><p>Plant-based protein options.Build muscle with excellent plant-based protein options.</p></div></a>
+                <a href="50h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🥜</span><h3>Healthy snacks for weight loss</h3><p>Snack smart and lose weight. Curb cravings with nutritious, portion-controlled snacks.</p></div></a>
+                <a href="51h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💧</span><h3>How to stay hydrated</h3><p>Tips for proper hydration.Learn practical tips to ensure adequate fluid intake throughout the day.</p></div></a>
+                <a href="52h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">⚠️</span><h3>Signs of dehydration</h3><p>Recognize when you need water.Recognize early warning signs that your body needs more fluids.</p></div></a>
+                <a href="53h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🦴</span><h3>Tips for healthy bones</h3><p>Maintain strong bones.Build strong bones with calcium, vitamin D, and weight-bearing exercise.</p></div></a>
+                <a href="54h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🥛</span><h3>Calcium rich foods list</h3><p>Foods for bone health.Discover dairy and non-dairy foods packed with bone-building calcium.</p></div></a>
+                <a href="55h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">☀️</span><h3>Vitamin D benefits</h3><p>Why vitamin D is crucial.Learn about the "sunshine vitamin's" role in immunity and mood regulation.</p></div></a>
+                <a href="56h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">⚡</span><h3>How to improve metabolism</h3><p>Boost your metabolic rate.Give your metabolism a natural boost through exercise and protein intake.</p></div></a>
+                <a href="57h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🚫</span><h3>Tips to prevent obesity</h3><p>Maintain healthy weight.Adopt proactive habits to maintain a healthy weight.</p></div></a>
+                <a href="58h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌟</span><h3>Healthy lifestyle tips</h3><p>Live your best life.Get actionable advice to integrate wellness into your daily routine.</p></div></a>
+                 <a href="59h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🧠</span><h3>Importance of mental health</h3><p>Prioritize your mental wellness.Understand why mental well-being is vital for a fulfilling life.</p></div></a>
+                 <a href="60h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">😊</span><h3>Tips for positive thinking</h3><p>Cultivate a positive mindset.Train your brain to focus on the good and improve resilience.</p></div></a>
+                 <a href="61h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💪</span><h3>How to stay motivated for fitness</h3><p>Keep your fitness motivation high.Overcome slumps with goal-setting and finding your "why."</p></div></a>
+                 <a href="62h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🎯</span><h3>Fitness goals for beginners</h3><p>Set achievable fitness targets.Set realistic milestones to build a sustainable exercise habit.</p></div></a>
+                 <a href="63h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🏃</span><h3>Benefits of running daily</h3><p>Transform your health with running.Experience cardiovascular fitness and stress relief from regular running.</p></div></a>
+                 <a href="64h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🚴</span><h3>Cycling benefits for health</h3><p>Pedal your way to fitness.Enjoy a low-impact workout that builds leg strength and stamina.</p></div></a>
+                 <a href="65h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🏊</span><h3>Swimming benefits for body</h3><p>Full-body workout in water.Get a full-body workout that tones muscles and enhances flexibility.</p></div></a>
+                 <a href="66h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">👴</span><h3>Best exercises for seniors</h3><p>Stay active at any age.Maintain mobility and independence with safe exercises for older adults.</p></div></a>
+                 <a href="67h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">👶</span><h3>Healthy habits for children</h3><p>Build healthy habits early.Instill wellness early by teaching kids about nutrition and play.</p></div></a>
+                 <a href="68h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🏃</span><h3>Importance of physical activity for kids</h3><p>Keep children active and healthy.Support children's development by ensuring daily active play.</p></div></a>
+                 <a href="69h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🍱</span><h3>Healthy school lunch ideas</h3><p>Nutritious meals for kids.Pack nutritious lunches that give kids energy to learn and play.</p></div></a>
+                 <a href="70h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🤰</span><h3>Tips for healthy pregnancy</h3><p>Guide for expecting mothers.Navigate pregnancy with advice on nutrition and safe exercise.</p></div></a>
+                 <a href="71h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🚫</span><h3>Foods to avoid during pregnancy</h3><p>What not to eat when pregnant.Learn which foods to avoid for your baby's safety.</p></div></a>
+                 <a href="72h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💪</span><h3>Post pregnancy fitness tips</h3><p>Get back in shape after baby.Regain strength safely after childbirth with gentle exercises.</p></div></a>
+                 <a href="73h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">👩</span><h3>Women's health tips</h3><p>Health advice for women.Address unique health considerations for women.</p></div></a>
+                 <a href="74h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">👨</span><h3>Men's health tips</h3><p>Health advice for men.Focus on key health areas including heart and prostate care.</p></div></a>
+                 <a href="75h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🏥</span><h3>Importance of regular health checkups</h3><p>Preventive healthcare matters.Catch potential issues early with routine medical screenings.</p></div></a>
+                 <a href="76h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🧍</span><h3>How to maintain good posture</h3><p>Stand and sit correctly.Improve alignment to prevent pain and boost confidence.</p></div></a>
+                 <a href="77h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💺</span><h3>Tips to avoid back pain</h3><p>Prevent and relieve back pain.	Protect your spine with proper techniques and core exercises.</p></div></a>
+                 <a href="78h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🤸</span><h3>Exercises for neck pain</h3><p>Relieve neck tension.Relieve tension with gentle stretches and strengthening moves.</p></div></a>
+                 <a href="79h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🦴</span><h3>Tips for joint health</h3><p>Maintain healthy joints.Keep joints flexible by staying active and eating anti-inflammatory foods.</p></div></a>
+                 <a href="80h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌿</span><h3>Natural remedies for headache</h3><p>Relieve headaches naturally.Find relief with hydration, essential oils, and rest.</p></div></a>
+                 <a href="81h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🧠</span><h3>Migraine prevention tips</h3><p>Avoid migraine triggers.Identify triggers to reduce frequency of debilitating migraines.</p></div></a>
+                 <a href="82h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌬️</span><h3>Benefits of deep breathing</h3><p>Breathe better, feel better.Calm your nervous system with minutes of mindful breathing.</p></div></a>
+                 <a href="83h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">⚡</span><h3>How to boost energy naturally</h3><p>Natural energy boosters.Fight fatigue through nutrition, movement, and better sleep.</p></div></a>
+                 <a href="84h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌙</span><h3>Healthy evening routine</h3><p>Wind down for better rest.Wind down effectively with activities that prepare you for restful sleep.</p></div></a>
+                 <a href="85h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">😴</span><h3>Importance of sleep for health</h3><p>Why sleep is essential.Discover why quality sleep is essential for brain function.</p></div></a>
+                 <a href="86h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🛏️</span><h3>Best bedtime habits</h3><p>Sleep better tonight.Create a sleep-conducive routine that signals your body to rest.</p></div></a>
+                 <a href="87h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🚫</span><h3>How to avoid junk food</h3><p>Break unhealthy eating habits.Make healthier choices by planning ahead and finding alternatives.</p></div></a>
+                 <a href="88h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🥗</span><h3>Healthy alternatives to junk food</h3><p>Swap unhealthy for healthy.Satisfy cravings with delicious swaps for unhealthy treats.</p></div></a>
+                 <a href="89h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">⏰</span><h3>Benefits of fasting for health</h3><p>Health benefits of fasting.Explore evidence-based benefits of intermittent fasting.</p></div></a>
+                 <a href="90h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">📅</span><h3>Intermittent fasting guide</h3><p>Complete IF guide for beginners.Get a beginner-friendly introduction to fasting methods.</p></div></a>
+                 <a href="91h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">📈</span><h3>Healthy weight gain tips</h3><p>Gain weight the healthy way.Gain weight safely by focusing on nutrient-dense foods.</p></div></a>
+                 <a href="92h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">💪</span><h3>Foods for muscle growth</h3><p>Eat to build muscle.Fuel workouts with protein, carbs, and healthy fats.</p></div></a>
+                 <a href="93h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">📱</span><h3>Best fitness apps</h3><p>Apps to track your fitness.Find digital partners to track progress and guide workouts.</p></div></a>
+                 <a href="94h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🏠</span><h3>Home gym setup guide</h3><p>Create your own workout space.Create a motivating workout space on any budget.</p></div></a>
+                 <a href="95h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🏃</span><h3>Healthy lifestyle for busy people</h3><p>Stay healthy with a busy schedule.Stay healthy even with a packed schedule using time-saving strategies.</p></div></a>
+                 <a href="96h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">⚡</span><h3>Tips to stay active all day</h3><p>Keep moving throughout the day.Incorporate more movement into your daily routine.</p></div></a>
+                 <a href="97h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">⚖️</span><h3>Importance of balanced diet</h3><p>Eat a variety of nutrients.Understand how variety provides nutrients your body needs.</p></div></a>
+                 <a href="98h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">🌟</span><h3>Healthy living tips for beginners</h3><p>Start your wellness journey.Start your wellness journey with simple, manageable steps.</p></div></a>
+                 <a href="99h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">📅</span><h3>Daily habits for better health</h3><p>Small habits, big impact.Transform well-being by incorporating small, positive habits.</p></div></a>
+                 <a href="100h.html" class="topic-card-link"><div class="topic-card health-card"><span class="topic-icon">📖</span><h3>Complete guide to healthy living</h3><p>Your comprehensive health guide.Get a holistic overview of essential components for lifelong wellness.</p></div></a>
             </div>
         </div>
     </section>
+
+
 
     <!-- Country Blog Section -->
     <section id="countries" class="content-section countries-section">
@@ -1258,46 +1329,165 @@ mark.search-highlight.current {
                 <p>206 Countries - Complete Travel Information</p>
             </div>
             <div class="countries-grid">
-                <div class="country-group">
-                    <h3>Asia</h3>
-                    <div class="country-list">
-                        <a href="Pakistan.html" class="country-link">Pakistan Travel Guide</a>
-                        <a href="India.html" class="country-link">India Travel Guide</a>
-                        <a href="Afghanistan.html" class="country-link">Afghanistan Travel Guide</a>
-                        <a href="China.html" class="country-link">China Travel Guide</a>
-                        <a href="Japan.html" class="country-link">Japan Travel Guide</a>
-                        <a href="South Korea.html" class="country-link">South Korea Travel Guide</a>
-                        <a href="Thailand.html" class="country-link">Thailand Travel Guide</a>
-                        <a href="Malaysia.html" class="country-link">Malaysia Travel Guide</a>
-                    </div>
-                </div>
-                <div class="country-group">
-                    <h3>Europe</h3>
-                    <div class="country-list">
-                        <a href="United Kingdom.html" class="country-link">United Kingdom Travel Guide</a>
-                        <a href="France.html" class="country-link">France Travel Guide</a>
-                        <a href="Germany.html" class="country-link">Germany Travel Guide</a>
-                        <a href="Italy.html" class="country-link">Italy Travel Guide</a>
-                        <a href="Spain.html" class="country-link">Spain Travel Guide</a>
-                        <a href="Netherlands.html" class="country-link">Netherlands Travel Guide</a>
-                    </div>
-                </div>
-                <div class="country-group">
-                    <h3>North America</h3>
-                    <div class="country-list">
-                        <a href="United States.html" class="country-link">United States Travel Guide</a>
-                        <a href="Canada.html" class="country-link">Canada Travel Guide</a>
-                        <a href="Mexico.html" class="country-link">Mexico Travel Guide</a>
-                    </div>
-                </div>
-                <div class="country-group">
-                    <h3>Oceania</h3>
-                    <div class="country-list">
-                        <a href="Australia.html" class="country-link">Australia Travel Guide</a>
-                        <a href="New Zealand.html" class="country-link">New Zealand Travel Guide</a>
-                        <a href="Fiji.html" class="country-link">Fiji Travel Guide</a>
-                    </div>
-                </div>
+                <div class="country-group"><h3>Asia</h3><div class="country-list">
+                    <a href="Pakistan.html" class="country-link">Pakistan Travel Guide</a>
+                    <a href="India.html" class="country-link">India Travel Guide</a>
+                    <a href="Afghanistan.html" class="country-link">Afghanistan Travel Guide</a>
+                    <a href="China.html" class="country-link">China Travel Guide</a>
+                    <a href="Japan.html" class="country-link">Japan Travel Guide</a>
+                    <a href="South Korea.html" class="country-link">South Korea Travel Guide</a>
+                    <a href="North Korea.html" class="country-link">North Korea Travel Guide</a>
+                    <a href="Thailand.html" class="country-link">Thailand Travel Guide</a>
+                    <a href="Malaysia.html" class="country-link">Malaysia Travel Guide</a>
+                    <a href="Indonesia.html" class="country-link">Indonesia Travel Guide</a>
+                    <a href="Philippines.html" class="country-link">Philippines Travel Guide</a>
+                    <a href="Vietnam.html" class="country-link">Vietnam Travel Guide</a>
+                    <a href="Singapore.html" class="country-link">Singapore Travel Guide</a>
+                    <a href="Bangladesh.html" class="country-link">Bangladesh Travel Guide</a>
+                    <a href="Nepal.html" class="country-link">Nepal Travel Guide</a>
+                    <a href="Sri+Lanka.html" class="country-link">Sri Lanka Travel Guide</a>
+                    <a href="Maldives.html" class="country-link">Maldives Travel Guide</a>
+                    <a href="Myanmar.html" class="country-link">Myanmar Travel Guide</a>
+                    <a href="Cambodia.html" class="country-link">Cambodia Travel Guide</a>
+                    <a href="Laos.html" class="country-link">Laos Travel Guide</a>
+                    <a href="Bhutan.html" class="country-link">Bhutan Travel Guide</a>
+                    <a href="Brunei.html" class="country-link">Brunei Travel Guide</a>
+                    <a href="Timor-Leste.html" class="country-link">Timor-Leste Travel Guide</a>
+                    <a href="Mongolia.html" class="country-link">Mongolia Travel Guide</a>
+                    <a href="Kazakhstan.html" class="country-link">Kazakhstan Travel Guide</a>
+                    <a href="Uzbekistan.html" class="country-link">Uzbekistan Travel Guide</a>
+                    <a href="Turkmenistan.html" class="country-link">Turkmenistan Travel Guide</a>
+                    <a href="Kyrgyzstan.html" class="country-link">Kyrgyzstan Travel Guide</a>
+                    <a href="Tajikistan.html" class="country-link">Tajikistan Travel Guide</a>
+                </div></div>
+                <div class="country-group"><h3>Middle East</h3><div class="country-list">
+                    <a href="Saudi Arabia.html" class="country-link">Saudi Arabia Travel Guide</a>
+                    <a href="United Arab Emirates.html" class="country-link">United Arab Emirates Travel Guide</a>
+                    <a href="Qatar.html" class="country-link">Qatar Travel Guide</a>
+                    <a href="Oman.html" class="country-link">Oman Travel Guide</a>
+                    <a href="Kuwait.html" class="country-link">Kuwait Travel Guide</a>
+                    <a href="Bahrain.html" class="country-link">Bahrain Travel Guide</a>
+                    <a href="Iran.html" class="country-link">Iran Travel Guide</a>
+                    <a href="Iraq.html " class="country-link">Iraq Travel Guide</a>
+                    <a href="Palestine.html" class="country-link">Palestine Travel Guide</a>
+                    <a href="Turkey.html" class="country-link">Turkey Travel Guide</a>
+                    <a href="Jordan.html" class="country-link">Jordan Travel Guide</a>
+                    <a href="Lebanon.html" class="country-link">Lebanon Travel Guide</a>
+                    <a href="Syria.html" class="country-link">Syria Travel Guide</a>
+                    <a href="Yemen.html" class="country-link">Yemen Travel Guide</a>
+                    <a href="Azerbaijan.html" class="country-link">Azerbaijan Travel Guide</a>
+                    <a href="Armenia.html" class="country-link">Armenia Travel Guide</a>
+                    <a href="Georgia.html" class="country-link">Georgia Travel Guide</a>
+                    <a href="Cyprus.html" class="country-link">Cyprus Travel Guide</a>
+                </div></div>
+                <div class="country-group"><h3>Europe</h3><div class="country-list">
+                    <a href="Russia.html" class="country-link">Russia Travel Guide</a>
+                    <a href="Ukraine.html" class="country-link">Ukraine Travel Guide</a>
+                    <a href="Germany.html" class="country-link">Germany Travel Guide</a>
+                    <a href="France.html" class="country-link">France Travel Guide</a>
+                    <a href="Italy.html" class="country-link">Italy Travel Guide</a>
+                    <a href="Spain.html" class="country-link">Spain Travel Guide</a>
+                    <a href="Portugal.html" class="country-link">Portugal Travel Guide</a>
+                    <a href="Netherlands.html" class="country-link">Netherlands Travel Guide</a>
+                    <a href="Belgium.html" class="country-link">Belgium Travel Guide</a>
+                    <a href="Switzerland.html" class="country-link">Switzerland Travel Guide</a>
+                    <a href="Austria.html" class="country-link">Austria Travel Guide</a>
+                    <a href="Poland.html" class="country-link">Poland Travel Guide</a>
+                    <a href="Czech Republic.html" class="country-link">Czech Republic Travel Guide</a>
+                    <a href="Hungary.html" class="country-link">Hungary Travel Guide</a>
+                    <a href="Romania.html" class="country-link">Romania Travel Guide</a>
+                    <a href="Bulgaria.html" class="country-link">Bulgaria Travel Guide</a>
+                    <a href="Greece.html" class="country-link">Greece Travel Guide</a>
+                    <a href="Denmark.html" class="country-link">Denmark Travel Guide</a>
+                    <a href="Sweden.html" class="country-link">Sweden Travel Guide</a>
+                    <a href="Norway.html" class="country-link">Norway Travel Guide</a>
+                    <a href="Finland.html" class="country-link">Finland Travel Guide</a>
+                    <a href="Iceland.html" class="country-link">Iceland Travel Guide</a>
+                    <a href="Ireland.html" class="country-link">Ireland Travel Guide</a>
+                    <a href="United Kingdom.html" class="country-link">United Kingdom Travel Guide</a>
+                    <a href="Croatia.html" class="country-link">Croatia Travel Guide</a>
+                    <a href="Serbia.html" class="country-link">Serbia Travel Guide</a>
+                    <a href="Albania.html" class="country-link">Albania Travel Guide</a>
+                    <a href="Malta.html" class="country-link">Malta Travel Guide</a>
+                    <a href="Luxembourg.html" class="country-link">Luxembourg Travel Guide</a>
+                    <a href="Monaco.html" class="country-link">Monaco Travel Guide</a>
+                    <a href="Vatican City.html" class="country-link">Vatican City Travel Guide</a>
+                </div></div>
+                <div class="country-group"><h3>North America</h3><div class="country-list">
+                    <a href="United States.html" class="country-link">United States Travel Guide</a>
+                    <a href="Canada.html" class="country-link">Canada Travel Guide</a>
+                    <a href="Mexico.html" class="country-link">Mexico Travel Guide</a>
+                    <a href="Greenland.html" class="country-link">Greenland Travel Guide</a>
+                </div></div>
+                <div class="country-group"><h3>Central America & Caribbean</h3><div class="country-list">
+                    <a href="Panama.html" class="country-link">Panama Travel Guide</a>
+                    <a href="Costa Rica.html" class="country-link">Costa Rica Travel Guide</a>
+                    <a href="Nicaragua.html" class="country-link">Nicaragua Travel Guide</a>
+                    <a href="Honduras.html" class="country-link">Honduras Travel Guide</a>
+                    <a href="El Salvador.html" class="country-link">El Salvador Travel Guide</a>
+                    <a href="Guatemala.html" class="country-link">Guatemala Travel Guide</a>
+                    <a href="Belize.html" class="country-link">Belize Travel Guide</a>
+                    <a href="Cuba Travel.html" class="country-link">Cuba Travel Guide</a>
+                    <a href="Jamaica.html" class="country-link">Jamaica Travel Guide</a>
+                    <a href="Haiti.html" class="country-link">Haiti Travel Guide</a>
+                    <a href="Dominican.html" class="country-link">Dominican Republic Travel Guide</a>
+                    <a href="Bahamas.html" class="country-link">Bahamas Travel Guide</a>
+                    <a href="Barbados.html" class="country-link">Barbados Travel Guide</a>
+                    <a href="Trinidad and Tobago.html" class="country-link">Trinidad and Tobago Travel Guide</a>
+                </div></div>
+                <div class="country-group"><h3>South America</h3><div class="country-list">
+                    <a href="Brazil.html" class="country-link">Brazil Travel Guide</a>
+                    <a href="Argentina.html" class="country-link">Argentina Travel Guide</a>
+                    <a href="Chile.html" class="country-link">Chile Travel Guide</a>
+                    <a href="Peru.html" class="country-link">Peru Travel Guide</a>
+                    <a href="Colombia.html" class="country-link">Colombia Travel Guide</a>
+                    <a href="Venezuela.html" class="country-link">Venezuela Travel Guide</a>
+                    <a href="Ecuador.html" class="country-link">Ecuador Travel Guide</a>
+                    <a href="Bolivia.html" class="country-link">Bolivia Travel Guide</a>
+                    <a href="Paraguay.html" class="country-link">Paraguay Travel Guide</a>
+                    <a href="Uruguay.html" class="country-link">Uruguay Travel Guide</a>
+                    <a href="Guyana.html" class="country-link">Guyana Travel Guide</a>
+                    <a href="Suriname.html" class="country-link">Suriname Travel Guide</a>
+                </div></div>
+                <div class="country-group"><h3>Oceania</h3><div class="country-list">
+                    <a href="Australia.html" class="country-link">Australia Travel Guide</a>
+                    <a href="New Zealand.html" class="country-link">New Zealand Travel Guide</a>
+                    <a href="Fiji.html" class="country-link">Fiji Travel Guide</a>
+                    <a href="Papua New Guinea.html" class="country-link">Papua New Guinea Travel Guide</a>
+                    <a href="Solomon Islands.html" class="country-link">Solomon Islands Travel Guide</a>
+                    <a href="Vanuatu.html" class="country-link">Vanuatu Travel Guide</a>
+                    <a href="Samoa.html" class="country-link">Samoa Travel Guide</a>
+                    <a href="Tonga.html" class="country-link">Tonga Travel Guide</a>
+                    <a href="Kiribati.html" class="country-link">Kiribati Travel Guide</a>
+                    <a href="Tuvalu.html" class="country-link">Tuvalu Travel Guide</a>
+                    <a href="Palau.html" class="country-link">Palau Travel Guide</a>
+                    <a href="French Polynesia.html" class="country-link">French Polynesia Travel Guide</a>
+                </div></div>
+                <div class="country-group"><h3>Africa</h3><div class="country-list">
+                    <a href="Egypt.html" class="country-link">Egypt Travel Guide</a>
+                    <a href="South Africa.html" class="country-link">South Africa Travel Guide</a>
+                    <a href="Nigeria.html" class="country-link">Nigeria Travel Guide</a>
+                    <a href="Kenya.html" class="country-link">Kenya Travel Guide</a>
+                    <a href="Ethiopia.html" class="country-link">Ethiopia Travel Guide</a>
+                    <a href="Morocco.html" class="country-link">Morocco Travel Guide</a>
+                    <a href="Algeria.html" class="country-link">Algeria Travel Guide</a>
+                    <a href="Tunisia.html" class="country-link">Tunisia Travel Guide</a>
+                    <a href="Ghana.html" class="country-link">Ghana Travel Guide</a>
+                    <a href="Senegal.html" class="country-link">Senegal Travel Guide</a>
+                    <a href="Tanzania.html" class="country-link">Tanzania Travel Guide</a>
+                    <a href="Uganda.html" class="country-link">Uganda Travel Guide</a>
+                    <a href="Rwanda.html" class="country-link">Rwanda Travel Guide</a>
+                    <a href="Somalia.html" class="country-link">Somalia Travel Guide</a>
+                    <a href="Madagascar.html" class="country-link">Madagascar Travel Guide</a>
+                    <a href="Mauritius.html" class="country-link">Mauritius Travel Guide</a>
+                    <a href="Seychelles.html" class="country-link">Seychelles Travel Guide</a>
+                    <a href="Zimbabwe.html" class="country-link">Zimbabwe Travel Guide</a>
+                    <a href="Zambia.html" class="country-link">Zambia Travel Guide</a>
+                    <a href="Botswana.html" class="country-link">Botswana Travel Guide</a>
+                    <a href="Namibia.html" class="country-link">Namibia Travel Guide</a>
+                    <a href="Angola.html" class="country-link">Angola Travel Guide</a>
+                    <a href="Cape Verde.html" class="country-link">Cape Verde Travel Guide</a>
+                </div></div>
             </div>
         </div>
     </section>
@@ -1311,48 +1501,36 @@ mark.search-highlight.current {
                 <p>30+ Ways to Make Money Online</p>
             </div>
             <div class="topics-grid">
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card earning-card">
-                        <span class="topic-icon">📝</span>
-                        <h3>Blogging se paise</h3>
-                        <p>Earn money through blogging</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card earning-card">
-                        <span class="topic-icon">📺</span>
-                        <h3>YouTube channel se earning</h3>
-                        <p>Monetize your YouTube channel</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card earning-card">
-                        <span class="topic-icon">💻</span>
-                        <h3>Freelancing se online paise</h3>
-                        <p>Make money with freelancing</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card earning-card">
-                        <span class="topic-icon">🤝</span>
-                        <h3>Affiliate marketing se income</h3>
-                        <p>Earn through affiliate marketing</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card earning-card">
-                        <span class="topic-icon">📦</span>
-                        <h3>Drop shipping business start</h3>
-                        <p>Start your dropshipping business</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card earning-card">
-                        <span class="topic-icon">👕</span>
-                        <h3>Print on demand se earning</h3>
-                        <p>Make money with print on demand</p>
-                    </div>
-                </a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📝</span><h3>Blogging se paise</h3><p>Earn money through blogging</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📺</span><h3>YouTube channel se earning</h3><p>Monetize your YouTube channel</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">💻</span><h3>Freelancing se online paise</h3><p>Make money with freelancing</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🤝</span><h3>Affiliate marketing se income</h3><p>Earn through affiliate marketing</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📦</span><h3>Drop shipping business start</h3><p>Start your dropshipping business</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">👕</span><h3>Print on demand se earning</h3><p>Make money with print on demand</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📚</span><h3>Online tutoring se paise</h3><p>Teach online and earn</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">💾</span><h3>Digital products sell earning</h3><p>Sell digital products online</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📷</span><h3>Stock photography se income</h3><p>Sell photos and earn royalties</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🎓</span><h3>Online course paise</h3><p>Create and sell online courses</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📱</span><h3>Mobile apps earning</h3><p>Monetize mobile applications</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🔄</span><h3>Website flipping se profit</h3><p>Buy and sell websites for profit</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🌐</span><h3>Domain flipping se paise</h3><p>Trade domains for profit</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">💹</span><h3>CPA marketing se earning</h3><p>Earn with cost-per-action</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">✍️</span><h3>Content writing se paise</h3><p>Get paid for writing content</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🎨</span><h3>Graphic design freelancing</h3><p>Design and earn online</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📱</span><h3>Social media management se income</h3><p>Manage social accounts for money</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🔍</span><h3>SEO services de paise</h3><p>Offer SEO services online</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">👩‍💼</span><h3>Virtual assistant ban earning</h3><p>Work as a virtual assistant</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">⌨️</span><h3>Data entry jobs se online income</h3><p>Data entry work from home</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📋</span><h3>Online surveys se earning</h3><p>Get paid for taking surveys</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🎮</span><h3>Gaming se paise</h3><p>Monetize your gaming skills</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📹</span><h3>Live streaming se earning</h3><p>Make money from live streams</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🎵</span><h3>TikTok se paise</h3><p>Earn through TikTok content</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📸</span><h3>Instagram se income</h3><p>Monetize your Instagram</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">👥</span><h3>Facebook page monetization guide</h3><p>Monetize your Facebook page</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🎙️</span><h3>Podcast se paise</h3><p>Make money with podcasting</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📖</span><h3>E-book sell</h3><p>Write and sell e-books</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">🌐</span><h3>Website development se earning</h3><p>Build websites for clients</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card earning-card"><span class="topic-icon">📱</span><h3>App development se paise</h3><p>Create apps and earn</p></div></a>
             </div>
         </div>
     </section>
@@ -1366,48 +1544,18 @@ mark.search-highlight.current {
                 <p>Learn Web Development from Scratch</p>
             </div>
             <div class="topics-grid">
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card webdev-card">
-                        <span class="topic-icon">🌐</span>
-                        <h3>HTML5 Complete Guide</h3>
-                        <p>Master the foundation of web development</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card webdev-card">
-                        <span class="topic-icon">🎨</span>
-                        <h3>CSS3 Styling Techniques</h3>
-                        <p>Create beautiful, responsive designs</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card webdev-card">
-                        <span class="topic-icon">⚡</span>
-                        <h3>JavaScript Fundamentals</h3>
-                        <p>Learn programming for the web</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card webdev-card">
-                        <span class="topic-icon">⚛️</span>
-                        <h3>React.js Tutorial</h3>
-                        <p>Build modern user interfaces</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card webdev-card">
-                        <span class="topic-icon">🟢</span>
-                        <h3>Node.js Backend Development</h3>
-                        <p>Server-side JavaScript programming</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card webdev-card">
-                        <span class="topic-icon">🐍</span>
-                        <h3>Python Web Development</h3>
-                        <p>Build web apps with Python</p>
-                    </div>
-                </a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">🌐</span><h3>HTML5 Complete Guide</h3><p>Master the foundation of web development</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">🎨</span><h3>CSS3 Styling Techniques</h3><p>Create beautiful, responsive designs</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">⚡</span><h3>JavaScript Fundamentals</h3><p>Learn programming for the web</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">⚛️</span><h3>React.js Tutorial</h3><p>Build modern user interfaces</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">🟢</span><h3>Node.js Backend Development</h3><p>Server-side JavaScript programming</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">🐍</span><h3>Python Web Development</h3><p>Build web apps with Python</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">🎯</span><h3>Responsive Web Design</h3><p>Make websites work on all devices</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">📱</span><h3>Mobile-First Development</h3><p>Design for mobile users first</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">🔧</span><h3>Web Development Tools</h3><p>Essential tools for developers</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">🚀</span><h3>Website Performance Optimization</h3><p>Speed up your websites</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">🔒</span><h3>Web Security Best Practices</h3><p>Protect your websites from threats</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card webdev-card"><span class="topic-icon">🗄️</span><h3>Database Design Basics</h3><p>Learn SQL and database concepts</p></div></a>
             </div>
         </div>
     </section>
@@ -1421,48 +1569,18 @@ mark.search-highlight.current {
                 <p>Master Social Media Marketing</p>
             </div>
             <div class="topics-grid">
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card social-card">
-                        <span class="topic-icon">📘</span>
-                        <h3>Facebook Marketing Strategy</h3>
-                        <p>Grow your business on Facebook</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card social-card">
-                        <span class="topic-icon">📸</span>
-                        <h3>Instagram Growth Hacks</h3>
-                        <p>Increase followers and engagement</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card social-card">
-                        <span class="topic-icon">🐦</span>
-                        <h3>Twitter Marketing Tips</h3>
-                        <p>Build your brand on Twitter/X</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card social-card">
-                        <span class="topic-icon">💼</span>
-                        <h3>LinkedIn for Business</h3>
-                        <p>Professional networking strategies</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card social-card">
-                        <span class="topic-icon">🎵</span>
-                        <h3>TikTok Marketing Guide</h3>
-                        <p>Viral content creation strategies</p>
-                    </div>
-                </a>
-                <a href="blog-post.html?id=100" class="topic-card-link">
-                    <div class="topic-card social-card">
-                        <span class="topic-icon">📌</span>
-                        <h3>Pinterest for Business</h3>
-                        <p>Drive traffic with Pinterest</p>
-                    </div>
-                </a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">📘</span><h3>Facebook Marketing Strategy</h3><p>Grow your business on Facebook</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">📸</span><h3>Instagram Growth Hacks</h3><p>Increase followers and engagement</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">🐦</span><h3>Twitter Marketing Tips</h3><p>Build your brand on Twitter/X</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">💼</span><h3>LinkedIn for Business</h3><p>Professional networking strategies</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">🎵</span><h3>TikTok Marketing Guide</h3><p>Viral content creation strategies</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">📌</span><h3>Pinterest for Business</h3><p>Drive traffic with Pinterest</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">▶️</span><h3>YouTube Channel Growth</h3><p>Build a successful YouTube channel</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">📱</span><h3>Social Media Content Calendar</h3><p>Plan your social media posts</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">📊</span><h3>Social Media Analytics</h3><p>Track and measure your success</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">💰</span><h3>Social Media Advertising</h3><p>Paid promotion strategies</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">🤝</span><h3>Influencer Marketing</h3><p>Collaborate with influencers</p></div></a>
+                <a href="blog-post.html?id=100" class="topic-card-link"><div class="topic-card social-card"><span class="topic-icon">💬</span><h3>Community Management</h3><p>Build engaged online communities</p></div></a>
             </div>
         </div>
     </section>
@@ -1480,6 +1598,47 @@ mark.search-highlight.current {
             </div>
         </div>
     </section>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal('loginModal')">×</button>
+            <h2 class="modal-title">Welcome Back</h2>
+            <p class="modal-subtitle">Log in to your dailyblogzone account</p>
+            <form class="modal-form" onsubmit="handleLogin(event)">
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+            </form>
+            <div class="modal-divider">or continue with</div>
+            <div class="social-login">
+                <button type="button" onclick="showToast('Google login coming soon!')">🔵 Google</button>
+                <button type="button" onclick="showToast('Facebook login coming soon!')">📘 Facebook</button>
+            </div>
+            <p class="modal-switch">Don't have an account? <a onclick="switchModal('loginModal', 'signupModal')">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal-overlay" id="signupModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal('signupModal')">×</button>
+            <h2 class="modal-title">Create Account</h2>
+            <p class="modal-subtitle">Join dailyblogzone today</p>
+            <form class="modal-form" onsubmit="handleSignup(event)">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password (min 6 characters)" required minlength="6">
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="modal-divider">or sign up with</div>
+            <div class="social-login">
+                <button type="button" onclick="showToast('Google signup coming soon!')">🔵 Google</button>
+                <button type="button" onclick="showToast('Facebook signup coming soon!')">📘 Facebook</button>
+            </div>
+            <p class="modal-switch">Already have an account? <a onclick="switchModal('signupModal', 'loginModal')">Log In</a></p>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -1523,6 +1682,7 @@ mark.search-highlight.current {
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Use</a></li>
+                        <li><a href="login.html">Log In</a></li>
                     </ul>
                 </div>
             </div>
@@ -1533,19 +1693,14 @@ mark.search-highlight.current {
     </footer>
 
 <script>
-// ========== HEADER SCROLL - Floating Effect ==========
+// ========== HEADER SCROLL ==========
 (function(){
   const header = document.querySelector('.main-header');
   let lastY = 0;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    if (y > 100) {
-      header.style.background = 'rgba(17, 34, 64, 0.95)';
-      header.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 212, 255, 0.2)';
-    } else {
-      header.style.background = 'rgba(17, 34, 64, 0.7)';
-      header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 212, 255, 0.1)';
-    }
+    header.style.boxShadow = y > 80 ? '0 4px 30px rgba(59,130,246,0.15)' : '0 2px 20px rgba(59,130,246,0.08)';
+    header.style.transform = (y > lastY && y > 200) ? 'translateY(-100%)' : 'translateY(0)';
     lastY = y;
   }, { passive: true });
 })();
@@ -1554,20 +1709,9 @@ mark.search-highlight.current {
 (function(){
   const toggle = document.querySelector('.mobile-menu-toggle');
   const nav = document.querySelector('.main-nav');
-  toggle.addEventListener('click', () => { 
-    toggle.classList.toggle('active'); 
-    nav.classList.toggle('open'); 
-  });
-  document.querySelectorAll('.nav-menu a').forEach(l => l.addEventListener('click', () => { 
-    toggle.classList.remove('active'); 
-    nav.classList.remove('open'); 
-  }));
-  document.addEventListener('click', e => { 
-    if (!toggle.contains(e.target) && !nav.contains(e.target)) { 
-      toggle.classList.remove('active'); 
-      nav.classList.remove('open'); 
-    } 
-  });
+  toggle.addEventListener('click', () => { toggle.classList.toggle('active'); nav.classList.toggle('open'); });
+  document.querySelectorAll('.nav-menu a').forEach(l => l.addEventListener('click', () => { toggle.classList.remove('active'); nav.classList.remove('open'); }));
+  document.addEventListener('click', e => { if (!toggle.contains(e.target) && !nav.contains(e.target)) { toggle.classList.remove('active'); nav.classList.remove('open'); } });
 })();
 
 // ========== SEARCH ==========
@@ -1577,6 +1721,7 @@ mark.search-highlight.current {
   const dropdown = document.querySelector('.search-suggestions');
   if (!input) return;
 
+  // Build suggestions from page
   const suggestions = [];
   document.querySelectorAll('.topic-card').forEach(card => {
     const link = card.closest('a');
@@ -1620,35 +1765,21 @@ mark.search-highlight.current {
   document.addEventListener('click', e => { if (!e.target.closest('.hero-search')) dropdown.classList.remove('open'); });
 })();
 
-// ========== SCROLL TO TOP - 3D Button ==========
+// ========== SCROLL TO TOP ==========
 (function(){
   const btn = document.createElement('button');
-  btn.id = 'scrollTop'; 
-  btn.innerHTML = '↑'; 
-  btn.setAttribute('aria-label', 'Scroll to top');
+  btn.id = 'scrollTop'; btn.innerHTML = '↑'; btn.setAttribute('aria-label', 'Scroll to top');
   document.body.appendChild(btn);
   window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400), { passive: true });
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
-// ========== SCROLL ANIMATIONS - 3D Entrance ==========
+// ========== SCROLL ANIMATIONS ==========
 (function(){
-  document.querySelectorAll('.topic-card, .country-group').forEach(el => {
-    el.classList.add('animate-in');
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(50px) rotateX(10deg)';
-  });
-  
+  document.querySelectorAll('.topic-card, .country-group').forEach(el => el.classList.add('animate-in'));
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { 
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0) rotateX(0)';
-        e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-  
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.animate-in, .section-header').forEach(el => obs.observe(el));
 })();
 
@@ -1668,7 +1799,7 @@ mark.search-highlight.current {
   sections.forEach(s => obs.observe(s));
 })();
 
-// ========== HERO STATS COUNTER - Animated ==========
+// ========== HERO STATS COUNTER ==========
 (function(){
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -1676,13 +1807,8 @@ mark.search-highlight.current {
       const el = e.target;
       const num = parseInt(el.textContent);
       const suffix = el.textContent.replace(/[0-9]/g, '');
-      let count = 0; 
-      const step = Math.ceil(num / 60);
-      const t = setInterval(() => { 
-        count = Math.min(count + step, num); 
-        el.textContent = count + suffix; 
-        if (count >= num) clearInterval(t); 
-      }, 25);
+      let count = 0; const step = Math.ceil(num / 60);
+      const t = setInterval(() => { count = Math.min(count + step, num); el.textContent = count + suffix; if (count >= num) clearInterval(t); }, 25);
       obs.unobserve(el);
     });
   }, { threshold: 0.5 });
@@ -1694,6 +1820,7 @@ let searchHighlights = [];
 let currentHighlightIndex = -1;
 
 function handlePageSearch(event) {
+  // Clear previous highlights on Enter or when input is cleared
   if (event.key === 'Enter' || event.target.value === '') {
     if (event.target.value === '') {
       clearHighlights();
@@ -1701,6 +1828,7 @@ function handlePageSearch(event) {
     }
   }
   
+  // Only search on Enter key
   if (event.key !== 'Enter') return;
   
   const searchTerm = event.target.value.trim();
@@ -1717,6 +1845,7 @@ function highlightText(searchTerm) {
   const bodyContent = document.querySelector('main') || document.body;
   const walker = document.createTreeWalker(bodyContent, NodeFilter.SHOW_TEXT, {
     acceptNode: function(node) {
+      // Skip script, style, and already highlighted nodes
       if (node.parentElement.tagName === 'SCRIPT' || 
           node.parentElement.tagName === 'STYLE' ||
           node.parentElement.tagName === 'MARK' ||
@@ -1746,11 +1875,13 @@ function highlightText(searchTerm) {
       span.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
       parent.replaceChild(span, textNode);
       
+      // Collect all highlights
       const marks = span.querySelectorAll('mark.search-highlight');
       marks.forEach(mark => searchHighlights.push(mark));
     }
   });
   
+  // Show count and navigate to first highlight
   if (searchHighlights.length > 0) {
     currentHighlightIndex = 0;
     searchHighlights[0].classList.add('current');
@@ -1769,11 +1900,13 @@ function clearHighlights() {
   searchHighlights = [];
   currentHighlightIndex = -1;
   
+  // Remove all highlight marks and replace with original text
   document.querySelectorAll('mark.search-highlight').forEach(mark => {
     const parent = mark.parentNode;
     if (parent.tagName === 'SPAN') {
       const textNode = document.createTextNode(mark.textContent);
       parent.replaceChild(textNode, mark);
+      // Unwrap the span
       while (parent.firstChild) {
         parent.parentNode.insertBefore(parent.firstChild, parent);
       }
@@ -1788,42 +1921,159 @@ function handleNewsletter(e) {
   const btn = e.target.querySelector('button');
   const orig = btn.textContent;
   btn.textContent = '✓ Subscribed!';
-  btn.style.background = 'linear-gradient(135deg,#00d4ff,#0099ff)';
+  btn.style.background = 'linear-gradient(135deg,#06b6d4,#0ea5e9)';
   btn.disabled = true;
   e.target.querySelector('input').value = '';
   showToast('🎉 You\'re subscribed! Welcome to dailyblogzone.');
-  setTimeout(() => { 
-    btn.textContent = orig; 
-    btn.style.background = ''; 
-    btn.disabled = false; 
-  }, 3000);
+  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 3000);
 }
 
-// ========== TOAST - Glass 3D ==========
+// ========== TOAST ==========
 function showToast(msg, dur = 3500) {
   const old = document.querySelector('.toast');
   if (old) old.remove();
   const t = document.createElement('div');
-  t.className = 'toast'; 
-  t.textContent = msg;
+  t.className = 'toast'; t.textContent = msg;
   document.body.appendChild(t);
   requestAnimationFrame(() => requestAnimationFrame(() => t.classList.add('show')));
-  setTimeout(() => { 
-    t.classList.remove('show'); 
-    setTimeout(() => t.remove(), 400); 
-  }, dur);
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, dur);
 }
 
 // ========== SMOOTH SCROLL ==========
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
     const target = document.querySelector(this.getAttribute('href'));
-    if (target) { 
-      e.preventDefault(); 
-      window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' }); 
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' }); }
+  });
+});
+
+// ========== LOGIN STATE ==========
+(function(){
+  const user = localStorage.getItem('currentUser');
+  if (user) {
+    const u = JSON.parse(user);
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('signupBtn').style.display = 'none';
+    const db = document.getElementById('dashboardBtn');
+    db.style.display = 'inline-flex';
+    db.textContent = `Hi, ${u.name.split(' ')[0]}!`;
+  }
+})();
+
+// ========== LOGIN/SIGNUP MODAL ==========
+function openModal(modalId) {
+  document.getElementById(modalId).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function switchModal(closeId, openId) {
+  closeModal(closeId);
+  setTimeout(() => openModal(openId), 200);
+}
+
+// Login button click
+document.getElementById('loginBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  openModal('loginModal');
+});
+
+// Signup button click
+document.getElementById('signupBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  openModal('signupModal');
+});
+
+// Close modal on overlay click
+document.querySelectorAll('.modal-overlay').forEach(modal => {
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeModal(this.id);
     }
   });
 });
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+      closeModal(modal.id);
+    });
+  }
+});
+
+// Handle Login
+function handleLogin(e) {
+  e.preventDefault();
+  const form = e.target;
+  const email = form.querySelector('input[type="email"]').value;
+  const password = form.querySelector('input[type="password"]').value;
+  
+  // Simulate login
+  const btn = form.querySelector('button');
+  const origText = btn.textContent;
+  btn.textContent = 'Logging in...';
+  btn.disabled = true;
+  
+  setTimeout(() => {
+    // Store user in localStorage
+    const user = { name: email.split('@')[0], email: email };
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    
+    closeModal('loginModal');
+    showToast('✅ Logged in successfully!');
+    
+    // Update UI
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('signupBtn').style.display = 'none';
+    const db = document.getElementById('dashboardBtn');
+    db.style.display = 'inline-flex';
+    db.textContent = `Hi, ${user.name}!`;
+    
+    btn.textContent = origText;
+    btn.disabled = false;
+    form.reset();
+  }, 1500);
+}
+
+// Handle Signup
+function handleSignup(e) {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.querySelector('input[type="text"]').value;
+  const email = form.querySelector('input[type="email"]').value;
+  const password = form.querySelector('input[type="password"]').value;
+  
+  // Simulate signup
+  const btn = form.querySelector('button');
+  const origText = btn.textContent;
+  btn.textContent = 'Creating account...';
+  btn.disabled = true;
+  
+  setTimeout(() => {
+    // Store user in localStorage
+    const user = { name: name, email: email };
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    
+    closeModal('signupModal');
+    showToast('🎉 Account created successfully!');
+    
+    // Update UI
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('signupBtn').style.display = 'none';
+    const db = document.getElementById('dashboardBtn');
+    db.style.display = 'inline-flex';
+    db.textContent = `Hi, ${user.name.split(' ')[0]}!`;
+    
+    btn.textContent = origText;
+    btn.disabled = false;
+    form.reset();
+  }, 1500);
+}
 </script>
 </body>
 </html>
