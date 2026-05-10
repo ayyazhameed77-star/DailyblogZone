@@ -1343,48 +1343,6 @@ mark.search-highlight.current {
             </div>
         </div>
     </section>
-
-    <!-- Login Modal -->
-    <div class="modal-overlay" id="loginModal">
-        <div class="modal-container">
-            <button class="modal-close" onclick="closeModal('loginModal')">×</button>
-            <h2 class="modal-title">Welcome Back</h2>
-            <p class="modal-subtitle">Log in to your dailyblogzone account</p>
-            <form class="modal-form" onsubmit="handleLogin(event)">
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Log In</button>
-            </form>
-            <div class="modal-divider">or continue with</div>
-            <div class="social-login">
-                <button type="button" onclick="showToast('Google login coming soon!')">🔵 Google</button>
-                <button type="button" onclick="showToast('Facebook login coming soon!')">📘 Facebook</button>
-            </div>
-            <p class="modal-switch">Don't have an account? <a onclick="switchModal('loginModal', 'signupModal')">Sign Up</a></p>
-        </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div class="modal-overlay" id="signupModal">
-        <div class="modal-container">
-            <button class="modal-close" onclick="closeModal('signupModal')">×</button>
-            <h2 class="modal-title">Create Account</h2>
-            <p class="modal-subtitle">Join dailyblogzone today</p>
-            <form class="modal-form" onsubmit="handleSignup(event)">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password (min 6 characters)" required minlength="6">
-                <button type="submit">Sign Up</button>
-            </form>
-            <div class="modal-divider">or sign up with</div>
-            <div class="social-login">
-                <button type="button" onclick="showToast('Google signup coming soon!')">🔵 Google</button>
-                <button type="button" onclick="showToast('Facebook signup coming soon!')">📘 Facebook</button>
-            </div>
-            <p class="modal-switch">Already have an account? <a onclick="switchModal('signupModal', 'loginModal')">Log In</a></p>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
