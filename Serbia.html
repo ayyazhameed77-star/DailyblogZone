@@ -1,0 +1,330 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serbia Travel Guide - Discover the Soul of the Balkans</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f0eb;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: #c8102e;
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: #0c4076;
+        }
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        .flag-section {
+            padding: 40px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+        .flag-section h2 {
+            color: #c8102e;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .flag-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .flag-img {
+            width: 320px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .flag-info {
+            max-width: 450px;
+        }
+        .flag-info h3 {
+            color: #0c4076;
+            margin-bottom: 10px;
+        }
+        .flag-info p {
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 40px;
+        }
+        .content h2 {
+            color: #c8102e;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #0c4076;
+        }
+        .content h3 {
+            color: #0c4076;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+        .content p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+        .city-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #c8102e;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .city-card h3 {
+            color: #c8102e;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .city-img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .location-tag {
+            display: inline-block;
+            background: #0c4076;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+        .highlight-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffa000;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-item {
+            background: #c8102e;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-item .number {
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+        .stat-item .label {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+        }
+        .footer a {
+            color: #ffd700;
+        }
+        .intro-text {
+            font-size: 1.15em;
+            color: #555;
+            font-style: italic;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px dashed #ccc;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2em; }
+            .content { padding: 20px; }
+            .flag-box { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🇷🇸 Serbia Travel Guide</h1>
+            <p class="subtitle">Discover the Soul of the Balkans</p>
+        </div>
+
+        <!-- Flag Section -->
+        <div class="flag-section">
+            <h2>🚩 The National Flag of Serbia</h2>
+            <div class="flag-box">
+                <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/88f0e7892d4710e7112d43382cc3b0594bd1db51.png" alt="Serbia Flag" class="flag-img">
+                <div class="flag-info">
+                    <h3>Symbolism & Meaning</h3>
+                    <p><strong>Red</strong> – represents the blood shed for freedom and the courage of the Serbian people throughout history.</p>
+                    <p><strong>Blue</strong> – symbolizes the sky, hope, and the spiritual aspirations of the nation.</p>
+                    <p><strong>White</strong> – stands for purity, peace, and the bright future of Serbia.</p>
+                    <p>The <strong>Coat of Arms</strong> features a white double-headed eagle (a Byzantine symbol of sovereignty) holding a red shield with a white cross and four Cyrillic letters "С" — the traditional Serbian cross. The crown above represents the monarchy and Serbia's royal heritage.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <div class="intro-text">
+                "Serbia is where East meets West, where ancient history blends with vibrant modern life, and where every corner tells a story of resilience, passion, and hospitality."
+            </div>
+
+            <h2>📍 Country Overview</h2>
+            <p>Serbia, officially the Republic of Serbia, is a landlocked country located in the heart of the Balkans in Southeast Europe. Bordered by Hungary to the north, Romania and Bulgaria to the east, North Macedonia to the south, Albania and Montenegro to the southwest, and Croatia and Bosnia and Herzegovina to the west, Serbia sits at the strategic crossroads of Europe and Asia. With a population of approximately 6.6 million people and covering 77,474 square kilometers, it is one of the most historically significant and culturally rich nations in the region.</p>
+
+            <p>The name "Serbia" derives from the old tribal name "Srbi," which has been used since the early medieval period. The Serbs arrived in the Balkans in the 7th century and established a powerful medieval kingdom that reached its golden age under the Nemanjić dynasty in the 12th and 13th centuries. The legendary <strong>Battle of Kosovo</strong> in 1389, though a military defeat, became the defining moment of Serbian national identity — a symbol of sacrifice and resistance against Ottoman rule that lasted for five centuries.</p>
+
+            <p>Serbia gained independence from the Ottoman Empire in the 19th century and became a kingdom. After World War I, it was the cornerstone of the Kingdom of Yugoslavia, and later the Socialist Federal Republic of Yugoslavia. Following the turbulent 1990s, Serbia emerged as an independent republic in 2006. Today, it is a candidate country for EU membership, a nation rebuilding its identity while proudly preserving its deep cultural roots.</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="number">6.6M</div>
+                    <div class="label">Population</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">77,474</div>
+                    <div class="label">km² Area</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">8</div>
+                    <div class="label">Bordering Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">Belgrade</div>
+                    <div class="label">Capital City</div>
+                </div>
+            </div>
+
+            <h2>🏙️ Famous Cities to Explore</h2>
+
+            <!-- Belgrade -->
+            <div class="city-card">
+                <span class="location-tag">📍 Capital City — North-Central Serbia</span>
+                <h3>1. Belgrade — The White City</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/serbia.com/147df71ef25f358588bc4ee262474f5c0843653b.jpg" alt="Belgrade City at Dusk with River" class="city-img">
+                <p>Belgrade is one of the oldest continuously inhabited cities in Europe — and one of the most exciting. Perched at the confluence of the Sava and Danube rivers, this city has been destroyed and rebuilt over 40 times in its 7,000-year history, earning it the nickname "The City that Never Sleeps."</p>
+                <p>The crown jewel of Belgrade is the <strong>Kalemegdan Fortress</strong>, a sprawling citadel that has witnessed Celtic, Roman, Byzantine, Ottoman, and Austro-Hungarian rule. Walking through its ancient walls at sunset, with the rivers glinting below and the Victor Monument silhouetted against the sky, is an unforgettable experience.</p>
+                <p>Below the fortress lies <strong>Knez Mihailova Street</strong>, the city's main pedestrian thoroughfare, lined with elegant 19th-century buildings, outdoor cafés, and street performers. But the real magic of Belgrade happens after dark. The city is famous for its <strong>splavovi</strong> — floating river clubs along the Sava and Danube that pulse with music, dancing, and energy until sunrise. From electronic beats to traditional turbo-folk, Belgrade's nightlife is legendary across Europe.</p>
+                <p>Don't miss the <strong>Skadarlija Bohemian Quarter</strong>, a cobblestone street that feels like a time capsule of old Belgrade, with traditional restaurants serving rakija (fruit brandy), grilled meats, and live folk music. For a dose of modern culture, visit the <strong>Museum of Yugoslavia</strong> and the House of Flowers, the mausoleum of Marshal Tito.</p>
+                <div class="highlight-box">
+                    <strong>💡 Travel Tip:</strong> Visit Kalemegdan Fortress at sunset for the most magical views. Then head to a splav for an unforgettable night — Belgrade's nightlife is considered among the best in Europe!
+                </div>
+            </div>
+
+            <!-- Novi Sad -->
+            <div class="city-card">
+                <span class="location-tag">📍 Northern Serbia — Vojvodina Province</span>
+                <h3>2. Novi Sad — The Serbian Athens</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/novisad.travel/30c43c2db2393ae11b992b1d6d66f07c4ac7b269.jpg" alt="Novi Sad City Center at Night" class="city-img">
+                <p>Novi Sad is Serbia's second-largest city and the cultural capital of the northern Vojvodina region. Known as "The Serbian Athens" for its rich intellectual and artistic heritage, Novi Sad was named the <strong>European Capital of Culture 2022</strong> — a testament to its vibrant creative scene.</p>
+                <p>The city is dominated by the magnificent <strong>Petrovaradin Fortress</strong>, often called the "Gibraltar of the Danube." This 18th-century Austro-Hungarian fortress features an intricate network of underground tunnels — over 16 kilometers in total — and offers stunning views over the Danube and the city below. Every July, the fortress hosts the world-famous <strong>EXIT Festival</strong>, one of Europe's largest music festivals, drawing hundreds of thousands of visitors from across the globe.</p>
+                <p>The charming <strong>Old Town (Stari Grad)</strong> is a delight to explore on foot, with its colorful baroque buildings, the beautiful Name of Mary Church with its soaring spire, and the lively <strong>Freedom Square (Trg Slobode)</strong>. The city's café culture is legendary — locals will spend hours over a single cup of coffee, and you're invited to do the same.</p>
+                <p>Novi Sad is also the gateway to the <strong>Fruska Gora National Park</strong>, known as the "Serbian Mount Athos" for its 16 medieval Orthodox monasteries hidden among rolling hills and vineyards.</p>
+                <div class="highlight-box">
+                    <strong>💡 Travel Tip:</strong> Plan your visit around the EXIT Festival in July for an unforgettable experience. Even outside festival season, the fortress hosts concerts and events year-round.
+                </div>
+            </div>
+
+            <!-- Niš -->
+            <div class="city-card">
+                <span class="location-tag">📍 Southern Serbia — Nišava District</span>
+                <h3>3. Niš — The Emperor's City</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/feelserbia.com/11e2399742fb06f37d0e382cf4589e3b6476955c.jpg" alt="Niš City Square" class="city-img">
+                <p>Niš is one of the oldest cities in Europe and the birthplace of <strong>Emperor Constantine the Great</strong>, the Roman emperor who legalized Christianity across the empire. This city in southern Serbia carries layers of history that span from ancient Rome to the Ottoman Empire and beyond.</p>
+                <p>The most haunting site in Niš is the <strong>Skull Tower (Ćele Kula)</strong>, a grim but powerful monument built from the skulls of Serbian rebels killed by the Ottomans in 1809. Nearby stands the <strong>Mediana</strong>, the ruins of Constantine's lavish 4th-century palace, complete with stunning floor mosaics that have survived nearly 1,700 years.</p>
+                <p>The <strong>Niš Fortress</strong>, built by the Turks in the 18th century, sits in the heart of the city and hosts the lively <strong>Nišville Jazz Festival</strong> every August. The fortress walls enclose a park where locals stroll, children play, and summer concerts fill the warm Balkan evenings with music.</p>
+                <p>Niš is also famous as the home of the <strong>pljeskavica</strong> — the legendary Serbian burger. The city's <strong>grill scene</strong> is unmatched, with smoky restaurants serving massive portions of grilled meats, ćevapi, and local specialties that will satisfy any appetite.</p>
+                <div class="highlight-box">
+                    <strong>💡 Travel Tip:</strong> Try the original Niš pljeskavica at a local grill house — it's bigger, juicier, and more flavorful than anything you'll find elsewhere. Visit Mediana in spring when the gardens are in bloom.
+                </div>
+            </div>
+
+            <!-- Nature -->
+            <div class="city-card">
+                <span class="location-tag">📍 Nationwide — Mountains, Rivers & Gorges</span>
+                <h3>4. Serbian Nature — Wild, Rugged & Beautiful</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/www.serbia.com/d0111c75391f6d925423cc325de8cb5720b0eee5.jpg" alt="Serbia Beautiful Mountain Landscape with Lake" class="city-img">
+                <p>Beyond its cities, Serbia is a paradise for nature lovers. The <strong>Tara National Park</strong> in western Serbia is home to one of Europe's last primeval forests, the Perućica Rainforest, and the stunning <strong>Drina River Gorge</strong> — where the famous wooden house perched on a rock in the river has become an iconic image of Serbian wilderness.</p>
+                <p>The <strong>Đerdap Gorge (Iron Gates)</strong> along the Danube is one of the most spectacular river canyons in Europe, where the river cuts through the Carpathian Mountains creating dramatic cliffs that rise 300 meters above the water. The <strong>Lepenski Vir</strong> archaeological site here reveals one of the oldest known human settlements in Europe, dating back over 8,000 years.</p>
+                <p>In the south, the <strong>Kopaonik National Park</strong> is Serbia's largest mountain resort, offering excellent skiing in winter and hiking in summer. The <strong>Zlatibor</strong> and <strong>Zlatar</strong> mountain regions are known for their rolling meadows, traditional wooden villages, and the famous <strong>Šargan Eight</strong> — a narrow-gauge heritage railway that winds through breathtaking mountain scenery.</p>
+            </div>
+
+            <h2>🍽️ Food & Culture</h2>
+            <p>Serbian cuisine is hearty, flavorful, and deeply rooted in tradition. Must-try dishes include <strong>ćevapi</strong> (grilled minced meat rolls), <strong>pljeskavica</strong> (Serbian burger), <strong>sarma</strong> (cabbage rolls stuffed with meat and rice), and <strong>ajvar</strong> (roasted red pepper spread). Every meal is an event — Serbians take their food seriously, and portions are generous.</p>
+
+            <p><strong>Rakija</strong> is the national drink, a potent fruit brandy that comes in countless varieties — plum (šljivovica), apricot (kajsijevača), and quince (dunjevača) being the most popular. Coffee culture is equally important; the traditional Serbian coffee, brewed slowly in a džezva, is a ritual of hospitality.</p>
+
+            <p>Serbia's cultural calendar is packed with festivals, from the <strong>Guča Trumpet Festival</strong> — the world's largest brass band festival — to film festivals, folk music gatherings, and Orthodox religious celebrations. The warmth and generosity of Serbian hospitality (<strong>gostoprimstvo</strong>) is legendary; guests are treated like family, and no one leaves a Serbian home hungry.</p>
+
+            <h2>✈️ Why Visit Serbia?</h2>
+            <p>Serbia is a destination that defies expectations. It's a country where you can explore ancient Roman ruins in the morning, dance until dawn on a floating river club, hike through primeval forests, and feast on some of the best grilled meat in Europe — all in a single trip.</p>
+
+            <p>The people are warm, proud, and endlessly hospitable. The history is complex and fascinating. The nature is wild and beautiful. And the cost of travel is remarkably affordable compared to Western Europe. Serbia isn't just a place to visit — it's a place to feel alive.</p>
+
+            <div class="highlight-box" style="background: #e8f5e9; border-left-color: #2e7d32;">
+                <strong>🌟 Final Thought:</strong> Serbia is the Balkans at their most authentic — raw, passionate, and unforgettable. Come with an open heart, and you'll leave with memories that last a lifetime.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🇷🇸 Serbia Travel Guide | Written for curious travelers everywhere</p>
+            <p style="margin-top:10px; opacity:0.7;">Images sourced from official tourism channels and travel photography.</p>
+        </div>
+    </div>
+</body>
+</html>'''
+
+# Save to file
+with open('/mnt/agents/output/serbia_travel_guide.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("HTML file saved successfully!")
+print(f"File size: {len(html_content)} characters")
