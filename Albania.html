@@ -1,0 +1,327 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albania Travel Guide - Europe's Last Hidden Paradise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #fdf6f0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: #e41e20;
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: #000;
+        }
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        .flag-section {
+            padding: 40px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+        .flag-section h2 {
+            color: #e41e20;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .flag-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .flag-img {
+            width: 320px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .flag-info {
+            max-width: 450px;
+        }
+        .flag-info h3 {
+            color: #000;
+            margin-bottom: 10px;
+        }
+        .flag-info p {
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 40px;
+        }
+        .content h2 {
+            color: #e41e20;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #000;
+        }
+        .content h3 {
+            color: #000;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+        .content p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+        .city-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #e41e20;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .city-card h3 {
+            color: #e41e20;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .city-img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .location-tag {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+        .highlight-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffa000;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-item {
+            background: #e41e20;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-item .number {
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+        .stat-item .label {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+        }
+        .footer a {
+            color: #ffd700;
+        }
+        .intro-text {
+            font-size: 1.15em;
+            color: #555;
+            font-style: italic;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px dashed #ccc;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2em; }
+            .content { padding: 20px; }
+            .flag-box { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🇦🇱 Albania Travel Guide</h1>
+            <p class="subtitle">Europe's Last Hidden Paradise Awaits</p>
+        </div>
+
+        <!-- Flag Section -->
+        <div class="flag-section">
+            <h2>🚩 The National Flag of Albania</h2>
+            <div class="flag-box">
+                <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/a37000eb7f27486d39a584aff5d42a6f5403d6cc.png" alt="Albania Flag" class="flag-img">
+                <div class="flag-info">
+                    <h3>Symbolism & Meaning</h3>
+                    <p><strong>Red</strong> – represents the blood shed by Albanian heroes in their centuries-long struggle for independence and freedom. It symbolizes bravery, strength, and the fiery spirit of the Albanian people.</p>
+                    <p><strong>Black Double-Headed Eagle</strong> – is the ancient symbol of the House of Kastrioti, most famously associated with the national hero <strong>Skanderbeg</strong>, who led a 25-year rebellion against the Ottoman Empire in the 15th century. The eagle represents sovereignty, pride, and the unity of all Albanians.</p>
+                    <p>The flag was officially adopted in 1912 when Albania declared independence, making it one of the most distinctive and recognizable flags in the world. Albanians often call their country <strong>"Shqipëria"</strong> — "The Land of the Eagles."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <div class="intro-text">
+                "Albania is where the mountains meet the sea, where ancient ruins whisper stories of empires, and where hospitality is not just a word — it's a way of life."
+            </div>
+
+            <h2>📍 Country Overview</h2>
+            <p>Albania, officially the Republic of Albania, is a small but captivating country nestled on the Balkan Peninsula in Southeast Europe. Bordered by Montenegro to the northwest, Kosovo to the northeast, North Macedonia to the east, and Greece to the south, with a stunning coastline along the Adriatic and Ionian Seas to the west, Albania occupies a strategic position that has shaped its dramatic history. With a population of approximately 2.8 million people and covering 28,748 square kilometers, it remains one of Europe's most intriguing and rapidly emerging destinations.</p>
+
+            <p>The name "Albania" comes from an ancient Illyrian tribe, while Albanians call themselves <strong>"Shqiptarë"</strong> and their land <strong>"Shqipëria"</strong> — meaning "The Land of the Eagles." The Illyrians were among the oldest inhabitants of the Balkans, and their descendants have maintained a distinct identity for over 2,000 years. Albania was the only European country to end World War II with a larger Jewish population than it started with, thanks to the ancient Albanian code of honor known as <strong>Besa</strong> — a sacred promise to protect guests at any cost.</p>
+
+            <p>After nearly five centuries of Ottoman rule, Albania declared independence in 1912. The 20th century brought isolation under the communist regime of Enver Hoxha, who ruled from 1944 to 1985 and turned Albania into one of the most closed societies on Earth. Since the fall of communism in 1991, Albania has undergone a remarkable transformation, opening its doors to the world and revealing treasures that had been hidden for decades. Today, it is a NATO member and a candidate for EU accession, with a youthful, energetic population eager to share their country with visitors.</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="number">2.8M</div>
+                    <div class="label">Population</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">28,748</div>
+                    <div class="label">km² Area</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">362km</div>
+                    <div class="label">Coastline</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">Tirana</div>
+                    <div class="label">Capital City</div>
+                </div>
+            </div>
+
+            <h2>🏙️ Famous Cities to Explore</h2>
+
+            <!-- Tirana -->
+            <div class="city-card">
+                <span class="location-tag">📍 Capital City — Central Albania</span>
+                <h3>1. Tirana — The Colorful Capital</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/euronews.al/db58bb6b23b03c8b08fd5c21dea142085d5cfcc3.jpg" alt="Tirana City at Sunset with Mountains" class="city-img">
+                <p>Tirana is one of Europe's most unexpectedly vibrant capitals — a city that has transformed from a gray communist stronghold into a kaleidoscope of color, energy, and creativity. Under the visionary mayor Edi Rama (now Prime Minister), the city's concrete facades were painted in bold yellows, pinks, greens, and purples, turning Tirana into an open-air art gallery.</p>
+                <p>The heart of the city is <strong>Skanderbeg Square</strong>, named after Albania's national hero, with his imposing equestrian statue at the center. The square is surrounded by architectural gems including the <strong>National History Museum</strong> with its striking mosaic facade, the <strong>Et'hem Bey Mosque</strong> (one of the few buildings to survive the communist era), and the <strong>National Opera House</strong>. Take the cable car up <strong>Dajti Mountain</strong> for panoramic views over the city and the surrounding peaks.</p>
+                <p>For a taste of local life, head to the <strong>Blloku district</strong> — once a restricted area reserved for communist party elites, now the trendiest neighborhood in the city, packed with cafés, bars, restaurants, and boutiques. Tirana's café culture is legendary; locals will spend hours over a single espresso, and the city's energy is infectious.</p>
+                <p>Don't miss the <strong>Bunk'Art museums</strong> — massive underground bunkers built by the communist regime, now transformed into fascinating museums documenting Albania's dark history and contemporary art. The <strong>Pyramid of Tirana</strong>, a bizarre former museum dedicated to Enver Hoxha, is another surreal relic of the communist era.</p>
+                <div class="highlight-box">
+                    <strong>💡 Travel Tip:</strong> Visit the Blloku district in the evening when the streets come alive. Tirana's nightlife is surprisingly sophisticated, with rooftop bars offering stunning mountain views.
+                </div>
+            </div>
+
+            <!-- Berat -->
+            <div class="city-card">
+                <span class="location-tag">📍 Southern Albania — Osum River Valley</span>
+                <h3>2. Berat — The City of a Thousand Windows</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/0b15d2cc7910b5e2227cf15895138a20312a867b.jpg" alt="Berat City at Night with Ottoman Houses" class="city-img">
+                <p>Berat is Albania's most beautiful and historically significant city — a living museum that has earned its place on the UNESCO World Heritage list. Known as the <strong>"City of a Thousand Windows"</strong> for its iconic Ottoman-era houses that cascade down the hillside, Berat looks like something from a storybook, especially when illuminated at night.</p>
+                <p>The city is divided by the <strong>Osum River</strong> into two historic quarters: <strong>Mangalem</strong> and <strong>Gorica</strong>, connected by the elegant Gorica Bridge. The white-washed houses with their characteristic large windows climb the steep hillsides, creating one of the most photogenic cityscapes in the Balkans. At the top of the hill sits the magnificent <strong>Berat Castle (Kalaja)</strong>, one of the oldest and largest castles in Albania, still inhabited today — families live within its ancient walls just as they have for centuries.</p>
+                <p>Inside the castle, you'll find a maze of cobblestone streets, medieval churches, and the beautiful <strong>Onufri Museum</strong>, housed in the Church of the Dormition of St. Mary. Onufri was Albania's greatest medieval icon painter, and his vivid, gold-leaf religious works are breathtaking. Below the castle, the <strong>Ethnographic Museum</strong> offers a glimpse into traditional Albanian life.</p>
+                <p>Berat is also the gateway to the stunning <strong>Osum Canyon</strong>, one of the most spectacular natural wonders in the Balkans, where the river has carved dramatic cliffs up to 80 meters high.</p>
+                <div class="highlight-box">
+                    <strong>💡 Travel Tip:</strong> Stay overnight in Berat to see the city illuminated at night — it's magical. Take a guided hike through the Osum Canyon in spring when waterfalls cascade down the cliffs.
+                </div>
+            </div>
+
+            <!-- Saranda -->
+            <div class="city-card">
+                <span class="location-tag">📍 Southern Albania — Ionian Coast</span>
+                <h3>3. Saranda — The Pearl of the Albanian Riviera</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/ionian-cruises.com/520534d8bd2a5e16994f9307b31f3325a778b8a3.jpg" alt="Saranda City Aerial View with Coastline" class="city-img">
+                <p>Saranda is the jewel of the Albanian Riviera — a sun-drenched coastal town where crystal-clear turquoise waters meet rugged mountains, and the pace of life slows to a Mediterranean rhythm. Located just across the sea from the Greek island of Corfu, Saranda has become Albania's most popular beach destination, yet it retains an authentic charm that more famous resorts have long lost.</p>
+                <p>The town curves around a stunning bay, with a palm-lined promenade perfect for evening strolls. The waterfront is dotted with seafood restaurants serving the freshest catch of the day — grilled octopus, sea bream, and prawns paired with crisp Albanian white wine. The <strong>Lëkurësi Castle</strong> overlooks the town from a nearby hill, offering panoramic views of the bay, the town, and Corfu shimmering on the horizon.</p>
+                <p>Just a short drive from Saranda lies the legendary <strong>Butrint National Park</strong>, another UNESCO World Heritage Site. Butrint is one of the most important archaeological sites in the Mediterranean, with ruins spanning Greek, Roman, Byzantine, and Venetian civilizations, all set within a lush wetland teeming with wildlife. Nearby, the <strong>Blue Eye (Syri i Kaltër)</strong> is a mesmerizing natural spring where crystal-clear water bubbles up from deep underground, creating an otherworldly blue pool surrounded by forest.</p>
+                <p>The beaches around Saranda are simply spectacular. <strong>Ksamil</strong>, just south of town, features tiny islands you can swim to, while <strong>Gjipe Beach</strong> and <strong>Dhermi</strong> offer dramatic cliffs and pristine waters that rival anything in Greece or Croatia — at a fraction of the price.</p>
+                <div class="highlight-box">
+                    <strong>💡 Travel Tip:</strong> Visit the Blue Eye early in the morning before the crowds arrive. Take a boat trip to the nearby caves and hidden beaches — the water visibility is incredible for snorkeling.
+                </div>
+            </div>
+
+            <!-- Nature -->
+            <div class="city-card">
+                <span class="location-tag">📍 Nationwide — Alps, Riviera & Lakes</span>
+                <h3>4. Albanian Nature — Wild, Pristine & Breathtaking</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/albaniainbound.com/bdb067adb92e30d695ed8f92ce0e4dd3481b9ef0.webp" alt="Albanian Alps Beautiful Mountain Landscape" class="city-img">
+                <p>Albania's natural beauty is nothing short of extraordinary. The <strong>Albanian Alps</strong> in the north — also known as the <strong>Accursed Mountains (Bjeshkët e Namuna)</strong> — offer some of the most dramatic and unspoiled mountain scenery in Europe. The <strong>Valbona Valley</strong> and <strong>Theth</strong> are remote villages surrounded by jagged peaks, where traditional stone houses and tower fortresses (kulla) have stood for centuries. The <strong>Peaks of the Balkans</strong> trail, a cross-border hiking route connecting Albania, Kosovo, and Montenegro, is a bucket-list adventure for serious trekkers.</p>
+                <p>The <strong>Albanian Riviera</strong> stretches along the Ionian coast, featuring hidden coves, dramatic cliffs, and beaches with water so clear it looks like liquid sapphire. <strong>Ksamil</strong>, <strong>Dhermi</strong>, and <strong>Jale Beach</strong> are just a few of the coastal gems waiting to be discovered.</p>
+                <p>Inland, the <strong>Lake Ohrid</strong> region (shared with North Macedonia) is one of Europe's oldest and deepest lakes, a UNESCO site with crystal waters and medieval monasteries. The <strong>Lake Komani</strong> ferry ride through steep, forested canyons is considered one of the most beautiful boat journeys in the world.</p>
+            </div>
+
+            <h2>🍽️ Food & Culture</h2>
+            <p>Albanian cuisine is a delicious fusion of Mediterranean, Balkan, and Ottoman influences. <strong>Byrek</strong> — flaky pastry filled with cheese, spinach, or meat — is a national staple sold on every corner. <strong>Tavë kosi</strong>, a baked lamb and yogurt casserole, is the country's most beloved dish. Fresh seafood along the coast is exceptional, and the <strong>olive oil</strong> from the south rivals the best in Italy or Greece.</p>
+
+            <p><strong>Raki</strong> is the national drink — a potent grape or fruit brandy that Albanians drink before, during, and after meals. Coffee culture is equally important; the traditional <strong>Turkish coffee</strong> brewed slowly in a cezve is a ritual of hospitality. Albanians are famous for their warmth and generosity — the concept of <strong>Besa</strong> (honor and hospitality) is deeply ingrained, and guests are treated like royalty.</p>
+
+            <h2>✈️ Why Visit Albania?</h2>
+            <p>Albania is Europe's last great undiscovered destination — a country where you can hike through pristine alpine valleys in the morning, explore 2,400-year-old Ottoman cities in the afternoon, and swim in turquoise waters by evening, all without breaking the bank. It's affordable, safe, and the people are genuinely thrilled to welcome visitors.</p>
+
+            <p>Whether you're exploring the colorful streets of Tirana, gazing at the thousand windows of Berat, or diving into the crystal waters of the Riviera, Albania will surprise you at every turn. This is a country that has waited a long time to be discovered — and now, the secret is out.</p>
+
+            <div class="highlight-box" style="background: #e8f5e9; border-left-color: #2e7d32;">
+                <strong>🌟 Final Thought:</strong> Albania is not just a destination — it's an adventure. Come with an open heart, and you'll leave with stories that will last a lifetime. The eagles are waiting.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🇦🇱 Albania Travel Guide | Written for curious travelers everywhere</p>
+            <p style="margin-top:10px; opacity:0.7;">Images sourced from official tourism channels and travel photography.</p>
+        </div>
+    </div>
+</body>
+</html>'''
+
+# Save to file
+with open('/mnt/agents/output/albania_travel_guide.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("HTML file saved successfully!")
+print(f"File size: {len(html_content)} characters")
