@@ -1,0 +1,327 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belarus Travel Guide - Discover the Hidden Gem of Eastern Europe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: #c41e3a;
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: #228b22;
+        }
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        .flag-section {
+            padding: 40px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+        .flag-section h2 {
+            color: #c41e3a;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .flag-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .flag-img {
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .flag-info {
+            max-width: 450px;
+        }
+        .flag-info h3 {
+            color: #228b22;
+            margin-bottom: 10px;
+        }
+        .flag-info p {
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 40px;
+        }
+        .content h2 {
+            color: #c41e3a;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #228b22;
+        }
+        .content h3 {
+            color: #228b22;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+        .content p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+        .city-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #c41e3a;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .city-card h3 {
+            color: #c41e3a;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .city-img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .location-tag {
+            display: inline-block;
+            background: #228b22;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+        .highlight-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffa000;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-item {
+            background: #c41e3a;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-item .number {
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+        .stat-item .label {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+        }
+        .footer a {
+            color: #90ee90;
+        }
+        .intro-text {
+            font-size: 1.15em;
+            color: #555;
+            font-style: italic;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px dashed #ccc;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2em; }
+            .content { padding: 20px; }
+            .flag-box { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🇧🇾 Belarus Travel Guide</h1>
+            <p class="subtitle">Discover the Hidden Gem of Eastern Europe</p>
+        </div>
+
+        <!-- Flag Section -->
+        <div class="flag-section">
+            <h2>🚩 The National Flag of Belarus</h2>
+            <div class="flag-box">
+                <img src="https://kimi-web-img.moonshot.cn/img/hampshireflag.co.uk/fda55ab22287bb7d4e89da426d466ab25a5716a2.png" alt="Belarus Flag" class="flag-img">
+                <div class="flag-info">
+                    <h3>Symbolism & Meaning</h3>
+                    <p><strong>Red</strong> – represents power, courage, honor, and energy.</p>
+                    <p><strong>Green</strong> – symbolizes hope, health, youth, and natural harmony.</p>
+                    <p><strong>White</strong> – stands for purity, innocence, wisdom, and knowledge.</p>
+                    <p>The vertical <strong>red-on-white ornamental pattern</strong> on the left is a centuries-old Belarusian cultural symbol representing bread, harvest, and procreation. Belarus was the first country in the world to use its national ornamental pattern as an element of its flag!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <div class="intro-text">
+                "Belarus is a beautiful country full of fields, fortresses, churches, and monuments — a European treasure that remains wonderfully unexplored."
+            </div>
+
+            <h2>📍 Country Overview</h2>
+            <p>Belarus, officially the Republic of Belarus, is a landlocked country located in Eastern Europe, bordered by Russia to the east, Ukraine to the south, Poland to the west, and Lithuania and Latvia to the north. With a population of approximately 8.9 million people and covering 207,600 square kilometers, it is slightly smaller than the U.S. state of Kansas.</p>
+
+            <p>The name "Belarus" derives from the term "White Rus," historically distinguishing the region's Slavic population from neighboring territories. The country has a rich and complex history dating back to the 5th century AD, when Slavic tribes first settled the area. By the 9th century, it was part of the Kievan Rus', and later the Grand Duchy of Lithuania, which shaped its unique blend of Eastern and Western cultural influences.</p>
+
+            <p>After seven decades as a Soviet republic, Belarus declared independence in 1991 following the dissolution of the USSR. Today, the country retains a distinct identity — a fascinating mix of Soviet heritage, medieval architecture, and untouched natural beauty that makes it one of Europe's most intriguing destinations.</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="number">8.9M</div>
+                    <div class="label">Population</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">207,600</div>
+                    <div class="label">km² Area</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">5</div>
+                    <div class="label">Bordering Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">Minsk</div>
+                    <div class="label">Capital City</div>
+                </div>
+            </div>
+
+            <h2>🏙️ Famous Cities to Explore</h2>
+
+            <!-- Minsk -->
+            <div class="city-card">
+                <span class="location-tag">📍 Capital City — Central Belarus</span>
+                <h3>1. Minsk — The Majestic Capital</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/www.belarus.by/79d6d458df309791ff61cb44826c88ba2e26f4a0.jpg" alt="Minsk City Gates at Night" class="city-img">
+                <p>Minsk is the vibrant heart of Belarus and one of the most fascinating capitals in Eastern Europe. The city is a stunning blend of imposing Stalinist architecture and modern development, creating a unique urban landscape you won't find anywhere else.</p>
+                <p>Start your journey at <strong>Independence Square (Ploshchad Nezavisimosti)</strong>, one of the largest public squares in Europe, surrounded by grand Soviet buildings and anchored by the beautiful Church of Saints Simon and Helena. The square's dancing fountains and lively atmosphere make it a perfect gathering spot.</p>
+                <p>Don't miss the iconic <strong>Minsk City Gates</strong> — twin towers built in Stalinist Classicism style at the end of World War II. For a truly unique experience, visit the famous "Soviet KFC" on Independence Avenue, where a massive Socialist mural titled "Solidarity of the Working Class" looms above the fast-food restaurant — a perfect symbol of Minsk's layered identity.</p>
+                <p>The <strong>Minsk Metro</strong> is an attraction in itself, with stations like Ploshchad Lenina and Oktyabrskaya featuring chandeliers, marble pillars, and stained glass murals. And for breathtaking panoramic views, head to the 23rd floor of the <strong>National Library of Belarus</strong>, a futuristic glass-and-steel rhombicuboctahedron that dominates the skyline.</p>
+                <div class="highlight-box">
+                    <strong>💡 Travel Tip:</strong> Visit the Belarusian State Museum of the Great Patriotic War for one of the most elaborate WWII museums you'll ever experience, complete with tanks and immersive exhibits.
+                </div>
+            </div>
+
+            <!-- Brest -->
+            <div class="city-card">
+                <span class="location-tag">📍 Southwest Belarus — Border with Poland</span>
+                <h3>2. Brest — The Hero City</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/ekskursii.by/55a9de861c30dc06f80edbb68efc804d920cf481.jpg" alt="Brest City Street" class="city-img">
+                <p>Brest is one of the most popular tourist destinations in Belarus, and for good reason. Located on the historic trading route from Moscow to Berlin, this cosmopolitan city carries a unique cultural identity that feels closer to Europe than the former Soviet sphere.</p>
+                <p>The crown jewel of Brest is undoubtedly the <strong>Brest Fortress</strong>, a massive 18th-century fortress famous for being the first line of defense against Nazi invasion in 1941. The heroic defense of the fortress is considered one of the most symbolic events in Soviet history. Today, it has been transformed into a powerful memorial featuring museums, tanks, and a giant bust of an unknown soldier that will leave you in awe.</p>
+                <p>After exploring the fortress, take a leisurely stroll down <strong>Sovetskaya Street</strong>, the main pedestrian thoroughfare lined with charming bars, restaurants, and cinemas. For a nostalgic dining experience, visit <strong>Gagarin Café</strong>, a Soviet-themed restaurant where waitresses dress in traditional clothing and serve classic dishes like borsch, pelmeni, and dranikis.</p>
+                <div class="highlight-box">
+                    <strong>💡 Travel Tip:</strong> Brest's proximity to Poland gives it a distinctly European atmosphere. Many locals feel culturally closer to the EU, making it a fascinating cultural bridge.
+                </div>
+            </div>
+
+            <!-- Grodno -->
+            <div class="city-card">
+                <span class="location-tag">📍 West Belarus — Border with Lithuania & Poland</span>
+                <h3>3. Grodno — The Royal City</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/ekskursii.by/766760b98997da1c7fdd3d7ea429fa8f106cca2f.jpg" alt="Grodno City View" class="city-img">
+                <p>Grodno is arguably the prettiest city in Belarus, and it feels completely different from the rest of the country. Located near the borders with Poland and Lithuania, this city at the crossroads of cultures boasts cobblestone streets, baroque churches, and a charming old town that will transport you straight to Central Europe.</p>
+                <p>The city's history is deeply intertwined with the Grand Duchy of Lithuania and the Polish-Lithuanian Commonwealth. Until World War II, Grodno was part of Poland, and a large Polish community still calls it home today. This gives the city a unique multicultural flavor you won't find elsewhere in Belarus.</p>
+                <p>Visit <strong>Sovetskaya Square</strong> to admire the magnificent <strong>St. Francis Xavier Cathedral</strong>, the most important church in the city. Explore the <strong>Old Castle</strong> and the <strong>Fire Tower</strong>, then wander across the river to discover a completely different side of Grodno — a peaceful area filled with small, colorful wooden houses where life moves at a slower pace.</p>
+                <p>Grodno is also the gateway to the <strong>Augustow Canal</strong>, a UNESCO-listed waterway perfect for kayaking and nature exploration.</p>
+                <div class="highlight-box">
+                    <strong>💡 Travel Tip:</strong> Visit in late spring or summer when the atmosphere is vibrant and the city stays alive until late hours. Grodno offers visa-free entry for up to 10 days when arriving from Poland or Lithuania!
+                </div>
+            </div>
+
+            <!-- Nature -->
+            <div class="city-card">
+                <span class="location-tag">📍 Nationwide — Lakes, Forests & National Parks</span>
+                <h3>4. Belarusian Nature — Europe's Last Wilderness</h3>
+                <img src="https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/bc898ec08f4279c5cb24423cd5b3fce661699116" alt="Belarus Beautiful Nature Landscape" class="city-img">
+                <p>Beyond its cities, Belarus is a paradise for nature lovers. The country is often called the "Lungs of Europe" because over 40% of its territory is covered in forests. The landscape is generally flat with vast marshlands, pristine lakes, and rolling meadows that stretch as far as the eye can see.</p>
+                <p>The <strong>Belovezhskaya Pushcha National Park</strong>, a UNESCO World Heritage Site shared with Poland, is one of the last remaining primeval forests in Europe and home to the iconic European bison. The <strong>Braslav Lakes</strong> region offers stunning aerial views of interconnected lakes surrounded by lush greenery — perfect for camping, hiking, and photography.</p>
+                <p>The <strong>Berezina Preserve</strong> near Babruisk is a UNESCO biosphere reserve teeming with wildlife, while the <strong>Nesvizh Castle</strong> and <strong>Mir Castle</strong> (both UNESCO sites) sit amidst beautiful parklands that showcase the country's noble heritage.</p>
+            </div>
+
+            <h2>🍽️ Food & Culture</h2>
+            <p>Belarusian cuisine is hearty, comforting, and deeply rooted in the country's agricultural traditions. Must-try dishes include <strong>draniki</strong> (crispy potato pancakes), <strong>borsch</strong> (beetroot soup), <strong>pelmeni</strong> (meat dumplings), and <strong>machanka</strong> (pork stew). Don't leave without trying <strong>kvass</strong>, a traditional fermented bread drink, and the famous <strong>Lidskae beer</strong> from the Lida brewery.</p>
+
+            <p>The people of Belarus are warm and welcoming, with a rich tradition of folk arts, including the distinctive red-and-white ornamental embroidery that adorns their national flag. The annual <strong>Slavianski Bazaar</strong> in Vitebsk is one of the largest cultural festivals in Eastern Europe, celebrating music, dance, and arts from across the Slavic world.</p>
+
+            <h2>✈️ Why Visit Belarus?</h2>
+            <p>Belarus is Europe's best-kept secret — a country where you can explore grand Soviet architecture, medieval castles, and untouched natural landscapes without fighting through tourist crowds. It's affordable, safe, and offers an authentic experience that feels like stepping into a different era.</p>
+
+            <p>Whether you're wandering the metro stations of Minsk, standing in awe at Brest Fortress, or kayaking through the pristine lakes of Braslav, Belarus promises memories that will last a lifetime. This is a destination for travelers who crave something real, something unspoiled, and something truly unforgettable.</p>
+
+            <div class="highlight-box" style="background: #e8f5e9; border-left-color: #228b22;">
+                <strong>🌟 Final Thought:</strong> Belarus may not be on every traveler's radar — but that's exactly what makes it special. Come discover a country where history, culture, and nature blend into one extraordinary experience.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🇧🇾 Belarus Travel Guide | Written for curious travelers everywhere</p>
+            <p style="margin-top:10px; opacity:0.7;">Images sourced from official tourism channels and travel photography.</p>
+        </div>
+    </div>
+</body>
+</html>'''
+
+# Save to file
+with open('/mnt/agents/output/belarus_travel_guide.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("HTML file saved successfully!")
+print(f"File size: {len(html_content)} characters")
