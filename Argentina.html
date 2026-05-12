@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argentina Travel Guide - Land of Tango, Wine & Patagonian Wilderness</title>
+    <style>
+        :root {
+            --primary: #74acdf;
+            --accent: #fcbf49;
+            --bg: #f8f9fa;
+            --text: #2c3e50;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--bg);
+        }
+        .lang-bar {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .lang-bar button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            margin: 4px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .lang-bar button:hover, .lang-bar button.active {
+            background: #4a90c2;
+        }
+        h1 {
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: var(--primary);
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+        .hero-img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .flag-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .flag-img {
+            width: 180px;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .city-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .city-img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .quote {
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .tag {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+        .urdu, .hindi {
+            display: none;
+        }
+        .urdu {
+            direction: rtl;
+            font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', sans-serif;
+        }
+        .hindi {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+        @media (max-width: 600px) {
+            .flag-section { flex-direction: column; text-align: center; }
+            .flag-img { width: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Translator -->
+    <div class="lang-bar">
+        <strong>🌐 Translate / ترجم / अनुवाद:</strong><br>
+        <button onclick="setLang('en')" class="active" id="btn-en">English</button>
+        <button onclick="setLang('ur')" id="btn-ur">اردو (Urdu)</button>
+        <button onclick="setLang('hi')" id="btn-hi">हिन्दी (Hindi)</button>
+    </div>
+
+    <!-- ENGLISH CONTENT -->
+    <div class="content en">
+        <h1>🇦🇷 Argentina Travel Guide: Land of Tango, Wine & Patagonian Wilderness</h1>
+        
+        <img src="https://kimi-web-img.moonshot.cn/img/argentinapura.com/063b9eff94487541b734449c7254de14eb2cf888.webp" alt="Patagonia Lake District Argentina" class="hero-img">
+        <p style="text-align:center;font-size:0.9em;color:#666;">The turquoise lakes of Patagonia — where the Andes meet untamed wilderness.</p>
+
+        <div class="info-box">
+            <h2>🗺️ Country Background</h2>
+            <p>Argentina, officially the <span class="highlight">Argentine Republic</span>, is the world's eighth-largest country and the second-largest in South America after Brazil. Covering an area of <strong>2.78 million square kilometers</strong> — larger than Mexico and Texas combined — it stretches from the tropical north to the icy tip of Antarctica. With a population of approximately <strong>48 million</strong>, Argentina is a federal republic with 23 provinces and an autonomous city.</p>
+            <p>The capital is <strong>Buenos Aires</strong>, one of South America's most vibrant and cosmopolitan cities. Spanish colonization began in the 16th century, and Argentina declared independence on <strong>July 9, 1816</strong>, following the May Revolution of 1810. The country is renowned for its rich cultural contributions — tango, literature (Jorge Luis Borges, Julio Cortázar), and football legends like Diego Maradona and Lionel Messi. Its official language is <strong>Spanish</strong>, and the currency is the <strong>Argentine Peso (ARS)</strong>.</p>
+        </div>
+
+        <div class="flag-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" alt="Argentina Flag" class="flag-img">
+            <div>
+                <h2>🏳️ The Flag of Argentina</h2>
+                <p>The Argentine flag was created by <strong>General Manuel Belgrano</strong> in 1812 during the War of Independence. It features three horizontal stripes — <strong>light blue, white, and light blue</strong>. At the center shines the <strong>Sun of May (Sol de Mayo)</strong>, a golden sun with a human face and 32 alternating straight and wavy rays.</p>
+                <p>The light blue and white colors are said to represent the sky and the silver (Argentina derives from the Latin "argentum" meaning silver) that early Spanish conquistadors sought. The Sun of May represents <strong>Inti</strong>, the Incan sun god, symbolizing the emergence of a new nation after the May Revolution of 1810. The ceremonial flag includes the sun, while private citizens may use the flag without it. Flag Day is celebrated on <strong>June 20</strong>, commemorating Belgrano's death in 1820.</p>
+            </div>
+        </div>
+
+        <h2>🏙️ Famous Cities & Destinations You Must Visit</h2>
+
+        <div class="city-card">
+            <h3>1. Buenos Aires — The Paris of South America</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.insightvacations.com/040ff2f9e627ac3cf0540eb95ed2f6f83cd912be.jpg" alt="Buenos Aires Puerto Madero" class="city-img">
+            <p>Buenos Aires is a city of elegant contradictions — where European grandeur meets Latin passion. Often called the <strong>"Paris of South America"</strong>, its tree-lined avenues, Parisian-style architecture, and café culture evoke old-world charm. Explore the historic <strong>Plaza de Mayo</strong>, the colorful streets of <strong>La Boca</strong> (home to Caminito and Boca Juniors), and the bohemian antiques markets of <strong>San Telmo</strong>. The <strong>Recoleta Cemetery</strong> is an architectural marvel where Eva Perón rests among ornate mausoleums.</p>
+            <p>By night, the city pulses with tango. Attend a <strong>milonga</strong> (tango dance hall) in San Telmo, or enjoy a world-class steak at legendary parrillas like Don Julio. The <strong>Teatro Colón</strong> opera house rivals any in Europe for acoustics and beauty.</p>
+        </div>
+
+        <div class="city-card">
+            <h3>2. Patagonia — The End of the World</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.insidehook.com/d614cfb1d550b501c1dec02a50dc74add04f6739.jpg" alt="Patagonia Perito Moreno Glacier" class="city-img">
+            <p>Patagonia is Argentina's wild soul — a vast frontier of glaciers, jagged peaks, and turquoise lakes. <strong>Los Glaciares National Park</strong> is home to the magnificent <strong>Perito Moreno Glacier</strong>, one of the few advancing glaciers on Earth. You can trek across its ice with crampons or watch massive icebergs calve into Lake Argentino. In <strong>El Chaltén</strong>, hike to the base of <strong>Mount Fitz Roy</strong>, whose jagged silhouette is one of Patagonia's most iconic images.</p>
+            <p>For the truly adventurous, <strong>Ushuaia</strong> — the world's southernmost city — serves as the gateway to Antarctica and Tierra del Fuego National Park.</p>
+            <div class="quote">"Patagonia is not a place you visit. It is a place that visits you — raw, humbling, and unforgettable."</div>
+        </div>
+
+        <div class="city-card">
+            <h3>3. Iguazú Falls — Nature's Thundering Masterpiece</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.artisansofleisure.com/011f5db8e798b9eaff91daebd62dcc4a6ef3ca01.jpg" alt="Iguazu Falls Argentina" class="city-img">
+            <p>Straddling the border with Brazil, <strong>Iguazú Falls</strong> is one of the world's most spectacular natural wonders — a system of <strong>275 individual waterfalls</strong> stretching nearly 3 kilometers. The Argentine side offers the most immersive experience, with boardwalks that bring you face-to-face with the thundering <strong>Devil's Throat (Garganta del Diablo)</strong>. Surrounded by lush Atlantic rainforest teeming with coatis, toucans, and butterflies, Iguazú is a UNESCO World Heritage Site that leaves every visitor breathless.</p>
+        </div>
+
+        <div class="city-card">
+            <h3>4. Mendoza — Wine Country Beneath the Andes</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/ewj43icfkoo.exactdn.com/468c4ef481543cb657bce731f87a6b026c1bae1e.jpg" alt="Mendoza Wine Country" class="city-img">
+            <p>Mendoza is Argentina's wine capital, nestled in the foothills of the snow-capped Andes. This region produces world-class <strong>Malbec</strong> — Argentina's signature wine — along with Cabernet Sauvignon and Torrontés. Tour prestigious wineries like Catena Zapata and Clos de los Siete, where tastings are paired with gourmet cuisine and views of Aconcagua, the highest peak in the Americas. Beyond wine, Mendoza offers thrilling white-water rafting on the Río Mendoza and horseback riding through sun-drenched vineyards.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>💡 Travel Tips</h2>
+            <ul>
+                <li><strong>Best Time to Visit:</strong> October to April for Patagonia (spring/summer); April-June and September-December for Buenos Aires (pleasant weather).</li>
+                <li><strong>Getting Around:</strong> Domestic flights are essential for covering Argentina's vast distances. Buses are comfortable for shorter routes.</li>
+                <li><strong>Budget:</strong> Argentina is affordable for travelers. Mid-range hotels cost $40-80 USD/night; a steak dinner at a top parrilla costs $15-25 USD.</li>
+                <li><strong>Must-Try Foods:</strong> Asado (Argentine BBQ), empanadas, dulce de leche, mate (traditional herbal tea), and of course, Malbec wine!</li>
+                <li><strong>Tango Etiquette:</strong> If invited to dance, accept gracefully — tango is Argentina's soul, not just a dance.</li>
+            </ul>
+        </div>
+
+        <div class="tags">
+            <span class="tag">#ArgentinaTravel</span>
+            <span class="tag">#BuenosAires</span>
+            <span class="tag">#Patagonia</span>
+            <span class="tag">#IguazuFalls</span>
+            <span class="tag">#Mendoza</span>
+            <span class="tag">#TravelBlog</span>
+        </div>
+
+        <p style="margin-top:30px;text-align:center;color:#888;font-size:0.9em;">✍️ Written for travelers, by a traveler. ¡Buen viaje!</p>
+    </div>
+
+    <!-- URDU CONTENT -->
+    <div class="content ur urdu">
+        <h1>🇦🇷 ارجنٹائن ٹریول گائیڈ: ٹینگو، شراب اور پیٹاگونیا کی جنگلی سرزمین</h1>
+        
+        <img src="https://kimi-web-img.moonshot.cn/img/argentinapura.com/063b9eff94487541b734449c7254de14eb2cf888.webp" alt="Patagonia" class="hero-img">
+        <p style="text-align:center;font-size:0.9em;color:#666;">پیٹاگونیا کے فیروزیہ جھیل — جہاں اینڈیز بے لگام جنگلی سرزمین سے ملتے ہیں۔</p>
+
+        <div class="info-box">
+            <h2>🗺️ ملک کی تاریخ</h2>
+            <p>ارجنٹائن، سرکاری طور پر <span class="highlight">جمہوریہ ارجنٹائن</span>, دنیا کا آٹھواں سب سے بڑا ملک اور جنوبی امریکہ کا دوسرا سب سے بڑا ملک ہے۔ یہ <strong>27.8 لاکھ مربع کلومیٹر</strong> کے رقبے پر پھیلا ہوا ہے — جو میکسیکو اور ٹیکساس کے مجموعی رقبے سے بھی بڑا ہے۔ اس کی آبادی تقریباً <strong>48 ملین</strong> ہے۔</p>
+            <p>دارالحکومت <strong>بوئنوس آئرس</strong> ہے۔ 16ویں صدی میں ہسپانوی کالونیائزیشن شروع ہوئی، اور <strong>9 جولائی 1816</strong> کو ارجنٹائن نے آزادی کا اعلان کیا۔ سرکاری زبان <strong>ہسپانوی</strong> ہے، اور کرنسی <strong>ارجنٹائن پیسو (ARS)</strong> ہے۔</p>
+        </div>
+
+        <div class="flag-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" alt="Argentina Flag" class="flag-img">
+            <div>
+                <h2>🏳️ ارجنٹائن کا پرچم</h2>
+                <p>ارجنٹائن کا پرچم <strong>جنرل مینوئل بیلگرانو</strong> نے 1812 میں آزادی کی جنگ کے دوران بنایا۔ اس میں تین افقی دھاریاں — <strong>ہلکا نیلا، سفید، اور ہلکا نیلا</strong> — ہیں۔ مرکز میں <strong>مئی کا سورج (سول دے مایو)</strong> چمکتا ہے، جس میں انسانی چہرہ اور 32 متبادل سیدھے اور لہراتی شعاعیں ہیں۔</p>
+                <p>یہ سورج <strong>انٹی</strong> کی نمائندگی کرتا ہے، انکا سورج دیوتا، جو 1810 کی مئی انقلاب کے بعد ایک نئے قوم کے ابھار کی علامت ہے۔ پرچم دن <strong>20 جون</strong> کو منایا جاتا ہے، جو بیلگرانو کی 1820 میں موت کی یاد میں ہے۔</p>
+            </div>
+        </div>
+
+        <h2>🏙️ مشہور شہر جو آپ کو ضرور دیکھنے چاہئیں</h2>
+
+        <div class="city-card">
+            <h3>1. بوئنوس آئرس — جنوبی امریکہ کا پیرس</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.insightvacations.com/040ff2f9e627ac3cf0540eb95ed2f6f83cd912be.jpg" alt="Buenos Aires" class="city-img">
+            <p>بوئنوس آئرس ایک شاندار تضادات کا شہر ہے — جہاں یورپی عظمت لاطینی جذبے سے ملتی ہے۔ اسے اکثر <strong>"جنوبی امریکہ کا پیرس"</strong> کہا جاتا ہے۔ تاریخی <strong>پلازا دے مایو</strong>، <strong>لا بوکا</strong> کے رنگین گلیوں، اور <strong>سان تیلمو</strong> کے بوہیمین اینٹیکس بازاروں کا دورہ کریں۔ <strong>ریکولیٹا قبرستان</strong> ایک معماری اعجوبہ ہے جہاں ایوا پیرون آرام کرتی ہیں۔</p>
+            <p>رات کو شہر ٹینگو کی دھڑکن سے زندہ ہوتا ہے۔ <strong>میلونگا</strong> (ٹینگو ڈانس ہال) میں جائیں، یا مشہور پیریلاس میں عالمی معیار کا اسٹیک کھائیں۔</p>
+        </div>
+
+        <div class="city-card">
+            <h3>2. پیٹاگونیا — دنیا کا آخر</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.insidehook.com/d614cfb1d550b501c1dec02a50dc74add04f6739.jpg" alt="Patagonia" class="city-img">
+            <p>پیٹاگونیا ارجنٹائن کی جنگلی روح ہے — گلیشیئرز، نوکیلے چوٹیوں، اور فیروزیہ جھیلوں کا وسیع سرحد۔ <strong>لوس گلیسیئرز نیشنل پارک</strong> میں شاندار <strong>پیریٹو مورینو گلیشیر</strong> ہے، جو زمین پر چند پیش قدم گلیشیئرز میں سے ایک ہے۔ <strong>ایل چالٹن</strong> میں، <strong>ماؤنٹ فٹز رائے</strong> کے قاعدے تک ٹریک کریں۔</p>
+            <p>سچے ایڈونچرز کے لیے، <strong>اوشوایا</strong> — دنیا کا سب سے جنوبی شہر — انٹارکٹیکا اور تیئرا دل فوئگو نیشنل پارک کا دروازہ ہے۔</p>
+        </div>
+
+        <div class="city-card">
+            <h3>3. ایگوازو آبشار — فطرت کا گرجتا شاہکار</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.artisansofleisure.com/011f5db8e798b9eaff91daebd62dcc4a6ef3ca01.jpg" alt="Iguazu" class="city-img">
+            <p>برازیل کی سرحد پر واقع، <strong>ایگوازو آبشار</strong> دنیا کے سب سے شاندار قدرتی عجائبات میں سے ایک ہے — <strong>275 انفرادی آبشاروں</strong> کا نظام جو تقریباً 3 کلومیٹر تک پھیلا ہوا ہے۔ ارجنٹائن کی طرف سب سے زیادہ جذباتی تجربہ پیش کرتی ہے، بورڈ واکس جو آپ کو گرجتے <strong>شیطان کا گلا (گارگانٹا دل ڈیابلو)</strong> کے سامنے لاتے ہیں۔</p>
+        </div>
+
+        <div class="city-card">
+            <h3>4. میندوزا — اینڈیز کے نیچے شراب کا ملک</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/ewj43icfkoo.exactdn.com/468c4ef481543cb657bce731f87a6b026c1bae1e.jpg" alt="Mendoza" class="city-img">
+            <p>میندوزا ارجنٹائن کا شراب کا دارالحکومت ہے، برف سے ڈھکے اینڈیز کے دامن میں واقع۔ یہ علاقہ عالمی معیار کی <strong>مالبیك</strong> پیدا کرتا ہے — ارجنٹائن کی دستخط شراب۔ کیٹینا زاپاٹا اور کلوز دے لوس سیئتے جیسی مشہور وائنریز کا دورہ کریں۔</p>
+        </div>
+
+        <div class="info-box">
+            <h2>💡 سفر کے نکات</h2>
+            <ul>
+                <li><strong>بہترین وقت:</strong> پیٹاگونیا کے لیے اکتوبر سے اپریل (بہار/گرما)؛ بوئنوس آئرس کے لیے اپریل-جون اور ستمبر-دسمبر۔</li>
+                <li><strong>آمد و رفت:</strong> ارجنٹائن کے وسیع فاصلے طے کرنے کے لیے مقامی پروازیں ضروری ہیں۔</li>
+                <li><strong>بجٹ:</strong> ارجنٹائن مسافروں کے لیے سستا ہے۔ درمیانی درجے کے ہوٹل $40-80 USD/رات؛ ایک اسٹیک ڈنر $15-25 USD۔</li>
+                <li><strong>لازمی کھانے:</strong> اساڈو (ارجنٹائن BBQ)، ایمپاناداس، دلچے دے لیچے، میٹے (روایتی جڑی بوٹی چائے)، اور یقیناً مالبیك شراب!</li>
+            </ul>
+        </div>
+
+        <p style="margin-top:30px;text-align:center;color:#888;font-size:0.9em;">✍️ مسافروں کے لیے، ایک مسافر کی طرف سے۔ ¡Buen viaje!</p>
+    </div>
+
+    <!-- HINDI CONTENT -->
+    <div class="content hi hindi">
+        <h1>🇦🇷 अर्जेंटीना ट्रैवल गाइड: टैंगो, वाइन और पैटागोनियाई जंगलों की भूमि</h1>
+        
+        <img src="https://kimi-web-img.moonshot.cn/img/argentinapura.com/063b9eff94487541b734449c7254de14eb2cf888.webp" alt="Patagonia" class="hero-img">
+        <p style="text-align:center;font-size:0.9em;color:#666;">पैटागोनिया के फ़िरोज़ी झील — जहाँ एंडीज़ अनियंत्रित जंगली भूमि से मिलते हैं।</p>
+
+        <div class="info-box">
+            <h2>🗺️ देश का परिचय</h2>
+            <p>अर्जेंटीना, आधिकारिक तौर पर <span class="highlight">अर्जेंटीनी गणराज्य</span>, दुनिया का आठवां सबसे बड़ा देश और ब्राजील के बाद दक्षिण अमेरिका का दूसरा सबसे बड़ा देश है। यह <strong>27.8 लाख वर्ग किलोमीटर</strong> के क्षेत्रफल पर फैला हुआ है — जो मेक्सिको और टेक्सास के संयुक्त क्षेत्रफल से भी बड़ा है। इसकी जनसंख्या लगभग <strong>48 मिलियन</strong> है।</p>
+            <p>राजधानी <strong>ब्यूनस आयर्स</strong> है। 16वीं सदी में स्पेनिश उपनिवेशवाद शुरू हुआ, और <strong>9 जुलाई 1816</strong> को अर्जेंटीना ने स्वतंत्रता की घोषणा की। आधिकारिक भाषा <strong>स्पेनिश</strong> है, और मुद्रा <strong>अर्जेंटीनी पेसो (ARS)</strong> है।</p>
+        </div>
+
+        <div class="flag-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" alt="Argentina Flag" class="flag-img">
+            <div>
+                <h2>🏳️ अर्जेंटीना का ध्वज</h2>
+                <p>अर्जेंटीना का ध्वज <strong>जनरल मैनुअल बेलग्रानो</strong> ने 1812 में स्वतंत्रता युद्ध के दौरान बनाया। इसमें तीन क्षैतिज धारियाँ — <strong>हल्का नीला, सफेद, और हल्का नीला</strong> — हैं। केंद्र में <strong>मई का सूरज (सोल दे मायो)</strong> चमकता है, जिसमें मानव चेहरा और 32 बारी-बारी से सीधी और लहरदार किरणें हैं।</p>
+                <p>यह सूरज <strong>इंटी</strong> का प्रतिनिधित्व करता है, इंका सूर्य देवता, जो 1810 की मई क्रांति के बाद एक नए राष्ट्र के उदय का प्रतीक है। ध्वज दिवस <strong>20 जून</strong> को मनाया जाता है, जो बेलग्रानो की 1820 में मृत्यु की स्मृति में है।</p>
+            </div>
+        </div>
+
+        <h2>🏙️ प्रसिद्ध शहर जो आपको अवश्य देखने चाहिए</h2>
+
+        <div class="city-card">
+            <h3>1. ब्यूनस आयर्स — दक्षिण अमेरिका का पेरिस</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.insightvacations.com/040ff2f9e627ac3cf0540eb95ed2f6f83cd912be.jpg" alt="Buenos Aires" class="city-img">
+            <p>ब्यूनस आयर्स एक शानदार विरोधाभासों का शहर है — जहाँ यूरोपीय भव्यता लैटिन जुनून से मिलती है। इसे अक्सर <strong>"दक्षिण अमेरिका का पेरिस"</strong> कहा जाता है। ऐतिहासिक <strong>प्लाजा डे मायो</strong>, <strong>ला बोका</strong> के रंगीन गलियों, और <strong>सैन तेल्मो</strong> के बोहेमियन एंटीक बाजारों का दौरा करें। <strong>रेकोलेटा कब्रिस्तान</strong> एक वास्तुकला चमत्कार है जहाँ एवा पेरón आराम करती हैं।</p>
+            <p>रात को शहर टैंगो की धड़कन से जीवित होता है। <strong>मिलोंगा</strong> (टैंगो डांस हॉल) में जाएँ, या प्रसिद्ध पेरिलास में विश्व-स्तरीय स्टेक खाएँ।</p>
+        </div>
+
+        <div class="city-card">
+            <h3>2. पैटागोनिया — दुनिया का अंत</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.insidehook.com/d614cfb1d550b501c1dec02a50dc74add04f6739.jpg" alt="Patagonia" class="city-img">
+            <p>पैटागोनिया अर्जेंटीना की जंगली आत्मा है — ग्लेशियर, नुकीले चोटियों, और फ़िरोज़ी झीलों का विशाल सीमावर्ती क्षेत्र। <strong>लॉस ग्लेसियर्स नेशनल पार्क</strong> में भव्य <strong>पेरितो मोरेनो ग्लेशियर</strong> है, जो पृथ्वी पर कुछ ही आगे बढ़ने वाले ग्लेशियरों में से एक है। <strong>एल चाल्टेन</strong> में, <strong>माउंट फिट्ज़ रॉय</strong> के आधार तक ट्रेक करें।</p>
+            <p>सच्चे साहसिकों के लिए, <strong>उशुआया</strong> — दुनिया का सबसे दक्षिणी शहर — अंटार्कटिका और टिएरा डेल फुएगो नेशनल पार्क का प्रवेश द्वार है।</p>
+        </div>
+
+        <div class="city-card">
+            <h3>3. इगुआज़ू फॉल्स — प्रकृति का गरजता हुआ श्रृंगार</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.artisansofleisure.com/011f5db8e798b9eaff91daebd62dcc4a6ef3ca01.jpg" alt="Iguazu" class="city-img">
+            <p>ब्राजील की सीमा पर स्थित, <strong>इगुआज़ू फॉल्स</strong> दुनिया के सबसे शानदार प्राकृतिक आश्चर्यों में से एक है — <strong>275 व्यक्तिगत झरनों</strong> की प्रणाली जो लगभग 3 किलोमीटर तक फैली हुई है। अर्जेंटीनी पक्ष सबसे अधिक immersive अनुभव प्रदान करता है, बोर्डवॉक जो आपको गरजते <strong>डेविल्स थ्रोट (गारगांटा डेल डिएब्लो)</strong> के सामने लाते हैं।</p>
+        </div>
+
+        <div class="city-card">
+            <h3>4. मेंडोज़ा — एंडीज़ के नीचे वाइन कंट्री</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/ewj43icfkoo.exactdn.com/468c4ef481543cb657bce731f87a6b026c1bae1e.jpg" alt="Mendoza" class="city-img">
+            <p>मेंडोज़ा अर्जेंटीना की वाइन राजधानी है, बर्फ से ढके एंडीज़ के पैरों में बसा हुआ। यह क्षेत्र विश्व-स्तरीय <strong>माल्बेक</strong> उत्पादन करता है — अर्जेंटीना की हस्ताक्षरित वाइन। कैटेना ज़ापाटा और क्लोज़ डे लोस सिएते जैसी प्रतिष्ठित वाइनरी का दौरा करें।</p>
+        </div>
+
+        <div class="info-box">
+            <h2>💡 यात्रा सुझाव</h2>
+            <ul>
+                <li><strong>सबसे अच्छा समय:</strong> पैटागोनिया के लिए अक्टूबर से अप्रैल (वसंत/ग्रीष्म); ब्यूनस आयर्स के लिए अप्रैल-जून और सितंबर-दिसंबर।</li>
+                <li><strong>यातायात:</strong> अर्जेंटीना के विशाल दूरी तय करने के लिए घरेलू उड़ानें आवश्यक हैं।</li>
+                <li><strong>बजट:</strong> अर्जेंटीना यात्रियों के लिए सस्ता है। मध्यम श्रेणी के होटल $40-80 USD/रात; एक स्टेक डिनर $15-25 USD।</li>
+                <li><strong>अवश्य खाएं:</strong> असाडो (अर्जेंटीनी BBQ), एम्पानाडास, दुल्चे डे लेचे, माते (पारंपरिक जड़ी-बूटी चाय), और निश्चित रूप से, माल्बेक वाइन!</li>
+            </ul>
+        </div>
+
+        <p style="margin-top:30px;text-align:center;color:#888;font-size:0.9em;">✍️ यात्रियों के लिए, एक यात्री द्वारा। ¡Buen viaje!</p>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.lang-bar button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.' + lang).style.display = 'block';
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+        setLang('en');
+    </script>
+
+</body>
+</html>
