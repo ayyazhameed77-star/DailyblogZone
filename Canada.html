@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canada Travel Guide - The Great White North Awaits</title>
+    <style>
+        :root {
+            --primary: #d80621;
+            --accent: #ff0000;
+            --bg: #f8f9fa;
+            --text: #2c3e50;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--bg);
+        }
+        .lang-bar {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .lang-bar button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            margin: 4px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .lang-bar button:hover, .lang-bar button.active {
+            background: #b3001b;
+        }
+        h1 {
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: var(--primary);
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+        .hero-img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .flag-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .flag-img {
+            width: 180px;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .city-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .city-img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .quote {
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .tag {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+        .urdu, .hindi {
+            display: none;
+        }
+        .urdu {
+            direction: rtl;
+            font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', sans-serif;
+        }
+        .hindi {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+        @media (max-width: 600px) {
+            .flag-section { flex-direction: column; text-align: center; }
+            .flag-img { width: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Translator -->
+    <div class="lang-bar">
+        <strong>🌐 Translate / ترجم / अनुवाद:</strong><br>
+        <button onclick="setLang('en')" class="active" id="btn-en">English</button>
+        <button onclick="setLang('ur')" id="btn-ur">اردو (Urdu)</button>
+        <button onclick="setLang('hi')" id="btn-hi">हिन्दी (Hindi)</button>
+    </div>
+
+    <!-- ENGLISH CONTENT -->
+    <div class="content en">
+        <h1>🇨🇦 Canada Travel Guide: The Great White North</h1>
+        
+        <img src="https://kimi-web-img.moonshot.cn/img/thebanffblog.com/d648199477aa9281270965e249fab1d899d619b7.jpeg" alt="Banff Moraine Lake Canada" class="hero-img">
+        <p style="text-align:center;font-size:0.9em;color:#666;">The iconic Moraine Lake in Banff National Park — a turquoise jewel of the Canadian Rockies.</p>
+
+        <div class="info-box">
+            <h2>🗺️ Country Background</h2>
+            <p>Canada, the <span class="highlight">second-largest country in the world</span> by total area, stretches across the northern half of North America. With a population of approximately <strong>40 million</strong>, it is one of the most sparsely populated nations on Earth. The country was formed through <strong>Confederation on July 1, 1867</strong>, when Ontario, Quebec, Nova Scotia, and New Brunswick united. Today, Canada comprises 10 provinces and 3 territories.</p>
+            <p>Canada is officially <strong>bilingual</strong> (English and French) and proudly multicultural, with nearly half of Toronto's residents born abroad. Its capital is <strong>Ottawa</strong>, while the largest city is <strong>Toronto</strong>. The country is renowned for its stunning natural beauty — from the Rocky Mountains to the Atlantic coastline — and consistently ranks among the world's best countries for quality of life.</p>
+        </div>
+
+        <div class="flag-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1200px-Flag_of_Canada_%28Pantone%29.svg.png" alt="Canada Flag" class="flag-img">
+            <div>
+                <h2>🏳️ The Flag of Canada</h2>
+                <p>Canada's iconic <strong>Maple Leaf Flag</strong> was officially adopted on <strong>February 15, 1965</strong>. It features three vertical stripes — <strong>red, white, and red</strong> — with an 11-point red maple leaf at its center. The red symbolizes Canadian sacrifice during World War I, while white represents peace and purity. The maple leaf has been a national symbol since at least 1868. Before 1965, Canada used the Canadian Red Ensign, which included the British Union Jack.</p>
+            </div>
+        </div>
+
+        <h2>🏙️ Famous Cities You Must Visit</h2>
+
+        <div class="city-card">
+            <h3>1. Toronto — Canada's Cosmopolitan Heart</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/2a25bd206722b87f47855a8f93b37a9ef13a66ea.jpg" alt="Toronto Skyline CN Tower" class="city-img">
+            <p>Toronto is Canada's largest city and financial capital, home to over <strong>3 million people</strong>. The skyline is dominated by the iconic <strong>CN Tower</strong>, once the world's tallest freestanding structure. Toronto is celebrated as one of the most multicultural cities on the planet — over 200 ethnic groups speak more than 140 languages here. Explore vibrant neighborhoods like Chinatown, Little Italy, and Greektown. Don't miss the <strong>Royal Ontario Museum</strong>, <strong>St. Lawrence Market</strong>, and a ferry ride to the Toronto Islands for stunning skyline views.</p>
+            <p>Just 90 minutes away, <strong>Niagara Falls</strong> makes for an unforgettable day trip. Feel the thunderous spray aboard the Maid of the Mist boat tour!</p>
+        </div>
+
+        <div class="city-card">
+            <h3>2. Vancouver — Where Mountains Meet the Ocean</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/vancouversbestplaces.com/b816dc121ce9a53158528fc40fe4b7307e40d66b.jpg" alt="Vancouver Aerial View" class="city-img">
+            <p>Vancouver, on Canada's west coast in British Columbia, is a rare city where you can ski in the morning and sail in the afternoon. Surrounded by the <strong>Coast Mountains</strong> and the Pacific Ocean, it offers an unmatched blend of urban sophistication and outdoor adventure. Walk across the thrilling <strong>Capilano Suspension Bridge</strong>, cycle around <strong>Stanley Park</strong>, or explore the trendy shops of <strong>Granville Island</strong>. Known as "Hollywood North," Vancouver is a filming hotspot for major movies and TV shows. The city's culinary scene — from food trucks to Michelin-starred restaurants — is equally impressive.</p>
+        </div>
+
+        <div class="city-card">
+            <h3>3. Quebec City — A Slice of Europe in North America</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/402b7006432c9b009b8e4047ad050649c430097d.jpg" alt="Quebec City Chateau Frontenac" class="city-img">
+            <p>Quebec City, founded in 1608, is one of the oldest European settlements in North America and the only walled city north of Mexico. Its crown jewel, the <strong>Fairmont Le Château Frontenac</strong>, dominates the skyline like a medieval castle. Wander the cobblestone streets of <strong>Old Quebec</strong> (a UNESCO World Heritage Site), sip café au lait at a sidewalk bistro, and feel like you've been transported to France. The <strong>Winter Carnival</strong> transforms the city into a snowy wonderland, while summer brings the world-famous <strong>Quebec City Summer Festival</strong>.</p>
+            <div class="quote">"Quebec City is where North America meets old-world European charm — every street feels like a postcard."</div>
+        </div>
+
+        <div class="city-card">
+            <h3>4. Banff — The Jewel of the Rockies</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/adc2bc202054a14ee709c05e5768791101e5d4d1.jpg" alt="Banff Peyto Lake" class="city-img">
+            <p>Located in the heart of <strong>Banff National Park</strong> (Canada's first national park), this mountain town is a paradise for nature lovers. The turquoise waters of <strong>Lake Louise</strong> and <strong>Moraine Lake</strong> are among the most photographed places on Earth. In winter, Banff becomes a world-class ski destination. In summer, hike through alpine meadows, spot elk and bears, or soak in the natural <strong>Upper Hot Springs</strong> surrounded by snow-capped peaks.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>💡 Travel Tips</h2>
+            <ul>
+                <li><strong>Best Time to Visit:</strong> June to September for warm weather; December to February for winter sports.</li>
+                <li><strong>Getting Around:</strong> Canada is vast — domestic flights are common for long distances. VIA Rail offers scenic train journeys.</li>
+                <li><strong>Budget:</strong> Canada is moderately expensive. Expect CAD $150-250 per day for mid-range travel.</li>
+                <li><strong>Must-Try Foods:</strong> Poutine (fries with cheese curds and gravy), butter tarts, Nanaimo bars, and maple syrup everything!</li>
+                <li><strong>National Parks Pass:</strong> Purchase a Discovery Pass for unlimited access to all national parks.</li>
+            </ul>
+        </div>
+
+        <div class="tags">
+            <span class="tag">#CanadaTravel</span>
+            <span class="tag">#Toronto</span>
+            <span class="tag">#Vancouver</span>
+            <span class="tag">#Banff</span>
+            <span class="tag">#QuebecCity</span>
+            <span class="tag">#TravelBlog</span>
+        </div>
+
+        <p style="margin-top:30px;text-align:center;color:#888;font-size:0.9em;">✍️ Written for travelers, by a traveler. Safe journeys across the Great White North!</p>
+    </div>
+
+    <!-- URDU CONTENT -->
+    <div class="content ur urdu">
+        <h1>🇨🇦 کینیڈا ٹریول گائیڈ: عظیم سفید شمال</h1>
+        
+        <img src="https://kimi-web-img.moonshot.cn/img/thebanffblog.com/d648199477aa9281270965e249fab1d899d619b7.jpeg" alt="Banff Moraine Lake" class="hero-img">
+        <p style="text-align:center;font-size:0.9em;color:#666;">بینف نیشنل پارک میں مشہور مورین جھیل — کینیڈین راکیز کا فیروزیہ جواہر۔</p>
+
+        <div class="info-box">
+            <h2>🗺️ ملک کی تاریخ</h2>
+            <p>کینیڈا، جو کل رقبے کے لحاظ سے <span class="highlight">دنیا کا دوسرا سب سے بڑا ملک</span> ہے، شمالی امریکہ کے شمالی حصے میں پھیلا ہوا ہے۔ اس کی آبادی تقریباً <strong>40 ملین</strong> ہے۔ یہ ملک <strong>1 جولائی 1867</strong> کو کنفیڈریشن کے ذریعے بنا جب اونٹاریو، کیوبیک، نووا سکوٹیا اور نیو برنزوک متحد ہوئے۔ آج کینیڈا میں 10 صوبے اور 3 علاقے ہیں۔</p>
+            <p>کینیڈا سرکاری طور پر <strong>دو زبانوں والا</strong> (انگریزی اور فرانسیسی) اور فخر سے کثیر الثقافتی ملک ہے۔ اس کا دارالحکومت <strong>اوٹاوا</strong> ہے، جبکہ سب سے بڑا شہر <strong>ٹورنٹو</strong> ہے۔</p>
+        </div>
+
+        <div class="flag-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1200px-Flag_of_Canada_%28Pantone%29.svg.png" alt="Canada Flag" class="flag-img">
+            <div>
+                <h2>🏳️ کینیڈا کا پرچم</h2>
+                <p>کینیڈا کا مشہور <strong>میپل لیف پرچم</strong> <strong>15 فروری 1965</strong> کو سرکاری طور پر اپنایا گیا۔ اس میں تین عمودی دھاریاں — <strong>سرخ، سفید، اور سرخ</strong> — ہیں، جن کے مرکز میں 11 نوک والا سرخ میپل پتہ ہے۔ سرخ رنگ پہلی عالمی جنگ میں کینیڈائی قربانی کی علامت ہے، جبکہ سفید امن اور پاکیزگی کی نمائندگی کرتا ہے۔</p>
+            </div>
+        </div>
+
+        <h2>🏙️ مشہور شہر جو آپ کو ضرور دیکھنے چاہئیں</h2>
+
+        <div class="city-card">
+            <h3>1. ٹورنٹو — کینیڈا کا کاسمپولیٹن دل</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/2a25bd206722b87f47855a8f93b37a9ef13a66ea.jpg" alt="Toronto" class="city-img">
+            <p>ٹورنٹو کینیڈا کا سب سے بڑا شہر اور مالیاتی دارالحکومت ہے، جہاں <strong>3 ملین سے زیادہ</strong> لوگ رہتے ہیں۔ اس کا افق مشہور <strong>سی این ٹاور</strong> سے چھایا ہوا ہے۔ ٹورنٹو کو دنیا کے سب سے زیادہ کثیر الثقافتی شہروں میں سے ایک سمجھا جاتا ہے — یہاں 200 سے زیادہ نسلی گروپ 140 سے زیادہ زبانیں بولتے ہیں۔</p>
+        </div>
+
+        <div class="city-card">
+            <h3>2. وینکوور — جہاں پہاڑ سمندر سے ملتے ہیں</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/vancouversbestplaces.com/b816dc121ce9a53158528fc40fe4b7307e40d66b.jpg" alt="Vancouver" class="city-img">
+            <p>وینکوور کینیڈا کے مغربی ساحل پر واقع ہے، جہاں آپ صبح کو سکیئنگ کر سکتے ہیں اور دوپہر کو سیلنگ۔ <strong>کوسٹ ماؤنٹینز</strong> اور بحر الکاہل کے درمیان، یہ شہر شہری نفاست اور بیرونی ایڈونچر کا بے مثال امتزاج پیش کرتا ہے۔</p>
+        </div>
+
+        <div class="city-card">
+            <h3>3. کیوبیک سٹی — شمالی امریکہ میں یورپ کا ٹکڑا</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/402b7006432c9b009b8e4047ad050649c430097d.jpg" alt="Quebec City" class="city-img">
+            <p>1608 میں قائم ہونے والا کیوبیک سٹی شمالی امریکہ میں یورپی آبادی کا سب سے قدیم شہر ہے۔ اس کا تاج <strong>فیئرمنٹ لی چیٹو فرنٹینیک</strong> ہے جو افق پر ایک قرون وسطی کا محل نظر آتا ہے۔ <strong>اولڈ کیوبیک</strong> کی پتھریلی سڑکوں پر چہل قدمی کریں اور محسوس کریں جیسے آپ فرانس میں ہوں۔</p>
+        </div>
+
+        <div class="city-card">
+            <h3>4. بینف — راکیز کا جواہر</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/adc2bc202054a14ee709c05e5768791101e5d4d1.jpg" alt="Banff" class="city-img">
+            <p><strong>بینف نیشنل پارک</strong> (کینیڈا کا پہلا نیشنل پارک) کے دل میں واقع، یہ پہاڑی شہر فطرت کے محبوبین کا جنت ہے۔ <strong>لیک لوئس</strong> اور <strong>مورین لیک</strong> کے فیروزیہ پانی زمین پر سب سے زیادہ تصویر کشی ہونے والی جگہوں میں سے ہیں۔</p>
+        </div>
+
+        <div class="info-box">
+            <h2>💡 سفر کے نکات</h2>
+            <ul>
+                <li><strong>بہترین وقت:</strong> گرم موسم کے لیے جون سے ستمبر؛ سکیئنگ کے لیے دسمبر سے فروری۔</li>
+                <li><strong>آمد و رفت:</strong> کینیڈا بہت وسیع ہے — طویل فاصلے پر مقامی پروازیں عام ہیں۔</li>
+                <li><strong>بجٹ:</strong> کینیڈا درمیانے درجے میں مہنگا ہے۔ درمیانی درجے کے سفر کے لیے روزانہ CAD $150-250۔</li>
+                <li><strong>لازمی کھانے:</strong> پاؤٹائن (چیز کرڈز اور گریوی والے فرائز)، بٹر ٹارٹس، اور میپل شربت!</li>
+            </ul>
+        </div>
+
+        <p style="margin-top:30px;text-align:center;color:#888;font-size:0.9em;">✍️ مسافروں کے لیے، ایک مسافر کی طرف سے۔ عظیم سفید شمال میں محفوظ سفر!</p>
+    </div>
+
+    <!-- HINDI CONTENT -->
+    <div class="content hi hindi">
+        <h1>🇨🇦 कनाडा ट्रैवल गाइड: द ग्रेट व्हाइट नॉर्थ</h1>
+        
+        <img src="https://kimi-web-img.moonshot.cn/img/thebanffblog.com/d648199477aa9281270965e249fab1d899d619b7.jpeg" alt="Banff Moraine Lake" class="hero-img">
+        <p style="text-align:center;font-size:0.9em;color:#666;">बैनफ नेशनल पार्क में प्रसिद्ध मोरेन झील — कनाडियन रॉकीज़ का फ़िरोज़ा रत्न।</p>
+
+        <div class="info-box">
+            <h2>🗺️ देश का परिचय</h2>
+            <p>कनाडा, जो कुल क्षेत्रफल के हिसाब से <span class="highlight">दुनिया का दूसरा सबसे बड़ा देश</span> है, उत्तरी अमेरिका के उत्तरी आधे हिस्से में फैला हुआ है। इसकी जनसंख्या लगभग <strong>40 मिलियन</strong> है। यह देश <strong>1 जुलाई 1867</strong> को कॉन्फेडरेशन के माध्यम से बना जब ओंटारियो, क्यूबेक, नोवा स्कोशिया और न्यू ब्रंसविक एक हुए। आज कनाडा में 10 प्रांत और 3 क्षेत्र हैं।</p>
+            <p>कनाडा आधिकारिक तौर पर <strong>द्विभाषी</strong> (अंग्रेजी और फ्रेंच) और गर्व से बहुसांस्कृतिक देश है। इसकी राजधानी <strong>ओटावा</strong> है, जबकि सबसे बड़ा शहर <strong>टोरंटो</strong> है।</p>
+        </div>
+
+        <div class="flag-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1200px-Flag_of_Canada_%28Pantone%29.svg.png" alt="Canada Flag" class="flag-img">
+            <div>
+                <h2>🏳️ कनाडा का ध्वज</h2>
+                <p>कनाडा का प्रसिद्ध <strong>मेपल लीफ ध्वज</strong> <strong>15 फरवरी 1965</strong> को आधिकारिक रूप से अपनाया गया। इसमें तीन ऊर्ध्वाधर धारियाँ — <strong>लाल, सफेद, और लाल</strong> — हैं, जिनके केंद्र में 11-बिंदी लाल मेपल पत्ता है। लाल रंग प्रथम विश्व युद्ध में कनाडाई बलिदान का प्रतीक है, जबकि सफेद शांति और पवित्रता का प्रतिनिधित्व करता है।</p>
+            </div>
+        </div>
+
+        <h2>🏙️ प्रसिद्ध शहर जो आपको अवश्य देखने चाहिए</h2>
+
+        <div class="city-card">
+            <h3>1. टोरंटो — कनाडा का कॉस्मोपॉलिटन हृदय</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/2a25bd206722b87f47855a8f93b37a9ef13a66ea.jpg" alt="Toronto" class="city-img">
+            <p>टोरंटो कनाडा का सबसे बड़ा शहर और वित्तीय राजधानी है, जहाँ <strong>3 मिलियन से अधिक</strong> लोग रहते हैं। क्षितिज प्रतिष्ठित <strong>सीएन टावर</strong> से छाया हुआ है। टोरंटो को दुनिया के सबसे बहुसांस्कृतिक शहरों में से एक माना जाता है — यहाँ 200 से अधिक जातीय समूह 140 से अधिक भाषाएँ बोलते हैं।</p>
+        </div>
+
+        <div class="city-card">
+            <h3>2. वैंकूवर — जहाँ पहाड़ समुद्र से मिलते हैं</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/vancouversbestplaces.com/b816dc121ce9a53158528fc40fe4b7307e40d66b.jpg" alt="Vancouver" class="city-img">
+            <p>वैंकूवर कनाडा के पश्चिमी तट पर स्थित है, जहाँ आप सुबह स्कीइंग कर सकते हैं और दोपहर को नाव चला सकते हैं। <strong>कोस्ट माउंटेन</strong> और प्रशांत महासागर के बीच, यह शहर शहरी परिष्कार और बाहरी साहसिकता का अद्वितीय मिश्रण प्रस्तुत करता है।</p>
+        </div>
+
+        <div class="city-card">
+            <h3>3. क्यूबेक सिटी — उत्तरी अमेरिका में यूरोप का टुकड़ा</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/402b7006432c9b009b8e4047ad050649c430097d.jpg" alt="Quebec City" class="city-img">
+            <p>1608 में स्थापित क्यूबेक सिटी उत्तरी अमेरिका में यूरोपीय बस्तियों में से एक सबसे पुराना शहर है। इसका मुकुट <strong>फेयरमोंट ले चâteau फ्रंटेनैक</strong> है जो क्षितिज पर एक मध्ययुगीन महल की तरह छाया हुआ है। <strong>ओल्ड क्यूबेक</strong> की पत्थर की सड़कों पर घूमें और महसूस करें जैसे आप फ्रांस में हों।</p>
+        </div>
+
+        <div class="city-card">
+            <h3>4. बैनफ — रॉकीज़ का रत्न</h3>
+            <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/adc2bc202054a14ee709c05e5768791101e5d4d1.jpg" alt="Banff" class="city-img">
+            <p><strong>बैनफ नेशनल पार्क</strong> (कनाडा का पहला राष्ट्रीय उद्यान) के केंद्र में स्थित, यह पहाड़ी शहर प्रकृति प्रेमियों का स्वर्ग है। <strong>लेक लुइस</strong> और <strong>मोरेन लेक</strong> के फ़िरोज़े पानी पृथ्वी पर सबसे अधिक फोटोग्राफ किए जाने वाले स्थानों में से हैं।</p>
+        </div>
+
+        <div class="info-box">
+            <h2>💡 यात्रा सुझाव</h2>
+            <ul>
+                <li><strong>सबसे अच्छा समय:</strong> गर्म मौसम के लिए जून से सितंबर; स्कीइंग के लिए दिसंबर से फरवरी।</li>
+                <li><strong>यातायात:</strong> कनाडा बहुत विशाल है — लंबी दूरी के लिए घरेलू उड़ानें आम हैं।</li>
+                <li><strong>बजट:</strong> कनाडा मध्यम रूप से महंगा है। मध्यम श्रेणी की यात्रा के लिए प्रति दिन CAD $150-250।</li>
+                <li><strong>अवश्य खाएं:</strong> पाउटीन (चीज़ कर्ड्स और ग्रेवी वाले फ्राइज़), बटर टार्ट्स, और मेपल सिरप!</li>
+            </ul>
+        </div>
+
+        <p style="margin-top:30px;text-align:center;color:#888;font-size:0.9em;">✍️ यात्रियों के लिए, एक यात्री द्वारा। द ग्रेट व्हाइट नॉर्थ में सुरक्षित यात्रा!</p>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.lang-bar button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.' + lang).style.display = 'block';
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+        setLang('en');
+    </script>
+
+</body>
+</html>
