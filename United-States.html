@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United States Travel Guide — USA Travel Blog</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Georgia', 'Noto Sans Devanagari', serif;
+            line-height: 1.8;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background: #f5f5f5;
+        }
+        h1 {
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #B22234;
+            font-size: 2.4em;
+            margin-bottom: 8px;
+            border-bottom: 3px solid #3C3B6E;
+            padding-bottom: 12px;
+        }
+        .subtitle {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        .intro-box {
+            background: #fff;
+            border-left: 5px solid #3C3B6E;
+            padding: 18px 22px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-radius: 0 6px 6px 0;
+        }
+        h2 {
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #2c3e50;
+            margin-top: 35px;
+            font-size: 1.5em;
+        }
+        .city-section {
+            background: #fff;
+            padding: 22px;
+            margin: 22px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .location-tag {
+            display: inline-block;
+            background: #B22234;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82em;
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-bottom: 10px;
+        }
+        .flag-section {
+            text-align: center;
+            padding: 18px;
+            background: #fff;
+            border-radius: 8px;
+            margin: 18px 0;
+        }
+        .flag-box {
+            max-width: 340px;
+            margin: 0 auto;
+            border: 2px solid #333;
+            background: #fff;
+            padding: 8px;
+        }
+        .flag-stripe { height: 18px; margin: 0; }
+        .flag-red { background: #B22234; }
+        .flag-white { background: #fff; }
+        .flag-blue-field {
+            background: #3C3B6E;
+            width: 38%;
+            height: 126px;
+            float: left;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+        .caption {
+            font-size: 0.88em;
+            color: #777;
+            text-align: center;
+            margin-top: 6px;
+            font-style: italic;
+        }
+        .conclusion {
+            background: #3C3B6E;
+            color: white;
+            padding: 22px;
+            border-radius: 8px;
+            margin-top: 35px;
+        }
+        .conclusion h2 { color: white; margin-top: 0; }
+        
+        /* Language Switcher */
+        .lang-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            background: #fff;
+            padding: 14px 18px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+        .lang-btn {
+            padding: 8px 18px;
+            border: 2px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            border-radius: 24px;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.92em;
+            font-weight: 600;
+            transition: all 0.2s;
+            color: #555;
+        }
+        .lang-btn:hover { border-color: #3C3B6E; color: #3C3B6E; }
+        .lang-btn.active {
+            background: #B22234;
+            color: white;
+            border-color: #B22234;
+        }
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        /* Urdu RTL */
+        .urdu-content {
+            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu', 'Georgia', serif;
+            line-height: 2.2;
+            font-size: 1.05em;
+        }
+        .urdu-content h1, .urdu-content h2 {
+            font-family: 'Noto Nastaliq Urdu', 'Helvetica Neue', sans-serif;
+        }
+        .urdu-content .intro-box {
+            border-left: none;
+            border-right: 5px solid #3C3B6E;
+            border-radius: 6px 0 0 6px;
+            text-align: right;
+        }
+        .urdu-content .location-tag {
+            direction: ltr;
+            display: inline-block;
+        }
+        
+        /* Hindi */
+        .hindi-content {
+            font-family: 'Noto Sans Devanagari', 'Georgia', serif;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Language Switcher -->
+<div class="lang-bar">
+    <button class="lang-btn active" onclick="switchLang('en')">🇺🇸 English</button>
+    <button class="lang-btn" onclick="switchLang('hi')">🇮🇳 हिन्दी</button>
+    <button class="lang-btn" onclick="switchLang('ur')">🇵🇰 اردو</button>
+</div>
+
+<!-- ================= ENGLISH ================= -->
+<div id="en" class="lang-content active">
+
+<h1>🇺🇸 United States: The Land of Extraordinary Variety</h1>
+<p class="subtitle">From skyscraper canyons to sun-kissed coastlines — a journey through the icons of the American dream.</p>
+
+<div class="intro-box">
+    <strong>Country:</strong> United States of America<br>
+    <strong>Location:</strong> North America<br>
+    <strong>Capital:</strong> Washington, D.C.<br>
+    <strong>Language:</strong> English<br>
+    <strong>Currency:</strong> US Dollar (USD)<br>
+    <strong>Best Time to Visit:</strong> Year-round (varies by region)
+</div>
+
+<p>The <strong>United States</strong> is less a single country and more a continent of experiences. Spanning six time zones, three coastlines, and landscapes that shift from Arctic tundra to tropical beaches, it offers a staggering diversity that no other nation can match. Whether you're chasing neon lights in Manhattan, surfing Pacific waves in California, or savoring deep-dish pizza beneath Chicago's steel canyons, the U.S. delivers iconic moments at every turn. The year 2026 marks the nation's 250th anniversary — a landmark celebration from sea to shining sea.</p>
+
+<p>Born from thirteen colonies that declared independence in 1776, the United States grew into a global superpower while preserving distinct regional identities. From New England's colonial charm to the Deep South's jazz heritage and the West Coast's pioneering spirit, each corner tells a different story of the American experiment.</p>
+
+<h2>🇺🇸 The Stars and Stripes: A Flag of Revolution</h2>
+
+<div class="flag-section">
+    <div class="flag-box">
+        <div class="flag-blue-field">★ 50</div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+    </div>
+    <p class="caption">The Stars and Stripes — fifty stars for fifty states, thirteen stripes for the original colonies.</p>
+</div>
+
+<p>Adopted officially on June 14, 1777, the American flag is one of the world's most recognized symbols. The <strong>thirteen alternating red and white stripes</strong> honor the original British colonies that broke away to form a new nation, while the <strong>fifty white stars</strong> on a blue canton represent each state in the modern union. The colors carry deep meaning: red symbolizes hardiness and valor, white represents purity and innocence, and blue stands for vigilance, perseverance, and justice. From Francis Scott Key's "Star-Spangled Banner" to the nickname "Old Glory," this flag has flown over battlefields, moon landings, and countless front porches — a living emblem of a nation still writing its story.</p>
+
+<h2>🗽 New York City – The City That Never Sleeps</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 New York City — 40.7128° N, 74.0060° W</span>
+    imageimage_search:16#2
+    <p class="caption">The iconic Manhattan skyline rising from the waters of New York Harbor at golden hour.</p>
+    
+    <p><strong>New York City</strong> is the American dream compressed into 300 square miles. From the Statue of Liberty standing sentinel in the harbor to the neon chaos of Times Square and the leafy serenity of Central Park, NYC is a sensory overload in the best possible way. The skyline itself is a monument to human ambition — glass and steel towers reaching for clouds above a grid of streets that have launched a million stories.</p>
+    
+    <p>Beyond the landmarks, New York's true magic lies in its neighborhoods. Wander the cobblestones of Greenwich Village, feast on dumplings in Flushing's Chinatown, catch a Broadway show in Midtown, or watch the sunset from the Brooklyn Heights Promenade. Whether it's your first visit or your fiftieth, the city always finds a way to surprise you.</p>
+</div>
+
+<h2>🌴 Los Angeles – Where Dreams Meet the Pacific</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 Los Angeles — 34.0522° N, 118.2437° W</span>
+    imageimage_search:16#5
+    <p class="caption">The Griffith Observatory overlooking downtown Los Angeles as the California sun paints the sky.</p>
+    
+    <p><strong>Los Angeles</strong> is a city of endless horizons. From the Hollywood Hills to the Santa Monica Pier, LA blends entertainment-industry glamour with laid-back beach culture in a way that exists nowhere else on Earth. Hike to the Griffith Observatory for panoramic views of the basin, stroll the Venice Beach Boardwalk, or tour the studios where cinema history was made.</p>
+    
+    <p>But LA is more than its stereotypes. The city's culinary scene is world-class, its art galleries rival any in the world, and its diverse neighborhoods — from Koreatown to Boyle Heights — offer authentic cultural immersion. Catch a sunset at Malibu, browse The Broad museum downtown, and you'll understand why so many people come for a vacation and never leave.</p>
+</div>
+
+<h2>🏙️ Chicago – The Soul of the Midwest</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 Chicago — 41.8781° N, 87.6298° W</span>
+    imageimage_search:16#0
+    <p class="caption">The Chicago skyline mirrored perfectly in the calm waters of Lake Michigan at sunset.</p>
+    
+    <p><strong>Chicago</strong> is where American architecture reached for the sky. The birthplace of the modern skyscraper, this lakeside metropolis combines Gilded Age grandeur with Midwestern warmth along the sparkling shores of Lake Michigan. Millennium Park's Cloud Gate sculpture reflects the city's bold skyline, while the Chicago Riverwalk offers a front-row seat to one of the world's greatest collections of modern architecture.</p>
+    
+    <p>Come for the deep-dish pizza and jazz clubs, stay for the world-class museums and lakefront beaches. In summer, the city comes alive with rooftop bars and music festivals; in winter, the twinkling lights along the Magnificent Mile turn downtown into a snow-dusted wonderland. Chicago proves that the heartland has plenty of style.</p>
+</div>
+
+<h2>🌉 San Francisco – The Golden Gateway</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 San Francisco — 37.7749° N, 122.4194° W</span>
+    imageimage_search:16#6
+    <p class="caption">The Golden Gate Bridge spanning the bay — San Francisco's enduring symbol of beauty and innovation.</p>
+    
+    <p><strong>San Francisco</strong> is a city of hills, fog, and fearless reinvention. The iconic <strong>Golden Gate Bridge</strong> — that impossible span of International Orange — frames a city where Victorian "Painted Ladies" sit beside tech-startup offices, and cable cars clang up streets steep enough to be ski slopes. After a post-pandemic lull, the city is roaring back to life with a revitalized dining scene, buzzing nightlife, and a creative energy that feels unmistakably San Francisco.</p>
+    
+    <p>Explore the bustling stalls of the Ferry Building, wander through the murals of the Mission District, or take a ferry to Alcatraz Island for a dose of history. With nearby Napa Valley wine country and the rugged Big Sur coastline just a drive away, San Francisco is the perfect launchpad for a California adventure.</p>
+</div>
+
+<div class="conclusion">
+    <h2>Why the United States Should Be Your Next Journey</h2>
+    <p>The United States is a destination that rewards curiosity on an epic scale. Whether you're standing atop the Empire State Building, watching the Pacific crash against Malibu's shores, admiring Chicago's architectural masterpieces, or crossing the Golden Gate at sunset, you'll feel the pulse of a nation built on ambition, diversity, and endless possibility.</p>
+    <p>In 2026, as America celebrates 250 years of independence, there's never been a better time to explore its cities, coasts, and canyons. Thank you for reading — now go write your own American story! ✈️</p>
+</div>
+
+</div>
+
+<!-- ================= HINDI ================= -->
+<div id="hi" class="lang-content hindi-content">
+
+<h1>🇺🇸 संयुक्त राज्य अमेरिका: असाधारण विविधता की भूमि</h1>
+<p class="subtitle">गगनचुंबी इमारतों की घाटियों से सूर्य-चूमित तटों तक — अमेरिकी सपने के प्रतीकों की यात्रा।</p>
+
+<div class="intro-box">
+    <strong>देश:</strong> संयुक्त राज्य अमेरिका<br>
+    <strong>स्थान:</strong> उत्तरी अमेरिका<br>
+    <strong>राजधानी:</strong> वाशिंगटन, डी.सी.<br>
+    <strong>भाषा:</strong> अंग्रेज़ी<br>
+    <strong>मुद्रा:</strong> अमेरिकी डॉलर (USD)<br>
+    <strong>सबसे अच्छा समय:</strong> पूरे साल (क्षेत्र के अनुसार)
+</div>
+
+<p><strong>संयुक्त राज्य अमेरिका</strong> एक देश कम और अनुभवों का महाद्वीप अधिक है। छह समय क्षेत्रों, तीन तटरेखाओं और ऐसे परिदृश्यों में फैला हुआ जो आर्कटिक टुंड्रा से लेकर उष्णकटिबंधीय समुद्र तटों तक बदलते हैं, यह एक चौंकाने वाली विविधता प्रदान करता है जिसकी बराबरी कोई अन्य राष्ट्र नहीं कर सकता। चाहे आप मैनहट्टन की नीयन रोशनी का पीछा कर रहे हों, कैलिफोर्निया में प्रशांत महासागर की लहरों पर सर्फिंग कर रहे हों, या शिकागो की स्टील घाटियों के नीचे डीप-डिश पिज्जा का आनंद ले रहे हों — अमेरिका हर मोड़ पर प्रतिष्ठित क्षण प्रदान करता है। वर्ष 2026 राष्ट्र की 250वीं वर्षगांठ का प्रतीक है।</p>
+
+<p>1776 में स्वतंत्रता की घोषणा करने वाली तेरह उपनिवेशों से जन्मे, संयुक्त राज्य अमेरिका एक वैश्विक महाशक्ति बन गया, जिसने अपनी विशिष्ट क्षेत्रीय पहचानों को बनाए रखा। न्यू इंग्लैंड की औपनिवेशिक खूबसूरती से लेकर डीप साउथ की जैज विरासत और वेस्ट कोस्ट की अग्रणी भावना तक — हर कोना अमेरिकी प्रयोग की एक अलग कहानी बताता है।</p>
+
+<h2>🇺🇸 स्टार्स एंड स्ट्राइप्स: क्रांति का झंडा</h2>
+
+<div class="flag-section">
+    <div class="flag-box">
+        <div class="flag-blue-field">★ 50</div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+    </div>
+    <p class="caption">अमेरिकी झंडा — पचास तारे पचास राज्यों के लिए, तेरह धारियाँ मूल उपनिवेशों के लिए।</p>
+</div>
+
+<p>14 जून 1777 को आधिकारिक रूप से अपनाया गया, अमेरिकी झंडा दुनिया के सबसे अधिक पहचाने जाने वाले प्रतीकों में से एक है। <strong>तेरह लाल और सफेद धारियाँ</strong> मूल ब्रिटिश उपनिवेशों को सम्मानित करती हैं जिन्होंने एक नए राष्ट्र का गठन किया, जबकि नीले क्षेत्र पर <strong>पचास सफेद तारे</strong> आधुनिक संघ के प्रत्येक राज्य का प्रतिनिधित्व करते हैं। इन रंगों का गहरा अर्थ है: लाल दृढ़ता और वीरता का प्रतीक है, सफेद पवित्रता और मासूमियत का, और नीला सतर्कता, दृढ़ संकल्प और न्याय का प्रतीक है।</p>
+
+<h2>🗽 न्यूयॉर्क सिटी — जो कभी नहीं सोती</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 न्यूयॉर्क सिटी — 40.7128° उत्तर, 74.0060° पश्चिम</span>
+    imageimage_search:16#2
+    <p class="caption">स्वर्णिम घंटे में न्यूयॉर्क बंदरगाह के पानी से उभरता प्रतिष्ठित मैनहट्टन स्काईलाइन।</p>
+    
+    <p><strong>न्यूयॉर्क सिटी</strong> अमेरिकी सपना है जो 300 वर्ग मील में समाया हुआ है। बंदरगाह में पहरा देती स्वतंत्रता की मूर्ति से लेकर टाइम्स स्क्वायर की नीयन अव्यवस्था और सेंट्रल पार्क की हरी शांति तक — न्यूयॉर्क सबसे अच्छे तरीके से एक संवेदी अतिभारण है। स्काईलाइन स्वयं मानवीय महत्वाकांक्षा का स्मारक है — कांच और स्टील के टावर बादलों तक पहुँचते हैं।</p>
+    
+    <p>ग्रीनविच विलेज की पत्थर की सड़कों पर घूमें, फ्लशिंग चाइनाटाउन में डंपलिंग का आनंद लें, मिडटाउन में ब्रॉडवे शो देखें, या ब्रुकलिन हाइट्स प्रोमेनेड से सूर्यास्त देखें। चाहे यह आपकी पहली यात्रा हो या पचासवीं, यह शहर हमेशा आपको चौंकाने का तरीका ढूंढ लेता है।</p>
+</div>
+
+<h2>🌴 लॉस एंजेल्स — जहाँ सपने प्रशांत से मिलते हैं</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 लॉस एंजेल्स — 34.0522° उत्तर, 118.2437° पश्चिम</span>
+    imageimage_search:16#5
+    <p class="caption">ग्रिफिथ वेधशाला जो लॉस एंजेल्स डाउनटाउन को देख रही है, कैलिफोर्निया का सूरज आसमान को रंग रहा है।</p>
+    
+    <p><strong>लॉस एंजेल्स</strong> अंतहीन क्षितिजों का शहर है। हॉलीवुड हिल्स से लेकर सांता मोनिका पियर तक, LA मनोरंजन उद्योग के ग्लैमर को आरामदायक समुद्र तट संस्कृति के साथ मिलाता है। बेसिन के पैनोरामिक दृश्यों के लिए ग्रिफिथ वेधशाला तक ट्रेक करें, वेनिस बीच बोर्डवॉक पर घूमें, या उन स्टूडियो का दौरा करें जहाँ सिनेमा का इतिहास बना।</p>
+    
+    <p>लेकिन LA अपने रूढ़िवादित से कहीं अधिक है। शहर का culinary दृश्य विश्व-स्तरीय है, इसकी कला दीर्घाएँ दुनिया में किसी से कम नहीं, और इसके विविध पड़ोस — कोरियाटाउन से लेकर बॉयल हाइट्स तक — प्रामाणिक सांस्कृतिक डुबकी प्रदान करते हैं। मालिबू में सूर्यास्त देखें, डाउनटाउन में द ब्रॉड संग्रहालय ब्राउज़ करें।</p>
+</div>
+
+<h2>🏙️ शिकागो — मिडवेस्ट की आत्मा</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 शिकागो — 41.8781° उत्तर, 87.6298° पश्चिम</span>
+    imageimage_search:16#0
+    <p class="caption">शिकागो स्काईलाइन सूर्यास्त में लेक मिशिगन के शांत पानी में पूरी तरह दर्पणित।</p>
+    
+    <p><strong>शिकागो</strong> वह जगह है जहाँ अमेरिकी वास्तुकला ने आसमान छुआ। आधुनिक गगनचुंबी इमारत का जन्मस्थान, यह झील किनारे महानगर गिल्डेड युग की भव्यता को मिडवेस्ट की गर्मजोशी के साथ मिलाता है। मिलेनियम पार्क की क्लाउड गेट मूर्ति शहर के साहसी स्काईलाइन को प्रतिबिंबित करती है। डीप-डिश पिज्जा और जैज क्लबों के लिए आएं, विश्व-स्तरीय संग्रहालयों के लिए रुकें।</p>
+</div>
+
+<h2>🌉 सैन फ्रांसिस्को — स्वर्णिम प्रवेशद्वार</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 सैन फ्रांसिस्को — 37.7749° उत्तर, 122.4194° पश्चिम</span>
+    imageimage_search:16#6
+    <p class="caption">गोल्डन गेट ब्रिज खाड़ी को पार करते हुए — सौंदर्य और नवाचार का प्रतीक।</p>
+    
+    <p><strong>सैन फ्रांसिस्को</strong> पहाड़ियों, कोहरे और निडर पुनर्निर्माण का शहर है। प्रतिष्ठित <strong>गोल्डन गेट ब्रिज</strong> — अपने अद्वितीय अंतर्राष्ट्रीय नारंगी रंग में — एक ऐसे शहर को घेरता है जहाँ विक्टोरियन "पेंटेड लेडीज़" टेक स्टार्टअप कार्यालयों के बगल में बैठी हैं। फेरी बिल्डिंग का पता लगाएँ, मिशन जिले की भित्तिचित्रों का आनंद लें, या अल्कात्राज द्वीप के लिए फेरी लें।</p>
+</div>
+
+<div class="conclusion">
+    <h2>अमेरिका क्यों होनी चाहिए आपकी अगली यात्रा?</h2>
+    <p>संयुक्त राज्य अमेरिका एक ऐसा गंतव्य है जो महाकाव्य पैमाने पर जिज्ञासा का पुरस्कार करता है। चाहे आप एम्पायर स्टेट बिल्डिंग की चोटी पर खड़े हों, मालिबू के तट पर प्रशांत को देख रहे हों, या सूर्यास्त में गोल्डन गेट को पार कर रहे हों — आप एक ऐसे राष्ट्र की धड़कन महसूस करेंगे जो महत्वाकांक्षा, विविधता और अंतहीन संभावनाओं पर बना है। पढ़ने के लिए धन्यवाद — अब अपनी अमेरिकी कहानी लिखने जाएँ! ✈️</p>
+</div>
+
+</div>
+
+<!-- ================= URDU ================= -->
+<div id="ur" class="lang-content urdu-content">
+
+<h1>🇺🇸 ریاستہائے متحدہ امریکہ: غیر معمولی تنوع کا ملک</h1>
+<p class="subtitle">آسمان چھوتی عمارات کی وادیوں سے لے کر سورج سے چمکتی ساحلوں تک — امریکی خواب کے آثار کی سیر۔</p>
+
+<div class="intro-box">
+    <strong>ملک:</strong> ریاستہائے متحدہ امریکہ<br>
+    <strong>محل وقوع:</strong> شمالی امریکہ<br>
+    <strong>دارالحکومت:</strong> واشنگٹن، ڈی سی<br>
+    <strong>زبان:</strong> انگریزی<br>
+    <strong>کرنسی:</strong> امریکی ڈالر (USD)<br>
+    <strong>بہترین وقت:</strong> پورا سال (علاقے کے مطابق)
+</div>
+
+<p><strong>ریاستہائے متحدہ</strong> ایک ملک کم اور تجربات کا براعظم زیادہ ہے۔ چھ ٹائم زونز، تین ساحلی پٹیوں اور ایسے مناظر میں پھیلا ہوا جو آرکٹک ٹنڈرا سے لے کر استوائی ساحلوں تک بدلتے ہیں، یہ ایک حیرت انگیز تنوع پیش کرتا ہے جس کی کوئی دوسری قوم برابری نہیں کر سکتی۔ چاہے آپ مین ہیٹن کی نین روشنیوں کا پیچھا کر رہے ہوں، کیلیفورنیا میں بحر الکاہل کی لہروں پر سرفنگ کر رہے ہوں، یا شکاگو کی اسٹیل وادیوں کے نیچے ڈیپ ڈش پزا کا لطف اٹھا رہے ہوں — امریکہ ہر موڑ پر شاندار لمحات پیش کرتا ہے۔ سال 2026 قوم کی 250ویں سالگرہ کا نشان ہے۔</p>
+
+<p>1776 میں آزادی کا اعلان کرنے والے تیرہ نوآبادیات سے پیدا ہوئے، ریاستہائے متحدہ ایک عالمی سپر پاور بن گیا، جس نے اپنی مخصوص علاقائی شناختوں کو برقرار رکھا۔ نیو انگلینڈ کے نوآبادیاتی حسن سے لے کر ڈیپ ساؤتھ کی جاز وراثت اور ویسٹ کوسٹ کے پیش رو روح تک — ہر کونہ امریکی تجربے کی ایک مختلف کہانی بیان کرتا ہے۔</p>
+
+<h2>🇺🇸 ستارے اور دھاریاں: انقلاب کا جھنڈا</h2>
+
+<div class="flag-section">
+    <div class="flag-box">
+        <div class="flag-blue-field">★ 50</div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+        <div class="flag-stripe flag-white"></div>
+        <div class="flag-stripe flag-red"></div>
+    </div>
+    <p class="caption">امریکی جھنڈا — پچاس ستارے پچاس ریاستوں کے لیے، تیرہ دھاریاں اصل نوآبادیات کے لیے۔</p>
+</div>
+
+<p>14 جون 1777 کو باقاعدہ طور پر اپنایا گیا، امریکی جھنڈا دنیا کے سب سے زیادہ پہچانے جانے والے علامات میں سے ایک ہے۔ <strong>تیرہ متبادل سرخ اور سفید دھاریاں</strong> اصل برطانوی نوآبادیات کو خراج تحسین پیش کرتی ہیں جنہوں نے ایک نئی قوم بنانے کے لیے علیحدگی اختیار کی، جبکہ نیلے میدان پر <strong>پچاس سفید ستارے</strong> جدید یونین کی ہر ریاست کی نمائندگی کرتے ہیں۔ ان رنگوں کا گہرا مطلب ہے: سرخ ہمت اور بہادری کی علامت ہے، سفید پاکیزگی اور معصومیت کی، اور نیلا چوکسی، استقامت اور انصاف کی علامت ہے۔</p>
+
+<h2>🗽 نیو یارک سٹی — جو کبھی نہیں سوتا</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 نیو یارک سٹی — 40.7128° شمال، 74.0060° مغرب</span>
+    imageimage_search:16#2
+    <p class="caption">نیو یارک بندرگاہ کے پانیوں سے ابھرتا مشہور مین ہیٹن سکی لائن۔</p>
+    
+    <p><strong>نیو یارک سٹی</strong> امریکی خواب ہے جو 300 مربع میل میں سمٹا ہوا ہے۔ بندرگاہ میں پہرا دینے والی آزادی کی مجسمہ سے لے کر ٹائمز اسکوائر کی نین انتشار اور سینٹرل پارک کی سبز سکون تک — نیو یارک بہترین ممکنہ انداز میں ایک حسی overloڈ ہے۔ سکی لائن خود انسانی امنگوں کا یادگار ہے — شیشے اور اسٹیل کے مینار بادلوں تک پہنچتے ہیں۔</p>
+    
+    <p>گرینچ گاؤں کے پتھر کی گلیوں میں گھومیں، فلشنگ چائنا ٹاؤن میں ڈمپلنگز کا لطف اٹھائیں، مڈ ٹاؤن میں براڈوے شو دیکھیں، یا بروکلن ہائٹس پرومینیڈ سے غروب آفتاب دیکھیں۔ چاہے یہ آپ کی پہلی سیر ہو یا پچاسویں، یہ شہر ہمیشہ آپ کو حیران کرنے کا طریقہ ڈھونڈ لیتا ہے۔</p>
+</div>
+
+<h2>🌴 لاس اینجلس — جہاں خواب بحر الکاہل سے ملتے ہیں</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 لاس اینجلس — 34.0522° شمال، 118.2437° مغرب</span>
+    imageimage_search:16#5
+    <p class="caption">گریفتھ رصدگاہ جو لاس اینجلس ڈاؤن ٹاؤن کو دیکھ رہی ہے، کیلیفورنیا کا سورج آسمان کو رنگ رہا ہے۔</p>
+    
+    <p><strong>لاس اینجلس</strong> لامحدود افقوں کا شہر ہے۔ ہالی ووڈ پہاڑیوں سے لے کر سانتا مونیکا پئر تک، LA تفریحی صنعت کے گلیمر کو پرسکون ساحلی ثقافت کے ساتھ ملاتا ہے۔ بیسن کے پینورامک مناظر کے لیے گریفتھ رصدگاہ تک ٹریک کریں، وینس بیچ بورڈ واک پر گھومیں، یا ان اسٹوڈیوز کا دورہ کریں جہاں سینما کی تاریخ بنی۔</p>
+    
+    <p>لیکن LA اپنے دقیانوسی تصورات سے کہیں زیادہ ہے۔ شہر کا کھانا کا منظر عالمی معیار کا ہے، اس کی آرٹ گیلریاں دنیا میں کسی سے کم نہیں، اور اس کے متنوع پڑوس — کوریہ ٹاؤن سے لے کر بائل ہائٹس تک — مستند ثقافتی غوطہ پیش کرتے ہیں۔ مالیبو میں غروب آفتاب دیکھیں، ڈاؤن ٹاؤن میں دی براڈ میوزیم دیکھیں۔</p>
+</div>
+
+<h2>🏙️ شکاگو — مڈویسٹ کی روح</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 شکاگو — 41.8781° شمال، 87.6298° مغرب</span>
+    imageimage_search:16#0
+    <p class="caption">شکاگو سکی لائن غروب آفتاب میں جھیل مشی گن کے پرسکون پانیوں میں مکمل طور پر عکاس۔</p>
+    
+    <p><strong>شکاگو</strong> وہ جگہ ہے جہاں امریکی فن تعمیر نے آسمان چھوا۔ جدید آسمان چھوتی عمارت کی جائے پیدائش، یہ جھیل کنارے میٹروپولس گلڈڈ ایج کی عظمت کو مڈویسٹ کی گرمجوشی کے ساتھ ملاتا ہے۔ ملینیم پارک کی کلاؤڈ گیٹ مجسمہ شہر کے دلیر سکی لائن کو عکاس کرتی ہے۔ ڈیپ ڈش پزا اور جاز کلبز کے لیے آئیں، عالمی معیار کے عجائب گھروں کے لیے ٹھہریں۔</p>
+</div>
+
+<h2>🌉 سان فرانسسکو — سنہری دروازہ</h2>
+
+<div class="city-section">
+    <span class="location-tag">📍 سان فرانسسکو — 37.7749° شمال، 122.4194° مغرب</span>
+    imageimage_search:16#6
+    <p class="caption">گولڈن گیٹ برج خلیج کو پار کرتے ہوئے — خوبصورتی اور جدت کا پائندار نشان۔</p>
+    
+    <p><strong>سان فرانسسکو</strong> پہاڑیوں، دھند اور بے باک اختراع کا شہر ہے۔ مشہور <strong>گولڈن گیٹ برج</strong> — اپنے انوکھے انٹرنیشنل اورنج رنگ میں — ایک ایسے شہر کو گھیرتا ہے جہاں وکٹورین "پینٹیڈ لیڈیز" ٹیک اسٹارٹ اپ دفاتر کے برابر بیٹھی ہیں۔ فیری بلڈنگ دریافت کریں، مشن ڈسٹرکٹ کی دیوار نگاریاں دیکھیں، یا الکیٹراز جزیرے کے لیے فیری پر سوار ہوں۔</p>
+</div>
+
+<div class="conclusion">
+    <h2>ریاستہائے متحدہ کیوں ہونی چاہیے آپ کی اگلی سیر؟</h2>
+    <p>ریاستہائے متحدہ ایک ایسا منزل ہے جو شاندار پیمانے پر تجسس کا انعام دیتا ہے۔ چاہے آپ ایمپائر اسٹیٹ بلڈنگ کی چوٹی پر کھڑے ہوں، مالیبو کے ساحل پر بحر الکاہل کو دیکھ رہے ہوں، یا غروب آفتاب میں گولڈن گیٹ کو پار کر رہے ہوں — آپ ایک ایسی قوم کی دھڑکن محسوس کریں گے جو امنگ، تنوع اور لامحدود امکانات پر بنی ہے۔ پڑھنے کا شکریہ — اب اپنا امریکی قلم اٹھائیں! ✈️</p>
+</div>
+
+</div>
+
+<script>
+    function switchLang(lang) {
+        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+        document.getElementById(lang === 'ur' ? 'ur' : lang === 'hi' ? 'hi' : 'en').classList.add('active');
+        const buttons = document.querySelectorAll('.lang-btn');
+        for (let btn of buttons) {
+            if (btn.getAttribute('onclick').includes("'" + lang + "'")) {
+                btn.classList.add('active');
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
