@@ -1,0 +1,338 @@
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chile Travel Guide - A Journey to the End of the World</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://kimi-web-img.moonshot.cn/img/blog.lastorres.com/14f2401b91c08b1b3d5262ef04ef4ef2dad0158c.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            background: #1a1a2e;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .lang-bar button {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 8px 25px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        .lang-bar button:hover, .lang-bar button.active {
+            background: #fff;
+            color: #1a1a2e;
+        }
+        
+        /* Content */
+        .content {
+            padding: 50px 60px;
+        }
+        
+        .intro-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .flag-container {
+            flex-shrink: 0;
+            text-align: center;
+        }
+        
+        .flag-container img {
+            width: 180px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .country-info h2 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+        
+        .country-info p {
+            color: #555;
+            font-size: 1.05em;
+        }
+        
+        /* City Cards */
+        .city-card {
+            margin-bottom: 50px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .city-content {
+            padding: 35px;
+            background: #fff;
+        }
+        
+        .city-content h3 {
+            color: #1a1a2e;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-left: 5px solid #d63031;
+            padding-left: 15px;
+        }
+        
+        .city-content p {
+            color: #444;
+            font-size: 1.05em;
+            margin-bottom: 12px;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #856404;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .footer p {
+            font-style: italic;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.2em; }
+            .content { padding: 30px 25px; }
+            .intro-section { flex-direction: column; }
+            .city-image { height: 250px; }
+        }
+        
+        /* Fade animation */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 data-en="Chile Travel Guide" data-es="Guía de Viaje de Chile">Chile Travel Guide</h1>
+            <p class="subtitle" data-en="A Journey to the End of the World" data-es="Un Viaje al Fin del Mundo">A Journey to the End of the World</p>
+        </div>
+        
+        <!-- Language Toggle -->
+        <div class="lang-bar">
+            <button onclick="setLanguage('en')" id="btn-en" class="active">🇺🇸 English</button>
+            <button onclick="setLanguage('es')" id="btn-es">🇨🇱 Español</button>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Country Intro -->
+            <div class="intro-section fade-in">
+                <div class="flag-container">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/70ee40aa265d11d08fb311ea1460c74856773a69.jpg" alt="Flag of Chile">
+                    <p style="margin-top:10px; font-size:0.9em; color:#666;" data-en="Flag of Chile" data-es="Bandera de Chile">Flag of Chile</p>
+                </div>
+                <div class="country-info">
+                    <h2 data-en="Discover Chile" data-es="Descubre Chile">Discover Chile</h2>
+                    <p data-en="Chile is a long, narrow country stretching over 4,300 kilometers along the western edge of South America. From the world's driest desert in the north to massive glaciers in the south, Chile offers an incredible diversity of landscapes. With a population of about 19 million, this nation boasts a rich cultural heritage blending indigenous Mapuche traditions with Spanish colonial influence. The official language is Spanish, and the currency is the Chilean Peso. Chile is famous for its world-class wines, copper mines, and as an astronomer's paradise thanks to its exceptionally clear skies." 
+                       data-es="Chile es un país largo y estrecho que se extiende más de 4,300 kilómetros a lo largo del borde occidental de Sudamérica. Desde el desierto más árido del mundo en el norte hasta los glaciares masivos del sur, Chile ofrece una increíble diversidad de paisajes. Con una población de aproximadamente 19 millones, esta nación cuenta con un rico patrimonio cultural que mezcla las tradiciones indígenas mapuches con la influencia colonial española. El idioma oficial es el español y la moneda es el Peso chileno. Chile es famoso por sus vinos de clase mundial, minas de cobre y como paraíso para los astrónomos gracias a sus cielos excepcionalmente claros.">
+                        Chile is a long, narrow country stretching over 4,300 kilometers along the western edge of South America. From the world's driest desert in the north to massive glaciers in the south, Chile offers an incredible diversity of landscapes. With a population of about 19 million, this nation boasts a rich cultural heritage blending indigenous Mapuche traditions with Spanish colonial influence. The official language is Spanish, and the currency is the Chilean Peso. Chile is famous for its world-class wines, copper mines, and as an astronomer's paradise thanks to its exceptionally clear skies.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Santiago -->
+            <div class="city-card fade-in">
+                <img src="https://kimi-web-img.moonshot.cn/img/t4.ftcdn.net/4c01266aceb5aa1ff3cab64b13893eb2cf1563ed.jpg" alt="Santiago" class="city-image">
+                <div class="city-content">
+                    <h3 data-en="Santiago - The Capital Heart" data-es="Santiago - El Corazón Capital">Santiago - The Capital Heart</h3>
+                    <p data-en="Santiago de Chile is a vibrant metropolis where modern skyscrapers stand against the breathtaking backdrop of the snow-capped Andes Mountains. Home to nearly 40% of the country's population, this city pulses with energy, culture, and history. Wander through the bohemian neighborhoods of Bellavista and Lastarria, where trendy cafés, street art, and boutique shops create an irresistible atmosphere. Don't miss the view from Cerro San Cristóbal, where you can gaze across the entire city valley. The Museum of Memory and Human Rights offers a profound look into Chile's recent history, while the Central Market tempts visitors with fresh seafood and local flavors. Santiago is not just a gateway to Chile—it is an essential part of the Chilean experience."
+                       data-es="Santiago de Chile es una metrópolis vibrante donde los rascacielos modernos se alzan contra el impresionante telón de fondo de las nevadas montañas de los Andes. Hogar de casi el 40% de la población del país, esta ciudad pulsa con energía, cultura e historia. Pasea por los barrios bohemios de Bellavista y Lastarria, donde cafés de moda, arte callejero y tiendas boutique crean una atmósfera irresistible. No te pierdas la vista desde el Cerro San Cristóbal, desde donde puedes contemplar todo el valle de la ciudad. El Museo de la Memoria y los Derechos Humanos ofrece una mirada profunda a la historia reciente de Chile, mientras que el Mercado Central tienta a los visitantes con mariscos frescos y sabores locales. Santiago no es solo la puerta de entrada a Chile, es una parte esencial de la experiencia chilena.">
+                        Santiago de Chile is a vibrant metropolis where modern skyscrapers stand against the breathtaking backdrop of the snow-capped Andes Mountains. Home to nearly 40% of the country's population, this city pulses with energy, culture, and history. Wander through the bohemian neighborhoods of Bellavista and Lastarria, where trendy cafés, street art, and boutique shops create an irresistible atmosphere. Don't miss the view from Cerro San Cristóbal, where you can gaze across the entire city valley. The Museum of Memory and Human Rights offers a profound look into Chile's recent history, while the Central Market tempts visitors with fresh seafood and local flavors. Santiago is not just a gateway to Chile—it is an essential part of the Chilean experience.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Valparaiso -->
+            <div class="city-card fade-in">
+                <img src="https://kimi-web-img.moonshot.cn/img/images.imagerenderer.com/350380df8ce5bd87660aa680a0a9572bdc5553fa.jpg" alt="Valparaiso" class="city-image">
+                <div class="city-content">
+                    <h3 data-en="Valparaíso - The Colorful Soul" data-es="Valparaíso - El Alma Colorida">Valparaíso - The Colorful Soul</h3>
+                    <p data-en="Just an hour and a half from Santiago lies Valparaíso, Chile's most artistic and colorful city. This UNESCO World Heritage port city clings to steep hillsides overlooking the Pacific Ocean, connected by historic funicular elevators that have carried locals up and down since the early 1900s. Every corner of Valparaíso is a canvas—brilliant murals and street art cover nearly every wall, turning the city into an open-air gallery. The hills of Cerro Alegre and Cerro Concepción are particularly enchanting, with their labyrinth of winding alleys, pastel-colored houses, and hidden cafés. Visit La Sebastiana, one of poet Pablo Neruda's quirky homes, and feel the creative spirit that has inspired artists for generations. Valparaíso is chaotic, beautiful, and utterly unforgettable."
+                       data-es="A solo una hora y media de Santiago se encuentra Valparaíso, la ciudad más artística y colorida de Chile. Esta ciudad portuaria, Patrimonio de la Humanidad de la UNESCO, se aferra a empinadas laderas con vistas al Océano Pacífico, conectadas por ascensores funiculares históricos que han transportado a los locales desde principios de 1900. Cada rincón de Valparaíso es un lienzo: brillantes murales y arte callejero cubren casi cada pared, convirtiendo la ciudad en una galería al aire libre. Los cerros de Alegre y Concepción son particularmente encantadores, con su laberinto de callejones sinuosos, casas de colores pastel y cafés escondidos. Visita La Sebastiana, una de las peculiares casas del poeta Pablo Neruda, y siente el espíritu creativo que ha inspirado a artistas por generaciones. Valparaíso es caótica, hermosa y absolutamente inolvidable.">
+                        Just an hour and a half from Santiago lies Valparaíso, Chile's most artistic and colorful city. This UNESCO World Heritage port city clings to steep hillsides overlooking the Pacific Ocean, connected by historic funicular elevators that have carried locals up and down since the early 1900s. Every corner of Valparaíso is a canvas—brilliant murals and street art cover nearly every wall, turning the city into an open-air gallery. The hills of Cerro Alegre and Cerro Concepción are particularly enchanting, with their labyrinth of winding alleys, pastel-colored houses, and hidden cafés. Visit La Sebastiana, one of poet Pablo Neruda's quirky homes, and feel the creative spirit that has inspired artists for generations. Valparaíso is chaotic, beautiful, and utterly unforgettable.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Atacama -->
+            <div class="city-card fade-in">
+                <img src="https://kimi-web-img.moonshot.cn/img/cdn.prod.website-files.com/e6cc9caef07f4008f19dacb6218b85725c582acf.jpg" alt="Atacama Desert" class="city-image">
+                <div class="city-content">
+                    <h3 data-en="San Pedro de Atacama - Desert Dreams" data-es="San Pedro de Atacama - Sueños del Desierto">San Pedro de Atacama - Desert Dreams</h3>
+                    <p data-en="In the far north of Chile, the Atacama Desert awaits—a landscape so otherworldly that scientists use it to simulate Mars. Based in the charming adobe town of San Pedro de Atacama, adventurers can explore the Valle de la Luna (Moon Valley), where wind-sculpted salt formations glow golden at sunset. Wake before dawn to witness the steaming El Tatio Geysers at 4,000 meters above sea level, the largest geyser field in the Southern Hemisphere. Float effortlessly in the salt-rich waters of Laguna Cejar, and at night, look up to witness the most spectacular starry sky you have ever seen. The Atacama is the driest desert on Earth, yet it overflows with wonder, silence, and raw natural beauty that touches something deep within your soul."
+                       data-es="En el extremo norte de Chile, el Desierto de Atacama espera: un paisaje tan alienígena que los científicos lo usan para simular Marte. Con base en el encantador pueblo de adobe de San Pedro de Atacama, los aventureros pueden explorar el Valle de la Luna, donde las formaciones de sal esculpidas por el viento brillan doradas al atardecer. Despierta antes del amanecer para presenciar los humeantes Géiseres del Tatio a 4,000 metros sobre el nivel del mar, el campo de géiseres más grande del hemisferio sur. Flota sin esfuerzo en las aguas ricas en sal de la Laguna Cejar, y por la noche, mira hacia arriba para presenciar el cielo estrellado más espectacular que jamás hayas visto. El Atacama es el desierto más árido de la Tierra, pero rebosa de asombro, silencio y belleza natural cruda que toca algo profundo dentro de tu alma.">
+                        In the far north of Chile, the Atacama Desert awaits—a landscape so otherworldly that scientists use it to simulate Mars. Based in the charming adobe town of San Pedro de Atacama, adventurers can explore the Valle de la Luna (Moon Valley), where wind-sculpted salt formations glow golden at sunset. Wake before dawn to witness the steaming El Tatio Geysers at 4,000 meters above sea level, the largest geyser field in the Southern Hemisphere. Float effortlessly in the salt-rich waters of Laguna Cejar, and at night, look up to witness the most spectacular starry sky you have ever seen. The Atacama is the driest desert on Earth, yet it overflows with wonder, silence, and raw natural beauty that touches something deep within your soul.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Torres del Paine -->
+            <div class="city-card fade-in">
+                <img src="https://kimi-web-img.moonshot.cn/img/torresdelpaine.com/9b6478787c73b5d0dee08d8f80856723e67d8896.jpg" alt="Torres del Paine" class="city-image">
+                <div class="city-content">
+                    <h3 data-en="Torres del Paine - Patagonia's Crown Jewel" data-es="Torres del Paine - La Joya de la Corona de la Patagonia">Torres del Paine - Patagonia's Crown Jewel</h3>
+                    <p data-en="At the southern tip of Chile lies Torres del Paine National Park, a place that defies description with its sheer magnificence. Towering granite peaks rise dramatically from turquoise glacial lakes, while guanacos roam freely across the windswept steppe. This is trekking paradise—the famous W Trek draws hikers from around the globe to witness the iconic Torres (Towers) at sunrise, when the granite spires ignite in shades of orange and pink. Beyond trekking, visitors can sail past floating icebergs to the face of Grey Glacier, or simply soak in the profound silence of true wilderness. Torres del Paine is not merely a destination; it is a pilgrimage for nature lovers, a place that reminds us how small we are and how magnificent our planet can be."
+                       data-es="En la punta sur de Chile se encuentra el Parque Nacional Torres del Paine, un lugar que desafía la descripción con su pura magnificencia. Imponentes picos de granito se elevan dramáticamente desde lagos glaciares de color turquesa, mientras que guanacos deambulan libremente por la estepa batida por el viento. Este es el paraíso del senderismo: el famoso Trek W atrae a caminantes de todo el mundo para presenciar las icónicas Torres al amanecer, cuando los pináculos de granito se encienden en tonos de naranja y rosa. Más allá del senderismo, los visitantes pueden navegar pasando icebergs flotantes hasta la cara del Glaciar Grey, o simplemente sumergirse en el profundo silencio del verdadero desierto. Torres del Paine no es meramente un destino; es una peregrinación para los amantes de la naturaleza, un lugar que nos recuerda lo pequeños que somos y lo magnífico que puede ser nuestro planeta.">
+                        At the southern tip of Chile lies Torres del Paine National Park, a place that defies description with its sheer magnificence. Towering granite peaks rise dramatically from turquoise glacial lakes, while guanacos roam freely across the windswept steppe. This is trekking paradise—the famous W Trek draws hikers from around the globe to witness the iconic Torres (Towers) at sunrise, when the granite spires ignite in shades of orange and pink. Beyond trekking, visitors can sail past floating icebergs to the face of Grey Glacier, or simply soak in the profound silence of true wilderness. Torres del Paine is not merely a destination; it is a pilgrimage for nature lovers, a place that reminds us how small we are and how magnificent our planet can be.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Practical Tips -->
+            <div style="background: #1a1a2e; color: #fff; padding: 40px; border-radius: 15px; margin-top: 40px;">
+                <h3 style="color: #fff; margin-bottom: 20px; font-size: 1.6em;" data-en="Travel Tips for Chile" data-es="Consejos de Viaje para Chile">Travel Tips for Chile</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #d63031;">✈</span>
+                        <span data-en="Best time to visit: November to March for Patagonia; Atacama is great year-round." data-es="Mejor época para visitar: noviembre a marzo para la Patagonia; el Atacama es ideal todo el año.">Best time to visit: November to March for Patagonia; Atacama is great year-round.</span>
+                    </li>
+                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #d63031;">💰</span>
+                        <span data-en="Currency: Chilean Peso (CLP). Credit cards accepted in cities; cash needed in remote areas." data-es="Moneda: Peso chileno (CLP). Tarjetas de crédito aceptadas en ciudades; se necesita efectivo en áreas remotas.">Currency: Chilean Peso (CLP). Credit cards accepted in cities; cash needed in remote areas.</span>
+                    </li>
+                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #d63031;">🍷</span>
+                        <span data-en="Don't miss: Try a pisco sour, sample Carménère wine, and eat fresh empanadas." data-es="No te pierdas: Prueba un pisco sour, degusta vino Carménère y come empanadas frescas.">Don't miss: Try a pisco sour, sample Carménère wine, and eat fresh empanadas.</span>
+                    </li>
+                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #d63031;">🌎</span>
+                        <span data-en="Language: Spanish. Learning a few phrases goes a long way in connecting with locals." data-es="Idioma: Español. Aprender algunas frases ayuda mucho a conectar con los locales.">Language: Spanish. Learning a few phrases goes a long way in connecting with locals.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p data-en="Chile is not just a country you visit—it is a country you feel. From desert stars to glacial peaks, every moment here writes a story on your heart. Pack your bags, bring your curiosity, and let Chile change you forever." 
+               data-es="Chile no es solo un país que visitas, es un país que sientes. Desde las estrellas del desierto hasta los picos glaciares, cada momento aquí escribe una historia en tu corazón. Haz las maletas, trae tu curiosidad y deja que Chile te cambie para siempre.">
+                Chile is not just a country you visit—it is a country you feel. From desert stars to glacial peaks, every moment here writes a story on your heart. Pack your bags, bring your curiosity, and let Chile change you forever.
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.6;">✍️ Written with love for travelers | 2026</p>
+        </div>
+    </div>
+    
+    <script>
+        function setLanguage(lang) {
+            // Update buttons
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-en]').forEach(el => {
+                if (lang === 'es' && el.getAttribute('data-es')) {
+                    el.textContent = el.getAttribute('data-es');
+                } else {
+                    el.textContent = el.getAttribute('data-en');
+                }
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>'''
+
+# Save to file
+with open('/mnt/agents/output/chile_travel_guide.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"File size: {len(html_content)} characters")
