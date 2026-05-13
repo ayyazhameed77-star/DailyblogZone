@@ -1,0 +1,596 @@
+
+# Create a complete HTML travel blog for Venezuela with translation feature
+# The blog will be ~800 words, human-readable, with city images and translation
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venezuela Travel Guide - Discover the Land of Grace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f9f7f4;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #FFCC00 0%, #0033AA 50%, #CF142B 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .flag-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 20px;
+            max-width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .flag-stripe {
+            width: 100%;
+            height: 40px;
+        }
+        
+        .flag-yellow {
+            background-color: #FFCC00;
+            position: relative;
+        }
+        
+        .flag-stars {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 3px;
+        }
+        
+        .star {
+            color: white;
+            font-size: 14px;
+            text-shadow: 0 0 2px rgba(0,0,0,0.3);
+        }
+        
+        .flag-blue {
+            background-color: #0033AA;
+        }
+        
+        .flag-red {
+            background-color: #CF142B;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #fff8e1;
+            font-style: italic;
+        }
+        
+        /* Translation Bar */
+        .translate-bar {
+            background: #1a1a2e;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .translate-info {
+            color: #f9f7f4;
+            font-size: 0.95em;
+        }
+        
+        .translate-info span {
+            color: #FFCC00;
+            font-weight: bold;
+        }
+        
+        .translate-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .translate-btn {
+            padding: 8px 16px;
+            border: 2px solid #FFCC00;
+            background: transparent;
+            color: #f9f7f4;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .translate-btn:hover, .translate-btn.active {
+            background: #FFCC00;
+            color: #1a1a2e;
+        }
+        
+        /* Content */
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .intro {
+            background: #fff8e7;
+            padding: 25px;
+            border-left: 5px solid #CF142B;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .intro p {
+            font-size: 1.1em;
+            color: #5a3a2a;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0033AA;
+            margin: 35px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0e6d3;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #CF142B;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+        
+        /* City Cards */
+        .city-card {
+            background: white;
+            border: 1px solid #e0d5c5;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .city-content {
+            padding: 25px;
+        }
+        
+        .city-title {
+            font-size: 1.5em;
+            color: #0033AA;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .city-tag {
+            background: #CF142B;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.7em;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            background: linear-gradient(to right, #fffbe6, #ffffff, #fff5f5);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .venezuela-flag-display {
+            display: flex;
+            flex-direction: column;
+            max-width: 200px;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .flag-section p {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 15px auto;
+        }
+        
+        /* Tips Box */
+        .tips-box {
+            background: #e8f4f8;
+            border-left: 5px solid #0033AA;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tips-box h4 {
+            color: #0033AA;
+            margin-bottom: 10px;
+        }
+        
+        .tips-box ul {
+            margin-left: 20px;
+        }
+        
+        .tips-box li {
+            margin-bottom: 8px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: #f9f7f4;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .footer p {
+            text-align: center;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .language-note {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8em; }
+            .content { padding: 20px; }
+            .city-image { height: 200px; }
+            .translate-bar { flex-direction: column; text-align: center; }
+        }
+        
+        /* Hidden translations */
+        .translation {
+            display: none;
+        }
+        
+        .translation.active {
+            display: block;
+        }
+        
+        .original.active {
+            display: block;
+        }
+        
+        .original {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="flag-container">
+                <div class="flag-stripe flag-yellow">
+                    <div class="flag-stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                </div>
+                <div class="flag-stripe flag-blue"></div>
+                <div class="flag-stripe flag-red"></div>
+            </div>
+            <h1>🇻🇪 Venezuela Travel Guide</h1>
+            <p class="subtitle">Discover the Land of Grace, Where Tepuis Touch the Sky and Waterfalls Defy Gravity</p>
+        </div>
+        
+        <!-- Translation Bar -->
+        <div class="translate-bar">
+            <div class="translate-info">
+                🌐 <span>Translate this guide:</span> Read in your preferred language 
+                | Venezuela's official language: <span>Spanish</span>
+            </div>
+            <div class="translate-buttons">
+                <button class="translate-btn active" onclick="showLang('en')">🇺🇸 English</button>
+                <button class="translate-btn" onclick="showLang('es')">🇪🇸 Español</button>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            
+            <!-- ENGLISH VERSION -->
+            <div id="content-en" class="translation active">
+                <div class="intro">
+                    <p><strong>Welcome to Venezuela</strong> — a country where nature flexes its most dramatic muscles and history whispers through colonial streets. From the world's highest waterfall plunging from ancient tepuis to Caribbean islands with turquoise waters, Venezuela is a land of superlatives. This guide invites you to explore the heart of South America's northern jewel, uncovering its famous cities, the story behind its proud tricolor flag, and the warmth of a people who carry grace in their very name.</p>
+                </div>
+                
+                <div class="flag-section">
+                    <h2>🇻🇪 The Story Behind the Flag</h2>
+                    <div class="venezuela-flag-display">
+                        <div style="height:40px; background:#FFCC00; position:relative;">
+                            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); display:flex; gap:3px;">
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                            </div>
+                        </div>
+                        <div style="height:40px; background:#0033AA;"></div>
+                        <div style="height:40px; background:#CF142B;"></div>
+                    </div>
+                    <p>The flag of Venezuela was designed by revolutionary leader <strong>Francisco de Miranda</strong> in 1806, inspired by a conversation with German philosopher Johann Wolfgang von Goethe about primary colors. First flown on March 12, 1806, in Jacmel, Haiti, it became the national flag when independence was declared on <strong>July 5, 1811</strong>.</p>
+                    <p>The <strong>yellow</strong> stripe represents the wealth of the land, <strong>blue</strong> symbolizes courage, loyalty, justice, and the ocean separating Venezuela from Spain, while <strong>red</strong> stands for the blood shed by patriots fighting for independence. The eight white stars in an arc represent the original provinces that signed the Independence Act — Caracas, Mérida, Barcelona, Barinas, Cumaná, Margarita, Trujillo, and Guayana (added in 2006 to honor Simón Bolívar's wish).</p>
+                </div>
+                
+                <h2>🏛️ Famous Cities You Must Visit</h2>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/7b72ef4e9fc809b984890d1358df4c3946643402.jpg" alt="Caracas Skyline" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Caracas
+                            <span class="city-tag">THE CAPITAL</span>
+                        </div>
+                        <p>Nestled in a valley beneath the towering Ávila Mountain, Caracas is Venezuela's vibrant capital — a city where colonial history and modern energy collide. Explore the historic center around Plaza Bolívar, where Simón Bolívar's birthplace and the National Pantheon stand as testaments to the nation's revolutionary spirit. The 23 de Enero district offers a glimpse into Venezuela's socialist heritage, while the cable car to Ávila National Park provides breathtaking views over the valley. Despite its complex reputation, Caracas rewards curious travelers with street art, rum culture, and the infectious warmth of its people. Don't miss the East Park (Parque del Este) for a green escape within the urban jungle.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.beautifulworld.com/99dd95a155ee6044fea3e2e0a7fdcf1e86161c69.webp" alt="Angel Falls" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Canaima & Angel Falls
+                            <span class="city-tag">WORLD'S HIGHEST WATERFALL</span>
+                        </div>
+                        <p>Deep in the Gran Sabana region lies Canaima National Park, a UNESCO World Heritage site and home to <strong>Angel Falls</strong> — the world's highest uninterrupted waterfall at 979 meters. The falls plunge from the summit of Auyán-Tepuy, one of the ancient table-top mountains (tepuis) that inspired Arthur Conan Doyle's "The Lost World." Reaching Angel Falls is an adventure itself: a flight to Canaima, then a motorized canoe journey up the Carrao and Churún rivers through Devil's Canyon, followed by a jungle trek. Sleeping in a hammock with the thunder of falling water as your lullaby is an experience that redefines the word "awe." The best time to visit is during the rainy season (July to October) when the falls are at their most powerful.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.gonomad.com/f696c248ba4dfbef93df0f4b336c883845daa692.jpg" alt="Merida Andes" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Mérida
+                            <span class="city-tag">ANDEAN JEWEL</span>
+                        </div>
+                        <p>At 1,600 meters in the Venezuelan Andes, Mérida feels like stepping back into traditional Venezuela. This university city is framed by five snow-capped peaks, including Pico Bolívar (4,978m), the country's highest mountain. The Mérida Cable Car — once the world's longest and highest — carries visitors from the city to Espejo Peak at 4,765 meters, offering views of glacial lagoons and paramo ecosystems. Colonial architecture, vibrant student culture, and nearby villages like Jají and Lagunillas make Mérida a cultural treasure. For adventure seekers, the region offers paragliding, canyoning, and trekking through cloud forests that seem to drip with life.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/casamayaelyaque.com/0260e1f10f8f2d48b28412fd4f40255b2ac9c231.webp" alt="Margarita Island" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Isla Margarita
+                            <span class="city-tag">CARIBBEAN PARADISE</span>
+                        </div>
+                        <p>Known as the "Pearl of the Caribbean," Isla Margarita offers 168 kilometers of coastline with pristine beaches, turquoise waters, and a laid-back island vibe. El Yaque Beach is world-famous for windsurfing and kitesurfing, drawing enthusiasts from across the globe. The island's interior reveals colonial towns like Pampatar with its 17th-century castle, and the vibrant Porlamar market for duty-free shopping. La Asunción, the capital, boasts the historic Santa Rosa Castle. Whether you seek water sports, beach relaxation, or exploring mangrove-lined lagoons, Margarita delivers that quintessential Caribbean magic with a distinctly Venezuelan flavor.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/1933e0b23be40c4d5521d0e08576db22e14dcdf1.jpg" alt="Ciudad Bolivar" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Ciudad Bolívar
+                            <span class="city-tag">GATEWAY TO THE ORINOCO</span>
+                        </div>
+                        <p>Sitting on the banks of the mighty Orinoco River, Ciudad Bolívar is a colonial gem with a revolutionary soul. Its historic center features beautifully preserved 18th and 19th-century architecture, with pastel-colored buildings lining cobblestone streets that climb steeply from the river. The Angostura Bridge — one of the longest over the Orinoco — connects the city to the eastern plains. This was where Simón Bolívar wrote the Angostura Address in 1819, laying out his vision for a united South America. Today, the city serves as the gateway to the Gran Sabana and Angel Falls, but deserves exploration in its own right for its museums, riverside promenade, and the warmth of its llanero culture.</p>
+                    </div>
+                </div>
+                
+                <div class="tips-box">
+                    <h4>🎒 Essential Travel Tips for Venezuela</h4>
+                    <ul>
+                        <li><strong>Best Season:</strong> July to October for Angel Falls (full water flow); November to April for Caribbean islands and Los Llanos wildlife.</li>
+                        <li><strong>Currency:</strong> The Venezuelan Bolívar (VES) experiences high inflation. Bring USD in cash for better exchange rates via unofficial channels.</li>
+                        <li><strong>Getting Around:</strong> Domestic flights connect Caracas to Canaima and Mérida. For Angel Falls, book organized tours that include flights and river transport.</li>
+                        <li><strong>Language:</strong> Spanish is essential. English is rarely spoken outside tourist areas — learning basic phrases goes a long way.</li>
+                        <li><strong>Safety:</strong> Travel with reputable tour operators. Avoid displaying valuables and use official taxis or arranged transport.</li>
+                        <li><strong>Don't Miss:</strong> Los Llanos for anaconda safaris and wildlife, and the Orinoco Delta for indigenous Warao community experiences.</li>
+                    </ul>
+                </div>
+                
+                <h2>🌿 Beyond the Icons</h2>
+                <p>While Angel Falls draws the dreamers, Venezuela's true magic lies in its staggering diversity. Trek to the summit of Mount Roraima, the tri-border tepui shared with Brazil and Guyana, where endemic plants grow in crystal valleys above the clouds. Explore the Orinoco Delta by dugout canoe, meeting Warao indigenous communities who have lived on stilt houses among mangroves for centuries. In Los Llanos, the vast tropical grasslands, witness anacondas, capybaras, and hundreds of bird species in one of South America's greatest wildlife spectacles.</p>
+                
+                <p>Venezuela is more than a destination; it is a feeling. It is the mist rising from a tepui at dawn, the rhythm of salsa spilling from a Caracas barrio, and the taste of arepas fresh from the griddle. It is the courage of a people who, despite immense challenges, greet strangers with open arms and unbreakable spirit. Whether you come for the falls, the mountains, the beaches, or the soul of a nation, Venezuela will leave you changed — humbled by nature's power and moved by human resilience.</p>
+            </div>
+            
+            <!-- SPANISH VERSION -->
+            <div id="content-es" class="translation">
+                <div class="intro">
+                    <p><strong>Bienvenido a Venezuela</strong> — un país donde la naturaleza muestra sus músculos más dramáticos y la historia susurra a través de calles coloniales. Desde la cascada más alta del mundo que se precipita desde antiguos tepuis hasta islas caribeñas con aguas turquesas, Venezuela es una tierra de superlativos. Esta guía te invita a explorar el corazón de la joya del norte de Sudamérica, descubriendo sus ciudades famosas, la historia detrás de su orgullosa bandera tricolor, y la calidez de un pueblo que lleva la gracia en su propio nombre.</p>
+                </div>
+                
+                <div class="flag-section">
+                    <h2>🇻🇪 La Historia Detrás de la Bandera</h2>
+                    <div class="venezuela-flag-display">
+                        <div style="height:40px; background:#FFCC00; position:relative;">
+                            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); display:flex; gap:3px;">
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                                <span style="color:white; font-size:14px; text-shadow:0 0 2px rgba(0,0,0,0.3);">★</span>
+                            </div>
+                        </div>
+                        <div style="height:40px; background:#0033AA;"></div>
+                        <div style="height:40px; background:#CF142B;"></div>
+                    </div>
+                    <p>La bandera de Venezuela fue diseñada por el líder revolucionario <strong>Francisco de Miranda</strong> en 1806, inspirada en una conversación con el filósofo alemán Johann Wolfgang von Goethe sobre colores primarios. Izada por primera vez el 12 de marzo de 1806 en Jacmel, Haití, se convirtió en la bandera nacional cuando se declaró la independencia el <strong>5 de julio de 1811</strong>.</p>
+                    <p>La franja <strong>amarilla</strong> representa la riqueza de la tierra, el <strong>azul</strong> simboliza el valor, la lealtad, la justicia y el océano que separa a Venezuela de España, mientras que el <strong>rojo</strong> representa la sangre derramada por los patriotas que lucharon por la independencia. Las ocho estrellas blancas en arco representan las provincias originales que firmaron el Acta de Independencia — Caracas, Mérida, Barcelona, Barinas, Cumaná, Margarita, Trujillo y Guayana (agregada en 2006 para honrar el deseo de Simón Bolívar).</p>
+                </div>
+                
+                <h2>🏛️ Ciudades Famosas que Debes Visitar</h2>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/7b72ef4e9fc809b984890d1358df4c3946643402.jpg" alt="Caracas Skyline" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Caracas
+                            <span class="city-tag">LA CAPITAL</span>
+                        </div>
+                        <p>Enclavada en un valle bajo la imponente Montaña Ávila, Caracas es la vibrante capital de Venezuela — una ciudad donde la historia colonial y la energía moderna chocan. Explora el centro histórico alrededor de la Plaza Bolívar, donde la casa natal de Simón Bolívar y el Panteón Nacional se erigen como testimonios del espíritu revolucionario de la nación. El distrito 23 de Enero ofrece una visión de la herencia socialista de Venezuela, mientras que el teleférico al Parque Nacional Ávila proporciona vistas impresionantes sobre el valle. A pesar de su compleja reputación, Caracas recompensa a los viajeros curiosos con arte callejero, cultura del ron y la cálida hospitalidad de su gente.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.beautifulworld.com/99dd95a155ee6044fea3e2e0a7fdcf1e86161c69.webp" alt="Angel Falls" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Canaima y Salto Ángel
+                            <span class="city-tag">CASCADA MÁS ALTA DEL MUNDO</span>
+                        </div>
+                        <p>En lo profundo de la región de la Gran Sabana se encuentra el Parque Nacional Canaima, Patrimonio de la Humanidad de la UNESCO y hogar del <strong>Salto Ángel</strong> — la cascada ininterrumpida más alta del mundo con 979 metros. Las cataratas se precipitan desde la cima del Auyán-Tepuy, una de las antiguas montañas de mesa (tepuis) que inspiraron "El Mundo Perdido" de Arthur Conan Doyle. Llegar al Salto Ángel es una aventura en sí misma: un vuelo a Canaima, luego un viaje en curiara motorizada por los ríos Carrao y Churún a través del Cañón del Diablo, seguido de una caminata por la selva. Dormir en una hamaca con el trueno de las aguas cayendo como tu canción de cuna redefine la palabra "asombro."</p>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.gonomad.com/f696c248ba4dfbef93df0f4b336c883845daa692.jpg" alt="Merida Andes" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Mérida
+                            <span class="city-tag">JOYA ANDINA</span>
+                        </div>
+                        <p>A 1,600 metros en los Andes venezolanos, Mérida se siente como retroceder al Venezuela tradicional. Esta ciudad universitaria está enmarcada por cinco picos nevados, incluyendo el Pico Bolívar (4,978m), la montaña más alta del país. El Teleférico de Mérida — alguna vez el más largo y alto del mundo — lleva a los visitantes desde la ciudad hasta el Pico Espejo a 4,765 metros, ofreciendo vistas de lagunas glaciares y ecosistemas de páramo. La arquitectura colonial, la vibrante cultura estudiantil y pueblos cercanos como Jají y Lagunillas hacen de Mérida un tesoro cultural. Para los aventureros, la región ofrece parapente, cañonismo y trekking.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/casamayaelyaque.com/0260e1f10f8f2d48b28412fd4f40255b2ac9c231.webp" alt="Margarita Island" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Isla Margarita
+                            <span class="city-tag">PARAÍSO CARIBEÑO</span>
+                        </div>
+                        <p>Conocida como la "Perla del Caribe," la Isla Margarita ofrece 168 kilómetros de costa con playas prístinas, aguas turquesas y una vibra relajada de isla. La Playa El Yaque es mundialmente famosa por el windsurf y el kitesurf, atrayendo entusiastas de todo el mundo. El interior de la isla revela pueblos coloniales como Pampatar con su castillo del siglo XVII, y el vibrante mercado de Porlamar para compras libres de impuestos. Ya sea que busques deportes acuáticos, relajación en la playa o explorar lagunas bordeadas de manglares, Margarita ofrece esa magia caribeña quintessential con un sabor distintamente venezolano.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/1933e0b23be40c4d5521d0e08576db22e14dcdf1.jpg" alt="Ciudad Bolivar" class="city-image">
+                    <div class="city-content">
+                        <div class="city-title">
+                            Ciudad Bolívar
+                            <span class="city-tag">PUERTA AL ORINOCO</span>
+                        </div>
+                        <p>Sentada a orillas del poderoso río Orinoco, Ciudad Bolívar es una joya colonial con alma revolucionaria. Su centro histórico presenta arquitectura de los siglos XVIII y XIX bellamente preservada, con edificios de colores pastel bordeando calles empedradas que ascienden empinadamente desde el río. El Puente de Angostura — uno de los más largos sobre el Orinoco — conecta la ciudad con los llanos orientales. Aquí fue donde Simón Bolívar escribió el Discurso de Angostura en 1819, delineando su visión de una Sudamérica unida. Hoy, la ciudad sirve como puerta de entrada a la Gran Sabana y el Salto Ángel.</p>
+                    </div>
+                </div>
+                
+                <div class="tips-box">
+                    <h4>🎒 Consejos Esenciales para Viajar a Venezuela</h4>
+                    <ul>
+                        <li><strong>Mejor Temporada:</strong> Julio a octubre para el Salto Ángel (caudal completo); noviembre a abril para las islas caribeñas y la fauna de Los Llanos.</li>
+                        <li><strong>Moneda:</strong> El Bolívar venezolano (VES) experimenta alta inflación. Trae USD en efectivo para mejores tasas de cambio.</li>
+                        <li><strong>Transporte:</strong> Vuelos domésticos conectan Caracas con Canaima y Mérida. Para el Salto Ángel, reserva tours organizados.</li>
+                        <li><strong>Idioma:</strong> El español es esencial. El inglés raramente se habla fuera de áreas turísticas.</li>
+                        <li><strong>Seguridad:</strong> Viaja con operadores de turismo reconocidos. Evita mostrar objetos de valor.</li>
+                        <li><strong>No te Pierdas:</strong> Los Llanos para safaris de anacondas y fauna, y el Delta del Orinoco para experiencias con comunidades indígenas Warao.</li>
+                    </ul>
+                </div>
+                
+                <h2>🌿 Más Allá de los Iconos</h2>
+                <p>Mientras el Salto Ángel atrae a los soñadores, la verdadera magia de Venezuela radica en su asombrosa diversidad. Trekking a la cima del Monte Roraima, el tepui trifronterizo compartido con Brasil y Guyana, donde plantas endémicas crecen en valles de cristal sobre las nubes. Explora el Delta del Orinoco en curiara, conociendo comunidades indígenas Warao que han vivido en palafitos entre manglares por siglos. En Los Llanos, las vastas sabanas tropicales, presencia anacondas, capibaras y cientos de especies de aves en uno de los mayores espectáculos de fauna de Sudamérica.</p>
+                
+                <p>Venezuela es más que un destino; es un sentimiento. Es la bruma que se eleva de un tepuy al amanecer, el ritmo de la salsa que brota de un barrio caraqueño, y el sabor de las arepas frescas de la plancha. Es el valor de un pueblo que, a pesar de inmensos desafíos, saluda a los extraños con los brazos abiertos y un espíritu inquebrantable. Ya sea que vengas por las cascadas, las montañas, las playas o el alma de una nación, Venezuela te dejará transformado — humillado por el poder de la naturaleza y conmovido por la resiliencia humana.</p>
+            </div>
+            
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>🇻🇪 <strong>Venezuela Travel Guide 2026</strong> | Written with love for travelers worldwide</p>
+            <p>"Venezuela es un país megadiverso, pluricultural y lleno de gracia"</p>
+            <div class="language-note">
+                <p>🗣️ <strong>Venezuela's Official Language:</strong> Spanish (Castellano) — spoken by the vast majority</p>
+                <p>Indigenous languages include Wayuu, Warao, Pemón, and Yanomami, among 40+ native tongues.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showLang(lang) {
+            // Hide all translations
+            document.querySelectorAll('.translation').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show selected translation
+            document.getElementById('content-' + lang).classList.add('active');
+            
+            // Update button states
+            document.querySelectorAll('.translate-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>'''
+
+# Save the HTML file
+output_path = '/mnt/agents/output/venezuela_travel_guide.html'
+with open(output_path, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print(f"✅ Venezuela Travel Guide saved to: {output_path}")
+print(f"📄 File size: {len(html_content)} characters")
+print(f"🖼️ Images included: Caracas, Angel Falls, Merida, Margarita Island, Ciudad Bolivar")
+print(f"🌐 Languages: English, Spanish")
