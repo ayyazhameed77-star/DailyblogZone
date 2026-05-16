@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panama Travel Guide — Where Two Oceans Become One</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Noto+Nastaliq+Urdu&family=Noto+Sans+Devanagari&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #dc2626 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #fffefc;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(90deg, #1e3a8a 0%, #ffffff 50%, #dc2626 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+        .header::after {
+            content: "⚓";
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            font-size: 55px;
+            opacity: 0.3;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3a8a;
+            font-size: 2.8em;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.9);
+        }
+        .header .subtitle {
+            color: #444;
+            font-size: 1.15em;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .lang-bar {
+            background: #f8f9fa;
+            padding: 18px;
+            text-align: center;
+            border-bottom: 3px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .lang-btn {
+            padding: 10px 22px;
+            border: 2px solid #1e3a8a;
+            background: white;
+            color: #1e3a8a;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: #1e3a8a;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(30,58,138,0.3);
+        }
+        .content {
+            padding: 45px 35px;
+            line-height: 1.85;
+            color: #333;
+        }
+        .lang-section {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+        .lang-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .intro-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #fef2f2 100%);
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 35px;
+            border-left: 6px solid #1e3a8a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .flag-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 2px solid #e5e7eb;
+        }
+        .flag-visual {
+            font-size: 90px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+            flex-shrink: 0;
+        }
+        .city-card {
+            margin: 35px 0;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: all 0.4s ease;
+            background: white;
+        }
+        .city-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+        }
+        .city-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .city-info {
+            padding: 30px;
+        }
+        .city-info h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3a8a;
+            font-size: 1.6em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #bfdbfe 0%, #bfdbfe 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 88%;
+            padding: 0 5px;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin: 30px 0;
+        }
+        .culture-item {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border-top: 5px solid #dc2626;
+            transition: transform 0.3s;
+        }
+        .culture-item:hover {
+            transform: scale(1.03);
+        }
+        .culture-item .icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+        .meta-tag {
+            display: inline-block;
+            background: #1e3a8a;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 25px;
+            font-size: 0.88em;
+            margin: 6px 6px 6px 0;
+            font-weight: 500;
+        }
+        .meta-tag.red {
+            background: #dc2626;
+        }
+        .meta-tag.gold {
+            background: #f59e0b;
+            color: #333;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #fef9c3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+            border-left: 5px solid #f59e0b;
+        }
+        .footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.95em;
+        }
+        .urdu-text {
+            font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+            line-height: 2.2;
+            direction: rtl;
+            text-align: right;
+        }
+        .hindi-text {
+            font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+            line-height: 2;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3a8a;
+            font-size: 1.9em;
+            margin: 35px 0 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #dc2626;
+            border-radius: 2px;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2em; }
+            .lang-btn { padding: 8px 16px; font-size: 0.85em; }
+            .content { padding: 30px 18px; }
+            .flag-section { flex-direction: column; text-align: center; }
+            .city-img { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>🇵🇦 Panama Travel Guide</h1>
+        <p class="subtitle">Where Two Oceans Meet & Adventure Begins</p>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="switchLang('en')">🇬🇧 English</button>
+        <button class="lang-btn" onclick="switchLang('es')">🇵🇦 Español</button>
+        <button class="lang-btn" onclick="switchLang('hi')">🇮🇳 हिन्दी</button>
+        <button class="lang-btn" onclick="switchLang('ur')">🇵🇰 اردو</button>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+
+        <!-- ENGLISH VERSION -->
+        <div id="lang-en" class="lang-section active">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>Welcome to Panama</strong> — officially the <em>Republic of Panama</em> (República de Panamá). Nestled on the narrow isthmus that connects North and South America, this remarkable nation is a living bridge between two continents and two vast oceans. With a population of <span class="highlight">around 4.4 million</span>, Panama may be small in size, but its impact on global trade and tourism is enormous. Home to the legendary Panama Canal, over 1,600 tropical islands, misty cloud forests, and a skyline that rivals Miami, Panama is Central America's most dynamic hidden gem. The country uses both the <strong>Panamanian Balboa and US Dollar</strong> as currency, making travel seamless for international visitors.
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇵🇦</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">The National Flag</h3>
+                    <p>Panama's flag is instantly recognizable with its <strong>four quadrants</strong>: white top-left bearing a blue star, red top-right, blue bottom-left, and white bottom-right bearing a red star. The <strong>blue</strong> represents the Pacific and Caribbean oceans that flank the nation; the <strong>red</strong> symbolizes the blood spilled for independence; and the <strong>white</strong> stands for peace and purity. The two stars originally represented the country's two major political parties, but today they signify <strong>honesty and purity</strong>. Adopted in 1925, this flag was actually designed by Panama's First Lady, María de la Ossa de Amador, making it one of the few national flags created by a woman.</p>
+                </div>
+            </div>
+
+            <h2>🏙️ Famous Cities You Must Visit</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80" alt="Panama City Skyline" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ Panama City — The Cosmopolitan Capital</h3>
+                    <p>Rising from the Pacific coast like a tropical Manhattan, <strong>Panama City</strong> is the only capital in the world with a rainforest within its city limits. The skyline dazzles with glass towers including the famous <strong>F&F Tower</strong> (the "Screw"), while the historic <em>Casco Viejo</em> (Old Quarter) — a <strong>UNESCO World Heritage Site</strong> — enchants with cobblestone streets, colonial cathedrals, and rooftop bars. No visit is complete without witnessing the <strong>Panama Canal at Miraflores Locks</strong>, where massive ships ascend and descend between oceans like floating mountains. For food lovers, the city offers everything from Michelin-level ceviche to street-side <em>raspao</em> (shaved ice). The Cinta Costera coastal belt offers stunning sunset walks, while the nearby <strong>Metropolitan Natural Park</strong> lets you spot sloths and toucans minutes from downtown.</p>
+                    <span class="meta-tag">National Language: Spanish</span>
+                    <span class="meta-tag red">UNESCO Heritage</span>
+                    <span class="meta-tag gold">Population: ~1.5M</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" alt="Bocas del Toro Beach" class="city-img">
+                <div class="city-info">
+                    <h3>🌊 Bocas del Toro — Caribbean Paradise</h3>
+                    <p>On Panama's northwest Caribbean coast, the <strong>Bocas del Toro</strong> archipelago is where the jungle literally meets the sea. This collection of nine main islands and hundreds of islets serves up postcard-perfect beaches, coral reefs, and a famously laid-back vibe. <em>Bocas Town</em> on Isla Colón is the colorful, wooden-built hub where reggae beats pulse from beach bars and water taxis zip across turquoise channels. Visit <strong>Starfish Beach</strong> to see hundreds of orange starfish in crystalline shallows, or surf the legendary breaks at <strong>Playa Bluff</strong>. The <strong>Bastimentos Island National Marine Park</strong> protects mangrove forests, nesting sea turtles, and the tiny strawberry poison-dart frogs that glow like living jewels. With English-based Creole widely spoken alongside Spanish, Bocas feels more Caribbean than Central American.</p>
+                    <span class="meta-tag">Best For: Beaches & Surf</span>
+                    <span class="meta-tag red">Marine National Park</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Boquete Mountains Coffee" class="city-img">
+                <div class="city-info">
+                    <h3>⛰️ Boquete — The Highlands Coffee Sanctuary</h3>
+                    <p>Nestled in the misty Chiriquí Highlands near the Costa Rican border, <strong>Boquete</strong> is Panama's mountain escape. At 1,200 meters above sea level, this charming town is surrounded by cloud forests, volcanic peaks, and endless coffee plantations that produce the world's most prized bean: <strong>Geisha coffee</strong>. Every year, Boquete's beans shatter auction records, fetching thousands of dollars per kilogram. But you don't need a fortune to enjoy a perfect cup at a local plantation. Beyond caffeine, Boquete offers the epic <strong>Quetzal Trail</strong> through Barú Volcano National Park, where you might spot the resplendent quetzal — one of Earth's most beautiful birds. The town hosts a large expat community, giving it a cosmopolitan yet village-like atmosphere where farmers markets, hot springs, and river rafting fill the days.</p>
+                    <span class="meta-tag">Famous For: Geisha Coffee</span>
+                    <span class="meta-tag gold">Elevation: 1,200m</span>
+                </div>
+            </div>
+
+            <h2>🗣️ Language, Culture & Traditions</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">Spanish is the official and national language</span> of Panama, spoken by approximately 93% of the population as their mother tongue. Panamanian Spanish is melodic and distinctive, peppered with English borrowings like <em>"parquear"</em> (to park) and <em>"fren"</em> (friend), plus indigenous influences and playful slang like <em>"¡Qué sopa!"</em> (What's up?). In Bocas del Toro, you'll also hear <strong>Guari-Guari</strong>, an English-based Creole, while seven indigenous languages — including Ngäbere, Emberá, and Kuna — survive in traditional territories. Over 400,000 Panamanians maintain their native tongues and customs.</p>
+            <p style="margin-bottom: 22px;">Culture here is a vibrant fusion of Indigenous, Spanish, African, and modern global influences. The <strong>tamborito</strong> is the national dance — a Spanish form with African rhythms. Women wear the stunning <em>pollera</em>, an elaborate white embroidered dress, during festivals. The <strong>San Blas Islands</strong> (Guna Yala) offer an unparalleled indigenous experience where the Guna people govern autonomously, crafting world-famous <em>molas</em> — intricate reverse-appliqué textiles. From the February Carnival parades to the November Independence festivities, Panamanians know how to celebrate life with music, color, and infectious joy.</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">⚓</div>
+                    <h4>The Panama Canal</h4>
+                    <p>An 82km engineering marvel connecting the Atlantic and Pacific since 1914.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">☕</div>
+                    <h4>Geisha Coffee</h4>
+                    <p>The world's most expensive and aromatic coffee, grown in Boquete's volcanic soil.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🎨</div>
+                    <h4>Guna Molas</h4>
+                    <p>Hand-stitched textile art with geometric patterns, crafted by San Blas women.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🦥</div>
+                    <h4>Biodiversity</h4>
+                    <p>Over 1,400 tree species, golden frogs, sloths, and more birds than the US and Canada combined.</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 Travel Tip:</strong> The best time to visit Panama is during the <strong>dry season from mid-December to mid-April</strong>, when sunshine dominates and the Pacific coast is at its best. For Caribbean destinations like Bocas, September and October often see clearer waters. The US Dollar is used everywhere, so no currency exchange headaches. Whether you're watching a container ship glide through the Canal at dawn, sipping world-record coffee in mountain mist, or dancing to reggae on a starlit Caribbean dock — Panama delivers magic at every turn.</p>
+            </div>
+        </div>
+
+        <!-- SPANISH VERSION (National Language) -->
+        <div id="lang-es" class="lang-section">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>Bienvenidos a Panamá</strong> — oficialmente la <em>República de Panamá</em>. Ubicado en el estrecho istmo que conecta América del Norte y América del Sur, este notable país es un puente viviente entre dos continentes y dos vastos océanos. Con una población de <span class="highlight">alrededor de 4.4 millones</span>, Panamá puede ser pequeño en tamaño, pero su impacto en el comercio global y el turismo es enorme. Hogar del legendario Canal de Panamá, más de 1,600 islas tropicales, bosques nublados y un horizonte que rivaliza con Miami, Panamá es la joya más dinámica de Centroamérica. El país utiliza tanto el <strong>Balboa panameño como el dólar estadounidense</strong>, haciendo que los viajes sean fluidos para los visitantes internacionales.
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇵🇦</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">La Bandera Nacional</h3>
+                    <p>La bandera de Panamá es instantáneamente reconocible por sus <strong>cuatro cuadrantes</strong>: blanco arriba-izquierda con una estrella azul, rojo arriba-derecha, azul abajo-izquierda, y blanco abajo-derecha con una estrella roja. El <strong>azul</strong> representa los océanos Pacífico y Caribe que flanquean la nación; el <strong>rojo</strong> simboliza la sangre derramada por la independencia; y el <strong>blanco</strong> representa la paz y pureza. Las dos estrellas originalmente representaban los dos partidos políticos principales, pero hoy significan <strong>honestidad y pureza</strong>. Adoptada en 1925, esta bandera fue diseñada por la Primera Dama de Panamá, María de la Ossa de Amador, siendo una de las pocas banderas nacionales creadas por una mujer.</p>
+                </div>
+            </div>
+
+            <h2>🏙️ Ciudades Famosas que Debes Visitar</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80" alt="Ciudad de Panamá" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ Ciudad de Panamá — La Capital Cosmopolita</h3>
+                    <p>Surgiendo de la costa del Pacífico como una Manhattan tropical, <strong>Ciudad de Panamá</strong> es la única capital del mundo con una selva tropical dentro de sus límites urbanos. El horizonte deslumbra con torres de cristal incluyendo la famosa <strong>Torre F&F</strong> (el "Tornillo"), mientras que el histórico <em>Casco Viejo</em> — un <strong>Sitio de Patrimonio Mundial de la UNESCO</strong> — encanta con calles empedradas, catedrales coloniales y bares en azoteas. Ninguna visita está completa sin presenciar el <strong>Canal de Panamá en las Esclusas de Miraflores</strong>, donde barcos masivos ascienden y descienden entre océanos como montañas flotantes. Para los amantes de la comida, la ciudad ofrece todo desde ceviche de nivel Michelin hasta <em>raspao</em> callejero. La Cinta Costera ofrece caminatas al atardecer, mientras que el cercano <strong>Parque Natural Metropolitano</strong> permite avistar perezosos y tucanes a minutos del centro.</p>
+                    <span class="meta-tag">Idioma Nacional: Español</span>
+                    <span class="meta-tag red">Patrimonio UNESCO</span>
+                    <span class="meta-tag gold">Población: ~1.5M</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" alt="Bocas del Toro" class="city-img">
+                <div class="city-info">
+                    <h3>🌊 Bocas del Toro — Paraíso Caribeño</h3>
+                    <p>En la costa caribeña noroeste de Panamá, el archipiélago de <strong>Bocas del Toro</strong> es donde la selva literalmente se encuentra con el mar. Esta colección de nueve islas principales y cientos de islotes ofrece playas de postal, arrecifes de coral y una atmósfera famosamente relajada. El <em>Pueblo de Bocas</em> en Isla Colón es el centro colorido y de madera donde los ritmos reggae pulsan desde bares de playa y taxis acuáticos cruzan canales turquesa. Visita <strong>Playa Estrella</strong> para ver cientos de estrellas de mar naranjas en aguas cristalinas, o surfea las legendarias olas en <strong>Playa Bluff</strong>. El <strong>Parque Nacional Marino Isla Bastimentos</strong> protege manglares, tortugas marinas anidantes y las pequeñas ranas venenosas fresa que brillan como joyas vivientes.</p>
+                    <span class="meta-tag">Ideal Para: Playas y Surf</span>
+                    <span class="meta-tag red">Parque Nacional Marino</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Boquete" class="city-img">
+                <div class="city-info">
+                    <h3>⛰️ Boquete — Santuario Cafetalero de las Tierras Altas</h3>
+                    <p>Enclavado en las brumosas Tierras Altas de Chiriquí cerca de la frontera costarricense, <strong>Boquete</strong> es el escape montañoso de Panamá. A 1,200 metros sobre el nivel del mar, este pueblo encantador está rodeado de bosques nublados, picos volcánicos y plantaciones de café interminables que producen el grano más preciado del mundo: el <strong>Café Geisha</strong>. Cada año, los granos de Boquete rompen récords de subasta, alcanzando miles de dólares por kilogramo. Pero no necesitas una fortuna para disfrutar una taza perfecta en una plantación local. Más allá del café, Boquete ofrece la épica <strong>Senda del Quetzal</strong> a través del Parque Nacional Volcán Barú, donde podrías avistar el quetzal resplandeciente — uno de los pájaros más hermosos de la Tierra.</p>
+                    <span class="meta-tag">Famoso Por: Café Geisha</span>
+                    <span class="meta-tag gold">Elevación: 1,200m</span>
+                </div>
+            </div>
+
+            <h2>🗣️ Idioma, Cultura y Tradiciones</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">El español es el idioma oficial y nacional</span> de Panamá, hablado por aproximadamente el 93% de la población como lengua materna. El español panameño es melodioso y distintivo, salpicado de préstamos del inglés como <em>"parquear"</em> y <em>"fren"</em>, además de influencias indígenas y argot juguetón como <em>"¡Qué sopa!"</em>. En Bocas del Toro, también escucharás <strong>Guari-Guari</strong>, un criollo basado en inglés, mientras que siete lenguas indígenas — incluyendo Ngäbere, Emberá y Kuna — sobreviven en territorios tradicionales. Más de 400,000 panameños mantienen sus lenguas nativas y costumbres.</p>
+            <p style="margin-bottom: 22px;">La cultura aquí es una fusión vibrante de influencias indígenas, españolas, africanas y globales modernas. El <strong>tamborito</strong> es el baile nacional — una forma española con ritmos africanos. Las mujeres usan la deslumbrante <em>pollera</em>, un elaborado vestido blanco bordado, durante festivales. Las <strong>Islas San Blas</strong> (Guna Yala) ofrecen una experiencia indígena incomparable donde el pueblo guna se gobierna autónomamente, creando <em>molas</em> mundialmente famosas — textiles intrincados de aplicación inversa. Desde los desfiles de Carnaval en febrero hasta las festividades de Independencia en noviembre, los panameños saben celebrar la vida con música, color y alegría contagiosa.</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">⚓</div>
+                    <h4>El Canal de Panamá</h4>
+                    <p>Una maravilla de ingeniería de 82km conectando el Atlántico y el Pacífico desde 1914.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">☕</div>
+                    <h4>Café Geisha</h4>
+                    <p>El café más caro y aromático del mundo, cultivado en el suelo volcánico de Boquete.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🎨</div>
+                    <h4>Molas Guna</h4>
+                    <p>Arte textil hecho a mano con patrones geométricos, creado por mujeres de San Blas.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🦥</div>
+                    <h4>Biodiversidad</h4>
+                    <p>Más de 1,400 especies de árboles, ranas doradas, perezosos y más aves que EE.UU. y Canadá juntos.</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 Consejo de Viaje:</strong> La mejor época para visitar Panamá es durante la <strong>temporada seca de mediados de diciembre a mediados de abril</strong>, cuando el sol domina y la costa del Pacífico está en su mejor momento. Para destinos caribeños como Bocas, septiembre y octubre suelen tener aguas más claras. El dólar estadounidense se usa en todas partes, así que no hay dolores de cabeza con el cambio de moneda. Ya sea viendo un barco contenedor deslizarse por el Canal al amanecer, saboreando café récord mundial en la bruma montañosa, o bailando reggae en un muelle caribeño bajo las estrellas — Panamá entrega magia en cada esquina.</p>
+            </div>
+        </div>
+
+        <!-- HINDI VERSION -->
+        <div id="lang-hi" class="lang-section hindi-text">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>पनामा में आपका स्वागत है</strong> — आधिकारिक तौर पर <em>रिपब्लिक ऑफ पनामा</em> (República de Panamá)। उत्तर और दक्षिण अमेरिका को जोड़ने वाले संकरे भू-संधि (isthmus) पर बसा यह असाधारण राष्ट्र दो महाद्वीपों और दो विशाल महासागरों के बीच एक जीवित पुल है। <span class="highlight">लगभग 4.4 मिलियन</span> की आबादी के साथ, पनामा आकार में छोटा हो सकता है, लेकिन वैश्विक व्यापार और पर्यटन पर इसका प्रभाव विशाल है। प्रसिद्ध पनामा नहर, 1,600 से अधिक उष्णकटिबंधीय द्वीप, कोहरे वाले बादल वन, और मियामी को टक्कर देने वाली स्काईलाइन वाला यह देश मध्य अमेरिका का सबसे गतिशील छिपा हुआ खजाना है। यहाँ <strong>पनामाईन बालबोआ और अमेरिकी डॉलर</strong> दोनों मुद्राओं का उपयोग होता है।
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇵🇦</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">राष्ट्रीय ध्वज</h3>
+                    <p>पनामा का ध्वज अपने <strong>चार चतुर्भुजों</strong> से तुरंत पहचाना जाता है: ऊपर-बाएँ में सफेद जिस पर नीला तारा है, ऊपर-दाएँ में लाल, नीचे-बाएँ में नीला, और नीचे-दाएँ में सफेद जिस पर लाल तारा है। <strong>नीला</strong> राष्ट्र को घेरने वाले प्रशांत और कैरेबियन महासागरों का प्रतीक है; <strong>लाल</strong> आजादी के लिए बहाए गए खून का प्रतीक है; और <strong>सफेद</strong> शांति और पवित्रता का प्रतीक है। दो तारे मूल रूप से देश की दो प्रमुख राजनीतिक पार्टियों का प्रतिनिधित्व करते थे, लेकिन आज वे <strong>ईमानदारी और पवित्रता</strong> का संकेत हैं। 1925 में अपनाया गया, यह ध्वज पनामा की प्रथम महिला मारिया डे ला ओसा डे अमाडोर द्वारा डिज़ाइन किया गया था, जो इसे एक महिला द्वारा बनाए गए कुछ राष्ट्रीय ध्वजों में से एक बनाता है।</p>
+                </div>
+            </div>
+
+            <h2>🏙️ प्रसिद्ध शहर जो आपको अवश्य देखने चाहिए</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80" alt="Panama City" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ पनामा सिटी — कॉस्मोपॉलिटन राजधानी</h3>
+                    <p>प्रशांत तट से उगने वाला एक उष्णकटिबंधीय मैनहट्टन, <strong>पनामा सिटी</strong> दुनिया की एकमात्र राजधानी है जिसके शहरी सीमा के भीतर एक वर्षावन है। इसकी स्काईलाइन कांच के टावरों से चमकती है जिसमें प्रसिद्ध <strong>एफएंडएफ टावर</strong> (स्क्रू) शामिल है, जबकि ऐतिहासिक <em>कास्को विएजो</em> (पुराना क्वार्टर) — एक <strong>यूनेस्को विश्व धरोहर स्थल</strong> — पत्थर की सड़कें, औपनिवेशिक गिरजाघर और रूफटॉप बार से मोहित करता है। <strong>मिराफ्लोर्स लॉक्स पर पनामा नहर</strong> देखे बिना कोई यात्रा पूरी नहीं होती, जहाँ विशाल जहाज तैरती पहाड़ियों की तरह महासागरों के बीच ऊपर-नीचे जाते हैं। भोजन प्रेमियों के लिए, शहर मिशेलिन-स्तरीय सेविचे से लेकर सड़क किनारे <em>रास्पाओ</em> (बर्फ का टुकड़ा) तक सब कुछ प्रदान करता है।</p>
+                    <span class="meta-tag">राष्ट्रीय भाषा: स्पेनिश</span>
+                    <span class="meta-tag red">यूनेस्को विरासत</span>
+                    <span class="meta-tag gold">आबादी: ~1.5M</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" alt="Bocas del Toro" class="city-img">
+                <div class="city-info">
+                    <h3>🌊 बोकास डेल तोरो — कैरेबियन स्वर्ग</h3>
+                    <p>पनामा के उत्तरपश्चिम कैरेबियन तट पर, <strong>बोकास डेल तोरो</strong> द्वीपसमूह वह जगह है जहाँ जंगल सचमुच समुद्र से मिलती है। नौ मुख्य द्वीपों और सैकड़ों छोटे द्वीपों का यह संग्रह तस्वीर-परफेक्ट समुद्र तट, मूंगा चट्टानें और एक famously आरामदायक माहौल प्रदान करता है। इस्ला कोलोन पर <em>बोकास टाउन</em> रंगीन, लकड़ी से बना केंद्र है जहाँ रेगे बीट्स बीच बार से गूंजते हैं। <strong>स्टारफिश बीच</strong> पर सैकड़ों नारंगी स्टारफिश देखें, या <strong>प्लाया ब्लफ</strong> पर प्रसिद्ध लहरों पर सर्फिंग करें। <strong>बास्टिमेंटोस द्वीप राष्ट्रीय समुद्री उद्यान</strong> मैंग्रोव वन, समुद्री कछुए और छोटी स्ट्रॉबेरी जहरीली मेंढ़क की रक्षा करता है।</p>
+                    <span class="meta-tag">सबसे अच्छा: समुद्र तट और सर्फ</span>
+                    <span class="meta-tag red">समुद्री राष्ट्रीय उद्यान</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Boquete" class="city-img">
+                <div class="city-info">
+                    <h3>⛰️ बोकेटे — हाइलैंड्स कॉफी अभयारण्य</h3>
+                    <p>कोस्टा रिका की सीमा के पास धुंधले चिरिकी हाइलैंड्स में बसा, <strong>बोकेटे</strong> पनामा का पहाड़ी बचाव है। समुद्र तल से 1,200 मीटर की ऊंचाई पर, यह आकर्षक शहर बादल वन, ज्वालामुखी चोटियों और अंतहीन कॉफी बागानों से घिरा है जो दुनिया का सबसे prized बीज उत्पादन करते हैं: <strong>गीशा कॉफी</strong>। हर साल, बोकेटे के बीज नीलामी रिकॉर्ड तोड़ते हैं, प्रति किलोग्राम हजारों डॉलर कमाते हैं। <strong>क्वेट्ज़ल ट्रेल</strong> बारू ज्वालामुखी राष्ट्रीय उद्यान के माध्यम से एक महाकाव्य पदयात्रा प्रदान करता है, जहाँ आप शानदार क्वेट्ज़ल को देख सकते हैं — पृथ्वी के सबसे सुंदर पक्षियों में से एक।</p>
+                    <span class="meta-tag">प्रसिद्ध: गीशा कॉफी</span>
+                    <span class="meta-tag gold">ऊंचाई: 1,200 मीटर</span>
+                </div>
+            </div>
+
+            <h2>🗣️ भाषा, संस्कृति और परंपराएँ</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">स्पेनिश पनामा की आधिकारिक और राष्ट्रीय भाषा है</span>, लगभग 93% आबादी द्वारा मातृभाषा के रूप में बोली जाती है। पनामाई स्पेनिश मधुर और विशिष्ट है, <em>"पार्कअर"</em> (पार्क करना) और <em>"फ्रेन"</em> (दोस्त) जैसे अंग्रेजी borrowings से भरी है, साथ ही स्वदेशी प्रभाव और चंचल slang जैसे <em>"¡क्वे सोपा!"</em> (क्या चल रहा है?)। बोकास डेल तोरो में, आप <strong>गुआरी-गुआरी</strong> भी सुनेंगे, एक अंग्रेजी-आधारित क्रियोल, जबकि सात स्वदेशी भाषाएं — जिनमें एनगाबेरे, एम्बेरा और कुना शामिल हैं — पारंपरिक क्षेत्रों में जीवित हैं। 400,000 से अधिक पनामाई अपनी मूल भाषाओं और रीति-रिवाजों को बनाए रखते हैं।</p>
+            <p style="margin-bottom: 22px;">यहाँ की संस्कृति स्वदेशी, स्पेनिश, अफ्रीकी और आधुनिक वैश्विक प्रभावों का एक जीवंत संगम है। <strong>टैम्बोरिटो</strong> राष्ट्रीय नृत्य है — एक स्पेनिश रूप जिसमें अफ्रीकी ताल हैं। महिलाएं त्योहारों के दौरान शानदार <em>पोलेड़ा</em> पहनती हैं, एक भव्य सफेद कढ़ाई वाली पोशाक। <strong>सैन ब्लास द्वीप</strong> (गुना याला) एक अद्वितीय स्वदेशी अनुभव प्रदान करते हैं जहाँ गुना लोग स्वायत्त रूप से शासन करते हैं, विश्व प्रसिद्ध <em>मोलास</em> बनाते हैं — जटिल रिवर्स-एप्लिके टेक्सटाइल। फरवरी के कार्निवल परेड से लेकर नवंबर की स्वतंत्रता समारोह तक, पनामाई जानते हैं कि संगीत, रंग और संक्रामक खुशी के साथ जीवन का जश्न कैसे मनाया जाए।</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">⚓</div>
+                    <h4>पनामा नहर</h4>
+                    <p>82 किलोमीटर की इंजीनियरिंग चमत्कार जो 1914 से अटलांटिक और प्रशांत को जोड़ती है।</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">☕</div>
+                    <h4>गीशा कॉफी</h4>
+                    <p>दुनिया की सबसे महंगी और सुगंधित कॉफी, बोकेटे के ज्वालामुखीय मिट्टी में उगाई गई।</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🎨</div>
+                    <h4>गुना मोलास</h4>
+                    <p>हाथ से सिले टेक्सटाइल कला ज्यामितीय पैटर्न के साथ, सैन ब्लास महिलाओं द्वारा बनाया गया।</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🦥</div>
+                    <h4>जैव विविधता</h4>
+                    <p>1,400 से अधिक पेड़ प्रजातियाँ, सुनहरी मेंढ़क, स्लoths, और अमेरिका और कनाडा की तुलना में अधिक पक्षी।</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 यात्रा सुझाव:</strong> पनामा की यात्रा का सबसे अच्छा समय <strong>मध्य दिसंबर से मध्य अप्रैल</strong> के दौरान शुष्क मौसम में है, जब धूप हावी होती है और प्रशांत तट अपने सर्वश्रेष्ठ पर होता है। कैरेबियन गंतव्यों जैसे बोकास के लिए, सितंबर और अक्टूबर अक्सर साफ पानी देखते हैं। अमेरिकी डॉलर हर जगह उपयोग किया जाता है, इसलिए कोई मुद्रा विनिमय की समस्या नहीं। चाहे आप भोर में नहर से गुजरते एक कंटेनर जहाज को देख रहे हों, पहाड़ी धुंध में विश्व-रिकॉर्ड कॉफी का आनंद ले रहे हों, या तारों के नीचे एक कैरेबियन डॉक पर रेगे नृत्य कर रहे हों — पनामा हर मोड़ पर जादू देता है।</p>
+            </div>
+        </div>
+
+        <!-- URDU VERSION -->
+        <div id="lang-ur" class="lang-section urdu-text">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>پanama میں خوش آمدید</strong> — سرکاری طور پر <em>جمہوریہ پاناما</em> (República de Panamá)۔ شمالی اور جنوبی امریکہ کو جوڑنے والے تنگ زمینی پل (isthmus) پر واقع یہ ناقابل یقین ملک دو براعظموں اور دو وسیع سمندروں کے درمیان ایک زندہ پل ہے۔ <span class="highlight">تقریباً 4.4 ملین</span> کی آبادی کے ساتھ، پاناما سائز میں چھوٹا ہو سکتا ہے، لیکن عالمی تجارت اور سیاحت پر اس کا اثر بہت بڑا ہے۔ افسانوی پاناما نہر، 1,600 سے زیادہ Tropical جزائر، دھند والے بادل جنگلات، اور ایک سکی لائن جو ميامی کو چیلنج کرتی ہے، پاناما وسطی امریکہ کا سب سے متحرک پوشیدہ خزانہ ہے۔ یہاں <strong>پانامائی بالبوا اور امریکی ڈالر</strong> دونوں کرنسیوں کا استعمال ہوتا ہے۔
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇵🇦</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">قومی پرچم</h3>
+                    <p>پاناما کا پرچم اپنے <strong>چار خانوں</strong> سے فوری طور پر قابل شناخت ہے: اوپر-بائیں میں سفید جس پر نیلا ستارہ ہے، اوپر-دائیں میں سرخ، نیچے-بائیں میں نیلا، اور نیچے-دائیں میں سفید جس پر سرخ ستارہ ہے۔ <strong>نیلا</strong> قوم کو گھیرنے والے بحر الکاہل اور کیریبین سمندروں کی نمائندگی کرتا ہے؛ <strong>سرخ</strong> آزادی کے لیے بہائے گئے خون کی علامت ہے؛ اور <strong>سفید</strong> امن اور پاکیزگی کی علامت ہے۔ دو ستارے اصل میں ملک کی دو بڑی سیاسی جماعتوں کی نمائندگی کرتے تھے، لیکن آج وہ <strong>ایمانداری اور پاکیزگی</strong> کا نشان ہیں۔ 1925 میں اپنایا گیا، یہ پرچم پاناما کی پہلی خاتون ماریا ڈی لا اوسا ڈی اماڈور نے ڈیزائن کیا تھا، جو اسے ایک خاتون کے بنائے گئے چند قومی پرچموں میں سے ایک بناتا ہے۔</p>
+                </div>
+            </div>
+
+            <h2>🏙️ مشہور شہر جو آپ ضرور دیکھیں</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80" alt="Panama City" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ پاناما سٹی — کاسموپولیٹن دارالحکومت</h3>
+                    <p>بحر الکاہل کے ساحل سے ابھرتا ہوا ایک ٹراپیکل مینہیٹن، <strong>پاناما سٹی</strong> دنیا کا واحد دارالحکومت ہے جس کے شہری حدود کے اندر ایک بارانی جنگل ہے۔ اس کی سکی لائن شیشے کے ٹاورز سے چمکتی ہے جس میں مشہور <strong>ایف اینڈ ایف ٹاور</strong> (سکرو) شامل ہے، جبکہ تاریخی <em>کاسکو ویجو</em> (پرانا محلہ) — ایک <strong>یونیسکو عالمی ثقافتی ورثہ</strong> — پتھر کی سڑکوں، نوآبادیاتی کیتھیڈرلز اور روف ٹاپ بار سے دل موہ لیتا ہے۔ <strong>میرافلورز لاکس پر پاناما نہر</strong> دیکھے بغیر کوئی دورہ مکمل نہیں ہوتا، جہاں بڑے جہاز سمندروں کے درمیان تیرتی پہاڑیوں کی طرح اوپر نیچے جاتے ہیں۔ کھانے کے شوقینوں کے لیے، شہر مichelin-ستری سویچے سے لے کر سڑک کنارے <em>راسپاؤ</em> (برف کا ٹکڑا) تک سب کچھ پیش کرتا ہے۔</p>
+                    <span class="meta-tag">قومی زبان: ہسپانوی</span>
+                    <span class="meta-tag red">یونیسکو ورثہ</span>
+                    <span class="meta-tag gold">آبادی: ~1.5M</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" alt="Bocas del Toro" class="city-img">
+                <div class="city-info">
+                    <h3>🌊 بوکاس ڈیل تورو — کیریبین جنت</h3>
+                    <p>پاناما کے شمال مغربی کیریبین ساحل پر، <strong>بوکاس ڈیل تورو</strong> جزائر وہ جگہ ہے جہاں جنگل لفظی طور پر سمندر سے ملتی ہے۔ نو بنیادی جزائر اور سیکڑوں چھوٹے جزائر کا یہ مجموعہ پوسٹ کارڈ جیسے ساحل، مرجان کی چٹانیں، اور ایک مشہور آرام دہ ماحول پیش کرتا ہے۔ <em>بوکاس ٹاؤن</em> جزیرہ کولون پر رنگین، لکڑی سے بنا مرکز ہے جہاں ریگے کی دھنیں بیچ بار سے گونجتی ہیں۔ <strong>اسٹارفش بیچ</strong> پر سینکڑوں نارنجی اسٹارفش دیکھیں، یا <strong>پلایا بلف</strong> پر مشہور لہروں پر سرفنگ کریں۔ <strong>باسٹیمینٹوس جزیرہ نیشنل میرین پارک</strong> منگروو جنگلات، سمندری کچھوں، اور چھوٹی اسٹرابیری زہریلی مینڈکوں کی حفاظت کرتا ہے جو زندہ جواہرات کی طرح چمکتے ہیں۔</p>
+                    <span class="meta-tag">بہترین: ساحل اور سرف</span>
+                    <span class="meta-tag red">نیشنل میرین پارک</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Boquete" class="city-img">
+                <div class="city-info">
+                    <h3>⛰️ بوکیتے — ہائی لینڈز کافی پناہ گاہ</h3>
+                    <p>کوسٹا ریکا کی سرحد کے قریب دھندلے چیریکوی ہائی لینڈز میں آباد، <strong>بوکیتے</strong> پاناما کا پہاڑی فرار ہے۔ سطح سمندر سے 1,200 میٹر کی بلندی پر، یہ دلکش قصبہ بادل جنگلات، آتش فشاں چوٹیوں، اور لامتناہی کافی کے باغات سے گھرا ہے جو دنیا کا سب سے قیمتی دانہ پیدا کرتے ہیں: <strong>گیشا کافی</strong>۔ ہر سال، بوکیتے کے دانے نیلامی ریکارڈ توڑتے ہیں، فی کلوگرام ہزاروں ڈالر کماتے ہیں۔ لیکن ایک مقامی باغات میں پرفیکٹ کپ کا لطف اٹھانے کے لیے آپ کو ایک فورٹون کی ضرورت نہیں ہے۔ کافی سے آگے، بوکیتے بارو آتش فشاں نیشنل پارک کے ذریعے epic <strong>کویٹزل ٹریل</strong> پیش کرتا ہے، جہاں آپ شاندار کوئیٹزل کو دیکھ سکتے ہیں — زمین کے سب سے خوبصورت پرندوں میں سے ایک۔</p>
+                    <span class="meta-tag">مشہور: گیشا کافی</span>
+                    <span class="meta-tag gold">بلندی: 1,200 میٹر</span>
+                </div>
+            </div>
+
+            <h2>🗣️ زبان، ثقافت اور روایات</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">ہسپانوی پاناما کی واحد سرکاری اور قومی زبان ہے</span>, تقریباً 93% آبادی کی طرف سے مادری زبان کے طور پر بولی جاتی ہے۔ پانامائی ہسپانوی سرائیکی اور منفرد ہے، <em>"پارکیئر"</em> (پارک کرنا) اور <em>"فرین"</em> (دوست) جیسے انگریزی borrowings سے بھرپور ہے، ساتھ ہی مقامی اثرات اور چنچل slang جیسے <em>"¡کے سوپا!"</em> (کیا چل رہا ہے؟)۔ بوکاس ڈیل تورو میں، آپ <strong>گواری-گواری</strong> بھی سنے گے، ایک انگریزی پر مبنی کریول، جبکہ سات مقامی زبانیں — جن میں اینگابیرے، ایمبیرا اور کونا شامل ہیں — روایتی علاقوں میں زندہ ہیں۔ 400,000 سے زیادہ پانامائی اپنی مقامی زبانوں اور رسومات کو برقرار رکھتے ہیں۔</p>
+            <p style="margin-bottom: 22px;">یہاں کی ثقافت مقامی، ہسپانوی، افریقی اور جدید عالمی اثرات کا ایک متحرک امتزاج ہے۔ <strong>ٹیمبورٹو</strong> قومی رقص ہے — ایک ہسپانوی شکل جس میں افریقی دھنیں ہیں۔ خواتین تہواروں کے دوران شاندار <em>پولیرا</em> پہنتی ہیں، ایک تفصیلی سفید کڑھائی والی پوشاک۔ <strong>سین بلاس جزائر</strong> (گونا یالا) ایک بے مثال مقامی تجربہ پیش کرتے ہیں جہاں گونا لوگ خود مختار طریقے سے حکومت کرتے ہیں، عالمی شہرت یافتہ <em>مولاس</em> بناتے ہیں — پیچیدہ ریورس-اپلیکی ٹیکسٹائل۔ فروری کے کارنیول پریڈ سے لے کر نومبر کے آزادی کے جشن تک، پانامائی جانتے ہیں کہ موسیقی، رنگ اور متعدی خوشی کے ساتھ زندگی کا جشن کیسے منایا جائے۔</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">⚓</div>
+                    <h4>پاناما نہر</h4>
+                    <p>82 کلومیٹر کا انجینئرنگ معجزہ جو 1914 سے بحر الکاہل اور بحر اوقیانوس کو جوڑتا ہے۔</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">☕</div>
+                    <h4>گیشا کافی</h4>
+                    <p>دنیا کی سب سے مہنگی اور خوشبو دار کافی، بوکیتے کے آتش فشاں مٹی میں اگائی گئی۔</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🎨</div>
+                    <h4>گونا مولاس</h4>
+                    <p>ہاتھ سے سلے ٹیکسٹائل آرٹ جیومیٹرک پیٹرن کے ساتھ، سین بلاس خواتین کے ذریعے تیار کردہ۔</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🦥</div>
+                    <h4>حیاتیاتی تنوع</h4>
+                    <p>1,400 سے زیادہ درخت کی انواع، سنہری مینڈک، سلوٹھ، اور امریکہ اور کینیڈا کی نسبت زیادہ پرندے۔</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 سفر کا مشورہ:</strong> پاناما کا دورہ کرنے کا بہترین وقت <strong>درمیان دسمبر سے درمیان اپریل</strong> کے درمیان خشک موسم میں ہے، جب دھوپ غالب ہوتی ہے اور بحر الکاہل کا ساحل اپنی بہترین حالت میں ہوتا ہے۔ کیریبین مقامات جیسے بوکاس کے لیے، ستمبر اور اکتوبر اکثر صاف پانی دیکھتے ہیں۔ امریکی ڈالر ہر جگہ استعمال ہوتا ہے، اس لیے کوئی کرنسی کی تبدیلی کی پریشانی نہیں۔ چاہے آپ فجر میں نہر سے گزرتے ایک کنٹینر جہاز کو دیکھ رہے ہوں، پہاڑی دھند میں عالمی ریکارڈ کافی کا لطف اٹھا رہے ہوں، یا تاروں کے نیچے ایک کیریبین ڈاک پر ریگے ناچ رہے ہوں — پاناما ہر موڑ پر جادو پیش کرتا ہے۔</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>🇵🇦 Panama Travel Guide | Created with ❤️ for Global Explorers</p>
+        <p style="margin-top: 10px; opacity: 0.9;">National Language: Español | Best Time: Dec–Apr | Currency: USD & Balboa</p>
+    </div>
+</div>
+
+<script>
+    function switchLang(lang) {
+        document.querySelectorAll('.lang-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById('lang-' + lang).classList.add('active');
+        event.target.classList.add('active');
+        
+        if(lang === 'ur') {
+            document.body.style.direction = 'rtl';
+        } else {
+            document.body.style.direction = 'ltr';
+        }
+    }
+</script>
+
+</body>
+</html>
