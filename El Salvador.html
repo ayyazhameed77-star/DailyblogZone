@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Salvador Travel Guide — The Land of Volcanoes & Pupusas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Noto+Sans+Devanagari&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #1e3a8a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #fffefc;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(90deg, #1e3a8a 0%, #ffffff 50%, #1e3a8a 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+        .header::after {
+            content: "🌋";
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            font-size: 55px;
+            opacity: 0.3;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3a8a;
+            font-size: 2.8em;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.9);
+        }
+        .header .subtitle {
+            color: #444;
+            font-size: 1.15em;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .lang-bar {
+            background: #f8f9fa;
+            padding: 18px;
+            text-align: center;
+            border-bottom: 3px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .lang-btn {
+            padding: 10px 22px;
+            border: 2px solid #1e3a8a;
+            background: white;
+            color: #1e3a8a;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: #1e3a8a;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(30,58,138,0.3);
+        }
+        .content {
+            padding: 45px 35px;
+            line-height: 1.85;
+            color: #333;
+        }
+        .lang-section {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+        .lang-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .intro-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #fef9c3 100%);
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 35px;
+            border-left: 6px solid #1e3a8a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .flag-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 2px solid #e5e7eb;
+        }
+        .flag-visual {
+            font-size: 90px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+            flex-shrink: 0;
+        }
+        .city-card {
+            margin: 35px 0;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: all 0.4s ease;
+            background: white;
+        }
+        .city-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+        }
+        .city-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .city-info {
+            padding: 30px;
+        }
+        .city-info h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3a8a;
+            font-size: 1.6em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #bfdbfe 0%, #bfdbfe 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 88%;
+            padding: 0 5px;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin: 30px 0;
+        }
+        .culture-item {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border-top: 5px solid #1e3a8a;
+            transition: transform 0.3s;
+        }
+        .culture-item:hover {
+            transform: scale(1.03);
+        }
+        .culture-item .icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+        .meta-tag {
+            display: inline-block;
+            background: #1e3a8a;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 25px;
+            font-size: 0.88em;
+            margin: 6px 6px 6px 0;
+            font-weight: 500;
+        }
+        .meta-tag.red {
+            background: #dc2626;
+        }
+        .meta-tag.gold {
+            background: #f59e0b;
+            color: #333;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #fef9c3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+            border-left: 5px solid #f59e0b;
+        }
+        .footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.95em;
+        }
+        .hindi-text {
+            font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+            line-height: 2;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3a8a;
+            font-size: 1.9em;
+            margin: 35px 0 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #f59e0b;
+            border-radius: 2px;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2em; }
+            .lang-btn { padding: 8px 16px; font-size: 0.85em; }
+            .content { padding: 30px 18px; }
+            .flag-section { flex-direction: column; text-align: center; }
+            .city-img { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>🇸🇻 El Salvador Travel Guide</h1>
+        <p class="subtitle">The Land of Volcanoes, Surf & Pupusas</p>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="switchLang('en')">🇬🇧 English</button>
+        <button class="lang-btn" onclick="switchLang('es')">🇸🇻 Español</button>
+        <button class="lang-btn" onclick="switchLang('hi')">🇮🇳 हिन्दी</button>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+
+        <!-- ENGLISH VERSION -->
+        <div id="lang-en" class="lang-section active">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>Welcome to El Salvador</strong> — officially the <em>Republic of El Salvador</em> (República de El Salvador). Nestled in the heart of Central America, bordered by Honduras, Guatemala, and the Pacific Ocean, this compact nation packs an extraordinary punch. With a population of <span class="highlight">over 6.3 million people</span> squeezed into an area barely larger than Wales, El Salvador is the smallest and most densely populated country in Central America — yet its cultural richness, natural beauty, and warm hospitality far outweigh its size. Named "The Saviour" by Spanish conquistador Pedro de Alvarado, this is a land where ancient Pipil heritage meets colonial grandeur, world-class surf breaks, and the irresistible aroma of freshly grilled pupusas on every corner.
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇸🇻</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">The National Flag</h3>
+                    <p>El Salvador's flag features <strong>three horizontal stripes</strong>: cobalt blue on top and bottom, with a wide white band in the center. The <strong>blue</strong> represents the two great oceans that border Central America — the Pacific and the Atlantic — while the <strong>white</strong> symbolizes peace, unity, and the purity of the Salvadoran people. At the center of the white stripe sits the <strong>national coat of arms</strong>: a triangle representing equality, a Phrygian cap for liberty, five volcanoes for the five Central American nations, and a rainbow arching above. The words <em>"Dios Unión Libertad"</em> (God, Union, Liberty) encircle the emblem. Adopted in 1912, this flag is a powerful symbol of Central American unity and Salvadoran pride.</p>
+                </div>
+            </div>
+
+            <h2>🏙️ Famous Cities You Must Visit</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=800&q=80" alt="San Salvador City" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ San Salvador — The Resilient Capital</h3>
+                    <p>Nestled in the Valle de las Hamacas (Valley of the Hammocks), surrounded by volcanoes, <strong>San Salvador</strong> is one of the oldest cities in the Americas — founded in <strong>1525</strong>, predating many European colonial settlements. Today's capital is a fascinating blend of earthquake-scarred history and vibrant renewal. The revitalized <strong>Centro Histórico</strong> has been pedestrianized, opening space for weekend performances, food festivals, and leisurely strolls past the <strong>National Palace</strong> — now offering tours revealing grand chambers and a 105-year-old courtyard whose trees symbolize Central American unity. The <strong>Metropolitan Cathedral</strong> holds the tomb of Monseñor Óscar Romero, the outspoken archbishop assassinated during the civil war, whose legacy still resonates deeply. Around <strong>Plaza Libertad</strong>, traditional bars like Dahlia (open since 1937) offer an authentic slice of everyday life. For nature lovers, the nearby <strong>El Boquerón National Park</strong> lets you peer into the crater of San Salvador Volcano, while the city's bustling markets overflow with tropical fruits, textiles, and the ever-present sizzle of pupusa griddles.</p>
+                    <span class="meta-tag">National Language: Spanish</span>
+                    <span class="meta-tag red">Founded: 1525</span>
+                    <span class="meta-tag gold">Population: ~2.4M metro</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518509566874-1af3c9ac5df?w=800&q=80" alt="Santa Ana Cathedral" class="city-img">
+                <div class="city-info">
+                    <h3>⛪ Santa Ana — The Coffee Kingdom's Crown</h3>
+                    <p>Less than an hour west of the capital, <strong>Santa Ana</strong> is El Salvador's second-largest city and the beating heart of its legendary coffee country. Its broad avenues and ornate architecture speak to the prosperity fueled by "black gold" in the late 19th and early 20th centuries — a portion of coffee profits was invested into magnificent public works. The crown jewel is the <strong>Santa Ana Cathedral</strong>, a stunning neo-Gothic masterpiece with twin spires that pierce the sky. Climb to the top for sweeping views across the city and into the surrounding highlands. The grand <strong>Teatro de Santa Ana</strong> is another testament to coffee-era wealth. Markets brim with fresh produce and street food staples like <em>yuca frita</em> and <em>atol de elote</em>. But the real magic lies just outside town: the <strong>Santa Ana Volcano</strong> (Ilamatepec) offers a challenging hike to a crater lake with surreal turquoise waters, while nearby <strong>Lake Coatepeque</strong> — a collapsed volcanic caldera — is one of Central America's most beautiful lakes, perfect for kayaking, swimming, and lakeside dining.</p>
+                    <span class="meta-tag">Coffee Capital</span>
+                    <span class="meta-tag red">Santa Ana Volcano</span>
+                    <span class="meta-tag gold">Lake Coatepeque</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80" alt="Suchitoto Colonial Town" class="city-img">
+                <div class="city-info">
+                    <h3>🌺 Suchitoto — The Colonial Jewel by the Lake</h3>
+                    <p>Just over an hour north of San Salvador, perched above the shimmering waters of <strong>Lake Suchitlán</strong>, <strong>Suchitoto</strong> is where time seems to slow to a colonial rhythm. Its cobblestone streets, whitewashed church, and terracotta roofs frame a town where art and heritage thrive in perfect harmony. Filmmaker Alejandro Cotto, considered Central America's first film director, helped shape the cultural scene here, introducing events like the town's beloved jazz festival. Culture here feels lived-in rather than staged. <strong>Indigo dyeing workshops</strong> sit alongside more unusual experiences, like visiting Doña Laura — one of the few remaining traditional cigar rollers who crafts each one by hand. At <strong>Casa de la Abuela</strong>, local coffee expert René offers traditional <em>chorreado</em> coffee demonstrations, filling the air with the scent of freshly ground beans. For lunch, <strong>Casa 1800 Suchitoto</strong> serves exquisite cuisine with panoramic views across the lake. The nearby <strong>Cascades of Los Tercios</strong> — hexagonal basalt columns formed by ancient lava flows — add a geological wonder to this already timeless destination.</p>
+                    <span class="meta-tag">Colonial Heritage</span>
+                    <span class="meta-tag red">Lake Suchitlán</span>
+                    <span class="meta-tag gold">Indigo & Art</span>
+                </div>
+            </div>
+
+            <h2>🗣️ Language, Culture & Traditions</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">Spanish is the sole official and national language</span> of El Salvador, spoken with a distinctive warmth and rhythm that makes it instantly recognizable. Salvadoran Spanish is peppered with indigenous <strong>Nawat</strong> (Pipil) influences — words like <em>chiche</em> (thing), <em>chuco</em> (dirty), and <em>guishte</em> (seed) survive from pre-Columbian times. The famous <em>pupusa</em> itself derives from the Nawat word <em>pupusawa</em>, meaning "to puff up" or "stuffed." You'll also hear playful slang like <em>"¡Qué chivo!"</em> (How cool!), <em>"cipote"</em> (kid), and <em>"chero"</em> (buddy/friend) that reflect the nation's irrepressible spirit.</p>
+            <p style="margin-bottom: 22px;">Culture here revolves around <strong>family, food, and festivity</strong>. The <strong>pupusa</strong> — thick corn tortillas stuffed with cheese, beans, pork (<em>chicharrón</em>), or the edible flower <em>loroco</em> — was officially declared the national dish in 2005, with the second Sunday of November celebrated as <strong>National Pupusa Day</strong>. They're always served with <em>curtido</em> (fermented cabbage slaw) and <em>salsa roja</em>. Beyond pupusas, Salvadoran cuisine offers <em>tamales</em> wrapped in banana leaves, <em>yuca frita</em> with pork, sweet <em>quesadilla salvadoreña</em> (a rice flour cake), and some of the finest coffee on Earth. The <strong>Torogoz</strong> (turquoise-browed motmot) is the national bird, while the <strong>maquilishuat</strong> (pink tabebuia tree) is the national flower. From the August <strong>Fiestas Agostinas</strong> honoring the Divine Savior to vibrant <strong>Day of the Dead</strong> celebrations, Salvadorans know how to turn every occasion into a communal feast of joy.</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">🥘</div>
+                    <h4>The Pupusa</h4>
+                    <p>National dish since 2005. Stuffed corn tortillas with cheese, beans, or pork. A taste of heaven.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">☕</div>
+                    <h4>Coffee Heritage</h4>
+                    <p>World-class Arabica beans grown on volcanic slopes. Over 50% of the country's exports.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🏄</div>
+                    <h4>Surf Paradise</h4>
+                    <p>Pacific breaks like El Tunco and Punta Roca rank among the world's best surfing destinations.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🌋</div>
+                    <h4>Volcano Country</h4>
+                    <p>20+ volcanoes including Santa Ana, Izalco, and San Miguel. Hike to crater lakes and lava fields.</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 Travel Tip:</strong> The best time to visit El Salvador is during the <strong>dry season from November to April</strong>, when sunshine dominates and volcano hiking is safest. The country uses the <strong>US Dollar</strong> as official currency (Bitcoin was adopted in 2021 but cash is still king). El Salvador is remarkably compact — you can drive from volcano to beach to colonial town in a single day. Crime has dropped dramatically in recent years (down 98% since 2015), making it one of Central America's safest destinations. Whether you're sipping chorreado coffee in a mountain town, catching perfect waves at sunset, or sharing pupusas with locals who treat you like family — El Salvador will surprise you, move you, and leave you hungry for more.</p>
+            </div>
+        </div>
+
+        <!-- SPANISH VERSION (National Language) -->
+        <div id="lang-es" class="lang-section">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>Bienvenidos a El Salvador</strong> — oficialmente la <em>República de El Salvador</em>. Ubicado en el corazón de América Central, limitado por Honduras, Guatemala y el Océano Pacífico, este compacto país concentra un impacto extraordinario. Con una población de <span class="highlight">más de 6.3 millones de personas</span> en un área apenas más grande que Gales, El Salvador es el país más pequeño y densamente poblado de Centroamérica — sin embargo, su riqueza cultural, belleza natural y cálida hospitalidad superan con creces su tamaño. Nombrado "El Salvador" por el conquistador español Pedro de Alvarado, esta es una tierra donde la antigua herencia pipil se encuentra con la grandeza colonial, olas de surf de clase mundial y el irresistible aroma de pupusas recién hechas en cada esquina.
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇸🇻</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">La Bandera Nacional</h3>
+                    <p>La bandera de El Salvador presenta <strong>tres franjas horizontales</strong>: azul cobalto arriba y abajo, con una ancha banda blanca en el centro. El <strong>azul</strong> representa los dos grandes océanos que bordean Centroamérica — el Pacífico y el Atlántico — mientras que el <strong>blanco</strong> simboliza la paz, la unidad y la pureza del pueblo salvadoreño. En el centro de la franja blanca se encuentra el <strong>escudo nacional</strong>: un triángulo que representa la igualdad, un gorro frigio para la libertad, cinco volcanes para las cinco naciones centroamericanas, y un arcoíris que se eleva por encima. Las palabras <em>"Dios Unión Libertad"</em> circulan el emblema. Adoptada en 1912, esta bandera es un poderoso símbolo de la unidad centroamericana y el orgullo salvadoreño.</p>
+                </div>
+            </div>
+
+            <h2>🏙️ Ciudades Famosas que Debes Visitar</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=800&q=80" alt="San Salvador" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ San Salvador — La Capital Resiliente</h3>
+                    <p>Enclavado en el Valle de las Hamacas, rodeado de volcanes, <strong>San Salvador</strong> es una de las ciudades más antiguas de las Américas — fundada en <strong>1525</strong>, anterior a muchos asentamientos coloniales europeos. La capital de hoy es una fascinante mezcla de historia marcada por terremotos y renovación vibrante. El revitalizado <strong>Centro Histórico</strong> ha sido peatonalizado, abriendo espacio para espectáculos de fin de semana, festivales gastronómicos y paseos tranquilos junto al <strong>Palacio Nacional</strong> — que ahora ofrece tours revelando cámaras grandiosas y un patio de 105 años cuyos árboles simbolizan la unidad centroamericana. La <strong>Catedral Metropolitana</strong> alberga la tumba de Monseñor Óscar Romero, el arzobispo asesinado durante la guerra civil cuyo legado aún resuena profundamente. Alrededor de la <strong>Plaza Libertad</strong>, bares tradicionales como Dahlia (abierto desde 1937) ofrecen una auténtica porción de la vida cotidiana. Para los amantes de la naturaleza, el cercano <strong>Parque Nacional El Boquerón</strong> permite asomarse al cráter del Volcán de San Salvador.</p>
+                    <span class="meta-tag">Idioma Nacional: Español</span>
+                    <span class="meta-tag red">Fundada: 1525</span>
+                    <span class="meta-tag gold">Población: ~2.4M metro</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518509566874-1af3c9ac5df?w=800&q=80" alt="Santa Ana" class="city-img">
+                <div class="city-info">
+                    <h3>⛪ Santa Ana — La Corona del Reino del Café</h3>
+                    <p>A menos de una hora al oeste de la capital, <strong>Santa Ana</strong> es la segunda ciudad más grande de El Salvador y el corazón palpitante de su legendario país cafetalero. Sus amplias avenidas y ornamentada arquitectura hablan de la prosperidad alimentada por el "oro negro" a finales del siglo XIX y principios del XX — una porción de las ganancias del café se invirtió en magníficas obras públicas. La joya de la corona es la <strong>Catedral de Santa Ana</strong>, una impresionante obra maestra neogótica con agujas gemelas que perforan el cielo. Sube a la cima para obtener vistas panorámicas de la ciudad y las tierras altas circundantes. El gran <strong>Teatro de Santa Ana</strong> es otro testimonio de la riqueza de la era del café. Los mercados rebosan de productos frescos y comida callejera como <em>yuca frita</em> y <em>atol de elote</em>. Pero la verdadera magia está justo fuera de la ciudad: el <strong>Volcán de Santa Ana</strong> (Ilamatepec) ofrece una caminata desafiante hasta un lago de cráter con aguas turquesas surrealistas, mientras que el cercano <strong>Lago de Coatepeque</strong> — una caldera volcánica colapsada — es uno de los lagos más hermosos de Centroamérica.</p>
+                    <span class="meta-tag">Capital del Café</span>
+                    <span class="meta-tag red">Volcán Santa Ana</span>
+                    <span class="meta-tag gold">Lago Coatepeque</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80" alt="Suchitoto" class="city-img">
+                <div class="city-info">
+                    <h3>🌺 Suchitoto — La Joya Colonial junto al Lago</h3>
+                    <p>A poco más de una hora al norte de San Salvador, perched sobre las brillantes aguas del <strong>Lago Suchitlán</strong>, <strong>Suchitoto</strong> es donde el tiempo parece ralentizarse hasta un ritmo colonial. Sus calles empedradas, iglesia blanqueada y techos de terracota enmarcan un pueblo donde el arte y la herencia prosperan en perfecta armonía. El cineasta Alejandro Cotto, considerado el primer director de cine de Centroamérica, ayudó a dar forma a la escena cultural aquí, introduciendo eventos como el querido festival de jazz del pueblo. La cultura aquí se siente vivida en lugar de escenificada. Los <strong>talleres de teñido con añil</strong> coexisten con experiencias más inusuales, como visitar a Doña Laura — una de las pocas enrolladoras de cigarros tradicionales que quedan. En la <strong>Casa de la Abuela</strong>, el experto en café René ofrece demostraciones de café <em>chorreado</em> tradicional, llenando el aire con el aroma de granos recién molidos. Para el almuerzo, <strong>Casa 1800 Suchitoto</strong> sirve exquisita cocina con vistas panorámicas del lago. Las cercanas <strong>Cascadas de Los Tercios</strong> — columnas basálticas hexagonales formadas por antiguos flujos de lava — añaden una maravilla geológica a este destino ya atemporal.</p>
+                    <span class="meta-tag">Herencia Colonial</span>
+                    <span class="meta-tag red">Lago Suchitlán</span>
+                    <span class="meta-tag gold">Añil y Arte</span>
+                </div>
+            </div>
+
+            <h2>🗣️ Idioma, Cultura y Tradiciones</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">El español es el único idioma oficial y nacional</span> de El Salvador, hablado con una calidez y ritmo distintivos que lo hacen instantáneamente reconocible. El español salvadoreño está salpicado de influencias indígenas del <strong>nawat</strong> (pipil) — palabras como <em>chiche</em> (cosa), <em>chuco</em> (sucio) y <em>guishte</em> (semilla) sobreviven desde tiempos precolombinos. La famosa <em>pupusa</em> misma deriva de la palabra nawat <em>pupusawa</em>, que significa "hincharse" o "rellena". También escucharás argot juguetón como <em>"¡Qué chivo!"</em> (¡qué genial!), <em>"cipote"</em> (niño) y <em>"chero"</em> (amigo) que reflejan el espíritu irreprimible de la nación.</p>
+            <p style="margin-bottom: 22px;">La cultura aquí gira en torno a la <strong>familia, la comida y la festividad</strong>. La <strong>pupusa</strong> — gruesas tortillas de maíz rellenas de queso, frijoles, cerdo (<em>chicharrón</em>) o la flor comestible <em>loroco</em> — fue declarada oficialmente plato nacional en 2005, celebrándose el segundo domingo de noviembre como el <strong>Día Nacional de la Pupusa</strong>. Siempre se sirven con <em>curtido</em> (ensalada de repollo fermentado) y <em>salsa roja</em>. Más allá de las pupusas, la cocina salvadoreña ofrece <em>tamales</em> envueltos en hojas de plátano, <em>yuca frita</em> con cerdo, dulce <em>quesadilla salvadoreña</em> (un pastel de harina de arroz), y algunos de los mejores cafés del mundo. El <strong>torogoz</strong> (momoto cejiceleste) es el ave nacional, mientras que el <strong>maquilishuat</strong> (árbol de tabebuia rosa) es la flor nacional. Desde las <strong>Fiestas Agostinas</strong> de agosto en honor al Divino Salvador hasta vibrantes celebraciones del <strong>Día de los Muertos</strong>, los salvadoreños saben convertir cada ocasión en un banquete comunitario de alegría.</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">🥘</div>
+                    <h4>La Pupusa</h4>
+                    <p>Plato nacional desde 2005. Tortillas de maíz rellenas de queso, frijoles o cerdo. Un sabor del cielo.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">☕</div>
+                    <h4>Herencia Cafetalera</h4>
+                    <p>Granos Arábica de clase mundial cultivados en laderas volcánicas. Más del 50% de las exportaciones del país.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🏄</div>
+                    <h4>Paraíso del Surf</h4>
+                    <p>Olas del Pacífico como El Tunco y Punta Roca se clasifican entre los mejores destinos de surf del mundo.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🌋</div>
+                    <h4>País de Volcanes</h4>
+                    <p>Más de 20 volcanes incluyendo Santa Ana, Izalco y San Miguel. Caminatas a lagos de cráter y campos de lava.</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 Consejo de Viaje:</strong> La mejor época para visitar El Salvador es durante la <strong>temporada seca de noviembre a abril</strong>, cuando el sol domina y las caminatas volcánicas son más seguras. El país usa el <strong>dólar estadounidense</strong> como moneda oficial (Bitcoin fue adoptado en 2021 pero el efectivo sigue siendo rey). El Salvador es notablemente compacto — puedes conducir de volcán a playa a pueblo colonial en un solo día. El crimen ha disminuido dramáticamente en los últimos años (98% menos desde 2015), convirtiéndolo en uno de los destinos más seguros de Centroamérica. Ya sea bebiendo café chorreado en un pueblo de montaña, cogiendo olas perfectas al atardecer, o compartiendo pupusas con locales que te tratan como familia — El Salvador te sorprenderá, te conmoverá y te dejará con ganas de más.</p>
+            </div>
+        </div>
+
+        <!-- HINDI VERSION -->
+        <div id="lang-hi" class="lang-section hindi-text">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>एल साल्वाडोर में आपका स्वागत है</strong> — आधिकारिक तौर पर <em>रिपब्लिक ऑफ एल साल्वाडोर</em> (República de El Salvador)। मध्य अमेरिका के हृदय में स्थित, होंडुरास, ग्वाटेमाला और प्रशांत महासागर से घिरा, यह संकुचित राष्ट्र असाधारण प्रभाव पैदा करता है। <span class="highlight">6.3 मिलियन से अधिक लोगों</span> की आबादी के साथ वेल्स से थोड़े बड़े क्षेत्र में, एल साल्वाडोर मध्य अमेरिका का सबसे छोटा और सबसे घनी आबादी वाला देश है — फिर भी इसकी सांस्कृतिक समृद्धि, प्राकृतिक सुंदरता और गर्मजोशी आतिथ्य इसके आकार से कहीं अधिक है। स्पेनिश विजेता पेड्रो डी अल्वाराडो द्वारा "द सेवियर" (द मुक्तिदाता) नामित, यह एक ऐसी भूमि है जहाँ प्राचीन पिपिल विरासत औपनिवेशिक भव्यता, विश्व-स्तरीय सर्फ ब्रेक और हर कोने पर ताज़ी भुनी पूपुसा की अ irresistible खुशबू से मिलती है।
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇸🇻</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">राष्ट्रीय ध्वज</h3>
+                    <p>एल साल्वाडोर का ध्वज <strong>तीन क्षैतिज धारियों</strong> को दर्शाता है: ऊपर और नीचे कोबाल्ट नीला, केंद्र में एक चौड़ी सफेद पट्टी के साथ। <strong>नीला</strong> मध्य अमेरिका को घेरने वाले दो महान महासागरों — प्रशांत और अटलांटिक — का प्रतिनिधित्व करता है, जबकि <strong>सफेद</strong> शांति, एकता और साल्वाडोरन लोगों की पवित्रता का प्रतीक है। सफेद पट्टी के केंद्र में <strong>राष्ट्रीय कोट ऑफ आर्म्स</strong> है: समानता का प्रतिनिधित्व करने वाला एक त्रिभुज, स्वतंत्रता के लिए एक फ्रिजियन टोपी, पांच मध्य अमेरिकी राष्ट्रों के लिए पांच ज्वालामुखी, और ऊपर एक इंद्रधनुष। शब्द <em>"Dios Unión Libertad"</em> (ईश्वर, संघ, स्वतंत्रता) प्रतीक चिन्ह को घेरते हैं। 1912 में अपनाया गया, यह ध्वज मध्य अमेरिकी एकता और साल्वाडोरन गर्व का एक शक्तिशाली प्रतीक है।</p>
+                </div>
+            </div>
+
+            <h2>🏙️ प्रसिद्ध शहर जो आपको अवश्य देखने चाहिए</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=800&q=80" alt="San Salvador" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ सैन साल्वाडोर — लचीली राजधानी</h3>
+                    <p>वैले डी लास हमाकास (झूलों की घाटी) में बसा, ज्वालामुखियों से घिरा, <strong>सैन साल्वाडोर</strong> अमेरिका के सबसे पुराने शहरों में से एक है — <strong>1525</strong> में स्थापित, कई यूरोपीय औपनिवेशिक बस्तियों से पहले। आज की राजधानी भूकंप-खंडित इतिहास और जीवंत नवीनीकरण का एक आकर्षक मिश्रण है। revitalized <strong>सेंट्रो हिस्टोरिको</strong> को पैदल यात्रियों के लिए खोला गया है, सप्ताहांत प्रदर्शनों, खाद्य त्योहारों और <strong>नेशनल पैलेस</strong> के पास शांत सैर के लिए जगह बनाते हुए — जो अब भव्य कक्षों और एक 105 वर्षीय आंगन का खुलासा करने वाले टूर प्रदान करता है जिसके पेड़ मध्य अमेरिकी एकता का प्रतीक हैं। <strong>मेट्रोपॉलिटन कैथेड्रल</strong> में मोंसेन्योर ऑस्कर रोमेरो की कब्र है, गृह युद्ध के दौरान हत्या किए गए बेबाक महाधर्माध्यक्ष, जिनकी विरासत अभी भी गहराई से गूंजती है। <strong>प्लाजा लिबर्टाड</strong> के आसपास, डहलिया जैसे पारंपरिक बार (1937 से खुले) रोजमर्रा की जिंदगी का एक प्रामाणिक टुकड़ा प्रदान करते हैं। प्रकृति प्रेमियों के लिए, निकटवर्ती <strong>एल बोकेरोन नेशनल पार्क</strong> आपको सैन साल्वाडोर ज्वालामुखी के क्रेटर में झांकने देता है, जबकि शहर के हलचल भरे बाजार उष्णकटिबंधीय फलों, वस्त्रों और पूपुसा ग्रिडल की ever-present सिज़ल से भरे हैं।</p>
+                    <span class="meta-tag">राष्ट्रीय भाषा: स्पेनिश</span>
+                    <span class="meta-tag red">स्थापित: 1525</span>
+                    <span class="meta-tag gold">आबादी: ~2.4M मेट्रो</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518509566874-1af3c9ac5df?w=800&q=80" alt="Santa Ana" class="city-img">
+                <div class="city-info">
+                    <h3>⛪ सांता आना — कॉफी किंगडम का मुकुट</h3>
+                    <p>राजधानी से एक घंटे से कम पश्चिम में, <strong>सांता आना</strong> एल साल्वाडोर का दूसरा सबसे बड़ा शहर और इसके किंवदंती कॉफी देश की धड़कन है। इसकी चौड़ी सड़कें और भव्य वास्तुकला 19वीं और 20वीं सदी के अंत में "काले सोने" से ईंधित समृद्धि को दर्शाती हैं — कॉफी के मुनाफे का एक हिस्सा शानदार सार्वजनिक कार्यों में निवेश किया गया था। मुकुट रत्न <strong>सांता आना कैथेड्रल</strong> है, एक शानदार नियो-गॉथिक श्रेष्ठ कृति जुड़वां शिखरों के साथ जो आसमान में छेद करती है। शहर और आसपास के हाइलैंड्स के विस्तृत दृश्यों के लिए शीर्ष पर चढ़ें। भव्य <strong>टिएट्रो डी सांता आना</strong> कॉफी युग की संपत्ति का एक और प्रमाण है। बाजार ताजे उत्पाद और सड़क खाद्य स्टेपल जैसे <em>युका फ्रिटा</em> और <em>अटोल डी एलोटे</em> से भरे हैं। लेकिन असली जादू शहर के बाहर है: <strong>सांता आना ज्वालामुखी</strong> (इलामातेपेक) अजीब नीले पानी के क्रेटर झील तक एक चुनौतीपूर्ण ट्रेक प्रदान करता है, जबकि निकटवर्ती <strong>झील कोएटेपेक</strong> — एक ढहा हुआ ज्वालामुखीय कैल्डेरा — मध्य अमेरिका की सबसे सुंदर झीलों में से एक है, कयाकिंग, तैराकी और झील किनारे भोजन के लिए आदर्श।</p>
+                    <span class="meta-tag">कॉफी की राजधानी</span>
+                    <span class="meta-tag red">सांता आना ज्वालामुखी</span>
+                    <span class="meta-tag gold">झील कोएटेपेक</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80" alt="Suchitoto" class="city-img">
+                <div class="city-info">
+                    <h3>🌺 सुचितोटो — झील के किनारे औपनिवेशिक रत्न</h3>
+                    <p>सैन साल्वाडोर से एक घंटे से अधिक उत्तर में, <strong>झील सुचितलान</strong> की चमकदार पानी के ऊपर बसा, <strong>सुचितोटो</strong> वह जगह है जहाँ समय औपनिवेशिक लय में धीमा होने लगता है। इसकी पत्थर की सड़कें, सफेद चर्च और टेराकोटा की छतें एक ऐसे शहर को ढांचा देती हैं जहाँ कला और विरासत पूर्ण सामंजस्य में फलती-फूलती है। फिल्म निर्माता अलेहांद्रो कोटो, जिन्हें मध्य अमेरिका का पहला फिल्म निर्देशक माना जाता है, ने यहाँ सांस्कृतिक दृश्य को आकार देने में मदद की, शहर के प्यारे जैज़ फेस्टिवल जैसे कार्यक्रमों का परिचय दिया। यहाँ की संस्कृति नाटकीय नहीं बल्कि जीवित महसूस होती है। <strong>नील डाइइंग वर्कशॉप</strong> अधिक असाधारण अनुभवों के साथ बैठते हैं, जैसे डोना लौरा से मिलना — कुछ शेष पारंपरिक सिगार रोलर्स में से एक जो हर एक को हाथ से तैयार करती है। <strong>कासा डी ला अबुएला</strong> में, स्थानीय कॉफी विशेषज्ञ रेने पारंपरिक <em>कोरेडो</em> कॉफी प्रदर्शन प्रदान करते हैं, ताज़ी पिसी हुई बीन्स की खुशबू से हवा भरते हुए। दोपहर के भोजन के लिए, <strong>कासा 1800 सुचितोटो</strong> झील के पार विस्तृत दृश्यों के साथ उत्कृष्ट व्यंजन परोसता है। निकटवर्ती <strong>लॉस टर्सियोस की झरनें</strong> — प्राचीन लावा प्रवाह द्वारा बनाए गए षट्कोणीय बसाल्ट स्तंभ — इस पहले से ही कालातीत गंतव्य में एक भूवैज्ञानिक आश्चर्य जोड़ते हैं।</p>
+                    <span class="meta-tag">औपनिवेशिक विरासत</span>
+                    <span class="meta-tag red">झील सुचितलान</span>
+                    <span class="meta-tag gold">नील और कला</span>
+                </div>
+            </div>
+
+            <h2>🗣️ भाषा, संस्कृति और परंपराएँ</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">स्पेनिश एल साल्वाडोर की एकमात्र आधिकारिक और राष्ट्रीय भाषा है</span>, एक विशिष्ट गर्मजोशी और लय के साथ बोली जाती है जो इसे तुरंत पहचान योग्य बनाती है। साल्वाडोरन स्पेनिश स्वदेशी <strong>नावात</strong> (पिपिल) प्रभावों से भरा है — <em>चिचे</em> (चीज़), <em>चुको</em> (गंदा), और <em>गुइश्ते</em> (बीज) जैसे शब्द प्री-कोलंबियन समय से बचे हैं। प्रसिद्ध <em>पूपुसा</em> खुद नावात शब्द <em>पूपुसावा</em> से व्युत्पन्न है, जिसका अर्थ है "फूलना" या "भरा हुआ"। आप <em>"¡के चिवो!"</em> (कितना शांत!), <em>"सिपोते"</em> (बच्चा), और <em>"चेरो"</em> (दोस्त/यार) जैसे चंचल slang भी सुनेंगे जो राष्ट्र के अदम्य spirit को दर्शाते हैं।</p>
+            <p style="margin-bottom: 22px;">यहाँ की संस्कृति <strong>परिवार, भोजन और उत्सव</strong> के इर्द-गिर्द घूमती है। <strong>पूपुसा</strong> — पनीर, फलियों, सूअर का मांस (<em>चिचार्रोन</em>), या खाद्य फूल <em>लोरोको</em> से भरी मोटी मक्की की टॉर्टिला — को 2005 में आधिकारिक तौर पर राष्ट्रीय व्यंजन घोषित किया गया था, नवंबर का दूसरा रविवार <strong>राष्ट्रीय पूपुसा दिवस</strong> के रूप में मनाया जाता है। उन्हें हमेशा <em>कुर्तिडो</em> (खमीरित गोभी स्लॉ) और <em>साल्सा रोजा</em> के साथ परोसा जाता है। पूपुसा के अलावा, साल्वाडोरन व्यंजन केले के पत्तों में लिपटे <em>तामालेस</em>, सूअर के मांस के साथ <em>युका फ्रिटा</em>, मीठा <em>क्वेसाडिल्ला साल्वाडोरेन्या</em> (चावल के आटे का केक), और पृथ्वी पर कुछ बेहतरीन कॉफी प्रदान करता है। <strong>टोरोगोज</strong> (फिरोज़ा-भौं मोमोट) राष्ट्रीय पक्षी है, जबकि <strong>माक्विलिशुआट</strong> (गुलाबी टेबेबुआ वृक्ष) राष्ट्रीय फूल है। अगस्त में <strong>फिएस्टास एगोस्टिनास</strong> से लेकर जीवंत <strong>डेड ऑफ द डेड</strong> समारोह तक, साल्वाडोरन हर अवसर को खुशी के सामुदायिक भोज में बदलना जानते हैं।</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">🥘</div>
+                    <h4>पूपुसा</h4>
+                    <p>2005 से राष्ट्रीय व्यंजन। पनीर, फलियों या सूअर का मांस से भरी मक्की की टॉर्टिला। स्वर्ग का स्वाद।</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">☕</div>
+                    <h4>कॉफी विरासत</h4>
+                    <p>ज्वालामुखी ढलानों पर उगाए गए विश्व-स्तरीय अराबिका बीन्स। देश के निर्यात का 50% से अधिक।</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🏄</div>
+                    <h4>सर्फ paradise</h4>
+                    <p>एल टुंको और पंटा रोका जैसे प्रशांत ब्रेक दुनिया के सर्वश्रेष्ठ सर्फिंग गंतव्यों में शामिल हैं।</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🌋</div>
+                    <h4>ज्वालामुखी देश</h4>
+                    <p>20+ ज्वालामुखी जिसमें सांता आना, इज़ालको और सैन मिगुएल शामिल हैं। क्रेटर झील और लावा क्षेत्रों तक ट्रेक।</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 यात्रा सुझाव:</strong> एल साल्वाडोर की यात्रा का सबसे अच्छा समय <strong>नवंबर से अप्रैल</strong> के दौरान शुष्क मौसम में है, जब धूप हावी होती है और ज्वालामुखी ट्रेकिंग सबसे सुरक्षित होती है। देश <strong>अमेरिकी डॉलर</strong> को आधिकारिक मुद्रा के रूप में उपयोग करता है (बिटकॉइन 2021 में अपनाया गया था लेकिन नकदी अभी भी राजा है)। एल साल्वाडोर उल्लेखनीय रूप से संकुचित है — आप एक ही दिन में ज्वालामुखी से समुद्र तट तक औपनिवेशिक शहर तक जा सकते हैं। अपराध पिछले कुछ वर्षों में नाटकीय रूप से गिर गया है (2015 से 98% कम), इसे मध्य अमेरिका का सबसे सुरक्षित गंतव्यों में से एक बना रहा है। चाहे आप एक पहाड़ी शहर में कोरेडो कॉफी पी रहे हों, सूर्यास्त में परफेक्ट लहरें पकड़ रहे हों, या स्थानीय लोगों के साथ पूपुसा साझा कर रहे हों जो आपको परिवार की तरह मानते हैं — एल साल्वाडोर आपको आश्चर्यचकित करेगा, आपको छुएगा, और आपको और चाहने पर मजबूर कर देगा।</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>🇸🇻 El Salvador Travel Guide | Created with ❤️ for Global Explorers</p>
+        <p style="margin-top: 10px; opacity: 0.9;">National Language: Español | Best Time: Nov–Apr | Currency: USD & Bitcoin</p>
+    </div>
+</div>
+
+<script>
+    function switchLang(lang) {
+        document.querySelectorAll('.lang-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById('lang-' + lang).classList.add('active');
+        event.target.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
