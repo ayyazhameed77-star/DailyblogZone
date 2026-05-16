@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicaragua Travel Guide — Land of Lakes & Volcanoes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Noto+Sans+Devanagari&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #1e3a8a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #fffefc;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(90deg, #1e3a8a 0%, #ffffff 50%, #1e3a8a 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+        .header::after {
+            content: "🌋";
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            font-size: 55px;
+            opacity: 0.3;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3a8a;
+            font-size: 2.8em;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.9);
+        }
+        .header .subtitle {
+            color: #444;
+            font-size: 1.15em;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .lang-bar {
+            background: #f8f9fa;
+            padding: 18px;
+            text-align: center;
+            border-bottom: 3px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .lang-btn {
+            padding: 10px 22px;
+            border: 2px solid #1e3a8a;
+            background: white;
+            color: #1e3a8a;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: #1e3a8a;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(30,58,138,0.3);
+        }
+        .content {
+            padding: 45px 35px;
+            line-height: 1.85;
+            color: #333;
+        }
+        .lang-section {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+        .lang-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .intro-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #fef9c3 100%);
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 35px;
+            border-left: 6px solid #1e3a8a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .flag-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 2px solid #e5e7eb;
+        }
+        .flag-visual {
+            font-size: 90px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+            flex-shrink: 0;
+        }
+        .city-card {
+            margin: 35px 0;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: all 0.4s ease;
+            background: white;
+        }
+        .city-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+        }
+        .city-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .city-info {
+            padding: 30px;
+        }
+        .city-info h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3a8a;
+            font-size: 1.6em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #bfdbfe 0%, #bfdbfe 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 88%;
+            padding: 0 5px;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin: 30px 0;
+        }
+        .culture-item {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border-top: 5px solid #1e3a8a;
+            transition: transform 0.3s;
+        }
+        .culture-item:hover {
+            transform: scale(1.03);
+        }
+        .culture-item .icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+        .meta-tag {
+            display: inline-block;
+            background: #1e3a8a;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 25px;
+            font-size: 0.88em;
+            margin: 6px 6px 6px 0;
+            font-weight: 500;
+        }
+        .meta-tag.red {
+            background: #dc2626;
+        }
+        .meta-tag.gold {
+            background: #f59e0b;
+            color: #333;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #fef9c3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+            border-left: 5px solid #f59e0b;
+        }
+        .footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.95em;
+        }
+        .hindi-text {
+            font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+            line-height: 2;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #1e3a8a;
+            font-size: 1.9em;
+            margin: 35px 0 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #f59e0b;
+            border-radius: 2px;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2em; }
+            .lang-btn { padding: 8px 16px; font-size: 0.85em; }
+            .content { padding: 30px 18px; }
+            .flag-section { flex-direction: column; text-align: center; }
+            .city-img { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>🇳🇮 Nicaragua Travel Guide</h1>
+        <p class="subtitle">The Land of Lakes & Volcanoes Awaits</p>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="switchLang('en')">🇬🇧 English</button>
+        <button class="lang-btn" onclick="switchLang('es')">🇳🇮 Español</button>
+        <button class="lang-btn" onclick="switchLang('hi')">🇮🇳 हिन्दी</button>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+
+        <!-- ENGLISH VERSION -->
+        <div id="lang-en" class="lang-section active">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>Welcome to Nicaragua</strong> — officially the <em>Republic of Nicaragua</em> (República de Nicaragua). Nestled in the heart of Central America between Honduras and Costa Rica, this captivating nation is the region's largest country by land area yet remains one of its most authentic and unspoiled destinations. Home to <span class="highlight">over 6 million warm-hearted people</span>, Nicaragua proudly carries the nickname <em>"The Land of Lakes and Volcanoes"</em> thanks to its 50+ volcanic peaks, two massive freshwater lakes, and countless crater lagoons. From colonial cities that predate the United States to Pacific surf breaks and Caribbean coral reefs, Nicaragua offers an intoxicating blend of adventure, history, and genuine hospitality at a fraction of the cost of its neighbors.
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇳🇮</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">The National Flag</h3>
+                    <p>Nicaragua's flag features <strong>three horizontal stripes</strong>: blue on top and bottom, with a wide white band in the center. The <strong>blue</strong> represents the Pacific Ocean and Caribbean Sea that embrace the nation; the <strong>white</strong> symbolizes peace and purity. At the center rests the national <strong>coat of arms</strong>: a triangle signifying equality, a rainbow for peace, a Phrygian cap representing liberty, five volcanoes for the brotherhood of Central American nations, and the words <em>"República de Nicaragua — América Central"</em>. Adopted in 1971, it beautifully captures the country's geographic soul and its dream of regional unity.</p>
+                </div>
+            </div>
+
+            <h2>🏙️ Famous Cities You Must Visit</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=800&q=80" alt="Managua and Lake Managua" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ Managua — The Resilient Capital</h3>
+                    <p>Sprawled along the southern shores of massive <strong>Lake Managua</strong> (Xolotlán), the capital <strong>Managua</strong> is a city that has literally risen from the ashes. Devastated by a catastrophic earthquake in 1972, today's Managua is a fascinating patchwork of modern boulevards, revolutionary murals, and poignant ruins. Visit the <strong>Old Cathedral</strong> — a skeletal shell frozen in time — and the hilltop <strong>Tiscapa Lagoon</strong> where the silhouette of Augusto Sandino overlooks the city. The <strong>Puerto Salvador Allende</strong> waterfront comes alive at night with food stalls, live music, and families strolling by the lake. While often dismissed as "bland" by guidebooks, Managua rewards curious travelers with raw urban energy, the best street food in the country, and the legendary <em>Fiestas de Santo Domingo</em> in August — a week-long explosion of processions, bull-running, and devotion that transforms the entire city into one giant party.</p>
+                    <span class="meta-tag">National Language: Spanish</span>
+                    <span class="meta-tag red">Population: ~1M</span>
+                    <span class="meta-tag gold">Lake Xolotlán</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518509566874-1af3c9ac5df?w=800&q=80" alt="Granada Colonial Streets" class="city-img">
+                <div class="city-info">
+                    <h3>🌺 Granada — The Colonial Time Capsule</h3>
+                    <p>Founded in <strong>1524</strong> by Spanish conquistador Francisco Hernández de Córdoba, <strong>Granada</strong> is the oldest colonial city on mainland Americas and arguably Central America's most beautiful. Its cobblestone streets burst with pastel-colored mansions, sweeping wooden balconies, and towering churches that earned it the nickname <em>"The Great Sultan"</em> for its Moorish-inspired architecture. The mustard-yellow <strong>Cathedral of Granada</strong> dominates the central plaza, while horse-drawn carriages clip-clop past ice-cream vendors selling <em>quesillo</em> (soft cheese with pickled onions). Just offshore, the <strong>Islets of Granada</strong> — 365 tiny islands formed by a volcanic eruption — offer monkey-spotting boat tours and waterfront dining. With the looming <strong>Mombacho Volcano</strong> as a backdrop and the vast <strong>Lake Nicaragua</strong> (Cocibolca) at its feet, Granada serves as the perfect base for exploring cloud forests, zip-lining, and coffee plantations.</p>
+                    <span class="meta-tag">Founded: 1524</span>
+                    <span class="meta-tag red">Lake Cocibolca</span>
+                    <span class="meta-tag gold">365 Islets</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1524666643752-b381eb00effb?w=800&q=80" alt="León Cathedral" class="city-img">
+                <div class="city-info">
+                    <h3>⛪ León — The City of Poets & Revolution</h3>
+                    <p>Granada's historic rival and Nicaragua's intellectual soul, <strong>León</strong> is a UNESCO World Heritage treasure that pulses with student energy, revolutionary history, and avant-garde art. The city is crowned by the <strong>Basilica Cathedral of the Assumption</strong> — the largest cathedral in Central America and one of the most stunning in all the Americas. Climb onto its whitewashed roof for panoramic views of volcanic peaks piercing the horizon. León is the birthplace of <strong>Rubén Darío</strong>, the father of Spanish-language Modernism, and his legacy lives in every poetry reading, mural, and museum. The city was also the cradle of the Sandinista revolution, and bullet-pocked walls still tell stories of courage. Nearby, you can surf the legendary breaks of <strong>Las Peñitas</strong>, hike the active <strong>Cerro Negro volcano</strong> (famous for volcano boarding), or simply sip rum at a sidewalk café while debating politics with locals who treat philosophy as a spectator sport.</p>
+                    <span class="meta-tag">UNESCO Heritage</span>
+                    <span class="meta-tag red">Largest Cathedral in CA</span>
+                    <span class="meta-tag gold">Volcano Boarding</span>
+                </div>
+            </div>
+
+            <h2>🗣️ Language, Culture & Traditions</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">Spanish is the sole official and national language</span> of Nicaragua, spoken with a melodic, relaxed cadence that makes it one of the most pleasant dialects in Latin America. Nicaraguan Spanish is famous for <strong>"voseo"</strong> — using <em>"vos"</em> instead of <em>"tú"</em> — and colorful slang like <em>"tuani"</em> (cool), <em>"chunche"</em> (thingamajig), and <em>"pisto"</em> (money). On the Caribbean coast, you'll also hear English-based Creole, Miskito, and Rama, reflecting the country's Afro-indigenous heritage. But everywhere, the language of warmth transcends words.</p>
+            <p style="margin-bottom: 22px;">Culture here runs deep and loud. <strong>Baseball</strong> is the national sport — not soccer — with passionate local leagues drawing crowds that rival MLB games. The <strong>marimba</strong> (wooden xylophone) provides the soundtrack to festivals, while <strong>palo de mayo</strong> drums animate Caribbean celebrations. Food is hearty and unforgettable: <em>gallo pinto</em> (rice and beans) for breakfast, <em>nacatamales</em> (corn dough stuffed with meat and wrapped in banana leaves), <em>vigorón</em> (yuca with pork rinds and cabbage), and the iconic <em>quesillo</em> snack. Religious festivals dominate the calendar — <strong>Semana Santa</strong> (Holy Week) in Granada and León features elaborate street carpets of colored sawdust, while <strong>La Purísima</strong> in December fills the nights with song, fireworks, and altars to the Virgin Mary.</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">🌋</div>
+                    <h4>50+ Volcanoes</h4>
+                    <p>From boarding down Cerro Negro to peering into Masaya's lava lake.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">⚾</div>
+                    <h4>Baseball Nation</h4>
+                    <p>The national sport, played with fierce pride in every town.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">📜</div>
+                    <h4>Poetry & Darío</h4>
+                    <p>León claims the highest number of poets per capita in Latin America.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🥘</div>
+                    <h4>Gallo Pinto</h4>
+                    <p>The beloved rice-and-beans dish eaten daily by nearly every Nicaraguan.</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 Travel Tip:</strong> The best time to visit Nicaragua is during the <strong>dry season from November to April</strong>, when sunny skies make volcano hiking and beach lounging ideal. The currency is the <strong>Córdoba (NIO)</strong>, though US dollars are widely accepted. Nicaragua is one of Central America's most affordable destinations — you can eat, sleep, and explore for a fraction of Costa Rican prices. Whether you're surfing Pacific waves, boating past lava-lit craters at night, or simply sharing a sunset beer with locals who feel like instant family, Nicaragua will steal your heart and keep you coming back.</p>
+            </div>
+        </div>
+
+        <!-- SPANISH VERSION (National Language) -->
+        <div id="lang-es" class="lang-section">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>Bienvenidos a Nicaragua</strong> — oficialmente la <em>República de Nicaragua</em>. Ubicada en el corazón de América Central entre Honduras y Costa Rica, esta cautivadora nación es el país más grande de la región en extensión territorial, pero sigue siendo uno de los destinos más auténticos y vírgenes. Hogar de <span class="highlight">más de 6 millones de personas de corazón cálido</span>, Nicaragua lleva con orgullo el apodo de <em>"Tierra de Lagos y Volcanes"</em> gracias a sus más de 50 picos volcánicos, dos enormes lagos de agua dulce e innumerables lagunas de cráter. Desde ciudades coloniales que preceden a Estados Unidos hasta olas para surfear en el Pacífico y arrecifes de coral en el Caribe, Nicaragua ofrece una mezcla intoxicante de aventura, historia y hospitalidad genuina a una fracción del costo de sus vecinos.
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇳🇮</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">La Bandera Nacional</h3>
+                    <p>La bandera de Nicaragua presenta <strong>tres franjas horizontales</strong>: azul arriba y abajo, con una ancha banda blanca en el centro. El <strong>azul</strong> representa el Océano Pacífico y el Mar Caribe que abrazan a la nación; el <strong>blanco</strong> simboliza la paz y pureza. En el centro descansa el <strong>escudo nacional</strong>: un triángulo que significa igualdad, un arcoíris para la paz, un gorro frigio que representa la libertad, cinco volcanes para la hermandad de las naciones centroamericanas, y las palabras <em>"República de Nicaragua — América Central"</em>. Adoptada en 1971, captura bellamente el alma geográfica del país y su sueño de unidad regional.</p>
+                </div>
+            </div>
+
+            <h2>🏙️ Ciudades Famosas que Debes Visitar</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=800&q=80" alt="Managua" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ Managua — La Capital Resiliente</h3>
+                    <p>Extendida a lo largo de las orillas sur del enorme <strong>Lago de Managua</strong> (Xolotlán), la capital <strong>Managua</strong> es una ciudad que literalmente ha resurgido de las cenizas. Devastada por un catastrófico terremoto en 1972, la Managua de hoy es un fascinante mosaico de bulevares modernos, murales revolucionarios y ruinas conmovedoras. Visita la <strong>Catedral Vieja</strong> — una estructura esquelética congelada en el tiempo — y la <strong>Laguna de Tiscapa</strong> en la cima de una colina, donde la silueta de Augusto Sandino vigila la ciudad. El malecón <strong>Puerto Salvador Allende</strong> cobra vida por la noche con puestos de comida, música en vivo y familias paseando por el lago. Aunque a menudo descartada como "sosa" por las guías turísticas, Managua recompensa a los viajeros curiosos con energía urbana cruda, la mejor comida callejera del país y las legendarias <em>Fiestas de Santo Domingo</em> en agosto — una explosión de una semana de procesiones, toros y devoción que transforma toda la ciudad en una fiesta gigante.</p>
+                    <span class="meta-tag">Idioma Nacional: Español</span>
+                    <span class="meta-tag red">Población: ~1M</span>
+                    <span class="meta-tag gold">Lago Xolotlán</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518509566874-1af3c9ac5df?w=800&q=80" alt="Granada" class="city-img">
+                <div class="city-info">
+                    <h3>🌺 Granada — La Cápsula del Tiempo Colonial</h3>
+                    <p>Fundada en <strong>1524</strong> por el conquistador español Francisco Hernández de Córdoba, <strong>Granada</strong> es la ciudad colonial más antigua del continente americano continental y posiblemente la más bella de Centroamérica. Sus calles empedradas estallan con mansiones de colores pastel, amplios balcones de madera e imponentes iglesias que le valieron el apodo de <em>"El Gran Sultán"</em> por su arquitectura de inspiración morisca. La <strong>Catedral de Granada</strong> color mostaza domina la plaza central, mientras que carruajes tirados por caballos avanzan al trote pastando vendedores de helados que venden <em>quesillo</em> (queso suave con cebolla encurtida). Justo frente a la costa, los <strong>Isletas de Granada</strong> — 365 pequeñas islas formadas por una erupción volcánica — ofrecen tours en bote para avistar monos y cenas frente al agua. Con el imponente <strong>Volcán Mombacho</strong> como telón de fondo y el vasto <strong>Lago de Nicaragua</strong> (Cocibolca) a sus pies, Granada sirve como base perfecta para explorar bosques nublados, canopy y plantaciones de café.</p>
+                    <span class="meta-tag">Fundada: 1524</span>
+                    <span class="meta-tag red">Lago Cocibolca</span>
+                    <span class="meta-tag gold">365 Isletas</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1524666643752-b381eb00effb?w=800&q=80" alt="León" class="city-img">
+                <div class="city-info">
+                    <h3>⛪ León — La Ciudad de Poetas y Revolución</h3>
+                    <p>La rival histórica de Granada y el alma intelectual de Nicaragua, <strong>León</strong> es un tesoro Patrimonio de la Humanidad de la UNESCO que palpita con energía estudiantil, historia revolucionaria y arte vanguardista. La ciudad está coronada por la <strong>Basílica Catedral de la Asunción</strong> — la catedral más grande de Centroamérica y una de las más impresionantes de todo el continente americano. Sube a su techo blanqueado para obtener vistas panorámicas de picos volcánicos perforando el horizonte. León es el lugar de nacimiento de <strong>Rubén Darío</strong>, padre del Modernismo en lengua española, y su legado vive en cada recital de poesía, mural y museo. La ciudad fue también la cuna de la revolución sandinista, y las paredes marcadas por balas aún cuentan historias de coraje. Cerca, puedes surfear las legendarias olas de <strong>Las Peñitas</strong>, hacer senderismo en el activo <strong>volcán Cerro Negro</strong> (famoso por el <em>volcano boarding</em>), o simplemente beber ron en una cafetería de acera mientras debates política con locales que tratan la filosofía como un deporte de espectadores.</p>
+                    <span class="meta-tag">Patrimonio UNESCO</span>
+                    <span class="meta-tag red">Catedral Más Grande de CA</span>
+                    <span class="meta-tag gold">Volcano Boarding</span>
+                </div>
+            </div>
+
+            <h2>🗣️ Idioma, Cultura y Tradiciones</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">El español es el único idioma oficial y nacional</span> de Nicaragua, hablado con una cadencia melódica y relajada que lo convierte en uno de los dialectos más agradables de América Latina. El español nicaragüense es famoso por el <strong>"voseo"</strong> — usar <em>"vos"</em> en lugar de <em>"tú"</em> — y argot colorido como <em>"tuani"</em> (genial), <em>"chunche"</em> (cosa/cachivache) y <em>"pisto"</em> (dinero). En la costa caribeña, también escucharás criollo de base inglesa, miskito y rama, reflejando la herencia afroindígena del país. Pero en todas partes, el lenguaje de la calidez trasciende las palabras.</p>
+            <p style="margin-bottom: 22px;">La cultura aquí es profunda y ruidosa. El <strong>béisbol</strong> es el deporte nacional — no el fútbol — con apasionadas ligas locales que atraen multitudes que rivalizan con las de las Grandes Ligas. La <strong>marimba</strong> (xilófono de madera) proporciona la banda sonora de los festivales, mientras que los tambores de <strong>palo de mayo</strong> animan las celebraciones caribeñas. La comida es contundente e inolvidable: <em>gallo pinto</em> (arroz con frijoles) para el desayuno, <em>nacatamales</em> (masa de maíz rellena de carne y envuelta en hojas de plátano), <em>vigorón</em> (yuca con chicharrón y repollo), y el icónico bocadillo <em>quesillo</em>. Los festivales religiosos dominan el calendario — la <strong>Semana Santa</strong> en Granada y León presenta elaboradas alfombras callejeras de aserrín de colores, mientras que la <strong>La Purísima</strong> en diciembre llena las noches de canto, fuegos artificiales y altares a la Virgen María.</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">🌋</div>
+                    <h4>Más de 50 Volcanes</h4>
+                    <p>Desde bajar en tabla por el Cerro Negro hasta observar el lago de lava del Masaya.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">⚾</div>
+                    <h4>Nación del Béisbol</h4>
+                    <p>El deporte nacional, jugado con orgullo feroz en cada pueblo.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">📜</div>
+                    <h4>Poesía y Darío</h4>
+                    <p>León reclama el mayor número de poetas per cápita en América Latina.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🥘</div>
+                    <h4>Gallo Pinto</h4>
+                    <p>El querido plato de arroz y frijoles que casi todos los nicaragüenses comen a diario.</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 Consejo de Viaje:</strong> La mejor época para visitar Nicaragua es durante la <strong>temporada seca de noviembre a abril</strong>, cuando los cielos soleados hacen ideales las caminatas volcánicas y el descanso en la playa. La moneda es el <strong>Córdoba (NIO)</strong>, aunque los dólares estadounidenses son ampliamente aceptados. Nicaragua es uno de los destinos más asequibles de Centroamérica — puedes comer, dormir y explorar por una fracción del costo de Costa Rica. Ya sea surfeando olas del Pacífico, navegando junto a cráteres iluminados por lava por la noche, o simplemente compartiendo una cerveza al atardecer con locales que se sienten como familia instantánea, Nicaragua te robará el corazón y te hará volver.</p>
+            </div>
+        </div>
+
+        <!-- HINDI VERSION -->
+        <div id="lang-hi" class="lang-section hindi-text">
+            <div class="intro-box">
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>निकारागुआ में आपका स्वागत है</strong> — आधिकारिक तौर पर <em>रिपब्लिक ऑफ निकारागुआ</em> (República de Nicaragua)। होंडुरास और कोस्टा रिका के बीच मध्य अमेरिका के हृदय में स्थित, यह मनमोहक राष्ट्र क्षेत्र का भूमि क्षेत्रफल में सबसे बड़ा देश है, फिर भी इसके सबसे प्रामाणिक और अछूते गंतव्यों में से एक है। <span class="highlight">6 मिलियन से अधिक दिलकश लोगों</span> का घर, निकारागुआ गर्व से <em>"झीलों और ज्वालामुखियों की भूमि"</em> का उपनाम लेता है, जिसके 50+ ज्वालामुखीय शिखर, दो विशाल ताजे पानी की झीलें और अनगिनत क्रेटर लैगून हैं। संयुक्त राज्य अमेरिका से पहले की औपनिवेशिक शहरों से लेकर प्रशांत सर्फ ब्रेक और कैरेबियन कोरल रीफ तक, निकारागुआ अपने पड़ोसियों की तुलना में लागत के एक छोटे से अंश पर साहसिक कार्य, इतिहास और वास्तविक आतिथ्य का एक नशीला मिश्रण प्रदान करता है।
+                </p>
+            </div>
+
+            <div class="flag-section">
+                <div class="flag-visual">🇳🇮</div>
+                <div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 10px; font-family: 'Playfair Display', serif;">राष्ट्रीय ध्वज</h3>
+                    <p>निकारागुआ का ध्वज <strong>तीन क्षैतिज धारियों</strong> को दर्शाता है: ऊपर और नीचे नीला, केंद्र में एक चौड़ी सफेद पट्टी के साथ। <strong>नीला</strong> प्रशांत महासागर और कैरेबियन सागर का प्रतिनिधित्व करता है जो राष्ट्र को गले लगाते हैं; <strong>सफेद</strong> शांति और पवित्रता का प्रतीक है। केंद्र में राष्ट्रीय <strong>कोट ऑफ आर्म्स</strong> है: समानता का प्रतीक एक त्रिभुज, शांति के लिए एक इंद्रधनुष, स्वतंत्रता का प्रतिनिधित्व करने वाला एक फ्रिजियन टोपी, मध्य अमेरिकी राष्ट्रों की भाईचारे के लिए पांच ज्वालामुखी, और शब्द <em>"República de Nicaragua — América Central"</em>। 1971 में अपनाया गया, यह देश की भौगोलिक आत्मा और क्षेत्रीय एकता के सपने को सुंदर ढंग से दर्शाता है।</p>
+                </div>
+            </div>
+
+            <h2>🏙️ प्रसिद्ध शहर जो आपको अवश्य देखने चाहिए</h2>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=800&q=80" alt="Managua" class="city-img">
+                <div class="city-info">
+                    <h3>🏛️ मानागुआ — लचीली राजधानी</h3>
+                    <p>विशाल <strong>झील मानागुआ</strong> (Xolotlán) के दक्षिणी किनारों के साथ फैला हुआ, राजधानी <strong>मानागुआ</strong> एक ऐसा शहर है जो शाब्दिक रूप से राख से उठा है। 1972 में एक विनाशकारी भूकंप से तबाह, आज का मानागुआ आधुनिक बुलेवार्ड, क्रांतिकारी भित्तिचित्रों और मार्मिक खंडहरों का एक आकर्षक पैचवर्क है। <strong>पुरानी कैथेड्रल</strong> — समय में जमी एक कंकाल संरचना — और पहाड़ी की चोटी पर <strong>टिस्कापा लैगून</strong> देखें, जहाँ अगस्तो सैंडिनो की छाया शहर पर नजर रखती है। <strong>पुएर्टो साल्वाडोर अल्लेन्डे</strong> वाटरफ्रंट रात में खाद्य स्टॉल, लाइव संगीत और झील के किनारे टहलने वाले परिवारों के साथ जीवंत हो जाता है। अक्सर गाइडबुक द्वारा "सादा" के रूप में खारिज किए जाने के बावजूद, मानागुआ कच्ची शहरी ऊर्जा, देश का सबसे अच्छा स्ट्रीट फूड और अगस्त में कुख्यात <em>फिएस्टास डे सैंटो डोमिंगो</em> के साथ जिज्ञासु यात्रियों को पुरस्कृत करता है — एक सप्ताह भर की जुलूस, बैल दौड़ और भक्ति की विस्फोट जो पूरे शहर को एक विशाल पार्टी में बदल देती है।</p>
+                    <span class="meta-tag">राष्ट्रीय भाषा: स्पेनिश</span>
+                    <span class="meta-tag red">आबादी: ~1M</span>
+                    <span class="meta-tag gold">झील Xolotlán</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1518509566874-1af3c9ac5df?w=800&q=80" alt="Granada" class="city-img">
+                <div class="city-info">
+                    <h3>🌺 ग्रेनाडा — औपनिवेशिक टाइम कैप्सूल</h3>
+                    <p>स्पेनिश विजेता फ्रांसिस्को हर्नांडेज़ डी कॉर्डोबा द्वारा <strong>1524</strong> में स्थापित, <strong>ग्रेनाडा</strong> मुख्य भूमि अमेरिका में सबसे पुराना औपनिवेशिक शहर और शायद मध्य अमेरिका का सबसे सुंदर शहर है। इसकी पत्थर की सड़कें पैस्टल रंग की हवेलियों, लकड़ी के विस्तृत बालकनियों और ऊंची गिरजाघरों से भरती हैं, जिसने इसे मूरिश-प्रेरित वास्तुकला के लिए <em>"द ग्रेट सुल्तान"</em> का उपनाम दिया। ग्रेनाडा की सरसों-पीली <strong>कैथेड्रल</strong> केंद्रीय चौक पर हावी है, जबकि घोड़े से खींचे गए गाड़े आइसक्रीम विक्रेताओं के पास टपटपाते हैं जो <em>क्वेसिल्लो</em> (प्याज के साथ नरम पनीर) बेचते हैं। तट के ठीक बाहर, <strong>ग्रेनाडा की द्वीपिकाएँ</strong> — एक ज्वालामुखीय विस्फोट द्वारा बनाई गई 365 छोटी द्वीप — बंदरों को देखने वाली नाव यात्राएँ और वाटरफ्रंट डाइनिंग प्रदान करती हैं। पृष्ठभूमि में <strong>मोंबाचो ज्वालामुखी</strong> और विशाल <strong>निकारागुआ झील</strong> (Cocibolca) के साथ, ग्रेनाडा बादल के जंगलों, जिप-लाइनिंग और कॉफी बागानों का पता लगाने के लिए एक आधार के रूप में कार्य करता है।</p>
+                    <span class="meta-tag">स्थापित: 1524</span>
+                    <span class="meta-tag red">झील Cocibolca</span>
+                    <span class="meta-tag gold">365 द्वीपिकाएँ</span>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <img src="https://images.unsplash.com/photo-1524666643752-b381eb00effb?w=800&q=80" alt="León" class="city-img">
+                <div class="city-info">
+                    <h3>⛪ लेओन — कवियों और क्रांति का शहर</h3>
+                    <p>ग्रेनाडा का ऐतिहासिक प्रतिद्वंद्वी और निकारागुआ की बौद्धिक आत्मा, <strong>लेओन</strong> एक यूनेस्को विश्व धरोहर खजाना है जो छात्र ऊर्जा, क्रांतिकारी इतिहास और अवंत-गार्ड कला के साथ धड़कता है। शहर <strong>बेसिलिका कैथेड्रल ऑफ द एसम्प्शन</strong> से ताज पहनता है — मध्य अमेरिका की सबसे बड़ी कैथेड्रल और पूरे अमेरिका में सबसे आश्चर्यजनक में से एक। ज्वालामुखीय चोटियों के पैनोरामिक दृश्यों के लिए इसके सफेद छत पर चढ़ें जो क्षितिज को भेदती हैं। लेओन <strong>रुबेन दारियो</strong> का जन्मस्थान है, स्पेनिश भाषा के आधुनिकतावाद के पिता, और उनकी विरासत हर कविता पाठ, भित्तिचित्र और संग्रहालय में रहती है। शहर सैंडिनिस्ता क्रांति का पालना भी था, और गोलियों से छेदी दीवारें अभी भी साहस की कहानियाँ बताती हैं। पास में, आप <strong>लास पेनिटास</strong> की कुख्यात लहरों पर सर्फिंग कर सकते हैं, सक्रिय <strong>सेरो नेग्रो ज्वालामुखी</strong> पर ट्रेकिंग कर सकते हैं (ज्वालामुखी बोर्डिंग के लिए प्रसिद्ध), या बस फुटपाथ कैफे में रम का घूंट पी सकते हैं।</p>
+                    <span class="meta-tag">यूनेस्को विरासत</span>
+                    <span class="meta-tag red">मध्य अमेरिका की सबसे बड़ी कैथेड्रल</span>
+                    <span class="meta-tag gold">ज्वालामुखी बोर्डिंग</span>
+                </div>
+            </div>
+
+            <h2>🗣️ भाषा, संस्कृति और परंपराएँ</h2>
+            <p style="margin-bottom: 22px;"><span class="highlight">स्पेनिश निकारागुआ की एकमात्र आधिकारिक और राष्ट्रीय भाषा है</span>, एक सुरीली, आरामदायक लय के साथ बोली जाती है जो इसे लैटिन अमेरिका में सबसे सुखद बोलियों में से एक बनाती है। निकारागुआई स्पेनिश <strong>"वोसेओ"</strong> के लिए प्रसिद्ध है — <em>"तू"</em> के बजाय <em>"वोस"</em> का उपयोग करना — और रंगीन अंग्रेजी जैसे <em>"तुआनी"</em> (शांत), <em>"चुंचे"</em> (चीज़माजिग) और <em>"पिस्टो"</em> (पैसा)। कैरेबियन तट पर, आप अंग्रेजी-आधारित क्रियोल, मिस्किटो और रामा भी सुनेंगे, जो देश की अफ्रीकी-आदिवासी विरासत को दर्शाता है। लेकिन हर जगह, गर्मजोशी की भाषा शब्दों से परे है।</p>
+            <p style="margin-bottom: 22px;">यहाँ की संस्कृति गहरी और जोरदार है। <strong>बेसबॉल</strong> राष्ट्रीय खेल है — फुटबॉल नहीं — जो जुनूनी स्थानीय लीगों के साथ खेला जाता है जो MLB गेम की भीड़ को चुनौती देता है। <strong>मरिम्बा</strong> (लकड़ी का जाइलोफोन) त्योहारों को धुन प्रदान करता है, जबकि <strong>पालो डे मायो</strong> ढोल कैरेबियन उत्सवों को जीवंत करते हैं। खाना हृदयतापूर्ण और अविस्मरणीय है: नाश्ते के लिए <em>गायो पिंटो</em> (चावल और फलियाँ), <em>नाकातामालेस</em> (मक्के का आटा जो मांस से भरा होता है और केले के पत्तों में लिपटा होता है), <em>विगोरोन</em> (युका चicharron और गोभी के साथ), और प्रतिष्ठित <em>क्वेसिल्लो</em> स्नैक। धार्मिक त्योहार कैलेंडर पर हावी हैं — ग्रेनाडा और लेओन में <strong>सेमाना सैंटा</strong> (पवित्र सप्ताह) में रंगीन आरी के पत्ते की अलंकृत सड़क कालीन शामिल हैं, जबकि दिसंबर में <strong>ला पुरिसिमा</strong> रातों को गीत, आतिशबाजी और कुंवारी मरियम की वेदियों से भर देती है।</p>
+
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="icon">🌋</div>
+                    <h4>50+ ज्वालामुखी</h4>
+                    <p>सेरो नेग्रो से नीचे बोर्डिंग से लेकर मासाया की लावा झील को देखने तक।</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">⚾</div>
+                    <h4>बेसबॉल राष्ट्र</h4>
+                    <p>राष्ट्रीय खेल, हर कस्बे में तीव्र गर्व के साथ खेला जाता है।</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">📜</div>
+                    <h4>कविता और दारियो</h4>
+                    <p>लेओन लैटिन अमेरिका में प्रति व्यक्ति सबसे अधिक कवियों का दावा करता है।</p>
+                </div>
+                <div class="culture-item">
+                    <div class="icon">🥘</div>
+                    <h4>गायो पिंटो</h4>
+                    <p>प्यारा चावल और फलियों का व्यंजन जो लगभग हर निकारागुआई रोजाना खाता है।</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <p><strong>💡 यात्रा सुझाव:</strong> निकारागुआ की यात्रा का सबसे अच्छा समय <strong>नवंबर से अप्रैल</strong> के दौरान शुष्क मौसम में है, जब धूप वाले आकाश ज्वालामुखी ट्रेकिंग और समुद्र तट पर आराम करने के लिए आदर्श बनाते हैं। मुद्रा <strong>कॉर्डोबा (NIO)</strong> है, हालांकि अमेरिकी डॉलर व्यापक रूप से स्वीकार किए जाते हैं। निकारागुआ मध्य अमेरिका के सबसे सस्ते गंतव्यों में से एक है — आप कोस्टा रिका की कीमतों के एक अंश पर खा, सो और खोज सकते हैं। चाहे आप प्रशांत की लहरों पर सर्फिंग कर रहे हों, रात में लावा-रोशन क्रेटर के पास नाव चला रहे हों, या बस सूर्यास्त बियर स्थानीय लोगों के साथ साझा कर रहे हों, निकारागुआ आपका दिल चुरा लेगा और आपको वापस लाने के लिए मजबूर कर देगा।</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>🇳🇮 Nicaragua Travel Guide | Created with ❤️ for Global Explorers</p>
+        <p style="margin-top: 10px; opacity: 0.9;">National Language: Español | Best Time: Nov–Apr | Currency: Córdoba & USD</p>
+    </div>
+</div>
+
+<script>
+    function switchLang(lang) {
+        document.querySelectorAll('.lang-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById('lang-' + lang).classList.add('active');
+        event.target.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
