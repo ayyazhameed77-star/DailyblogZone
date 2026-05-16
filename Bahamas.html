@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahamas Travel Guide – The Jewel of the Caribbean</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(180deg, #e0f7fa 0%, #b2ebf2 100%);
+            color: #1a237e;
+            line-height: 1.8;
+            padding-bottom: 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #00A9CE, #FFD100);
+            color: #000;
+            padding: 55px 20px;
+            border-radius: 0 0 35px 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .header::after {
+            content: "";
+            position: absolute;
+            top: -20px; right: -20px;
+            width: 120px; height: 120px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+        }
+        .header h1 {
+            font-size: 2.6em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+            color: #000;
+        }
+        .header p {
+            font-size: 1.25em;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .lang-bar {
+            background: #fff;
+            padding: 16px;
+            border-radius: 14px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 12px;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        .lang-btn {
+            padding: 10px 26px;
+            border: none;
+            border-radius: 28px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            background: #e1f5fe;
+            color: #01579b;
+            border: 2px solid #b3e5fc;
+        }
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,169,206,0.25);
+            background: #b3e5fc;
+        }
+        .lang-btn.active {
+            background: #00A9CE;
+            color: #fff;
+            border-color: #00A9CE;
+        }
+        .card {
+            background: #fff;
+            border-radius: 22px;
+            padding: 38px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            border-top: 5px solid #FFD100;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+        }
+        .card h2 {
+            color: #002f6c;
+            font-size: 1.85em;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 4px solid #00A9CE;
+            display: inline-block;
+        }
+        .card p {
+            font-size: 1.07em;
+            text-align: justify;
+            margin-bottom: 16px;
+            color: #2c3e50;
+        }
+        .highlight {
+            background: #fff9c4;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+            color: #f57f17;
+        }
+        .tips-box {
+            background: #e1f5fe;
+            border-left: 6px solid #00A9CE;
+            padding: 22px;
+            border-radius: 12px;
+            margin: 22px 0;
+        }
+        .tips-box h3 { color: #002f6c; margin-bottom: 12px; font-size: 1.3em; }
+        .tips-box ul { margin-left: 22px; }
+        .tips-box li { margin-bottom: 10px; color: #334155; }
+        .flag-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 28px;
+            margin: 22px 0;
+        }
+        .flag-img {
+            width: 200px;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+            border: 3px solid #FFD100;
+        }
+        .city-img {
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+            margin: 22px 0;
+            object-fit: cover;
+            max-height: 460px;
+            border: 3px solid #00A9CE;
+        }
+        .caption {
+            text-align: center;
+            font-style: italic;
+            color: #546e7a;
+            margin-top: -12px;
+            margin-bottom: 18px;
+            font-size: 0.96em;
+        }
+        .footer {
+            text-align: center;
+            padding: 32px;
+            color: #455a64;
+            font-size: 0.92em;
+            background: #ffffffaa;
+            border-radius: 16px;
+            margin-top: 10px;
+        }
+        .tag {
+            display: inline-block;
+            background: #00A9CE;
+            color: white;
+            padding: 5px 16px;
+            border-radius: 22px;
+            font-size: 0.88em;
+            margin: 6px 6px 0 0;
+            font-weight: 600;
+        }
+        .tag.gold {
+            background: #FFD100;
+            color: #000;
+        }
+        @media(max-width: 600px) {
+            .header h1 { font-size: 1.9em; }
+            .card { padding: 22px; }
+            .flag-section { flex-direction: column; text-align: center; }
+            .flag-img { width: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1 id="main-title">Bahamas Travel Guide</h1>
+    <p id="sub-title">Explore 700 Islands of Paradise</p>
+</div>
+
+<div class="container">
+
+    <!-- Language Selector -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="setLang('en')">🇺🇸 English</button>
+        <button class="lang-btn" onclick="setLang('ur')">🇵🇰 اردو</button>
+        <button class="lang-btn" onclick="setLang('hi')">🇮🇳 हिन्दी</button>
+        <button class="lang-btn" onclick="setLang('bc')">🇧🇸 Bahamian Creole</button>
+    </div>
+
+    <!-- Introduction / Background -->
+    <div class="card">
+        <h2 id="intro-title">Welcome to The Bahamas</h2>
+        <div class="content en">
+            <p>The <strong>Commonwealth of The Bahamas</strong> is an archipelagic paradise nestled in the lucid waters of the Atlantic Ocean, stretching southeast off the coast of Florida. Comprising over <span class="highlight">700 islands and 2,400 cays</span>, only about 30 of these breathtaking jewels are inhabited, leaving countless pristine beaches, hidden lagoons, and untouched coral reefs waiting to be discovered. The name "Bahamas" derives from the Spanish <em>"Baja Mar"</em> meaning <strong>shallow sea</strong>, a perfect description of the brilliant turquoise waters that define this magnificent nation.</p>
+            <p>The Bahamas boasts a rich and layered history. Originally home to the Lucayan Taíno people, the islands were later claimed by Spain and eventually became a British Crown colony in 1718. The islands became notorious as a pirate haven in the early 18th century, with the infamous <strong>Blackbeard</strong> once haunting Nassau Harbour. Gaining independence on <strong>July 10, 1973</strong>, The Bahamas is now a proud member of the Commonwealth, blending British colonial heritage with vibrant Afro-Caribbean traditions.</p>
+            <p><strong>English</strong> is the official language, used in government, education, and commerce. However, most Bahamians naturally speak <strong>Bahamian Creole (Bahamian Dialect)</strong>, an English-based creole language flavored with African influences, creating a warm and melodious local tongue that reflects the soul of the islands.</p>
+        </div>
+        <div class="content ur" style="display:none;" dir="rtl">
+            <p><strong>کامن ویلتھ آف دی بہاماس</strong> ایک جزیرہ نما جنت ہے جو فلوریڈا کے ساحل کے جنوب مشرق میں بحر اوقیانوس کے شفاف پانیوں میں آباد ہے۔ <span class="highlight">700 سے زیادہ جزیروں اور 2,400 کیز</span> پر مشتمل، ان دلفریب موتیوں میں سے صرف 30 آباد ہیں، جس کے نتیجے میں بے شمار خوشگوار ساحل، پوشیدہ لیگون، اور بے چین مرجان کی چٹانیں دریافت ہونے کے منتظر ہیں۔ "بہاماس" کا نام اسپینش <em>"باحا مار"</em> سے نکلا ہے جس کا مطلب ہے <strong>"چھلا سمندر"</strong> — یہ اس شاندار فیروزی پانیوں کی بہترین تصویر کشی ہے جو اس شاندار قوم کی وضاحت کرتے ہیں۔</p>
+            <p>بہاماس ایک امیر اور پرت دار تاریخ کا حامل ہے۔ اصل میں لیکیان ٹائنو لوگوں کا گھر، جزیروں پر بعد میں اسپین کا دعویٰ کیا گیا اور بالآخر 1718 میں یہ ایک برطانوی کالونی بن گیا۔ 18ویں صدی کے اوائل میں یہ جزیرے دیوہیکل قزاقوں کے ٹھکانے کے طور پر بدنام ہوئے، جس میں مشہور زمانہ <strong>بلیک بیئرڈ</strong> ایک بار ناساؤ بندرگاہ میں آوارہ گردی کرتا تھا۔ <strong>10 جولائی 1973</strong> کو آزادی حاصل کرنے کے بعد، بہاماس اب دولت مشترکہ کا ایک فخر ravinda رکن ہے، جو برطانوی نوآبادیاتی ورثے کو متحرک افرو-کیریبین روایات کے ساتھ جوڑتا ہے۔</p>
+            <p><strong>انگریزی</strong> سرکاری زبان ہے، جو حکومت، تعلیم، اور تجارت میں استعمال ہوتی ہے۔ تاہم، زیادہ تر بہامians فطری طور پر <strong>بہامian کریول (بہامian لہجہ)</strong> بولتے ہیں، جو انگریزی پر مبنی کریول زبان ہے جس میں افریقی اثرات کا ذائقہ ہے، جو جزیروں کی روح کی عکاسی کرنے والی ایک گرم اور دلکش مقامی زبان پیدا کرتی ہے۔</p>
+        </div>
+        <div class="content hi" style="display:none;">
+            <p><strong>कॉमनवेल्थ ऑफ द बहामास</strong> एक द्वीपीय स्वर्ग है जो फ्लोरिडा के तट से दक्षिण-पूर्व में अटलांटिक महासागर के पारदर्शी पानी में बसा हुआ है। <span class="highlight">700 से अधिक द्वीपों और 2,400 कीज़</span> होने के साथ, इन सुंदर रत्नों में से केवल 30 ही आबाद हैं, जिससे अनगिनत सुंदर समुद्र तट, छुपे हुए लैगून, और अछूते मूंगा चट्टानें खोजी जाने का इंतज़ार कर रहे हैं। "बहामास" नाम स्पेनिश <em>"बाहा मार"</em> से आया है जिसका अर्थ है <strong>"उथला समुद्र"</strong> — यह चमकीले फ़िरोज़ी पानी का बेहतरीन चित्रण है जो इस शानदार राष्ट्र को परिभाषित करता है।</p>
+            <p>बहामास एक समृद्ध और स्तरित इतिहास का दावा करता है। मूल रूप से लुकायन ताइनो लोगों का घर, द्वीपों पर बाद में स्पेन का दावा किया गया और अंततः 1718 में यह एक ब्रिटिश क्राउन कॉलोनी बन गया। 18वीं शताब्दी की शुरुआत में ये द्वीप समुद्री डाकू के आश्रय के रूप में कुख्यात हो गए, जिसमें कुख्यात <strong>ब्लैकबियर्ड</strong> एक समय नासाऊ बंदरगाह में घूमता था। <strong>10 जुलाई 1973</strong> को स्वतंत्रता प्राप्त करने के बाद, बहामास अब कॉमनवेल्थ का एक गौरवान्वित सदस्य है, जो ब्रिटिश औपनिवेशिक विरासत को जीवंत अफ्रीकी-कैरेबियन परंपराओं के साथ मिलाता है।</p>
+            <p><strong>अंग्रेज़ी</strong> आधिकारिक भाषा है, जो सरकार, शिक्षा और वाणिज्य में उपयोग की जाती है। हालांकि, अधिकांश बहामियन स्वाभाविक रूप से <strong>बहामियन क्रियोल (बहामियन बोली)</strong> बोलते हैं, यह एक अंग्रेज़ी-आधारित क्रियोल भाषा है जो अफ्रीकी प्रभावों से सुगंधित है, एक गर्म और सुरीली स्थानीय बोली पैदा करती है जो द्वीपों की आत्मा को दर्शाती है।</p>
+        </div>
+        <div class="content bc" style="display:none;">
+            <p>The <strong>Commonwealth of The Bahamas</strong> be a whole heap a islands sittin' pretty in de clear-blue waters of de Atlantic, just off de coast a Florida. Wid <span class="highlight">over 700 islands an' 2,400 cays</span>, only 'bout 30 a dem hab people livin' on 'em, so dat mean plenty white-sand beaches, secret lagoons, an' untouched reefs still waitin' to be found. De name "Bahamas" come from de Spanish <em>"Baja Mar,"</em> meanin' <strong>shallow sea</strong>, which suit it right proper 'cause de water does be da colour a turquoise jewels.</p>
+            <p>Bahamas got history runnin' deep like de sea itself. First, de Lucayan Taíno people does live here long time; den de Spanish come an' claim it, an' by 1718 it turn into a British Crown colony. Back in dem early 1700s, Nassau Harbour was a pirate paradise — even de great bad-man <strong>Blackbeard</strong> does sail dese waters! On <strong>July 10, 1973</strong>, Bahamas get it independence an' become a proud member a de Commonwealth, mixin' British ways wid strong Afro-Caribbean spirit.</p>
+            <p><strong>English</strong> is de official language we use for government an' school, but lemme tell ya, when Bahamians talk amongst weself, we does speak <strong>Bahamian Creole (Bahamian Dialect)</strong>, which be a sweet melody a English mixed up wid African roots — it is de true sound a de islands, yinna.</p>
+        </div>
+        <div>
+            <span class="tag">🏝️ 700 Islands</span>
+            <span class="tag gold">🌊 Caribbean</span>
+            <span class="tag">☀️ Tropical Paradise</span>
+        </div>
+    </div>
+
+    <!-- National Flag -->
+    <div class="card">
+        <h2 id="flag-title">National Flag & Symbolism</h2>
+        <div class="flag-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg" alt="Flag of The Bahamas" class="flag-img">
+            <div class="content en">
+                <p>The <strong>national flag of The Bahamas</strong> was officially hoisted on July 10, 1973, the day of independence. It features three horizontal stripes of <strong>aquamarine, gold, and aquamarine</strong>, with a black equilateral triangle on the hoist side. This elegant yet powerful design carries profound meaning. The aquamarine stripes symbolize the stunning crystal-clear waters that surround the archipelago — the very essence of Bahamian beauty and life. The golden stripe represents the brilliant sunshine and sandy beaches that attract millions of visitors to these shores every year.</p>
+                <p>The <strong>black triangle</strong> on the left stands for the vigor, strength, and unity of the Bahamian people. It is a deliberate acknowledgment of the African heritage and the resilience of a nation built through the toil and determination of its people. Together, these elements create a flag that waves not only as a national emblem but as a promise of tropical splendor and indomitable island spirit.</p>
+            </div>
+            <div class="content ur" style="display:none;" dir="rtl">
+                <p><strong>بہاماس کا قومی پرچم</strong> باضابطہ طور پر 10 جولائی 1973 کو لہرایا گیا، جو آزادی کا دن تھا۔ اس میں <strong>ایکوا مارین، سنہری، اور ایکوا مارین</strong> کی تین افقی دھاریاں ہیں، جس میں ہوسٹ سائڈ پر ایک سیاہ مساوی ضلع ہے۔ یہ عنصر دار اور طاقتور ڈیزائن گہرا معنی رکھتا ہے۔ ایکوا مارین دھاریاں اس حیرت انگیز شفاف پانیوں کی علامت ہیں جو جزیرہ نما کو گھیرے ہوئے ہیں — یہی بہامی خوبصورتی اور زندگی کا جوہر ہے۔ سنہری دھاری چمکیلی دھوپ اور ریتلے ساحلوں کی نمائندگی کرتی ہے جو ہر سال لاکھوں سیاحوں کو یہ ساحل کھینچ لاتی ہے۔</p>
+                <p>بائیں جانب کا <strong>سیاہ تکون</strong> بہامی لوگوں کی قوت، طاقت اور اتحاد کی علامت ہے۔ یہ افریقی ورثے اور اپنی محنت اور عزم سے بنے ہوئے ایک قوم کی لچک کا ایک دانستہ اعتراف ہے۔ مل کر، یہ عناصر ایک پرچم بناتے ہیں جو صرف ایک قومی علامت کے طور پر نہیں لہراتا بلکہ استوائی شان اور ناقابل تسخیر جزیرے کی روح کا وعدہ بھی ہے۔</p>
+            </div>
+            <div class="content hi" style="display:none;">
+                <p><strong>बहामास का राष्ट्रीय ध्वज</strong> को आधिकारिक तौर पर 10 जुलाई 1973, स्वतंत्रता के दिन, फहराया गया था। इसमें <strong>एक्वामरीन, सुनहरी, और एक्वामरीन</strong> की तीन क्षैतिज पट्टियाँ हैं, जिसमें होइस्ट साइड पर एक काला समबाहु त्रिभुज है। यह सुंदर फिर भी शक्तिशाली डिज़ाइन गहरा अर्थ रखता है। एक्वामरीन पट्टियाँ उस आश्चर्यजनक साफ पानी का प्रतीक हैं जो द्वीपसमूह को घेरता है — यही बहामियन सुंदरता और जीवन का सार है। सुनहरी पट्टी उस चमकीली धूप और रेतीले समुद्र तटों का प्रतिनिधित्व करती है जो हर साल लाखों आगंतुकों को इन किनारों की ओर खींचते हैं।</p>
+                <p>बाईं ओर का <strong>काला त्रिभुज</strong> बहामियन लोगों के साहस, ताकत और एकता का प्रतीक है। यह अफ्रीकी विरासत और अपनी मेहनत और दृढ़ संकल्प से बनी एक राष्ट्र के लचीलेपन का एक जानबूझकर स्वीकार है। मिलकर, ये तत्व एक ध्वज बनाते हैं जो केवल एक राष्ट्रीय प्रतीक के रूप में नहीं लहराता बल्कि उष्णकटिबंधीय भव्यता और अदम्य द्वीप की आत्मा का वादा भी है।</p>
+            </div>
+            <div class="content bc" style="display:none;">
+                <p>De <strong>national flag a The Bahamas</strong> did officially raise up on July 10, 1973, de day we get independence. It got three horizontal stripes a <strong>aquamarine, gold, an' aquamarine</strong>, wid a black triangle pointin' from de hoist side. Dat simple but strong design carry deep meanin'. De aquamarine stripes does represent de clear-clear water dat surround dese islands — it is de very heart an' soul a Bahamian beauty. De gold stripe stand for de bright hot sun an' powdery sand beaches dat does bring millions a tourist here every year.</p>
+                <p>De <strong>black triangle</strong> on de lef' does represent de vigor, strength, an' unity a de Bahamian people. It is a proud nod to our African heritage an' to de resilience a a nation built through hard work an' determination. All t'gether, dem colours create a flag dat don't just wave as a symbol, but as a promise a tropical splendor an' unbreakable island spirit.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Famous City: Nassau -->
+    <div class="card">
+        <h2 id="city-title">Nassau – The Vibrant Capital</h2>
+        <img src="https://v3b.fal.media/files/b/0a9a7875/Y1_d1zS6KI8_LXQhr7jep_UoH0wc99.png" alt="Nassau Bahamas aerial view" class="city-img">
+        <p class="caption" id="caption-text">Aerial view of Nassau Harbour, pastel colonial architecture, and Paradise Island on the horizon</p>
+
+        <div class="content en">
+            <p><strong>Nassau</strong>, located on the island of New Providence, is the beating heart of The Bahamas and one of the most captivating capitals in the Caribbean. With a population of roughly 275,000, it seamlessly fuses old-world colonial charm with modern tropical glamour. Walking down <strong>Bay Street</strong>, the aroma of fresh conch fritters fills the air, calypso music drifts from open doorways, and candy-colored Georgian buildings line the waterfront, creating a postcard-perfect setting at every turn.</p>
+            <p>No visit to Nassau is complete without exploring <strong>Paradise Island</strong>, connected by two iconic bridges from the city center. Here stands the legendary <strong>Atlantis Paradise Island</strong> resort, an ocean-themed wonderland featuring the world's largest open-air marine habitat, thrilling water parks, and luxury casinos. Yet beyond the glitz, Nassau offers deeply rooted cultural experiences. The <strong>Pirates of Nassau Museum</strong> brings the swashbuckling Golden Age of Piracy to life, while the bustling <strong>Straw Market</strong> brims with handmade Bahamian crafts, straw bags, and vibrant wood carvings crafted by local artisans.</p>
+            <p>As the sun dips below the horizon, Nassau truly comes alive. The city's dining scene spans from beachside shacks serving <strong>cracked conch</strong> and johnnycakes to upscale restaurants offering grilled lobster with ocean views. If you are fortunate enough to visit during Boxing Day or New Year's Day, you will witness <strong>Junkanoo</strong> — a kaleidoscopic street parade of elaborate costumes, goatskin drums, cowbells, and whistles that embodies the untamed joy of Bahamian culture. Nassau is not merely a destination; it is a state of mind defined by salt air, warm smiles, and endless island rhythms.</p>
+        </div>
+        <div class="content ur" style="display:none;" dir="rtl">
+            <p><strong>ناساؤ</strong>، نیو پروویڈنس جزیرے پر واقع، بہاماس کا دھڑکتا ہوا دل اور کیریبین کے سب سے دلکش دارالحکومتوں میں سے ایک ہے۔ تقریباً 275,000 آبادی کے ساتھ، یہ پرانی دنیا کے نوآبادیاتی کشش کو جدید استوائی چمک کے ساتھ بلا محنت ملاتا ہے۔ <strong>بے اسٹریٹ</strong> پر چلتے ہوئے، تازہ کونک فریٹرز کی خوشبو ہوا میں بھر جاتی ہے، کلیپسو موسیقی کھلے دروازوں سے بہتی ہے، اور کیٹی رنگوں والی جارجیائی عمارات واٹر فرنٹ پر قطار بناتی ہیں، جو ہر موڑ پر ڈاک کارڈ جیسا کامل منظر پیدا کرتی ہیں۔</p>
+            <p>ناساؤ کا دورہ <strong>پیراڈائز آئی لینڈ</strong> کے بغیر نامکمل ہے، جو شہر کے مرکز سے دو مشہور پلوں سے جڑا ہوا ہے۔ یہاں مشہور <strong>اطلانتس پیراڈائز آئی لینڈ</strong> ریزورٹ کھڑا ہے، ایک سمندر تھیم والا جنت جو دنیا کا سب سے بڑا کھلا ہوا بحریہ آبادکاری، دل دہلا دینے والے واٹر پارکس، اور عالیشان کیسینوں کی میزبانی کرتا ہے۔ لیکن چمک سے باہر، ناساؤ گہری جڑوں والی ثقافتی تجربات پیش کرتا ہے۔ <strong>پائریٹس آف ناساؤ میوزیم</strong> چanch کی زریں عمر کو زندہ کرتا ہے، جبکہ ہجوم والا <strong>اسٹرا مارکیٹ</strong> ہاتھ سے بنے بہامian دستکاری، اسٹرا بیگز، اور مقامی ہنرمندوں کے ذریعہ بنے متحرک لکڑی کے نقاشیوں سے لبریز ہے۔</p>
+            <p>جب سورج افق کے نیچے ڈوبتا ہے، ناساؤ واقعی میں جان آجاتا ہے۔ شہر کا کھانا منظر ساحلی جھونپڑیوں سے لے کر <strong>کریکڈ کانک</strong> اور جانیکیکس پیش کرنے والے اعلی درجے کے ریستورانوں تک پھیلا ہوا ہے۔ اگر آپ قسمت مند ہیں کہ باکسنگ ڈے یا نیو Year's ڈے کے دوران دیکھ سکیں، تو آپ <strong>جنگانو</strong> کا مشاہدہ کریں گے — ایک جامعی سڑک پریڈ جس میں باریک کپڑے، بکری والے جلد کے ڈھول، گائے کی گھنٹی، اور سیٹیاں شامل ہیں جو بہامی ثقافت کی غیر فطری خوشی کو ظاہر کرتی ہیں۔ ناساؤ صرف ایک منزل نہیں ہے؛ یہ نمکین ہوا، گرم مسکانوں، اور لامتناہی جزیرے کی دھڑکنوں سے متعین ذہنیت ہے۔</p>
+        </div>
+        <div class="content hi" style="display:none;">
+            <p><strong>नासाऊ</strong>, न्यू प्रोविडेंस द्वीप पर स्थित, बहामास का धड़कता हुआ दिल और कैरेबियन की सबसे मोहक राजधानियों में से एक है। लगभग 275,000 की आबादी के साथ, यह पुरानी दुनिया के औपनिवेशिक आकर्षण को आधुनिक उष्णकटिबंधीय ग्लैमर के साथ सहजता से मिलाता है। <strong>बे स्ट्रीट</strong> पर चलते हुए, ताज़े कोंक फ्रिटर्स की सुगंध हवा में भर जाती है, कैलिप्सो संगीत खले दरवाज़ों से बहता है, और कैंडी रंग की जॉर्जियाई इमारतें वाटरफ्रंट को घेरती हैं, हर मोड़ पर एक पोस्टकार्ड जैसा सही दृश्य बनाती हैं।</p>
+            <p>नासाऊ की यात्रा <strong>पैराडाइज़ आइलैंड</strong> के बिना अधूरी है, जो शहर के केंद्र से दो प्रतिष्ठित पुलों से जुड़ा हुआ है। यहाँ प्रसिद्ध <strong>एटलांटिस पैराडाइज़ आइलैंड</strong> रिसॉर्ट खड़ा है, एक समुद्र-थीम वाला आश्चर्यजनक स्थान जो दुनिया का सबसे बड़ा खुला समुद्री आवास, रोमांचक वॉटर पार्क और लक्ज़री कैसीनो प्रदान करता है। लेकिन चमक से परे, नासाऊ गहराई से जड़ित सांस्कृतिक अनुभव प्रदान करता है। <strong>पाइरेट्स ऑफ नासाऊ म्यूज़ियम</strong> समुद्री डकैती के स्वर्ण युग को जीवंत करता है, जबकि हलचल भरा <strong>स्ट्रॉ मार्केट</strong> हाथ से बने बहामियन शिल्प, स्ट्रॉ बैग और स्थानीय शिल्पकारों द्वारा बनाए गए जीवंत लकड़ी के नक्काशी से भरा हुआ है।</p>
+            <p>जब सूर्य क्षितिज के नीचे डूबता है, नासाऊ वास्तव में जीवंत हो जाता है। शहर का भोजन दृश्य समुद्र तट की झोंपड़ियों से लेकर <strong>क्रैक्ड कॉंक</strong> और जॉनीकेक्स परोसने वाले उच्च-स्तरीय रेस्तरां तक फैला हुआ है। यदि आपकी किस्मत बॉक्सिंग डे या नए साल के दिन मे जाने की हो, तो आप <strong>जंकानू</strong> — विस्तृत पोशाकों, बकरी के चमड़े के ढोल, गाय की घंटी और सीटी से युक्त एक रंगीली सड़क परेड — देखेंगे जो बहामियन संस्कृति की अदम्य खुशी को दर्शाती है। नासाऊ केवल एक गंतव्य नहीं है; यह नमकीन हवा, गर्म मुस्कानों और अंतहीन द्वीप लयों से परिभाषित एक मानसिक स्थिति है।</p>
+        </div>
+        <div class="content bc" style="display:none;">
+            <p><strong>Nassau</strong>, sittin' pretty on New Providence island, is de true heart a The Bahamas an' one a de most captivatin' capitals in de whole Caribbean. Wid roughly 275,000 people, it mix up de old colonial charm wid modern tropical flair so nice. Walkin' down <strong>Bay Street</strong>, de smell a fresh conch fritters fill de air, calypso music float from doorways, an' dem pastel-colour Georgie buildings does line de waterfront — every corner look like a postcard!</p>
+            <p>No trip to Nassau finish unless yinna visit <strong>Paradise Island</strong>, connected by two big bridges from town. Dis is where de famous <strong>Atlantis Paradise Island</strong> resort stand tall, a ocean-themed wonderland wid de biggest open-air marine habitat in de whole wide world, plus water parks an' fancy casinos. But beyond all dat flashiness, Nassau got deep cultural roots too. De <strong>Pirates of Nassau Museum</strong> does bring back de swashbucklin' Golden Age a Piracy, an' de busy <strong>Straw Market</strong> full to de brim wid handmade Bahamian crafts, straw bags, an' bright wood carvins from local hands.</p>
+            <p>When de sun go down, Nassau does truly come alive. De food scene range from beach shacks servin' <strong>cracked conch</strong> an' johnnycakes to upscale places offerin' grilled lobster wid ocean view. If yinna lucky 'nough to visit durin' Boxing Day or New Year's Day, yinna will witness <strong>Junkanoo</strong> — a wild, colourful street parade a elaborate costumes, goatskin drums, cowbells, an' whistles dat show de pure joy a Bahamian culture. Nassau ain't just a place yinna visit; it is a state a mind made a salt air, warm smiles, an' endless island rhythm.</p>
+        </div>
+
+        <div>
+            <span class="tag">🏰 Nassau</span>
+            <span class="tag gold">🐚 Conch & Culture</span>
+            <span class="tag">🎉 Junkanoo</span>
+        </div>
+    </div>
+
+    <!-- Travel Tips -->
+    <div class="card">
+        <div class="tips-box">
+            <h3 id="tips-title">Essential Travel Tips</h3>
+            <div class="content en">
+                <ul>
+                    <li><strong>Best Time to Visit:</strong> Mid-December to April offers the sunniest, driest weather, though prices peak during this season.</li>
+                    <li><strong>Currency:</strong> The Bahamian Dollar (BSD) is pegged 1:1 with the US Dollar, and both are accepted everywhere interchangeably.</li>
+                    <li><strong>Getting There:</strong> Lynden Pindling International Airport (NAS) in Nassau is the primary gateway, with direct flights from major North American and European cities.</li>
+                    <li><strong>Island Hopping:</strong> Take local ferries or short domestic flights to explore the Exumas, Eleuthera, Harbour Island (famous pink sands!), and the Abacos.</li>
+                    <li><strong>Local Cuisine:</strong> Do not leave without trying conch salad, Bahamian rock lobster, peas 'n' rice, guava duff, and the iconic Switcha (limeade).</li>
+                    <li><strong>Manners:</strong> Bahamians are famously polite. A friendly "Good morning" or "Good afternoon" before starting a conversation goes a long way.</li>
+                </ul>
+            </div>
+            <div class="content ur" style="display:none;" dir="rtl">
+                <ul>
+                    <li><strong>جانے کا بہترین وقت:</strong> دسمبر کے درمیان سے اپریل تک سب سے دھوپ والا، خشک موسم پیش کرتا ہے، اگرچہ اس موسم میں قیمتیں عروج پر ہوتی ہیں۔</li>
+                    <li><strong>کرنسی:</strong> بہامian ڈالر (BSD) امریکی ڈالر کے ساتھ 1:1 منسلک ہے، اور دونوں ہر جگہ باہمی طور پر قبول کیے جاتے ہیں۔</li>
+                    <li><strong>وہاں پہنچنا:</strong> ناساؤ میں لنڈن پنڈلنگ بین الاقوامی ہوائی اڈہ (NAS) بنیادی داخلی دروازہ ہے، جو شمالی امریکی اور یورپی شہروں سے براہ راست پروازوں کے ساتھ ہے۔</li>
+                    <li><strong>جزیرہ ہاپنگ:</strong> مقامی فیریز یا مختصر گھریلوں پروازوں کے ذریعے ایکزوماس، الیوتھیرا، ہاربر آئی لینڈ (مشہور گلابی ریت!)، اور اباکوس کو دریافت کریں۔</li>
+                    <li><strong>مقامی پکوان:</strong> کونک سلاد، بہامian راک لوبسٹر، مٹر اور چاول، گواوہ ڈف، اور مشہور سوئچا (لائمیڈ) چکھنے کے بغیر نہ جائیں۔</li>
+                    <li><strong>آداب:</strong> بہامیوں کو بدنام زمانہ نزاکت کا حامل ہے۔ گفتگو شروع کرنے سے پہلے ایک دوستانہ "صبح بخیر" یا "دوپہر بخیر" بہت آگے لے جاتا ہے۔</li>
+                </ul>
+            </div>
+            <div class="content hi" style="display:none;">
+                <ul>
+                    <li><strong>यात्रा का सर्वोत्तम समय:</strong> दिसंबर मध्य से अप्रैल तक सबसे धूप वाला, शुष्क मौसम प्रदान करता है, हालांकि इस मौसम में कीमतें चरम पर होती हैं।</li>
+                    <li><strong>मुद्रा:</strong> बहामियन डॉलर (BSD) अमेरिकी डॉलर के साथ 1:1 जुड़ा हुआ है, और दोनों को हर जगह परस्पर स्वीकार किया जाता है।</li>
+                    <li><strong>पहुंचने का तरीका:</strong> नासाउ में लिंडेन पिंडलिंग अंतर्राष्ट्रीय हवाई अड्डा (NAS) प्रमुख प्रवेश द्वार है, जिसमें प्रमुख उत्तर अमेरिकी और यूरोपीय शहरों से सीधी उड़ानें हैं।</li>
+                    <li><strong>द्वीप हॉपिंग:</strong> एक्जुमास, एलेथुरा, हार्बर आइलैंड (प्रसिद्ध गुलाबी रेत!), और अबाकोस का पता लगाने के लिए स्थानीय फेरी या छोटी घरेलू उड़ानें लें।</li>
+                    <li><strong>स्थानीय व्यंजन:</strong> कॉंक सलाद, बहामियन रॉक लॉबस्टर, मटर और चावल, गुवावा डफ, और प्रतिष्ठित स्विचा (नींबू पानी) को चखे बिना न जाएं।</li>
+                    <li><strong>शिष्टाचार:</strong> बहामियन व्यक्ति famously विनम्र होते हैं। बातचीत शुरू करने से पहले एक मैत्रीपूर्ण "Good morning" या "Good afternoon" कहना बहुत मायने रखता है।</li>
+                </ul>
+            </div>
+            <div class="content bc" style="display:none;">
+                <ul>
+                    <li><strong>Best Time to Visit:</strong> From mid-December to April ya get de sunniest, driest weather, though prices does go up in dat season.</li>
+                    <li><strong>Money:</strong> De Bahamian Dollar (BSD) tie up 1:1 wid de US Dollar, an' both does spend same-same everywhere ya go.</li>
+                    <li><strong>Gettin' Here:</strong> Lynden Pindling International Airport (NAS) in Nassau is de main gateway, wid direct flights from big North American an' European cities.</li>
+                    <li><strong>Island Hoppin':</strong> Take local ferries or short local flights to check out Exumas, Eleuthera, Harbour Island (famous pink sand!), an' de Abacos.</li>
+                    <li><strong>Local Vittles:</strong> Don't leave without tryin' conch salad, Bahamian rock lobster, peas 'n' rice, guava duff, an' de iconic Switcha limeade.</li>
+                    <li><strong>Manners:</strong> Bahamians be known for good manners. A friendly "Good mornin'" or "Good afternoon" before ya start talkin' does mean a lot.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="card">
+        <h2 id="end-title">Closing Thoughts</h2>
+        <div class="content en">
+            <p>The Bahamas is far more than a sun-soaked playground for luxury travelers. It is a nation where powder-soft sands meet centuries of pirate lore, where coral reefs explode with marine life, and where the rhythm of Junkanoo drums echoes the heartbeat of a proud people. Whether you are swimming with pigs in the Exumas, wandering the historic streets of Nassau, or simply sipping rum punch beneath a coconut palm, The Bahamas offers a tropical escape that feels both timeless and exhilarating. Come for the beaches, stay for the soul — and let these 700 islands remind you what paradise truly means.</p>
+        </div>
+        <div class="content ur" style="display:none;" dir="rtl">
+            <p>بہاماس عیش و آرام کے مسافروں کے لیے صرف دھوپ سے/snatched کھیل کا میدان نہیں ہے۔ یہ ایک ایسا ملک ہے جہاں نرم پاؤڈر ریت صدیوں پرانی قزاقوں کی داستانوں سے ملتی ہے، جہاں مرجان کی چٹانیں سمندری حیات سے بھری پڑتی ہیں، اور جہاں جنگانو کے ڈھول کی دھڑکن ایک فخر قوم کی دل کی دھڑکن کی گونج ہے۔ چاہے آپ ایکزوماس میں سؤروں کے ساتھ تیراکی کر رہے ہوں، ناساؤ کی تاریخی گلیوں میں گھوم رہے ہوں، یا بس ناریل کے کھجور کے نیچے رم پنچ微妙 کر رہے ہوں، بہاماس ایک استوائی فرار پیش کرتا ہے جو لازوال اور پرجوش دونوں محسوس ہوتا ہے۔ ساحلوں کے لیے آئیں، روح کے لیے رہیں — اور ان 700 جزیروں کو آپ کو یاد دلانے دیں کہ جنت واقعی کا کیا مطلب ہے۔</p>
+        </div>
+        <div class="content hi" style="display:none;">
+            <p>बहामास आलीशान यात्रियों के लिए धूप से सनी खेल का मैदान से कहीं अधिक है। यह एक ऐसा राष्ट्र है जहाँ बेहद नरम रेत सदियों की समुद्री डकैती की lore से मिलती है, जहाँ मूंगा चट्टानें समुद्री जीवन से भरपूर हैं, और जहाँ जंकानू ढोल की ताल एक गौरवान्वित लोगों की धड़कन को दोहराती है। चाहे आप एक्जुमास में सुअरों के साथ तैराकी कर रहे हों, नासाऊ की ऐतिहासिक गलियों में घूम रहे हों, या बस नारियल ताले के नीचे रम पंच का घूंट भर रहे हों, बहामास एक उष्णकटिबंधीय एस्केप प्रदान करता है जो कालातीत और उत्तेजक दोनों लगता है। समुद्र तटों के लिए आएं, आत्मा के लिए ठहरें — और इन 700 द्वीपों को आपको याद दिलाने दें कि स्वर्ग का असली अर्थ क्या है।</p>
+        </div>
+        <div class="content bc" style="display:none;">
+            <p>The Bahamas be much more dan a sun-soaked playground for fancy travelers. It is a nation where soft powder sand meet centuries a pirate lore, where coral reefs full up wid sea life, an' where de rhythm a Junkanoo drums echo de heartbeat a a proud people. Whether yinna swimmin' wid de famous pigs in de Exumas, strollin' de historic streets a Nassau, or just sippin' rum punch under a coconut tree, The Bahamas offer a tropical escape dat feel both timeless an' excitin'. Come for de beaches, stay for de soul — an' let dem 700 islands remind yinna what paradise truly mean.</p>
+        </div>
+        <div>
+            <span class="tag">🌴 Paradise Found</span>
+            <span class="tag gold">🌊 Explore Bahamas</span>
+            <span class="tag">☀️ Happy Travels!</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Crafted for explorers & dreamers | Safe Travels!</p>
+        <p>National Languages: English & Bahamian Creole | Translations: English, Urdu, Hindi, Bahamian Creole</p>
+    </div>
+
+</div>
+
+<script>
+    function setLang(lang) {
+        const buttons = document.querySelectorAll('.lang-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        const contents = document.querySelectorAll('.content');
+        contents.forEach(c => c.style.display = 'none');
+
+        const selected = document.querySelectorAll('.' + lang);
+        selected.forEach(s => s.style.display = 'block');
+
+        if (lang === 'ur') {
+            document.body.style.direction = 'rtl';
+        } else {
+            document.body.style.direction = 'ltr';
+        }
+
+        const titles = {
+            en: {
+                main: "Bahamas Travel Guide",
+                sub: "Explore 700 Islands of Paradise",
+                intro: "Welcome to The Bahamas",
+                flag: "National Flag & Symbolism",
+                city: "Nassau – The Vibrant Capital",
+                caption: "Aerial view of Nassau Harbour, pastel colonial architecture, and Paradise Island on the horizon",
+                tips: "Essential Travel Tips",
+                end: "Closing Thoughts"
+            },
+            ur: {
+                main: "بہاماس سفر گائیڈ",
+                sub: "700 جزیروں کا جنت دریافت کریں",
+                intro: "بہاماس میں خوش آمدید",
+                flag: "قومی پرچم اور علامت",
+                city: "ناساؤ — زندہ دار دارالحکومت",
+                caption: "ناساؤ بندرگاہ، پاسٹل نوآبادیاتی تعمیرات، اور دور کے پیراڈائز آئی لینڈ کا فضائی منظر",
+                tips: "اہم سفر کے نکات",
+                end: "اختتامی خیالات"
+            },
+            hi: {
+                main: "बहामास यात्रा गाइड",
+                sub: "700 द्वीपों का स्वर्ग देखें",
+                intro: "बहामास में आपका स्वागत है",
+                flag: "राष्ट्रीय ध्वज और प्रतीकवाद",
+                city: "नासाऊ – जीवंत राजधानी",
+                caption: "नासाऊ बंदरगाह, पास्टल औपनिवेशिक वास्तुकला, और क्षितिज पर पैराडाइज़ आइलैंड का हवाई दृश्य",
+                tips: "आवश्यक यात्रा सुझाव",
+                end: "समापन विचार"
+            },
+            bc: {
+                main: "Bahamas Travel Guide",
+                sub: "Explore 700 Islands a Paradise",
+                intro: "Welcome to The Bahamas",
+                flag: "National Flag & What It Mean",
+                city: "Nassau – De Vibrant Capital",
+                caption: "Aerial view a Nassau Harbour, pastel buildings, an' Paradise Island on de horizon",
+                tips: "Essential Travel Tips",
+                end: "Closin' Thoughts"
+            }
+        };
+
+        const t = titles[lang];
+        document.getElementById('main-title').innerText = t.main;
+        document.getElementById('sub-title').innerText = t.sub;
+        document.getElementById('intro-title').innerText = t.intro;
+        document.getElementById('flag-title').innerText = t.flag;
+        document.getElementById('city-title').innerText = t.city;
+        document.getElementById('caption-text').innerText = t.caption;
+        document.getElementById('tips-title').innerText = t.tips;
+        document.getElementById('end-title').innerText = t.end;
+    }
+</script>
+
+</body>
+</html>
