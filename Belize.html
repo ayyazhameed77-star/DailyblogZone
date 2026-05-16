@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belize Travel Guide 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .lang-bar {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            padding: 15px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            z-index: 100;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .lang-bar h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .lang-btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .btn-en { background: #3498db; color: white; }
+        .btn-ur { background: #27ae60; color: white; }
+        .btn-hi { background: #e74c3c; color: white; }
+        .btn-es { background: #f39c12; color: white; }
+        .active { box-shadow: 0 0 0 3px rgba(0,0,0,0.2); transform: scale(1.05); }
+
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .header-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #e74c3c;
+            font-size: 1.8rem;
+            margin: 30px 0 15px;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #2980b9;
+            font-size: 1.4rem;
+            margin: 20px 0 10px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+        .flag-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+        .flag-img {
+            max-width: 300px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .city-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        .city-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        .highlight-box h3 { color: white; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .stat-item {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stat-item strong {
+            display: block;
+            font-size: 1.3rem;
+            color: #2c3e50;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+        .urdu-text { direction: rtl; font-family: 'Jameel Noori Nastaleeq', 'Urdu Typesetting', serif; }
+        .hindi-text { font-family: 'Mangal', 'Kokila', sans-serif; }
+
+        @media (max-width: 600px) {
+            .blog-card { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+            .city-img { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Language Selector -->
+    <div class="lang-bar">
+        <h3 id="lang-title">🌐 Choose Your Language / زبان منتخب کریں / भाषा चुनें / Elige tu idioma</h3>
+        <button class="lang-btn btn-en active" onclick="setLang('en')">🇺🇸 English</button>
+        <button class="lang-btn btn-ur" onclick="setLang('ur')">🇵🇰 اردو (Urdu)</button>
+        <button class="lang-btn btn-hi" onclick="setLang('hi')">🇮🇳 हिंदी (Hindi)</button>
+        <button class="lang-btn btn-es" onclick="setLang('es')">🇧🇿 Español (Spanish)</button>
+        <p style="margin-top:10px; font-size:0.85rem; color:#666;">
+            <span class="en">National Language: English (Belizean Creole widely spoken)</span>
+            <span class="ur urdu-text" style="display:none;">قومی زبان: انگریزی (بیلیزیئن کریول وسیع طور پر بولی جاتی ہے)</span>
+            <span class="hi hindi-text" style="display:none;">राष्ट्रीय भाषा: अंग्रेज़ी (बेलीज़ियन क्रियोल व्यापक रूप से बोली जाती है)</span>
+            <span class="es" style="display:none;">Idioma Nacional: Inglés (Criollo beliceño ampliamente hablado)</span>
+        </p>
+    </div>
+
+    <!-- Main Blog Content -->
+    <div class="blog-card">
+        <img src="https://kimi-web-img.moonshot.cn/img/thewatermarkbelize.com/1774379f919a02383ed07cd510350a45cb463f90.webp" alt="Great Blue Hole Belize" class="header-img">
+        
+        <h1>
+            <span class="en">🇧🇿 Belize: Where the Caribbean Meets the Jungle</span>
+            <span class="ur urdu-text" style="display:none;">🇧🇿 بیلیز: جہاں کیریبین جنگل سے ملتا ہے</span>
+            <span class="hi hindi-text" style="display:none;">🇧🇿 बेलीज़: जहाँ कैरेबियन जंगल से मिलता है</span>
+            <span class="es" style="display:none;">🇧🇿 Belice: Donde el Caribe se Encuentra con la Jungla</span>
+        </h1>
+        
+        <p class="subtitle">
+            <span class="en">A Complete Travel Guide for 2026</span>
+            <span class="ur urdu-text" style="display:none;">2026 کے لیے مکمل سفر گائیڈ</span>
+            <span class="hi hindi-text" style="display:none;">2026 के लिए एक संपूर्ण यात्रा गाइड</span>
+            <span class="es" style="display:none;">Una Guía de Viaje Completa para 2026</span>
+        </p>
+
+        <!-- Country Background -->
+        <h2>
+            <span class="en">🗺️ Country Background</span>
+            <span class="ur urdu-text" style="display:none;">🗺️ ملک کا تعارف</span>
+            <span class="hi hindi-text" style="display:none;">🗺️ देश का परिचय</span>
+            <span class="es" style="display:none;">🗺️ Antecedentes del País</span>
+        </h2>
+        
+        <p class="en">
+            Belize, formerly known as British Honduras, is a captivating Central American nation nestled between Mexico to the north, Guatemala to the west and south, and the sparkling Caribbean Sea to the east. Despite being on the mainland, Belize feels distinctly Caribbean — English is the official language, the culture is a vibrant blend of Maya, Mestizo, Creole, Garifuna, and Mennonite influences, and the laid-back vibe is infectious. Spanning just 22,966 square kilometers with a population of roughly 400,000, it is one of the least densely populated countries in the Americas. Belize gained independence from Britain in 1981 but remains a member of the Commonwealth. What makes Belize truly extraordinary is its astonishing diversity: the second-largest barrier reef in the world, the only jaguar reserve on Earth, over 900 ancient Maya sites, and the famous Great Blue Hole — a submarine sinkhole so perfect it looks Photoshopped from space.
+        </p>
+        <p class="ur urdu-text" style="display:none;">
+            بیلیز، جو پہلے برٹش ہونڈوراس کے نام سے جانا جاتا تھا، ایک دلکش وسطی امریکی ملک ہے جو شمال میں میکسیکو، مغرب اور جنوب میں گوئٹے مالا، اور مشرق میں چمکتا ہوا بحیرہ کیریبین کے درمیان واقع ہے۔ براعظم ہونے کے باوجود، بیلیز واضح طور پر کیریبین محسوس ہوتا ہے — انگریزی سرکاری زبان ہے، ثقافت مایا، میسٹizo، کریول، گاریفونا، اور مینونائٹ اثرات کا ایک زندہ دل امتزاج ہے، اور سست روی والا ماحول متعدی ہے۔ صرف 22,966 مربع کلومیٹر پر محیط اور تقریباً 400,000 کی آبادی کے ساتھ، یہ امریکہ میں سب سے کم آبادی والے ممالک میں سے ایک ہے۔ بیلیز نے 1981 میں برطانیہ سے آزادی حاصل کی لیکن برادری ریاست کا رکن رہا۔ جو چیز بیلیز کو واقعی غیر معمولی بناتی ہے وہ اس کی حیرت انگیز تنوع ہے: دنیا کی دوسری سب سے بڑی بیرئیر ریف، زمین پر واحد جگوار ریزرو، 900 سے زیادہ قدیم مایا مقامات، اور مشہور گریٹ بلیو ہول — ایک آبدوز سنkhole جو اتنا کامل ہے کہ خلاء سے دیکھنے پر یہ فوٹوشاپ شدہ لگتا ہے۔
+        </p>
+        <p class="hi hindi-text" style="display:none;">
+            बेलीज़, जो पहले ब्रिटिश होंडुरास के नाम से जाना जाता था, एक मनमोहक मध्य अमेरिकी राष्ट्र है जो उत्तर में मेक्सिको, पश्चिम और दक्षिण में ग्वाटेमाला, और पूर्व में चमकदार कैरेबियन सागर के बीच स्थित है। मुख्य भूमि पर होने के बावजूद, बेलीज़ स्पष्ट रूप से कैरेबियन महसूस होता है — अंग्रेज़ी आधिकारिक भाषा है, संस्कृति माया, मेस्टिज़ो, क्रियोल, गैरिफुना, और मेनोनाइट प्रभावों का एक जीवंत मिश्रण है, और निराली सुस्त माहौल संक्रामक है। केवल 22,966 वर्ग किलोमीटर में फैला और लगभग 400,000 की आबादी के साथ, यह अमेरिका में सबसे कम घनत्व वाले देशों में से एक है। बेलीज़ ने 1981 में ब्रिटेन से स्वतंत्रता प्राप्त की लेकिन राष्ट्रमंडल का सदस्य बना रहा। जो चीज़ बेलीज़ को वास्तव में असाधारण बनाती है वह इसकी आश्चर्यजनक विविधता है: दुनिया की दूसरी सबसे बड़ी बैरियर रीफ, पृथ्वी पर एकमात्र जगुआर रिज़र्व, 900 से अधिक प्राचीन माया स्थल, और प्रसिद्ध ग्रेट ब्लू होल — एक पनडुब्बी सिंकहोल जो इतना परिपूर्ण है कि अंतरिक्ष से देखने पर यह फोटोशॉप किया हुआ लगता है।
+        </p>
+        <p class="es" style="display:none;">
+            Belice, anteriormente conocido como Honduras Británica, es una cautivadora nación centroamericana ubicada entre México al norte, Guatemala al oeste y sur, y el brillante Mar Caribe al este. A pesar de estar en el continente, Belice se siente claramente caribeño — el inglés es el idioma oficial, la cultura es una vibrante mezcla de influencias maya, mestiza, criolla, garífuna y menonita, y el ambiente relajado es contagioso. Con solo 22,966 kilómetros cuadrados y una población de aproximadamente 400,000, es uno de los países menos densamente poblados de las Américas. Belice obtuvo su independencia de Gran Bretaña en 1981 pero sigue siendo miembro de la Commonwealth. Lo que hace a Belice verdaderamente extraordinario es su asombrosa diversidad: la segunda barrera de arrecifes más grande del mundo, la única reserva de jaguares en la Tierra, más de 900 sitios antiguos mayas, y el famoso Gran Agujero Azul — un sumidero submarino tan perfecto que parece retocado desde el espacio.
+        </p>
+
+        <!-- Flag Section -->
+        <h2>
+            <span class="en">🏳️ National Flag</span>
+            <span class="ur urdu-text" style="display:none;">🏳️ قومی پرچم</span>
+            <span class="hi hindi-text" style="display:none;">🏳️ राष्ट्रीय ध्वज</span>
+            <span class="es" style="display:none;">🏳️ Bandera Nacional</span>
+        </h2>
+        
+        <div class="flag-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Flag_of_Belize.svg/1200px-Flag_of_Belize.svg.png" alt="Belize Flag" class="flag-img">
+        </div>
+        
+        <p class="en">
+            The flag of Belize is one of the most detailed national flags in the world. It features a royal blue field with two narrow red stripes at the top and bottom. At the center sits the Belize Coat of Arms encircled by a wreath of 25 leaves — 13 on the left representing the 13 states of the original United States (a nod to Belize's democratic ideals) and 12 on the right representing the districts of Belize. The coat of arms depicts two woodcutters — one of African descent and one of European descent — holding tools, symbolizing the logging industry that built the nation. Below them is the national motto: <em>"Sub Umbra Floreo"</em> (Under the Shade I Flourish). Adopted on September 21, 1981 — Independence Day — this flag tells the story of a multicultural nation rooted in unity and natural abundance.
+        </p>
+        <p class="ur urdu-text" style="display:none;">
+            بیلیز کا پرچم دنیا کا سب سے تفصیلی قومی پرچموں میں سے ایک ہے۔ اس میں ایک شاہی نیلا میدان ہے جس کے اوپر اور نیچے دو تنگ سرخ دھاریاں ہیں۔ مرکز میں بیلیز کا کوٹ آف آرمس 25 پتوں کے ہار میں گھرا ہوا ہے — بائیں طرف 13 پتے اصل ریاستہائے متحدہ کے 13 ریاستوں کی نمائندگی کرتے ہیں (بیلیز کے جمہوری نظریات کا اعتراف) اور دائیں طرف 12 پتے بیلیز کے اضلاع کی نمائندگی کرتے ہیں۔ کوٹ آف آرمز دو لکڑی کاٹنے والوں کو دکھاتا ہے — ایک افریقی نسل کا اور ایک یورپی نسل کا — جو اوزار پکڑے ہوئے ہیں، جو لکڑی کی صنعت کی علامت ہے جس نے قوم تعمیر کی۔ ان کے نیچے قومی نعرہ ہے: <em>"سب امبرا فلوریو"</em> (سایہ کے نیچے میں پھلتا پھولتا ہوں)۔ 21 ستمبر 1981 — یوم آزادی — کو اپنایا گیا، یہ پرچم اتحاد اور قدرتی وسائل میں جڑے ایک کثیر الثقافتی قوم کی داستان بیان کرتا ہے۔
+        </p>
+        <p class="hi hindi-text" style="display:none;">
+            बेलीज़ का ध्वज दुनिया का सबसे विस्तृत राष्ट्रीय ध्वजों में से एक है। इसमें एक शाही नीला क्षेत्र है जिसके ऊपर और नीचे दो संकरे लाल धारियाँ हैं। केंद्र में बेलीज़ का coat of arms 25 पत्तियों के माला में घिरा हुआ है — बाईं ओर 13 पत्ते मूल संयुक्त राज्य अमेरिका के 13 राज्यों का प्रतिनिधित्व करते हैं (बेलीज़ के लोकतांत्रिक आदर्शों का संकेत) और दाईं ओर 12 पत्ते बेलीज़ के जिलों का प्रतिनिधित्व करते हैं। coat of arms दो लकड़हारों को दर्शाता है — एक अफ्रीकी वंश का और एक यूरोपीय वंश का — जो औजार पकड़े हुए हैं, जो लकड़ी उद्योग का प्रतीक है जिसने राष्ट्र का निर्माण किया। उनके नीचे राष्ट्रीय मंत्र है: <em>"Sub Umbra Floreo"</em> (छाया के नीचे मैं फलता-फूलता हूँ)। 21 सितंबर 1981 — स्वतंत्रता दिवस — को अपनाया गया, यह ध्वज एकता और प्राकृतिक समृद्धि में जड़े एक बहुसांस्कृतिक राष्ट्र की कहानी बताता है।
+        </p>
+        <p class="es" style="display:none;">
+            La bandera de Belice es una de las banderas nacionales más detalladas del mundo. Presenta un campo azul real con dos franjas rojas estrechas en la parte superior e inferior. En el centro se encuentra el Escudo de Armas de Belice rodeado por una guirnalda de 25 hojas — 13 a la izquierda representando los 13 estados originales de los Estados Unidos (un guiño a los ideales democráticos de Belice) y 12 a la derecha representando los distritos de Belice. El escudo de armas muestra a dos leñadores — uno de ascendencia africana y otro de ascendencia europea — sosteniendo herramientas, simbolizando la industria maderera que construyó la nación. Debajo de ellos está el lema nacional: <em>"Sub Umbra Floreo"</em> (Bajo la Sombra Florezco). Adoptada el 21 de septiembre de 1981 — Día de la Independencia — esta bandera cuenta la historia de una nación multicultural arraigada en la unidad y la abundancia natural.
+        </p>
+
+        <!-- Quick Stats -->
+        <div class="stats">
+            <div class="stat-item">
+                <strong class="en">22,966 km²</strong>
+                <strong class="ur urdu-text" style="display:none;">22,966 مربع کلومیٹر</strong>
+                <strong class="hi hindi-text" style="display:none;">22,966 वर्ग किमी</strong>
+                <strong class="es" style="display:none;">22,966 km²</strong>
+                <span class="en">Area</span>
+                <span class="ur urdu-text" style="display:none;">رقبہ</span>
+                <span class="hi hindi-text" style="display:none;">क्षेत्रफल</span>
+                <span class="es" style="display:none;">Área</span>
+            </div>
+            <div class="stat-item">
+                <strong class="en">400,000</strong>
+                <strong class="ur urdu-text" style="display:none;">400,000</strong>
+                <strong class="hi hindi-text" style="display:none;">400,000</strong>
+                <strong class="es" style="display:none;">400,000</strong>
+                <span class="en">Population</span>
+                <span class="ur urdu-text" style="display:none;">آبادی</span>
+                <span class="hi hindi-text" style="display:none;">जनसंख्या</span>
+                <span class="es" style="display:none;">Población</span>
+            </div>
+            <div class="stat-item">
+                <strong class="en">Belmopan</strong>
+                <strong class="ur urdu-text" style="display:none;">بیلمپن</strong>
+                <strong class="hi hindi-text" style="display:none;">बेलमोपान</strong>
+                <strong class="es" style="display:none;">Belmopán</strong>
+                <span class="en">Capital</span>
+                <span class="ur urdu-text" style="display:none;">دارالحکومت</span>
+                <span class="hi hindi-text" style="display:none;">राजधानी</span>
+                <span class="es" style="display:none;">Capital</span>
+            </div>
+            <div class="stat-item">
+                <strong class="en">English</strong>
+                <strong class="ur urdu-text" style="display:none;">انگریزی</strong>
+                <strong class="hi hindi-text" style="display:none;">अंग्रेज़ी</strong>
+                <strong class="es" style="display:none;">Inglés</strong>
+                <span class="en">Language</span>
+                <span class="ur urdu-text" style="display:none;">زبان</span>
+                <span class="hi hindi-text" style="display:none;">भाषा</span>
+                <span class="es" style="display:none;">Idioma</span>
+            </div>
+        </div>
+
+        <!-- Famous Cities -->
+        <h2>
+            <span class="en">🏙️ Famous Cities & Destinations</span>
+            <span class="ur urdu-text" style="display:none;">🏙️ مشہور شہروں اور مقامات</span>
+            <span class="hi hindi-text" style="display:none;">🏙️ प्रसिद्ध शहर और गंतव्य</span>
+            <span class="es" style="display:none;">🏙️ Ciudades y Destinos Famosos</span>
+        </h2>
+
+        <!-- Belize City -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/500a568d5fba4af4a4118b6ec47f181a0a1769ae.jpg" alt="Belize City aerial view" class="city-img">
+            <h3>
+                <span class="en">📍 Belize City — The Historic Port</span>
+                <span class="ur urdu-text" style="display:none;">📍 بیلیز سٹی — تاریخی بندرگاہ</span>
+                <span class="hi hindi-text" style="display:none;">📍 बेलीज़ सिटी — ऐतिहासिक बंदरगाह</span>
+                <span class="es" style="display:none;">📍 Ciudad de Belice — El Puerto Histórico</span>
+            </h3>
+            <p class="en">
+                Belize City is the largest city and former capital, sitting at the mouth of the Belize River where it meets the Caribbean Sea. With roughly 60,000 residents, it serves as the country's commercial and cultural heartbeat. The city's colonial architecture — wooden houses on stilts, Anglican churches, and the iconic Swing Bridge (the only manually operated bridge of its kind remaining in the world) — tells stories of British colonial rule. Visit the Museum of Belize housed in a former prison, explore the vibrant street art scene, or take a water taxi to the nearby cayes. While no longer the capital (Belmopan took that role after Hurricane Hattie devastated the city in 1961), Belize City remains the gateway to the reef and the soul of the nation.
+            </p>
+            <p class="ur urdu-text" style="display:none;">
+                بیلیز سٹی سب سے بڑا شہر اور سابقہ دارالحکومت ہے، جو بیلیز دریا کے دہانے پر واقع ہے جہاں یہ بحیرہ کیریبین سے ملتا ہے۔ تقریباً 60,000 رہائشیوں کے ساتھ، یہ ملک کا تجارتی اور ثقافتی دل دھڑکتا ہے۔ شہر کی نوآبادیاتی معماری — کھمبوں پر لکڑی کے گھر، انگلیکن چرچ، اور شاندار سوئنگ برج (اپنی نوعیت کا دنیا میں باقی رہنے والا واحد دستی چلنے والا پل) — برطانوی نوآبادیاتی حکمرانی کی کہانیاں بیان کرتی ہے۔ سابقہ جیل میں قائم بیلیز میوزیم کا دورہ کریں، زندہ دل سٹریٹ آرٹ منظر کو دریافت کریں، یا قریب کے جزائر (کے) کے لیے واٹر ٹیکسی لیں۔ اگرچہ یہ اب دارالحکومت نہیں (1961 میں ہریکین ہیٹی نے شہر کو تباہ کرنے کے بعد بیلمپن نے یہ کردار سنبھالا)، بیلیز سٹی ریف کا دروازہ اور قوم کی روح بنا ہوا ہے۔
+            </p>
+            <p class="hi hindi-text" style="display:none;">
+                बेलीज़ सिटी सबसे बड़ा शहर और पूर्व राजधानी है, जो बेलीज़ नदी के मुहाने पर स्थित है जहाँ यह कैरेबियन सागर से मिलती है। लगभग 60,000 निवासियों के साथ, यह देश का व्यावसायिक और सांस्कृतिक हृदय है। शहर की औपनिवेशिक वास्तुकला — खंभों पर लकड़ी के घर, एंग्लिकन चर्च, और प्रतिष्ठित स्विंग ब्रिज (अपनी तरह का दुनिया में एकमात्र बचा हुआ मैन्युअल संचालित पुल) — ब्रिटिश औपनिवेशिक शासन की कहानियाँ बताती है। एक पूर्व जेल में स्थित बेलीज़ संग्रहालय का दौरा करें, जीवंत स्ट्रीट आर्ट दृश्य का पता लगाएँ, या नज़दीकी के (cayes) के लिए वॉटर टैक्सी लें। हालाँकि अब यह राजधानी नहीं है (1961 में हरिकेन हैटी ने शहर को तबाह करने के बाद बेलमोपान ने यह भूमिका संभाली), बेलीज़ सिटी रीफ का प्रवेश द्वार और राष्ट्र की आत्मा बना हुआ है।
+            </p>
+            <p class="es" style="display:none;">
+                La Ciudad de Belice es la ciudad más grande y antigua capital, ubicada en la desembocadura del Río Belice donde se encuentra con el Mar Caribe. Con aproximadamente 60,000 residentes, sirve como el corazón comercial y cultural del país. La arquitectura colonial de la ciudad — casas de madera sobre pilotes, iglesias anglicanas y el icónico Puente Giratorio (el único puente de su tipo operado manualmente que queda en el mundo) — cuenta historias del dominio colonial británico. Visita el Museo de Belice alojado en una antigua prisión, explora la vibrante escena de arte callejero, o toma un taxi acuático a los cayos cercanos. Aunque ya no es la capital (Belmopán asumió ese papel después de que el Huracán Hattie devastara la ciudad en 1961), la Ciudad de Belice sigue siendo la puerta de entrada al arrecife y el alma de la nación.
+            </p>
+        </div>
+
+        <!-- San Pedro / Ambergris Caye -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/belizeadventure.ca/c9ac43429c98cfc9484f87afd3ccd9fb46cc231c.jpg" alt="San Pedro Ambergris Caye" class="city-img">
+            <h3>
+                <span class="en">📍 San Pedro — Ambergris Caye Paradise</span>
+                <span class="ur urdu-text" style="display:none;">📍 سان پیڈرو — ایمبرگرس کیے کا جنت</span>
+                <span class="hi hindi-text" style="display:none;">📍 सैन पेड्रो — एम्बरग्रिस के स्वर्ग</span>
+                <span class="es" style="display:none;">📍 San Pedro — Paraíso de Cayo Ambergris</span>
+            </h3>
+            <p class="en">
+                San Pedro is the charming town on Ambergris Caye, the largest and most popular island in Belize. Just a short flight or boat ride from Belize City, this Caribbean gem stretches 40 kilometers along the Mesoamerican Barrier Reef — the second-largest reef system on Earth. The town's sandy streets, colorful wooden buildings, and golf-cart traffic create a uniquely laid-back atmosphere. Dive the Hol Chan Marine Reserve to swim with nurse sharks and stingrays, snorkel the crystal-clear waters of Mexico Rocks, or simply relax at beachfront cafes with fresh lobster and rum punch. Madonna famously sang about this island in "La Isla Bonita," and once you feel the warm trade winds and see the turquoise waters, you'll understand why.
+            </p>
+            <p class="ur urdu-text" style="display:none;">
+                سان پیڈرو ایمبرگرس کیے پر ایک دلکش قصبہ ہے، جو بیلیز کا سب سے بڑا اور سب سے مقبول جزیرہ ہے۔ بیلیز سٹی سے صرف ایک مختصر پرواز یا کشتی کی سواری پر، یہ کیریبین ہیرا میسوامریکن بیرئیر ریف — زمین پر دوسرا سب سے بڑا ریف نظام — کے ساتھ 40 کلومیٹر تک پھیلا ہوا ہے۔ قصبے کی ریتیلی سڑکیں، رنگین لکڑی کے عمارتیں، اور گالف کارٹ ٹریفک ایک منفرد سست روی والا ماحول پیدا کرتی ہیں۔ ہول چان میرین ریزرو میں ڈائونگ کریں تاکہ نرس شارکس اور اسٹنگ رے کے ساتھ تیراکی کر سکیں، میکسیکو راکس کے کرسٹل صاف پانی میں سنوکلنگ کریں، یا صرف تازہ لابسٹر اور رم پنچ کے ساتھ بیچ فرنٹ کافیز میں آرام کریں۔ مدونا نے مشہور طور پر "لا ایسلا بونیتا" میں اس جزیرے کے بارے میں گایا، اور ایک بار جب آپ گرم تجارتی ہواؤں کو محسوس کریں گے اور فیروزی پانی دیکھیں گے، تو آپ سمجھ جائیں گے کہ کیوں۔
+            </p>
+            <p class="hi hindi-text" style="display:none;">
+                सैन पेड्रो एम्बरग्रिस के पर एक आकर्षक कस्बा है, जो बेलीज़ का सबसे बड़ा और सबसे लोकप्रिय द्वीप है। बेलीज़ सिटी से केवल एक छोटी उड़ान या नाव की सवारी पर, यह कैरेबियन रत्न मेसोअमेरिकन बैरियर रीफ — पृथ्वी पर दूसरा सबसे बड़ा रीफ प्रणाली — के साथ 40 किलोमीटर तक फैला हुआ है। कस्बे की रेतीली सड़कें, रंगीन लकड़ी की इमारतें, और गोल्फ कार्ट यातायात एक अद्वितीय सुस्त माहौल बनाते हैं। होल चान मरीन रिज़र्व में गोता लगाएँ ताकि नर्स शार्क और स्टिंग्रे के साथ तैराकी कर सकें, मेक्सिको रॉक्स के क्रिस्टल साफ पानी में स्नॉर्कलिंग करें, या बस ताज़ा लॉबस्टर और रम पंच के साथ बीचफ्रंट कैफे में आराम करें। मैडोना ने प्रसिद्ध रूप से "ला इस्ला बोनिता" में इस द्वीप के बारे में गाया, और एक बार जब आप गर्म व्यापारिक हवाओं को महसूस करेंगे और फ़िरोज़ी पानी देखेंगे, तो आप समझ जाएँगे कि क्यों।
+            </p>
+            <p class="es" style="display:none;">
+                San Pedro es el encantador pueblo en Cayo Ambergris, la isla más grande y popular de Belice. A solo un corto vuelo o viaje en barco desde la Ciudad de Belice, esta joya caribeña se extiende 40 kilómetros a lo largo de la Barrera de Arrecifes Mesoamericana — el segundo sistema de arrecifes más grande de la Tierra. Las calles arenosas del pueblo, los coloridos edificios de madera y el tráfico de carritos de golf crean una atmósfera únicamente relajada. Bucea en la Reserva Marina Hol Chan para nadar con tiburones nodriza y rayas, haz snorkel en las aguas cristalinas de Mexico Rocks, o simplemente relájate en cafés frente a la playa con langosta fresca y ponche de ron. Madonna cantó famosamente sobre esta isla en "La Isla Bonita," y una vez que sientas los cálidos vientos alisios y veas las aguas turquesas, entenderás por qué.
+            </p>
+        </div>
+
+        <!-- San Ignacio -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/discovery.sndimg.com/2ed30de7c43a7301992dfa5fbf6d5715fe334ae4.jpeg" alt="San Ignacio Belize jungle" class="city-img">
+            <h3>
+                <span class="en">📍 San Ignacio — The Jungle Gateway</span>
+                <span class="ur urdu-text" style="display:none;">📍 سان اگناسیو — جنگل کا دروازہ</span>
+                <span class="hi hindi-text" style="display:none;">📍 सैन इग्नासियो — जंगल का प्रवेश द्वार</span>
+                <span class="es" style="display:none;">📍 San Ignacio — La Puerta de la Jungla</span>
+            </h3>
+            <p class="en">
+                Nestled in the lush Cayo District near the Guatemala border, San Ignacio is the adventure capital of Belize's mainland. This vibrant town of about 20,000 people sits along the Macal River and serves as the jumping-off point for exploring ancient Maya ruins, cave systems, and tropical rainforests. Don't miss the awe-inspiring Xunantunich — "The Stone Maiden" — a Maya ceremonial center with a 40-meter pyramid offering panoramic jungle views. Float through the Actun Tunichil Muknal (ATM) cave to see ancient skeletal remains and pottery, or visit the Green Iguana Conservation Project. The Saturday farmers' market is a cultural feast where Maya, Mestizo, and Creole vendors sell everything from handmade textiles to fresh tropical fruits. San Ignacio perfectly captures Belize's wild, untamed spirit.
+            </p>
+            <p class="ur urdu-text" style="display:none;">
+                گوئٹے مالا کی سرحد کے قریب سرسبز کیو ڈسٹرکٹ میں آباد، سان اگناسیو بیلیز کے براعظم کا ایڈونچر دارالحکومت ہے۔ تقریباً 20,000 افراد کا یہ زندہ دل قصبہ میکل دریا کے ساتھ واقع ہے اور قدیم مایا کھنڈرات، غاروں کے نظام، اور استوائی بارانی جنگلوں کی تلاش کے لیے اڈے کے طور پر کام کرتا ہے۔ حیرت انگیز زونانتونچ — "پتھر کی کنواری" — ایک مایا تقریبی مرکز جس میں 40 میٹر کا اہرام جنگل کے پینورامک مناظر پیش کرتا ہے، کو نہ چوکیں۔ ایکٹن ٹونچل مکنا (ATM) غار کے ذریعے تیرتے ہوئے قدیم ہڈیوں کے باقیات اور مٹی کے برتن دیکھیں، یا گرین اگوانا Conservation Project کا دورہ کریں۔ ہفتہ کے روز کسانوں کی منڈی ایک ثقافتی ضیافت ہے جہاں مایا، میسٹizo، اور کریول بیچنے والے ہاتھ سے بنے ٹیکسٹائل سے لے کر تازہ استوائی پھل تک سب کچھ بیچتے ہیں۔ سان اگناسیو بیلیز کے جنگلی، بے لگام روح کو بہترین طور پر قبضے میں لاتا ہے۔
+            </p>
+            <p class="hi hindi-text" style="display:none;">
+                ग्वाटेमाला सीमा के पास हरे-भरे कायो जिले में बसा, सैन इग्नासियो बेलीज़ के मुख्य भूमि का साहसिक राजधानी है। लगभग 20,000 लोगों का यह जीवंत कस्बा मैकल नदी के साथ स्थित है और प्राचीन माया खंडहर, गुफा प्रणालियों, और उष्णकटिबंधीय वर्षावनों की खोज के लिए प्रस्थान बिंदु के रूप में कार्य करता है। विस्मयकारी ज़ुनंतुनिच — "द स्टोन मेडन" — एक माया समारोह केंद्र जिसमें 40 मीटर का पिरामिड जंगल के पैनोरामिक दृश्य प्रदान करता है, को न चूंें। प्राचीन कंकाल अवशेष और मिट्टी के बर्तन देखने के लिए एक्टन टुनिचिल मुकनाल (ATM) गुफा के माध्यम से तैरें, या ग्रीन इगुआना संरक्षण परियोजना का दौरा करें। शनिवार किसान बाज़ार एक सांस्कृतिक भोज है जहाँ माया, मेस्टिज़ो, और क्रियोल विक्रेता हाथ से बने वस्त्रों से लेकर ताज़े उष्णकटिबंधीय फलों तक सब कुछ बेचते हैं। सैन इग्नासियो बेलीज़ की जंगली, अनियंत्रित आत्मा को पूरी तरह से कैद करता है।
+            </p>
+            <p class="es" style="display:none;">
+                Ubicado en el exuberante Distrito de Cayo cerca de la frontera con Guatemala, San Ignacio es la capital de aventura del continente de Belice. Este vibrante pueblo de aproximadamente 20,000 personas se asienta a lo largo del Río Macal y sirve como punto de partida para explorar antiguas ruinas mayas, sistemas de cuevas y selvas tropicales. No te pierdas el impresionante Xunantunich — "La Doncella de Piedra" — un centro ceremonial maya con una pirámide de 40 metros que ofrece vistas panorámicas de la jungla. Flota a través de la cueva Actun Tunichil Muknal (ATM) para ver antiguos restos esqueléticos y cerámica, o visita el Proyecto de Conservación de la Iguana Verde. El mercado de agricultores los sábados es un festín cultural donde vendedores maya, mestizo y criollo venden de todo, desde textiles hechos a mano hasta frutas tropicales frescas. San Ignacio captura perfectamente el espíritu salvaje e indómito de Belice.
+            </p>
+        </div>
+
+        <!-- Placencia -->
+        <div class="city-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/thefamilytriponline.com/65d4a1776fc0fa6f06d7d882fe8bada01af657f4.jpg" alt="Placencia Belize beach" class="city-img">
+            <h3>
+                <span class="en">📍 Placencia — The Peninsula Paradise</span>
+                <span class="ur urdu-text" style="display:none;">📍 پلاسینشیا — جزیرہ نما کا جنت</span>
+                <span class="hi hindi-text" style="display:none;">📍 प्लासेंसिया — प्रायद्वीप का स्वर्ग</span>
+                <span class="es" style="display:none;">📍 Placencia — El Paraíso de la Península</span>
+            </h3>
+            <p class="en">
+                Placencia is a 26-kilometer peninsula on Belize's southern coast, famous for having the narrowest main street in the world — a pedestrian-only sidewalk just four feet wide! This former fishing village has transformed into a boutique beach destination without losing its soul. The "Placencia Sidewalk" is lined with colorful guesthouses, artisan shops, and beach bars where locals gather to share stories. The beaches here are arguably the finest in mainland Belize — powder-soft sand, gentle turquoise waters, and palm trees swaying in the breeze. Use Placencia as your base to snorkel the Silk Cayes, spot whale sharks during the full moon (March-June), or take a boat tour to the Cockscomb Basin Wildlife Sanctuary — the world's first jaguar preserve. It's the perfect blend of barefoot luxury and authentic Caribbean charm.
+            </p>
+            <p class="ur urdu-text" style="display:none;">
+                پلاسینشیا بیلیز کے جنوبی ساحل پر 26 کلومیٹر کا جزیرہ نما ہے، جو دنیا کی سب سے تنگ مرکزی سڑک کے لیے مشہور ہے — ایک پیدل چلنے والوں کے لیے صرف چار فٹ چوڑا فٹ پاتھ! یہ سابقہ ماہی گیری کا گاؤں ایک بوتیک ساحلی مقام میں تبدیل ہو گیا ہے بغیر اپنی روح کھوئے۔ "پلاسینشیا سائیڈ واک" رنگین مہمان خانوں، دستکاری کی دکانوں، اور ساحلی بارز سے لدی ہوئی ہے جہاں مقامی لوگ کہانیاں بانٹنے کے لیے جمع ہوتے ہیں۔ یہاں کے ساحل شاید براعظم بیلیز میں بہترین ہیں — پاؤڈر نرم ریت، ہلکا فیروزی پانی، اور ہواؤں میں جھومتے ہوئے کھجور کے درخت۔ پلاسینشیا کو سلک کیے میں سنوکلنگ، پورے چاند کے دوران وہیل شارکس کو دیکھنے (مارچ-جون)، یا ککسکومب بیسن وائلڈلائف سینکچوری — دنیا کا پہلا جگوار محفوظ علاقہ — کے لیے کشتی کا دورہ لینے کے لیے اپنا اڈہ بنائیں۔ یہ ننگے پاؤں کے آرام اور اصلی کیریبین کشش کا بہترین امتزاج ہے۔
+            </p>
+            <p class="hi hindi-text" style="display:none;">
+                प्लासेंसिया बेलीज़ के दक्षिणी तट पर 26 किलोमीटर का एक प्रायद्वीप है, जो दुनिया की सबसे संकरी मुख्य सड़क के लिए प्रसिद्ध है — एक पैदल यात्री-मात्र फुटपाथ जो केवल चार फीट चौड़ा है! यह पूर्व मछुआरे गाँव एक बुटीक समुद्र तट गंतव्य में बदल गया है बिना अपनी आत्मा खोए। "प्लासेंसिया साइडवॉक" रंगीन गेस्टहाउस, कारीगर की दुकानों, और बीच बार से सजी है जहाँ स्थानीय लोग कहानियाँ साझा करने के लिए इकट्ठा होते हैं। यहाँ के समुद्र तट शायद मुख्य भूमि बेलीज़ में सबसे बेहतरीन हैं — पाउडर-नरम रेत, हल्का फ़िरोज़ी पानी, और बreeze में झूमते हुए ताड़ के पेड़। प्लासेंसिया को सिल्क के (Silk Cayes) में स्नॉर्कलिंग, पूर्णिमा के दौरान व्हेल शार्क देखने (मार्च-जून), या कॉक्सकॉम्ब बेसिन वन्यजीव अभयारण्य — दुनिया का पहला जगुआर संरक्षण — के लिए नाव यात्रा लेने के लिए अपना आधार बनाएँ। यह नंगे पैर की विलासिता और authentic कैरेबियन आकर्षण का एकदम सही मिश्रण है।
+            </p>
+            <p class="es" style="display:none;">
+                Placencia es una península de 26 kilómetros en la costa sur de Belice, famosa por tener la calle principal más estrecha del mundo — ¡una acera peatonal de solo cuatro pies de ancho! Este antiguo pueblo de pescadores se ha transformado en un destino de playa boutique sin perder su alma. La "Acera de Placencia" está bordeada de coloridas pensiones, tiendas de artesanía y bares de playa donde los locales se reúnen para compartir historias. Las playas aquí son posiblemente las mejores del continente de Belice — arena suave como polvo, aguas turquesas suaves y palmeras meciéndose con la brisa. Usa Placencia como base para hacer snorkel en los Cayos de Seda, avistar tiburones ballena durante la luna llena (marzo-junio), o tomar un tour en barco al Santuario de Vida Silvestre de la Cuenca de Cockscomb — la primera reserva de jaguares del mundo. Es la mezcla perfecta de lujo descalzo y encanto caribeño auténtico.
+            </p>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="highlight-box">
+            <h3>
+                <span class="en">💡 Essential Travel Tips</span>
+                <span class="ur urdu-text" style="display:none;">💡 ضروری سفر کی نکات</span>
+                <span class="hi hindi-text" style="display:none;">💡 आवश्यक यात्रा सुझाव</span>
+                <span class="es" style="display:none;">💡 Consejos Esenciales de Viaje</span>
+            </h3>
+            <p class="en">
+                • <strong>Best Time to Visit:</strong> November to April (dry season) offers perfect beach weather; May-October is greener with fewer tourists.<br>
+                • <strong>Currency:</strong> Belize Dollar (BZD), pegged 2:1 to the US Dollar. US cash is accepted everywhere.<br>
+                • <strong>Language:</strong> English is official; Belizean Creole (Kriol), Spanish, and Maya languages are widely spoken.<br>
+                • <strong>Must-Try Food:</strong> Rice and Beans with Stew Chicken, Fry Jacks, Conch Fritters, and Marie Sharp's Hot Sauce.<br>
+                • <strong>Reef Conservation:</strong> Belize banned offshore oil drilling in 2017 to protect its barrier reef — support eco-friendly tour operators!<br>
+                • <strong>Getting Around:</strong> Water taxis connect the mainland to cayes; local buses ("chicken buses") are colorful and cheap.
+            </p>
+            <p class="ur urdu-text" style="display:none;">
+                • <strong>دورہ کرنے کا بہترین وقت:</strong> نومبر سے اپریل (خشک موسم) میں بہترین ساحلی موسم ملتا ہے؛ مئی-اکتوبر میں کم سیاحوں کے ساتھ سبز مناظر ہوتے ہیں۔<<br>
+                • <strong>کرنسی:</strong> بیلیز ڈالر (BZD)، جو امریکی ڈالر کے ساتھ 2:1 کا تعلق ہے۔ امریکی نقد رقم ہر جگہ قبول کی جاتی ہے۔<<br>
+                • <strong>زبان:</strong> انگریزی سرکاری ہے؛ بیلیزیئن کریول (Kriol)، ہسپانوی، اور مایا زبانیں وسیع طور پر بولی جاتی ہیں۔<<br>
+                • <strong>ضرور آزمائیں:</strong> چاول اور دال اسٹیو چکن کے ساتھ، فرائے جیکس، کونک فریٹرز، اور میری شارپس ہاٹ ساس۔<<br>
+                • <strong>ریف Conservation:</strong> بیلیز نے 2017 میں اپنی بیرئیر ریف کی حفاظت کے لیے آف شور آئل ڈرلنگ پر پابندی لگا دی — ایکو فرینڈلی ٹور آپریٹرز کی حمایت کریں!<br>
+                • <strong>سفر:</strong> واٹر ٹیکسیاں براعظم کو کیے سے جوڑتی ہیں؛ مقامی بسیں ("چکن بسیں") رنگین اور سستی ہیں۔
+            </p>
+            <p class="hi hindi-text" style="display:none;">
+                • <strong>घूमने का सबसे अच्छा समय:</strong> नवंबर से अप्रैल (शुष्क मौसम) में बेहतरीन समुद्र तट मौसम मिलता है; मई-अक्टूबर में कम पर्यटकों के साथ हरा-भरा परिदृश्य होता है।<<br>
+                • <strong>मुद्रा:</strong> बेलीज़ डॉलर (BZD), जो अमेरिकी डॉलर से 2:1 में जुड़ा हुआ है। अमेरिकी नकदी हर जगह स्वीकार की जाती है।<<br>
+                • <strong>भाषा:</strong> अंग्रेज़ी आधिकारिक है; बेलीज़ियन क्रियोल (Kriol), स्पेनिश, और माया भाषाएँ व्यापक रूप से बोली जाती हैं।<<br>
+                • <strong>जरूर आजमाएं:</strong> राइस एंड बीन्स विद स्टू चिकन, फ्राई जैक्स, कॉन्क फ्रिटर्स, और मैरी शार्प्स हॉट सॉस।<<br>
+                • <strong>रीफ संरक्षण:</strong> बेलीज़ ने 2017 में अपनी बैरियर रीफ की रक्षा के लिए ऑफशोर तेल ड्रिलिंग पर प्रतिबंध लगा दिया — इको-फ्रेंडली टूर ऑपरेटरों का समर्थन करें!<br>
+                • <strong>आवागमन:</strong> वॉटर टैक्सी मुख्य भूमि को के (cayes) से जोड़ती हैं; स्थानीय बसें ("चिकन बसें") रंगीन और सस्ती हैं।
+            </p>
+            <p class="es" style="display:none;">
+                • <strong>Mejor Época para Visitar:</strong> De noviembre a abril (temporada seca) ofrece clima de playa perfecto; mayo-octubre es más verde con menos turistas.<br>
+                • <strong>Moneda:</strong> Dólar de Belice (BZD), fijado 2:1 al Dólar estadounidense. El efectivo estadounidense es aceptado en todas partes.<br>
+                • <strong>Idioma:</strong> El inglés es oficial; el criollo beliceño (Kriol), español y lenguas maya son ampliamente habladas.<br>
+                • <strong>Debes Probar:</strong> Arroz y Frijoles con Pollo Guisado, Fry Jacks, Conch Fritters, y la Salsa Picante de Marie Sharp.<br>
+                • <strong>Conservación del Arrecife:</strong> Belice prohibió la perforación petrolera offshore en 2017 para proteger su barrera de arrecifes — ¡apoya a operadores turísticos ecológicos!<br>
+                • <strong>Movilidad:</strong> Los taxis acuáticos conectan el continente con los cayos; los autobuses locales ("chicken buses") son coloridos y baratos.
+            </p>
+        </div>
+
+        <!-- Conclusion -->
+        <h2>
+            <span class="en">🌟 Final Thoughts</span>
+            <span class="ur urdu-text" style="display:none;">🌟 آخری خیالات</span>
+            <span class="hi hindi-text" style="display:none;">🌟 अंतिम विचार</span>
+            <span class="es" style="display:none;">🌟 Reflexiones Finales</span>
+        </h2>
+        
+        <p class="en">
+            Belize is a rare gem — a place where you can dive the depths of the Great Blue Hole in the morning, explore ancient Maya temples by afternoon, and dance to Garifuna drumming under the stars by night. It's a country that hasn't been homogenized by mass tourism, where the reef is protected not by fences but by national pride, and where every conversation might switch between English, Spanish, and Kriol mid-sentence. Whether you're seeking underwater adventures, jungle treks, or simply the slow rhythm of island life, Belize delivers with an authenticity that's increasingly hard to find. Come discover why this little nation punches so far above its weight. <strong>Welcome to Belize — unspoiled, unforgettable, and utterly unique.</strong>
+        </p>
+        <p class="ur urdu-text" style="display:none;">
+            بیلیز ایک نایاب ہیرا ہے — ایک ایسا مقام جہاں آپ صبح گریٹ بلیو ہول کی گہرائیوں میں غوطہ لگا سکتے ہیں، دوپہر کے وقت قدیم مایا مندروں کی تلاش کر سکتے ہیں، اور رات کے ستاروں کے نیچے گاریفونا ڈھول کی آواز پر ناچ سکتے ہیں۔ یہ ایک ایسا ملک ہے جو بڑے پیمانے پر سیاحت سے یکساں نہیں ہوا، جہاں ریف باڑوں سے نہیں بلکہ قومی فخر سے محفوظ ہے، اور جہاں ہر گفتگو جملے کے درمیان انگریزی، ہسپانوی، اور کریول کے درمیان تبدیل ہو سکتی ہے۔ چاہے آپ پانی کے نیچے کے ساہسک کارناموں، جنگل کے ٹریکس، یا صرف جزیرے کی زندگی کے سست ریتم کی تلاش میں ہوں، بیلیز ایک اصالت کے ساتھ پیش کرتا ہے جو تلاش کرنا increasingly مشکل ہوتا جا رہا ہے۔ آئیں دریافت کریں کہ یہ چھوٹا سا ملک اپنی حیثیت سے کتنی زیادہ طاقت کا مظاہرہ کرتا ہے۔ <strong>بیلیز میں خوش آمدید — بے نقاب، ناقابل فراموش، اور بالکل منفرد۔</strong>
+        </p>
+        <p class="hi hindi-text" style="display:none;">
+            बेलीज़ एक दुर्लभ रत्न है — एक ऐसा स्थान जहाँ आप सुबह ग्रेट ब्लू होल की गहराई में गोता लगा सकते हैं, दोपहर के समय प्राचीन माया मंदिरों की खोज कर सकते हैं, और रात में तारों के नीचे गैरिफुना ढोल की धुन पर नाच सकते हैं। यह एक ऐसा देश है जो बड़े पैमाने पर पर्यटन से समानीकृत नहीं हुआ है, जहाँ रीफ बाड़ों से नहीं बल्कि राष्ट्रीय गौरव से संरक्षित है, और जहाँ हर बातचीत वाक्य के बीच में अंग्रेज़ी, स्पेनिश, और क्रियोल के बीच बदल सकती है। चाहे आप पानी के नीचे के साहसिक कार्यों, जंगल ट्रेक, या बस द्वीप जीवन की धीमी लय की तलाश में हों, बेलीज़ एक प्रामाणिकता के साथ प्रदान करता है जो खोजना तेज़ी से मुश्किल होता जा रहा है। आइए खोजें कि यह छोटा सा देश अपनी हैसियत से कितना अधिक प्रभावशाली है। <strong>बेलीज़ में आपका स्वागत है — अक्षुण्ण, अविस्मरणीय, और बिल्कुल अद्वितीय।</strong>
+        </p>
+        <p class="es" style="display:none;">
+            Belice es una joya rara — un lugar donde puedes bucear en las profundidades del Gran Agujero Azul por la mañana, explorar antiguos templos mayas por la tarde, y bailar al son de tambores garífuna bajo las estrellas por la noche. Es un país que no ha sido homogeneizado por el turismo masivo, donde el arrecife está protegido no por cercas sino por orgullo nacional, y donde cada conversación puede cambiar entre inglés, español y criollo en medio de una oración. Ya sea que busques aventuras submarinas, caminatas por la jungla, o simplemente el ritmo lento de la vida isleña, Belice entrega con una autenticidad que es cada vez más difícil de encontrar. Ven a descubrir por qué esta pequeña nación golpea tan por encima de su peso. <strong>Bienvenido a Belice — virgen, inolvidable y completamente único.</strong>
+        </p>
+    </div>
+
+    <div class="footer">
+        <p class="en">© 2026 Belize Travel Guide | Written with ❤️ for travelers worldwide</p>
+        <p class="ur urdu-text" style="display:none;">© 2026 بیلیز سفر گائیڈ | دنیا بھر کے مسافروں کے لیے ❤️ سے لکھا گیا</p>
+        <p class="hi hindi-text" style="display:none;">© 2026 बेलीज़ यात्रा गाइड | दुनिया भर के यात्रियों के लिए ❤️ से लिखा गया</p>
+        <p class="es" style="display:none;">© 2026 Guía de Viaje de Belice | Escrito con ❤️ para viajeros de todo el mundo</p>
+    </div>
+</div>
+
+<script>
+    function setLang(lang) {
+        // Hide all language content
+        document.querySelectorAll('.en, .ur, .hi, .es').forEach(el => {
+            el.style.display = 'none';
+        });
+        
+        // Show selected language content
+        document.querySelectorAll('.' + lang).forEach(el => {
+            if (el.classList.contains('urdu-text')) {
+                el.style.display = 'block';
+                el.style.direction = 'rtl';
+            } else if (el.classList.contains('hindi-text')) {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'block';
+            }
+        });
+        
+        // Update button states
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector('.btn-' + lang).classList.add('active');
+        
+        // Update page language attribute
+        const langMap = { 'en': 'en', 'ur': 'ur', 'hi': 'hi', 'es': 'es' };
+        document.documentElement.lang = langMap[lang];
+    }
+    
+    // Initialize with English
+    setLang('en');
+</script>
+
+</body>
+</html>
