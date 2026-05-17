@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinidad and Tobago Travel Guide - A Blogger's Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #ce1126 0%, #000 50%, #fff 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.03) 10px,
+                rgba(255,255,255,0.03) 20px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Language Toggle */
+        .lang-bar {
+            background: #2c3e50;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #ce1126;
+        }
+
+        .lang-label {
+            color: #ecf0f1;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lang-btn {
+            padding: 8px 20px;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 25px;
+            font-family: inherit;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: #ce1126;
+            border-color: #ce1126;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: #ce1126;
+            border-color: #ce1126;
+            box-shadow: 0 4px 15px rgba(206, 17, 38, 0.4);
+        }
+
+        /* Content */
+        .content {
+            padding: 50px 40px;
+        }
+
+        .intro-text {
+            font-size: 1.15em;
+            color: #555;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-left: 5px solid #ce1126;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ce1126;
+            display: inline-block;
+        }
+
+        .section-content {
+            font-size: 1.05em;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Flag section */
+        .flag-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .flag-img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .flag-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .flag-info h3 {
+            color: #ce1126;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .flag-colors {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .color-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .city-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .city-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .city-body {
+            padding: 25px;
+        }
+
+        .city-body h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 12px;
+        }
+
+        .city-body p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .city-tag {
+            display: inline-block;
+            background: #ce1126;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Image gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px 15px 15px;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9em;
+        }
+
+        .footer .heart {
+            color: #ce1126;
+            font-size: 1.2em;
+        }
+
+        /* Trini slang highlight */
+        .trini-term {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #856404;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .content { padding: 30px 20px; }
+            .flag-container { flex-direction: column; text-align: center; }
+            .lang-bar { justify-content: center; }
+        }
+
+        /* Smooth transitions for language switch */
+        .lang-content {
+            transition: opacity 0.3s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>Trinidad and Tobago</h1>
+        <p class="subtitle">A Twin-Island Paradise Where Culture Meets Caribbean Soul</p>
+    </div>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <span class="lang-label">Translate:</span>
+        <button class="lang-btn active" onclick="switchLang('en')" id="btn-en">English</button>
+        <button class="lang-btn" onclick="switchLang('trini')" id="btn-trini">Trini (Local)</button>
+    </div>
+
+    <!-- English Content -->
+    <div id="content-en" class="content lang-content">
+        <div class="intro-text">
+            Welcome to my travel diary! If you're looking for a destination that blends vibrant city life with untouched natural beauty, look no further than Trinidad and Tobago. This twin-island republic at the southern tip of the Caribbean offers a unique mix of cultures, flavors, and landscapes that you simply won't find anywhere else.
+        </div>
+
+        <!-- Background Section -->
+        <div class="section">
+            <h2 class="section-title">Country Background</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    The Republic of Trinidad and Tobago sits just off the northeastern coast of Venezuela, making it the southernmost island nation in the Caribbean. Unlike many of its neighbors, these islands were once physically connected to South America, which explains their extraordinary biodiversity and unique wildlife. citeweb_search:1#0
+                </p>
+                <p style="margin-bottom: 20px;">
+                    The nation gained independence from Britain on August 31, 1962, and became a republic in 1976. With a population of about 1.4 million people, Trinidad and Tobago boasts one of the most diverse cultures in the Caribbean. The islands were colonized by the Spanish, Dutch, French, and British at different points in history, and this colonial legacy blends beautifully with African, Indian, Chinese, and Indigenous traditions to create a truly unique national identity. citeweb_search:1#6web_search:1#9
+                </p>
+                <p>
+                    The country is famous for giving the world steel pan music, calypso, soca, and of course, the greatest show on Earth — Trinidad Carnival. Whether you're a foodie, a nature lover, a party animal, or a history buff, T&T has something special waiting for you.
+                </p>
+            </div>
+        </div>
+
+        <!-- Flag Section -->
+        <div class="section">
+            <h2 class="section-title">The National Flag</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    Adopted on Independence Day in 1962, the Trinidad and Tobago flag is one of the most distinctive national symbols in the world. Its bold diagonal black stripe, bordered by white and set against a red field, tells a powerful story about the nation's identity. citeweb_search:1#6
+                </p>
+                
+                <div class="flag-container">
+                    imageimage_search:2#1
+                    <div class="flag-info">
+                        <h3>Symbolism of the Colors</h3>
+                        <p style="margin-bottom: 15px;">
+                            <strong>Red</strong> represents the fire of the sun, the vitality of the land and people, and the warmth and friendliness of the nation's inhabitants. <strong>Black</strong> symbolizes the earth, dedication to unity, strength, and purpose. <strong>White</strong> signifies the sea that unites the two islands, the equality of all people, and the purity of their aspirations. citeweb_search:1#6
+                        </p>
+                        <div class="flag-colors">
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #ce1126;"></div>
+                                <span>Red (Vitality)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #000;"></div>
+                                <span>Black (Unity)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #fff; border: 2px solid #ccc;"></div>
+                                <span>White (Purity)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Famous Cities Section -->
+        <div class="section">
+            <h2 class="section-title">Famous Cities & Must-Visit Spots</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 25px;">
+                    From bustling urban centers to serene coastal villages, here are the cities that define the Trinidad and Tobago experience:
+                </p>
+
+                <div class="city-grid">
+                    <!-- Port of Spain -->
+                    <div class="city-card">
+                        imageimage_search:2#0
+                        <div class="city-body">
+                            <h3>Port of Spain</h3>
+                            <p>The vibrant capital of Trinidad, where colonial architecture meets modern Caribbean energy. Visit the Queen's Park Savannah, explore the Magnificent Seven historic mansions, and dance the night away on Ariapita Avenue. This is the heartbeat of the nation. citeweb_search:1#2web_search:1#7</p>
+                            <span class="city-tag">Capital City</span>
+                        </div>
+                    </div>
+
+                    <!-- San Fernando -->
+                    <div class="city-card">
+                        imageimage_search:2#5
+                        <div class="city-body">
+                            <h3>San Fernando</h3>
+                            <p>Trinidad's second city and the commercial hub of the south. Walk along Harris Promenade with its Victorian bandstand, visit the iconic Carnegie Free Library, and feel the rhythm of steel pan history on Coffee Street. Don't miss the view from San Fernando Hill! citeweb_search:1#8</p>
+                            <span class="city-tag">Culture & History</span>
+                        </div>
+                    </div>
+
+                    <!-- Scarborough -->
+                    <div class="city-card">
+                        imageimage_search:2#7
+                        <div class="city-body">
+                            <h3>Scarborough</h3>
+                            <p>The capital of Tobago, nestled between lush hills and the Caribbean Sea. Visit Fort King George for panoramic views, explore the local market, and use it as your gateway to Tobago's pristine beaches and the world's oldest protected rainforest. citeweb_search:1#3</p>
+                            <span class="city-tag">Tobago Gateway</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beautiful Places Gallery -->
+                <h3 style="margin-top: 50px; margin-bottom: 20px; color: #2c3e50; font-size: 1.5em;">Beautiful Landscapes</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        imageimage_search:2#2
+                        <div class="gallery-caption">Maracas Bay — Trinidad's most iconic beach</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:2#6
+                        <div class="gallery-caption">Pristine shores of Maracas Beach</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:2#9
+                        <div class="gallery-caption">Port of Spain Waterfront</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="section">
+            <h2 class="section-title">Essential Travel Tips</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 15px;"><strong>Best Time to Visit:</strong> January through May offers the best weather, outside of the rainy season. If you want to experience Carnival, plan for February or early March. citeweb_search:1#4</p>
+                <p style="margin-bottom: 15px;"><strong>Must-Try Foods:</strong> Doubles (fried flatbread with chickpea curry), Bake and Shark at Maracas Beach, Roti, Callaloo, and Tobago's famous Curry Crab and Dumplings. citeweb_search:1#5</p>
+                <p style="margin-bottom: 15px;"><strong>Getting Around:</strong> Use the inter-island ferry or a quick flight between Trinidad and Tobago. In Trinidad, rental cars or taxis work best. In Tobago, you can easily explore by bus or hired car.</p>
+                <p><strong>Budget:</strong> Trinidad and Tobago is one of the more affordable Caribbean destinations. Budget travelers can expect to spend around $85-$100 USD per day. citeweb_search:1#4</p>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="section" style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin-top: 40px;">
+            <h2 class="section-title" style="border-bottom-color: #000;">Final Thoughts</h2>
+            <div class="section-content">
+                <p>
+                    Trinidad and Tobago is more than just a beach destination — it's a cultural awakening. Whether you're watching thousands of Scarlet Ibis return to roost at sunset, dancing to steel pan rhythms at Panorama, or simply "liming" (hanging out) with locals over a cold Carib beer, you'll understand why Trinbagonians are among the happiest people in the Caribbean.
+                </p>
+                <p style="margin-top: 15px; font-style: italic; color: #ce1126; font-weight: bold;">
+                    So pack your bags, bring your appetite, and get ready to experience the real Caribbean. Trinidad and Tobago is waiting for you!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trini Content (Hidden by default) -->
+    <div id="content-trini" class="content lang-content hidden">
+        <div class="intro-text">
+            Welcome to mih travel diary, fam! If yuh lookin' fuh a place weh city vibes and pure nature does mash up nice, Trinidad and Tobago is de spot. We twin island sweet bad, and we have culture, food, and scenery dat yuh cyah find nowhere else in dis world.
+        </div>
+
+        <!-- Background Section -->
+        <div class="section">
+            <h2 class="section-title">Country Background</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    Trinidad and Tobago sit down right by Venezuela — we is de last island in de Caribbean chain. Long time we used to be connected to South America, and dat is why we have so much wildlife and bush dat different from all de other islands. citeweb_search:1#0
+                </p>
+                <p style="margin-bottom: 20px;">
+                    We get we independence from de British on August 31st, 1962, and we turn republic in 1976. We have about 1.4 million people livin' here, and we is one big mix-up — African, Indian, Chinese, Indigenous, and all de European powers dat colonize we before. Spanish, French, Dutch, and British all leave dey mark, and now we is a true melting pot. citeweb_search:1#6web_search:1#9
+                </p>
+                <p>
+                    We give de world steel pan, calypso, soca, and de greatest show on Earth — Trinidad Carnival. Whether yuh is a food lover, nature lover, party animal, or history buff, T&T have someting special fuh yuh.
+                </p>
+            </div>
+        </div>
+
+        <!-- Flag Section -->
+        <div class="section">
+            <h2 class="section-title">We National Flag</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    We flag raise up fuh de first time on Independence Day 1962, and it real unique. De black stripe run diagonal cross de red, with white border — nobody else have a flag like we own. citeweb_search:1#6
+                </p>
+                
+                <div class="flag-container">
+                    imageimage_search:2#1
+                    <div class="flag-info">
+                        <h3>Wha De Colors Mean</h3>
+                        <p style="margin-bottom: 15px;">
+                            <strong>Red</strong> is fuh de sun fire, de vitality of we people, and we warm, friendly ways. <strong>Black</strong> stand fuh de earth, unity, strength, and purpose. <strong>White</strong> represent de sea dat join we two islands, equality of all people, and de purity of we dreams. citeweb_search:1#6
+                        </p>
+                        <div class="flag-colors">
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #ce1126;"></div>
+                                <span>Red (Fire & Vitality)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #000;"></div>
+                                <span>Black (Unity & Strength)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #fff; border: 2px solid #ccc;"></div>
+                                <span>White (Sea & Purity)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Famous Cities Section -->
+        <div class="section">
+            <h2 class="section-title">Famous Cities & Must-Visit Spots</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 25px;">
+                    From busy town to quiet fishing village, here is de places dat make Trinidad and Tobago what it is:
+                </p>
+
+                <div class="city-grid">
+                    <!-- Port of Spain -->
+                    <div class="city-card">
+                        imageimage_search:2#0
+                        <div class="city-body">
+                            <h3>Port of Spain</h3>
+                            <p>De capital and de place where all de action happen. Walk round Queen's Park Savannah, check out de Magnificent Seven old houses, and when night fall, hit Ariapita Avenue fuh drinks and vibes. Dis is where de nation heartbeat does pump! citeweb_search:1#2web_search:1#7</p>
+                            <span class="city-tag">Capital City</span>
+                        </div>
+                    </div>
+
+                    <!-- San Fernando -->
+                    <div class="city-card">
+                        imageimage_search:2#5
+                        <div class="city-body">
+                            <h3>San Fernando</h3>
+                            <p>Trinidad second city and de south main hub. Walk Harris Promenade with de old Victorian bandstand, visit de Carnegie Library, and feel de steel pan history on Coffee Street. Climb San Fernando Hill and see de whole south from up dey! citeweb_search:1#8</p>
+                            <span class="city-tag">Culture & History</span>
+                        </div>
+                    </div>
+
+                    <!-- Scarborough -->
+                    <div class="city-card">
+                        imageimage_search:2#7
+                        <div class="city-body">
+                            <h3>Scarborough</h3>
+                            <p>Tobago capital, sitting pretty between green hills and blue sea. Visit Fort King George fuh views to make yuh bawl, check out de market, and use it as yuh base to explore Tobago best beaches and de oldest protected forest in de Western Hemisphere. citeweb_search:1#3</p>
+                            <span class="city-tag">Tobago Gateway</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beautiful Places Gallery -->
+                <h3 style="margin-top: 50px; margin-bottom: 20px; color: #2c3e50; font-size: 1.5em;">Beautiful Landscapes</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        imageimage_search:2#2
+                        <div class="gallery-caption">Maracas Bay — We most famous beach</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:2#6
+                        <div class="gallery-caption">De pristine shores of Maracas Beach</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:2#9
+                        <div class="gallery-caption">Port of Spain Waterfront</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="section">
+            <h2 class="section-title">Essential Travel Tips</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 15px;"><strong>Best Time To Come:</strong> January to May have de best weather. If yuh want Carnival, come February or early March — but book early, prices does go up! citeweb_search:1#4</p>
+                <p style="margin-bottom: 15px;"><strong>Must-Eat Food:</strong> Doubles (we national breakfast), Bake and Shark by Maracas, Roti, Callaloo, and Tobago Curry Crab and Dumplings. And doh forget de doubles by de roadside in Debe! citeweb_search:1#5</p>
+                <p style="margin-bottom: 15px;"><strong>Getting Around:</strong> Take de ferry or a quick flight between Trinidad and Tobago. In Trinidad, rent a car or take taxi. In Tobago, bus or hired car does work fine.</p>
+                <p><strong>Budget:</strong> T&T is one of de cheaper Caribbean islands. Yuh could get by on about $85-$100 US a day if yuh budgeting. citeweb_search:1#4</p>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="section" style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin-top: 40px;">
+            <h2 class="section-title" style="border-bottom-color: #000;">Final Thoughts</h2>
+            <div class="section-content">
+                <p>
+                    Trinidad and Tobago is more than just sun and sand — it is a whole vibe. Whether yuh watching thousands of Scarlet Ibis fly home at sunset, wining down de road at Carnival, or liming by de bar with a cold Carib, yuh go understand why Trinis does smile so much.
+                </p>
+                <p style="margin-top: 15px; font-style: italic; color: #ce1126; font-weight: bold;">
+                    So pack yuh bags, bring yuh appetite, and get ready fuh de real Caribbean. Trinidad and Tobago waiting fuh yuh, and we ready to show yuh we sweet country!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Written with <span class="heart">❤</span> for travelers everywhere</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Trinidad and Tobago Travel Guide | Blogger Edition 2026</p>
+    </div>
+</div>
+
+<script>
+    function switchLang(lang) {
+        const enContent = document.getElementById('content-en');
+        const triniContent = document.getElementById('content-trini');
+        const btnEn = document.getElementById('btn-en');
+        const btnTrini = document.getElementById('btn-trini');
+
+        if (lang === 'en') {
+            enContent.classList.remove('hidden');
+            triniContent.classList.add('hidden');
+            btnEn.classList.add('active');
+            btnTrini.classList.remove('active');
+        } else {
+            enContent.classList.add('hidden');
+            triniContent.classList.remove('hidden');
+            btnEn.classList.remove('active');
+            btnTrini.classList.add('active');
+        }
+        
+        // Smooth scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
