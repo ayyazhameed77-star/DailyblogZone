@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominica Travel Guide - A Blogger's Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #006b3c 0%, #fcd116 50%, #000 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Language Toggle */
+        .lang-bar {
+            background: #2c3e50;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #006b3c;
+        }
+
+        .lang-label {
+            color: #ecf0f1;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lang-btn {
+            padding: 8px 20px;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 25px;
+            font-family: inherit;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: #006b3c;
+            border-color: #006b3c;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: #006b3c;
+            border-color: #006b3c;
+            box-shadow: 0 4px 15px rgba(0, 107, 60, 0.4);
+        }
+
+        /* Content */
+        .content {
+            padding: 50px 40px;
+        }
+
+        .intro-text {
+            font-size: 1.15em;
+            color: #555;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-left: 5px solid #006b3c;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #006b3c;
+            display: inline-block;
+        }
+
+        .section-content {
+            font-size: 1.05em;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Flag section */
+        .flag-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .flag-img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .flag-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .flag-info h3 {
+            color: #006b3c;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .flag-colors {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .color-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .city-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .city-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .city-body {
+            padding: 25px;
+        }
+
+        .city-body h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 12px;
+        }
+
+        .city-body p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .city-tag {
+            display: inline-block;
+            background: #006b3c;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Image gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px 15px 15px;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9em;
+        }
+
+        .footer .heart {
+            color: #fcd116;
+            font-size: 1.2em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .content { padding: 30px 20px; }
+            .flag-container { flex-direction: column; text-align: center; }
+            .lang-bar { justify-content: center; }
+        }
+
+        /* Smooth transitions for language switch */
+        .lang-content {
+            transition: opacity 0.3s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>Dominica</h1>
+        <p class="subtitle">The Nature Island of the Caribbean — Where Rainforests Reign Supreme</p>
+    </div>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <span class="lang-label">Translate:</span>
+        <button class="lang-btn active" onclick="switchLang('en')" id="btn-en">English</button>
+        <button class="lang-btn" onclick="switchLang('kweyol')" id="btn-kweyol">Kwéyòl (Creole)</button>
+    </div>
+
+    <!-- English Content -->
+    <div id="content-en" class="content lang-content">
+        <div class="intro-text">
+            Welcome to my travel diary! If you're searching for a Caribbean destination that breaks every stereotype of sandy beaches and all-inclusive resorts, let me introduce you to Dominica. Known as "The Nature Island of the Caribbean," this wild, rugged paradise looks like it was plucked straight from Jurassic Park — with lush rainforests, 365 rivers, nine active volcanoes, and more waterfalls than you can count. This is the Caribbean for adventurers, not sunbathers.
+        </div>
+
+        <!-- Background Section -->
+        <div class="section">
+            <h2 class="section-title">Country Background</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    Dominica is a sovereign island nation located in the Lesser Antilles, in the eastern Caribbean Sea. The island was originally inhabited by the Kalinago people, who called it "Waitukubuli" meaning "Tall is her body" — a fitting name for an island dominated by soaring volcanic peaks. Today, Dominica is home to the largest remaining Indigenous community in the Caribbean, with the Kalinago Territory covering 3,700 acres across eight villages. citeweb_search:7#5web_search:7#2
+                </p>
+                <p style="margin-bottom: 20px;">
+                    The island's colonial history mirrors that of its Caribbean neighbors, with control shifting between France and Britain before ultimately becoming a British colony. Dominica gained Associated Statehood in 1967 and achieved full independence from the United Kingdom on November 3, 1978. The island nation has a population of approximately 74,000 people, with about 15,000 calling the capital city of Roseau home. citeweb_search:7#7web_search:7#0
+                </p>
+                <p>
+                    What makes Dominica truly unique is its extraordinary biodiversity. Rainforests blanket two-thirds of the island, and it is the only country in the world where you can spot sperm whales year-round — over 300 of them call these waters home. The island is also famous for having one of the highest concentrations of centenarians in the world, thanks to its nutrient-rich volcanic soil, active lifestyle, and natural, plant-based diet. citeweb_search:7#4web_search:7#5
+                </p>
+            </div>
+        </div>
+
+        <!-- Flag Section -->
+        <div class="section">
+            <h2 class="section-title">The National Flag</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    The flag of Dominica was designed by renowned artist and playwright Alwin Bully and first raised on Independence Day, November 3, 1978. The original design proved too complex for easy manufacture, leading to three modifications in 1981, 1988, and 1990. The current flag is celebrated worldwide as one of the most distinctive and meaningful national symbols. citeweb_search:7#7web_search:7#8
+                </p>
+                
+                <div class="flag-container">
+                    imageimage_search:8#4
+                    <div class="flag-info">
+                        <h3>Symbolism of the Design</h3>
+                        <p style="margin-bottom: 15px;">
+                            The <strong>green field</strong> represents the island's lush forests and natural wealth. The <strong>three-colored cross</strong> of yellow, black, and white symbolizes the Holy Trinity and the island's diverse people — yellow for the sunshine and the Kalinago/Arawak Indigenous heritage, white for the purity of the rivers and waterfalls, and black for the rich volcanic soil and African heritage. The <strong>red disk</strong> at the center represents socialism and social justice. Within it, the <strong>Sisserou Parrot</strong> (Imperial Amazon) — Dominica's national bird and one of the rarest parrots on Earth — symbolizes flight toward greater heights and the fulfillment of national aspirations. The <strong>ten green stars</strong> encircling the parrot represent the ten parishes of Dominica, signifying equality and hope. citeweb_search:7#7web_search:7#8
+                        </p>
+                        <div class="flag-colors">
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #006b3c;"></div>
+                                <span>Green (Forests & Nature)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #fcd116;"></div>
+                                <span>Yellow (Sunshine & Indigenous)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #fff; border: 2px solid #ccc;"></div>
+                                <span>White (Rivers & Purity)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #000;"></div>
+                                <span>Black (Soil & African Heritage)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #ce1126;"></div>
+                                <span>Red (Social Justice)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Famous Cities Section -->
+        <div class="section">
+            <h2 class="section-title">Famous Cities & Must-Visit Spots</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 25px;">
+                    From the colorful capital to charming coastal towns, here are the places that define the Dominica experience:
+                </p>
+
+                <div class="city-grid">
+                    <!-- Roseau -->
+                    <div class="city-card">
+                        imageimage_search:8#8
+                        <div class="city-body">
+                            <h3>Roseau</h3>
+                            <p>The vibrant capital built on the site of the ancient Kalinago village of Sairi, with a playful Rastafarian vibe and dancehall music swirling through the air. Stroll the scenic streets lined with colonial French and modern architecture, visit the historic Old Market (the last of its kind in the Caribbean), and explore the beautiful Botanical Gardens with its parrot sanctuary. Don't miss the bustling Saturday market overflowing with tropical fruits, or the stunning Morne Bruce viewpoint overlooking the city and sea. citeweb_search:7#3web_search:7#0</p>
+                            <span class="city-tag">Capital City</span>
+                        </div>
+                    </div>
+
+                    <!-- Portsmouth -->
+                    <div class="city-card">
+                        imageimage_search:8#2
+                        <div class="city-body">
+                            <h3>Portsmouth</h3>
+                            <p>The island's second-largest town on the northwest coast, once the capital until a malaria outbreak in 1760 saw power shift to Roseau. Today, Portsmouth offers access to the idyllic Prince Rupert Bay and the stunning Cabrits National Park — a UNESCO World Heritage Site featuring historic Fort Shirley, where the most important naval battle in Caribbean history was fought in 1782. Enjoy the Saturday farmers market, first-class cricket at Benjamin's Park, and river cruises along the famous Indian River. citeweb_search:7#3web_search:7#0</p>
+                            <span class="city-tag">History & Nature</span>
+                        </div>
+                    </div>
+
+                    <!-- Soufrière -->
+                    <div class="city-card">
+                        imageimage_search:8#5
+                        <div class="city-body">
+                            <h3>Soufrière & Scott's Head</h3>
+                            <p>A picturesque village on Dominica's southwest coast, famous as a freediving hotspot and home to the iconic Scott's Head landmark where the Caribbean Sea meets the Atlantic Ocean. Nearby, soak in therapeutic sulphuric hot springs, snorkel at Champagne Reef with its volcanic bubbles rising from the seabed, and explore the vibrant marine life that makes this one of the Caribbean's top diving destinations. citeweb_search:7#2web_search:7#0</p>
+                            <span class="city-tag">Adventure & Diving</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beautiful Places Gallery -->
+                <h3 style="margin-top: 50px; margin-bottom: 20px; color: #2c3e50; font-size: 1.5em;">Beautiful Landscapes</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        imageimage_search:8#3
+                        <div class="gallery-caption">Boiling Lake — The World's Second Largest Hot Lake</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:8#1
+                        <div class="gallery-caption">Volcanic Valley on the Trail to Boiling Lake</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:8#6
+                        <div class="gallery-caption">Adventurers at the Edge of Boiling Lake</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="section">
+            <h2 class="section-title">Essential Travel Tips</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 15px;"><strong>Best Time to Visit:</strong> December through May offers the best weather outside the rainy season. For fewer crowds at attractions like Trafalgar Falls and Emerald Pool, visit outside peak cruise season (October to May). citeweb_search:7#4</p>
+                <p style="margin-bottom: 15px;"><strong>Must-Do Adventures:</strong> Hike to Boiling Lake (the world's second-largest hot lake), canyon down waterfalls with Extreme Dominica, swim at Emerald Pool in Morne Trois Pitons National Park, go whale watching for sperm whales, and snorkel the volcanic bubbles at Champagne Reef. citeweb_search:7#0web_search:7#5</p>
+                <p style="margin-bottom: 15px;"><strong>Getting Around:</strong> Local buses and taxis serve the main routes, but renting a car gives you the freedom to explore. Be prepared for winding mountain roads and stunning scenery at every turn!</p>
+                <p><strong>Food to Try:</strong> Callaloo soup, cassava cakes, fresh tropical fruits, mountain chicken (local frog), and the legendary Dominican coffee. Don't miss the bush bars for homemade rum infusions with ginger, coconut, and local herbs! citeweb_search:7#2web_search:7#0</p>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="section" style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin-top: 40px;">
+            <h2 class="section-title" style="border-bottom-color: #fcd116;">Final Thoughts</h2>
+            <div class="section-content">
+                <p>
+                    Dominica is not your typical Caribbean holiday — and that's exactly why you should go. This is an island where you can hike through primeval rainforest, swim in emerald pools beneath waterfalls, soak in volcanic hot springs, and watch sperm whales breach just offshore. It's where the Kalinago people still practice ancient traditions, where rivers are clean enough to drink from, and where the soil is so rich that people regularly live past 100 years.
+                </p>
+                <p style="margin-top: 15px; font-style: italic; color: #006b3c; font-weight: bold;">
+                    Pack your hiking boots, bring your sense of wonder, and prepare to fall in love with the wildest, greenest, most soul-stirring island in the Caribbean. Dominica is waiting — and once you experience its raw, untamed beauty, you'll never look at the Caribbean the same way again.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kwéyòl Content (Hidden by default) -->
+    <div id="content-kweyol" class="content lang-content hidden">
+        <div class="intro-text">
+            Byenveni an mwen blog vwayaj! Si ou ka chèché yon destinasyon Karayib ki ka kassé tout stéréotype plaj sablé épi resort tout enklizif, kite mwen prezanté ou Dominik. Konèt kon "Zil Natir Karayib-la," sa paradis sovaj épi rèd ka sanm té pran dirèkteman adan Jurassic Park — épi lapli twavay, 365 rivyè, 9 vulkan aktif, épi pli falls ki ou sa ka konté. Sé Karayib-la pou avantiré, pa pou moun ki ka domi an solèy.
+        </div>
+
+        <!-- Background Section -->
+        <div class="section">
+            <h2 class="section-title">Istwa Péyi-a</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    Dominik sé yon nasyon zile souveren ki sitwé an Zil Lézé, an Lanmè Karayib lès. Zile-a té abité orijinalman pa pèp Kalinago, ki té ka laplé "Waitukubuli" ki sa vle di "Wot sé kò'y" — yon non ki byen fèt pou yon zile ki ka domine pa pik vulkanik. Jòdi-a, Dominik sé lakay pi gwo kominote Endijen ki ka rété an Karayib, épi Tèritwa Kalinago-an ka kouvri 3,700 èk adan wit vilaj. citeweb_search:7#5web_search:7#2
+                </p>
+                <p style="margin-bottom: 20px;">
+                    Istwa kolonyal zile-a ka mété an mèm jan épi lot zil Karayib, épi kontwòl té ka chanjé ant Lafrans épi Bwitannik anvan li vin yon koloni Bwitannik. Dominik té ganyen Leta Asosyé an 1967 épi lalibèt konplé dépi Bwitannik 3 Novanm 1978. Nasyon zile-a ni anviron 74,000 moun, épi anviron 15,000 ka viv an kapital Koso. citeweb_search:7#7web_search:7#0
+                </p>
+                <p>
+                    Sa ki fè Dominik vréman inik sé biyodivèsite li ékstrawòdinè. Lapli twavay ka kouvri dé twa zile-a, épi sé sèl péyi an mòn koté ou sa ka wè balèn tout lanné — pli ki 300 ka viv adan dlo sa yo. Zile-a tou famé pou ni yonn dé pi gwo konsantrasyon san tenè an mòn, gras a latè vulkanik rich, lavi aktif, épi manjé natirèl basé sou plant. citeweb_search:7#4web_search:7#5
+                </p>
+            </div>
+        </div>
+
+        <!-- Flag Section -->
+        <div class="section">
+            <h2 class="section-title">Drapo Nasyonal-la</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    Drapo Dominik té dizayné pa atis épi pyès téat kwéyòl Alwin Bully épi té leve pou premyé fwa Jounen Lilibèt, 3 Novanm 1978. Dizay orijinal-la té two konpliké pou fasilman fabrike, ki mennen twa modifyasyon an 1981, 1988, épi 1990. Drapo ki ka ni jòdi-a sé selebwé an tout mòn kon yonn dé sibòl nasyonal ki pli distenktif épi ki ni pli sans. citeweb_search:7#7web_search:7#8
+                </p>
+                
+                <div class="flag-container">
+                    imageimage_search:8#4
+                    <div class="flag-info">
+                        <h3>Siyifikasyon Dizay-la</h3>
+                        <p style="margin-bottom: 15px;">
+                            <strong>Chan vèt</strong> la ka reprezanté foré twavay zile-a épi richès natirèl li. <strong>Kwa twa koulè</strong> jòn, nwa, épi blan ka sibòlize Trinite Bondyé épi pèp divès zile-a — jòn pou solèy épi eritaj Endijen Kalinago/Arawak, blan pou pwité rivyè épi falls, épi nwa pou latè vulkanik rich épi eritaj Afriken. <strong>Disk wouj</strong> an sant la ka reprezanté sosisyalis épi jistis sosyal. Anndan li, <strong>Jako Sisserou</strong> (Amwazon Lwapéral) — zwazo nasyonal Dominik épi yonn dé papegwa ki pli ra an tè — ka sibòlize vòl vè hòtè ki pli gwo épi akonplisman aspirasyon nasyonal. <strong>Diz etwal vèt</strong> ki ka sikonskri papegwa-a ka reprezanté diz pawas Dominik, ki siyalize lékwité épi lespwa. citeweb_search:7#7web_search:7#8
+                        </p>
+                        <div class="flag-colors">
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #006b3c;"></div>
+                                <span>Vèt (Foré épi Natir)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #fcd116;"></div>
+                                <span>Jòn (Solèy épi Endijen)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #fff; border: 2px solid #ccc;"></div>
+                                <span>Blan (Rivyè épi Pwité)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #000;"></div>
+                                <span>Nwa (Latè épi Eritaj Afriken)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #ce1126;"></div>
+                                <span>Wouj (Jistis Sosyal)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Famous Cities Section -->
+        <div class="section">
+            <h2 class="section-title">Vil Famé épi Kote Pou Vizité</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 25px;">
+                    Dépi kapital koulè rive jik vilaj koté ki dous, men kote ki ka defini eksperyans Dominik:
+                </p>
+
+                <div class="city-grid">
+                    <!-- Roseau -->
+                    <div class="city-card">
+                        imageimage_search:8#8
+                        <div class="city-body">
+                            <h3>Koso (Roseau)</h3>
+                            <p>Kapital vivan-an ki té bati asou sit vilaj Kalinago ansyen Sairi, épi yon vib Rastafaryen jwayé épi mizik dancehall ki ka vole adan lè. Pwomnad lari senik ki ka liyé épi achitekti kolonyal Fwansé épi modèn, vizité Mache Vye ki istwik (dènye an jan li an Karayib), épi eksplowé bèl Jaden Botanik épi santwè papegwa li. Pa bliye mache samdi ki ka débòdé épi fwi twopikal, oswa vè bèlè Morne Bruce ki ka souvlé sou lavil épi lanmè. citeweb_search:7#3web_search:7#0</p>
+                            <span class="city-tag">Kapital</span>
+                        </div>
+                    </div>
+
+                    <!-- Portsmouth -->
+                    <div class="city-card">
+                        imageimage_search:8#2
+                        <div class="city-body">
+                            <h3>Pòsmò (Portsmouth)</h3>
+                            <p>Dezyèm vil ki pli gwo zile-a an koté nòdwès, ki té kapital anvan yon épidémi palidis an 1760 fè pouvwa alé an Koso. Jòdi-a, Pòsmò ofri aksè ba Bay Prens Rupert épi bèl Parc Nasyonal Kabwit — yon Sit Wòld Eritaj UNESCO épi Fò Chali istwik, koté batay naval ki pli enpòtan an istwa Karayib té fèt an 1782. Jwi maché samdi fèmè, kwikèt premyé klas an Benjamin's Park, épi kwéz rivyè adan famé Rivyè Endyen. citeweb_search:7#3web_search:7#0</p>
+                            <span class="city-tag">Istwa épi Natir</span>
+                        </div>
+                    </div>
+
+                    <!-- Soufrière -->
+                    <div class="city-card">
+                        imageimage_search:8#5
+                        <div class="city-body">
+                            <h3>Soufrière épi Scott's Head</h3>
+                            <p>Yon vilaj piti an koté sidwès Dominik, famé kon yon espas pou plonje lib, épi lakay landmak ikonik Scott's Head koté Lanmè Karayib ka rankontre Lanmè Atlantik. Tou pre, benyen an sous chòd sifirik ki ka térépéwtik, naje an Champagne Reef épi boul kivolkanik ki ka monté adan fon lanmè, épi eksplowé lavi marin vivan ki fè sa yonn dé pi bon kote pou plonje an Karayib. citeweb_search:7#2web_search:7#0</p>
+                            <span class="city-tag">Avantir épi Plonje</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beautiful Places Gallery -->
+                <h3 style="margin-top: 50px; margin-bottom: 20px; color: #2c3e50; font-size: 1.5em;">Bèlè Péyazaj</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        imageimage_search:8#3
+                        <div class="gallery-caption">Boiling Lake — Dezyèm Pi Gwo Lak Chòd an Mòn</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:8#1
+                        <div class="gallery-caption">Valé Vulkanik asou Sentyé pou Boiling Lake</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:8#6
+                        <div class="gallery-caption">Avantiré asou Bò Boiling Lake</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="section">
+            <h2 class="section-title">Konsèy Pou Vwayajè</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 15px;"><strong>Pi Bon Lè Pou Vini:</strong> Décembre rive May ofri pi bon tan an deyò sézon lapli. Pou mwens foul adan atraksyon kon Trafalgar Falls épi Emerald Pool, vizité an deyò sézon kwéz (Octòb rive May). citeweb_search:7#4</p>
+                <p style="margin-bottom: 15px;"><strong>Avantir Pou Ese:</strong> Monté Boiling Lake (dezyèm pi gwo lak chòd an mòn), kanonyé adan falls épi Extreme Dominica, naje an Emerald Pool an Parc Nasyonal Morne Trois Pitons, alé wè balèn pou balèn sperm, épi naje boul kivolkanik an Champagne Reef. citeweb_search:7#0web_search:7#5</p>
+                <p style="margin-bottom: 15px;"><strong>Kouman Pou Sikyilé:</strong> Bis lokal épi taksi ka sèvi rout prensipal, mé lwayé yon machin ba ou libèté pou eksplowé. Pwépare pou lari mòn ki ka vire épi bèlè péyazaj adan chak tounen!</p>
+                <p><strong>Manjé Pou Ese:</strong> Soup kalalou, gato manyòk, fwi twopikal fre, gwanna (kwanna lokal), épi kafe Dominik légenda. Pa bliye bush bar pou rhum kay fè épi jànje, koko, épi zèb lokal! citeweb_search:7#2web_search:7#0</p>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="section" style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin-top: 40px;">
+            <h2 class="section-title" style="border-bottom-color: #fcd116;">Dènye Pawòl</h2>
+            <div class="section-content">
+                <p>
+                    Dominik pa vakans Karayib tipik ou — épi sé sa ki fè ou dwe alé. Sé yon zile koté ou sa ka monté adan lapli twavay pwémityal, naje an basen emwòd anba falls, benyen an sous chòd vulkanik, épi gade balèn sperm ka soté jis an larg. Sé koté pèp Kalinago ka pratik tradisyon ansyen, koté rivyè pwòp ase pou bwè, épi koté latè rich tèlman moun ka viv souvan pli ki 100 lané.
+                </p>
+                <p style="margin-top: 15px; font-style: italic; color: #006b3c; font-weight: bold;">
+                    Pake bòt monté ou, pote lespri wondè ou, épi pwépare pou tonb an lanmou épi zil ki pli sovaj, ki pli vèt, épi ki pli ka touchem san an Karayib. Dominik ka tann ou — épi yon fwa ou eksperyans bèlè sovaj li, ou p'ap janm gade Karayib menm jan anko.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Written with <span class="heart">❤</span> for travelers everywhere</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Dominica Travel Guide | Blogger Edition 2026</p>
+    </div>
+</div>
+
+<script>
+    function switchLang(lang) {
+        const enContent = document.getElementById('content-en');
+        const kweyolContent = document.getElementById('content-kweyol');
+        const btnEn = document.getElementById('btn-en');
+        const btnKweyol = document.getElementById('btn-kweyol');
+
+        if (lang === 'en') {
+            enContent.classList.remove('hidden');
+            kweyolContent.classList.add('hidden');
+            btnEn.classList.add('active');
+            btnKweyol.classList.remove('active');
+        } else {
+            enContent.classList.add('hidden');
+            kweyolContent.classList.remove('hidden');
+            btnEn.classList.remove('active');
+            btnKweyol.classList.add('active');
+        }
+        
+        // Smooth scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
