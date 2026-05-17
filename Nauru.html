@@ -1,0 +1,970 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauru Travel Guide | Ultimate Blogger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C41E3A;
+            --secondary: #1a3c6e;
+            --gold: #D4AF37;
+            --dark: #1a1a2e;
+            --light: #f8f6f3;
+            --text: #2d2d2d;
+            --ocean: #006994;
+            --sand: #C2B280;
+            --coral: #FF7F50;
+            --nauru-blue: #002B7F;
+            --nauru-yellow: #FFC61E;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Translation Bar */
+        .translate-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--nauru-blue) 100%);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .translate-bar span {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .lang-btn {
+            padding: 8px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--nauru-yellow);
+            border-color: var(--nauru-yellow);
+            color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255,198,30,0.4);
+        }
+        
+        .lang-btn .flag {
+            font-size: 16px;
+        }
+        
+        /* Hero */
+        .hero {
+            margin-top: 60px;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), 
+                        url('https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/5db18a36499a9e5d3e77346ff19aaf2d2b9287a8.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(transparent, var(--light));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--nauru-yellow);
+            color: var(--dark);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255,255,255,0.6);
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            animation: scrollDot 2s infinite;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--nauru-yellow);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        
+        /* Country Info Card */
+        .info-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-item .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .info-item h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+        .info-item p {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .flag-img {
+            width: 280px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .flag-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .flag-meaning {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .flag-meaning h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .color-meaning {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .color-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+        
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .city-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .city-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-img {
+            transform: scale(1.1);
+        }
+        
+        .city-img-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .city-img-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.3));
+        }
+        
+        .city-content {
+            padding: 25px 30px 30px;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--nauru-yellow);
+            color: var(--dark);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .city-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .city-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            background: #fff;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin: 40px 0;
+        }
+        
+        .blog-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #444;
+            text-align: justify;
+        }
+        
+        .blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin: 35px 0 15px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--nauru-blue) 0%, var(--secondary) 100%);
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            opacity: 0.1;
+            line-height: 1;
+        }
+        
+        .highlight-box p {
+            color: rgba(255,255,255,0.95) !important;
+            margin: 0;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 50px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: linear-gradient(135deg, var(--nauru-blue), var(--secondary));
+            border-radius: 15px;
+            color: #fff;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--nauru-yellow);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 50px 0 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer p {
+            max-width: 500px;
+            margin: 0 auto 20px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--nauru-yellow);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        @keyframes scrollDot {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 25px; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .city-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .blog-content { padding: 30px 20px; }
+            .flag-section { flex-direction: column; text-align: center; }
+            .section { padding: 50px 0; }
+            .translate-bar { flex-wrap: wrap; padding: 10px; }
+            .lang-btn { padding: 6px 14px; font-size: 12px; }
+        }
+        
+        /* Hidden class for translation */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <!-- Translation Bar -->
+    <div class="translate-bar">
+        <span>🌐 Translate:</span>
+        <button class="lang-btn active" onclick="switchLang('en')">
+            <span class="flag">🇬🇧</span> English
+        </button>
+        <button class="lang-btn" onclick="switchLang('na')">
+            <span class="flag">🇳🇷</span> Nauruan
+        </button>
+        <button class="lang-btn" onclick="switchLang('nr')">
+            <span class="flag">🇳🇷</span> Nauru English
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Ultimate Travel Guide 2026</div>
+            <h1>Nauru</h1>
+            <p class="hero-subtitle">Discover the World's Smallest Republic — Where Ancient Coral Meets Pacific Blue and Resilience Rises from the Rock</p>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <!-- Country Overview -->
+        <section class="section">
+            <div class="lang-content active" id="content-en">
+                <h2 class="section-title">Country Overview</h2>
+                <p class="section-subtitle">Essential facts about the world's smallest island nation</p>
+            </div>
+            <div class="lang-content" id="content-na">
+                <h2 class="section-title">Ekayan Naoero</h2>
+                <p class="section-subtitle">Ekayan ibwim weitin igen Naoero</p>
+            </div>
+            <div class="lang-content" id="content-nr">
+                <h2 class="section-title">Country Overview</h2>
+                <p class="section-subtitle">Essential facts about the world's smallest island nation</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="flag-section">
+                    <img src="https://flagcdn.com/w640/nr.png" alt="Nauru Flag" class="flag-img">
+                    <div class="flag-meaning">
+                        <div class="lang-content active" id="flag-en">
+                            <h3>National Flag</h3>
+                            <p>The flag of Nauru features a bold <strong>yellow horizontal stripe</strong> representing the Equator, with a <strong>white 12-pointed star</strong> beneath it symbolizing the island's location just south of the Equator and the 12 original tribes of Nauru. The dark blue background represents the Pacific Ocean. The star's points also represent the 12 months, reflecting the islanders' connection to the rhythms of nature and time.</p>
+                        </div>
+                        <div class="lang-content" id="flag-na">
+                            <h3>Ekayan Naoero</h3>
+                            <p>Ekayan Naoero e igom <strong>yellow stripe</strong> ibwim Equator, wantaim <strong>white 12-pointed star</strong> ibwim anene e igom ekayan ibwim Naoero just south ibwim Equator ao 12 original tribes ibwim Naoero. Dark blue background e igom Pacific Ocean. Points ibwim star e igom 12 months, reflecting ekayan ibwim islanders' connection ibwim rhythms ibwim nature ao time.</p>
+                        </div>
+                        <div class="lang-content" id="flag-nr">
+                            <h3>National Flag</h3>
+                            <p>The flag of Nauru features a bold <strong>yellow horizontal stripe</strong> representing the Equator, with a <strong>white 12-pointed star</strong> beneath it symbolizing the island's location just south of the Equator and the 12 original tribes of Nauru. The dark blue background represents the Pacific Ocean. The star's points also represent the 12 months, reflecting the islanders' connection to the rhythms of nature and time.</p>
+                        </div>
+                        <div class="color-meaning">
+                            <div class="color-box"><div class="color-dot" style="background:#002B7F"></div> Blue — Pacific Ocean</div>
+                            <div class="color-box"><div class="color-dot" style="background:#FFC61E"></div> Yellow — Equator</div>
+                            <div class="color-box"><div class="color-dot" style="background:#FFFFFF"></div> White — 12 Tribes & Star</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="icon">🏛️</div>
+                        <h4>Capital</h4>
+                        <p>Yaren (de facto)</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">👥</div>
+                        <h4>Population</h4>
+                        <p>~12,500</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🗣️</div>
+                        <h4>Languages</h4>
+                        <p>Nauruan & English</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">💰</div>
+                        <h4>Currency</h4>
+                        <p>Australian Dollar (AUD)</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🌏</div>
+                        <h4>Region</h4>
+                        <p>Micronesia / Pacific</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📅</div>
+                        <h4>Independence</h4>
+                        <p>January 31, 1968</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">21</span>
+                <div class="stat-label">Sq km Total Area</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">#1</span>
+                <div class="stat-label">Smallest Republic</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">30m</span>
+                <div class="stat-label">Highest Elevation</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">42km</span>
+                <div class="stat-label">Coastline</div>
+            </div>
+        </div>
+
+        <!-- Famous Cities -->
+        <section class="section">
+            <div class="lang-content active" id="cities-en">
+                <h2 class="section-title">Famous Districts & Destinations</h2>
+                <p class="section-subtitle">Must-visit gems across the island of Nauru</p>
+            </div>
+            <div class="lang-content" id="cities-na">
+                <h2 class="section-title">Ekayan Districts ao Destinations</h2>
+                <p class="section-subtitle">Ekayan ibwim weitin igen ibwim Naoero</p>
+            </div>
+            <div class="lang-content" id="cities-nr">
+                <h2 class="section-title">Famous Districts & Destinations</h2>
+                <p class="section-subtitle">Must-visit gems across the island of Nauru</p>
+            </div>
+            
+            <div class="city-grid">
+                <!-- Anibare Bay -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/7f6c3cb4d26272eeb03a44036771e10883884be1.jpg" alt="Anibare Bay" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Paradise Beach</span>
+                        <div class="lang-content active" id="an-en">
+                            <h3>Anibare Bay</h3>
+                            <p>Nauru's most beautiful beach stretches along the eastern coast, where powdery white sand meets turquoise waters framed by dramatic limestone pinnacles. The bay is a favorite spot for locals to swim, fish, and gather for weekend barbecues. At low tide, the exposed reef reveals a wonderland of tide pools teeming with colorful marine life — a perfect introduction to Nauru's underwater world.</p>
+                        </div>
+                        <div class="lang-content" id="an-na">
+                            <h3>Anibare Bay</h3>
+                            <p>Naoero's most beautiful beach e igom along eastern coast, weitin powdery white sand e igom turquoise waters framed wantaim dramatic limestone pinnacles. Bay e igom favorite spot ibwim locals ibwim swim, fish, ao gather ibwim weekend barbecues. Low tide, exposed reef e igom wonderland ibwim tide pools teeming wantaim colorful marine life — perfect introduction ibwim Naoero's underwater world.</p>
+                        </div>
+                        <div class="lang-content" id="an-nr">
+                            <h3>Anibare Bay</h3>
+                            <p>Nauru's most beautiful beach stretches along the eastern coast, where powdery white sand meets turquoise waters framed by dramatic limestone pinnacles. The bay is a favorite spot for locals to swim, fish, and gather for weekend barbecues. At low tide, the exposed reef reveals a wonderland of tide pools teeming with colorful marine life — a perfect introduction to Nauru's underwater world.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Yaren District -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/1e35442c0bb812df04695beb6d9dc5e739ef6eba.jpg" alt="Yaren District" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Capital District</span>
+                        <div class="lang-content active" id="ya-en">
+                            <h3>Yaren District</h3>
+                            <p>While Nauru has no official capital, Yaren serves as the de facto administrative center and houses the Parliament, Government House, and most national institutions. The district stretches along the southwest coast, offering a glimpse into the island's governance and daily life. The Parliament House, with its distinctive colonial architecture, stands as a symbol of Nauruan sovereignty and democratic tradition.</p>
+                        </div>
+                        <div class="lang-content" id="ya-na">
+                            <h3>Yaren District</h3>
+                            <p>Weitin Naoero e igom no official capital, Yaren e igom de facto administrative center ao houses Parliament, Government House, ao most national institutions. District e igom along southwest coast, offering glimpse ibwim island's governance ao daily life. Parliament House, wantaim distinctive colonial architecture, e igom symbol ibwim Nauruan sovereignty ao democratic tradition.</p>
+                        </div>
+                        <div class="lang-content" id="ya-nr">
+                            <h3>Yaren District</h3>
+                            <p>While Nauru has no official capital, Yaren serves as the de facto administrative center and houses the Parliament, Government House, and most national institutions. The district stretches along the southwest coast, offering a glimpse into the island's governance and daily life. The Parliament House, with its distinctive colonial architecture, stands as a symbol of Nauruan sovereignty and democratic tradition.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Buada Lagoon -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/e1589675a8c9eb09e1772d551732677aef5e5574.jpg" alt="Buada Lagoon" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Natural Oasis</span>
+                        <div class="lang-content active" id="bu-en">
+                            <h3>Buada Lagoon</h3>
+                            <p>The only freshwater body on the island, Buada Lagoon is a serene emerald oasis nestled in a depression at the island's center. Surrounded by pandanus trees and tropical vegetation, it offers a stark contrast to the rugged coral pinnacles that dominate Nauru's interior. Local legend says the lagoon holds spiritual significance, and it remains a peaceful retreat where families picnic and children swim in the cool, brackish waters.</p>
+                        </div>
+                        <div class="lang-content" id="bu-na">
+                            <h3>Buada Lagoon</h3>
+                            <p>Only freshwater body ibwim island, Buada Lagoon e igom serene emerald oasis nestled ibwim depression ibwim island's center. Surrounded wantaim pandanus trees ao tropical vegetation, e igom stark contrast ibwim rugged coral pinnacles weitin dominate Naoero's interior. Local legend e igom lagoon holds spiritual significance, ao e igom peaceful retreat weitin families picnic ao children swim ibwim cool, brackish waters.</p>
+                        </div>
+                        <div class="lang-content" id="bu-nr">
+                            <h3>Buada Lagoon</h3>
+                            <p>The only freshwater body on the island, Buada Lagoon is a serene emerald oasis nestled in a depression at the island's center. Surrounded by pandanus trees and tropical vegetation, it offers a stark contrast to the rugged coral pinnacles that dominate Nauru's interior. Local legend says the lagoon holds spiritual significance, and it remains a peaceful retreat where families picnic and children swim in the cool, brackish waters.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nauru Interior -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn7.dissolve.com/fdf6ea4c06a5dd32eca9648f8c736c2689377eb2.jpg" alt="Nauru Interior" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Phosphate Legacy</span>
+                        <div class="lang-content active" id="in-en">
+                            <h3>The Interior (Topside)</h3>
+                            <p>Known locally as "Topside," Nauru's interior is a surreal moonscape of limestone pinnacles left behind by a century of phosphate mining. These jagged coral towers, some reaching 30 meters high, create an otherworldly terrain unlike anywhere on Earth. While the environmental damage is undeniable, the landscape has a haunting, sculptural beauty. Rehabilitation efforts are slowly bringing vegetation back, offering hope that nature can reclaim even the most devastated places.</p>
+                        </div>
+                        <div class="lang-content" id="in-na">
+                            <h3>Interior (Topside)</h3>
+                            <p>Known locally as "Topside," Naoero's interior e igom surreal moonscape ibwim limestone pinnacles left behind wantaim century ibwim phosphate mining. Jagged coral towers, some reaching 30 meters high, e igom otherworldly terrain unlike anywhere ibwim Earth. Weitin environmental damage e undeniable, landscape e igom haunting, sculptural beauty. Rehabilitation efforts e slowly bringing vegetation back, offering hope weitin nature can reclaim even most devastated places.</p>
+                        </div>
+                        <div class="lang-content" id="in-nr">
+                            <h3>The Interior (Topside)</h3>
+                            <p>Known locally as "Topside," Nauru's interior is a surreal moonscape of limestone pinnacles left behind by a century of phosphate mining. These jagged coral towers, some reaching 30 meters high, create an otherworldly terrain unlike anywhere on Earth. While the environmental damage is undeniable, the landscape has a haunting, sculptural beauty. Rehabilitation efforts are slowly bringing vegetation back, offering hope that nature can reclaim even the most devastated places.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Government House -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/8ff4017cd5f90fefc5a56f25651177cc6b01dcd4.jpg" alt="Government House" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Historic Landmark</span>
+                        <div class="lang-content active" id="gh-en">
+                            <h3>Government House & Parliament</h3>
+                            <p>The seat of Nauruan governance reflects the island's unique journey from German colony to League of Nations mandate, Japanese occupation, UN trusteeship, and finally independence. The Parliament House features traditional Nauruan design elements alongside modern functionality. The nearby war memorial honors those who perished during WWII, when Nauru was a strategic outpost fiercely contested by Allied and Japanese forces.</p>
+                        </div>
+                        <div class="lang-content" id="gh-na">
+                            <h3>Government House ao Parliament</h3>
+                            <p>Seat ibwim Nauruan governance e igom reflect island's unique journey ibwim German colony ibwim League of Nations mandate, Japanese occupation, UN trusteeship, ao finally independence. Parliament House e igom feature traditional Nauruan design elements alongside modern functionality. Nearby war memorial e igom honor those weitin perish during WWII, weitin Naoero e igom strategic outpost fiercely contested wantaim Allied ao Japanese forces.</p>
+                        </div>
+                        <div class="lang-content" id="gh-nr">
+                            <h3>Government House & Parliament</h3>
+                            <p>The seat of Nauruan governance reflects the island's unique journey from German colony to League of Nations mandate, Japanese occupation, UN trusteeship, and finally independence. The Parliament House features traditional Nauruan design elements alongside modern functionality. The nearby war memorial honors those who perished during WWII, when Nauru was a strategic outpost fiercely contested by Allied and Japanese forces.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Anibare Coastal Road -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/5db18a36499a9e5d3e77346ff19aaf2d2b9287a8.jpg" alt="Anibare Coastal Road" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Scenic Drive</span>
+                        <div class="lang-content active" id="ar-en">
+                            <h3>Anibare Coastal Road</h3>
+                            <p>The 19-kilometer ring road that circles Nauru offers one of the world's most compact yet spectacular coastal drives. Starting from Yaren, the road winds past rugged cliffs, hidden coves, and the iconic Anibare Bay before climbing to the island's highest point at Command Ridge. Along the way, you'll pass through all 14 districts, each with its own character — from bustling neighborhoods to quiet fishing villages where life moves at the pace of the tide.</p>
+                        </div>
+                        <div class="lang-content" id="ar-na">
+                            <h3>Anibare Coastal Road</h3>
+                            <p>19-kilometer ring road weitin circles Naoero e igom offer world's most compact yet spectacular coastal drives. Starting ibwim Yaren, road e igom wind past rugged cliffs, hidden coves, ao iconic Anibare Bay bipo climbing ibwim island's highest point ibwim Command Ridge. Along way, yu bai pass through all 14 districts, each wantaim own character — ibwim bustling neighborhoods ibwim quiet fishing villages weitin life e igom move ibwim pace ibwim tide.</p>
+                        </div>
+                        <div class="lang-content" id="ar-nr">
+                            <h3>Anibare Coastal Road</h3>
+                            <p>The 19-kilometer ring road that circles Nauru offers one of the world's most compact yet spectacular coastal drives. Starting from Yaren, the road winds past rugged cliffs, hidden coves, and the iconic Anibare Bay before climbing to the island's highest point at Command Ridge. Along the way, you'll pass through all 14 districts, each with its own character — from bustling neighborhoods to quiet fishing villages where life moves at the pace of the tide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Article -->
+        <section class="section">
+            <div class="lang-content active" id="blog-en">
+                <div class="blog-content">
+                    <h2 class="section-title">Why Nauru Should Be Your Next Unforgettable Journey</h2>
+                    
+                    <p>There are countries that impress you with their size, and then there is Nauru — a nation so small you can drive around it in under an hour, yet so rich in story that it could fill a library. This 21-square-kilometer coral outpost in the central Pacific is the world's smallest republic, the least visited country on Earth, and arguably one of the most fascinating places you will ever set foot on. If you are searching for the road less traveled, you have found its end.</p>
+                    
+                    <p>Picture yourself standing on a beach where the only footprints in the sand are your own, with the Pacific stretching infinitely in every direction. Imagine driving a coastal road where every turn reveals a new shade of blue — turquoise lagoons, sapphire depths, and foam-white breakers crashing against ancient coral cliffs. Envision sharing a sunset with locals who greet you by name after just one day, their warmth as constant as the tropical breeze.</p>
+                    
+                    <h3>A Story of Riches, Ruin, and Resilience</h3>
+                    <p>What makes Nauru extraordinary is its story — a cautionary tale and an inspiration all at once. For decades, this tiny island was one of the richest nations per capita on Earth, thanks to vast phosphate deposits formed from millennia of seabird droppings. The wealth brought luxury cars, international flights, and modern infrastructure. But when the phosphate ran out, Nauru faced an economic and environmental crisis that would have broken a lesser people.</p>
+                    
+                    <p>Today, Nauruans are writing a new chapter. The interior, scarred by mining into a surreal landscape of limestone pinnacles, is slowly being rehabilitated. New industries are emerging, from sustainable fisheries to niche tourism. The people who once had the highest GDP in the Pacific are now building something far more valuable: a sustainable future rooted in community, culture, and an unbreakable connection to their island home.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"Nauru teaches us that size is not destiny. In 21 square kilometers, this nation has experienced empire, wealth, collapse, and rebirth. The Nauruan people carry the wisdom of survival — a reminder that resilience is the greatest treasure any country can possess."</p>
+                    </div>
+                    
+                    <h3>Adventure in the World's Most Compact Nation</h3>
+                    <p>Beyond the profound history lies a playground for curious travelers. The snorkeling at Anibare Bay reveals coral gardens untouched by mass tourism, where reef sharks glide through channels and tropical fish flash like living jewels. The interior's lunar landscape, while sobering, offers a unique photographic opportunity — towering coral pinnacles against a cobalt sky create images that seem from another planet. And Buada Lagoon, the island's only freshwater body, provides a peaceful contrast with its emerald waters and tropical surrounds.</p>
+                    
+                    <h3>Practical Travel Tips</h3>
+                    <p>Getting to Nauru requires determination — flights operate from Brisbane, Australia, and are limited. The Australian dollar is the official currency. English and Nauruan are both widely spoken, though the local language is a unique Micronesian tongue unrelated to neighboring languages. Accommodation is limited to a few guesthouses and the Menen Hotel, so book well in advance.</p>
+                    
+                    <p>Respect local customs: dress modestly outside beach areas, always ask permission before photographing people, and be mindful that Nauru has a complex recent history involving offshore processing facilities. The island has a tropical climate with consistent temperatures year-round, though the wet season from November to February can bring heavy rains. Bring reef-safe sunscreen, sturdy shoes for exploring the rugged interior, and an open mind.</p>
+                    
+                    <h3>Final Thoughts</h3>
+                    <p>Nauru is not a destination for everyone. It has no luxury resorts, no shopping districts, and no tourist infrastructure to speak of. What it offers instead is something increasingly rare in our interconnected world: genuine solitude, authentic human connection, and the chance to witness a nation rebuilding itself with dignity and determination. It is a place where you can walk the entire coastline in a day, where every local knows every other local, and where the rhythm of life follows the ancient pulse of the Pacific. If you are ready to trade convenience for authenticity, Nauru is waiting — a tiny island with a story larger than life itself.</p>
+                </div>
+            </div>
+            
+            <div class="lang-content" id="blog-na">
+                <div class="blog-content">
+                    <h2 class="section-title">Bilong Wanem Yu Mas Go Long Naoero</h2>
+                    
+                    <p>E igom countries weitin impress yu wantaim size, ao te Naoero — nation so small yu can drive around ibwim ibwim under hour, yet so rich ibwim story weitin e igom fill library. 21-square-kilometer coral outpost ibwim central Pacific e igom world's smallest republic, least visited country ibwim Earth, ao arguably most fascinating places yu bai ever set foot ibwim. Sapos yu searching ibwim road less traveled, yu aki found ibwim end.</p>
+                    
+                    <p>Tingim yu sanap ibwim beach weitin only footprints ibwim sand e igom yu own, wantaim Pacific stretching infinitely ibwim every direction. Tingim yu driving coastal road weitin every turn e igom reveal new shade ibwim blue — turquoise lagoons, sapphire depths, ao foam-white breakers crashing against ancient coral cliffs. Tingim yu sharing sunset wantaim locals weitin greet yu wantaim name after just one day, warmth e igom constant as tropical breeze.</p>
+                    
+                    <h3>Story ibwim Riches, Ruin, ao Resilience</h3>
+                    <p>Wanem samting i mekim Naoero i spesal em story — cautionary tale ao inspiration all ibwim once. Ibwim decades, tiny island e igom one ibwim richest nations per capita ibwim Earth, thanks ibwim vast phosphate deposits formed ibwim millennia ibwim seabird droppings. Wealth e igom bring luxury cars, international flights, ao modern infrastructure. But weitin phosphate e igom run out, Naoero e igom face economic ao environmental crisis weitin bai igom break lesser pipol.</p>
+                    
+                    <p>Tude, Nauruans e igom writing new chapter. Interior, scarred wantaim mining ibwim surreal landscape ibwim limestone pinnacles, e slowly being rehabilitated. New industries e igom emerging, ibwim sustainable fisheries ibwim niche tourism. Pipol weitin once e igom highest GDP ibwim Pacific e now building something far more valuable: sustainable future rooted ibwim community, culture, ao unbreakable connection ibwim island home.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"Naoero e igom skulim yu ake size em no destiny. Ibwim 21 square kilometers, nation e igom experienced empire, wealth, collapse, ao rebirth. Nauruan pipol e igom carry wisdom ibwim survival — reminder weitin resilience e igom greatest treasure any country can possess."</p>
+                    </div>
+                    
+                    <h3>Adventja ibwim World's Most Compact Nation</h3>
+                    <p>Bipo profound history e igom playground ibwim curious travelers. Snorkeling ibwim Anibare Bay e igom reveal coral gardens untouched wantaim mass tourism, weitin reef sharks e igom glide through channels ao tropical fish e igom flash like living jewels. Interior's lunar landscape, weitin sobering, e igom offer unique photographic opportunity — towering coral pinnacles against cobalt sky e igom create images weitin seem ibwim another planet. Ao Buada Lagoon, island's only freshwater body, e igom provide peaceful contrast wantaim emerald waters ao tropical surrounds.</p>
+                    
+                    <h3>Ol Gutpela Tok</h3>
+                    <p>Getting ibwim Naoero e igom require determination — flights e igom operate ibwim Brisbane, Australia, ao e limited. Australian dollar e igom official currency. English ao Nauruan e igom both widely spoken, weitin local language e unique Micronesian tongue unrelated ibwim neighboring languages. Accommodation e limited ibwim few guesthouses ao Menen Hotel, so book well ibwim advance.</p>
+                    
+                    <p>Respekt ol local customs: dress modestly outside beach areas, askim pastaim bipo yu kisim piksa, ao be mindful weitin Naoero e igom complex recent history involving offshore processing facilities. Island e igom tropical climate wantaim consistent temperatures year-round, weitin wet season ibwim November ibwim February can bring heavy rains. Bring reef-safe sunscreen, sturdy shoes ibwim exploring rugged interior, ao open mind.</p>
+                    
+                    <h3>Last Tok</h3>
+                    <p>Naoero em no destination ibwim everyone. Em no gat luxury resorts, no shopping districts, ao no tourist infrastructure ibwim tok. Wanem em offer instead em something increasingly rare ibwim interconnected world: genuine solitude, authentic human connection, ao chance ibwim witness nation rebuilding itself wantaim dignity ao determination. Em place weitin yu can walk entire coastline ibwim day, weitin every local knows every other local, ao weitin rhythm ibwim life e igom follow ancient pulse ibwim Pacific. Sapos yu redi ibwim trade convenience ibwim authenticity, Naoero e igom waiting — tiny island wantaim story larger than life itself.</p>
+                </div>
+            </div>
+            
+            <div class="lang-content" id="blog-nr">
+                <div class="blog-content">
+                    <h2 class="section-title">Why Nauru Should Be Your Next Unforgettable Journey</h2>
+                    
+                    <p>There are countries that impress you with their size, and then there is Nauru — a nation so small you can drive around it in under an hour, yet so rich in story that it could fill a library. This 21-square-kilometer coral outpost in the central Pacific is the world's smallest republic, the least visited country on Earth, and arguably one of the most fascinating places you will ever set foot on. If you are searching for the road less traveled, you have found its end.</p>
+                    
+                    <p>Picture yourself standing on a beach where the only footprints in the sand are your own, with the Pacific stretching infinitely in every direction. Imagine driving a coastal road where every turn reveals a new shade of blue — turquoise lagoons, sapphire depths, and foam-white breakers crashing against ancient coral cliffs. Envision sharing a sunset with locals who greet you by name after just one day, their warmth as constant as the tropical breeze.</p>
+                    
+                    <h3>A Story of Riches, Ruin, and Resilience</h3>
+                    <p>What makes Nauru extraordinary is its story — a cautionary tale and an inspiration all at once. For decades, this tiny island was one of the richest nations per capita on Earth, thanks to vast phosphate deposits formed from millennia of seabird droppings. The wealth brought luxury cars, international flights, and modern infrastructure. But when the phosphate ran out, Nauru faced an economic and environmental crisis that would have broken a lesser people.</p>
+                    
+                    <p>Today, Nauruans are writing a new chapter. The interior, scarred by mining into a surreal landscape of limestone pinnacles, is slowly being rehabilitated. New industries are emerging, from sustainable fisheries to niche tourism. The people who once had the highest GDP in the Pacific are now building something far more valuable: a sustainable future rooted in community, culture, and an unbreakable connection to their island home.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"Nauru teaches us that size is not destiny. In 21 square kilometers, this nation has experienced empire, wealth, collapse, and rebirth. The Nauruan people carry the wisdom of survival — a reminder that resilience is the greatest treasure any country can possess."</p>
+                    </div>
+                    
+                    <h3>Adventure in the World's Most Compact Nation</h3>
+                    <p>Beyond the profound history lies a playground for curious travelers. The snorkeling at Anibare Bay reveals coral gardens untouched by mass tourism, where reef sharks glide through channels and tropical fish flash like living jewels. The interior's lunar landscape, while sobering, offers a unique photographic opportunity — towering coral pinnacles against a cobalt sky create images that seem from another planet. And Buada Lagoon, the island's only freshwater body, provides a peaceful contrast with its emerald waters and tropical surrounds.</p>
+                    
+                    <h3>Practical Travel Tips</h3>
+                    <p>Getting to Nauru requires determination — flights operate from Brisbane, Australia, and are limited. The Australian dollar is the official currency. English and Nauruan are both widely spoken, though the local language is a unique Micronesian tongue unrelated to neighboring languages. Accommodation is limited to a few guesthouses and the Menen Hotel, so book well in advance.</p>
+                    
+                    <p>Respect local customs: dress modestly outside beach areas, always ask permission before photographing people, and be mindful that Nauru has a complex recent history involving offshore processing facilities. The island has a tropical climate with consistent temperatures year-round, though the wet season from November to February can bring heavy rains. Bring reef-safe sunscreen, sturdy shoes for exploring the rugged interior, and an open mind.</p>
+                    
+                    <h3>Final Thoughts</h3>
+                    <p>Nauru is not a destination for everyone. It has no luxury resorts, no shopping districts, and no tourist infrastructure to speak of. What it offers instead is something increasingly rare in our interconnected world: genuine solitude, authentic human connection, and the chance to witness a nation rebuilding itself with dignity and determination. It is a place where you can walk the entire coastline in a day, where every local knows every other local, and where the rhythm of life follows the ancient pulse of the Pacific. If you are ready to trade convenience for authenticity, Nauru is waiting — a tiny island with a story larger than life itself.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>Nauru Travel Guide</h3>
+        <div class="footer-divider"></div>
+        <p>Discover the world's smallest republic. Every moment here is a story of resilience and rebirth.</p>
+        <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.6;">© 2026 Nauru Travel Blog | Built with ❤️ for Explorers</p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.lang-btn').classList.add('active');
+            
+            // Hide all content
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            
+            // Show selected language content
+            document.querySelectorAll('[id$="-' + lang + '"]').forEach(el => el.classList.add('active'));
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.city-card, .info-item, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>'''
+
+# Save the file
+with open('/mnt/agents/output/nauru_travel_guide.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"File size: {len(html_content)} characters")
