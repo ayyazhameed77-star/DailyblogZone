@@ -1,0 +1,970 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marshall Islands Travel Guide | Ultimate Blogger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C41E3A;
+            --secondary: #1a3c6e;
+            --gold: #D4AF37;
+            --dark: #1a1a2e;
+            --light: #f8f6f3;
+            --text: #2d2d2d;
+            --ocean: #006994;
+            --sand: #C2B280;
+            --rmi-blue: #003F87;
+            --rmi-orange: #FF6600;
+            --rmi-white: #FFFFFF;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Translation Bar */
+        .translate-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--rmi-blue) 100%);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .translate-bar span {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .lang-btn {
+            padding: 8px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--rmi-orange);
+            border-color: var(--rmi-orange);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255,102,0,0.4);
+        }
+        
+        .lang-btn .flag {
+            font-size: 16px;
+        }
+        
+        /* Hero */
+        .hero {
+            margin-top: 60px;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), 
+                        url('https://kimi-web-img.moonshot.cn/img/i0.wp.com/5217f57f246b6bd96f49fd77079ec5bae4c31149.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(transparent, var(--light));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--rmi-orange);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255,255,255,0.6);
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            animation: scrollDot 2s infinite;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--rmi-orange);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        
+        /* Country Info Card */
+        .info-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-item .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .info-item h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+        .info-item p {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .flag-img {
+            width: 280px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .flag-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .flag-meaning {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .flag-meaning h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .color-meaning {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .color-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+        
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .city-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .city-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-img {
+            transform: scale(1.1);
+        }
+        
+        .city-img-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .city-img-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.3));
+        }
+        
+        .city-content {
+            padding: 25px 30px 30px;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--rmi-orange);
+            color: #fff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .city-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .city-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            background: #fff;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin: 40px 0;
+        }
+        
+        .blog-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #444;
+            text-align: justify;
+        }
+        
+        .blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin: 35px 0 15px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--rmi-blue) 0%, var(--secondary) 100%);
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            opacity: 0.1;
+            line-height: 1;
+        }
+        
+        .highlight-box p {
+            color: rgba(255,255,255,0.95) !important;
+            margin: 0;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 50px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: linear-gradient(135deg, var(--rmi-blue), var(--secondary));
+            border-radius: 15px;
+            color: #fff;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--rmi-orange);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 50px 0 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer p {
+            max-width: 500px;
+            margin: 0 auto 20px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--rmi-orange);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        @keyframes scrollDot {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 25px; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .city-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .blog-content { padding: 30px 20px; }
+            .flag-section { flex-direction: column; text-align: center; }
+            .section { padding: 50px 0; }
+            .translate-bar { flex-wrap: wrap; padding: 10px; }
+            .lang-btn { padding: 6px 14px; font-size: 12px; }
+        }
+        
+        /* Hidden class for translation */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <!-- Translation Bar -->
+    <div class="translate-bar">
+        <span>🌐 Translate:</span>
+        <button class="lang-btn active" onclick="switchLang('en')">
+            <span class="flag">🇬🇧</span> English
+        </button>
+        <button class="lang-btn" onclick="switchLang('mh')">
+            <span class="flag">🇲🇭</span> Marshallese
+        </button>
+        <button class="lang-btn" onclick="switchLang('rmi')">
+            <span class="flag">🇲🇭</span> RMI English
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Ultimate Travel Guide 2026</div>
+            <h1>Marshall Islands</h1>
+            <p class="hero-subtitle">Discover the Pearls of the Pacific — Where Ancient Navigation Meets Atomic History and Coral Atolls Touch the Sky</p>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <!-- Country Overview -->
+        <section class="section">
+            <div class="lang-content active" id="content-en">
+                <h2 class="section-title">Country Overview</h2>
+                <p class="section-subtitle">Essential facts about this Micronesian island nation</p>
+            </div>
+            <div class="lang-content" id="content-mh">
+                <h2 class="section-title">Aelōn̄ Kein Ad</h2>
+                <p class="section-subtitle">Kōjparok im juon wōt jikin ko rej bōk ilo aelōn̄ kein ad</p>
+            </div>
+            <div class="lang-content" id="content-rmi">
+                <h2 class="section-title">Country Overview</h2>
+                <p class="section-subtitle">Essential facts about this Micronesian island nation</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="flag-section">
+                    <img src="https://flagcdn.com/w640/mh.png" alt="Marshall Islands Flag" class="flag-img">
+                    <div class="flag-meaning">
+                        <div class="lang-content active" id="flag-en">
+                            <h3>National Flag</h3>
+                            <p>The flag of the Marshall Islands features a bold <strong>orange diagonal stripe</strong> representing the Equator, with a <strong>white 24-pointed star</strong> symbolizing the 24 municipalities of the RMI. The star has four long rays representing the four highest-ranking clans, and 20 shorter rays for the remaining clans. The dark blue background represents the Pacific Ocean. The flag's design evokes the idea of the islands rising from the sea toward the sun.</p>
+                        </div>
+                        <div class="lang-content" id="flag-mh">
+                            <h3>Anijin Aelōn̄ Kein Ad</h3>
+                            <p>Anijin aelōn̄ kein ad e jibōlok <strong>orange stripe</strong> emōj an kōttar im <strong>white 24-pointed star</strong> emōj an kōttar 24 municipalities n̄an RMI. Star e jibōlok 4 long rays emōj an kōttar 4 highest-ranking clans, im 20 shorter rays n̄an remaining clans. Dark blue background emōj an kōttar Pacific Ocean. Anijin e jibōlok idea n̄an aelōn̄ kein ad emōj an jibōlok jāne ilo lōn̄ im jāne ilo sun.</p>
+                        </div>
+                        <div class="lang-content" id="flag-rmi">
+                            <h3>National Flag</h3>
+                            <p>The flag of the Marshall Islands features a bold <strong>orange diagonal stripe</strong> representing the Equator, with a <strong>white 24-pointed star</strong> symbolizing the 24 municipalities of the RMI. The star has four long rays representing the four highest-ranking clans, and 20 shorter rays for the remaining clans. The dark blue background represents the Pacific Ocean. The flag's design evokes the idea of the islands rising from the sea toward the sun.</p>
+                        </div>
+                        <div class="color-meaning">
+                            <div class="color-box"><div class="color-dot" style="background:#003F87"></div> Blue — Pacific Ocean</div>
+                            <div class="color-box"><div class="color-dot" style="background:#FF6600"></div> Orange — Equator & Courage</div>
+                            <div class="color-box"><div class="color-dot" style="background:#FFFFFF"></div> White — 24 Municipalities</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="icon">🏛️</div>
+                        <h4>Capital</h4>
+                        <p>Majuro</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">👥</div>
+                        <h4>Population</h4>
+                        <p>~59,000</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🗣️</div>
+                        <h4>Languages</h4>
+                        <p>Marshallese & English</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">💰</div>
+                        <h4>Currency</h4>
+                        <p>US Dollar (USD)</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🌏</div>
+                        <h4>Region</h4>
+                        <p>Micronesia / Pacific</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📅</div>
+                        <h4>Independence</h4>
+                        <p>May 1, 1979</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">1,156</span>
+                <div class="stat-label">Islands & Islets</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">29</span>
+                <div class="stat-label">Atolls</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2</span>
+                <div class="stat-label">Isolated Islands</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1.9M</span>
+                <div class="stat-label">Sq km Ocean</div>
+            </div>
+        </div>
+
+        <!-- Famous Cities -->
+        <section class="section">
+            <div class="lang-content active" id="cities-en">
+                <h2 class="section-title">Famous Atolls & Destinations</h2>
+                <p class="section-subtitle">Must-visit gems across the Marshall Islands</p>
+            </div>
+            <div class="lang-content" id="cities-mh">
+                <h2 class="section-title">Aelōn̄ Ko Ilo Aelōn̄ Kein Ad</h2>
+                <p class="section-subtitle">Kōjparok im juon wōt jikin ko rej bōk ilo aelōn̄ kein ad</p>
+            </div>
+            <div class="lang-content" id="cities-rmi">
+                <h2 class="section-title">Famous Atolls & Destinations</h2>
+                <p class="section-subtitle">Must-visit gems across the Marshall Islands</p>
+            </div>
+            
+            <div class="city-grid">
+                <!-- Majuro -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/rmi.soccer/9ac11d991658df2301beba0057172b000943fe02.jpeg" alt="Majuro" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Capital Atoll</span>
+                        <div class="lang-content active" id="maj-en">
+                            <h3>Majuro Atoll</h3>
+                            <p>The capital and largest population center stretches across a narrow chain of islets connected by a single main road. Majuro offers a unique blend of Micronesian tradition and modern life — from the bustling Laura Market to the tranquil waters of the lagoon. The Alele Museum preserves Marshallese culture through traditional stick charts, woven crafts, and historical photographs. The atoll's eastern shore features stunning white sand beaches perfect for swimming and snorkeling.</p>
+                        </div>
+                        <div class="lang-content" id="maj-mh">
+                            <h3>Majuro</h3>
+                            <p>Capital im largest population center e jibōlok ilo narrow chain n̄an islets connected ilo single main road. Majuro e jibōlok unique blend n̄an Micronesian tradition im modern life — ilo bustling Laura Market ilo tranquil waters n̄an lagoon. Alele Museum e jibōlok preserve Marshallese culture ilo traditional stick charts, woven crafts, im historical photographs. Atoll's eastern shore e jibōlok stunning white sand beaches perfect n̄an swimming im snorkeling.</p>
+                        </div>
+                        <div class="lang-content" id="maj-rmi">
+                            <h3>Majuro Atoll</h3>
+                            <p>The capital and largest population center stretches across a narrow chain of islets connected by a single main road. Majuro offers a unique blend of Micronesian tradition and modern life — from the bustling Laura Market to the tranquil waters of the lagoon. The Alele Museum preserves Marshallese culture through traditional stick charts, woven crafts, and historical photographs. The atoll's eastern shore features stunning white sand beaches perfect for swimming and snorkeling.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ebeye -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.haskoning.com/3f5fcc849810fcf25562396ebe6cd9baa8682899.jpg" alt="Ebeye" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Kwajalein Atoll</span>
+                        <div class="lang-content active" id="eb-en">
+                            <h3>Ebeye Island</h3>
+                            <p>Often called the "Slum of the Pacific," Ebeye is one of the most densely populated places on Earth, with over 15,000 residents on just 80 acres. Located near the US Army's Ronald Reagan Ballistic Missile Defense Test Site on Kwajalein, Ebeye tells a complex story of displacement, resilience, and community. Despite extreme overcrowding, the island pulses with life — children playing between homes, fishermen launching canoes at dawn, and families gathering for evening meals on narrow porches.</p>
+                        </div>
+                        <div class="lang-content" id="eb-mh">
+                            <h3>Ebeye</h3>
+                            <p>Often called "Slum n̄an Pacific," Ebeye e jibōlok one n̄an most densely populated places ilo Earth, ilo over 15,000 residents ilo just 80 acres. Located near US Army's Ronald Reagan Ballistic Missile Defense Test Site ilo Kwajalein, Ebeye e jibōlok tell complex story n̄an displacement, resilience, im community. Despite extreme overcrowding, island e jibōlok pulse ilo life — children playing between homes, fishermen launching canoes ilo dawn, im families gathering n̄an evening meals ilo narrow porches.</p>
+                        </div>
+                        <div class="lang-content" id="eb-rmi">
+                            <h3>Ebeye Island</h3>
+                            <p>Often called the "Slum of the Pacific," Ebeye is one of the most densely populated places on Earth, with over 15,000 residents on just 80 acres. Located near the US Army's Ronald Reagan Ballistic Missile Defense Test Site on Kwajalein, Ebeye tells a complex story of displacement, resilience, and community. Despite extreme overcrowding, the island pulses with life — children playing between homes, fishermen launching canoes at dawn, and families gathering for evening meals on narrow porches.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bikini Atoll -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/nsarchive.gwu.edu/293ccf0867eaac5b574b9f0a06d8a8fb5ac83dd3.jpg" alt="Bikini Atoll" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">UNESCO World Heritage</span>
+                        <div class="lang-content active" id="bi-en">
+                            <h3>Bikini Atoll</h3>
+                            <p>This UNESCO World Heritage Site is both a paradise and a graveyard — the location of 23 US nuclear tests between 1946 and 1958, including the devastating Castle Bravo hydrogen bomb. Today, the atoll is a hauntingly beautiful dive destination where sunken warships rest in crystal-clear waters. The displaced Bikinians remain unable to return home due to lingering radiation, making this a powerful testament to the human cost of the nuclear age and a pilgrimage site for those seeking to understand history's shadows.</p>
+                        </div>
+                        <div class="lang-content" id="bi-mh">
+                            <h3>Bikini</h3>
+                            <p>UNESCO World Heritage Site e jibōlok both paradise im graveyard — location n̄an 23 US nuclear tests between 1946 im 1958, including devastating Castle Bravo hydrogen bomb. Tude, atoll e jibōlok hauntingly beautiful dive destination ilo sunken warships rest ilo crystal-clear waters. Displaced Bikinians remain unable ilo return home due ilo lingering radiation, making e jibōlok powerful testament ilo human cost n̄an nuclear age im pilgrimage site n̄an those seeking ilo understand history's shadows.</p>
+                        </div>
+                        <div class="lang-content" id="bi-rmi">
+                            <h3>Bikini Atoll</h3>
+                            <p>This UNESCO World Heritage Site is both a paradise and a graveyard — the location of 23 US nuclear tests between 1946 and 1958, including the devastating Castle Bravo hydrogen bomb. Today, the atoll is a hauntingly beautiful dive destination where sunken warships rest in crystal-clear waters. The displaced Bikinians remain unable to return home due to lingering radiation, making this a powerful testament to the human cost of the nuclear age and a pilgrimage site for those seeking to understand history's shadows.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kwajalein Atoll -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/media-cdn.tripadvisor.com/7a369844cd774f1b9d3e8f988c16d5902f8b951a.jpg" alt="Kwajalein" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">World's Largest Atoll</span>
+                        <div class="lang-content active" id="kw-en">
+                            <h3>Kwajalein Atoll</h3>
+                            <p>The world's largest coral atoll by lagoon area, Kwajalein is a place of stark contrasts. The US military operates a restricted missile test range on Kwajalein Island, while nearby Ebeye struggles with overcrowding. Yet the atoll's natural beauty is undeniable — 97 islets encircling a lagoon of impossible turquoise. For those granted access, the diving is world-class, with WWII wrecks, coral walls, and marine life that has flourished in the absence of mass tourism.</p>
+                        </div>
+                        <div class="lang-content" id="kw-mh">
+                            <h3>Kwajalein</h3>
+                            <p>World's largest coral atoll ilo lagoon area, Kwajalein e jibōlok place n̄an stark contrasts. US military e jibōlok operate restricted missile test range ilo Kwajalein Island, ilo nearby Ebeye e jibōlok struggle ilo overcrowding. Yet atoll's natural beauty e undeniable — 97 islets encircling lagoon n̄an impossible turquoise. N̄an those granted access, diving e world-class, ilo WWII wrecks, coral walls, im marine life e jibōlok flourished ilo absence n̄an mass tourism.</p>
+                        </div>
+                        <div class="lang-content" id="kw-rmi">
+                            <h3>Kwajalein Atoll</h3>
+                            <p>The world's largest coral atoll by lagoon area, Kwajalein is a place of stark contrasts. The US military operates a restricted missile test range on Kwajalein Island, while nearby Ebeye struggles with overcrowding. Yet the atoll's natural beauty is undeniable — 97 islets encircling a lagoon of impossible turquoise. For those granted access, the diving is world-class, with WWII wrecks, coral walls, and marine life that has flourished in the absence of mass tourism.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Traditional Canoes -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/1fbf9473a24f697aaea7a8ac8c3f14bc5d21472a.jpg" alt="Traditional Canoes" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Living Heritage</span>
+                        <div class="lang-content active" id="ca-en">
+                            <h3>Waan Aelon Kein (Canoes of the Marshall Islands)</h3>
+                            <p>The Marshallese were among the greatest navigators in human history, crossing thousands of kilometers of open ocean using nothing but stars, waves, and stick charts — intricate maps made of palm ribs and shells that encoded the patterns of ocean swells. Today, the Waan Aelon Kein program revives this ancient tradition, building traditional outrigger canoes and teaching young islanders the nearly lost art of wayfinding. Watching a proa sail across the lagoon at sunset is to witness living history.</p>
+                        </div>
+                        <div class="lang-content" id="ca-mh">
+                            <h3>Waan Aelon Kein</h3>
+                            <p>Marshallese e jibōlok among greatest navigators ilo human history, crossing thousands n̄an kilometers n̄an open ocean using nothing but stars, waves, im stick charts — intricate maps made n̄an palm ribs im shells e jibōlok encoded patterns n̄an ocean swells. Tude, Waan Aelon Kein program e jibōlok revive ancient tradition, building traditional outrigger canoes im teaching young islanders nearly lost art n̄an wayfinding. Watching proa sail across lagoon ilo sunset e jibōlok witness living history.</p>
+                        </div>
+                        <div class="lang-content" id="ca-rmi">
+                            <h3>Waan Aelon Kein (Canoes of the Marshall Islands)</h3>
+                            <p>The Marshallese were among the greatest navigators in human history, crossing thousands of kilometers of open ocean using nothing but stars, waves, and stick charts — intricate maps made of palm ribs and shells that encoded the patterns of ocean swells. Today, the Waan Aelon Kein program revives this ancient tradition, building traditional outrigger canoes and teaching young islanders the nearly lost art of wayfinding. Watching a proa sail across the lagoon at sunset is to witness living history.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ebeye Aerial -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.prod.website-files.com/b444b1583152f6d3330095a1ed5f737a5e34d666.jpg" alt="Ebeye Aerial" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Community Spirit</span>
+                        <div class="lang-content active" id="ea-en">
+                            <h3>Life on Ebeye</h3>
+                            <p>Beyond the headlines of overcrowding lies a community of extraordinary warmth and resilience. Ebeye's narrow streets are alive with the sounds of children, the smell of breadfruit roasting over open fires, and the sight of fishermen mending nets in the afternoon shade. The island's churches, schools, and community centers serve as gathering places where Marshallese culture thrives despite the challenges. Visiting Ebeye offers a humbling lesson in human dignity and the power of community.</p>
+                        </div>
+                        <div class="lang-content" id="ea-mh">
+                            <h3>Life ilo Ebeye</h3>
+                            <p>Bipo headlines n̄an overcrowding e jibōlok community n̄an extraordinary warmth im resilience. Ebeye's narrow streets e alive ilo sounds n̄an children, smell n̄an breadfruit roasting over open fires, im sight n̄an fishermen mending nets ilo afternoon shade. Island's churches, schools, im community centers e jibōlok serve as gathering places ilo Marshallese culture thrives despite challenges. Visiting Ebeye e jibōlok offer humbling lesson ilo human dignity im power n̄an community.</p>
+                        </div>
+                        <div class="lang-content" id="ea-rmi">
+                            <h3>Life on Ebeye</h3>
+                            <p>Beyond the headlines of overcrowding lies a community of extraordinary warmth and resilience. Ebeye's narrow streets are alive with the sounds of children, the smell of breadfruit roasting over open fires, and the sight of fishermen mending nets in the afternoon shade. The island's churches, schools, and community centers serve as gathering places where Marshallese culture thrives despite the challenges. Visiting Ebeye offers a humbling lesson in human dignity and the power of community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Article -->
+        <section class="section">
+            <div class="lang-content active" id="blog-en">
+                <div class="blog-content">
+                    <h2 class="section-title">Why the Marshall Islands Should Be Your Next Transformative Journey</h2>
+                    
+                    <p>There are destinations that entertain you, and then there are places that transform you. The Republic of the Marshall Islands falls firmly into the latter category. This nation of 29 atolls and 1,156 islands scattered across nearly two million square kilometers of Pacific Ocean is not merely a vacation spot — it is a masterclass in human resilience, a living museum of navigation, and a sobering reminder of humanity's capacity for both destruction and renewal.</p>
+                    
+                    <p>Picture yourself standing on the deck of a traditional outrigger canoe, the wind filling the sail as you glide across a lagoon so vast it could swallow entire countries. Imagine diving into waters so clear you can see a hundred feet down, where sunken warships from World War II have become coral-encrusted reefs teeming with life. Envision sharing a meal with families who were forcibly relocated from their ancestral homes by atomic testing, yet who greet you with smiles that carry no trace of bitterness — only warmth, pride, and an unbreakable connection to their heritage.</p>
+                    
+                    <h3>Masters of the Ocean</h3>
+                    <p>What makes the Marshall Islands extraordinary is its people's relationship with the sea. Long before GPS and satellite phones, Marshallese navigators crossed thousands of kilometers of open ocean using stick charts — intricate maps of palm ribs and shells that encoded the patterns of ocean swells, and a deep understanding of stars, birds, and wind. This was not mere survival; it was artistry of the highest order. Today, the Waan Aelon Kein program is reviving these ancient skills, ensuring that the knowledge that once connected distant islands will not vanish into history.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"The Marshall Islands teaches us that the ocean is not a barrier — it is a bridge. The Marshallese people have spent millennia reading the language of waves and stars, carrying civilization across vast waters with nothing but courage, wisdom, and an unshakeable trust in the sea."</p>
+                    </div>
+                    
+                    <h3>Shadows and Light: A Complex History</h3>
+                    <p>Beyond the ancient traditions lies a modern history that demands attention. Between 1946 and 1958, the United States conducted 67 nuclear tests in the Marshall Islands — the equivalent of 1.6 Hiroshima bombs detonated every day for twelve years. The people of Bikini and Enewetak were forcibly relocated, their homes rendered uninhabitable for generations. The Bravo crater at Bikini Atoll, where the most powerful US nuclear device ever tested vaporized an island, remains a chilling monument to the atomic age.</p>
+                    
+                    <p>Yet from this darkness emerges light. The Marshallese people have become powerful advocates for nuclear disarmament and climate justice. Their story is one of survival against impossible odds — a testament to the human spirit's capacity to endure, adapt, and ultimately thrive.</p>
+                    
+                    <h3>Practical Travel Tips</h3>
+                    <p>Getting to the Marshall Islands requires patience. United Airlines operates flights from Honolulu to Majuro and Kwajalein. The US dollar is the official currency. English and Marshallese are both widely spoken, though the local language is a beautiful Micronesian tongue with a unique alphabet. Accommodation in Majuro ranges from the Hotel Marshall Islands to guesthouses, while outer atolls require careful planning and local connections.</p>
+                    
+                    <p>Respect local customs: dress modestly outside beach areas, always ask permission before photographing people, and be mindful of the sensitive history surrounding nuclear testing. The climate is tropical year-round, with a wet season from May to November. Bring reef-safe sunscreen, sturdy shoes for exploring coral terrain, and an open heart. Fresh seafood, breadfruit, and coconut are staples of the delicious local cuisine.</p>
+                    
+                    <h3>Final Thoughts</h3>
+                    <p>The Marshall Islands is not a destination for casual tourists seeking cocktails and sunsets — though it offers both in abundance. It is a place for travelers who seek meaning, who want to understand how humanity has both harmed and healed, and who are ready to be changed by what they witness. It is a nation where ancient navigators read the stars, where atomic shadows linger over paradise, and where a people who have faced unimaginable challenges continue to dance, laugh, and sail into tomorrow. If you are ready for a journey that will stay with you forever, the Marshall Islands is waiting.</p>
+                </div>
+            </div>
+            
+            <div class="lang-content" id="blog-mh">
+                <div class="blog-content">
+                    <h2 class="section-title">Bilong Wanem Yu Mas Go Long Aelōn̄ Kein Ad</h2>
+                    
+                    <p>E jibōlok destinations e jibōlok entertain yu, ao te aelōn̄ kein ad e jibōlok transform yu. Republic n̄an Marshall Islands e jibōlok firmly ilo latter category. Nation n̄an 29 atolls im 1,156 islands scattered across nearly two million square kilometers n̄an Pacific Ocean e no merely vacation spot — e jibōlok masterclass ilo human resilience, living museum n̄an navigation, im sobering reminder n̄an humanity's capacity n̄an both destruction im renewal.</p>
+                    
+                    <p>Tingim yu sanap ilo deck n̄an traditional outrigger canoe, wind filling sail as yu glide across lagoon so vast e jibōlok swallow entire countries. Tingim yu diving ilo waters so clear yu can see hundred feet down, ilo sunken warships n̄an World War II e jibōlok become coral-encrusted reefs teeming ilo life. Tingim yu sharing meal ilo families e jibōlok forcibly relocated n̄an ancestral homes ilo atomic testing, yet e jibōlok greet yu ilo smiles e jibōlok carry no trace n̄an bitterness — only warmth, pride, im unbreakable connection ilo heritage.</p>
+                    
+                    <h3>Masters n̄an Ocean</h3>
+                    <p>Wanem samting i mekim Marshall Islands i spesal em people's relationship ilo sea. Long bipo GPS im satellite phones, Marshallese navigators e jibōlok cross thousands n̄an kilometers n̄an open ocean using stick charts — intricate maps n̄an palm ribs im shells e jibōlok encoded patterns n̄an ocean swells, im deep understanding n̄an stars, birds, im wind. E no mere survival; e jibōlok artistry n̄an highest order. Tude, Waan Aelon Kein program e jibōlok revive ancient skills, ensuring knowledge e jibōlok once connected distant islands e no vanish ilo history.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"Marshall Islands e jibōlok skulim yu ake ocean em no barrier — em bridge. Marshallese pipol e jibōlok spend millennia reading language n̄an waves im stars, carrying civilization across vast waters ilo nothing but courage, wisdom, im unshakeable trust ilo sea."</p>
+                    </div>
+                    
+                    <h3>Shadows im Light: Complex History</h3>
+                    <p>Bipo ancient traditions e jibōlok modern history e jibōlok demand attention. Between 1946 im 1958, United States e jibōlok conduct 67 nuclear tests ilo Marshall Islands — equivalent n̄an 1.6 Hiroshima bombs detonated every day n̄an twelve years. Pipol n̄an Bikini im Enewetak e jibōlok forcibly relocated, homes rendered uninhabitable n̄an generations. Bravo crater ilo Bikini Atoll, ilo most powerful US nuclear device ever tested vaporized island, remains chilling monument ilo atomic age.</p>
+                    
+                    <p>Yet n̄an darkness emerges light. Marshallese pipol e jibōlok become powerful advocates n̄an nuclear disarmament im climate justice. Story e jibōlok one n̄an survival against impossible odds — testament ilo human spirit's capacity ilo endure, adapt, im ultimately thrive.</p>
+                    
+                    <h3>Ol Gutpela Tok</h3>
+                    <p>Getting ilo Marshall Islands e jibōlok require patience. United Airlines e jibōlok operate flights n̄an Honolulu ilo Majuro im Kwajalein. US dollar e jibōlok official currency. English im Marshallese e jibōlok both widely spoken, weitin local language e beautiful Micronesian tongue ilo unique alphabet. Accommodation ilo Majuro e jibōlok range n̄an Hotel Marshall Islands ilo guesthouses, ilo outer atolls e jibōlok require careful planning im local connections.</p>
+                    
+                    <p>Respekt ol local customs: dress modestly outside beach areas, askim pastaim bipo yu kisim piksa, im be mindful n̄an sensitive history surrounding nuclear testing. Climate e tropical year-round, ilo wet season n̄an May ilo November. Bring reef-safe sunscreen, sturdy shoes n̄an exploring coral terrain, im open heart. Fresh seafood, breadfruit, im coconut e staples n̄an delicious local cuisine.</p>
+                    
+                    <h3>Last Tok</h3>
+                    <p>Marshall Islands em no destination n̄an casual tourists seeking cocktails im sunsets — though e jibōlok offer both ilo abundance. Em place n̄an travelers e jibōlok seek meaning, e jibōlok want ilo understand how humanity e jibōlok both harmed im healed, im e jibōlok ready ilo be changed ilo what e jibōlok witness. Em nation ilo ancient navigators e jibōlok read stars, ilo atomic shadows linger over paradise, im ilo pipol e jibōlok faced unimaginable challenges continue ilo dance, laugh, im sail ilo tomorrow. Sapos yu redi n̄an journey e jibōlok stay ilo yu forever, Marshall Islands e waiting.</p>
+                </div>
+            </div>
+            
+            <div class="lang-content" id="blog-rmi">
+                <div class="blog-content">
+                    <h2 class="section-title">Why the Marshall Islands Should Be Your Next Transformative Journey</h2>
+                    
+                    <p>There are destinations that entertain you, and then there are places that transform you. The Republic of the Marshall Islands falls firmly into the latter category. This nation of 29 atolls and 1,156 islands scattered across nearly two million square kilometers of Pacific Ocean is not merely a vacation spot — it is a masterclass in human resilience, a living museum of navigation, and a sobering reminder of humanity's capacity for both destruction and renewal.</p>
+                    
+                    <p>Picture yourself standing on the deck of a traditional outrigger canoe, the wind filling the sail as you glide across a lagoon so vast it could swallow entire countries. Imagine diving into waters so clear you can see a hundred feet down, where sunken warships from World War II have become coral-encrusted reefs teeming with life. Envision sharing a meal with families who were forcibly relocated from their ancestral homes by atomic testing, yet who greet you with smiles that carry no trace of bitterness — only warmth, pride, and an unbreakable connection to their heritage.</p>
+                    
+                    <h3>Masters of the Ocean</h3>
+                    <p>What makes the Marshall Islands extraordinary is its people's relationship with the sea. Long before GPS and satellite phones, Marshallese navigators crossed thousands of kilometers of open ocean using stick charts — intricate maps of palm ribs and shells that encoded the patterns of ocean swells, and a deep understanding of stars, birds, and wind. This was not mere survival; it was artistry of the highest order. Today, the Waan Aelon Kein program is reviving these ancient skills, ensuring that the knowledge that once connected distant islands will not vanish into history.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"The Marshall Islands teaches us that the ocean is not a barrier — it is a bridge. The Marshallese people have spent millennia reading the language of waves and stars, carrying civilization across vast waters with nothing but courage, wisdom, and an unshakeable trust in the sea."</p>
+                    </div>
+                    
+                    <h3>Shadows and Light: A Complex History</h3>
+                    <p>Beyond the ancient traditions lies a modern history that demands attention. Between 1946 and 1958, the United States conducted 67 nuclear tests in the Marshall Islands — the equivalent of 1.6 Hiroshima bombs detonated every day for twelve years. The people of Bikini and Enewetak were forcibly relocated, their homes rendered uninhabitable for generations. The Bravo crater at Bikini Atoll, where the most powerful US nuclear device ever tested vaporized an island, remains a chilling monument to the atomic age.</p>
+                    
+                    <p>Yet from this darkness emerges light. The Marshallese people have become powerful advocates for nuclear disarmament and climate justice. Their story is one of survival against impossible odds — a testament to the human spirit's capacity to endure, adapt, and ultimately thrive.</p>
+                    
+                    <h3>Practical Travel Tips</h3>
+                    <p>Getting to the Marshall Islands requires patience. United Airlines operates flights from Honolulu to Majuro and Kwajalein. The US dollar is the official currency. English and Marshallese are both widely spoken, though the local language is a beautiful Micronesian tongue with a unique alphabet. Accommodation in Majuro ranges from the Hotel Marshall Islands to guesthouses, while outer atolls require careful planning and local connections.</p>
+                    
+                    <p>Respect local customs: dress modestly outside beach areas, always ask permission before photographing people, and be mindful of the sensitive history surrounding nuclear testing. The climate is tropical year-round, with a wet season from May to November. Bring reef-safe sunscreen, sturdy shoes for exploring coral terrain, and an open heart. Fresh seafood, breadfruit, and coconut are staples of the delicious local cuisine.</p>
+                    
+                    <h3>Final Thoughts</h3>
+                    <p>The Marshall Islands is not a destination for casual tourists seeking cocktails and sunsets — though it offers both in abundance. It is a place for travelers who seek meaning, who want to understand how humanity has both harmed and healed, and who are ready to be changed by what they witness. It is a nation where ancient navigators read the stars, where atomic shadows linger over paradise, and where a people who have faced unimaginable challenges continue to dance, laugh, and sail into tomorrow. If you are ready for a journey that will stay with you forever, the Marshall Islands is waiting.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>Marshall Islands Travel Guide</h3>
+        <div class="footer-divider"></div>
+        <p>Discover the pearls of the Pacific. Every wave here carries a story of courage and resilience.</p>
+        <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.6;">© 2026 Marshall Islands Travel Blog | Built with ❤️ for Explorers</p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.lang-btn').classList.add('active');
+            
+            // Hide all content
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            
+            // Show selected language content
+            document.querySelectorAll('[id$="-' + lang + '"]').forEach(el => el.classList.add('active'));
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.city-card, .info-item, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>'''
+
+# Save the file
+with open('/mnt/agents/output/marshall_islands_travel_guide.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"File size: {len(html_content)} characters")
