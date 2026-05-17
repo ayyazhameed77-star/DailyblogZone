@@ -1,0 +1,968 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Africa Travel Guide | Ultimate Blogger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C41E3A;
+            --secondary: #1a3c6e;
+            --gold: #D4AF37;
+            --dark: #1a1a2e;
+            --light: #f8f6f3;
+            --text: #2d2d2d;
+            --sa-green: #007A4D;
+            --sa-gold: #FFB612;
+            --sa-red: #DE3831;
+            --sa-blue: #002395;
+            --sa-black: #000000;
+            --sa-white: #FFFFFF;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Translation Bar */
+        .translate-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--sa-green) 100%);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .translate-bar span {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .lang-btn {
+            padding: 8px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--sa-gold);
+            border-color: var(--sa-gold);
+            color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255,182,18,0.4);
+        }
+        
+        .lang-btn .flag {
+            font-size: 16px;
+        }
+        
+        /* Hero */
+        .hero {
+            margin-top: 60px;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), 
+                        url('https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/9f3b508709b0c34b28b77825a3ef2af976337a78.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(transparent, var(--light));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--sa-gold);
+            color: var(--dark);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255,255,255,0.6);
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            animation: scrollDot 2s infinite;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--sa-gold);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        
+        /* Country Info Card */
+        .info-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-item .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .info-item h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+        .info-item p {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .flag-img {
+            width: 280px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .flag-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .flag-meaning {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .flag-meaning h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .color-meaning {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .color-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+        
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .city-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .city-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-img {
+            transform: scale(1.1);
+        }
+        
+        .city-img-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .city-img-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.3));
+        }
+        
+        .city-content {
+            padding: 25px 30px 30px;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--sa-gold);
+            color: var(--dark);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .city-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .city-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            background: #fff;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin: 40px 0;
+        }
+        
+        .blog-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #444;
+            text-align: justify;
+        }
+        
+        .blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin: 35px 0 15px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--sa-green) 0%, var(--sa-blue) 100%);
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            opacity: 0.1;
+            line-height: 1;
+        }
+        
+        .highlight-box p {
+            color: rgba(255,255,255,0.95) !important;
+            margin: 0;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 50px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: linear-gradient(135deg, var(--sa-green), var(--sa-blue));
+            border-radius: 15px;
+            color: #fff;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--sa-gold);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 50px 0 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer p {
+            max-width: 500px;
+            margin: 0 auto 20px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--sa-gold);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        @keyframes scrollDot {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 25px; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .city-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .blog-content { padding: 30px 20px; }
+            .flag-section { flex-direction: column; text-align: center; }
+            .section { padding: 50px 0; }
+            .translate-bar { flex-wrap: wrap; padding: 10px; }
+            .lang-btn { padding: 6px 14px; font-size: 12px; }
+        }
+        
+        /* Hidden class for translation */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <!-- Translation Bar -->
+    <div class="translate-bar">
+        <span>🌐 Translate:</span>
+        <button class="lang-btn active" onclick="switchLang('en')">
+            <span class="flag">🇬🇧</span> English
+        </button>
+        <button class="lang-btn" onclick="switchLang('zu')">
+            <span class="flag">🇿🇦</span> Zulu
+        </button>
+        <button class="lang-btn" onclick="switchLang('af')">
+            <span class="flag">🇿🇦</span> Afrikaans
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Ultimate Travel Guide 2026</div>
+            <h1>South Africa</h1>
+            <p class="hero-subtitle">Discover the Rainbow Nation — Where Two Oceans Meet, Ancient Wilderness Roams, and a Nation's Soul Shines Through Every Sunset</p>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <!-- Country Overview -->
+        <section class="section">
+            <div class="lang-content active" id="content-en">
+                <h2 class="section-title">Country Overview</h2>
+                <p class="section-subtitle">Essential facts about Africa's southernmost nation</p>
+            </div>
+            <div class="lang-content" id="content-zu">
+                <h2 class="section-title">Ukuqondwa Kwezwe</h2>
+                <p class="section-subtitle">Imininingwane ebalulekile mayelana nezwe laseNingizimu Afrika</p>
+            </div>
+            <div class="lang-content" id="content-af">
+                <h2 class="section-title">Landsoorsig</h2>
+                <p class="section-subtitle">Wesenlike feite oor Afrika se suidelikste nasie</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="flag-section">
+                    <img src="https://flagcdn.com/w640/za.png" alt="South Africa Flag" class="flag-img">
+                    <div class="flag-meaning">
+                        <div class="lang-content active" id="flag-en">
+                            <h3>National Flag</h3>
+                            <p>The flag of South Africa is a vibrant symbol of unity and reconciliation. The <strong>Y-shape</strong> represents the convergence of diverse elements within South African society, taking the path forward to unity. The black, green, and yellow colors are drawn from the African National Congress, while the red, white, and blue recall the British and Dutch colonial heritage and the Boer Republics. It is the only national flag with six colors and no seal or brocade.</p>
+                        </div>
+                        <div class="lang-content" id="flag-zu">
+                            <h3>I-Flagi Yezwe</h3>
+                            <p>I-flagi yaseNingizimu Afrika iyisimboli esikhanyayo sobumbano nokuxolelana. <strong>Isimo se-Y</strong> simele ukuhlangana kwezinto ezahlukene emphakathini waseNingizimu Afrika, sithatha indlela eya embili ebuye ubumbano. Imibala emnyama, eluhlaza, neyiphuzi ivela ku-African National Congress, kanti ebomvu, emhlophe, nombhakathi ikhumbuza ifa likaBritish neDutch kanye ne-Boer Republics. Yiflagi yezwe eyodwa enemibala eyisithupha engenalapho noma ibrocade.</p>
+                        </div>
+                        <div class="lang-content" id="flag-af">
+                            <h3>Nasionale Vlag</h3>
+                            <p>Die vlag van Suid-Afrika is 'n lewendige simbool van eenheid en versoening. Die <strong>Y-vorm</strong> verteenwoordig die samekoms van diverse elemente binne die Suid-Afrikaanse samelewing, wat die pad vorentoe na eenheid neem. Die swart, groen en geel kleure is ontleen aan die African National Congress, terwyl die rooi, wit en blou die Britse en Nederlandse koloniale erfenis en die Boererepublieke herroep. Dit is die enigste nasionale vlag met ses kleure en geen seël of brokaat nie.</p>
+                        </div>
+                        <div class="color-meaning">
+                            <div class="color-box"><div class="color-dot" style="background:#000000"></div> Black — The People</div>
+                            <div class="color-box"><div class="color-dot" style="background:#007A4D"></div> Green — Agriculture & Land</div>
+                            <div class="color-box"><div class="color-dot" style="background:#FFB612"></div> Gold — Mineral Wealth</div>
+                            <div class="color-box"><div class="color-dot" style="background:#DE3831"></div> Red — Struggle & Sacrifice</div>
+                            <div class="color-box"><div class="color-dot" style="background:#002395"></div> Blue — Sky & Oceans</div>
+                            <div class="color-box"><div class="color-dot" style="background:#FFFFFF"></div> White — Peace & Unity</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="icon">🏛️</div>
+                        <h4>Capitals</h4>
+                        <p>Pretoria, Cape Town, Bloemfontein</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">👥</div>
+                        <h4>Population</h4>
+                        <p>~60 Million</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🗣️</div>
+                        <h4>Languages</h4>
+                        <p>12 Official Languages</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">💰</div>
+                        <h4>Currency</h4>
+                        <p>South African Rand (ZAR)</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🌏</div>
+                        <h4>Region</h4>
+                        <p>Southern Africa</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📅</div>
+                        <h4>Democracy</h4>
+                        <p>April 27, 1994</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <div class="stat-label">Capital Cities</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">12</span>
+                <div class="stat-label">Official Languages</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">10</span>
+                <div class="stat-label">UNESCO Sites</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2,798</span>
+                <div class="stat-label">Km Coastline</div>
+            </div>
+        </div>
+
+        <!-- Famous Cities -->
+        <section class="section">
+            <div class="lang-content active" id="cities-en">
+                <h2 class="section-title">Famous Cities & Destinations</h2>
+                <p class="section-subtitle">Must-visit gems across the Rainbow Nation</p>
+            </div>
+            <div class="lang-content" id="cities-zu">
+                <h2 class="section-title">Imizi Edumile Nezindawo</h2>
+                <p class="section-subtitle">Izindawo ezifanele ukuvakashelwa ezweni leRainbow</p>
+            </div>
+            <div class="lang-content" id="cities-af">
+                <h2 class="section-title">Beroemde Stede & Bestemmings</h2>
+                <p class="section-subtitle">Moet-besoek juwele regoor die Reënboognasie</p>
+            </div>
+            
+            <div class="city-grid">
+                <!-- Cape Town -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/29e7e13daaa4eaffc00b3da613defc6f89342190.jpg" alt="Cape Town" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Mother City</span>
+                        <div class="lang-content active" id="ct-en">
+                            <h3>Cape Town</h3>
+                            <p>Nestled between the iconic Table Mountain and the Atlantic Ocean, Cape Town is South Africa's legislative capital and one of the world's most beautiful cities. Ride the cable car to Table Mountain's flat summit for panoramic views, explore the colorful Bo-Kaap neighborhood, visit the poignant Robben Island where Nelson Mandela was imprisoned, and drive the breathtaking Chapman's Peak coastal route. The nearby Cape Winelands offer world-class vineyards set against dramatic mountain backdrops.</p>
+                        </div>
+                        <div class="lang-content" id="ct-zu">
+                            <h3>iKapa</h3>
+                            <p>Ethuliwe phakathi kweTable Mountain edumile nolwandle lweAtlantic, iKapa iyisikhulu sezombusazwe saseNingizimu Afrika futhi eyodwa yemizi emihle kakhulu emhlabeni. Gcwalisa i-cable car uye encabeni yeTable Mountain ukuze uthole imibono epanoramik, thola umphakathi weBo-Kaap onemibala, vakashela iRobben Island lapho uNelson Mandela wayeboshiwe khona, futhi shayela indlela yasogwini yeChapman's Peak. Ama-winelands aseCape akufuphi anikeza amavini wezwe setwe ngemuva kwamabanga emizila.</p>
+                        </div>
+                        <div class="lang-content" id="ct-af">
+                            <h3>Kaapstad</h3>
+                            <p>Geleë tussen die ikoniese Tafelberg en die Atlantiese Oseaan, is Kaapstad Suid-Afrika se wetgewende hoofstad en een van die wêreld se mooiste stede. Ry die kabelkar na Tafelberg se plat top vir panoramiese uitsigte, verken die kleurvolle Bo-Kaap-buurt, besoek die roerende Robbeneiland waar Nelson Mandela gevange gehou is, en ry die asemrowende Chapman's Peak-kusroete. Die nabygeleë Kaapse Wynlande bied wêreldklas-wynlande teen dramatiese bergagtergronde.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Johannesburg -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.andbeyond.com/6ca65c0d6f0f532a110191f463702f5eea6abc16.jpg" alt="Johannesburg" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">City of Gold</span>
+                        <div class="lang-content active" id="jb-en">
+                            <h3>Johannesburg</h3>
+                            <p>Africa's economic powerhouse and largest city, Johannesburg pulses with energy, creativity, and complex history. Visit the Apartheid Museum for a profound understanding of South Africa's past, explore the vibrant Maboneng Precinct with its street art and rooftop bars, and take a sobering tour of Soweto — the township that gave birth to the anti-apartheid movement. The nearby Cradle of Humankind UNESCO World Heritage Site reveals some of the oldest hominid fossils ever discovered.</p>
+                        </div>
+                        <div class="lang-content" id="jb-zu">
+                            <h3>iGoli / eGoli</h3>
+                            <p>Amandla ezomnotho e-Afrika nomuzi omkhulu kakhulu, iGoli iphuma ngamandla, ukuqanjwa, nombhalo ozinzima. Vakashela i-Apartheid Museum ukuze uthole ukuqonda okujulile ngendabuko yaseNingizimu Afrika, thola iMaboneng Precinct enamandla ngemidwebo yezitaladi nezitolo zophahla, futhi thatha uhambo olubuhlungu lweSoweto — imizi yasemakhaya eyazala ukuqhudelana nokwesaba. iCradle of Humankind UNESCO World Heritage Site eseduze ivela amafosili amadala kakhulu amahominid atholiwe.</p>
+                        </div>
+                        <div class="lang-content" id="jb-af">
+                            <h3>Johannesburg</h3>
+                            <p>Afrika se ekonomiese dryfkrag en grootste stad, Johannesburg pulseer met energie, kreatiwiteit en komplekse geskiedenis. Besoek die Apartheidsmuseum vir 'n diepgaande begrip van Suid-Afrika se verlede, verken die lewendige Maboneng-precinct met sy straatkuns en dakstafies, en neem 'n nederige toer deur Soweto — die township wat die anti-apartheidsbeweging gebore het. Die nabygeleë Wieg van die Mensdom UNESCO-wêrelderfenisterrein onthul van die oudste hominied-fossiele wat ooit ontdek is.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Durban -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.agoda.com/dee4927877ccacff3ebd0731a93761f244a385aa.jpg" alt="Durban" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Surf City</span>
+                        <div class="lang-content active" id="db-en">
+                            <h3>Durban</h3>
+                            <p>South Africa's third-largest city sits on the warm Indian Ocean, offering a unique blend of African, Indian, and colonial influences. The Golden Mile beachfront is a playground for surfers and sun-seekers, while the Victoria Street Market fills the air with the scent of spices and curry. Durban is the gateway to the Zulu Kingdom and the stunning Drakensberg Mountains. Don't miss a bunny chow — a hollowed-out loaf of bread filled with curry, the city's iconic street food.</p>
+                        </div>
+                        <div class="lang-content" id="db-zu">
+                            <h3>eThekwini</h3>
+                            <p>Umuzi wesithathu omkhulu kakhulu waseNingizimu Afrika uhlala eNyanza yase-Indian, unikeza ukuhlanganiswa okuhlukile kwezinto zase-Afrika, zase-India, nezasekoloni. IGolden Mile beachfront iyindawo yokudlala yabagibeli bamaza nabasezingeni elihle, kanti iVictoria Street Market igcwalisa umoya nophawu lwamagatsha nekhishi. iDurban iyisango eliya eZulu Kingdom nasezintabeni ezimangalisayo zaseDrakensberg. Ungalahli i-bunny chow — isinkwa esigcwele ikhishi, ukudla kwesitaladi edumile komuzi.</p>
+                        </div>
+                        <div class="lang-content" id="db-af">
+                            <h3>Durban</h3>
+                            <p>Suid-Afrika se derde grootste stad sit op die warm Indiese Oseaan, en bied 'n unieke versmelting van Afrika-, Indiër- en koloniale invloede. Die Golden Mile-strandfront is 'n speelgrond vir branders en sonsoekers, terwyl die Victoria Street Market die lug vul met die reuk van speserye en kerrie. Durban is die poort na die Zoeloekoninkryk en die stunning Drakensberge. Moenie 'n bunny chow misloop nie — 'n uitgeholde brood gevul met kerrie, die stad se ikoniese straatkos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stellenbosch -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/res.cloudinary.com/518281e9a75a8b815cfc0fa3b9a55af0184575e6" alt="Stellenbosch" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Wine Country</span>
+                        <div class="lang-content active" id="st-en">
+                            <h3>Stellenbosch & Cape Winelands</h3>
+                            <p>The heart of South Africa's wine industry, Stellenbosch is a charming university town surrounded by rolling vineyards and dramatic mountain ranges. Dating back to 1679, it is the second-oldest European settlement in South Africa. Wine estates like Spier, Delaire Graff, and Boschendal offer tastings in breathtaking settings. The town's oak-lined streets, Cape Dutch architecture, and vibrant student culture create an atmosphere that is simultaneously historic and youthful.</p>
+                        </div>
+                        <div class="lang-content" id="st-zu">
+                            <h3>iStellenbosch neCape Winelands</h3>
+                            <p>Inhliziyo yomkhakha wewayini waseNingizimu Afrika, iStellenbosch iyidolobha elihle leyunivesithi elizungezwe amavini agobhozayo namabanga emizila emangalisayo. Eqala ngo-1679, iyisakhiwo sesibili esidala kakhulu se-European eNingizimu Afrika. Amafa ewayini afana neSpier, Delaire Graff, noBoschendal anikeza ukunambitha ezindaweni ezimangalisayo. Imigwaqo yedolobha ehlotshwe yi-oak, ukuhlelwa kweCape Dutch, nomasiko wabafundi onamandla akha isimo esiyindabuko futhi sibusha ngasikhathi sinye.</p>
+                        </div>
+                        <div class="lang-content" id="st-af">
+                            <h3>Stellenbosch & Kaapse Wynlande</h3>
+                            <p>Die hart van Suid-Afrika se wynbedryf, Stellenbosch is 'n bekoorlike universiteitstad omring deur golwende wingerde en dramatiese bergreekse. Wat terugdateer tot 1679, is dit die tweede oudste Europese nedersetting in Suid-Afrika. Wynlandgoedere soos Spier, Delaire Graff en Boschendal bied proeë in asemrowende omgewings. Die dorp se eikeboomopgevoerde strate, Kaapse Nederlandse argitektuur en lewendige studentekultuur skep 'n atmosfeer wat gelyktydig histories en jeugdig is.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kruger National Park -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.nationalgeographic.com/d63f06e5846a9e350c43240f3f50e6aa26a96b50.jpg" alt="Kruger National Park" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Big Five Safari</span>
+                        <div class="lang-content active" id="kr-en">
+                            <h3>Kruger National Park</h3>
+                            <p>One of Africa's largest game reserves, Kruger is a sanctuary for the Big Five — lion, leopard, rhinoceros, elephant, and Cape buffalo — along with hundreds of other species. Spanning nearly 20,000 square kilometers, the park offers everything from self-drive adventures to luxury lodge experiences. The golden light of dawn breaking over the savanna, the distant roar of a lion, and the sight of elephants at a waterhole are moments that etch themselves into your soul forever.</p>
+                        </div>
+                        <div class="lang-content" id="kr-zu">
+                            <h3>iKruger National Park</h3>
+                            <p>Enye yamabhilidi amakhulu kakhulu emidlalo e-Afrika, iKruger iyindawo yokuphepha yeBig Five — ibhubesi, ingwe, irhinoceros, indlovu, neCape buffalo — kanye nezinye izinhlobo eziningi. Iqanda cishe ama-20,000 square kilometers, iphaki linikeza konke ukusuka ezintshontshweni zokushayela ziqukethe ukuya ezindaweni zokuhlala ezihle. Ukukhanya kwegolide ekuseni okwaphuka phezulu kwe-savanna, ukubhonga kwebhubesi ekude, nokubona izindlovu endaweni yamanzi yizimo ezizoba ngaphakathi kwengqondo yakho kuze kube phakade.</p>
+                        </div>
+                        <div class="lang-content" id="kr-af">
+                            <h3>Kruger Nasionale Park</h3>
+                            <p>Een van Afrika se grootste wildreservate, Kruger is 'n heiligdom vir die Groot Vyf — leeu, luiperd, renoster, olifant en Kaapse buffel — saam met honderde ander spesies. Wat byna 20 000 vierkante kilometer strek, bied die park alles van selfbestuur-avonture tot luukse lodge-ervarings. Die goue lig van dagbreek oor die savanne, die verre brul van 'n leeu, en die gesig van olifante by 'n watergat is oomblikke wat hulleself vir altyd in jou siel graveer.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stellenbosch Wine Estate -->
+                <div class="city-card">
+                    <div class="city-img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/mediaindia.eu/aa1659d39fa49194ab4d3b2a2f5964de4d8025c3.jpg" alt="Stellenbosch Wine Estate" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag">Heritage & Luxury</span>
+                        <div class="lang-content active" id="se-en">
+                            <h3>Cape Dutch Architecture</h3>
+                            <p>The Winelands are home to some of South Africa's most beautiful Cape Dutch architecture — whitewashed gabled farmhouses set against vineyards and mountains. Estates like Groot Constantia, South Africa's oldest wine-producing farm dating to 1685, offer a glimpse into the country's colonial past while producing award-winning wines. The combination of history, architecture, gastronomy, and natural beauty makes the Winelands an essential part of any South African journey.</p>
+                        </div>
+                        <div class="lang-content" id="se-zu">
+                            <h3>Ukuhlelwa kweCape Dutch</h3>
+                            <p>Ama-Winelands ayikhaya ezinye zezakhiwo ezihle kakhulu zeCape Dutch zaseNingizimu Afrika — izindlu ezimhlophe ezine-gable ezibekwe ngamavini nezintaba. Amafa afana neGroot Constantia, ifama elidala kakhulu lewayini yaseNingizimu Afrika eqala ngo-1685, anikeza ukubuka okufushane ngendabuko yezwe koloni ngenkathi ikhiqiza amawayini anqobe imiklomelo. Ukuhlanganiswa kwendabuko, ukuhlelwa, ukudla okumnandi, nobuhle bobuntu kwenza ama-Winelands abe yingxenye ebalulekile yanjani yohambo lweNingizimu Afrika.</p>
+                        </div>
+                        <div class="lang-content" id="se-af">
+                            <h3>Kaapse Nederlandse Argitektuur</h3>
+                            <p>Die Wynlande is die tuiste van van Suid-Afrika se mooiste Kaapse Nederlandse argitektuur — gewitgepleisterde gewelfde plaashuise teen wingerde en berge. Goedere soos Groot Constantia, Suid-Afrika se oudste wynproduserende plaas wat dateer tot 1685, bied 'n kykie in die land se koloniale verlede terwyl dit bekroonde wyne produseer. Die kombinasie van geskiedenis, argitektuur, gastronomie en natuurlike skoonheid maak die Wynlande 'n essensiële deel van enige Suid-Afrikaanse reis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Article -->
+        <section class="section">
+            <div class="lang-content active" id="blog-en">
+                <div class="blog-content">
+                    <h2 class="section-title">Why South Africa Should Be Your Next Extraordinary Journey</h2>
+                    
+                    <p>There are countries that capture your imagination, and then there is South Africa — a nation so vast, so diverse, and so profoundly alive that it redefines what travel can be. From the thundering Victoria Falls in the north to the windswept Cape of Good Hope in the south, this is a land where ancient wilderness meets modern cities, where 12 official languages sing in harmony, and where every sunset paints the sky in colors you never knew existed.</p>
+                    
+                    <p>Picture yourself standing on the flat summit of Table Mountain, the Atlantic Ocean stretching to the horizon on one side and the patchwork vineyards of Stellenbosch on the other. Imagine the heart-stopping moment when a leopard emerges from the golden grass of Kruger National Park, its spotted coat dappled with morning light. Envision walking through the streets of Soweto, where Nelson Mandela's former home now stands as a museum, and children play soccer in dusty lots with a joy that transcends circumstance.</p>
+                    
+                    <h3>A Nation Forged in Fire, Rising in Hope</h3>
+                    <p>What makes South Africa extraordinary is not just its landscapes — it is its story. This is a nation that endured centuries of colonialism and decades of apartheid, yet emerged with a constitution hailed as one of the most progressive in the world. The transition from apartheid to democracy, led by Nelson Mandela's vision of the Rainbow Nation, remains one of humanity's most remarkable achievements. Visiting the Apartheid Museum in Johannesburg or Robben Island off Cape Town is not merely tourism — it is a pilgrimage to the altar of human resilience.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"South Africa teaches us that a nation is not defined by its darkest hour, but by its response to it. The Rainbow Nation is not a destination — it is a daily act of courage, a commitment to unity in diversity that continues to inspire the world."</p>
+                    </div>
+                    
+                    <h3>Wilderness Without Equal</h3>
+                    <p>Beyond the cities and history lies a natural world of staggering abundance. Kruger National Park alone is larger than Israel, home to more mammal species than any other African reserve. The Garden Route winds along the southern coast through ancient forests, dramatic cliffs, and hidden beaches. The Drakensberg Mountains offer hiking through landscapes that inspired J.R.R. Tolkien's Middle-earth. And the Kalahari Desert reveals a subtle, haunting beauty that shifts with every hour of light.</p>
+                    
+                    <h3>Practical Travel Tips</h3>
+                    <p>South Africa is well-connected by international flights to Johannesburg and Cape Town. The currency is the South African Rand, and credit cards are widely accepted. English is widely spoken, though learning a few phrases in Zulu, Xhosa, or Afrikaans will earn you warm smiles. The best time for safari is during the dry winter months (May to September), while Cape Town is glorious in summer (November to March).</p>
+                    
+                    <p>Safety requires awareness — avoid walking alone at night in unfamiliar areas and keep valuables secure. Renting a car is the best way to explore, though private transfers and guided tours are excellent alternatives. The food scene is world-class, from Cape Malay curry in Durban to braai (barbecue) culture nationwide. Bring layers for temperature swings, reef-safe sunscreen, and an appetite for adventure.</p>
+                    
+                    <h3>Final Thoughts</h3>
+                    <p>South Africa is not a destination you visit — it is a destination that visits you, lingering in your memory long after you have left. It is a place where you can watch penguins waddle on a beach at sunrise, track rhinos through the bush at midday, and sip Pinotage as the sun sets over vineyard-covered mountains. It is a nation of contradictions and harmonies, of struggle and triumph, of darkness and light. If you are ready for a journey that will challenge, inspire, and transform you, South Africa is waiting with open arms.</p>
+                </div>
+            </div>
+            
+            <div class="lang-content" id="blog-zu">
+                <div class="blog-content">
+                    <h2 class="section-title">Bilong Wanem Kufanele Uye eNingizimu Afrika</h2>
+                    
+                    <p>Kunezizwe ezithatha ingqondo yakho, bese kuba khona iNingizimu Afrika — izwe elingaka, elahlukene, futhi eliphila ngendlela ephusileyo ukuthi liqanjwe kabusha ukuthi ukuhamba kungaba yini. Kusukela eVictoria Falls enyakazisa enyakatho kuya eCape of Good Hope enyakatho, leli yizwe lapho ihlathi elidala lihlangana nemizi yamanje, lapho izilimi ezingu-12 ezivunyelwe zihlabelela ngokuvumelana, futhi lapho ukushona kwelanga ngasinye upenda izulu ngemibala ongazi ukuthi yakhona.</p>
+                    
+                    <p>Tingim umi encabeni yeTable Mountain, uLwandle lwe-Atlantic lusabalala kuze kube sehorizon ngakolunye uhlangothi futhi amavini eStellenbosch ngakolunye. Tingim isikhathi esiyisifo lapho ingwe ivele ehlathini legolide leKruger National Park, isembatho sayo esinezimpawu sihlotshwe ngukukhanya kwasekuseni. Tingim uhamba emigwaqweni yeSoweto, lapho indlu kaNelson Mandela yangaphambili manje imi njengomuzium, futhi izingane zidlala ibhola emagcekeni anothuli ngokujabula okudlula izimo.</p>
+                    
+                    <h3>Izwe Elakhiwe Emilweni, Livuka Ithemba</h3>
+                    <p>Wanem samting i mekim iNingizimu Afrika i spesal em no tasol imihlaba — iyindaba yalo. Leli yizwe elihlale izikhathi eziningi zokubusa kwabelungu nezinyanga eziningi zobandlululo, kodwa lavuka nomthethosisekelo owadumiswa njengomunye wabahle kakhulu emhlabeni. Ukuguquka kusukela obandlululweni kuya edemokrasini, okuholiwe yibono likaNelson Mandela leRainbow Nation, kusalokhu kuyinye yezinto ezimangalisayo kakhulu zabantu. Ukuvakashela i-Apartheid Museum eGoli noma iRobben Island ngaphandle kweKapa akusiyo nje ukuvakasha — kuyihambo eliya e-altare lokuzimisela kwabantu.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"iNingizimu Afrika isifundisa ukuthi izwe alichaziwe yisikhathi sayo esimnyama kakhulu, kodwa ngempendulo yalo kuso. iRainbow Nation ayiyo indawo yokuya — iyisenzo sokuzimisela nsuku zonke, izibopho zobumbano ekuhlukeni okuqhubeka nokukhuthaza umhlaba."</p>
+                    </div>
+                    
+                    <h3>Ihlathi Elingenakulinganiswa</h3>
+                    <p>Beyond imizi nendabuko kukhona umhlaba wemvelo onobuningi obumangalisayo. iKruger National Park yodwa inkulu kunase-Israel, ikhaya ezinhlobonhlobo eziningi kunezinye izindawo zase-Afrika. iGarden Route izungeza ngasogwini lwaseningizimu ngamahlathi amadala, amabanga emizila, nezindawo zokubhukuda ezifihlakele. iDrakensberg Mountains inikeza ukuhiking emhlabeni owakhuthaza iMiddle-earth kaJ.R.R. Tolkien. Futhi iKalahari Desert ivela ubuhle obuthambile, obuhlungu obuguquka ngehora ngalinye lokukhanya.</p>
+                    
+                    <h3>Ol Gutpela Tok</h3>
+                    <p>iNingizimu Afrika ixhumekhile kahle ngezindiza zomhlaba ziya eGoli naseKapa. Imali yiSouth African Rand, futhi amakhadi okuthenga amvunyelwe kahle. IsiNgisi sikhulunywa kahle, noma ukufunda imisho embalwa ngesiZulu, isiXhosa, noma isiBhunu kuzokuzuza amahle amnandi. Isikhathi esihle kakhulu safari ngesikhathi sebusika esomile (May kuya ku-September), kanti iKapa iyinhle ngesikhathi sehlobo (November kuya ku-March).</p>
+                    
+                    <p>Ukuphepha kudinga ukuqaphela — ugweme ukuhamba wedwa ebusuku ezindaweni ongazaziyo futhi ugcine izinto ezibalulekile ngokuphepha. Ukuqasha imoto yindlela enhle kakhulu yokuhlola, noma izindiza ezizimele nezihambo eziholiwe ziyizinketho ezinhle. Isimo sokudla siyisisekelo somhlaba, kusukela eCape Malay curry eDurban kuya ekutheni braai (barbecue) umthetho wonke. Letha izindlangu zokushintsha kwamazinga okushisa, sunscreen esilondayo, nokunethezeka kokuhlola.</p>
+                    
+                    <h3>Last Tok</h3>
+                    <p>iNingizimu Afrika ayiyo indawo oyivakashelayo — iyindawo eza kuvakashela wena, ihlala engqondweni yakho isikhathi eside ngemuva kokushiya. Yindawo lapho ungabuka khona amaphengwini ehamba edonsa edonsa ebhishi ekuseni, ukulandela izinyathi ehlathini emini, futhi uphuce iPinotage njengoba ilangalishona phezu kwezintaba ezigqubuthele amavini. Yizwe lokungqubuzana noxolo, lokulwa nokunqoba, ubumnyama nokukhanya. Sapos yu redi n̄an journey e jibōlok challenge, inspire, ao transform yu, iNingizimu Afrika iya ngamandla avulekile.</p>
+                </div>
+            </div>
+            
+            <div class="lang-content" id="blog-af">
+                <div class="blog-content">
+                    <h2 class="section-title">Hoekom Suid-Afrika Jou Volgende Buitengewone Reis Moet Wees</h2>
+                    
+                    <p>Daar is lande wat jou verbeelding vang, en dan is daar Suid-Afrika — 'n nasie so groot, so divers en so diepgaande lewendig dat dit herdefinieer wat reis kan wees. Van die donderende Victoria-waterval in die noorde tot die windverwaaide Kaap die Goeie Hoop in die suide, is dit 'n land waar antieke wildernis moderne stede ontmoet, waar 12 amptelike tale in harmonie sing, en waar elke sonsondergang die lug skilder in kleure wat jy nooit geweet het bestaan nie.</p>
+                    
+                    <p>Stel jou voor jy staan op die plat top van Tafelberg, die Atlantiese Oseaan wat tot aan die horison strek aan die een kant en die lapwerk-wingerde van Stellenbosch aan die ander kant. Verbeel jou die hartklop-oomblik wanneer 'n luiperd uit die goue gras van die Kruger Nasionale Park te voorskyn kom, sy gevlekte vel met oggendlig gevlek. Stel jou voor jy loop deur die strate van Soweto, waar Nelson Mandela se voormalige huis nou as 'n museum staan, en kinders sokker speel in stoferige erwe met 'n vreugde wat omstandighede oorskry.</p>
+                    
+                    <h3>'n Nasie Gesmee in Vuur, Opstygend in Hoop</h3>
+                    <p>Wat Suid-Afrika buitengewoon maak, is nie net sy landskappe nie — dit is sy storie. Dit is 'n nasie wat eeue van kolonialisme en dekades van apartheid verdra het, maar na vore gekom het met 'n grondwet wat as een van die mees progressiewes ter wêreld geprys word. Die oorgang van apartheid na demokrasie, onder leiding van Nelson Mandela se visie van die Reënboognasie, bly een van die mensdom se merkwaardigste prestasies. Om die Apartheidsmuseum in Johannesburg of Robbeneiland naby Kaapstad te besoek, is nie bloot toerisme nie — dit is 'n pelgrimstog na die altaar van menslike veerkragtigheid.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"Suid-Afrika leer ons dat 'n nasie nie deur sy donkerste uur gedefinieer word nie, maar deur sy reaksie daarop. Die Reënboognasie is nie 'n bestemming nie — dit is 'n daaglikse daad van moed, 'n verbintenis tot eenheid in diversiteit wat voortgaan om die wêreld te inspireer."</p>
+                    </div>
+                    
+                    <h3>Wildernis Sonder Gelyke</h3>
+                    <p>Buite die stede en geskiedenis lê 'n natuurlike wêreld van verstommende oorvloed. Alleen die Kruger Nasionale Park is groter as Israel, die tuiste van meer soogdierspesies as enige ander Afrika-reservaat. Die Tuinroete kronkel langs die suidkus deur antieke woude, dramatiese kranse en verborge strande. Die Drakensberge bied staptoere deur landskappe wat J.R.R. Tolkien se Middel-aarde geïnspireer het. En die Kalahari-woestyn onthul 'n subtiele, spookagtige skoonheid wat met elke uur van lig verskuif.</p>
+                    
+                    <h3>Praktiese Reistips</h3>
+                    <p>Suid-Afrika is goed verbind deur internasionale vlugte na Johannesburg en Kaapstad. Die geldeenheid is die Suid-Afrikaanse Rand, en kredietkaarte word wyd aanvaar. Engels word wyd gepraat, hoewel die leer van 'n paar frases in Zoeloe, Xhosa of Afrikaans jou warm glimlagte sal verdien. Die beste tyd vir safari is gedurende die droë wintermaande (Mei tot September), terwyl Kaapstad heerlik is in die somer (November tot Maart).</p>
+                    
+                    <p>Veiligheid vereis bewustheid — vermy om alleen in die nag in onbekende gebiede te loop en hou waardevolle goed veilig. Om 'n motor te huur is die beste manier om te verken, hoewel privaat oordragte en geleide toere uitstekende alternatiewe is. Die voedseltoneel is wêreldklas, van Kaapse Maleise kerrie in Durban tot braai-kultuur landwyd. Bring lae vir temperatuurskommeling, rif-veilige sonskerm, en 'n honger vir avontuur.</p>
+                    
+                    <h3>Slotgedagtes</h3>
+                    <p>Suid-Afrika is nie 'n bestemming wat jy besoek nie — dit is 'n bestemming wat jou besoek, wat lank nadat jy vertrek het in jou geheue bly. Dit is 'n plek waar jy pikkewyne kan sien waggel op 'n strand by sonop, renosters deur die bos kan opspoor in die middag, en Pinotage kan drink terwyl die son sak oor wingerd-bedekte berge. Dit is 'n nasie van teenstrydighede en harmonieë, van stryd en triomf, van duisternis en lig. As jy gereed is vir 'n reis wat jou sal uitdaag, inspireer en transformeer, wag Suid-Afrika met oop arms.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>South Africa Travel Guide</h3>
+        <div class="footer-divider"></div>
+        <p>Discover the Rainbow Nation. Every sunrise here is a promise of wonder and transformation.</p>
+        <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.6;">© 2026 South Africa Travel Blog | Built with ❤️ for Explorers</p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.lang-btn').classList.add('active');
+            
+            // Hide all content
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            
+            // Show selected language content
+            document.querySelectorAll('[id$="-' + lang + '"]').forEach(el => el.classList.add('active'));
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.city-card, .info-item, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>'''
+
+# Save the file
+with open('/mnt/agents/output/south_africa_travel_guide.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"File size: {len(html_content)} characters")
