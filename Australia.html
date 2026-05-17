@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australia Travel Guide - A Blogger's Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #012169 0%, #e4002b 50%, #ffd100 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Language Toggle */
+        .lang-bar {
+            background: #2c3e50;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #012169;
+        }
+
+        .lang-label {
+            color: #ecf0f1;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lang-btn {
+            padding: 8px 20px;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 25px;
+            font-family: inherit;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: #012169;
+            border-color: #012169;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: #012169;
+            border-color: #012169;
+            box-shadow: 0 4px 15px rgba(1, 33, 105, 0.4);
+        }
+
+        /* Content */
+        .content {
+            padding: 50px 40px;
+        }
+
+        .intro-text {
+            font-size: 1.15em;
+            color: #555;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-left: 5px solid #012169;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #012169;
+            display: inline-block;
+        }
+
+        .section-content {
+            font-size: 1.05em;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Flag section */
+        .flag-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .flag-img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .flag-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .flag-info h3 {
+            color: #012169;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .flag-colors {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .color-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .city-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .city-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .city-body {
+            padding: 25px;
+        }
+
+        .city-body h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 12px;
+        }
+
+        .city-body p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .city-tag {
+            display: inline-block;
+            background: #012169;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Image gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px 15px 15px;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9em;
+        }
+
+        .footer .heart {
+            color: #ffd100;
+            font-size: 1.2em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .content { padding: 30px 20px; }
+            .flag-container { flex-direction: column; text-align: center; }
+            .lang-bar { justify-content: center; }
+        }
+
+        /* Smooth transitions for language switch */
+        .lang-content {
+            transition: opacity 0.3s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>Australia</h1>
+        <p class="subtitle">The Land Down Under — Where Adventure Meets Endless Horizons</p>
+    </div>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <span class="lang-label">Translate:</span>
+        <button class="lang-btn active" onclick="switchLang('en')" id="btn-en">English</button>
+        <button class="lang-btn" onclick="switchLang('strine')" id="btn-strine">Strine (Aussie)</button>
+    </div>
+
+    <!-- English Content -->
+    <div id="content-en" class="content lang-content">
+        <div class="intro-text">
+            Welcome to my travel diary! If you're dreaming of a destination where ancient red deserts meet turquoise coastlines, where kangaroos hop past your campsite, and where every sunset feels like a postcard — welcome to Australia. Known as "The Land Down Under," this vast island continent is a traveler's paradise that blends cosmopolitan cities, untouched wilderness, and a laid-back culture unlike anywhere else on Earth.
+        </div>
+
+        <!-- Background Section -->
+        <div class="section">
+            <h2 class="section-title">Country Background</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    Australia is the world's sixth-largest country by total area and the only nation to occupy an entire continent. The British colonized Australia in 1788, beginning with six colonies that federated on January 1, 1901, to become the independent Commonwealth of Australia. Unlike the United States, Australia remains a member of the British Commonwealth, with the British monarch still serving as the ceremonial head of state. citeweb_search:9#6
+                </p>
+                <p style="margin-bottom: 20px;">
+                    The island continent has been home to Aboriginal and Torres Strait Islander peoples for over 65,000 years — one of the oldest continuous cultures on the planet. Today, Australia is a vibrant multicultural society of approximately 26 million people, with its population concentrated along the stunning eastern and southeastern coastlines. From the tropical north to the temperate south, the country spans multiple climate zones and ecosystems. citeweb_search:9#2web_search:9#0
+                </p>
+                <p>
+                    What makes Australia truly extraordinary is its staggering biodiversity. It's the only country where you can witness the Great Barrier Reef — the largest living organism on Earth — snorkel with whale sharks at Ningaloo Reef, explore the ancient red monolith of Uluru, and spot kangaroos, koalas, and quokkas in their natural habitats. The Outback, the Great Ocean Road, the Daintree Rainforest, and Tasmania's wilderness are just the beginning of what awaits. citeweb_search:9#0web_search:9#1
+                </p>
+            </div>
+        </div>
+
+        <!-- Flag Section -->
+        <div class="section">
+            <h2 class="section-title">The National Flag</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    The Australian National Flag was born from a public competition held in 1901, when the newly federated nation sought a symbol to represent its identity. Over 30,000 designs were submitted by citizens, and five nearly identical entries shared equal first place and the 200-pound prize. The winning design, originally called the Commonwealth Blue Ensign, was first flown at the Exhibition Building in Melbourne on September 3, 1901. King Edward VII gave his royal approval in 1902. It wasn't until the Flag Act of 1953 that the blue ensign officially became Australia's national flag, allowing all citizens — not just government buildings — to fly it proudly. citeweb_search:9#6
+                </p>
+                
+                <div class="flag-container">
+                    imageimage_search:10#5
+                    <div class="flag-info">
+                        <h3>Symbolism of the Design</h3>
+                        <p style="margin-bottom: 15px;">
+                            The <strong>Union Jack</strong> in the canton (upper left corner) represents Australia's historical ties to Britain and its place within the Commonwealth. The <strong>large seven-pointed star</strong> below the Union Jack is the Commonwealth Star, with six points representing the original six states and the seventh point symbolizing the territories. The <strong>five smaller stars</strong> on the right form the constellation of the Southern Cross (Crux), one of the most distinctive features of the southern hemisphere's night sky and visible from every Australian state. This celestial arrangement has guided travelers and held deep meaning for both Indigenous Australians and European settlers for centuries. citeweb_search:9#6
+                        </p>
+                        <div class="flag-colors">
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #012169;"></div>
+                                <span>Blue (The Ocean & Sky)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #e4002b;"></div>
+                                <span>Red (Heritage & Courage)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #fff; border: 2px solid #ccc;"></div>
+                                <span>White (Peace & Unity)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Famous Cities Section -->
+        <div class="section">
+            <h2 class="section-title">Famous Cities & Must-Visit Spots</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 25px;">
+                    From harbour-side icons to cultural capitals, here are the cities that define the Australian experience:
+                </p>
+
+                <div class="city-grid">
+                    <!-- Sydney -->
+                    <div class="city-card">
+                        imageimage_search:10#7
+                        <div class="city-body">
+                            <h3>Sydney</h3>
+                            <p>Australia's largest city and the gateway for most international visitors, Sydney is a dazzling blend of natural beauty and urban sophistication. Climb the iconic Sydney Harbour Bridge, marvel at the architectural wonder of the Sydney Opera House, and soak up the sun at world-famous Bondi Beach. Take the scenic Manly Ferry across the harbour, hike the stunning Bondi to Bronte coastal walk, and enjoy the vibrant nightlife in King's Cross. With its perfect mix of beach lifestyle and big-city energy, Sydney is the ultimate introduction to Australia. citeweb_search:9#0web_search:9#3</p>
+                            <span class="city-tag">Harbour Icon</span>
+                        </div>
+                    </div>
+
+                    <!-- Melbourne -->
+                    <div class="city-card">
+                        imageimage_search:10#0
+                        <div class="city-body">
+                            <h3>Melbourne</h3>
+                            <p>Often called Australia's cultural capital, Melbourne offers a more relaxed and European vibe than its northern rival. Wander the celebrated laneways and arcades filled with hidden cafés, street art, and boutiques. Visit the National Gallery of Victoria, catch a show at the Arts Centre, and ride the free City Circle Tram past landmarks like Federation Square and Flinders Street Station. Don't miss the Queen Victoria Market, the Royal Botanical Gardens, and the nearby Yarra Valley wine region. Melbourne is where foodies, artists, and sports lovers feel most at home. citeweb_search:9#4web_search:9#0</p>
+                            <span class="city-tag">Culture Capital</span>
+                        </div>
+                    </div>
+
+                    <!-- Brisbane -->
+                    <div class="city-card">
+                        imageimage_search:10#6
+                        <div class="city-body">
+                            <h3>Brisbane</h3>
+                            <p>Australia's fastest-growing city and host of the upcoming 2032 Olympics, Brisbane has well and truly shaken off its "big country town" reputation. Explore the lush Southbank Parklands along the Brisbane River, enjoy dinner and drinks with stunning views at Howard Smith Wharves, and soak up the subtropical sunshine. With easy access to the Gold Coast's world-class beaches and the Sunshine Coast's laid-back charm, Brisbane is the perfect base for exploring Queensland's coastal wonders. citeweb_search:9#3web_search:9#1</p>
+                            <span class="city-tag">River City</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beautiful Places Gallery -->
+                <h3 style="margin-top: 50px; margin-bottom: 20px; color: #2c3e50; font-size: 1.5em;">Beautiful Landscapes</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        imageimage_search:10#1
+                        <div class="gallery-caption">Sydney Opera House & Harbour Bridge at Sunset</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:10#4
+                        <div class="gallery-caption">Sydney Harbour Panorama</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:10#8
+                        <div class="gallery-caption">Melbourne Skyline at Golden Hour</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="section">
+            <h2 class="section-title">Essential Travel Tips</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 15px;"><strong>Best Time to Visit:</strong> December through February is summer — perfect for beaches but hot in the Outback. March to May and September to November offer milder temperatures ideal for exploring. June to August is winter, great for the Red Centre and northern Queensland. citeweb_search:9#0web_search:9#7</p>
+                <p style="margin-bottom: 15px;"><strong>Must-Do Adventures:</strong> Dive or snorkel the Great Barrier Reef from Cairns, watch the sunrise over Uluru in the Red Centre, drive the Great Ocean Road to see the Twelve Apostles, explore the Blue Mountains outside Sydney, and swim with whale sharks at Ningaloo Reef. Don't forget to visit Rottnest Island to snap a selfie with a quokka! citeweb_search:9#0web_search:9#5</p>
+                <p style="margin-bottom: 15px;"><strong>Getting Around:</strong> Australia is vast — flights between cities are often necessary. Rent a car for road trips like the Great Ocean Road or Outback adventures. Public transport is excellent in Sydney, Melbourne, and Brisbane. citeweb_search:9#7</p>
+                <p><strong>Food & Drink:</strong> Try a proper Aussie barbecue, flat white coffee, meat pies, fish and chips by the beach, and world-class wines from the Barossa Valley, Margaret River, or Hunter Valley. Don't miss the legendary "Sunday Session" — an Aussie tradition of afternoon drinks with mates! citeweb_search:9#0web_search:9#4</p>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="section" style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin-top: 40px;">
+            <h2 class="section-title" style="border-bottom-color: #ffd100;">Final Thoughts</h2>
+            <div class="section-content">
+                <p>
+                    Australia is more than a destination — it's a feeling. It's the warmth of the sun on your skin at Bondi Beach, the awe of watching Uluru glow crimson at dawn, the thrill of spotting your first kangaroo in the wild, and the laughter shared over a cold beer at a beachside pub. It's a land of extremes, from the ancient silence of the Outback to the electric energy of Melbourne's laneways.
+                </p>
+                <p style="margin-top: 15px; font-style: italic; color: #012169; font-weight: bold;">
+                    So grab your sunnies, pack your sense of adventure, and get ready for the trip of a lifetime. Australia isn't just waiting for you — it's calling your name. See you Down Under, mate!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strine Content (Hidden by default) -->
+    <div id="content-strine" class="content lang-content hidden">
+        <div class="intro-text">
+            G'day and welcome to me travel blog! If you're dreamin' of a place where ancient red deserts meet ripper coastlines, where roos hop past your swag, and where every arvo sunset looks like a postcard — welcome to Oz. Known as "The Land Down Under," this massive island continent is a traveller's paradise that mixes cosmopolitan cities, untouched bush, and a laid-back culture you won't find anywhere else on Earth.
+        </div>
+
+        <!-- Background Section -->
+        <div class="section">
+            <h2 class="section-title">Country Background</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    Australia is the world's sixth-largest country by total area and the only nation to occupy an entire continent. The Poms colonized us back in 1788, startin' with six colonies that federated on January 1, 1901, to become the independent Commonwealth of Australia. Unlike the Yanks, we still remain a member of the British Commonwealth, with the British monarch still servin' as the ceremonial head of state. citeweb_search:9#6
+                </p>
+                <p style="margin-bottom: 20px;">
+                    This island continent has been home to Aboriginal and Torres Strait Islander peoples for over 65,000 years — one of the oldest continuous cultures on the planet. Today, Australia is a ripper multicultural society of about 26 million people, with most of us livin' along the stunnin' eastern and southeastern coastlines. From the tropical north to the temperate south, the country spans multiple climate zones and ecosystems. citeweb_search:9#2web_search:9#0
+                </p>
+                <p>
+                    What makes Australia truly bonza is its staggerin' biodiversity. It's the only country where you can check out the Great Barrier Reef — the largest livin' thing on Earth — snorkel with whale sharks at Ningaloo Reef, explore the ancient red rock of Uluru, and spot kangaroos, koalas, and quokkas in their natural habitats. The Outback, the Great Ocean Road, the Daintree Rainforest, and Tassie's wilderness are just the start of what awaits. citeweb_search:9#0web_search:9#1
+                </p>
+            </div>
+        </div>
+
+        <!-- Flag Section -->
+        <div class="section">
+            <h2 class="section-title">Our National Flag</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 20px;">
+                    The Aussie flag was born from a public competition held in 1901, when the newly federated nation wanted a symbol to represent its identity. Over 30,000 designs were submitted by everyday Aussies, and five nearly identical entries shared equal first place and the 200-quid prize. The winnin' design, originally called the Commonwealth Blue Ensign, was first flown at the Exhibition Building in Melbourne on September 3, 1901. King Edward VII gave his royal tick of approval in 1902. It wasn't until the Flag Act of 1953 that the blue ensign officially became our national flag, lettin' all citizens — not just government buildings — fly it proudly. citeweb_search:9#6
+                </p>
+                
+                <div class="flag-container">
+                    imageimage_search:10#5
+                    <div class="flag-info">
+                        <h3>What the Design Means</h3>
+                        <p style="margin-bottom: 15px;">
+                            The <strong>Union Jack</strong> in the canton (top left corner) represents our historical ties to Britain and our place within the Commonwealth. The <strong>big seven-pointed star</strong> below the Union Jack is the Commonwealth Star, with six points representin' the original six states and the seventh point standin' for the territories. The <strong>five smaller stars</strong> on the right form the Southern Cross (Crux), one of the most distinctive features of the southern hemisphere's night sky and visible from every Aussie state. This celestial arrangement has guided travellers and held deep meanin' for both Indigenous Australians and European settlers for centuries. citeweb_search:9#6
+                        </p>
+                        <div class="flag-colors">
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #012169;"></div>
+                                <span>Blue (The Ocean & Sky)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #e4002b;"></div>
+                                <span>Red (Heritage & Courage)</span>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-dot" style="background: #fff; border: 2px solid #ccc;"></div>
+                                <span>White (Peace & Unity)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Famous Cities Section -->
+        <div class="section">
+            <h2 class="section-title">Famous Cities & Must-Visit Spots</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 25px;">
+                    From harbour-side icons to cultural capitals, here are the cities that define the true blue Aussie experience:
+                </p>
+
+                <div class="city-grid">
+                    <!-- Sydney -->
+                    <div class="city-card">
+                        imageimage_search:10#7
+                        <div class="city-body">
+                            <h3>Sydney</h3>
+                            <p>Australia's biggest city and the gateway for most international visitors, Sydney is a dazzlin' blend of natural beauty and urban sophistication. Climb the iconic Sydney Harbour Bridge, marvel at the architectural wonder of the Sydney Opera House, and soak up the sun at world-famous Bondi Beach. Take the scenic Manly Ferry across the harbour, hike the stunnin' Bondi to Bronte coastal walk, and enjoy the vibrant nightlife in King's Cross. With its perfect mix of beach lifestyle and big-city energy, Sydney is the ultimate introduction to Oz. citeweb_search:9#0web_search:9#3</p>
+                            <span class="city-tag">Harbour Icon</span>
+                        </div>
+                    </div>
+
+                    <!-- Melbourne -->
+                    <div class="city-card">
+                        imageimage_search:10#0
+                        <div class="city-body">
+                            <h3>Melbourne</h3>
+                            <p>Often called Australia's cultural capital, Melbourne offers a more relaxed and European vibe than its northern rival. Wander the celebrated laneways and arcades filled with hidden cafés, street art, and boutiques. Visit the National Gallery of Victoria, catch a show at the Arts Centre, and ride the free City Circle Tram past landmarks like Federation Square and Flinders Street Station. Don't miss the Queen Victoria Market, the Royal Botanical Gardens, and the nearby Yarra Valley wine region. Melbourne is where foodies, artists, and sports lovers feel most at home. citeweb_search:9#4web_search:9#0</p>
+                            <span class="city-tag">Culture Capital</span>
+                        </div>
+                    </div>
+
+                    <!-- Brisbane -->
+                    <div class="city-card">
+                        imageimage_search:10#6
+                        <div class="city-body">
+                            <h3>Brisbane</h3>
+                            <p>Australia's fastest-growin' city and host of the upcomin' 2032 Olympics, Brisbane has well and truly shaken off its "big country town" reputation. Explore the lush Southbank Parklands along the Brisbane River, enjoy dinner and drinks with stunnin' views at Howard Smith Wharves, and soak up the subtropical sunshine. With easy access to the Gold Coast's world-class beaches and the Sunshine Coast's laid-back charm, Brisbane is the perfect base for explorin' Queensland's coastal wonders. citeweb_search:9#3web_search:9#1</p>
+                            <span class="city-tag">River City</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beautiful Places Gallery -->
+                <h3 style="margin-top: 50px; margin-bottom: 20px; color: #2c3e50; font-size: 1.5em;">Beautiful Landscapes</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        imageimage_search:10#1
+                        <div class="gallery-caption">Sydney Opera House & Harbour Bridge at Sunset</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:10#4
+                        <div class="gallery-caption">Sydney Harbour Panorama</div>
+                    </div>
+                    <div class="gallery-item">
+                        imageimage_search:10#8
+                        <div class="gallery-caption">Melbourne Skyline at Golden Hour</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="section">
+            <h2 class="section-title">Essential Travel Tips</h2>
+            <div class="section-content">
+                <p style="margin-bottom: 15px;"><strong>Best Time To Visit:</strong> December through February is summer — perfect for beaches but bloody hot in the Outback. March to May and September to November offer milder temps ideal for explorin'. June to August is winter, great for the Red Centre and northern Queensland. citeweb_search:9#0web_search:9#7</p>
+                <p style="margin-bottom: 15px;"><strong>Must-Do Adventures:</strong> Dive or snorkel the Great Barrier Reef from Cairns, watch the sunrise over Uluru in the Red Centre, drive the Great Ocean Road to see the Twelve Apostles, explore the Blue Mountains outside Sydney, and swim with whale sharks at Ningaloo Reef. Don't forget to visit Rottnest Island to snap a selfie with a quokka! citeweb_search:9#0web_search:9#5</p>
+                <p style="margin-bottom: 15px;"><strong>Gettin' Around:</strong> Australia is bloody massive — flights between cities are often necessary. Rent a car for road trips like the Great Ocean Road or Outback adventures. Public transport is excellent in Sydney, Melbourne, and Brisbane. citeweb_search:9#7</p>
+                <p><strong>Tucker & Drinks:</strong> Try a proper Aussie barbie, flat white coffee, meat pies, fish and chips by the beach, and world-class wines from the Barossa Valley, Margaret River, or Hunter Valley. Don't miss the legendary "Sunday Session" — an Aussie tradition of arvo drinks with mates! citeweb_search:9#0web_search:9#4</p>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="section" style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin-top: 40px;">
+            <h2 class="section-title" style="border-bottom-color: #ffd100;">Final Thoughts</h2>
+            <div class="section-content">
+                <p>
+                    Australia is more than a destination — it's a feelin'. It's the warmth of the sun on your skin at Bondi Beach, the awe of watchin' Uluru glow crimson at dawn, the thrill of spottin' your first roo in the wild, and the laughter shared over a cold one at a beachside pub. It's a land of extremes, from the ancient silence of the Outback to the electric energy of Melbourne's laneways.
+                </p>
+                <p style="margin-top: 15px; font-style: italic; color: #012169; font-weight: bold;">
+                    So grab your sunnies, pack your sense of adventure, and get ready for the trip of a lifetime. Australia isn't just waitin' for you — it's callin' your name. See you Down Under, mate!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Written with <span class="heart">❤</span> for travelers everywhere</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Australia Travel Guide | Blogger Edition 2026</p>
+    </div>
+</div>
+
+<script>
+    function switchLang(lang) {
+        const enContent = document.getElementById('content-en');
+        const strineContent = document.getElementById('content-strine');
+        const btnEn = document.getElementById('btn-en');
+        const btnStrine = document.getElementById('btn-strine');
+
+        if (lang === 'en') {
+            enContent.classList.remove('hidden');
+            strineContent.classList.add('hidden');
+            btnEn.classList.add('active');
+            btnStrine.classList.remove('active');
+        } else {
+            enContent.classList.add('hidden');
+            strineContent.classList.remove('hidden');
+            btnEn.classList.remove('active');
+            btnStrine.classList.add('active');
+        }
+        
+        // Smooth scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
