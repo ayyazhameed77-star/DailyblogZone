@@ -1,0 +1,431 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libya Travel Guide 2026 | Discover the Pearl of the Mediterranean</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+  
+  :root {
+    --libya-red: #E70013;
+    --libya-black: #1a1a1a;
+    --libya-green: #006233;
+    --sand: #F5E6D3;
+    --gold: #D4A843;
+    --dark: #1a1a1a;
+    --white: #ffffff;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #faf8f5 0%, #f0ede8 100%);
+    color: var(--dark);
+    line-height: 1.7;
+  }
+  
+  /* Language Toggle */
+  .lang-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--dark);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  }
+  
+  .lang-btn {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--gold);
+    color: var(--dark);
+  }
+  
+  /* Hero Section */
+  .hero {
+    margin-top: 56px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200') center/cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  
+  .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  
+  .hero-content .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    letter-spacing: 2px;
+  }
+  
+  .flag-badge {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+  }
+  
+  .flag-badge svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 70px auto 40px;
+    padding: 0 25px;
+  }
+  
+  /* Blog Content */
+  .blog-post {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 45px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+  
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--libya-red);
+    margin: 35px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--libya-green);
+    display: inline-block;
+  }
+  
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--libya-green);
+    margin: 25px 0 12px;
+  }
+  
+  p {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+  
+  .lead {
+    font-size: 1.2rem;
+    color: var(--libya-red);
+    font-weight: 600;
+    border-left: 4px solid var(--libya-green);
+    padding-left: 20px;
+    margin: 25px 0;
+  }
+  
+  /* City Cards */
+  .city-card {
+    margin: 30px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    background: white;
+  }
+  
+  .city-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .city-info {
+    padding: 25px 30px;
+  }
+  
+  .city-info h3 {
+    margin-top: 0;
+    font-size: 1.6rem;
+  }
+  
+  /* Info Box */
+  .info-box {
+    background: linear-gradient(135deg, var(--sand) 0%, #fff 100%);
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin: 25px 0;
+    border-right: 5px solid var(--libya-red);
+  }
+  
+  .info-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .info-box li {
+    padding: 8px 0;
+    padding-right: 25px;
+    position: relative;
+  }
+  
+  .info-box li::before {
+    content: "✦";
+    position: absolute;
+    right: 0;
+    color: var(--libya-green);
+    font-weight: bold;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  [dir="rtl"] .lead {
+    border-left: none;
+    border-right: 4px solid var(--libya-green);
+    padding-left: 0;
+    padding-right: 20px;
+  }
+  
+  [dir="rtl"] .info-box {
+    border-right: none;
+    border-left: 5px solid var(--libya-red);
+  }
+  
+  [dir="rtl"] .info-box li {
+    padding-right: 0;
+    padding-left: 25px;
+  }
+  
+  [dir="rtl"] .info-box li::before {
+    right: auto;
+    left: 0;
+  }
+  
+  [dir="rtl"] h2, [dir="rtl"] h3 {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .blog-post { padding: 30px 20px; }
+    .container { margin-top: 60px; }
+    .city-img { height: 220px; }
+  }
+  
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">🇱🇾 العربية</button>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 data-en="Libya Travel Guide 2026" data-ar="دليل السفر إلى ليبيا 2026">Libya Travel Guide 2026</h1>
+    <p class="subtitle" data-en="The Pearl of the Mediterranean — Where Ancient Empires Sleep in the Sand" data-ar="لؤلؤة المتوسط — حيث تنام الإمبراطوريات القديمة في الرمال">The Pearl of the Mediterranean — Where Ancient Empires Sleep in the Sand</p>
+  </div>
+  <div class="flag-badge">
+    <!-- Libya Flag SVG -->
+    <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+      <rect width="900" height="200" fill="#E70013"/>
+      <rect y="200" width="900" height="200" fill="#1a1a1a"/>
+      <rect y="400" width="900" height="200" fill="#006233"/>
+      <circle cx="450" cy="300" r="60" fill="white"/>
+      <path d="M450 255 A45 45 0 1 0 450 345 A35 35 0 1 1 450 255 Z" fill="white"/>
+      <polygon points="450,225 456,240 472,240 459,250 464,265 450,255 436,265 441,250 428,240 444,240" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<div class="container">
+  <article class="blog-post" id="blog-content">
+    
+    <!-- Introduction -->
+    <p class="lead" data-en="Libya is a land of extraordinary contrasts — where the Mediterranean Sea kisses ancient Phoenician ports, where Roman amphitheaters face turquoise waters, and where the Sahara stretches endlessly beyond the horizon. The fourth-largest country in Africa, Libya remains one of the continent's last great frontiers for travelers seeking raw history, untouched landscapes, and the warm embrace of a people shaped by millennia of civilization."
+       data-ar="ليبيا هي أرض التناقضات الاستثنائية — حيث يبوس البحر المتوسط الموانئ الفينيقية القديمة، وتواجه المسارح الرومانية المياه الفيروزية، وتمتد الصحراء بلا نهاية beyond الأفق. رابع أكبر دولة في أفريقيا، تظل ليبيا واحدة من آخر الحدود العظيمة للقارة للمسافرين الباحثين عن التاريخ الخام والمناظر الطبيعية النقية والعناق الدافئ لشعب تشكله آلاف السنين من الحضارة.">
+      Libya is a land of extraordinary contrasts — where the Mediterranean Sea kisses ancient Phoenician ports, where Roman amphitheaters face turquoise waters, and where the Sahara stretches endlessly beyond the horizon. The fourth-largest country in Africa, Libya remains one of the continent's last great frontiers for travelers seeking raw history, untouched landscapes, and the warm embrace of a people shaped by millennia of civilization.
+    </p>
+    
+    <h2 data-en="Country Background" data-ar="نبذة عن البلاد">Country Background</h2>
+    <p data-en="The story of Libya begins with the Amazigh — the indigenous Berbers who have called this land home for over twelve thousand years, as evidenced by prehistoric rock art in the Tadrart Acacus mountains. In the 12th century BCE, Phoenician traders arrived and established coastal settlements, including Oea (modern Tripoli), Leptis Magna, and Sabratha — cities that would grow into some of the greatest jewels of the ancient Mediterranean."
+       data-ar="تبدأ قصة ليبيا مع الأمازيغ — السكان الأصليين الذين استوطنوا هذه الأرض لأكثر من اثني عشر ألف عام، كما يثبت فن الصخور ما قبل التاريخ في جبال تدرارت أكاكوس. في القرن الثاني عشر قبل الميلاد، وصل التجار الفينيقيون وأسسوا مستوطنات ساحلية، بما في ذلك أويا (طرابلس الحديثة)، ولبتس ماغنا، وصبراتة — مدن نمت لتصبح بعضًا من أعظم جواهر المتوسط القديم.">
+      The story of Libya begins with the Amazigh — the indigenous Berbers who have called this land home for over twelve thousand years, as evidenced by prehistoric rock art in the Tadrart Acacus mountains. In the 12th century BCE, Phoenician traders arrived and established coastal settlements, including Oea (modern Tripoli), Leptis Magna, and Sabratha — cities that would grow into some of the greatest jewels of the ancient Mediterranean.
+    </p>
+    
+    <p data-en="Rome conquered Libya in 146 BCE, and for eight centuries the region flourished as the empire's breadbasket. The Arab conquest in the 7th century brought Islam and the Arabic language, while Ottoman rule followed from the 16th century until Italian colonization in 1911. After a brutal colonial struggle, Libya gained independence in 1951 as a constitutional monarchy. The discovery of vast oil reserves transformed the nation into one of Africa's wealthiest per capita, though decades of isolation followed. Today, with a population of nearly 7 million, Libya's official language is Arabic, and its people — a blend of Arab and Amazigh heritage — carry a resilient spirit that has endured through every chapter of history."
+       data-ar="غزت روما ليبيا عام 146 قبل الميلاد، وازدهرت المنطقة لثمانية قرون كسلة خبز الإمبراطورية. جلب الغزو العربي في القرن السابع الإسلام واللغة العربية، تلاه الحكم العثماني من القرن السادس عشر حتى الاستعمار الإيطالي عام 1911. بعد كفاح استعماري وحشي، حصلت ليبيا على استقلالها عام 1951 كملكية دستورية. حول اكتشاف احتياطيات نفطية ضخمة الأمة إلى واحدة من أغنى دول أفريقيا per capita، على الرغم من عقود من العزلة. اليوم، مع عدد سكان يقترب من 7 ملايين، اللغة الرسمية هي العربية، وشعبها — مزيج من التراث العربي والأمازيغي — يحمل روحًا مرنة صمدت عبر كل فصل من التاريخ.">
+      Rome conquered Libya in 146 BCE, and for eight centuries the region flourished as the empire's breadbasket. The Arab conquest in the 7th century brought Islam and the Arabic language, while Ottoman rule followed from the 16th century until Italian colonization in 1911. After a brutal colonial struggle, Libya gained independence in 1951 as a constitutional monarchy. The discovery of vast oil reserves transformed the nation into one of Africa's wealthiest per capita, though decades of isolation followed. Today, with a population of nearly 7 million, Libya's official language is Arabic, and its people — a blend of Arab and Amazigh heritage — carry a resilient spirit that has endured through every chapter of history.
+    </p>
+    
+    <p data-en="The Libyan flag is a powerful tricolor of red, black, and green horizontal stripes, with a white crescent and star at the center. Red represents the blood of martyrs and freedom fighters, black symbolizes the dark days of colonial oppression and also honors the Cyrenaica region, while green represents agriculture, hope, and the lush oases of the future. The crescent and star reflect Libya's deep Islamic faith and its enduring connection to the broader Muslim world."
+       data-ar="علم ليبيا هو ثلاثي ألوان قوي من الشرائط الأفقية الحمراء والسوداء والخضراء، مع هلال ونجمة بيضاء في المنتصف. يمثل الأحمر دم الشهداء ومحاربي الحرية، يرمز الأسود إلى أيام الاستعمار المظلمة ويكرم أيضًا منطقة برقة، بينما يمثل الأخضر الزراعة والأمل والواحات الخصبة المستقبلية. يعكس الهلال والنجمة الإيمان الإسلامي العميق لليبيا وارتباطها الدائم بالعالم الإسلامي الأوسع.">
+      The Libyan flag is a powerful tricolor of red, black, and green horizontal stripes, with a white crescent and star at the center. Red represents the blood of martyrs and freedom fighters, black symbolizes the dark days of colonial oppression and also honors the Cyrenaica region, while green represents agriculture, hope, and the lush oases of the future. The crescent and star reflect Libya's deep Islamic faith and its enduring connection to the broader Muslim world.
+    </p>
+    
+    <div class="info-box">
+      <h3 data-en="Quick Facts" data-ar="معلومات سريعة">Quick Facts</h3>
+      <ul>
+        <li data-en="Capital: Tripoli" data-ar="العاصمة: طرابلس">Capital: Tripoli</li>
+        <li data-en="Population: ~7 Million" data-ar="السكان: حوالي 7 ملايين نسمة">Population: ~7 Million</li>
+        <li data-en="Currency: Libyan Dinar (LYD)" data-ar="العملة: الدينار الليبي">Currency: Libyan Dinar (LYD)</li>
+        <li data-en="Official Language: Arabic" data-ar="اللغة الرسمية: العربية">Official Language: Arabic</li>
+        <li data-en="Best Time to Visit: March-May & September-November" data-ar="أفضل وقت للزيارة: مارس-مايو وسبتمبر-نوفمبر">Best Time to Visit: March-May & September-November</li>
+        <li data-en="UNESCO Sites: 5 World Heritage Sites" data-ar="مواقع اليونسكو: 5 مواقع تراث عالمي">UNESCO Sites: 5 World Heritage Sites</li>
+      </ul>
+    </div>
+    
+    <h2 data-en="Famous Cities to Explore" data-ar="مدن مشهورة للاستكشاف">Famous Cities to Explore</h2>
+    
+    <!-- Tripoli -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/libyaobserver.ly/7c3c36a6cb1fe4bf29aac9fcaa8ad32b4a6b4e8b.jpg" alt="Tripoli" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Tripoli — The White City" data-ar="طرابلس — المدينة البيضاء">Tripoli — The White City</h3>
+        <p data-en="Tripoli rises from the Mediterranean with a spirit that is both ancient and vibrantly alive. Founded as Oea by the Phoenicians over 2,500 years ago, the capital's old medina is a labyrinth of narrow alleyways where Ottoman-era mosques stand beside Roman arches and Italian-built cafés. The Arch of Marcus Aurelius, tucked quietly between shops, is a 2,000-year-old reminder that Rome never truly left. The Red Castle (Assaraya al-Hamra), layered with Phoenician, Ottoman, Spanish, and Italian influences, houses the National Museum of Libya — home to collections spanning 5,000 years of North African history, including the third-oldest mummy ever discovered. Wander the souks for spices and gold, sip Italian espresso at historic cafés, and feel the Mediterranean breeze along the Corniche as the call to prayer echoes across the white-washed rooftops."
+           data-ar="تتربع طرابلس على المتوسط بروح عريقة ونابضة بالحياة. تأسست كأويا من قبل الفينيقيين قبل أكثر من 2500 عام، المدينة العتيقة للعاصمة هي متاهة من الأزقة الضيقة حيث تقف مساجد العصر العثماني بجانب الأقواس الرومانية والمقاهي الإيطالية. قوس ماركوس أوريليوس، المختبئ بهدوء بين المتاجر، هو تذكير عمره 2000 عام بأن روما لم تغادر حقًا. القلعة الحمراء (السرايا الحمراء)، المحفوفة بالتأثيرات الفينيقية والعثمانية والإسبانية والإيطالية، تضم المتحف الوطني الليبي — موطن مجموعات تمتد على 5000 عام من تاريخ شمال أفريقيا، بما في ذلك ثالث أقدم مومياء تم اكتشافها. تجول في الأسواق للتوابل والذهب، واشرب الإسبريسو الإيطالي في المقاهي التاريخية، واستمتع بنسيم المتوسط على الكورنيش بينما يرتد صوت الأذان عبر الأسطح البيضاء.">
+          Tripoli rises from the Mediterranean with a spirit that is both ancient and vibrantly alive. Founded as Oea by the Phoenicians over 2,500 years ago, the capital's old medina is a labyrinth of narrow alleyways where Ottoman-era mosques stand beside Roman arches and Italian-built cafés. The Arch of Marcus Aurelius, tucked quietly between shops, is a 2,000-year-old reminder that Rome never truly left. The Red Castle (Assaraya al-Hamra), layered with Phoenician, Ottoman, Spanish, and Italian influences, houses the National Museum of Libya — home to collections spanning 5,000 years of North African history, including the third-oldest mummy ever discovered. Wander the souks for spices and gold, sip Italian espresso at historic cafés, and feel the Mediterranean breeze along the Corniche as the call to prayer echoes across the white-washed rooftops.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Leptis Magna -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/231a3d1ec52cc7a7ed6ea78b660f9c1fae34a3b1.jpg" alt="Leptis Magna" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Leptis Magna — Rome's African Jewel" data-ar="لبتس ماغنا — جوهرة روما الأفريقية">Leptis Magna — Rome's African Jewel</h3>
+        <p data-en="About two hours east of Tripoli lies Leptis Magna, widely considered the best-preserved Roman city in the Mediterranean world and a UNESCO World Heritage treasure. Originally a Phoenician trading port, it reached its zenith under Emperor Septimius Severus — who was born here — and became the third-greatest city of the Roman Empire. The scale is staggering: walk through the monumental Severan Arch, stand in the basilica with its towering columns, and climb the amphitheater carved partly into the hillside with the sea crashing in the background. The Hadrianic Baths, marketplace, and theater reveal a civilization of astonishing sophistication. Buried for 1,300 years beneath the sand, Leptis Magna was rediscovered in the 1920s and remains so intact that you can almost hear the chariots and smell the olive oil of daily Roman life."
+           data-ar="على بعد ساعتين شرق طرابلس تقع لبتس ماغنا، التي تعتبر على نطاق واسع أفضل مدينة رومانية محفوظة في عالم المتوسط وكنز من تراث اليونسكو العالمي. ميناء تجاري فينيقي في الأصل، بلغت ذروتها تحت الإمبراطور سبتميوس سيفيروس — الذي وُلد هنا — وأصبحت ثالث أعظم مدينة في الإمبراطورية الرومانية. الحجم مذهل: امشِ عبر قوس سيفيروس الضخم، وقف في البازيليكا بأعمدتها الشامخة، واصعد المسرح المحفور جزئيًا في جانب التل مع ارتطام الأمواج في الخلفية. الحمامات الأدرانية، والسوق، والمسرح يكشفون حضارة متطورة بشكل مذهل. دُفنت لمدة 1300 عام تحت الرمال، وأعيد اكتشاف لبتس ماغنا في العشرينيات، وتظل سليمة لدرجة أنك تستطيع تقريبًا سماع العربات وشم زيت الزيتون من الحياة الرومانية اليومية.">
+          About two hours east of Tripoli lies Leptis Magna, widely considered the best-preserved Roman city in the Mediterranean world and a UNESCO World Heritage treasure. Originally a Phoenician trading port, it reached its zenith under Emperor Septimius Severus — who was born here — and became the third-greatest city of the Roman Empire. The scale is staggering: walk through the monumental Severan Arch, stand in the basilica with its towering columns, and climb the amphitheater carved partly into the hillside with the sea crashing in the background. The Hadrianic Baths, marketplace, and theater reveal a civilization of astonishing sophistication. Buried for 1,300 years beneath the sand, Leptis Magna was rediscovered in the 1920s and remains so intact that you can almost hear the chariots and smell the olive oil of daily Roman life.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Benghazi -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/48e3d94ebb695ef84c02742a6d9d055949e9a79a.jpg" alt="Benghazi" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Benghazi — The Eastern Heart" data-ar="بنغازي — قلب الشرق">Benghazi — The Eastern Heart</h3>
+        <p data-en="Benghazi, Libya's second-largest city, sits on the Gulf of Sidra with a history stretching back to ancient Greek settlement. Founded as Euesperides around 525 BCE, it later became the Roman city of Berenice and evolved into a thriving Ottoman and Italian colonial port. Today, Benghazi blends Mediterranean charm with deep historical significance. The waterfront Corniche is perfect for evening strolls, while the Old Town reveals Italian-era architecture alongside traditional souks. The city is also the gateway to the ancient Greek city of Cyrene, a UNESCO World Heritage site in the nearby Green Mountains (Jebel Akhdar), where temples and theaters overlook the sea from a lush, forested plateau. Benghazi's resilience mirrors that of Libya itself — a city that has risen, fallen, and risen again through every storm of history."
+           data-ar="بنغازي، ثاني أكبر مدينة في ليبيا، تقع على خليج سرت بتاريخ يمتد إلى الاستيطان اليوناني القديم. تأسست كأوسبيريديس حوالي 525 قبل الميلاد، وأصبحت لاحقًا مدينة برينيسي الرومانية وتطورت إلى ميناء عثماني واستعماري إيطالي مزدهر. اليوم، تمزج بنغازي بين سحر المتوسط وأهمية تاريخية عميقة. كورنيش الواجهة البحرية مثالي للمشي المسائي، بينما تكشف المدينة القديمة عن العمارة الإيطالية إلى جانب الأسواق التقليدية. المدينة هي أيضًا بوابة إلى المدينة اليونانية القديمة شحات (قورينة)، موقع تراث عالمي من اليونسكو في الجبال الخضراء (جبل الأخضر) القريبة، حيث المعابد والمسارح تطل على البحر من هضبة خضراء مغطاة بالغابات. مرونة بنغازي تعكس مرونة ليبيا نفسها — مدينة صعدت وسقطت وصعدت مرة أخرى عبر كل عاصفة من التاريخ.">
+          Benghazi, Libya's second-largest city, sits on the Gulf of Sidra with a history stretching back to ancient Greek settlement. Founded as Euesperides around 525 BCE, it later became the Roman city of Berenice and evolved into a thriving Ottoman and Italian colonial port. Today, Benghazi blends Mediterranean charm with deep historical significance. The waterfront Corniche is perfect for evening strolls, while the Old Town reveals Italian-era architecture alongside traditional souks. The city is also the gateway to the ancient Greek city of Cyrene, a UNESCO World Heritage site in the nearby Green Mountains (Jebel Akhdar), where temples and theaters overlook the sea from a lush, forested plateau. Benghazi's resilience mirrors that of Libya itself — a city that has risen, fallen, and risen again through every storm of history.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Ubari Lakes / Sahara -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/blogger.googleusercontent.com/4a4113b1597484a7372bb142e57daec70a08980a" alt="Ubari Lakes" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Ubari Lakes — Oases in the Sea of Sand" data-ar="بحيرات أوباري — واحات في بحر الرمال">Ubari Lakes — Oases in the Sea of Sand</h3>
+        <p data-en="Deep in Libya's southwestern desert, the Ubari Sand Sea holds one of nature's most surreal wonders: a chain of emerald lakes surrounded by towering golden dunes. These oasis lakes, fed by underground aquifers, create a landscape that feels almost impossible — palm trees and reeds thriving in the heart of the Sahara. The largest, Lake Gaberoun, invites travelers to camp on its shores and swim in its warm, mineral-rich waters under a canopy of stars so vivid they seem within reach. Nearby, the ancient desert town of Ghadames, known as the 'Pearl of the Desert,' is a UNESCO-listed maze of covered alleyways and mud-brick houses designed to shield its inhabitants from the scorching sun. The Tuareg people, with their indigo veils and ancient trading traditions, still roam these sands, carrying the spirit of the trans-Saharan caravans that once connected Libya to Timbuktu and beyond."
+           data-ar="في عمق الصحراء الجنوب الغربي لليبيا، يحمل بحر أوباري الرملي واحدة من عجائب الطبيعة الأكثر سريالية: سلسلة من البحيرات الزمردية محاطة بكثبان ذهبية شامخة. هذه البحيرات الواحية، المغذاة بالمياه الجوفية، تخلق منظرًا طبيعيًا يبدو مستحيلًا تقريبًا — أشجار النخيل والقصب تزدهر في قلب الصحراء. أكبرها، بحيرة قبرون، تدعو المسافرين للتخييم على شواطئها والسباحة في مياهها الدافئة الغنية بالمعادن تحت سقف من النجوم حية لدرجة تبدو في متناول اليد. في مكان قريب، مدينة غدامس الصحراوية القديمة، المعروفة بـ 'لؤلؤة الصحراء'، هي متاهة مدرجة في قائمة اليونسكو من الأزقة المغطاة ومنازل الطوب اللبن المصممة لحماية سكانها من الشمس الحارقة. شعب الطوارق، بأوشحتهم النيلية وتقاليدهم التجارية القديمة، لا يزال يجوب هذه الرمال، حاملًا روح القوافل العابرة للصحراء التي كانت تربط ليبيا بتمبكتو وما وراءها.">
+          Deep in Libya's southwestern desert, the Ubari Sand Sea holds one of nature's most surreal wonders: a chain of emerald lakes surrounded by towering golden dunes. These oasis lakes, fed by underground aquifers, create a landscape that feels almost impossible — palm trees and reeds thriving in the heart of the Sahara. The largest, Lake Gaberoun, invites travelers to camp on its shores and swim in its warm, mineral-rich waters under a canopy of stars so vivid they seem within reach. Nearby, the ancient desert town of Ghadames, known as the 'Pearl of the Desert,' is a UNESCO-listed maze of covered alleyways and mud-brick houses designed to shield its inhabitants from the scorching sun. The Tuareg people, with their indigo veils and ancient trading traditions, still roam these sands, carrying the spirit of the trans-Saharan caravans that once connected Libya to Timbuktu and beyond.
+        </p>
+      </div>
+    </div>
+    
+    <h2 data-en="Beyond the Cities" data-ar="ما وراء المدن">Beyond the Cities</h2>
+    <p data-en="Libya's vastness rewards the adventurous soul. The Tadrart Acacus mountains in the southwest shelter prehistoric rock art dating back twelve millennia — vivid paintings of giraffes, elephants, and hunters that prove the Sahara was once a green savanna. The mountain villages of Jebel Nafusa, home to the Amazigh heartland, offer troglodyte homes carved into stone and fortified granaries like Qasr al-Hajj, a 12th-century circular wonder with 114 chambers. The coastal ruins of Sabratha, west of Tripoli, boast a Roman theater that faces the sea with cinematic perfection. And the Green Mountains near Benghazi, covered in ancient oak and pine forests, provide a cool, verdant escape that few expect to find in North Africa."
+       data-ar="شاسعة ليبيا تكافأ الروح المغامرة. جبال تدرارت أكاكوس في الجنوب الغربي تحتضن فنونًا صخرية ما قبل التاريخ يعود تاريخها إلى اثني عشر ألف عام — رسومات حية للزرافات والفيلة والصيادين تثبت أن الصحراء كانت ذات يوم سافانا خضراء. قرى جبل نفوسة الجبلية، موطن قلب الأمازيغ، تقدم منازل كهفية محفورة في الحجر ومخازن محصنة مثل قصر الحاج، عجيبة دائرية من القرن الثاني عشر بـ 114 غرفة. الأنقاط الساحلية لصبراتة، غرب طرابلس، تفتخر بمسرح روماني يواجه البحر بكمال سينمائي. والجبال الخضراء بالقرب من بنغازي، المغطاة بغابات البلوط والصنوبر القديمة، توفر ملاذًا أخضرًا باردًا لا يتوقعه القليل في شمال أفريقيا.">
+      Libya's vastness rewards the adventurous soul. The Tadrart Acacus mountains in the southwest shelter prehistoric rock art dating back twelve millennia — vivid paintings of giraffes, elephants, and hunters that prove the Sahara was once a green savanna. The mountain villages of Jebel Nafusa, home to the Amazigh heartland, offer troglodyte homes carved into stone and fortified granaries like Qasr al-Hajj, a 12th-century circular wonder with 114 chambers. The coastal ruins of Sabratha, west of Tripoli, boast a Roman theater that faces the sea with cinematic perfection. And the Green Mountains near Benghazi, covered in ancient oak and pine forests, provide a cool, verdant escape that few expect to find in North Africa.
+    </p>
+    
+    <p data-en="Whether you trace the footsteps of Phoenician sailors in Tripoli's medina, stand awestruck before the grandeur of Leptis Magna, feel the desert wind at Ubari, or share sweet mint tea with a Tuareg guide beneath a Saharan moon, Libya offers a journey into the very depths of human history. As Libyans say with quiet pride, 'We are the people of the sea, the mountain, and the sand — and our stories are as old as the stars.'"
+       data-ar="سواء تتبعت خطوات البحارة الفينيقيين في مدينة طرابلس العتيقة، أو وقفت مذهولًا أمام عظمة لبتس ماغنا، أو شعرت بنسيم الصحراء في أوباري، أو شاركت الشاي الحلو بالنعناع مع مرشد طوارقي تحت قمر صحراوي، تقدم ليبيا رحلة إلى أعماق التاريخ البشري. كما يقول الليبيون بفخر هادئ: 'نحن شعب البحر والجبل والرمال — وقصصنا عتيقة مثل النجوم.'">
+      Whether you trace the footsteps of Phoenician sailors in Tripoli's medina, stand awestruck before the grandeur of Leptis Magna, feel the desert wind at Ubari, or share sweet mint tea with a Tuareg guide beneath a Saharan moon, Libya offers a journey into the very depths of human history. As Libyans say with quiet pride, "We are the people of the sea, the mountain, and the sand — and our stories are as old as the stars."
+    </p>
+    
+  </article>
+  
+  <div class="footer">
+    <p data-en="© 2026 Libya Travel Blog | Written with love for curious travelers" data-ar="© 2026 مدونة السفر الليبية | مكتوبة بحب للمسافرين الفضوليين">© 2026 Libya Travel Blog | Written with love for curious travelers</p>
+  </div>
+</div>
+
+<script>
+function setLang(lang) {
+  // Update buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+  
+  // Update text content
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (lang === 'ar') {
+      el.textContent = el.getAttribute('data-ar');
+      el.setAttribute('dir', 'rtl');
+      if (el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'LI') {
+        el.style.textAlign = 'right';
+      }
+    } else {
+      el.textContent = el.getAttribute('data-en');
+      el.removeAttribute('dir');
+      if (el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'LI') {
+        el.style.textAlign = '';
+      }
+    }
+  });
+  
+  // Update html lang
+  document.documentElement.lang = lang;
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>'''
+
+# Save to output
+with open('/mnt/agents/output/libya_travel_guide_2026.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"File size: {len(html_content)} characters")
