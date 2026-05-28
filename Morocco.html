@@ -1,0 +1,420 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morocco Travel Guide 2026 | Discover the Magic of Morocco</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+  
+  :root {
+    --morocco-red: #C1272D;
+    --morocco-green: #006233;
+    --sand: #F5E6D3;
+    --gold: #D4A843;
+    --dark: #2C1810;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #faf8f5 0%, #f5e6d3 100%);
+    color: var(--dark);
+    line-height: 1.7;
+  }
+  
+  /* Language Toggle */
+  .lang-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--dark);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  }
+  
+  .lang-btn {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--gold);
+    color: var(--dark);
+  }
+  
+  /* Hero Section */
+  .hero {
+    margin-top: 56px;
+    background: linear-gradient(rgba(44,24,16,0.6), rgba(44,24,16,0.7)), 
+                url('https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1200') center/cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  
+  .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  
+  .hero-content .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    letter-spacing: 2px;
+  }
+  
+  .flag-badge {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+    background: var(--morocco-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .flag-badge svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 70px auto 40px;
+    padding: 0 25px;
+  }
+  
+  /* Blog Content */
+  .blog-post {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 45px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+  
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--morocco-red);
+    margin: 35px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--gold);
+    display: inline-block;
+  }
+  
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--morocco-green);
+    margin: 25px 0 12px;
+  }
+  
+  p {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+  
+  .lead {
+    font-size: 1.2rem;
+    color: var(--morocco-red);
+    font-weight: 600;
+    border-left: 4px solid var(--gold);
+    padding-left: 20px;
+    margin: 25px 0;
+  }
+  
+  /* City Cards */
+  .city-card {
+    margin: 30px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    background: white;
+  }
+  
+  .city-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .city-info {
+    padding: 25px 30px;
+  }
+  
+  .city-info h3 {
+    margin-top: 0;
+    font-size: 1.6rem;
+  }
+  
+  /* Info Box */
+  .info-box {
+    background: linear-gradient(135deg, var(--sand) 0%, #fff 100%);
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin: 25px 0;
+    border-right: 5px solid var(--morocco-red);
+  }
+  
+  .info-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .info-box li {
+    padding: 8px 0;
+    padding-right: 25px;
+    position: relative;
+  }
+  
+  .info-box li::before {
+    content: "✦";
+    position: absolute;
+    right: 0;
+    color: var(--gold);
+    font-weight: bold;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  [dir="rtl"] .lead {
+    border-left: none;
+    border-right: 4px solid var(--gold);
+    padding-left: 0;
+    padding-right: 20px;
+  }
+  
+  [dir="rtl"] .info-box {
+    border-right: none;
+    border-left: 5px solid var(--morocco-red);
+  }
+  
+  [dir="rtl"] .info-box li {
+    padding-right: 0;
+    padding-left: 25px;
+  }
+  
+  [dir="rtl"] .info-box li::before {
+    right: auto;
+    left: 0;
+  }
+  
+  [dir="rtl"] h2, [dir="rtl"] h3 {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .blog-post { padding: 30px 20px; }
+    .container { margin-top: 60px; }
+    .city-img { height: 220px; }
+  }
+  
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">🇲🇦 العربية</button>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 data-en="Morocco Travel Guide 2026" data-ar="دليل السفر إلى المغرب 2026">Morocco Travel Guide 2026</h1>
+    <p class="subtitle" data-en="Where Ancient Traditions Meet Breathtaking Beauty" data-ar="حيث تلتقي التقاليد العريقة بالجمال الخلاب">Where Ancient Traditions Meet Breathtaking Beauty</p>
+  </div>
+  <div class="flag-badge">
+    <!-- Morocco Flag SVG -->
+    <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+      <rect width="900" height="600" fill="#C1272D"/>
+      <path fill="none" stroke="#006233" stroke-width="45" 
+        d="M450 120 L493 285 L660 285 L526 375 L570 540 L450 450 L330 540 L374 375 L240 285 L407 285 Z"/>
+    </svg>
+  </div>
+</section>
+
+<div class="container">
+  <article class="blog-post" id="blog-content">
+    
+    <!-- Introduction -->
+    <p class="lead" data-en="Nestled at the crossroads of Africa, Europe, and the Arab world, Morocco is a sensory masterpiece that has captivated travelers for centuries. From the snow-capped Atlas Mountains to the golden dunes of the Sahara, this kingdom offers a journey unlike any other."
+       data-ar="تقع المغرب في مفترق طرق أفريقيا وأوروبا والعالم العربي، وهي تحفة حسية أدهشت المسافرين لقرون. من قمم الأطلس المغطاة بالثلوج إلى الكثبان الذهبية للصحراء، تقدم هذه المملكة رحلة فريدة من نوعها.">
+      Nestled at the crossroads of Africa, Europe, and the Arab world, Morocco is a sensory masterpiece that has captivated travelers for centuries. From the snow-capped Atlas Mountains to the golden dunes of the Sahara, this kingdom offers a journey unlike any other.
+    </p>
+    
+    <h2 data-en="Country Background" data-ar="نبذة عن البلاد">Country Background</h2>
+    <p data-en="Morocco's story stretches back thousands of years, woven from the threads of Indigenous Amazigh (Berber) heritage, Arab civilization, and European influence. The country's official languages are Arabic and Tamazight (Berber), reflecting its deep indigenous roots alongside its Islamic identity. With a population of over 37 million, Morocco stands as one of North Africa's most stable and welcoming nations."
+       data-ar="يمتد تاريخ المغرب لآلاف السنين، منسوجًا من تراث الأمازيغ الأصلي والحضارة العربية والتأثير الأوروبي. اللغتان الرسميتان هما العربية والأمازيغية، مما يعكس جذوره الأصلية العميقة إلى جانب هويته الإسلامية. يعد المغرب بأكثر من 37 مليون نسمة واحدة من أكثر دول شمال أفريقيا استقرارًا وترحيبًا.">
+      Morocco's story stretches back thousands of years, woven from the threads of Indigenous Amazigh (Berber) heritage, Arab civilization, and European influence. The country's official languages are Arabic and Tamazight (Berber), reflecting its deep indigenous roots alongside its Islamic identity. With a population of over 37 million, Morocco stands as one of North Africa's most stable and welcoming nations.
+    </p>
+    
+    <p data-en="The Moroccan flag, a striking red field bearing the green pentagram known as the Seal of Solomon, symbolizes bravery, strength, and the nation's deep connection to Islam. Red also represents the blood of ancestors who defended the homeland, while green signifies hope, peace, and the lush landscapes that range from Mediterranean coastlines to Atlantic shores."
+       data-ar="العلم المغربي، وهو حقل أحمر مذهل يحمل النجمة الخماسية الخضراء المعروفة بختم سليمان، يرمز إلى الشجاعة والقوة والارتباط العميق بالإسلام. يمثل الأحمر أيضًا دماء الأسلاف الذين دافعوا عن الوطن، بينما يرمز الأخضر إلى الأمل والسلام والمناظر الطبيعية الخصبة.">
+      The Moroccan flag, a striking red field bearing the green pentagram known as the Seal of Solomon, symbolizes bravery, strength, and the nation's deep connection to Islam. Red also represents the blood of ancestors who defended the homeland, while green signifies hope, peace, and the lush landscapes that range from Mediterranean coastlines to Atlantic shores.
+    </p>
+    
+    <div class="info-box">
+      <h3 data-en="Quick Facts" data-ar="معلومات سريعة">Quick Facts</h3>
+      <ul>
+        <li data-en="Capital: Rabat" data-ar="العاصمة: الرباط">Capital: Rabat</li>
+        <li data-en="Largest City: Casablanca" data-ar="أكبر مدينة: الدار البيضاء">Largest City: Casablanca</li>
+        <li data-en="Currency: Moroccan Dirham (MAD)" data-ar="العملة: الدرهم المغربي">Currency: Moroccan Dirham (MAD)</li>
+        <li data-en="Best Time to Visit: March-May & September-November" data-ar="أفضل وقت للزيارة: مارس-مايو وسبتمبر-نوفمبر">Best Time to Visit: March-May & September-November</li>
+        <li data-en="UNESCO Sites: 9 World Heritage Sites" data-ar="مواقع اليونسكو: 9 مواقع تراث عالمي">UNESCO Sites: 9 World Heritage Sites</li>
+      </ul>
+    </div>
+    
+    <h2 data-en="Famous Cities to Explore" data-ar="مدن مشهورة للاستكشاف">Famous Cities to Explore</h2>
+    
+    <!-- Marrakech -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.moroccoworldnews.com/a3c698731be2456331f5cbe9adabeedfc756f7bb.jpg" alt="Marrakech" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Marrakech — The Red City" data-ar="مراكش — المدينة الحمراء">Marrakech — The Red City</h3>
+        <p data-en="Marrakech pulses with an energy that is both ancient and electric. Known as the Red City for its rose-hued walls, this imperial city dazzles visitors with the legendary Jemaa el-Fnaa square, where storytellers, musicians, and food vendors create an open-air theater every evening. Wander through the labyrinthine souks to discover handcrafted leather goods, vibrant spices, and intricate ceramics. Don't miss the serene Jardin Majorelle, a cobalt-blue sanctuary once owned by Yves Saint Laurent, or the opulent palaces and riads that whisper tales of sultans and dynasties."
+           data-ar="تنبض مراكش بطاقة عريقة ومفعمة. تُعرف بالمدينة الحمراء لأسوارها ذات اللون الوردي، وتبهر الزوار بساحة جامع الفنا الأسطورية، حيث يصنع الرواة والموسيقيون وبائعو الطعام مسرحًا في الهواء الطلق كل مساء. تجول في الأزقة المتعرجة لتكتشف السلع الجلدية المصنوعة يدويًا والتوابل النابضة بالحياة والخزف المعقد. لا تفوت جاردين ماجوريل الهادئ، ملاذ أزرق كوبالتي كان مملوكًا لإيف سان لوران، أو القصور الفاخرة والرياض التي تهمس بحكايات السلاطين والسلالات.">
+          Marrakech pulses with an energy that is both ancient and electric. Known as the Red City for its rose-hued walls, this imperial city dazzles visitors with the legendary Jemaa el-Fnaa square, where storytellers, musicians, and food vendors create an open-air theater every evening. Wander through the labyrinthine souks to discover handcrafted leather goods, vibrant spices, and intricate ceramics. Don't miss the serene Jardin Majorelle, a cobalt-blue sanctuary once owned by Yves Saint Laurent, or the opulent palaces and riads that whisper tales of sultans and dynasties.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Fez -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/i.natgeofe.com/c28a99c2cbf717003152e4249bc570126356b103.jpg" alt="Fez" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Fez — The Soul of Morocco" data-ar="فاس — روح المغرب">Fez — The Soul of Morocco</h3>
+        <p data-en="If Marrakech is the heart, Fez is undoubtedly the soul. Home to the world's oldest continuously operating university, Al-Qarawiyyin, Fez feels like stepping into a living museum. Its UNESCO-listed medina, Fez el-Bali, is the largest car-free urban area on Earth — a maze of 9,000 narrow alleyways where artisans still practice centuries-old crafts. The iconic Chouara Tannery, with its honeycomb of stone vessels filled with colorful dyes, offers a glimpse into leather-making traditions that have endured since medieval times. Every corner of Fez breathes intellectual and spiritual history."
+           data-ar="إذا كانت مراكش هي القلب، فإن فاس هي الروح بلا شك. تضم أقدم جامعة في العالم لا تزال تعمل باستمرار، الجامعة القرويين، وتشعر فاس وكأنك تدخل متحفًا حيًا. مدينتها العتيقة المدرجة في قائمة اليونسكو، فاس البالي، هي أكبر منطقة حضرية خالية من السيارات على وجه الأرض — متاهة من 9000 زقاق ضيق حيث لا يزال الحرفيون يمارسون حرفًا عمرها قرون. الدباغة الشوارية الأيقونية، بأحواضها الحجرية الشبيهة بقرص العسل المملوءة بالأصباغ الملونة، تقدم لمحة عن تقاليد صناعة الجلود التي استمرت منذ العصور الوسطى. كل زاوية في فاس تتنفس التاريخ الفكري والروحي.">
+          If Marrakech is the heart, Fez is undoubtedly the soul. Home to the world's oldest continuously operating university, Al-Qarawiyyin, Fez feels like stepping into a living museum. Its UNESCO-listed medina, Fez el-Bali, is the largest car-free urban area on Earth — a maze of 9,000 narrow alleyways where artisans still practice centuries-old crafts. The iconic Chouara Tannery, with its honeycomb of stone vessels filled with colorful dyes, offers a glimpse into leather-making traditions that have endured since medieval times. Every corner of Fez breathes intellectual and spiritual history.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Casablanca -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.barcelo.com/5dc97c72f7636295c5d3355589c93931c5abdd4f.jpg" alt="Casablanca" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Casablanca — Modern Elegance" data-ar="الدار البيضاء — الأناقة العصرية">Casablanca — Modern Elegance</h3>
+        <p data-en="Morocco's largest city moves to a cosmopolitan rhythm shaped by the Atlantic Ocean. Casablanca enchants with its Art Deco architecture, wide boulevards, and the breathtaking Hassan II Mosque — one of the largest mosques in the world, perched dramatically on the ocean's edge with a minaret soaring 210 meters high. Stroll along the Corniche for sea breezes and sunset views, explore the Habous Quarter for refined artisan shopping, or sip mint tea in historic cafés that echo with the city's French colonial past blended seamlessly with Moroccan warmth."
+           data-ar="تتحرك أكبر مدينة في المغرب على إيقاع كوني يشكله المحيط الأطلسي. تسحر الدار البيضاء بعمارتها آرت ديكو وشوارعها الواسعة ومسجد الحسن الثاني الخلاب — أحد أكبر المساجد في العالم، الواقع بشكل درامي على حافة المحيط ومئذنته ترتفع 210 أمتار. تجول على كورنيش للاستمتاع بنسيم البحر ومناظر الغروب، أو استكشف حي الحبوس للتسوق الحرفي الراقي، أو اشرب الشاي بالنعناع في المقاهي التاريخية التي تتردد فيها أصداء الماضي الاستعماري الفرنسي للمدينة المندمج بسلاسة مع الدفء المغربي.">
+          Morocco's largest city moves to a cosmopolitan rhythm shaped by the Atlantic Ocean. Casablanca enchants with its Art Deco architecture, wide boulevards, and the breathtaking Hassan II Mosque — one of the largest mosques in the world, perched dramatically on the ocean's edge with a minaret soaring 210 meters high. Stroll along the Corniche for sea breezes and sunset views, explore the Habous Quarter for refined artisan shopping, or sip mint tea in historic cafés that echo with the city's French colonial past blended seamlessly with Moroccan warmth.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Chefchaouen -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.hachettebookgroup.com/6e1b244d78328906eae5a4adec2f1f10f1913701.jpg" alt="Chefchaouen" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Chefchaouen — The Blue Pearl" data-ar="شفشاون — اللؤلؤة الزرقاء">Chefchaouen — The Blue Pearl</h3>
+        <p data-en="Tucked into the Rif Mountains, Chefchaouen is a dream painted in every shade of blue. This enchanting town, with its cobalt-washed walls, narrow staircases, and flower-draped doorways, feels like wandering through a living watercolor. Originally founded in 1471 as a fortress to fight Portuguese invasions, Chefchaouen later became a haven for Muslim and Jewish refugees fleeing Spain. Today, it offers travelers a slower, softer Morocco — perfect for photographers, dreamers, and anyone seeking tranquility amid the mountain air. The blue hues, traditionally used to symbolize the sky and heaven, create an atmosphere of pure magic."
+           data-ar="تتربع شفشاون في جبال الريف، وهي حلم مرسوم بكل درجات اللون الأزرق. هذه البلدة الساحرة، بجدرانها المغسولة بالكوبالت وسلالمها الضيقة وأبوابها المزينة بالأزهار، تشعرك وكأنك تتجول في لوحة مائية حية. تأسست في الأصل عام 1471 كحصن لمحاربة الغزو البرتغالي، ثم أصبحت ملاذًا للاجئين المسلمين واليهود الفارين من إسبانيا. اليوم، تقدم شفشاون للمسافرين مغربًا أبطأ وأكثر ليونة — مثالية للمصورين والحالمين وأي شخص يبحث عن الهدوء وسط هواء الجبال. تدرجات اللون الأزرق، التي تستخدم تقليديًا للإشارة إلى السماء والجنة، تخلق جوًا من السحر الخالص.">
+          Tucked into the Rif Mountains, Chefchaouen is a dream painted in every shade of blue. This enchanting town, with its cobalt-washed walls, narrow staircases, and flower-draped doorways, feels like wandering through a living watercolor. Originally founded in 1471 as a fortress to fight Portuguese invasions, Chefchaouen later became a haven for Muslim and Jewish refugees fleeing Spain. Today, it offers travelers a slower, softer Morocco — perfect for photographers, dreamers, and anyone seeking tranquility amid the mountain air. The blue hues, traditionally used to symbolize the sky and heaven, create an atmosphere of pure magic.
+        </p>
+      </div>
+    </div>
+    
+    <h2 data-en="Beyond the Cities" data-ar="ما وراء المدن">Beyond the Cities</h2>
+    <p data-en="Morocco's beauty extends far beyond its urban treasures. The High Atlas Mountains invite trekkers to conquer Mount Toubkal, North Africa's highest peak at 4,167 meters. The Sahara Desert at Erg Chebbi offers camel treks at sunset and nights under star-studded skies that will redefine your understanding of silence. The coastal town of Essaouira, with its whitewashed walls and Atlantic winds, provides a refreshing maritime counterpoint to the desert heat. And the ancient ksar of Aït Benhaddou, a UNESCO fortress of clay and stone, has starred in countless films from Gladiator to Game of Thrones."
+       data-ar="يمتد جمال المغرب إلى ما هو أبعد من كنوزه الحضرية. تدعو جبال الأطلس العالية المتنزهين ل conquering جبل توبقال، أعلى قمة في شمال أفريقيا بارتفاع 4167 مترًا. تقدم صحراء إرغ الشببي رحلات جمل عند الغروب وليالي تحت سماء مرصعة بالنجوم ستعيد تعريف فهمك للصمت. تقدم مدينة الصويرة الساحلية، بجدرانها البيضاء ورياحها الأطلسية، تباينًا بحريًا منعشًا لحرارة الصحراء. وقصر آيت بن حدو القديم، وهو حصن من الطين والحجر مدرج في قائمة اليونسكو، ظهر في عدد لا يحصى من الأفلام من جلادياتور إلى صراع العروش.">
+      Morocco's beauty extends far beyond its urban treasures. The High Atlas Mountains invite trekkers to conquer Mount Toubkal, North Africa's highest peak at 4,167 meters. The Sahara Desert at Erg Chebbi offers camel treks at sunset and nights under star-studded skies that will redefine your understanding of silence. The coastal town of Essaouira, with its whitewashed walls and Atlantic winds, provides a refreshing maritime counterpoint to the desert heat. And the ancient ksar of Aït Benhaddou, a UNESCO fortress of clay and stone, has starred in countless films from Gladiator to Game of Thrones.
+    </p>
+    
+    <p data-en="Whether you come for the ancient medinas, the mountain trails, the desert silence, or the warm hospitality that greets every visitor with mint tea and a smile, Morocco promises a journey that will linger in your heart long after you have returned home. As the Moroccans say, 'You have a hundred castles of gold in your heart, and Morocco is the key.'"
+       data-ar="سواء أتيت للمدن العتيقة، أو مسارات الجبال، أو صحراء الصمت، أو الضيافة الدافئة التي تستقبل كل زائر بالشاي بالنعناع والابتسامة، يعدك المغرب برحلة ستبقى في قلبك طويلاً بعد عودتك إلى الوطن. كما يقول المغاربة: 'لديك مئة قلعة من الذهب في قلبك، والمغرب هو المفتاح.'">
+      Whether you come for the ancient medinas, the mountain trails, the desert silence, or the warm hospitality that greets every visitor with mint tea and a smile, Morocco promises a journey that will linger in your heart long after you have returned home. As the Moroccans say, "You have a hundred castles of gold in your heart, and Morocco is the key."
+    </p>
+    
+  </article>
+  
+  <div class="footer">
+    <p data-en="© 2026 Morocco Travel Blog | Written with love for curious travelers" data-ar="© 2026 مدونة السفر المغربية | مكتوبة بحب للمسافرين الفضوليين">© 2026 Morocco Travel Blog | Written with love for curious travelers</p>
+  </div>
+</div>
+
+<script>
+function setLang(lang) {
+  // Update buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+  
+  // Update text content
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (lang === 'ar') {
+      el.textContent = el.getAttribute('data-ar');
+      el.setAttribute('dir', 'rtl');
+      if (el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'LI') {
+        el.style.textAlign = 'right';
+      }
+    } else {
+      el.textContent = el.getAttribute('data-en');
+      el.removeAttribute('dir');
+      if (el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'LI') {
+        el.style.textAlign = '';
+      }
+    }
+  });
+  
+  // Update html lang
+  document.documentElement.lang = lang;
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>'''
+
+# Save to output
+with open('/mnt/agents/output/morocco_travel_guide_2026.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"File size: {len(html_content)} characters")
