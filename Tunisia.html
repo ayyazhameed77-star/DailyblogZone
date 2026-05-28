@@ -1,0 +1,429 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tunisia Travel Guide 2026 | Discover the Cradle of Civilizations</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+  
+  :root {
+    --tunisia-red: #E70013;
+    --tunisia-green: #006233;
+    --sand: #F5E6D3;
+    --gold: #D4A843;
+    --dark: #1a1a1a;
+    --white: #ffffff;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #faf8f5 0%, #f0ede8 100%);
+    color: var(--dark);
+    line-height: 1.7;
+  }
+  
+  /* Language Toggle */
+  .lang-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--dark);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  }
+  
+  .lang-btn {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--gold);
+    color: var(--dark);
+  }
+  
+  /* Hero Section */
+  .hero {
+    margin-top: 56px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200') center/cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  
+  .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  
+  .hero-content .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    letter-spacing: 2px;
+  }
+  
+  .flag-badge {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+  }
+  
+  .flag-badge svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 70px auto 40px;
+    padding: 0 25px;
+  }
+  
+  /* Blog Content */
+  .blog-post {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 45px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+  
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--tunisia-red);
+    margin: 35px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--tunisia-green);
+    display: inline-block;
+  }
+  
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--tunisia-green);
+    margin: 25px 0 12px;
+  }
+  
+  p {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+  
+  .lead {
+    font-size: 1.2rem;
+    color: var(--tunisia-red);
+    font-weight: 600;
+    border-left: 4px solid var(--tunisia-green);
+    padding-left: 20px;
+    margin: 25px 0;
+  }
+  
+  /* City Cards */
+  .city-card {
+    margin: 30px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    background: white;
+  }
+  
+  .city-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .city-info {
+    padding: 25px 30px;
+  }
+  
+  .city-info h3 {
+    margin-top: 0;
+    font-size: 1.6rem;
+  }
+  
+  /* Info Box */
+  .info-box {
+    background: linear-gradient(135deg, var(--sand) 0%, #fff 100%);
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin: 25px 0;
+    border-right: 5px solid var(--tunisia-red);
+  }
+  
+  .info-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .info-box li {
+    padding: 8px 0;
+    padding-right: 25px;
+    position: relative;
+  }
+  
+  .info-box li::before {
+    content: "✦";
+    position: absolute;
+    right: 0;
+    color: var(--tunisia-green);
+    font-weight: bold;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  [dir="rtl"] .lead {
+    border-left: none;
+    border-right: 4px solid var(--tunisia-green);
+    padding-left: 0;
+    padding-right: 20px;
+  }
+  
+  [dir="rtl"] .info-box {
+    border-right: none;
+    border-left: 5px solid var(--tunisia-red);
+  }
+  
+  [dir="rtl"] .info-box li {
+    padding-right: 0;
+    padding-left: 25px;
+  }
+  
+  [dir="rtl"] .info-box li::before {
+    right: auto;
+    left: 0;
+  }
+  
+  [dir="rtl"] h2, [dir="rtl"] h3 {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .blog-post { padding: 30px 20px; }
+    .container { margin-top: 60px; }
+    .city-img { height: 220px; }
+  }
+  
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">🇹🇳 العربية</button>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 data-en="Tunisia Travel Guide 2026" data-ar="دليل السفر إلى تونس 2026">Tunisia Travel Guide 2026</h1>
+    <p class="subtitle" data-en="Where Ancient Carthage Meets the Mediterranean" data-ar="حيث تلتقي قرطاج القديمة بالمتوسط">Where Ancient Carthage Meets the Mediterranean</p>
+  </div>
+  <div class="flag-badge">
+    <!-- Tunisia Flag SVG -->
+    <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+      <rect width="900" height="600" fill="#E70013"/>
+      <circle cx="450" cy="300" r="120" fill="white"/>
+      <circle cx="450" cy="300" r="100" fill="#E70013"/>
+      <path d="M450 230 A70 70 0 1 0 450 370 A55 55 0 1 1 450 230 Z" fill="white"/>
+      <polygon points="450,190 460,220 490,220 465,240 475,270 450,250 425,270 435,240 410,220 440,220" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<div class="container">
+  <article class="blog-post" id="blog-content">
+    
+    <!-- Introduction -->
+    <p class="lead" data-en="Tunisia is a small country with an enormous soul. Nestled between the shimmering Mediterranean Sea and the golden dunes of the Sahara, this North African gem has been a crossroads of civilizations for over three millennia. From the legendary ruins of Carthage to the whitewashed charm of Sidi Bou Said, Tunisia offers travelers a journey through time that is as rich as it is beautiful."
+       data-ar="تونس هي دولة صغيرة بروح ضخمة. تقع بين البحر المتوسط اللامع والكثبان الذهبية للصحراء، وقد كانت هذه الجوهرة الشمال أفريقية مفترق طرق للحضارات لأكثر من ثلاثة آلاف عام. من آثار قرطاج الأسطورية إلى سحر سيدي بوسعيد الأبيض، تقدم تونس للمسافرين رحلة عبر الزمن غنية وجميلة.">
+      Tunisia is a small country with an enormous soul. Nestled between the shimmering Mediterranean Sea and the golden dunes of the Sahara, this North African gem has been a crossroads of civilizations for over three millennia. From the legendary ruins of Carthage to the whitewashed charm of Sidi Bou Said, Tunisia offers travelers a journey through time that is as rich as it is beautiful.
+    </p>
+    
+    <h2 data-en="Country Background" data-ar="نبذة عن البلاد">Country Background</h2>
+    <p data-en="Tunisia's story begins with the indigenous Berbers, who inhabited these lands long before recorded history. In the 12th century BCE, Phoenician traders arrived and founded settlements along the coast, of which Carthage — founded around 814 BCE by the legendary Queen Dido — rose to become the greatest naval power of the ancient Mediterranean. For centuries, Carthage rivaled Rome until its dramatic fall in 146 BCE. The Romans then ruled for 800 years, leaving behind magnificent amphitheaters, aqueducts, and cities that still stand today."
+       data-ar="تبدأ قصة تونس مع الأمازيغ الأصليين، الذين سكنوا هذه الأراضي قبل التاريخ المسجل. في القرن الثاني عشر قبل الميلاد، وصل التجار الفينيقيون وأسسوا مستوطنات على الساحل، منها قرطاج — التي أسست حوالي عام 814 قبل الميلاد من قبل الملكة الأسطورية ديدو — وارتفعت لتصبح أعظم قوة بحرية في البحر المتوسط القديم. لقرون، نافست قرطاج روما حتى سقوطها الدرامي عام 146 قبل الميلاد. ثم حكم الرومان لمدة 800 عام، تاركين وراءهم مسارح ضخمة وأقنية ومدن لا تزال قائمة حتى اليوم.">
+      Tunisia's story begins with the indigenous Berbers, who inhabited these lands long before recorded history. In the 12th century BCE, Phoenician traders arrived and founded settlements along the coast, of which Carthage — founded around 814 BCE by the legendary Queen Dido — rose to become the greatest naval power of the ancient Mediterranean. For centuries, Carthage rivaled Rome until its dramatic fall in 146 BCE. The Romans then ruled for 800 years, leaving behind magnificent amphitheaters, aqueducts, and cities that still stand today.
+    </p>
+    
+    <p data-en="In the 7th century CE, Arab armies brought Islam and the Arabic language, forever reshaping Tunisia's identity. The Aghlabid dynasty transformed the region into a center of Islamic learning and architecture, while the Great Mosque of Kairouan — built in 670 CE — remains the oldest mosque in the Maghreb. Ottoman rule followed in the 16th century, and French colonization lasted from 1881 until independence in 1956. In 2011, Tunisia ignited the Arab Spring, becoming a symbol of democratic hope in the region. Today, with a population of nearly 12 million, Tunisia proudly carries its multicultural heritage."
+       data-ar="في القرن السابع الميلادي، جلبت الجيوش العربية الإسلام واللغة العربية، مما أعاد تشكيل هوية تونس إلى الأبد. حولت السلالة الأغلبية المنطقة إلى مركز للتعلم والعمارة الإسلامية، بينما يظل جامع القيروان الكبير — المبني عام 670 ميلادية — أقدم مسجد في المغرب. تلاه الحكم العثماني في القرن السادس عشر، واستمر الاستعمار الفرنسي من 1881 حتى الاستقلال عام 1956. في 2011، أشعلت تونس الربيع العربي، لتصبح رمزًا للأمل الديمقراطي في المنطقة. اليوم، مع عدد سكان يقترب من 12 مليون نسمة، تحمل تونس بفخر تراثها متعدد الثقافات.">
+      In the 7th century CE, Arab armies brought Islam and the Arabic language, forever reshaping Tunisia's identity. The Aghlabid dynasty transformed the region into a center of Islamic learning and architecture, while the Great Mosque of Kairouan — built in 670 CE — remains the oldest mosque in the Maghreb. Ottoman rule followed in the 16th century, and French colonization lasted from 1881 until independence in 1956. In 2011, Tunisia ignited the Arab Spring, becoming a symbol of democratic hope in the region. Today, with a population of nearly 12 million, Tunisia proudly carries its multicultural heritage.
+    </p>
+    
+    <p data-en="The Tunisian flag is a striking red rectangle with a white disc at its center, bearing a red crescent and five-pointed star. Red symbolizes the blood of martyrs and the resistance against Turkish and French occupation, while white represents peace. The crescent and star are ancient symbols of Islam, reflecting the nation's deep spiritual roots. Together, they tell a story of struggle, faith, and hope."
+       data-ar="علم تونس هو مستطيل أحمر مذهل مع قرص أبيض في مركزه، يحمل هلالًا أحمر ونجمة خماسية. يرمز الأحمر إلى دم الشهداء والمقاومة ضد الاحتلال التركي والفرنسي، بينما يمثل الأبيض السلام. الهلال والنجمة هما رمزان قديمان للإسلام، يعكسان الجذور الروحية العميقة للأمة. معًا، يرويان قصة الكفاح والإيمان والأمل.">
+      The Tunisian flag is a striking red rectangle with a white disc at its center, bearing a red crescent and five-pointed star. Red symbolizes the blood of martyrs and the resistance against Turkish and French occupation, while white represents peace. The crescent and star are ancient symbols of Islam, reflecting the nation's deep spiritual roots. Together, they tell a story of struggle, faith, and hope.
+    </p>
+    
+    <div class="info-box">
+      <h3 data-en="Quick Facts" data-ar="معلومات سريعة">Quick Facts</h3>
+      <ul>
+        <li data-en="Capital: Tunis" data-ar="العاصمة: تونس العاصمة">Capital: Tunis</li>
+        <li data-en="Population: ~12 Million" data-ar="السكان: حوالي 12 مليون نسمة">Population: ~12 Million</li>
+        <li data-en="Currency: Tunisian Dinar (TND)" data-ar="العملة: الدينار التونسي">Currency: Tunisian Dinar (TND)</li>
+        <li data-en="Official Language: Arabic" data-ar="اللغة الرسمية: العربية">Official Language: Arabic</li>
+        <li data-en="Best Time to Visit: April-June & September-October" data-ar="أفضل وقت للزيارة: أبريل-يونيو وسبتمبر-أكتوبر">Best Time to Visit: April-June & September-October</li>
+        <li data-en="UNESCO Sites: 8 World Heritage Sites" data-ar="مواقع اليونسكو: 8 مواقع تراث عالمي">UNESCO Sites: 8 World Heritage Sites</li>
+      </ul>
+    </div>
+    
+    <h2 data-en="Famous Cities to Explore" data-ar="مدن مشهورة للاستكشاف">Famous Cities to Explore</h2>
+    
+    <!-- Tunis -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.kanaga-at.com/db066c2367187909a03a4a90b1e6bbc514cf2c2f.jpg" alt="Tunis" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Tunis — The Living Medina" data-ar="تونس — المدينة العتيقة الحية">Tunis — The Living Medina</h3>
+        <p data-en="Tunis is a city where the ancient and the modern dance together in perfect harmony. The UNESCO-listed medina, a maze of over 700 monuments and winding alleyways, is the spiritual and commercial heart of the capital. Here, the scent of jasmine mingles with the aroma of freshly baked bread from traditional ovens. The Zitouna Mosque, with its towering minaret, has anchored the medina for over a thousand years, while the nearby souks overflow with handwoven carpets, copper lamps, and colorful ceramics. Beyond the old walls, the Ville Nouvelle reveals wide French-era boulevards, Art Deco façades, and bustling cafés where locals sip strong espresso and debate politics — a testament to Tunisia's unique blend of Arab tradition and European modernity."
+           data-ar="تونس هي مدينة حيث يرقص القديم والحديث معًا في تناغم مثالي. المدينة العتيقة المدرجة في قائمة اليونسكو، وهي متاهة من أكثر من 700 نصب تذكاري وأزقة متعرجة، هي قلب العاصمة الروحي والتجاري. هنا، يمتزج عطر الياسمين مع رائحة الخبز الطازج من الأفران التقليدية. مسجد الزيتونة، بمئذنته الشامخة، يتربع في المدينة العتيقة منذ أكثر من ألف عام، بينما تفيض الأسواق المجاورة بالسجاد المنسوج يدويًا والمصابيح النحاسية والخزف الملون. وراء الأسوار القديمة، تكشف المدينة الجديدة عن شوارع فرنسية واسعة وواجهات آرت ديكو ومقاهي نابضة بالحياة حيث يتناول السكان الإسبريسو القوي ويناقشون السياسة — شهادة على المزيج الفريد لتونس من التقاليد العربية والحداثة الأوروبية.">
+          Tunis is a city where the ancient and the modern dance together in perfect harmony. The UNESCO-listed medina, a maze of over 700 monuments and winding alleyways, is the spiritual and commercial heart of the capital. Here, the scent of jasmine mingles with the aroma of freshly baked bread from traditional ovens. The Zitouna Mosque, with its towering minaret, has anchored the medina for over a thousand years, while the nearby souks overflow with handwoven carpets, copper lamps, and colorful ceramics. Beyond the old walls, the Ville Nouvelle reveals wide French-era boulevards, Art Deco façades, and bustling cafés where locals sip strong espresso and debate politics — a testament to Tunisia's unique blend of Arab tradition and European modernity.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Sidi Bou Said -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.themediterraneantraveller.com/835f9f16f4a898733c89d94e26bbec0eba7b9bd0.jpg" alt="Sidi Bou Said" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Sidi Bou Said — The Blue & White Dream" data-ar="سيدي بوسعيد — الحلم الأزرق والأبيض">Sidi Bou Said — The Blue & White Dream</h3>
+        <p data-en="Just twenty minutes from Tunis, Sidi Bou Said is a village that seems lifted from a painter's dream. Perched on a cliff overlooking the Gulf of Tunis, every house is painted brilliant white with doors and windows framed in vivid blue — a tradition that began in the 1920s when the French artist Rodolphe d'Erlanger fell in love with the village and convinced locals to adopt the color scheme. Wandering its cobblestone streets, lined with bougainvillea and jasmine, feels like stepping into a living postcard. Cafés offer panoramic views of the turquoise sea, while galleries showcase traditional Tunisian crafts. The village is named after a 13th-century Sufi saint, and the peaceful atmosphere still carries a spiritual quality that enchants every visitor."
+           data-ar="على بعد عشرين دقيقة من تونس، سيدي بوسعيد هي قرية تبدو وكأنها مأخوذة من حلم رسام. تتربع على جرف يطل على خليج تونس، كل منزل مطلي بالأبيض اللامع مع أبواب ونوافذ محاطة بالأزرق الزاهي — تقليد بدأ في العشرينيات عندما وقع الفنان الفرنسي رودولف ديرلانجر في حب القرية وأقنع السكان المحليين بتبني هذا المخطط اللوني. التجوال في شوارعها المرصوفة بالحصى، المزينة بالبوغنفيليا والياسمين، يشعرك وكأنك تدخل بطاقة بريدية حية. تقدم المقاهي مناظر بانورامية للبحر الفيروزي، بينما تعرض المعارض الحرف التونسية التقليدية. سميت القرية على اسم قديس صوفي من القرن الثالث عشر، والجو الهادئ لا يزال يحمل جوًا روحيًا يسحر كل زائر.">
+          Just twenty minutes from Tunis, Sidi Bou Said is a village that seems lifted from a painter's dream. Perched on a cliff overlooking the Gulf of Tunis, every house is painted brilliant white with doors and windows framed in vivid blue — a tradition that began in the 1920s when the French artist Rodolphe d'Erlanger fell in love with the village and convinced locals to adopt the color scheme. Wandering its cobblestone streets, lined with bougainvillea and jasmine, feels like stepping into a living postcard. Cafés offer panoramic views of the turquoise sea, while galleries showcase traditional Tunisian crafts. The village is named after a 13th-century Sufi saint, and the peaceful atmosphere still carries a spiritual quality that enchants every visitor.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Carthage -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/media.cntravellerme.com/371e8504e60e8ebda379bcb4c67ec3f6af267c0e" alt="Carthage" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Carthage — Echoes of an Empire" data-ar="قرطاج — أصداء إمبراطورية">Carthage — Echoes of an Empire</h3>
+        <p data-en="Carthage is not merely a place — it is a legend written in stone and sea. Founded by Queen Dido in 814 BCE, this ancient city grew into a maritime empire that dominated the Mediterranean for centuries. Though the Romans razed it in 146 BCE, they later rebuilt it as one of the greatest cities of their empire. Today, visitors can walk through the Antonine Baths, among the largest Roman thermae ever built, explore the Punic ports where Hannibal's fleet once sailed, and climb Byrsa Hill for views that stretch across the ruins to the modern city beyond. The Carthage Museum, housed in a former French cathedral, holds treasures that span Phoenician, Roman, and Byzantine eras. Standing among the ancient columns with the Mediterranean breeze in your hair, you can almost hear the whispers of Hannibal's elephants and the debates of Roman senators."
+           data-ar="قرطاج ليست مجرد مكان — إنها أسطورة مكتوبة في الحجر والبحر. أسستها الملكة ديدو عام 814 قبل الميلاد، ونمت هذه المدينة القديمة إلى إمبراطورية بحرية سيطرت على المتوسط لقرون. على الرغم من أن الرومان دمروها عام 146 قبل الميلاد، إلا أنهم أعادوا بناءها لاحقًا كواحدة من أعظم مدن إمبراطوريتهم. اليوم، يمكن للزوار السير في الحمامات الأنطونية، من أكبر الحمامات الرومانية التي بنيت على الإطلاق، واستكشاف الموانئ الفينيقية حيث أبحر أسطول حنibal ذات مرة، والصعود إلى تل بيرصا للاستمتاع بمناظر تمتد عبر الأنقاض إلى المدينة الحديثة. متحف قرطاج، المستقر في كاتدرائية فرنسية سابقة، يحمل كنوزًا تمتد عبر العصور الفينيقية والرومانية والبيزنطية. الوقوف بين الأعمدة القديمة مع نسيم المتوسط في شعرك، يمكنك أن تسمع تقريبًا همسات فيلة حنibal ومناقشات السيناتور الروماني.">
+          Carthage is not merely a place — it is a legend written in stone and sea. Founded by Queen Dido in 814 BCE, this ancient city grew into a maritime empire that dominated the Mediterranean for centuries. Though the Romans razed it in 146 BCE, they later rebuilt it as one of the greatest cities of their empire. Today, visitors can walk through the Antonine Baths, among the largest Roman thermae ever built, explore the Punic ports where Hannibal's fleet once sailed, and climb Byrsa Hill for views that stretch across the ruins to the modern city beyond. The Carthage Museum, housed in a former French cathedral, holds treasures that span Phoenician, Roman, and Byzantine eras. Standing among the ancient columns with the Mediterranean breeze in your hair, you can almost hear the whispers of Hannibal's elephants and the debates of Roman senators.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Douz / Sahara -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/258eccd5bc77fba9689305dd8c1aef2a2861e53d.jpg" alt="Douz Sahara" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Douz — Gateway to the Sahara" data-ar="دوز — بوابة الصحراء">Douz — Gateway to the Sahara</h3>
+        <p data-en="Known as the 'Door of the Desert,' Douz is where Tunisia's Mediterranean charm gives way to the raw majesty of the Sahara. This oasis town, with its palm groves and traditional ksars (fortified granaries), has been a crossroads for nomadic tribes for centuries. The annual International Festival of the Sahara, held each December, transforms Douz into a vibrant celebration of Bedouin culture — with camel races, traditional music, and falconry displays that transport visitors to another era. Beyond the town, the Grand Erg Oriental stretches endlessly, its dunes shifting like golden waves under an impossibly vast sky. A camel trek at sunset, followed by a night in a desert camp beneath a canopy of stars, is an experience that will redefine your sense of wonder. The silence of the Sahara, broken only by the wind, has a way of resetting the soul."
+           data-ar="تُعرف بـ 'باب الصحراء'، دوز هي حيث يتنازل سحر تونس المتوسطي أمام عظمة الصحراء الخام. هذه البلدة الواحة، بأشجار النخيل وقصورها التقليدية (المخازن المحصنة)، كانت مفترق طرق للقبائل البدوية لقرون. يحول المهرجان الدولي للصحراء السنوي، الذي يُعقد في ديسمبر من كل عام، دوز إلى احتفال نابض بالحياة بالثقافة البدوية — مع سباقات الهجن والموسيقى التقليدية وعروض الصقور التي تنقل الزوار إلى عصر آخر. وراء البلدة، يمتد العرق الكبير الشرقي بلا نهاية، كثبانه تتحول مثل أمواج ذهبية تحت سماء شاسعة بشكل لا يصدق. رحلة جمل عند الغروب، تليها ليلة في مخيم صحرائي تحت سقف من النجوم، هي تجربة ستعيد تعريف إحساسك بالدهشة. صمت الصحراء، المقاطع فقط بالرياح، له طريقة في إعادة ضبط الروح.">
+          Known as the 'Door of the Desert,' Douz is where Tunisia's Mediterranean charm gives way to the raw majesty of the Sahara. This oasis town, with its palm groves and traditional ksars (fortified granaries), has been a crossroads for nomadic tribes for centuries. The annual International Festival of the Sahara, held each December, transforms Douz into a vibrant celebration of Bedouin culture — with camel races, traditional music, and falconry displays that transport visitors to another era. Beyond the town, the Grand Erg Oriental stretches endlessly, its dunes shifting like golden waves under an impossibly vast sky. A camel trek at sunset, followed by a night in a desert camp beneath a canopy of stars, is an experience that will redefine your sense of wonder. The silence of the Sahara, broken only by the wind, has a way of resetting the soul.
+        </p>
+      </div>
+    </div>
+    
+    <h2 data-en="Beyond the Cities" data-ar="ما وراء المدن">Beyond the Cities</h2>
+    <p data-en="Tunisia's compact size belies its extraordinary diversity. The Roman amphitheater of El Jem, the third-largest in the world, stands as a colossal reminder of the empire's reach. The holy city of Kairouan, with its Great Mosque and traditional rug-making workshops, offers a deeply spiritual journey. The island of Djerba, with its whitewashed villages and ancient synagogues, is a haven of tranquility where Jewish, Muslim, and Christian communities have coexisted for over two millennia. And the mountain village of Chebika, with its waterfalls and palm groves clinging to canyon walls, reveals a Tunisia that is lush, green, and unexpectedly wild."
+       data-ar="لا يعكس حجم تونس المضغوط تنوعها الاستثنائي. يقف مسرح الجم الروماني، ثالث أكبر مسرح في العالم، كتذكير ضخم بمدى الإمبراطورية. المدينة المقدسة القيروان، بمسجدها الكبير وورش صناعة السجاد التقليدية، تقدم رحلة روحية عميقة. جزيرة جربة، بقراها البيضاء وكنائسها اليهودية القديمة، هي ملاذ للهدوء حيث تعايشت المجتمعات اليهودية والمسلمة والمسيحية لأكثر من ألفي عام. وقرية الشبيكة الجبلية، بشلالاتها وأشجار النخيل المتشبثة بجدران الوادي، تكشف تونس خصبة وخضراء وبريّة بشكل غير متوقع.">
+      Tunisia's compact size belies its extraordinary diversity. The Roman amphitheater of El Jem, the third-largest in the world, stands as a colossal reminder of the empire's reach. The holy city of Kairouan, with its Great Mosque and traditional rug-making workshops, offers a deeply spiritual journey. The island of Djerba, with its whitewashed villages and ancient synagogues, is a haven of tranquility where Jewish, Muslim, and Christian communities have coexisted for over two millennia. And the mountain village of Chebika, with its waterfalls and palm groves clinging to canyon walls, reveals a Tunisia that is lush, green, and unexpectedly wild.
+    </p>
+    
+    <p data-en="Whether you lose yourself in the labyrinthine souks of Tunis, sip mint tea while gazing at the Mediterranean from Sidi Bou Said, walk in the footsteps of Hannibal at Carthage, or sleep under the Sahara stars near Douz, Tunisia offers a journey that touches every sense and stirs every emotion. As the Tunisian proverb says, 'He who has not seen Tunisia has not seen the world.' Come, and discover why."
+       data-ar="سواء ضعت في أسواق تونس المتعرجة، أو شربت الشاي بالنعناع بينما تنظر إلى المتوسط من سيدي بوسعيد، أو مشيت على خطى حنibal في قرطاج، أو نمت تحت نجوم الصحراء بالقرب من دوز، تقدم تونس رحلة تلامس كل حاسة وتحرك كل عاطفة. كما يقول المثل التونسي: 'من لم ير تونس فلم ير الدنيا.' تعال، واكتشف السبب.">
+      Whether you lose yourself in the labyrinthine souks of Tunis, sip mint tea while gazing at the Mediterranean from Sidi Bou Said, walk in the footsteps of Hannibal at Carthage, or sleep under the Sahara stars near Douz, Tunisia offers a journey that touches every sense and stirs every emotion. As the Tunisian proverb says, "He who has not seen Tunisia has not seen the world." Come, and discover why.
+    </p>
+    
+  </article>
+  
+  <div class="footer">
+    <p data-en="© 2026 Tunisia Travel Blog | Written with love for curious travelers" data-ar="© 2026 مدونة السفر التونسية | مكتوبة بحب للمسافرين الفضوليين">© 2026 Tunisia Travel Blog | Written with love for curious travelers</p>
+  </div>
+</div>
+
+<script>
+function setLang(lang) {
+  // Update buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+  
+  // Update text content
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (lang === 'ar') {
+      el.textContent = el.getAttribute('data-ar');
+      el.setAttribute('dir', 'rtl');
+      if (el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'LI') {
+        el.style.textAlign = 'right';
+      }
+    } else {
+      el.textContent = el.getAttribute('data-en');
+      el.removeAttribute('dir');
+      if (el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'LI') {
+        el.style.textAlign = '';
+      }
+    }
+  });
+  
+  // Update html lang
+  document.documentElement.lang = lang;
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>'''
+
+# Save to output
+with open('/mnt/agents/output/tunisia_travel_guide_2026.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"File size: {len(html_content)} characters")
