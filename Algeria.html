@@ -1,0 +1,429 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algeria Travel Guide 2026 | Discover the Grandeur of Algeria</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+  
+  :root {
+    --algeria-green: #006233;
+    --algeria-red: #D21034;
+    --sand: #F5E6D3;
+    --gold: #D4A843;
+    --dark: #1a1a1a;
+    --white: #ffffff;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #faf8f5 0%, #f0ede8 100%);
+    color: var(--dark);
+    line-height: 1.7;
+  }
+  
+  /* Language Toggle */
+  .lang-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--dark);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  }
+  
+  .lang-btn {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--gold);
+    color: var(--dark);
+  }
+  
+  /* Hero Section */
+  .hero {
+    margin-top: 56px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200') center/cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  
+  .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  
+  .hero-content .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    letter-spacing: 2px;
+  }
+  
+  .flag-badge {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+  }
+  
+  .flag-badge svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 70px auto 40px;
+    padding: 0 25px;
+  }
+  
+  /* Blog Content */
+  .blog-post {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 45px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+  
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--algeria-green);
+    margin: 35px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--algeria-red);
+    display: inline-block;
+  }
+  
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--algeria-red);
+    margin: 25px 0 12px;
+  }
+  
+  p {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+  
+  .lead {
+    font-size: 1.2rem;
+    color: var(--algeria-green);
+    font-weight: 600;
+    border-left: 4px solid var(--algeria-red);
+    padding-left: 20px;
+    margin: 25px 0;
+  }
+  
+  /* City Cards */
+  .city-card {
+    margin: 30px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    background: white;
+  }
+  
+  .city-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .city-info {
+    padding: 25px 30px;
+  }
+  
+  .city-info h3 {
+    margin-top: 0;
+    font-size: 1.6rem;
+  }
+  
+  /* Info Box */
+  .info-box {
+    background: linear-gradient(135deg, var(--sand) 0%, #fff 100%);
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin: 25px 0;
+    border-right: 5px solid var(--algeria-green);
+  }
+  
+  .info-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .info-box li {
+    padding: 8px 0;
+    padding-right: 25px;
+    position: relative;
+  }
+  
+  .info-box li::before {
+    content: "✦";
+    position: absolute;
+    right: 0;
+    color: var(--algeria-red);
+    font-weight: bold;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  [dir="rtl"] .lead {
+    border-left: none;
+    border-right: 4px solid var(--algeria-red);
+    padding-left: 0;
+    padding-right: 20px;
+  }
+  
+  [dir="rtl"] .info-box {
+    border-right: none;
+    border-left: 5px solid var(--algeria-green);
+  }
+  
+  [dir="rtl"] .info-box li {
+    padding-right: 0;
+    padding-left: 25px;
+  }
+  
+  [dir="rtl"] .info-box li::before {
+    right: auto;
+    left: 0;
+  }
+  
+  [dir="rtl"] h2, [dir="rtl"] h3 {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .blog-post { padding: 30px 20px; }
+    .container { margin-top: 60px; }
+    .city-img { height: 220px; }
+  }
+  
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">🇩🇿 العربية</button>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 data-en="Algeria Travel Guide 2026" data-ar="دليل السفر إلى الجزائر 2026">Algeria Travel Guide 2026</h1>
+    <p class="subtitle" data-en="Africa's Largest Nation — Where History Meets the Sahara" data-ar="أكبر دولة في أفريقيا — حيث تلتقي التاريخ بالصحراء">Africa's Largest Nation — Where History Meets the Sahara</p>
+  </div>
+  <div class="flag-badge">
+    <!-- Algeria Flag SVG -->
+    <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+      <rect width="450" height="600" fill="#006233"/>
+      <rect x="450" width="450" height="600" fill="#ffffff"/>
+      <circle cx="450" cy="300" r="90" fill="#D21034"/>
+      <path d="M450 230 A70 70 0 1 0 450 370 A55 55 0 1 1 450 230 Z" fill="#D21034"/>
+      <polygon points="450,190 460,220 490,220 465,240 475,270 450,250 425,270 435,240 410,220 440,220" fill="#D21034"/>
+    </svg>
+  </div>
+</section>
+
+<div class="container">
+  <article class="blog-post" id="blog-content">
+    
+    <!-- Introduction -->
+    <p class="lead" data-en="Stretching across 2.38 million square kilometers, Algeria is the largest country in Africa and the tenth largest on Earth. From the shimmering Mediterranean coastline to the endless golden dunes of the Sahara, this vast nation is a treasure trove of ancient civilizations, dramatic landscapes, and warm hospitality that few travelers have yet to discover."
+       data-ar="تمتد الجزائر على مساحة 2.38 مليون كيلومتر مربع، وهي أكبر دولة في أفريقيا والعاشرة على مستوى العالم. من الساحل المتوسطي اللامع إلى الكثبان الذهبية اللامتناهية للصحراء، هذه الأمة الشاسعة هي كنز من الحضارات القديمة والمناظر الطبيعية الدرامية والضيافة الدافئة التي لم يكتشفها المسافرون بعد.">
+      Stretching across 2.38 million square kilometers, Algeria is the largest country in Africa and the tenth largest on Earth. From the shimmering Mediterranean coastline to the endless golden dunes of the Sahara, this vast nation is a treasure trove of ancient civilizations, dramatic landscapes, and warm hospitality that few travelers have yet to discover.
+    </p>
+    
+    <h2 data-en="Country Background" data-ar="نبذة عن البلاد">Country Background</h2>
+    <p data-en="Algeria's history is a layered tapestry woven by Phoenician traders, Roman legions, Amazigh (Berber) warriors, Arab scholars, Ottoman admirals, and French revolutionaries. The indigenous Berbers were the original inhabitants of North Africa, and their resilient culture still pulses through Kabyle music, Chaoui traditions, and the ancient Tifinagh script. In the 7th century, Arab armies brought Islam and Arabic to the region, forever shaping its spiritual and intellectual identity."
+       data-ar="تاريخ الجزائر هو نسيج متعدد الطبقات نسجه التجار الفينيقيون وال legions الرومانية والمحاربون الأمازيغ والعلماء العرب والأدميرالات العثمانيون والثوريون الفرنسيون. كان الأمازيغ السكان الأصليين لشمال أفريقيا، ولا تزال ثقافتهم المرنة تنبض عبر الموسيقى القبائلية وتقاليد الشاوية والخط التيفيناغ القديم. في القرن السابع، جلبت الجيوش العربية الإسلام واللغة العربية إلى المنطقة، مما شكل هويتها الروحية والفكرية إلى الأبد.">
+      Algeria's history is a layered tapestry woven by Phoenician traders, Roman legions, Amazigh (Berber) warriors, Arab scholars, Ottoman admirals, and French revolutionaries. The indigenous Berbers were the original inhabitants of North Africa, and their resilient culture still pulses through Kabyle music, Chaoui traditions, and the ancient Tifinagh script. In the 7th century, Arab armies brought Islam and Arabic to the region, forever shaping its spiritual and intellectual identity.
+    </p>
+    
+    <p data-en="After more than 130 years of French colonial rule, Algeria fought a fierce war of independence from 1954 to 1962, emerging as a proud sovereign nation. Today, with a population of nearly 48 million, Algeria stands as a bridge between the Arab world, Africa, and the Mediterranean. Its official languages are Arabic and Tamazight (Berber), reflecting a commitment to both its Islamic-Arab heritage and its indigenous Amazigh roots."
+       data-ar="بعد أكثر من 130 عامًا من الحكم الاستعماري الفرنسي، خاضت الجزائر حربًا شرسة للاستقلال من 1954 إلى 1962، لتخرج كأمة سيادية فخورة. اليوم، مع عدد سكان يقترب من 48 مليون نسمة، تقف الجزائر كجسر بين العالم العربي وأفريقيا والمتوسط. لغاتها الرسمية هي العربية والأمازيغية، مما يعكس التزامها بتراثها الإسلامي العربي وجذورها الأمازيغية الأصلية.">
+      After more than 130 years of French colonial rule, Algeria fought a fierce war of independence from 1954 to 1962, emerging as a proud sovereign nation. Today, with a population of nearly 48 million, Algeria stands as a bridge between the Arab world, Africa, and the Mediterranean. Its official languages are Arabic and Tamazight (Berber), reflecting a commitment to both its Islamic-Arab heritage and its indigenous Amazigh roots.
+    </p>
+    
+    <p data-en="The Algerian flag is one of the most recognizable in Africa: two equal vertical bands of green and white, with a red crescent and star at the center. Green represents Islam and hope, white symbolizes peace and purity, while the red crescent and star stand for the blood shed during the liberation struggle and the nation's enduring faith."
+       data-ar="علم الجزائر من أكثر الأعلام تميزًا في أفريقيا: حزامان عموديان متساويان من الأخضر والأبيض، مع هلال ونجمة حمراء في المنتصف. يمثل الأخضر الإسلام والأمل، ويرمز الأبيض إلى السلام والنقاء، بينما يرمز الهلال والنجمة الحمراء إلى الدم الذي سال خلال كفاح التحرير وإيمان الأمة الدائم.">
+      The Algerian flag is one of the most recognizable in Africa: two equal vertical bands of green and white, with a red crescent and star at the center. Green represents Islam and hope, white symbolizes peace and purity, while the red crescent and star stand for the blood shed during the liberation struggle and the nation's enduring faith.
+    </p>
+    
+    <div class="info-box">
+      <h3 data-en="Quick Facts" data-ar="معلومات سريعة">Quick Facts</h3>
+      <ul>
+        <li data-en="Capital: Algiers" data-ar="العاصمة: الجزائر العاصمة">Capital: Algiers</li>
+        <li data-en="Population: ~48 Million" data-ar="السكان: حوالي 48 مليون نسمة">Population: ~48 Million</li>
+        <li data-en="Currency: Algerian Dinar (DZD)" data-ar="العملة: الدينار الجزائري">Currency: Algerian Dinar (DZD)</li>
+        <li data-en="Official Languages: Arabic & Tamazight" data-ar="اللغات الرسمية: العربية والأمازيغية">Official Languages: Arabic & Tamazight</li>
+        <li data-en="Best Time to Visit: March-June & September-November" data-ar="أفضل وقت للزيارة: مارس-يونيو وسبتمبر-نوفمبر">Best Time to Visit: March-June & September-November</li>
+        <li data-en="UNESCO Sites: 7 World Heritage Sites" data-ar="مواقع اليونسكو: 7 مواقع تراث عالمي">UNESCO Sites: 7 World Heritage Sites</li>
+      </ul>
+    </div>
+    
+    <h2 data-en="Famous Cities to Explore" data-ar="مدن مشهورة للاستكشاف">Famous Cities to Explore</h2>
+    
+    <!-- Algiers -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/4dc9e3d0dc09e4152a1b5649bfe13d114c5f6728.jpg" alt="Algiers" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Algiers — The White City" data-ar="الجزائر العاصمة — المدينة البيضاء">Algiers — The White City</h3>
+        <p data-en="Algiers rises from the Mediterranean like a white jewel cascading down hillsides. Founded as a Phoenician trading post in the 6th century BCE, this capital city has worn many crowns — Roman, Ottoman, and French — each leaving an indelible architectural mark. The UNESCO-listed Casbah, a 10th-century citadel of winding alleyways and whitewashed houses, is the beating heart of old Algiers. Here, artisans craft copperware in workshops unchanged for generations, and the scent of fresh baguettes mingles with traditional couscous. Don't miss the Bardo National Museum, housed in a former Ottoman palace, or the Martyrs' Memorial, three soaring concrete palm leaves that honor those who fell in the War of Independence. Ride the cable car up at sunset for panoramic views that stretch from the turquoise sea to the green hills beyond."
+           data-ar="تتربع الجزائر العاصمة على المتوسط كجوهر أبيض يتدفق على منحدرات التلال. تأسست كمحطة تجارية فييقية في القرن السادس قبل الميلاد، وقد ارتدت هذه العاصمة تيجانًا عديدة — رومانية وعثمانية وفرنسية — تركت كل منها بصمة معمارية لا تمحى. القصبة المدرجة في قائمة اليونسكو، وهي قلعة من القرن العاشر من الأزقة المتعرجة والمنازل المبيضة، هي قلب الجزائر القديمة النابض. هنا، يصنع الحرفيون الأواني النحاسية في ورش لم تتغير لأجيال، ويتمزج عطر الباجيت الطازج مع الكسكس التقليدي. لا تفوت متحف باردو الوطني، المستقر في قصر عثماني سابق، أو نصب الشهداء، ثلاثة أوراق نخيل خرسانية شامخة تكرم الذين سقطوا في حرب التحرير. اركب التلفريك عند الغروب للاستمتاع بمناظر بانورامية تمتد من البحر الفيروزي إلى التلال الخضراء.">
+          Algiers rises from the Mediterranean like a white jewel cascading down hillsides. Founded as a Phoenician trading post in the 6th century BCE, this capital city has worn many crowns — Roman, Ottoman, and French — each leaving an indelible architectural mark. The UNESCO-listed Casbah, a 10th-century citadel of winding alleyways and whitewashed houses, is the beating heart of old Algiers. Here, artisans craft copperware in workshops unchanged for generations, and the scent of fresh baguettes mingles with traditional couscous. Don't miss the Bardo National Museum, housed in a former Ottoman palace, or the Martyrs' Memorial, three soaring concrete palm leaves that honor those who fell in the War of Independence. Ride the cable car up at sunset for panoramic views that stretch from the turquoise sea to the green hills beyond.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Constantine -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/omrania.com/7126960968ad2bdc422b2d8af08d7ce07089d16b.jpg" alt="Constantine" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Constantine — The City of Bridges" data-ar="قسنطينة — مدينة الجسور">Constantine — The City of Bridges</h3>
+        <p data-en="Perched dramatically on a rocky plateau sliced by a 200-meter-deep ravine, Constantine is one of the most spectacular cities in the Mediterranean world. Named after the Roman Emperor Constantine the Great, this ancient settlement has been continuously inhabited for over 2,500 years. What truly sets it apart is its collection of breathtaking bridges that span the dizzying gorge below — from the elegant Sidi M'Cid suspension bridge to the modern concrete arches that seem to defy gravity. The old medina clings to the cliff edge, its Ottoman-era palaces and mosques offering sweeping views across the valley. Constantine is also Algeria's intellectual capital, home to the country's oldest university and a vibrant cultural scene of poets, musicians, and philosophers who carry on a tradition of learning that stretches back to Roman times."
+           data-ar="تتربع قسنطينة بشكل درامي على هضبة صخرية مقسمة بوادي عمقه 200 متر، وهي واحدة من أروع المدن في العالم المتوسطي. سميت على اسم الإمبراطور الروماني قسطنطين العظيم، وقد استمر سكان هذه المستوطنة القديمة في العيش فيها لأكثر من 2500 عام. ما يميزها حقًا هو مجموعة جسورها الخلابة التي تمتد عبر الوادي المذهل — من جسر سيدي مسيد المعلق الأنيق إلى القوسات الخرسانية الحديثة التي تبدو وكأنها تتحدى الجاذبية. المدينة العتيقة تتشبث بحافة الجرف، وقصورها ومساجدها العثمانية تقدم مناظر بانورامية عبر الوادي. قسنطينة هي أيضًا العاصمة الفكرية للجزائر، موطن أقدم جامعة في البلاد ومشهد ثقافي نابض بالشعراء والموسيقيين والفلاسفة الذين يواصلون تقليد التعلم الذي يمتد إلى العصر الروماني.">
+          Perched dramatically on a rocky plateau sliced by a 200-meter-deep ravine, Constantine is one of the most spectacular cities in the Mediterranean world. Named after the Roman Emperor Constantine the Great, this ancient settlement has been continuously inhabited for over 2,500 years. What truly sets it apart is its collection of breathtaking bridges that span the dizzying gorge below — from the elegant Sidi M'Cid suspension bridge to the modern concrete arches that seem to defy gravity. The old medina clings to the cliff edge, its Ottoman-era palaces and mosques offering sweeping views across the valley. Constantine is also Algeria's intellectual capital, home to the country's oldest university and a vibrant cultural scene of poets, musicians, and philosophers who carry on a tradition of learning that stretches back to Roman times.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Oran -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/a12ca8bf8c2f55c9b2b92ab3a52c388e6b1927e2.jpg" alt="Oran" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Oran — The Radiant Coast" data-ar="وهران — الساحل المشرق">Oran — The Radiant Coast</h3>
+        <p data-en="Oran basks on Algeria's western Mediterranean shore with a spirit that is unmistakably alive. This bustling port city, founded by Moorish refugees from Spain in the 10th century, pulses with a unique blend of Andalusian, Ottoman, and French influences. Oran is the birthplace of Rai music — the rebellious, soulful genre that gave voice to a generation and spread across North Africa and beyond. Stroll along the Boulevard Mohamed VI, where Art Deco buildings stand shoulder-to-shoulder with grand mosques, or climb to the Santa Cruz Fort for sweeping views of the harbor and the Spanish-built chapel nearby. The city's waterfront promenade comes alive at dusk, as families gather for sunset walks and fishermen mend their nets. Oran's cuisine is a highlight: fresh seafood, spicy chorba soup, and sweet makrout pastries that tell the story of a city shaped by the sea."
+           data-ar="تتربع وهران على الساحل المتوسطي الغربي للجزائر بروح لا يمكن إنكارها. هذه المدينة المينائية النابضة بالحياة، التي أسسها لاجئون موريون من إسبانيا في القرن العاشر، تنبض بمزيج فريد من التأثيرات الأندلسية والعثمانية والفرنسية. وهران هي مسقط رأس موسيقى الراي — النوع المتمرد والعميق الذي أعطى صوتًا لجيل وانتشر عبر شمال أفريقيا وما وراها. تجول على شارع محمد السادس، حيث تقف مباني آرت ديكو كتفًا بكتف مع مساجد ضخمة، أو اصعد إلى حصن سانتا كروز للاستمتاع بمناظر بانورامية للميناء والكنيسة المجاورة التي بناها الإسبان. يحيا كورنيش المدينة عند الغسق، حيث تجتمع العائلات للمشي عند الغروب ويصلح الصيادون شباكهم. مطبخ وهران هو محور اهتمام: المأكولات البحرية الطازجة، شوربة الشربة الحارة، وحلوى المقرود التي تحكي قصة مدينة شكلها البحر.">
+          Oran basks on Algeria's western Mediterranean shore with a spirit that is unmistakably alive. This bustling port city, founded by Moorish refugees from Spain in the 10th century, pulses with a unique blend of Andalusian, Ottoman, and French influences. Oran is the birthplace of Rai music — the rebellious, soulful genre that gave voice to a generation and spread across North Africa and beyond. Stroll along the Boulevard Mohamed VI, where Art Deco buildings stand shoulder-to-shoulder with grand mosques, or climb to the Santa Cruz Fort for sweeping views of the harbor and the Spanish-built chapel nearby. The city's waterfront promenade comes alive at dusk, as families gather for sunset walks and fishermen mend their nets. Oran's cuisine is a highlight: fresh seafood, spicy chorba soup, and sweet makrout pastries that tell the story of a city shaped by the sea.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Timgad -->
+    <div class="city-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.historyhit.com/52ddc732e78dde3b6947924741332155407d17f6.jpg" alt="Timgad" class="city-img">
+      <div class="city-info">
+        <h3 data-en="Timgad — Rome in the Desert" data-ar="تيمقاد — روما في الصحراء">Timgad — Rome in the Desert</h3>
+        <p data-en="Deep in the Aurès Mountains lies Timgad, one of the best-preserved Roman cities in all of North Africa. Founded by Emperor Trajan in 100 CE as a military colony, this UNESCO World Heritage site reveals a perfectly planned Roman grid of streets, forums, theaters, and triumphal arches that rise from the desert floor like a mirage made stone. The Arch of Trajan stands as a monumental gateway to the past, while the ancient library and baths hint at a civilization that valued knowledge and public life even on the empire's southern frontier. Walking through Timgad's colonnaded streets, with the Sahara wind whispering through 2,000-year-old stones, is an experience that bridges millennia. It is a powerful reminder that Algeria was once the breadbasket of Rome, and that its soil has nourished some of humanity's greatest empires."
+           data-ar="في أعماق جبال الأوراس تقع تيمقاد، واحدة من أفضل المدن الرومانية حفظًا في شمال أفريقيا. أسسها الإمبراطور تراجان عام 100 ميلادية كمستعمرة عسكرية، ويكشف هذا الموقع المدرج في قائمة اليونسكو عن شبكة رومانية مخططة بإتقان من الشوارع والساحات والمسارح والأقواس النصرية التي ترتفع من أرضية الصحراء كسراب من الحجر. يقف قوس تراجان كبوابة ضخمة إلى الماضي، بينما تلمح المكتبة والحمامات القديمة إلى حضارة كانت تقدر المعرفة والحياة العامة حتى على الحدود الجنوبية للإمبراطورية. السير في شوارع تيمقاد المُعمدة، مع نسيم الصحراء يهمس عبر حجارة عمرها 2000 عام، هو تجربة ت bridging آلاف السنين. إنه تذكير قوي بأن الجزائر كانت ذات يوم سلة خبز روما، وأن تربتها قد غذت بعضًا من أعظم إمبراطوريات البشرية.">
+          Deep in the Aurès Mountains lies Timgad, one of the best-preserved Roman cities in all of North Africa. Founded by Emperor Trajan in 100 CE as a military colony, this UNESCO World Heritage site reveals a perfectly planned Roman grid of streets, forums, theaters, and triumphal arches that rise from the desert floor like a mirage made stone. The Arch of Trajan stands as a monumental gateway to the past, while the ancient library and baths hint at a civilization that valued knowledge and public life even on the empire's southern frontier. Walking through Timgad's colonnaded streets, with the Sahara wind whispering through 2,000-year-old stones, is an experience that bridges millennia. It is a powerful reminder that Algeria was once the breadbasket of Rome, and that its soil has nourished some of humanity's greatest empires.
+        </p>
+      </div>
+    </div>
+    
+    <h2 data-en="Beyond the Cities" data-ar="ما وراء المدن">Beyond the Cities</h2>
+    <p data-en="Algeria's vastness holds wonders far beyond its urban centers. The Sahara Desert covers more than four-fifths of the country, offering travelers the chance to sleep under the clearest starscapes on Earth and witness sunsets that paint the dunes in shades of amber and violet. Tassili n'Ajjer National Park, a UNESCO treasure in the southeast, shelters prehistoric rock art dating back over 10,000 years — vivid paintings of rivers, cattle, and wildlife that prove the Sahara was once a lush green paradise. The Kabylie region north of Algiers offers mountain trekking through cedar forests and Berber villages where time moves to the rhythm of tradition. And the coastal town of Tipaza, with its Roman ruins tumbling into the turquoise sea, is a hauntingly beautiful testament to Algeria's eternal dialogue between civilizations."
+       data-ar="تحمل شاسعة الجزائر عجائب تتجاوز بكثير مراكزها الحضرية. تغطي صحراء الصحراء أكثر من أربعة أخماس البلاد، وتقدم للمسافرين فرصة النوم تحت أكثر السماوات وضوحًا على الأرض ومشاهدة غروب الشمس التي ترسم الكثبان بألوان العنبر والبنفسج. حظيرة تاسيلي ناجر الوطنية، كنز من اليونسكو في الجنوب الشرقي، تحتضن فنونًا صخرية ما قبل التاريخ يعود تاريخها إلى أكثر من 10000 عام — رسومات حية للأنهار والماشية والحياة البرية تثبت أن الصحراء كانت ذات يوم جنة خضراء خصبة. منطقة القبائل شمال الجزائر العاصمة تقدم رحلات جبلية عبر غابات الأرز والقرى الأمازيغية حيث يتحرك الوقت على إيقاع التقليد. ومدينة تيبازا الساحلية، بآثارها الرومانية المتدلية في البحر الفيروزي، هي شهادة خلابة بشكل مؤثر على الحوار الأبدي للجزائر بين الحضارات.">
+      Algeria's vastness holds wonders far beyond its urban centers. The Sahara Desert covers more than four-fifths of the country, offering travelers the chance to sleep under the clearest starscapes on Earth and witness sunsets that paint the dunes in shades of amber and violet. Tassili n'Ajjer National Park, a UNESCO treasure in the southeast, shelters prehistoric rock art dating back over 10,000 years — vivid paintings of rivers, cattle, and wildlife that prove the Sahara was once a lush green paradise. The Kabylie region north of Algiers offers mountain trekking through cedar forests and Berber villages where time moves to the rhythm of tradition. And the coastal town of Tipaza, with its Roman ruins tumbling into the turquoise sea, is a hauntingly beautiful testament to Algeria's eternal dialogue between civilizations.
+    </p>
+    
+    <p data-en="Whether you wander the ancient alleyways of the Casbah, stand breathless on a bridge above Constantine's ravine, feel the desert wind at Timgad, or share mint tea with a Berber family in the mountains, Algeria offers a journey into the depths of human history and natural grandeur. As Algerians proudly say, 'A people without a past is a people without a future' — and Algeria's past is as vast and magnificent as the land itself."
+       data-ar="سواء تجولت في الأزقة القديمة للقصبة، أو وقفت مذهولاً على جسر فوق وادي قسنطينة، أو شعرت بنسيم الصحراء في تيمقاد، أو شاركت الشاي بالنعناع مع عائلة أمازيغية في الجبال، تقدم الجزائر رحلة إلى أعماق التاريخ البشري والعظمة الطبيعية. كما يقول الجزائريون بفخر: 'شعب بلا ماضٍ هو شعب بلا مستقبل' — وماضي الجزائر شاسع ومذهل مثل الأرض نفسها.">
+      Whether you wander the ancient alleyways of the Casbah, stand breathless on a bridge above Constantine's ravine, feel the desert wind at Timgad, or share mint tea with a Berber family in the mountains, Algeria offers a journey into the depths of human history and natural grandeur. As Algerians proudly say, "A people without a past is a people without a future" — and Algeria's past is as vast and magnificent as the land itself.
+    </p>
+    
+  </article>
+  
+  <div class="footer">
+    <p data-en="© 2026 Algeria Travel Blog | Written with love for curious travelers" data-ar="© 2026 مدونة السفر الجزائرية | مكتوبة بحب للمسافرين الفضوليين">© 2026 Algeria Travel Blog | Written with love for curious travelers</p>
+  </div>
+</div>
+
+<script>
+function setLang(lang) {
+  // Update buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+  
+  // Update text content
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (lang === 'ar') {
+      el.textContent = el.getAttribute('data-ar');
+      el.setAttribute('dir', 'rtl');
+      if (el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'LI') {
+        el.style.textAlign = 'right';
+      }
+    } else {
+      el.textContent = el.getAttribute('data-en');
+      el.removeAttribute('dir');
+      if (el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'LI') {
+        el.style.textAlign = '';
+      }
+    }
+  });
+  
+  // Update html lang
+  document.documentElement.lang = lang;
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>'''
+
+# Save to output
+with open('/mnt/agents/output/algeria_travel_guide_2026.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"File size: {len(html_content)} characters")
