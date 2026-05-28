@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Ethiopia: The Cradle of Humanity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #10B981; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #059669; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation & Language Switcher -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-emerald-700 tracking-wider">ETHIOPIA</span>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="switchLanguage('en')" id="btn-en" class="px-3 py-1 rounded-full text-sm font-medium bg-emerald-600 text-white transition hover:bg-emerald-700">English</button>
+                    <button onclick="switchLanguage('am')" id="btn-am" class="px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-700 transition hover:bg-gray-300">አማርኛ (Amharic)</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://kimi-web-img.moonshot.cn/img/english.news.cn/1fb58787413b0b4a6c5263bf76f1419cb52cd16c.jpg" alt="Addis Ababa Skyline" class="w-full h-full object-cover filter brightness-50">
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg" data-en="The Land of Origins" data-am="የመነሻዋ ሀገር">The Land of Origins</h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light" data-en="Discover a nation where ancient history meets breathtaking landscapes." data-am="በጥንታዊ ታሪክ እና በሚያምሩ መልክዓ ምድራት የሚታወቀውን ሀገር ያስሱ።">Discover a nation where ancient history meets breathtaking landscapes.</p>
+            <a href="#content" class="inline-block bg-emerald-600 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-emerald-700 transition transform hover:scale-105 shadow-lg">Start Reading</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="content" class="max-w-5xl mx-auto px-4 py-16 space-y-24">
+
+        <!-- Introduction Section -->
+        <section class="text-center">
+            <div class="flex justify-center mb-6">
+                <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/3ca5b2457d7e5d6077b45d95aa59045d583d149f.jpg" alt="Ethiopian Flag" class="w-48 rounded-lg shadow-xl border-2 border-gray-200">
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-en="Welcome to Ethiopia" data-am="ኢትዮጵያ እንኳን ደህና መጡ">Welcome to Ethiopia</h2>
+            <p class="text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto" data-en="Ethiopia, officially the Federal Democratic Republic of Ethiopia, is a landlocked country located in the Horn of Africa. It is a land of ancient history, diverse cultures, and stunning natural beauty. As one of the oldest continuous civilizations in the world, Ethiopia is the only African nation never to be colonized, preserving a unique identity that blends tradition with modernity. From the rugged peaks of the Simien Mountains to the ancient rock-hewn churches of Lalibela, Ethiopia offers an unparalleled journey for the soul." 
+               data-am="ኢትዮጵያ፣ በይፋ የኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ ሪፐብሊክ፣ በአፍሪካ ቀንድ የምትገኝ የባህር ዳርቻ የሌላት ሀገር ናት። ይህች ሀገር የጥንት ታሪክ፣ የተለያዩ ባህሎች እና የሚያምሩ የተፈጥሮ ውበቶች ሀገር ናት። በዓለም ላይ ካሉት ጥንታዊ እና ቀጣይነት ያላቸው ስልጣኔዎች አንዷ ስትሆን፣ ኢትዮጵያ ብቸኛዋ የማትታደስ አፍሪካዊት ሀገር ናት። ይህም ልዩ ማንነቷን በባህል እና በዘመናዊነት መልክ እንድታቆይ አድርጓታል። ከሲሚየን ተራሮች ጠንካራ ጫፎች እስከ ላሊበላ የድንጋይ ቤተክርስቲያኖች ድረስ፣ ኢትዮጵያ ለነፍስ የማይረሳ ጉዞ ትሰጣለች።">
+               Ethiopia, officially the Federal Democratic Republic of Ethiopia, is a landlocked country located in the Horn of Africa. It is a land of ancient history, diverse cultures, and stunning natural beauty. As one of the oldest continuous civilizations in the world, Ethiopia is the only African nation never to be colonized, preserving a unique identity that blends tradition with modernity. From the rugged peaks of the Simien Mountains to the ancient rock-hewn churches of Lalibela, Ethiopia offers an unparalleled journey for the soul.
+            </p>
+        </section>
+
+        <!-- Famous Cities Grid -->
+        <section>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900" data-en="Famous Cities" data-am="የታወቁ ከተሞች">Famous Cities</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- Addis Ababa -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/90b94bc1a5942baeaf84e3dcc9767678abe5a940.jpg" alt="Addis Ababa" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-emerald-700 mb-3">Addis Ababa</h3>
+                        <p class="text-gray-600 mb-4" data-en="The capital city, meaning 'New Flower', is the political and commercial heart of the nation. It is home to the African Union headquarters and the National Museum, where the famous fossil 'Lucy' resides. The city offers a vibrant mix of bustling markets like Mercato and modern architecture." 
+                           data-am="'አዲስ አበባ' ማለት 'አዲስ አበባ' ማለት ነው። ይህች ከተማ የሀገሪቱ ፖለቲካዊ እና ኢኮኖሚያዊ ልብ ናት። የአፍሪካ ህብረት ዋና መሥሪያ ቤት እና ብሔራዊ ሙዚየም (የሉሲ ሙዚየም) የሚገኝባት ናት። በመርካቶ እና በዘመናዊ ህንጻዎች መካከል የምትገኝ ይህች ከተማ ብርቅ ብርቅ ናት።">
+                           The capital city, meaning 'New Flower', is the political and commercial heart of the nation. It is home to the African Union headquarters and the National Museum, where the famous fossil 'Lucy' resides. The city offers a vibrant mix of bustling markets like Mercato and modern architecture.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lalibela -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/whc.unesco.org/90e5842ec2397b195106e770f0f889e251df2914.jpg" alt="Lalibela Churches" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-emerald-700 mb-3">Lalibela</h3>
+                        <p class="text-gray-600 mb-4" data-en="Often called the 'New Jerusalem', Lalibela is famous for its 11 medieval rock-hewn churches carved entirely out of the living rock. These UNESCO World Heritage sites are still active places of worship and represent one of the greatest architectural achievements in history." 
+                           data-am="'አዲስ ኢየሩሳሌም' ተብላ የምትጠራው ላሊበላ፣ ከድንጋይ የተቆረቁሩ 11 ጥንታዊ ቤተክርስቲያኖችን ስላላት ይታወቃል። እነዚህ የዩኔስኮ የዓለም ቅርስ ቦታዎች እስካሁን የሚሰገድባቸው እና በታሪክ ውስጥ ካሉት ከፍተኛ የአርክቴክቸር ስራዎች አንዱ ናቸው።">
+                           Often called the 'New Jerusalem', Lalibela is famous for its 11 medieval rock-hewn churches carved entirely out of the living rock. These UNESCO World Heritage sites are still active places of worship and represent one of the greatest architectural achievements in history.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Gondar -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/imgix.brilliant-ethiopia.com/37bcc5b882cdb7eb0a6748cb777e3ea9c93414be.jpg" alt="Gondar Castles" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-emerald-700 mb-3">Gondar</h3>
+                        <p class="text-gray-600 mb-4" data-en="Known as the 'Camelot of Africa', Gondar was the royal capital of Ethiopia. The city is renowned for the Fasil Ghebbi fortress, a compound of royal buildings featuring unique architecture that blends Indian, Portuguese, and Aksumite styles." 
+                           data-am="በአፍሪካ 'ካሜሎት' ተብላ የምትጠራው ጎንደር የኢትዮጵያ ንጉሳዊ ዋና ከተማ ነበረች። ከህንዳዊ፣ ከፖርቱጋሉ እና ከአክሱማዊ ዘይቤዎች ጋር የተቀላቀለ ልዩ የአርክቴክቸር ዘይቤ ያላት የፋሲል ግቢ ግንብ በዚህች ከተማ ይገኛል።">
+                           Known as the 'Camelot of Africa', Gondar was the royal capital of Ethiopia. The city is renowned for the Fasil Ghebbi fortress, a compound of royal buildings featuring unique architecture that blends Indian, Portuguese, and Aksumite styles.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Axum -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/bf2205d9f162c4e881ee84db15d7345c6b6ee3ec.jpg" alt="Axum Obelisks" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-emerald-700 mb-3">Axum (Aksum)</h3>
+                        <p class="text-gray-600 mb-4" data-en="The ancient city of Axum was the heart of the Aksumite Empire. Today, it is famous for its towering obelisks (stelae), ancient tombs, and the ruins of palaces. It is also considered the holiest city in Ethiopia, believed to house the original Ark of the Covenant." 
+                           data-am="ጥንታዊዋ ከተማ አክሱም የአክሱም ስልጣኔ ልብ ነበረች። ዛሬም በከፍታ የሚረጉጡ ኦቤሊስኮች (ስቴላዎች)፣ ጥንታዊ መቃብሮች እና የቤተ መንግስቶች ቅሪቶች ስላሉት ይታወቃል። እንዲሁም በኢትዮጵያ ውስጥ ቅዱስ ከተማ ተብላ የምትጠራው እና የኪዳኑ ታቦት የሚገኝባት ቦታ ሆና ትታወቃለች።">
+                           The ancient city of Axum was the heart of the Aksumite Empire. Today, it is famous for its towering obelisks (stelae), ancient tombs, and the ruins of palaces. It is also considered the holiest city in Ethiopia, believed to house the original Ark of the Covenant.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Culture & Language Section -->
+        <section class="bg-emerald-900 rounded-3xl p-8 md:p-16 text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-emerald-700 rounded-full opacity-50 blur-3xl"></div>
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-en="Language & Culture" data-am="ቋንቋ እና ባህል">Language & Culture</h2>
+                    <p class="text-emerald-100 text-lg mb-6 leading-relaxed" data-en="Ethiopia is a mosaic of over 80 ethnic groups. The official language is Amharic, a Semitic language with its own unique script. The country uses its own ancient calendar, which is roughly 7 to 8 years behind the Gregorian calendar. Ethiopian culture is deeply rooted in music, dance, and communal dining, with the famous 'Injera' bread serving as the centerpiece of every meal." 
+                       data-am="ኢትዮጵያ ከ80 በላይ የብሔር ብሔረሰቦች የተዋሃዱባት ሀገር ናት። የአገሪቱ ይፋዊ ቋንቋ የሆነው አማርኛ፣ የራሱ ልዩ ፊደል ያለው ሴማዊ ቋንቋ ነው። ሀገሪቱ የራሷን ጥንታዊ የቀን መቁጠሪያ ትጠቀማለች፣ ይህም ከግሪጎሪያን ቀን መቁጠሪያ በ7 እስከ 8 ዓመታት ይበልጣል። የኢትዮጵያ ባህል በሙዚቃ፣ በዳንስ እና በጋራ ምግብ ቤት ይጣበቃል። በየምሳ ጊዜ የምትቀርበው 'እንጀራ' የኢትዮጵያ ምግብ ማዕከል ነው።">
+                       Ethiopia is a mosaic of over 80 ethnic groups. The official language is Amharic, a Semitic language with its own unique script. The country uses its own ancient calendar, which is roughly 7 to 8 years behind the Gregorian calendar. Ethiopian culture is deeply rooted in music, dance, and communal dining, with the famous 'Injera' bread serving as the centerpiece of every meal.
+                    </p>
+                </div>
+                <div class="bg-emerald-800 p-8 rounded-xl border border-emerald-600">
+                    <h3 class="text-xl font-bold mb-4 text-yellow-400" data-en="Did You Know?" data-am="አውቀሃል?">Did You Know?</h3>
+                    <ul class="space-y-4 text-emerald-50">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-yellow-400">★</span>
+                            <span data-en="Coffee was first discovered in the Ethiopian highlands." data-am="ቡና በመጀመሪያ በኢትዮጵያ ከፍታዎች ተገኝቷል።">Coffee was first discovered in the Ethiopian highlands.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-yellow-400">★</span>
+                            <span data-en="Ethiopia is the birthplace of humanity, where 'Lucy' (Dinkinesh) was found." data-am="ኢትዮጵያ የሰው ልጅ መነሻ ናት፣ 'ሉሲ' (ድንቅነሽ) የተገኘችበት ቦታ ነው።">Ethiopia is the birthplace of humanity, where 'Lucy' (Dinkinesh) was found.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-yellow-400">★</span>
+                            <span data-en="The Ethiopian Orthodox Church is one of the oldest Christian denominations in the world." data-am="የኢትዮጵያ ኦርቶዶክስ ተዋህዶ ቤተክርስቲያን በዓለም ላይ ካሉት ጥንታዊ ክርስትና ቤተክርስቲያኖች አንዷ ናት።">The Ethiopian Orthodox Church is one of the oldest Christian denominations in the world.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Natural Beauty -->
+        <section>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900" data-en="Breathtaking Landscapes" data-am="የሚያምሩ መልክዓ ምድራት">Breathtaking Landscapes</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-lg text-gray-600 leading-relaxed mb-6" data-en="Ethiopia's geography is incredibly diverse. From the scorching heat of the Danakil Depression (one of the lowest places on Earth) to the snow-capped peaks of the Simien Mountains, the country offers a landscape for every adventurer. The Great Rift Valley cuts through the country, dotted with beautiful lakes like Tana and Langano, teeming with wildlife such as the endemic Ethiopian wolf and the Gelada baboon." 
+                   data-am="የኢትዮጵያ መልክዓ ምድር በጣም የተለያየ ነው። ከምድር ላይ ካሉት ዝቅተኛ ቦታዎች አንዱ ከሆነው ከዳናኪል ምድረ በዳ ትኩሳት ጀምሮ እስከ ሲሚየን ተራሮች በረዶ የተሸፈኑ ጫፎች ድረስ፣ ሀገሪቱ ለእያንዳንዱ ተጓዥ የተለያየ መልክዓ ምድር ትሰጣለች። ታላቁ የሪፍት ሸለቆ ሀገሪቱን በመቆራረጥ ይሄዳል፣ እና በታና እና ላንጋኖ ያሉ ውብ ሐይቆች እና በኢትዮጵያ ተከላካይ ዝብ እና በጅላዳ ባቡን የተሞሉ ናቸው።">
+                   Ethiopia's geography is incredibly diverse. From the scorching heat of the Danakil Depression (one of the lowest places on Earth) to the snow-capped peaks of the Simien Mountains, the country offers a landscape for every adventurer. The Great Rift Valley cuts through the country, dotted with beautiful lakes like Tana and Langano, teeming with wildlife such as the endemic Ethiopian wolf and the Gelada baboon.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="h-48 bg-gray-200 rounded-lg overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/whc.unesco.org/0c019cb16e338c3aca191db12b2d943b50e10792.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gondar">
+                    </div>
+                    <div class="h-48 bg-gray-200 rounded-lg overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/english.news.cn/1fb58787413b0b4a6c5263bf76f1419cb52cd16c.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Addis Ababa">
+                    </div>
+                    <div class="h-48 bg-gray-200 rounded-lg overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.arthistoryproject.com/d1c9fbf7face3664e2a0ea94f1d46ad79152364e.webp" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Axum">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-4 font-serif">ETHIOPIA</h2>
+            <p class="text-gray-400 mb-8" data-en="A journey through time and tradition." data-am="በጊዜ እና በባህል መካከል የሚደረግ ጉዞ።">A journey through time and tradition.</p>
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-sm text-gray-500"> 2026 Ethiopia Travel Blog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-en]');
+            
+            elements.forEach(el => {
+                // Fade out effect
+                el.style.opacity = '0';
+                
+                setTimeout(() => {
+                    if (lang === 'am') {
+                        el.innerText = el.getAttribute('data-am');
+                        el.style.direction = 'rtl'; // Optional for visual alignment
+                    } else {
+                        el.innerText = el.getAttribute('data-en');
+                        el.style.direction = 'ltr';
+                    }
+                    // Fade in effect
+                    el.style.opacity = '1';
+                }, 300);
+            });
+
+            // Update buttons
+            const btnEn = document.getElementById('btn-en');
+            const btnAm = document.getElementById('btn-am');
+
+            if (lang === 'en') {
+                btnEn.classList.remove('bg-gray-200', 'text-gray-700');
+                btnEn.classList.add('bg-emerald-600', 'text-white');
+                btnAm.classList.remove('bg-emerald-600', 'text-white');
+                btnAm.classList.add('bg-gray-200', 'text-gray-700');
+                document.documentElement.lang = 'en';
+            } else {
+                btnAm.classList.remove('bg-gray-200', 'text-gray-700');
+                btnAm.classList.add('bg-emerald-600', 'text-white');
+                btnEn.classList.remove('bg-emerald-600', 'text-white');
+                btnEn.classList.add('bg-gray-200', 'text-gray-700');
+                document.documentElement.lang = 'am';
+            }
+        }
+    </script>
+</body>
+</html>
