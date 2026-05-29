@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana: The Warrior King's Land - A Traveler's Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ghana-red: #CE1126;
+            --ghana-gold: #FCD116;
+            --ghana-green: #006B3F;
+            --ghana-black: #000000;
+            --sand: #FDF8F0;
+            --forest: #1B4332;
+            --text-dark: #2C2C2C;
+            --text-light: #666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--sand);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            background: var(--ghana-black);
+            padding: 12px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .lang-bar button {
+            background: transparent;
+            border: 2px solid var(--ghana-gold);
+            color: var(--ghana-gold);
+            padding: 8px 24px;
+            margin: 0 8px;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-bar button:hover, .lang-bar button.active {
+            background: var(--ghana-gold);
+            color: var(--ghana-black);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%),
+                        url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--sand), transparent);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            letter-spacing: -1px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .hero .author {
+            font-style: italic;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-hint span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .scroll-hint span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 10px;
+            background: white;
+            border-radius: 3px;
+            animation: scroll 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        @keyframes scroll {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 25px; }
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--ghana-red);
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .flag-container {
+            max-width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .flag-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .flag-img {
+            width: 100%;
+            display: block;
+        }
+        
+        .flag-meaning {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .meaning-card {
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .meaning-card.red { background: rgba(206, 17, 38, 0.08); border-left: 4px solid var(--ghana-red); }
+        .meaning-card.gold { background: rgba(252, 209, 22, 0.15); border-left: 4px solid var(--ghana-gold); }
+        .meaning-card.green { background: rgba(0, 107, 63, 0.08); border-left: 4px solid var(--ghana-green); }
+        .meaning-card.black { background: rgba(0, 0, 0, 0.05); border-left: 4px solid var(--ghana-black); }
+        
+        .meaning-card h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* City Cards */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        
+        .city-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-img {
+            transform: scale(1.05);
+        }
+        
+        .city-content {
+            padding: 30px;
+        }
+        
+        .city-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        
+        .city-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--sand);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--ghana-red), var(--ghana-gold), var(--ghana-green));
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--ghana-gold);
+        }
+        
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--ghana-red);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        /* Beautiful Places Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+        
+        /* Travel Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .tip-card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        
+        .tip-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .tip-card h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--ghana-black);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-flag {
+            width: 80px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            box-shadow: 0 5px 20px rgba(255,255,255,0.1);
+        }
+        
+        .footer-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .footer-copy {
+            opacity: 0.6;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+        
+        /* Twi Font adjustments */
+        .twi {
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        /* Hidden class for language toggle */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 50px 0;
+            }
+            
+            .cities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Selection color */
+        ::selection {
+            background: var(--ghana-gold);
+            color: var(--ghana-black);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <button class="active" onclick="setLanguage('en')" id="btn-en">🇬🇧 English</button>
+        <button onclick="setLanguage('tw')" id="btn-tw">🇬🇭 Twi (Akan)</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="en">Ghana: The Warrior King's Land</h1>
+            <h1 class="tw hidden">Ghana: Ɔhene Kɔkɔɔ no Man</h1>
+            <p class="subtitle en">A Journey Through Gold, Freedom, and the Beating Heart of West Africa</p>
+            <p class="subtitle tw hidden">Akwantu a Ɛfa Sika, Fahodie, ne West Africa Akoma mu</p>
+            <p class="author en">By a passionate traveler &middot; May 2026</p>
+            <p class="author tw hidden">Ɔde ɔdɔ a ɔbɔborɔnoma &middot; Ɔpɛpɔn 2026</p>
+        </div>
+        <div class="scroll-hint">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro">
+        <div class="container">
+            <h2 class="section-title en">Why Ghana?</h2>
+            <h2 class="section-title tw hidden">Adɛn na Ghana?</h2>
+            
+            <p class="lead en">
+                They call it the "Gateway to Africa," but Ghana is so much more than an entry point. It is the first 
+                sub-Saharan nation to break the chains of colonialism, a land where ancient Ashanti gold still glitters 
+                in museum cases, and where the rhythm of highlife music follows you from Accra's streets to the remotest 
+                village. Ghana doesn't just welcome you—it wraps you in a warmth that feels like coming home.
+            </p>
+            <p class="lead tw hidden">
+                Wɔfrɛ no "Africa Apɔn," nanso Ghana yɛ bebree sen ɔkwan a wɔfa so kɔ mu. Ɛyɛ ɔman a ɛdi kan wɔ 
+                sub-Sahara mu a obubuu nkoa ahyɛ, asase a sika a ɛhene Asante de no hyerɛn wɔ muzeum mu, 
+                na highlife nnwom no nso di akyi wɔ Accra akwan so kɔ kurow a ɛwɔ akyirikyiri no mu. 
+                Ghana mpɛ biara sɛ wogye wo—ɛde wo bɔ afiri a ɛte sɛ wo rekɔ fie.
+            </p>
+            
+            <p class="en">
+                I still remember my first evening in Jamestown, Accra. The Atlantic breeze carried salt and stories, 
+                fishermen pulled their nets in golden light, and children laughed as they chased waves along the shore. 
+                An elderly man approached me—not to sell anything, but simply to ask, "Did you eat today?" That question, 
+                asked with genuine concern, encapsulates the Ghanaian spirit. Here, community is not a concept; it is 
+                the very air you breathe.
+            </p>
+            <p class="tw hidden">
+                Meka me anwummere a edi kan wɔ Jamestown, Accra no. Mframa a efi Atlantic no de nkyene ne 
+                nsɛm bae, mpɔtɛmfo de wɔn asau wɔ kan a ɛyɛ sika mu, na mmofra sesee wɔn ho sɛ wɔdi 
+                nsuban akyi wɔ mpoano. Barima panin bi bɛn me—ɛnnyɛ sɛ ɔbɛtɔn biribi, na mmom ɔbisa me se, 
+                "Wo adidi anaa?" Asɛm no, a wobisa no ne dɔ pa, kyerɛ Ghana sunsum no. Ha, kurow yi 
+                nyɛ adwene bi; ɛyɛ mframa a wo home no ara.
+            </p>
+        </div>
+    </section>
+
+    <!-- Name Origin Section -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title en">The Story Behind the Name</h2>
+            <h2 class="section-title tw hidden">Nsɛm a Ɛwɔ Din No Akyi</h2>
+            
+            <p class="en">
+                The name <strong>Ghana</strong> echoes across a thousand years. It comes from the ancient Soninke word 
+                for <em>"Warrior King"</em>—a title so powerful that Arab traders who crossed the Sahara in the 9th century 
+                used it to describe the entire empire they encountered. The medieval Ghana Empire (300–1200 CE), 
+                also known as Wagadu, was a marvel of organization and wealth, controlling vast gold mines and 
+                trans-Saharan trade routes. Though that empire lay far to the northwest—in what is now Mali, 
+                Mauritania, and Senegal—the name was adopted by the modern nation as a symbol of precolonial 
+                prestige and African pride.
+            </p>
+            <p class="tw hidden">
+                Din <strong>Ghana</strong> no di akyi mfe apem. Efi Soninke kasa mu a ɛkyerɛ <em>"Ɔhene Kɔkɔɔ"</em> 
+                —abusua titiriw a ɛyɛ den ma nnɔbae a wɔtwaa Sahara wɔ afe 900 no de no frɛɛ ɔman a wɔhyiaa no nyinaa. 
+                Ghana Abusua (300–1200 CE), a wɔnfrɛ no Wagasa, yɛ anwonwade a ɛfa nsɛm a wɔyɛ ne sika ho, 
+                a wɔdi sika mmoano ne nnɔbae a wɔfa so twaa Sahara so. Ɛwɔ mu sɛ abusua no wɔ atifi apuei 
+                —wɔ Mali, Mauritania, ne Senegal a ɛwɔ seisei ara mu—nanso ɔman a ɛwɔ seisei no de no sɛnea 
+                ɛkyerɛ sɛnea na yɛte ansa na aburofo reba ne ahomaso Africa.
+            </p>
+            
+            <p class="en">
+                Before independence in 1957, the land was known as the <strong>Gold Coast</strong>—a name the British 
+                gave for the glittering metal that drew Portuguese, Dutch, Danish, and Swedish traders from the 15th century onward. 
+                But when Kwame Nkrumah raised the new flag on March 6, 1957, he chose a name that honored African 
+                sovereignty rather than European greed. Ghana was reborn—not as a colony, but as a promise.
+            </p>
+            <p class="tw hidden">
+                Ansa na wobenya fahodie wɔ afe 1957 no, wɔfrɛ asase no <strong>Gold Coast</strong>—din a 
+                Britainfo de too ho sɛnea sika no a ɛhyerɛn no de Portugalfo, Dutch, Danish, ne Swedenfo 
+                nnɔbae fi afe 1500 no mu bae. Nanso bere a Kwame Nkrumah maa flag no so wɔ Ɔpɛpɔn 6, 1957 no, 
+                ɔpaw din a ɛde nidi ma Africa so na mmom ɛnnyɛ aburofo ahokyere. Ghana bɛyɛɛ foforo 
+                —ɛnnyɛ kurow a aburofo di so, na mmom ɛyɛ bɔhyɛ.
+            </p>
+            
+            <div class="flag-meaning" style="margin-top: 40px;">
+                <div class="meaning-card red en">
+                    <h4>❤️ Red</h4>
+                    <p>The blood of those who died in the struggle for independence. It honors the sacrifices of the "Big Six" and countless freedom fighters.</p>
+                </div>
+                <div class="meaning-card red tw hidden">
+                    <h4>❤️ Kɔkɔɔ</h4>
+                    <p>Mogya a wɔde wɔn ho maa fahodie no. Ɛde nidi ma "Big Six" no ne nnipa a wɔko maa fahodie no.</p>
+                </div>
+                
+                <div class="meaning-card gold en">
+                    <h4>💛 Gold</h4>
+                    <p>The mineral wealth that built empires and drew the world to these shores. Ghana is Africa's second-largest gold producer.</p>
+                </div>
+                <div class="meaning-card gold tw hidden">
+                    <h4>💛 Sika</h4>
+                    <p>Sika a abusua no si wɔn ho gyinae na ɛde wiase baa mpoano yi. Ghana yɛ Africa mmienu a wɔde sika yɛ adwuma pii.</p>
+                </div>
+                
+                <div class="meaning-card green en">
+                    <h4>💚 Green</h4>
+                    <p>The rich forests and natural wealth of the land. From Kakum's canopy to the savannas of the north, nature's abundance.</p>
+                </div>
+                <div class="meaning-card green tw hidden">
+                    <h4>💚 Ahaban</h4>
+                    <p>Kwae a ɛboro so ne asase a ɛsom bo. Efi Kakum kwae so kɔ savanna a ɛwɔ atifi, na ade a ɛboro so wɔ asase no so.</p>
+                </div>
+                
+                <div class="meaning-card black en">
+                    <h4>⭐ The Black Star</h4>
+                    <p>The lodestar of African freedom, inspired by Marcus Garvey's Black Star Line. It represents Ghana as the pioneer of African independence.</p>
+                </div>
+                <div class="meaning-card black tw hidden">
+                    <h4>⭐ Nsoromma Tuntum</h4>
+                    <p>Nsoromma a ɛkyerɛ Africa fahodie, a Marcus Garvey Black Star Line no bɛyɛɛ nhwɛso. Ɛkyerɛ Ghana sɛ ɔman a ɔdi kan wɔ Africa fahodie mu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flag Section -->
+    <section class="flag-section">
+        <div class="container">
+            <h2 class="section-title en">The National Flag</h2>
+            <h2 class="section-title tw hidden">Ɔman no Flag</h2>
+            <p class="en" style="margin-bottom: 30px;">Designed by the legendary Theodosia Okoh and adopted on March 6, 1957—the day of independence.</p>
+            <p class="tw hidden" style="margin-bottom: 30px;">Theodosia Okoh a ɔyɛ ɔbarima kɛse no na ɔyɛɛ no na wɔfaa no wɔ Ɔpɛpɔn 6, 1957—fahodie da no.</p>
+            
+            <div class="flag-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/9fdf904f0456af718179d3ce84a210b0c5fb2417.png" alt="Ghana Flag" class="flag-img">
+            </div>
+            <p class="en" style="margin-top: 20px; font-style: italic; color: var(--text-light);">
+                Theodosia Okoh, an artist and teacher, created this masterpiece in just weeks before independence. 
+                It became the second African flag (after Ethiopia) to use the Pan-African colors, inspiring 
+                nations like Guinea-Bissau to follow suit.
+            </p>
+            <p class="tw hidden" style="margin-top: 20px; font-style: italic; color: var(--text-light);">
+                Theodosia Okoh, ɔkyerɛkyerɛfo ne ɔnwomtofo, yɛɛ anwonwade yi wɔ nna kakra ansa na wobenya fahodie. 
+                Ɛbɛyɛɛɛ Africa flag a ɛdi mmienu (ɛfiri Ethiopia) a wɔde Pan-African ahosuo no yɛɛ adwuma, 
+                na ɛmaa amannɛɛ te sɛ Guinea-Bissau no too wɔn ho.
+            </p>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title en">A Walk Through Time</h2>
+            <h2 class="section-title tw hidden">Nantew a Ɛfa Bere mu</h2>
+            
+            <p class="lead en">
+                Ghana's story is written in gold dust, ocean waves, and the walls of ancient castles. 
+                It is a story of empires, resistance, and the unbreakable spirit of a people who chose freedom.
+            </p>
+            <p class="tw hidden">
+                Ghana nsɛm no wɔ sika mfutuma, po nsuban, ne afasu a ɛwɔ aban a atwam no mu. 
+                Ɛyɛ abusua, atenka, ne nnipa a wɔpaw fahodie no sunsum a wontumi nnsɛe no ho nsɛm.
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item en">
+                    <div class="timeline-year">300–1200 CE</div>
+                    <p>The Ghana Empire (Wagadu) rises in the Sahel. Controlling gold mines and trans-Saharan trade, it becomes one of medieval Africa's greatest powers. The title "Ghana" means "Warrior King."</p>
+                </div>
+                <div class="timeline-item tw hidden">
+                    <div class="timeline-year">300–1200 CE</div>
+                    <p>Ghana Abusua (Wagadu) si wɔn ho wɔ Sahel mu. Wɔdi sika mmoano ne nnɔbae a wɔfa so twaa Sahara so, na ɛbɛyɛɛɛ Africa ahemfo a ɛwɔ tumi paa wɔ bere a ɛtwaa no mu. "Ghana" ase kyerɛ "Ɔhene Kɔkɔɔ."</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1471</div>
+                    <p>Portuguese traders arrive and name the coast the "Mine" for its gold. Elmina Castle is built in 1482—the oldest European structure in sub-Saharan Africa. The era of Atlantic trade begins.</p>
+                </div>
+                <div class="timeline-item tw hidden">
+                    <div class="timeline-year">1471</div>
+                    <p>Portugalfo nnɔbae bɛduru na wɔtoo mpoano din "Mine" sɛnea sika no wɔ hɔ. Elmina Castle wɔsii no wɔ afe 1482—aburofo afasu a ɛtwaa no wɔ sub-Sahara mu. Bere a wɔde adetɔn kɔɔ Atlantic no fii ase.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1500s–1800s</div>
+                    <p>The tragic transatlantic slave trade peaks. Forts and castles like Cape Coast and Elmina hold enslaved Africans before the horrific Middle Passage. An estimated 6 million people are shipped from West Africa.</p>
+                </div>
+                <div class="timeline-item tw hidden">
+                    <div class="timeline-year">1500s–1800s</div>
+                    <p>Nnɔma a ɛyɛ hu a wɔde nnipa kɔtɔn wɔ Atlantic no duu sorokado. Nkuran ne aban te sɛ Cape Coast ne Elmina no siee Africafo a wɔde wɔn bɛtɔn ansa na wɔde wɔn kɔɔ Middle Passage a ɛyɛ hu no mu. Wɔbɔ mmɔden sɛ mpem asia nnipa fii West Africa.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1874</div>
+                    <p>The British proclaim the Gold Coast a crown colony. Cocoa is introduced and becomes the new "gold," transforming the economy. The Ashanti Wars rage as the empire resists colonial rule.</p>
+                </div>
+                <div class="timeline-item tw hidden">
+                    <div class="timeline-year">1874</div>
+                    <p>Britainfo no kaa sɛ Gold Coast yɛ kurow a wɔdi so. Wɔde cocoa bae na ɛbɛyɛɛɛ "sika" foforo no, na ɛsesaa kurow no. Ashanti ako no yɛɛ den sɛ abusua no repɛ sɛ wobubu aburofo ahyɛ no.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1947–1957</div>
+                    <p>The "Big Six"—Akufo-Addo, Adjei, Ofori Atta, Danquah, Obetsebi-Lamptey, and Nkrumah—lead the independence movement. Nkrumah's Convention People's Party launches "Positive Action."</p>
+                </div>
+                <div class="timeline-item tw hidden">
+                    <div class="timeline-year">1947–1957</div>
+                    <p>"Big Six" no—Akufo-Addo, Adjei, Ofori Atta, Danquah, Obetsebi-Lamptey, ne Nkrumah—na wɔdi fahodie no anim. Nkrumah Convention People's Party no maa "Positive Action" ase.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">March 6, 1957</div>
+                    <p><strong>Independence!</strong> Ghana becomes the first sub-Saharan African colony to achieve sovereignty. Nkrumah declares: "Our independence is meaningless unless it is linked up with the total liberation of Africa."</p>
+                </div>
+                <div class="timeline-item tw hidden">
+                    <div class="timeline-year">Ɔpɛpɔn 6, 1957</div>
+                    <p><strong>Fahodie!</strong> Ghana bɛyɛɛɛ kurow a aburofo di so a ɛdi kan wɔ sub-Sahara mu a obenya ne ho so. Nkrumah kaa sɛ: "Yɛn fahodie nni anisɔsɔ sɛ ɛnnyɛ Africa fahodie nyinaa ho."</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">Today</div>
+                    <p>Ghana stands as one of Africa's most stable democracies, a beacon of Pan-Africanism, and a cultural powerhouse where tradition and modernity dance in perfect harmony.</p>
+                </div>
+                <div class="timeline-item tw hidden">
+                    <div class="timeline-year">Nnɛ</div>
+                    <p>Ghana gyina sɛ Africa aban a ɛyɛ dɛm a ɛwɔ tumi paa, Pan-Africanism hann, ne kurow a ɛwɔ amammerɛ a ɛboro so fa a tradishin ne nneɛma foforo di asa.
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Famous Cities -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title en">Cities That Capture the Soul</h2>
+            <h2 class="section-title tw hidden">Nkurow a Wɔfa Sunsum no</h2>
+            
+            <p class="lead en">
+                From the Atlantic coast to the savanna north, each Ghanaian city pulses with its own rhythm. 
+                These are the places that will change how you see Africa.
+            </p>
+            <p class="tw hidden">
+                Efi mpoano Atlantic kɔ savanna a ɛwɔ atifi, kurow biara wɔ Ghana mu no wɔ ne nwom. 
+                Nkurow yi ne beae a ɛbɛsesa sɛnea wohu Africa no.
+            </p>
+            
+            <div class="cities-grid">
+                <!-- Accra -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/237f66b264c42522f3bf501aa155d651b059f836.jpg" alt="Accra Skyline" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Capital</span>
+                        <span class="city-tag tw hidden">Ɔman no Aban</span>
+                        <h3 class="en">Accra</h3>
+                        <h3 class="tw hidden">Accra</h3>
+                        <p class="en">
+                            Accra is West Africa's most exhilarating capital—a city of contrasts where glass towers rise 
+                            beside colonial forts and fishing villages. Explore Jamestown's boxing gyms and lighthouse, 
+                            haggle for kente cloth at Makola Market, and dance to highlife beats at Labadi Beach. 
+                            The W.E.B. Du Bois Memorial and Kwame Nkrumah Mausoleum remind you that this is hallowed Pan-African ground.
+                        </p>
+                        <p class="tw hidden">
+                            Accra yɛ West Africa aban a ɛyɛ anigye paa—kurow a nneɛma ne nneɛma foforo wɔ fa, 
+                            afasu a wɔde glass yɛɛ no wɔ aburofo nkuran ne mpɔtɛmfo kurow nkyɛn. 
+                            Kɔhwɛ Jamestown boxing gym ne hann afasu no, tɔ kente ntama wɔ Makola Market, 
+                            na di asa wɔ Labadi Beach wɔ highlife nnwom no mu. W.E.B. Du Bois ne Kwame Nkrumah Mausoleum 
+                            no bɛbɔ wo nkae sɛ ha yɛ Pan-African asase a ɛsom bo.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Kumasi -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/travelghanawithbwo.com/b663933402d5bd59d6c56b8f8b9ae51a33b891fb.jpg" alt="Kumasi City" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Cultural Heart</span>
+                        <span class="city-tag tw hidden">Amammerɛ Akoma</span>
+                        <h3 class="en">Kumasi</h3>
+                        <h3 class="tw hidden">Kumasi</h3>
+                        <p class="en">
+                            The historic capital of the Ashanti Empire beats with royal drums and golden history. 
+                            Visit the Manhyia Palace, where the Asantehene still holds court, and the Kejetia Market—
+                            one of West Africa's largest open-air markets. The nearby craft villages of Bonwire (kente weaving) 
+                            and Ntonso (adinkra stamping) keep ancient traditions alive. Kumasi is where Ghana's soul lives.
+                        </p>
+                        <p class="tw hidden">
+                            Ashanti Abusua aban a ɛwɔ amammerɛ no di nwom a ɛfa ahemfo nnawam ne sika ho. 
+                            Kɔhwɛ Manhyia Palace, fa a Asantehene da so di n'abakɔsɛm, ne Kejetia Market 
+                            —West Africa adetɔnbea a ɛboro so a ɛwɔ mmeae a ɛwɔ hawee mu. Kurow a ɛbɛn hɔ a wɔyɛ adwuma 
+                            te sɛ Bonwire (kente nwene) ne Ntonso (adinkra a wɔde nsa yɛ) no ma tradishin a atwam no te ase. 
+                            Kumasi ne beae a Ghana sunsum te.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Cape Coast -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/8519ea81fb63912b78d230e8a10175fa38e60e94.jpg" alt="Cape Coast Castle" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Heritage & History</span>
+                        <span class="city-tag tw hidden">Agyapade ne Amammerɛ</span>
+                        <h3 class="en">Cape Coast</h3>
+                        <h3 class="tw hidden">Cape Coast</h3>
+                        <p class="en">
+                            No visit to Ghana is complete without standing in the Door of No Return at Cape Coast Castle. 
+                            This UNESCO World Heritage site is a haunting monument to the transatlantic slave trade, 
+                            where guided tours through stone dungeons tell stories of unimaginable suffering and resilience. 
+                            The nearby Kakum National Park offers a canopy walkway 30 meters above the rainforest—
+                            a walk among the treetops that heals the soul.
+                        </p>
+                        <p class="tw hidden">
+                            Biribiara a wɔbɛyɛ wɔ Ghana mu no nyɛ nea ɛwɔ mu sɛ wobɛgyina Cape Coast Castle 
+                            Apɔn a Wɔnnsan no mu. Beae a wɔagye toom sɛ ɛyɛ UNESCO World Heritage no yɛ nkae a ɛbɔ 
+                            abɔn wɔ nnɔma a wɔde nnipa kɔtɔn wɔ Atlantic no ho, fa a wɔkyerɛkyerɛfo de wo fa aban a 
+                            ɛwɔ abo mu no mu na wɔbɔ nsɛm a ɛyɛ hu ne sunsum a wontumi nnsɛe no ho amanneɛ. 
+                            Kakum National Park a ɛbɛn hɔ no wɔ canopy walkway a ɛwɛ mita 30 wɔ kwae no mu 
+                            —nantew a ɛwɔ nnua no so a ɛsa sunsum no yare.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Elmina -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.getyourguide.com/b94d37eb953dd4d3c01338d3ff23f4682375ec94.jpg" alt="Elmina Castle" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Oldest European Fort</span>
+                        <span class="city-tag tw hidden">Aburofo Afasu a Ɛdi Kan</span>
+                        <h3 class="en">Elmina</h3>
+                        <h3 class="tw hidden">Elmina</h3>
+                        <p class="en">
+                            Home to St. George's Castle, built by the Portuguese in 1482—the oldest European-built 
+                            structure in sub-Saharan Africa. Elmina's colorful harbor, bustling fish market, and 
+                            Posuban shrines (unique Fante military shrines decorated with vivid figurative art) 
+                            create a tapestry of living culture. The town breathes history in every coral stone.
+                        </p>
+                        <p class="tw hidden">
+                            Wɔsii St. George's Castle wɔ ha wɔ afe 1482 a Portugalfo na ɛyɛɛɛ—aburofo afasu a 
+                            ɛdi kan wɔ sub-Sahara mu. Elmina mpoano a ɛwɔ ahosuo, adetɔnbea a ɛyɛ den, 
+                            ne Posuban shrines (Fante asraafo shrines a wɔde nkyerɛade a ɛwɔ ahosuo hyehyɛ) 
+                            yɛ amammerɛ a ɛte ase no nhoma. Kurow no home amammerɛ wɔ abo biara a ɛwɔ hɔ.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Tamale -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800" alt="Northern Ghana Savanna" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Northern Gateway</span>
+                        <span class="city-tag tw hidden">Apuei Kwan</span>
+                        <h3 class="en">Tamale</h3>
+                        <h3 class="tw hidden">Tamale</h3>
+                        <p class="en">
+                            The vibrant capital of Ghana's north is a mosaic of Dagomba, Gonja, and Mamprusi cultures. 
+                            Tamale's mud-and-stick architecture, lively central market, and proximity to Mole National Park 
+                            (where elephants roam free against a savanna backdrop) make it an essential stop. 
+                            Try the local "tz" and groundnut soup—flavors that tell the story of the Sahel.
+                        </p>
+                        <p class="tw hidden">
+                            Ghana atifi aban a ɛyɛ anigye no yɛ Dagomba, Gonja, ne Mamprusi amammerɛ nhoma. 
+                            Tamale afasu a wɔde dɔte ne nnua yɛɛ no, adetɔnbea a ɛwɔ akoma mu, ne sɛ Mole National Park 
+                            (fa a wɔnantwi nantew fa wɔ savanna akyi) bɛn hɔ ma ɛyɛ beae a wɔntumi mfa mmu. 
+                            Sɔ "tz" ne groundnut soup a ɛwɔ hɔ—aduan a ɛbɔ Sahel nsɛm no kyerɛ.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Mole National Park -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.easytrackghana.com/856454fac41db60105cee24e227d36ff6ff5a153.jpg" alt="Mole National Park Elephants" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Wildlife Paradise</span>
+                        <span class="city-tag tw hidden">Mmoa Asase a Ɛsom Bo</span>
+                        <h3 class="en">Mole National Park</h3>
+                        <h3 class="tw hidden">Mole National Park</h3>
+                        <p class="en">
+                            Ghana's largest wildlife refuge is a 4,840-square-kilometer wonderland of savanna, 
+                            baobab trees, and watering holes. Walk safaris bring you face-to-face with elephants, 
+                            buffalo, warthogs, and over 250 bird species. The park's eco-lodge sits on an escarpment 
+                            offering sunrise views that will rewrite your definition of "breathtaking."
+                        </p>
+                        <p class="tw hidden">
+                            Ghana mmoa a wɔhwɛ wɔn so bea a ɛboro so no yɛ asase a ɛyɛ anwonwade a ɛyɛ 
+                            kilomita a ɛboro 4,840 a savanna, baobab nnua, ne nsu a nnomfa no wɔ. 
+                            Nantew safaris de wo bɛn mpɔn, buffalo, warthogs, ne nnomaa a wɔboro 250 so. 
+                            Park no eco-lodge no wɔ aban a ɛwɛ so a ɛma anɔpahema ahwene a ɛbɛsesa wo "breathtaking" ase.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beautiful Places Gallery -->
+    <section>
+        <div class="container">
+            <h2 class="section-title en">Natural Wonders</h2>
+            <h2 class="section-title tw hidden">Anwonwade a Ɛwɔ Bɔbea</h2>
+            
+            <p class="lead en">
+                From the world's largest artificial lake to rainforest canopies teeming with life, 
+                Ghana's landscapes are as diverse as its people.
+            </p>
+            <p class="tw hidden">
+                Efi po a ɛboro so a nnipa yɛɛ no wɔ wiase mu kɔ kwae a nnomaa ne mmoa ahyɛ ma, 
+                Ghana asase ho nneɛma yɛ dɛm sɛ nnipa a ɛwɔ mu.
+            </p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/12c08467623491bf0bce0629b51f0d0fcefbd06b.jpg" alt="Lake Volta">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Lake Volta</h4>
+                        <h4 class="tw hidden">Lake Volta</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.easytrackghana.com/856454fac41db60105cee24e227d36ff6ff5a153.jpg" alt="Elephants">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Mole Elephants</h4>
+                        <h4 class="tw hidden">Mole Mpon</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/8519ea81fb63912b78d230e8a10175fa38e60e94.jpg" alt="Cape Coast Castle">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Cape Coast Castle</h4>
+                        <h4 class="tw hidden">Cape Coast Castle</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/237f66b264c42522f3bf501aa155d651b059f836.jpg" alt="Accra">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Accra Skyline</h4>
+                        <h4 class="tw hidden">Accra Afasu</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/travelghanawithbwo.com/b663933402d5bd59d6c56b8f8b9ae51a33b891fb.jpg" alt="Kumasi">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Kumasi Market</h4>
+                        <h4 class="tw hidden">Kumasi Adetɔnbea</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.getyourguide.com/b94d37eb953dd4d3c01338d3ff23f4682375ec94.jpg" alt="Elmina">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Elmina Castle</h4>
+                        <h4 class="tw hidden">Elmina Castle</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Tips -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title en">Essential Travel Tips</h2>
+            <h2 class="section-title tw hidden">Nkyerɛkyerɛ a Ɛho Hia ma Akwantu</h2>
+            
+            <p class="lead en">
+                Ghana is welcoming, but a little preparation goes a long way. Here is what I wish I had known 
+                before my first visit.
+            </p>
+            <p class="tw hidden">
+                Ghana yɛ kurow a ɛbɔ obiara ho ban, nanso sɛ wosiesie wo ho kakra a, ɛbɛyɛ ma wo. 
+                Nneɛma yi ne nea mepɛɛ sɛ menim ansa na mekɔɔ hɔ a edi kan.
+            </p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">☀️</div>
+                    <h4 class="en">Best Time to Visit</h4>
+                    <h4 class="tw hidden">Bere a Ɛyɛ Pa sɛ Wobɛkɔ</h4>
+                    <p class="en">October to March is ideal—dry, less humid, and perfect for wildlife viewing. The Harmattan wind (December–February) brings dusty but magical hazy light.</p>
+                    <p class="tw hidden">Ɔsana ne Ɔpɛpɔn yɛ pa—ɛyɛ nwini, ɛnnyɛ hyewee, na ɛyɛ ma mmoa ahwene. Harmattan mframa (Ɔpɛnimma–Ɔgyefuo) de mfutuma na mmom ɛde hann a ɛyɛ anwonwade ba.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎒</div>
+                    <h4 class="en">What to Pack</h4>
+                    <h4 class="tw hidden">Nneɛma a Wobɛfa</h4>
+                    <p class="en">Light cotton clothes, a sturdy sun hat, and insect repellent are essentials. Bring modest outfits for village visits and castle tours. A power bank is your best friend.</p>
+                    <p class="tw hidden">Nteaseɛnam a ɛyɛ cotton, abon a ɛyɛ den, ne nneɛma a wɔde gyae nwaw yɛ nea ɛho hia. Fa ntama a ɛyɛ teaseɛnam ma kurow a wobɛkɔ ne afasu a wobɛnantew. Power bank yɛ wo adamfo pa.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">💰</div>
+                    <h4 class="en">Money Matters</h4>
+                    <h4 class="tw hidden">Sika Ho Nsɛm</h4>
+                    <p class="en">The Ghana Cedi (GHS) is the currency. ATMs are available in cities, but carry cash for rural areas. Mobile money (MTN MoMo) is widely used and incredibly convenient.</p>
+                    <p class="tw hidden">Ghana Cedi (GHS) ne sika a wɔde di dwuma. ATM wɔ nkurow mu, nanso fa sika ma mmeae a ɛwɔ akyirikyiri. Mobile money (MTN MoMo) wɔ bea pii na ɛyɛ ma adwuma yɛ yiye.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🍽️</div>
+                    <h4 class="en">Must-Try Foods</h4>
+                    <h4 class="tw hidden">Aduan a Wobɛsɔ</h4>
+                    <p class="en">Jollof rice (the Ghanaian version is legendary), fufu with light soup, banku with tilapia, and kelewele (spicy fried plantain cubes). Wash it down with fresh coconut water or palm wine.</p>
+                    <p class="tw hidden">Jollof rice (Ghana no yɛ anwonwade), fufu ne light soup, banku ne tilapia, ne kelewele (plantain a wɔde nkyene akye). Nom fresh coconut nsu anaa palm wine nso.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🗣️</div>
+                    <h4 class="en">Language</h4>
+                    <h4 class="tw hidden">Kasa</h4>
+                    <p class="en">English is the official language and widely spoken. Learning a few Twi phrases—"Medaase" (thank you), "Akwaaba" (welcome)—will earn you instant friends. Over 80 languages are spoken across Ghana!</p>
+                    <p class="tw hidden">Twi ne kasa a ɛyɛ paa na nnipa bebree kasa no. Sɛ wosua Twi nsɛm kakra—"Medaase" (meda wo ase), "Akwaaba" (woaba)—ɛbɛma wo nya adamfo ntɛm. Kasatwerɛ a ɛboro 80 wɔ Ghana mu!</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">📸</div>
+                    <h4 class="en">Photography</h4>
+                    <h4 class="tw hidden">Nkyerɛw Mfonin</h4>
+                    <p class="en">Always ask before photographing people—it's deeply appreciated. Drone use requires permits. The castles and canopy walkways offer iconic shots, but sunrise over Lake Volta is pure magic.</p>
+                    <p class="tw hidden">Bisa ansa na wo bɛkyere nnipa mfonin—wɔde nidi ma no. Sɛ wobɛfa drone a, wohwɛsɛ wobɛnya tumi. Aban ne canopy walkways no wɔ mfonin a ɛyɛ nkae, nanso anɔpahema wɔ Lake Volta no yɛ anwonwade.
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing -->
+    <section>
+        <div class="container" style="text-align: center; max-width: 700px;">
+            <h2 class="section-title en" style="display: inline-block;">Final Thoughts</h2>
+            <h2 class="section-title tw hidden" style="display: inline-block;">Nkasae a Ɛwɔ Akyi</h2>
+            
+            <p class="en" style="font-size: 1.15rem; margin-top: 30px;">
+                Ghana taught me that travel is not about collecting places—it is about collecting moments 
+                of genuine human connection. When an Ashanti elder pours libation to the ancestors before 
+                sharing a meal with you, when a fisherman in Winneba teaches you to mend his net, 
+                when children in Tamale pull you into a dance circle under the stars—you are no longer a tourist. 
+                You are family.
+            </p>
+            <p class="tw hidden" style="font-size: 1.15rem; margin-top: 30px;">
+                Ghana kyerɛɛ me sɛ akwantu nnyɛ nea ɛfa sɛ wobɛboaboa nneɛma ano—ɛfa sɛ wobɛboaboa 
+                bere a nnipa bɔ wɔn ho mmɔden mu. Sɛ Ashanti panin no tɔ nsuo ma nananom ansa na 
+                wɔne wo adi aduan, sɛ mpɔtɛmfo wɔ Winneba no kyerɛ wo sɛnea wɔsiɛ asau no, 
+                sɛ mmofra wɔ Tamale no de wo bɛn asa a ɛwɛ nsoromma ase no—worennyɛ ɔhɔho bio. 
+                Woyɛ abusua.
+            </p>
+            
+            <p class="en" style="margin-top: 30px; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--forest); font-style: italic;">
+                "Ghana is not just a destination. It is a homecoming."
+            </p>
+            <p class="tw hidden" style="margin-top: 30px; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--forest); font-style: italic;">
+                "Ghana nnyɛ beae a wobɛkɔ bi. Ɛyɛ fie a woresan akɔ."
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/9fdf904f0456af718179d3ce84a210b0c5fb2417.png" alt="Ghana Flag" class="footer-flag">
+            <p class="footer-quote en">"The Black Star shines for all of Africa."</p>
+            <p class="footer-quote tw hidden">"Nsoromma Tuntum no hyerɛn ma Africa nyinaa."</p>
+            <p class="footer-copy en">&copy; 2026 Ghana Travel Blog. Written with love for the traveler in you.</p>
+            <p class="footer-copy tw hidden">&copy; 2026 Ghana Akwantu Blog. Wɔkyerɛɛw ɔdɔ a ɛwɔ wo mu akyi.</p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            // Update buttons
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-tw').classList.toggle('active', lang === 'tw');
+            
+            // Show/hide English content
+            document.querySelectorAll('.en').forEach(el => {
+                el.classList.toggle('hidden', lang === 'tw');
+            });
+            
+            // Show/hide Twi content
+            document.querySelectorAll('.tw').forEach(el => {
+                el.classList.toggle('hidden', lang === 'en');
+            });
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Add smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Apply initial styles and observe
+        document.querySelectorAll('.city-card, .tip-card, .timeline-item, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
