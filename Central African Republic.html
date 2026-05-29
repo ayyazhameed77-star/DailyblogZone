@@ -1,0 +1,1258 @@
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central African Republic: The Heart of Africa — A Traveler's Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #2D5A3D;
+            --river: #1E4D8C;
+            --earth: #8B5A2B;
+            --gold: #D4A017;
+            --cream: #F5F0E8;
+            --deep-night: #1a1a2e;
+            --warm-white: #FDF8F0;
+            --text-dark: #2C1810;
+            --text-light: #6B5B4F;
+            --sango-red: #B22222;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+        
+        .lang-bar span {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--deep-night);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--deep-night) 0%, var(--forest) 50%, var(--river) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px 60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="15" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="85" cy="35" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="45" cy="75" r="1" fill="rgba(255,255,255,0.06)"/><circle cx="70" cy="60" r="0.8" fill="rgba(255,215,0,0.1)"/></svg>');
+            background-size: 200px 200px;
+            animation: twinkle 8s linear infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 160, 23, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-label {
+            display: inline-block;
+            color: var(--earth);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+        
+        .section-intro {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Name Origin Section */
+        .name-origin {
+            background: linear-gradient(to bottom, var(--warm-white), var(--cream));
+        }
+        
+        .name-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .name-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 12rem;
+            color: var(--cream);
+            opacity: 0.5;
+            line-height: 1;
+        }
+        
+        .name-card p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .etymology-box {
+            background: linear-gradient(135deg, var(--river), #152a4d);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .etymology-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+        
+        .etymology-box p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            background: var(--deep-night);
+            color: white;
+            padding: 80px 20px;
+        }
+        
+        .flag-section .section-label { color: var(--gold); }
+        .flag-section h2 { color: white; }
+        .flag-section .section-intro { color: rgba(255,255,255,0.7); }
+        
+        .flag-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .flag-visual {
+            text-align: center;
+        }
+        
+        .flag-visual img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .flag-visual img:hover {
+            transform: scale(1.03);
+        }
+        
+        .flag-meaning h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .color-meaning {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .color-bar {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .color-bar.blue { background: #1E4D8C; }
+        .color-bar.white { background: white; border: 2px solid rgba(255,255,255,0.2); }
+        .color-bar.green { background: #138808; }
+        .color-bar.yellow { background: #FFD700; }
+        .color-bar.red { background: #B22222; }
+        
+        .color-text h4 {
+            font-size: 1.05rem;
+            margin-bottom: 3px;
+        }
+        
+        .color-text p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        
+        .star-meaning {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            border-left: 3px solid var(--gold);
+        }
+        
+        .star-meaning p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        /* History Timeline */
+        .history-section {
+            background: var(--warm-white);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--earth));
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            max-width: 350px;
+            position: relative;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 15px;
+            height: 15px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 3px solid var(--warm-white);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -42px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -42px;
+        }
+        
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--earth);
+            font-weight: 700;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+        
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        
+        /* Cities Grid */
+        .cities-section {
+            background: linear-gradient(to bottom, var(--cream), var(--warm-white));
+        }
+        
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .city-card:hover .city-image {
+            transform: scale(1.05);
+        }
+        
+        .city-content {
+            padding: 30px;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--cream);
+            color: var(--earth);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .city-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        
+        .city-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .city-fact {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--cream);
+            font-size: 0.85rem;
+            color: var(--earth);
+            font-style: italic;
+        }
+        
+        /* Travel Guide */
+        .travel-section {
+            background: var(--warm-white);
+        }
+        
+        .travel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .travel-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .travel-card:hover {
+            border-left-color: var(--forest);
+            transform: translateX(5px);
+        }
+        
+        .travel-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .travel-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .travel-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        
+        .best-time {
+            background: linear-gradient(135deg, var(--forest), #1e3d2f);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .best-time h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+        
+        .best-time p {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Culture Section */
+        .culture-section {
+            background: var(--deep-night);
+            color: white;
+            padding: 80px 20px;
+        }
+        
+        .culture-section .section-label { color: var(--gold); }
+        .culture-section h2 { color: white; }
+        .culture-section .section-intro { color: rgba(255,255,255,0.7); }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .culture-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .culture-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin: 15px 0;
+            color: var(--gold);
+        }
+        
+        .culture-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0f0f1a;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.85rem;
+        }
+        
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .flag-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .timeline::before { left: 20px; }
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -42px;
+                right: auto;
+            }
+            
+            .name-card { padding: 30px 20px; }
+            .name-card::before { font-size: 8rem; top: -10px; }
+        }
+        
+        /* Hidden language content */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <span>🌐 Language</span>
+        <button class="lang-btn active" onclick="switchLang('en')" id="btn-en">English</button>
+        <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">Français</button>
+    </div>
+
+    <!-- ENGLISH CONTENT -->
+    <div id="content-en" class="lang-content active">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Africa's Untouched Heart</div>
+                <h1>Discover the <span>Central African Republic</span></h1>
+                <p class="hero-subtitle">Where the Congo Basin breathes, the Ubangi River sings, and ancient rainforests hide gorillas, elephants, and stories older than memory.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">623K</div>
+                        <div class="stat-label">km² of Wilderness</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5M+</div>
+                        <div class="stat-label">Welcoming Souls</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">UNESCO Parks</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-hint">↓ Scroll to explore</div>
+        </section>
+
+        <!-- Name Origin -->
+        <section class="section name-origin">
+            <div class="section-header">
+                <div class="section-label">Etymology</div>
+                <h2>The Story Behind the Name</h2>
+                <p class="section-intro">A name born from geography, shaped by colonial cartographers, and claimed by a nation finding its voice.</p>
+            </div>
+            <div class="name-card">
+                <p>The name <strong>"Central African Republic"</strong> is refreshingly honest — it describes exactly where this nation sits: at the very <strong>geographic heart of Africa</strong>. But before independence, the French called this territory <strong>"Oubangui-Chari"</strong> (Ubangi-Shari), named after the two great rivers that defined its borders.</p>
+                <p>The Ubangi River flows southward, eventually joining the Congo, while the Chari River drains northward toward Lake Chad. These waterways were the highways of pre-colonial trade, the lifeblood of the Baya and Banda peoples who settled here fleeing the slave trade, and the routes European explorers followed inland.</p>
+                <p>When independence came in 1960, the new nation chose a name that spoke not of colonial rivers, but of continental identity — a declaration that this land belongs to the center of Africa itself.</p>
+                <div class="etymology-box">
+                    <h3>🗣️ Did You Know?</h3>
+                    <p>The capital, <strong>Bangui</strong>, takes its name from the <strong>Bangui Rapids</strong> on the Ubangi River — a thundering stretch of water where the river narrows and accelerates. Founded by French explorer Michel Dolisie in 1889, the city was deliberately placed at this strategic point to control river trade north toward Chad and east toward the Nile.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flag -->
+        <section class="flag-section">
+            <div class="section-header">
+                <div class="section-label">National Symbol</div>
+                <h2>The Flag of the Central African Republic</h2>
+                <p class="section-intro">Four horizontal bands, one vertical stripe, and a single golden star — Africa's most geometrically beautiful flag tells a story of unity and aspiration.</p>
+            </div>
+            <div class="flag-container">
+                <div class="flag-visual">
+                    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/ceaaba337e503628ff673d56d6b7568ccd3c2843.png" alt="Flag of the Central African Republic">
+                </div>
+                <div class="flag-meaning">
+                    <h3>Colors of a Continent</h3>
+                    <p>Designed by the great artist <strong>Barthelemy Boganda</strong> — the father of the nation — the flag was adopted on December 1, 1958. Boganda intended it as a flag for a <em>united Central Africa</em>, not just one country.</p>
+                    <div class="color-meaning">
+                        <div class="color-item">
+                            <div class="color-bar blue"></div>
+                            <div class="color-text">
+                                <h4>Blue (Top)</h4>
+                                <p>Liberty and the vast African sky — the freedom that independence brought.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar white"></div>
+                            <div class="color-text">
+                                <h4>White</h4>
+                                <p>Dignity, peace, and the purity of intention — the hope for harmony among all peoples.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar green"></div>
+                            <div class="color-text">
+                                <h4>Green</h4>
+                                <p>Hope and the lush tropical forests that cover much of the country's south.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar yellow"></div>
+                            <div class="color-text">
+                                <h4>Yellow (Bottom)</h4>
+                                <p>Tolerance and the savanna grasslands — the warmth of the Central African sun.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar red"></div>
+                            <div class="color-text">
+                                <h4>Red (Vertical)</h4>
+                                <p>The blood of martyrs and the bravery of those who fought for independence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="star-meaning">
+                        <p>⭐ <strong>The Yellow Star</strong> in the upper left corner represents the independence of the Central African Republic — a guiding light for the nation and a beacon of African unity. It is the only national flag in Africa to feature both horizontal and vertical stripes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History -->
+        <section class="section history-section">
+            <div class="section-header">
+                <div class="section-label">Through the Ages</div>
+                <h2>A Journey Through Time</h2>
+                <p class="section-intro">From ancient megaliths to colonial outposts, from independence dreams to the struggle for peace.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">~3500 BCE</div>
+                        <div class="timeline-title">The Bouar Megaliths</div>
+                        <div class="timeline-desc">Mysterious stone monuments are erected near present-day Bouar — one of Africa's oldest archaeological enigmas. These standing stones suggest organized societies existed here over 5,000 years ago, long before the great empires of the Sahel.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1800s</div>
+                        <div class="timeline-title">The Baya & Banda Migrations</div>
+                        <div class="timeline-desc">The Baya and Banda peoples — now the country's largest ethnic groups — migrate into the region to escape the Arab slave trade. They bring with them rich traditions of agriculture, ironworking, and oral history that still define CAR culture today.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1889</div>
+                        <div class="timeline-title">French Colonial Era Begins</div>
+                        <div class="timeline-desc">French explorer Michel Dolisie founds Bangui as a military post. The territory becomes "Oubangui-Chari," part of French Equatorial Africa. The French build administrative centers and attempt to connect the interior to the Atlantic via the Ubangi River.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1958</div>
+                        <div class="timeline-title">Boganda's Vision</div>
+                        <div class="timeline-desc">Barthélémy Boganda — priest, statesman, and visionary — leads the territory to autonomy within the French Community. He dreams of a "United States of Latin Africa" and designs the flag that still flies today. Tragically, he dies in a plane crash in 1959.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">August 13, 1960</div>
+                        <div class="timeline-title">Independence Day</div>
+                        <div class="timeline-desc">The Central African Republic declares independence from France. David Dacko becomes the first president. The nation is born with hope, but the decades ahead will test its resilience through coups, the Bokassa empire, and civil conflict.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1988</div>
+                        <div class="timeline-title">Manovo-Gounda — UNESCO Heritage</div>
+                        <div class="timeline-desc">Manovo-Gounda St. Floris National Park is inscribed as a UNESCO World Heritage Site, recognizing its extraordinary savanna ecosystems and wildlife. It becomes a symbol of CAR's natural wealth — though conflict later threatens its treasures.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cities -->
+        <section class="section cities-section">
+            <div class="section-header">
+                <div class="section-label">Must-Visit Destinations</div>
+                <h2>Cities Where the Wild Meets the Soul</h2>
+                <p class="section-intro">From riverfront capitals to rainforest gateways, these places are the heartbeat of the Central African Republic.</p>
+            </div>
+            <div class="cities-grid">
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/myvirtualworldtrip.com/65e2297860265b68e27ddd2bb5f6e8831b773f2c.jpg" alt="Bangui aerial view Ubangi River" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Capital City</div>
+                        <h3>Bangui</h3>
+                        <p>Where the Ubangi River separates the Central African Republic from the Democratic Republic of Congo. Bangui is a city of pirogues and palm wine, of the stunning Notre-Dame Cathedral's red-brick towers, and the Boganda National Museum's ethnographic treasures. Walk the riverfront at sunset, haggle for wooden masks at the artisan market, and feel the rhythm of Sango being spoken in the streets.</p>
+                        <div class="city-fact">💡 Best for: Riverfront sunsets, the cathedral, Boganda Museum, and artisan markets.</div>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.sophiesworld.net/98687bef112921d4376325d8dc60171c02070c4b.jpg" alt="Boali Falls waterfall" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Natural Wonder</div>
+                        <h3>Boali</h3>
+                        <p>Just 100 km north of Bangui, the Boali Waterfalls crash down the Mbali River with a thunder that can be heard before they are seen. At 250 meters wide, these falls are one of Central Africa's most spectacular natural wonders. In the rainy season, they swell into a roaring wall of white water; in the dry season, they reveal the rocky cliffs beneath. A perfect day trip from the capital.</p>
+                        <div class="city-fact">💡 Best for: Waterfall photography, nature walks, and the nearby hydroelectric plant.</div>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.kanaga-at.com/81d50a7563ec24a12ace3143e7ff0d17ec9693e8.jpg" alt="Boali Falls wide view" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Wildlife Paradise</div>
+                        <h3>Bayanga & Dzanga-Sangha</h3>
+                        <p>The jewel of the Central African Republic. In the southwestern rainforest, Dzanga-Sangha National Park is one of the few places on Earth where you can track Western lowland gorillas on foot. Watch forest elephants gather at Dzanga Bai, a magical forest clearing, and meet the Baka people — indigenous forest dwellers whose knowledge of the jungle is unparalleled. This is raw Africa at its most beautiful.</p>
+                        <div class="city-fact">💡 Best for: Gorilla tracking, forest elephants, Baka cultural encounters, and birdwatching.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Guide -->
+        <section class="section travel-section">
+            <div class="section-header">
+                <div class="section-label">Practical Wisdom</div>
+                <h2>The Traveler's Compass</h2>
+                <p class="section-intro">The CAR is not an easy destination — but for those who come prepared, it offers rewards no other country can match.</p>
+            </div>
+            <div class="travel-grid">
+                <div class="travel-card">
+                    <div class="travel-icon">🛂</div>
+                    <h3>Visa & Entry</h3>
+                    <p>Most travelers need a visa in advance. Apply at CAR embassies with passport photos, yellow fever certificate, and proof of accommodation. Visas are not typically available on arrival. Check current security advisories before applying.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">💰</div>
+                    <h3>Money Matters</h3>
+                    <p>The Central African CFA franc (XAF) is the currency. Cash is essential — bring euros to exchange in Bangui. ATMs are rare and unreliable. Credit cards are almost never accepted. Carry small denominations for market purchases.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🚙</div>
+                    <h3>Getting Around</h3>
+                    <p>Motorbike taxis (motos) are the city transport of choice. For intercity travel, shared taxis and bush taxis are common but slow. To reach Dzanga-Sangha, you'll need a 4x4 with a driver who knows the route — expect long, bumpy roads and frequent checkpoints.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🍲</div>
+                    <h3>Food & Drink</h3>
+                    <p>Try <em>sauce graine</em> (palm nut soup with cassava), <em>kanda</em> (peanut meatballs), <em>maboké</em> (fish steamed in banana leaves), and <em>saka saka</em> (cassava leaves with peanut paste). Fresh grilled fish from the Ubangi is a Bangui staple. Drink only bottled or boiled water.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🎒</div>
+                    <h3>What to Pack</h3>
+                    <p>Light, breathable clothing in neutral colors. A good rain jacket for the southwest. Sturdy hiking boots for gorilla tracking. Headlamp, power bank, and dry bags for electronics. Malaria prophylaxis is essential. Bring a satellite phone for remote areas.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🗣️</div>
+                    <h3>Languages</h3>
+                    <p>French is the official language. Sango is the national lingua franca — spoken by almost everyone in Bangui and across the country. Learning a few Sango phrases like "<em>Balao</em>" (hello) and "<em>Singila</em>" (thank you) will earn you instant smiles.</p>
+                </div>
+            </div>
+            <div class="best-time">
+                <h3>🌤️ Best Time to Visit</h3>
+                <p><strong>November to February</strong> is the golden window. The rains have passed, the roads are passable, and the Harmattan wind brings clear skies. For Dzanga-Sangha wildlife, December to March offers the best gorilla tracking and elephant viewing. Avoid the rainy season (May–October) when many roads become impassable and mosquitoes are rampant.</p>
+            </div>
+        </section>
+
+        <!-- Culture -->
+        <section class="culture-section">
+            <div class="section-header">
+                <div class="section-label">Living Heritage</div>
+                <h2>The People of the Central African Republic</h2>
+                <p class="section-intro">Over 80 ethnic groups, two official languages, and an unbreakable spirit of resilience and music.</p>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <h3>🌿 The Baka People</h3>
+                    <p>Indigenous forest dwellers of the southwestern rainforest. Semi-nomadic hunter-gatherers with an encyclopedic knowledge of medicinal plants, animal tracks, and forest spirits. Their polyphonic singing and yodelling are recognized by UNESCO as intangible heritage.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🏹 The Baya (Gbayi)</h3>
+                    <p>The largest ethnic group, traditionally agriculturalists of the western savannas. Known for their ironworking, oral epics, and the <em>gbaya</em> harp — a stringed instrument whose music accompanies storytelling ceremonies that can last all night.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🥁 The Banda</h3>
+                    <p>Masters of the northern and eastern regions. The Banda are renowned for their intricate wooden masks, used in initiation ceremonies and spiritual rituals. Their drumming traditions are among the most complex in Central Africa.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🎵 Music & Dance</h3>
+                    <p>Music is the soul of CAR. From the <em>zokela</em> dance bands of Bangui to the Baka's forest yodelling, rhythm pulses through every village. The <em>balafon</em> (wooden xylophone) and <em>ngombi</em> (arched harp) are iconic instruments.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>Made with ❤️ for travelers who seek the road less traveled.</p>
+            <p style="margin-top: 10px;">The Central African Republic — <em>"The Heart of Africa"</em> — beats for those who listen.</p>
+        </div>
+    </div>
+
+    <!-- FRENCH CONTENT -->
+    <div id="content-fr" class="lang-content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Le Cœur Intact de l'Afrique</div>
+                <h1>Découvrez la <span>République Centrafricaine</span></h1>
+                <p class="hero-subtitle">Là où le bassin du Congo respire, le fleuve Oubangui chante, et les forêts anciennes cachent des gorilles, des éléphants et des histoires plus vieilles que la mémoire.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">623K</div>
+                        <div class="stat-label">km² de Nature Sauvage</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5M+</div>
+                        <div class="stat-label">Âmes Accueillantes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Parcs UNESCO</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-hint">↓ Faites défiler pour explorer</div>
+        </section>
+
+        <!-- Name Origin -->
+        <section class="section name-origin">
+            <div class="section-header">
+                <div class="section-label">Étymologie</div>
+                <h2>L'Histoire Derrière le Nom</h2>
+                <p class="section-intro">Un nom né de la géographie, façonné par des cartographes coloniaux, et revendiqué par une nation trouvant sa voix.</p>
+            </div>
+            <div class="name-card">
+                <p>Le nom <strong>"République Centrafricaine"</strong> est d'une honnêteté rafraîchissante — il décrit exactement où cette nation se situe : au <strong>cœur géographique de l'Afrique</strong>. Mais avant l'indépendance, les Français appelaient ce territoire <strong>"Oubangui-Chari"</strong>, du nom des deux grands fleuves qui définissaient ses frontières.</p>
+                <p>Le fleuve Oubangui coule vers le sud, rejoignant finalement le Congo, tandis que le fleuve Chari draine vers le nord en direction du lac Tchad. Ces cours d'eau étaient les autoroutes du commerce précolonial, le sang vital des peuples Baya et Banda qui s'y installèrent en fuyant la traite des esclaves, et les routes que les explorateurs européens suivirent vers l'intérieur.</p>
+                <p>Quand l'indépendance arriva en 1960, la nouvelle nation choisit un nom qui ne parlait pas de rivières coloniales, mais d'identité continentale — une déclaration que cette terre appartient au centre de l'Afrique elle-même.</p>
+                <div class="etymology-box">
+                    <h3>🗣️ Le Saviez-Vous ?</h3>
+                    <p>La capitale, <strong>Bangui</strong>, tire son nom des <strong>Rapides de Bangui</strong> sur le fleuve Oubangui — un tronçon tonitruant où le fleuve se rétrécit et accélère. Fondée par l'explorateur français Michel Dolisie en 1889, la ville fut délibérément placée à ce point stratégique pour contrôler le commerce fluvial vers le nord (Tchad) et l'est (Nil).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flag -->
+        <section class="flag-section">
+            <div class="section-header">
+                <div class="section-label">Symbole National</div>
+                <h2>Le Drapeau de la République Centrafricaine</h2>
+                <p class="section-intro">Quatre bandes horizontales, une bande verticale, et une étoile dorée — le drapeau le plus géométriquement beau d'Afrique raconte une histoire d'unité et d'aspiration.</p>
+            </div>
+            <div class="flag-container">
+                <div class="flag-visual">
+                    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/ceaaba337e503628ff673d56d6b7568ccd3c2843.png" alt="Drapeau de la République Centrafricaine">
+                </div>
+                <div class="flag-meaning">
+                    <h3>Les Couleurs d'un Continent</h3>
+                    <p>Conçu par le grand artiste <strong>Barthélémy Boganda</strong> — le père de la nation — le drapeau fut adopté le 1er décembre 1958. Boganda le destinait à être le drapeau d'une <em>Afrique centrale unie</em>, pas seulement d'un pays.</p>
+                    <div class="color-meaning">
+                        <div class="color-item">
+                            <div class="color-bar blue"></div>
+                            <div class="color-text">
+                                <h4>Bleu (Haut)</h4>
+                                <p>La liberté et le vaste ciel africain — la liberté que l'indépendance a apportée.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar white"></div>
+                            <div class="color-text">
+                                <h4>Blanc</h4>
+                                <p>La dignité, la paix et la pureté d'intention — l'espoir d'harmonie entre tous les peuples.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar green"></div>
+                            <div class="color-text">
+                                <h4>Vert</h4>
+                                <p>L'espoir et les luxuriantes forêts tropicales qui couvrent une grande partie du sud du pays.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar yellow"></div>
+                            <div class="color-text">
+                                <h4>Jaune (Bas)</h4>
+                                <p>La tolérance et les savanes — la chaleur du soleil centrafricain.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar red"></div>
+                            <div class="color-text">
+                                <h4>Rouge (Vertical)</h4>
+                                <p>Le sang des martyrs et le courage de ceux qui ont lutté pour l'indépendance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="star-meaning">
+                        <p>⭐ <strong>L'Étoile Jaune</strong> dans le coin supérieur gauche représente l'indépendance de la République Centrafricaine — un phare pour la nation et un symbole de l'unité africaine. C'est le seul drapeau national d'Afrique à combiner bandes horizontales et verticales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History -->
+        <section class="section history-section">
+            <div class="section-header">
+                <div class="section-label">À Travers les Âges</div>
+                <h2>Un Voyage dans le Temps</h2>
+                <p class="section-intro">Des mégalithes anciens aux comptoirs coloniaux, des rêves d'indépendance à la lutte pour la paix.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">~3500 AEC</div>
+                        <div class="timeline-title">Les Mégalithes de Bouar</div>
+                        <div class="timeline-desc">D'étranges monuments de pierre sont érigés près de l'actuelle Bouar — l'un des plus vieux énigmes archéologiques d'Afrique. Ces pierres dressées suggèrent que des sociétés organisées existaient ici il y a plus de 5 000 ans, bien avant les grands empires du Sahel.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1800s</div>
+                        <div class="timeline-title">Les Migrations Baya et Banda</div>
+                        <div class="timeline-desc">Les peuples Baya et Banda — aujourd'hui les plus grands groupes ethniques du pays — migrent dans la région pour échapper à la traite arabe des esclaves. Ils apportent avec eux de riches traditions d'agriculture, de forge et d'histoire orale qui définissent encore la culture centrafricaine.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1889</div>
+                        <div class="timeline-title">Le Début de l'Époque Coloniale</div>
+                        <div class="timeline-desc">L'explorateur français Michel Dolisie fonde Bangui comme poste militaire. Le territoire devient "Oubangui-Chari", partie de l'Afrique équatoriale française. Les Français construisent des centres administratifs et tentent de relier l'intérieur à l'Atlantique via l'Oubangui.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1958</div>
+                        <div class="timeline-title">La Vision de Boganda</div>
+                        <div class="timeline-desc">Barthélémy Boganda — prêtre, homme d'État et visionnaire — conduit le territoire vers l'autonomie au sein de la Communauté française. Il rêve d'"États-Unis de l'Afrique latine" et conçoit le drapeau qui flotte encore aujourd'hui. Tragiquement, il meurt dans un crash d'avion en 1959.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">13 Août 1960</div>
+                        <div class="timeline-title">Le Jour de l'Indépendance</div>
+                        <div class="timeline-desc">La République Centrafricaine proclame son indépendance de la France. David Dacko devient le premier président. La nation naît avec espoir, mais les décennies à venir testeront sa résilience à travers des coups d'État, l'empire Bokassa et des conflits civils.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1988</div>
+                        <div class="timeline-title">Manovo-Gounda — Patrimoine UNESCO</div>
+                        <div class="timeline-desc">Le Parc National Manovo-Gounda St Floris est inscrit au patrimoine mondial de l'UNESCO, reconnaissant ses extraordinaires écosystèmes de savane et sa faune. Il devient un symbole de la richesse naturelle de la RCA — bien que les conflits ultérieurs menacent ses trésors.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cities -->
+        <section class="section cities-section">
+            <div class="section-header">
+                <div class="section-label">Destinations Incontournables</div>
+                <h2>Des Villes où le Sauvage Rencontre l'Âme</h2>
+                <p class="section-intro">Des capitales fluviales aux portes de la forêt, ces lieux sont le cœur battant de la République Centrafricaine.</p>
+            </div>
+            <div class="cities-grid">
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/myvirtualworldtrip.com/65e2297860265b68e27ddd2bb5f6e8831b773f2c.jpg" alt="Vue aérienne de Bangui et l'Oubangui" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Capitale</div>
+                        <h3>Bangui</h3>
+                        <p>Là où le fleuve Oubangui sépare la République Centrafricaine de la République Démocratique du Congo. Bangui est une ville de pirogues et de vin de palme, des tours imposantes de la cathédrale Notre-Dame en brique rouge, et des trésors ethnographiques du Musée National Boganda. Promenez-vous au bord du fleuve au coucher du soleil, marchandez des masques en bois au marché des artisans, et ressentez le rythme du sango parlé dans les rues.</p>
+                        <div class="city-fact">💡 Idéal pour : Couchers de soleil fluviaux, la cathédrale, le musée Boganda, et les marchés d'artisanat.</div>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.sophiesworld.net/98687bef112921d4376325d8dc60171c02070c4b.jpg" alt="Chutes de Boali" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Merveille Naturelle</div>
+                        <h3>Boali</h3>
+                        <p>À seulement 100 km au nord de Bangui, les Chutes de Boali s'écrasent sur la rivière Mbali avec un tonnerre que l'on entend avant de les voir. Sur 250 mètres de large, ces chutes comptent parmi les merveilles naturelles les plus spectaculaires d'Afrique centrale. En saison des pluies, elles gonflent en un mur rugissant d'eau blanche ; en saison sèche, elles révèlent les falaises rocheuses en dessous. Une excursion parfaite depuis la capitale.</p>
+                        <div class="city-fact">💡 Idéal pour : Photographie de cascades, promenades en nature, et la centrale hydroélectrique voisine.</div>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.kanaga-at.com/81d50a7563ec24a12ace3143e7ff0d17ec9693e8.jpg" alt="Chutes de Boali vue panoramique" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Paradis de la Faune</div>
+                        <h3>Bayanga & Dzanga-Sangha</h3>
+                        <p>Le joyau de la République Centrafricaine. Dans la forêt tropicale du sud-ouest, le Parc National Dzanga-Sangha est l'un des rares endroits sur Terre où l'on peut suivre les gorilles des plaines de l'Ouest à pied. Observez les éléphants de forêt se rassembler au Dzanga Bai, une clairière magique, et rencontrez les Baka — habitants autochtones de la forêt dont la connaissance de la jungle est inégalée. C'est l'Afrique brute dans toute sa splendeur.</p>
+                        <div class="city-fact">💡 Idéal pour : Suivi des gorilles, éléphants de forêt, rencontres culturelles Baka, et ornithologie.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Guide -->
+        <section class="section travel-section">
+            <div class="section-header">
+                <div class="section-label">Sagesse Pratique</div>
+                <h2>La Boussole du Voyageur</h2>
+                <p class="section-intro">La RCA n'est pas une destination facile — mais pour ceux qui viennent préparés, elle offre des récompenses qu'aucun autre pays ne peut égaler.</p>
+            </div>
+            <div class="travel-grid">
+                <div class="travel-card">
+                    <div class="travel-icon">🛂</div>
+                    <h3>Visa & Entrée</h3>
+                    <p>La plupart des voyageurs ont besoin d'un visa à l'avance. Demandez-le dans les ambassades de la RCA avec des photos d'identité, un certificat de fièvre jaune et une preuve d'hébergement. Les visas ne sont généralement pas disponibles à l'arrivée. Vérifiez les avis de sécurité actuels avant de postuler.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">💰</div>
+                    <h3>Questions d'Argent</h3>
+                    <p>Le franc CFA (XAF) est la monnaie. L'argent liquide est essentiel — apportez des euros à échanger à Bangui. Les distributeurs sont rares et peu fiables. Les cartes de crédit ne sont presque jamais acceptées. Portez de petites coupures pour les achats au marché.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🚙</div>
+                    <h3>Se Déplacer</h3>
+                    <p>Les moto-taxis (motos) sont le transport urbain de choix. Pour les trajets interurbains, les taxis partagés et taxis-brousse sont courants mais lents. Pour rejoindre Dzanga-Sangha, vous aurez besoin d'un 4x4 avec un chauffeur connaissant la route — attendez-vous à des routes longues, cahoteuses et de fréquents postes de contrôle.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🍲</div>
+                    <h3>Gastronomie</h3>
+                    <p>Essayez la <em>sauce graine</em> (soupe de noix de palme au manioc), le <em>kanda</em> (boulettes de viande aux arachides), le <em>maboké</em> (poisson cuit à la vapeur dans des feuilles de bananier), et le <em>saka saka</em> (feuilles de manioc avec pâte d'arachide). Le poisson frais grillé de l'Oubangui est un incontournable à Bangui. Buvez uniquement de l'eau en bouteille ou bouillie.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🎒</div>
+                    <h3>Que Mettre dans ses Bagages</h3>
+                    <p>Vêtements légers et respirants dans des couleurs neutres. Un bon imperméable pour le sud-ouest. Des bottes de randonnée robustes pour le suivi des gorilles. Lampe frontale, batterie externe et sacs étanches pour l'électronique. La prophylaxie antipaludique est essentielle. Apportez un téléphone satellite pour les zones reculées.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🗣️</div>
+                    <h3>Langues</h3>
+                    <p>Le français est la langue officielle. Le sango est la lingua franca nationale — parlé par presque tout le monde à Bangui et dans tout le pays. Apprendre quelques phrases en sango comme "<em>Balao</em>" (bonjour) et "<em>Singila</em>" (merci) vous vaudra des sourires instantanés.</p>
+                </div>
+            </div>
+            <div class="best-time">
+                <h3>🌤️ Meilleure Période pour Visiter</h3>
+                <p><strong>Novembre à février</strong> est la fenêtre dorée. Les pluies sont passées, les routes sont praticables, et le vent Harmattan apporte des cieux dégagés. Pour la faune de Dzanga-Sangha, décembre à mars offre le meilleur suivi des gorilles et l'observation des éléphants. Évitez la saison des pluies (mai-octobre) où de nombreuses routes deviennent impraticables et les moustiques pullulent.</p>
+            </div>
+        </section>
+
+        <!-- Culture -->
+        <section class="culture-section">
+            <div class="section-header">
+                <div class="section-label">Patrimoine Vivant</div>
+                <h2>Les Peuples de la République Centrafricaine</h2>
+                <p class="section-intro">Plus de 80 groupes ethniques, deux langues officielles, et un esprit inébranlable de résilience et de musique.</p>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <h3>🌿 Les Baka</h3>
+                    <p>Habitants autochtones de la forêt tropicale du sud-ouest. Chasseurs-cueilleurs semi-nomades avec une connaissance encyclopédique des plantes médicinales, des traces d'animaux et des esprits de la forêt. Leur chant polyphonique et leurs yodels sont reconnus par l'UNESCO comme patrimoine immatériel.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🏹 Les Baya (Gbayi)</h3>
+                    <p>Le plus grand groupe ethnique, traditionnellement agriculteurs des savanes de l'ouest. Connus pour leur forge, leurs épopées orales et la harpe <em>gbaya</em> — un instrument à cordes dont la musique accompagne des cérémonies de contes qui peuvent durer toute la nuit.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🥁 Les Banda</h3>
+                    <p>Maîtres des régions du nord et de l'est. Les Banda sont renommés pour leurs masques en bois complexes, utilisés dans les cérémonies d'initiation et les rituels spirituels. Leurs traditions de tambour sont parmi les plus complexes d'Afrique centrale.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🎵 Musique & Danse</h3>
+                    <p>La musique est l'âme de la RCA. Des orchestres de danse <em>zokela</em> de Bangui aux yodels forestiers des Baka, le rythme pulse dans chaque village. Le <em>balafon</em> (xylophone en bois) et la <em>ngombi</em> (harpe arquée) sont des instruments emblématiques.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>Fait avec ❤️ pour les voyageurs qui cherchent la route moins fréquentée.</p>
+            <p style="margin-top: 10px;">La République Centrafricaine — <em>"Le Cœur de l'Afrique"</em> — bat pour ceux qui écoutent.</p>
+        </div>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('content-' + lang).classList.add('active');
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>'''
+
+with open('/mnt/agents/output/central_african_republic_travel_guide.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("✅ File saved successfully!")
+print(f"📄 Size: {len(html_content):,} characters")
