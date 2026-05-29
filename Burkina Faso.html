@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burkina Faso: Land of the Upright People — A Traveler's Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bf-red: #CE1126;
+            --bf-green: #009E49;
+            --bf-gold: #FCD116;
+            --bf-dark: #1A1A1A;
+            --sand: #FDF8F0;
+            --earth: #8B6914;
+            --text-dark: #2C2C2C;
+            --text-light: #666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--sand);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            background: var(--bf-dark);
+            padding: 12px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .lang-bar button {
+            background: transparent;
+            border: 2px solid var(--bf-gold);
+            color: var(--bf-gold);
+            padding: 8px 24px;
+            margin: 0 8px;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-bar button:hover, .lang-bar button.active {
+            background: var(--bf-gold);
+            color: var(--bf-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%),
+                        url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--sand), transparent);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            letter-spacing: -1px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .hero .author {
+            font-style: italic;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-hint span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .scroll-hint span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 10px;
+            background: white;
+            border-radius: 3px;
+            animation: scroll 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        @keyframes scroll {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 25px; }
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--bf-red);
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .flag-container {
+            max-width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .flag-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .flag-img {
+            width: 100%;
+            display: block;
+        }
+        
+        .flag-meaning {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .meaning-card {
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .meaning-card.red { background: rgba(206, 17, 38, 0.08); border-left: 4px solid var(--bf-red); }
+        .meaning-card.green { background: rgba(0, 158, 73, 0.08); border-left: 4px solid var(--bf-green); }
+        .meaning-card.gold { background: rgba(252, 209, 22, 0.15); border-left: 4px solid var(--bf-gold); }
+        
+        .meaning-card h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* City Cards */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        
+        .city-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-img {
+            transform: scale(1.05);
+        }
+        
+        .city-content {
+            padding: 30px;
+        }
+        
+        .city-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        
+        .city-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--sand);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--earth);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--bf-red), var(--bf-gold), var(--bf-green));
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--bf-gold);
+        }
+        
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--bf-red);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        /* Beautiful Places Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+        
+        /* Travel Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .tip-card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        
+        .tip-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .tip-card h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bf-dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-flag {
+            width: 80px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            box-shadow: 0 5px 20px rgba(255,255,255,0.1);
+        }
+        
+        .footer-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .footer-copy {
+            opacity: 0.6;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+        
+        /* Hidden class for language toggle */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 50px 0;
+            }
+            
+            .cities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Selection color */
+        ::selection {
+            background: var(--bf-gold);
+            color: var(--bf-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <button class="active" onclick="setLanguage('en')" id="btn-en">🇬🇧 English</button>
+        <button onclick="setLanguage('fr')" id="btn-fr">🇧🇫 Français</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="en">Burkina Faso: Land of the Upright People</h1>
+            <h1 class="fr hidden">Burkina Faso : Le Pays des Hommes Intègres</h1>
+            <p class="subtitle en">A Journey Through Red Earth, Revolutionary Spirit, and the Warmest Hearts in West Africa</p>
+            <p class="subtitle fr hidden">Un Voyage à Travers la Terre Rouge, l'Esprit Révolutionnaire et les Cœurs les Plus Chauds d'Afrique de l'Ouest</p>
+            <p class="author en">By a passionate traveler &middot; May 2026</p>
+            <p class="author fr hidden">Par un voyageur passionné &middot; Mai 2026</p>
+        </div>
+        <div class="scroll-hint">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro">
+        <div class="container">
+            <h2 class="section-title en">Why Burkina Faso?</h2>
+            <h2 class="section-title fr hidden">Pourquoi le Burkina Faso ?</h2>
+            
+            <p class="lead en">
+                They told me not to go. "It's too dangerous," they said. "There's nothing there." But I went anyway, 
+                and what I found was a country that defies every stereotype the world has pinned upon it. Burkina Faso 
+                is not a war zone—it is a canvas of red earth, ancient rock formations, and some of the most genuine 
+                smiles I have ever encountered. It is a place where a farmer will invite you to share his only bowl of 
+                tô, where children chase your motorcycle laughing, and where the spirit of Thomas Sankara still whispers 
+                in every market square.
+            </p>
+            <p class="lead fr hidden">
+                Ils m'ont dit de ne pas y aller. « C'est trop dangereux », ont-ils dit. « Il n'y a rien là-bas. » 
+                Mais j'y suis allé quand même, et ce que j'ai trouvé est un pays qui défie chaque stéréotype que 
+                le monde lui a collé. Le Burkina Faso n'est pas une zone de guerre—c'est une toile de terre rouge, 
+                de formations rocheuses anciennes et des sourires les plus authentiques que j'aie jamais rencontrés. 
+                C'est un endroit où un agriculteur vous invitera à partager son seul bol de tô, où les enfants 
+                poursuivent votre moto en riant, et où l'esprit de Thomas Sankara chuchote encore sur chaque place de marché.
+            </p>
+            
+            <p class="en">
+                I remember standing at the Sindou Peaks at sunset, watching the sandstone spires glow like embers 
+                against a violet sky. A young shepherd approached—not to beg, but to ask if I wanted to see his favorite 
+                viewpoint. He led me up a hidden path to a ledge where the entire valley stretched below, dotted with 
+                baobabs and millet fields. "This is my country," he said simply. And in that moment, I understood 
+                why Burkina Faso means "Land of Upright People." Uprightness is not just honesty here—it is dignity, 
+                resilience, and an unshakable pride in who you are.
+            </p>
+            <p class="fr hidden">
+                Je me souviens d'être debout aux Pics de Sindou au coucher du soleil, regardant les flèches de grès 
+                briller comme des braises contre un ciel violet. Un jeune berger s'est approché—non pas pour mendier, 
+                mais pour demander si je voulais voir son point de vue préféré. Il m'a conduit sur un sentier caché 
+                jusqu'à un rebord d'où toute la vallée s'étendait en dessous, parsemée de baobabs et de champs de mil. 
+                « C'est mon pays », a-t-il simplement dit. Et à ce moment-là, j'ai compris pourquoi Burkina Faso 
+                signifie « Pays des Hommes Intègres ». L'intégrité n'est pas seulement l'honnêteté ici—c'est la dignité, 
+                la résilience et une fierté inébranlable de qui vous êtes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Name Origin Section -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title en">The Story Behind the Name</h2>
+            <h2 class="section-title fr hidden">L'Histoire Derrière le Nom</h2>
+            
+            <p class="en">
+                On August 4, 1984, a young revolutionary named Thomas Sankara did something extraordinary: he gave his 
+                country a name that belonged to its people. Before that day, the land was called <strong>Upper Volta</strong> 
+                (Haute Volta)—a French colonial label derived from the Volta River that flows through it. The name 
+                meant nothing to the Mossi farmers, the Fulani herders, or the Lobi artisans who had called this land 
+                home for centuries. It was geography imposed from Paris.
+            </p>
+            <p class="fr hidden">
+                Le 4 août 1984, un jeune révolutionnaire nommé Thomas Sankara a fait quelque chose d'extraordinaire : 
+                il a donné à son pays un nom qui appartenait à son peuple. Avant ce jour, la terre s'appelait 
+                <strong>Haute Volta</strong>—une étiquette coloniale française dérivée de la Volta qui la traverse. 
+                Ce nom ne signifiait rien pour les paysans mossi, les éleveurs peuls ou les artisans lobi qui 
+                appelaient cette terre leur foyer depuis des siècles. C'était de la géographie imposée depuis Paris.
+            </p>
+            
+            <p class="en">
+                Sankara, with his characteristic brilliance, wove together three of the nation's major languages to 
+                create a name of profound meaning. <strong>Burkina</strong> comes from the Mòoré language of the Mossi 
+                people and means <em>"men of integrity"</em> or <em>"upright people."</em> <strong>Faso</strong> comes 
+                from the Dioula language and means <em>"fatherland"</em> or <em>"homeland."</em> Together, 
+                <strong>Burkina Faso</strong> means <em>"Land of Upright People"</em> or <em>"Land of Incorruptible People."</em>
+            </p>
+            <p class="fr hidden">
+                Sankara, avec sa brillance caractéristique, a tissé ensemble trois des principales langues de la nation 
+                pour créer un nom d'une signification profonde. <strong>Burkina</strong> vient de la langue moré des 
+                Mossi et signifie <em>« hommes d'intégrité »</em> ou <em>« hommes intègres »</em>. <strong>Faso</strong> 
+                vient de la langue dioula et signifie <em>« patrie »</em> ou <em>« terre natale »</em>. Ensemble, 
+                <strong>Burkina Faso</strong> signifie <em>« Pays des Hommes Intègres »</em> ou <em>« Pays des Hommes Incorruptibles »</em>.
+            </p>
+            
+            <p class="en">
+                But Sankara didn't stop there. He also gave the people a name: <strong>Burkinabé</strong>, where the 
+                suffix "-bé" comes from the Fula (Fulfuldé) language and means "men" or "women." The citizens of 
+                Burkina Faso are thus the Burkinabé—upright men and women of the fatherland. The national cloth, 
+                <em>faso dan fani</em>, became a symbol of this new identity, worn with pride across the country. 
+                Even the capital's name, <strong>Ouagadougou</strong>, carries ancient power—it means "where people 
+                get honor and respect" in Mòoré.
+            </p>
+            <p class="fr hidden">
+                Mais Sankara ne s'est pas arrêté là. Il a aussi donné un nom au peuple : <strong>Burkinabé</strong>, 
+                où le suffixe « -bé » vient de la langue peule (fulfuldé) et signifie « hommes » ou « femmes ». 
+                Les citoyens du Burkina Faso sont donc les Burkinabé—hommes et femmes intègres de la patrie. 
+                Le pagne national, le <em>faso dan fani</em>, est devenu un symbole de cette nouvelle identité, 
+                porté avec fierté dans tout le pays. Même le nom de la capitale, <strong>Ouagadougou</strong>, 
+                porte un pouvoir ancien—il signifie « où les gens obtiennent honneur et respect » en moré.
+            </p>
+            
+            <div class="flag-meaning" style="margin-top: 40px;">
+                <div class="meaning-card red en">
+                    <h4>❤️ Red</h4>
+                    <p>The revolution that brought Thomas Sankara to power in 1983 and transformed the nation. It honors the blood shed for dignity and self-determination.</p>
+                </div>
+                <div class="meaning-card red fr hidden">
+                    <h4>❤️ Rouge</h4>
+                    <p>La révolution qui a porté Thomas Sankara au pouvoir en 1983 et a transformé la nation. Il honore le sang versé pour la dignité et l'autodétermination.</p>
+                </div>
+                
+                <div class="meaning-card green en">
+                    <h4>💚 Green</h4>
+                    <p>The abundance of natural riches and agricultural wealth. From the Sahel to the savanna, the land sustains its people with millet, sorghum, and cotton.</p>
+                </div>
+                <div class="meaning-card green fr hidden">
+                    <h4>💚 Vert</h4>
+                    <p>L'abondance des richesses naturelles et de la richesse agricole. Du Sahel à la savane, la terre nourrit son peuple avec du mil, du sorgho et du coton.</p>
+                </div>
+                
+                <div class="meaning-card gold en">
+                    <h4>⭐ The Yellow Star</h4>
+                    <p>The guiding light of the revolution—the luminary that illuminates the path of integrity and progress for all Burkinabé.</p>
+                </div>
+                <div class="meaning-card gold fr hidden">
+                    <h4>⭐ L'Étoile Jaune</h4>
+                    <p>Le luminaire de la révolution—la lumière qui illumine le chemin de l'intégrité et du progrès pour tous les Burkinabé.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flag Section -->
+    <section class="flag-section">
+        <div class="container">
+            <h2 class="section-title en">The National Flag</h2>
+            <h2 class="section-title fr hidden">Le Drapeau National</h2>
+            <p class="en" style="margin-bottom: 30px;">Adopted in 1984 alongside the new name, the flag replaced the tricolor of Upper Volta with a symbol of revolution and hope.</p>
+            <p class="fr hidden" style="margin-bottom: 30px;">Adopté en 1984 aux côtés du nouveau nom, le drapeau a remplacé le tricolore de la Haute Volta par un symbole de révolution et d'espoir.</p>
+            
+            <div class="flag-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.flagsonline.it/751723a81cac9a3e5e7f90feb093e0bb738876f4.jpg" alt="Burkina Faso Flag" class="flag-img">
+            </div>
+            <p class="en" style="margin-top: 20px; font-style: italic; color: var(--text-light);">
+                The previous flag of Upper Volta featured black, white, and red stripes representing the Black Volta, 
+                White Volta, and Red Volta rivers. Sankara's new flag broke from this colonial geography entirely, 
+                choosing instead colors that spoke of revolution, agriculture, and the guiding star of the people's will.
+            </p>
+            <p class="fr hidden" style="margin-top: 20px; font-style: italic; color: var(--text-light);">
+                L'ancien drapeau de la Haute Volta comportait des bandes noires, blanches et rouges représentant les 
+                Volta Noire, Blanche et Rouge. Le nouveau drapeau de Sankara a complètement rompu avec cette géographie 
+                coloniale, choisissant plutôt des couleurs qui parlaient de révolution, d'agriculture et de l'étoile 
+                directrice de la volonté du peuple.
+            </p>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title en">A Walk Through Time</h2>
+            <h2 class="section-title fr hidden">Une Promenade à Travers le Temps</h2>
+            
+            <p class="lead en">
+                Burkina Faso's history is written in the mud walls of ancient mosques, the red dust of the Sahel, 
+                and the revolutionary dreams of a young captain who dared to imagine a different Africa.
+            </p>
+            <p class="lead fr hidden">
+                L'histoire du Burkina Faso est écrite dans les murs de boue des mosquées anciennes, la poussière rouge 
+                du Sahel et les rêves révolutionnaires d'un jeune capitaine qui a osé imaginer une Afrique différente.
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item en">
+                    <div class="timeline-year">11th Century</div>
+                    <p>The Mossi people arrive from central or eastern Africa and establish powerful kingdoms in the Volta basin. The Mossi Empire becomes one of West Africa's most formidable states, successfully resisting Islamic conversion for centuries.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">XIe Siècle</div>
+                    <p>Les Mossi arrivent d'Afrique centrale ou orientale et établissent de puissants royaumes dans le bassin de la Volta. L'Empire Mossi devient l'un des États les plus redoutables d'Afrique de l'Ouest, résistant avec succès à la conversion islamique pendant des siècles.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1896</div>
+                    <p>The French arrive and claim the territory. Mossi resistance ends with the capture of Ouagadougou. The Volta-Bani War (1915–1916) becomes one of the most significant armed oppositions to colonial rule in West Africa.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">1896</div>
+                    <p>Les Français arrivent et revendiquent le territoire. La résistance mossi se termine avec la capture d'Ouagadougou. La Guerre Volta-Bani (1915–1916) devient l'une des oppositions armées les plus significatives à la domination coloniale en Afrique de l'Ouest.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1919</div>
+                    <p>French Upper Volta (Haute Volta) is established as a separate colony. The French organize an ambitious road-building program and promote cotton for export, though the coercive cotton policy ultimately fails.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">1919</div>
+                    <p>La Haute Volta française est établie comme colonie séparée. Les Français organisent un programme ambitieux de construction de routes et promeuvent le coton pour l'exportation, bien que la politique coercitive du coton échoue finalement.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">August 5, 1960</div>
+                    <p><strong>Independence!</strong> Upper Volta becomes an independent republic under President Maurice Yaméogo. The new nation adopts a tricolor flag of black, white, and red representing the three Volta rivers.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">5 Août 1960</div>
+                    <p><strong>Indépendance !</strong> La Haute Volta devient une république indépendante sous la présidence de Maurice Yaméogo. La nouvelle nation adopte un drapeau tricolore noir, blanc et rouge représentant les trois Volta.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">August 4, 1983</div>
+                    <p>Captain Thomas Sankara seizes power in a popular coup. At just 33 years old, he launches one of Africa's most ambitious revolutionary programs—mass vaccination, literacy campaigns, women's rights, and environmental restoration.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">4 Août 1983</div>
+                    <p>Le capitaine Thomas Sankara prend le pouvoir dans un coup d'État populaire. À seulement 33 ans, il lance l'un des programmes révolutionnaires les plus ambitieux d'Afrique—vaccination de masse, campagnes d'alphabétisation, droits des femmes et restauration environnementale.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">August 4, 1984</div>
+                    <p>Sankara renames the country <strong>Burkina Faso</strong>—"Land of Upright People." He introduces the faso dan fani national cloth, plants 10 million trees, and builds roads, schools, and hospitals with local labor. His slogan: "Homeland or Death, We Will Overcome."</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">4 Août 1984</div>
+                    <p>Sankara renomme le pays <strong>Burkina Faso</strong>—« Pays des Hommes Intègres ». Il introduit le pagne national faso dan fani, plante 10 millions d'arbres et construit des routes, des écoles et des hôpitaux avec la main-d'œuvre locale. Son slogan : « La Patrie ou la Mort, Nous Vaincrons ».</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">October 15, 1987</div>
+                    <p>Sankara is assassinated in a coup led by Blaise Compaoré. His body is buried in an unmarked grave. Though his life was cut short, his legacy endures in the hearts of Burkinabé and across Africa as a symbol of integrity and self-reliance.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">15 Octobre 1987</div>
+                    <p>Sankara est assassiné dans un coup d'État mené par Blaise Compaoré. Son corps est enterré dans une fosse anonyme. Bien que sa vie ait été écourtée, son héritage perdure dans les cœurs des Burkinabé et à travers l'Afrique comme symbole d'intégrité et d'autosuffisance.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">Today</div>
+                    <p>Burkina Faso stands as a nation of extraordinary cultural richness. With over 60 ethnic groups, 78 languages, and traditions that span millennia, it is a living museum of West African heritage. Despite modern challenges, the Burkinabé spirit remains unbroken.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">Aujourd'hui</div>
+                    <p>Le Burkina Faso se dresse comme une nation d'une richesse culturelle extraordinaire. Avec plus de 60 groupes ethniques, 78 langues et des traditions qui s'étendent sur des millénaires, c'est un musée vivant du patrimoine ouest-africain. Malgré les défis modernes, l'esprit burkinabé reste inébranlable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Famous Cities -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title en">Cities That Capture the Soul</h2>
+            <h2 class="section-title fr hidden">Des Villes qui Captent l'Âme</h2>
+            
+            <p class="lead en">
+                From the red-earthed capital to the mystical peaks of the southwest, each corner of Burkina Faso 
+                tells a story of endurance, artistry, and grace.
+            </p>
+            <p class="lead fr hidden">
+                De la capitale à la terre rouge aux pics mystiques du sud-ouest, chaque coin du Burkina Faso 
+                raconte une histoire d'endurance, d'art et de grâce.
+            </p>
+            
+            <div class="cities-grid">
+                <!-- Ouagadougou -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/2bfc42155a9d0e85f2512da34535f126e4996715.jpg" alt="Ouagadougou Skyline" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Capital</span>
+                        <span class="city-tag fr hidden">Capitale</span>
+                        <h3 class="en">Ouagadougou</h3>
+                        <h3 class="fr hidden">Ouagadougou</h3>
+                        <p class="en">
+                            "Ouaga" to its friends, this is a city that breathes creativity. Home to FESPACO—the 
+                            largest African film festival—and SIAO, the International Arts and Crafts Fair, 
+                            Ouagadougou pulses with artistic energy. Visit the Moro-Naba Palace to witness the 
+                            ancient Friday ceremony where the Mossi emperor receives his court. Explore the Grand 
+                            Market for faso dan fani cloth, bronze sculptures, and masks. The National Museum of 
+                            Music will have you dancing before you leave.
+                        </p>
+                        <p class="fr hidden">
+                            « Ouaga » pour ses amis, c'est une ville qui respire la créativité. Berceau du FESPACO 
+                            —le plus grand festival de cinéma africain—et du SIAO, le Salon International de l'Artisanat, 
+                            Ouagadougou pulse d'une énergie artistique. Visitez le Palais du Moro-Naba pour assister 
+                            à l'ancienne cérémonie du vendredi où l'empereur mossi reçoit sa cour. Explorez le Grand 
+                            Marché pour le pagne faso dan fani, les sculptures en bronze et les masques. Le Musée 
+                            National de la Musique vous fera danser avant de partir.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Bobo-Dioulasso -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1542259681-d4cd3839ae89?w=800" alt="Bobo-Dioulasso Grand Mosque" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Cultural Heart</span>
+                        <span class="city-tag fr hidden">Cœur Culturel</span>
+                        <h3 class="en">Bobo-Dioulasso</h3>
+                        <h3 class="fr hidden">Bobo-Dioulasso</h3>
+                        <p class="en">
+                            The country's second city is a masterpiece of Sudano-Sahelian architecture and Bobo 
+                            culture. The Grand Mosque, built entirely of mud and wood in the late 19th century, 
+                            is a soaring wonder of organic engineering. Wander the old Kibidwe district's narrow 
+                            alleyways, visit the Provincial Museum for ancient masks and artifacts, and catch 
+                            live music at a local maquis. Bobo is where tradition lives unapologetically.
+                        </p>
+                        <p class="fr hidden">
+                            La deuxième ville du pays est un chef-d'œuvre de l'architecture soudano-sahélienne et 
+                            de la culture bobo. La Grande Mosquée, construite entièrement en boue et en bois à la fin 
+                            du XIXe siècle, est une merveille de génie organique. Flânez dans les ruelles étroites 
+                            du vieux quartier Kibidwe, visitez le Musée Provincial pour les masques anciens et les 
+                            artefacts, et assistez à de la musique live dans un maquis local. Bobo est où la 
+                            tradition vit sans compromis.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Banfora -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/discover-burkinafaso.com/58fdd41257edff0fa4468cdd39140f765fd09bc7.jpg" alt="Banfora Waterfall" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Nature's Paradise</span>
+                        <span class="city-tag fr hidden">Paradis de la Nature</span>
+                        <h3 class="en">Banfora</h3>
+                        <h3 class="fr hidden">Banfora</h3>
+                        <p class="en">
+                            The gateway to Burkina Faso's most dramatic landscapes. The Karfiguéla Waterfalls cascade 
+                            through lush greenery like a scene from a dream, while the nearby Fabédougou Domes—
+                            ancient rock formations shaped by wind and time—look like sculptures from another planet. 
+                            Hike through sugarcane fields, swim in natural pools, and watch the sun set over the 
+                            Comoe River. Banfora is where Burkina Faso shows off its wild, green heart.
+                        </p>
+                        <p class="fr hidden">
+                            La porte d'entrée vers les paysages les plus spectaculaires du Burkina Faso. Les Cascades 
+                            de Karfiguéla déferlent à travers une végétation luxuriante comme une scène de rêve, tandis 
+                            que les Dômes de Fabédougou voisins—formations rocheuses anciennes façonnées par le vent 
+                            et le temps—ressemblent à des sculptures d'une autre planète. Randonnez à travers les 
+                            champs de canne à sucre, nagez dans des piscines naturelles et regardez le soleil se 
+                            coucher sur la rivière Comoé. Banfora est où le Burkina Faso montre son cœur sauvage et vert.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Sindou Peaks -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/discover-burkinafaso.com/ebdf63d9cdeb45d62c496ad79a444cbe693eb606.jpg" alt="Sindou Peaks" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Natural Wonder</span>
+                        <span class="city-tag fr hidden">Merveille Naturelle</span>
+                        <h3 class="en">The Sindou Peaks</h3>
+                        <h3 class="fr hidden">Les Pics de Sindou</h3>
+                        <p class="en">
+                            Near the village of Sindou in the southwest, these towering sandstone needles rise from 
+                            the savanna like ancient sentinels. Formed over millions of years by wind and water erosion, 
+                            the peaks are sacred to the local Senufo people. Local guides will lead you through hidden 
+                            passages between the spires, pointing out rock formations that resemble animals and faces. 
+                            At sunset, the stone glows amber and gold—a photographer's dream and a spiritual experience.
+                        </p>
+                        <p class="fr hidden">
+                            Près du village de Sindou dans le sud-ouest, ces aiguilles de grès imposantes s'élèvent 
+                            de la savane comme d'anciens sentinelles. Formées sur des millions d'années par l'érosion 
+                            du vent et de l'eau, les pics sont sacrés pour les Sénoufo locaux. Les guides locaux vous 
+                            conduiront à travers des passages cachés entre les flèches, montrant des formations 
+                            rocheuses qui ressemblent à des animaux et des visages. Au coucher du soleil, la pierre 
+                            brille ambrée et dorée—un rêve de photographe et une expérience spirituelle.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Gorom Gorom -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/cbbd4b673002539255826a2005b4f880d2d5b69f.jpg" alt="Gorom Gorom Sahel" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Sahel Gateway</span>
+                        <span class="city-tag fr hidden">Porte du Sahel</span>
+                        <h3 class="en">Gorom Gorom</h3>
+                        <h3 class="fr hidden">Gorom Gorom</h3>
+                        <p class="en">
+                            The northernmost town of note sits at the edge of the Sahel, where the savanna surrenders 
+                            to the desert. Gorom Gorom's Thursday market is legendary—a riot of color where Tuareg, 
+                            Fulani, and Bella traders sell leather goods, silver jewelry, and handwoven blankets. 
+                            The nearby tourist camp offers camel rides into the dunes and nights under a sky so thick 
+                            with stars it feels like a dome. This is where Burkina Faso touches the Sahara.
+                        </p>
+                        <p class="fr hidden">
+                            La ville la plus septentrionale notable se situe à la limite du Sahel, où la savane 
+                            cède au désert. Le marché du jeudi de Gorom Gorom est légendaire—une explosion de couleurs 
+                            où les commerçants touaregs, peuls et bellas vendent des articles en cuir, des bijoux 
+                            en argent et des couvertures tissées à la main. Le camp touristique voisin offre des 
+                            promenades à dos de chameau dans les dunes et des nuits sous un ciel si étoilé qu'il 
+                            ressemble à un dôme. C'est ici que le Burkina Faso touche le Sahara.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Gaoua -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/panafricatourismboard.com/cb61acf7fd6d38549a2aeab35603e7634e2aaffb.webp" alt="Lobi Architecture" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Ancient Heritage</span>
+                        <span class="city-tag fr hidden">Héritage Ancien</span>
+                        <h3 class="en">Gaoua</h3>
+                        <h3 class="fr hidden">Gaoua</h3>
+                        <p class="en">
+                            The heartland of the Lobi people is a land of fortress-like houses and animist traditions 
+                            that predate recorded history. The Lobi build massive mud compounds with conical roofs, 
+                            designed to protect against slave raiders centuries ago. Visit the Sacred Crocodile Pond 
+                            where these reptiles are revered as ancestral spirits, and explore the Pobé Mengao stone 
+                            carvings—mysterious rock art whose meaning has been lost to time. Gaoua is Burkina Faso's 
+                            doorway to the ancient soul of West Africa.
+                        </p>
+                        <p class="fr hidden">
+                            Le cœur du peuple Lobi est une terre de maisons-forteresses et de traditions animistes 
+                            qui précèdent l'histoire écrite. Les Lobi construisent d'immenses concessions en boue 
+                            avec des toits coniques, conçues pour se protéger des razzias d'esclaves il y a des siècles. 
+                            Visitez l'Étang Sacré des Crocodiles où ces reptiles sont vénérés comme des esprits 
+                            ancestraux, et explorez les gravures sur pierre de Pobé Mengao—un art rupestre mystérieux 
+                            dont le sens s'est perdu dans le temps. Gaoua est la porte du Burkina Faso vers l'âme 
+                            ancienne de l'Afrique de l'Ouest.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beautiful Places Gallery -->
+    <section>
+        <div class="container">
+            <h2 class="section-title en">Natural Wonders</h2>
+            <h2 class="section-title fr hidden">Merveilles Naturelles</h2>
+            
+            <p class="lead en">
+                Burkina Faso's landscapes may not make postcards, but they will steal your heart. These are the 
+                places where the earth speaks in colors of rust, gold, and impossible green.
+            </p>
+            <p class="lead fr hidden">
+                Les paysages du Burkina Faso ne font peut-être pas de cartes postales, mais ils voleront votre cœur. 
+                Ce sont les endroits où la terre parle en couleurs de rouille, d'or et de vert impossible.
+            </p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/discover-burkinafaso.com/58fdd41257edff0fa4468cdd39140f765fd09bc7.jpg" alt="Karfiguéla Waterfalls">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Karfiguéla Waterfalls</h4>
+                        <h4 class="fr hidden">Cascades de Karfiguéla</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/discover-burkinafaso.com/ebdf63d9cdeb45d62c496ad79a444cbe693eb606.jpg" alt="Sindou Peaks">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Sindou Peaks</h4>
+                        <h4 class="fr hidden">Pics de Sindou</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/cbbd4b673002539255826a2005b4f880d2d5b69f.jpg" alt="Sahel Landscape">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Sahel Near Gorom Gorom</h4>
+                        <h4 class="fr hidden">Sahel près de Gorom Gorom</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/2bfc42155a9d0e85f2512da34535f126e4996715.jpg" alt="Ouagadougou">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Ouagadougou Skyline</h4>
+                        <h4 class="fr hidden">Skyline d'Ouagadougou</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/panafricatourismboard.com/cb61acf7fd6d38549a2aeab35603e7634e2aaffb.webp" alt="Lobi Country">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Lobi Countryside</h4>
+                        <h4 class="fr hidden">Campagne Lobi</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/discover-burkinafaso.com/ebdf63d9cdeb45d62c496ad79a444cbe693eb606.jpg" alt="Rock Formations">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Fabédougou Domes</h4>
+                        <h4 class="fr hidden">Dômes de Fabédougou</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Tips -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title en">Essential Travel Tips</h2>
+            <h2 class="section-title fr hidden">Conseils de Voyage Essentiels</h2>
+            
+            <p class="lead en">
+                Burkina Faso is not a typical tourist destination—and that is precisely its magic. Here is how 
+                to travel this extraordinary land with respect and joy.
+            </p>
+            <p class="lead fr hidden">
+                Le Burkina Faso n'est pas une destination touristique typique—et c'est précisément sa magie. 
+                Voici comment voyager dans cette terre extraordinaire avec respect et joie.
+            </p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">☀️</div>
+                    <h4 class="en">Best Time to Visit</h4>
+                    <h4 class="fr hidden">Meilleure Période pour Visiter</h4>
+                    <p class="en">October to February is ideal—dry, cooler, and perfect for exploring. The Harmattan brings dusty but magical light. Avoid the rainy season (June–September) when roads can become impassable.</p>
+                    <p class="fr hidden">D'octobre à février est idéal—sec, plus frais et parfait pour explorer. L'Harmattan apporte une lumière poussiéreuse mais magique. Évitez la saison des pluies (juin–septembre) où les routes peuvent devenir impraticables.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎒</div>
+                    <h4 class="en">What to Pack</h4>
+                    <h4 class="fr hidden">Quoi Emporter</h4>
+                    <p class="en">Light cotton clothes in earth tones, a wide-brimmed hat, and sturdy sandals or boots. Bring a scarf for dust protection and modest clothing for mosque and village visits. A headlamp is essential for power outages.</p>
+                    <p class="fr hidden">Vêtements légers en coton dans des tons terreux, un chapeau à larges bords et des sandales ou bottes robustes. Apportez un foulard pour la protection contre la poussière et des vêtements modestes pour les visites de mosquées et de villages. Une lampe frontale est essentielle pour les coupures de courant.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">💰</div>
+                    <h4 class="en">Money Matters</h4>
+                    <h4 class="fr hidden">Questions d'Argent</h4>
+                    <p class="en">The West African CFA franc (XOF) is used. Cash is king—ATMs exist in Ouagadougou and Bobo-Dioulasso but are unreliable elsewhere. Mobile money (Orange Money) is widely used. Budget travelers can live comfortably on $30–50 per day.</p>
+                    <p class="fr hidden">Le franc CFA ouest-africain (XOF) est utilisé. L'argent liquide est roi—les distributeurs existent à Ouagadougou et Bobo-Dioulasso mais sont peu fiables ailleurs. La monnaie mobile (Orange Money) est largement utilisée. Les voyageurs à petit budget peuvent vivre confortablement avec 30–50 $ par jour.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🍽️</div>
+                    <h4 class="en">Must-Try Foods</h4>
+                    <h4 class="fr hidden">Plats à Ne Pas Manquer</h4>
+                    <p class="en">Tô (millet or sorghum porridge) with sauce, riz gras (jollof-style rice), brochettes (grilled meat skewers), and bissap (hibiscus juice). Don't miss the street-side grilled corn and fresh mangoes in season.</p>
+                    <p class="fr hidden">Le tô (bouillie de mil ou de sorgho) avec sauce, le riz gras, les brochettes et le bissap (jus d'hibiscus). Ne manquez pas le maïs grillé en bord de rue et les mangues fraîches de saison.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🗣️</div>
+                    <h4 class="en">Language</h4>
+                    <h4 class="fr hidden">Langue</h4>
+                    <p class="en">French is the official language. Learning a few Mòoré phrases—"Yamb faafe" (hello), "Mbe ho" (thank you)—will open hearts. Dioula is widely spoken in trade. English is rare outside tourist areas.</p>
+                    <p class="fr hidden">Le français est la langue officielle. Apprendre quelques phrases en moré—« Yamb faafe » (bonjour), « Mbe ho » (merci)—ouvrira les cœurs. Le dioula est largement parlé dans le commerce. L'anglais est rare en dehors des zones touristiques.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">📸</div>
+                    <h4 class="en">Photography</h4>
+                    <h4 class="fr hidden">Photographie</h4>
+                    <p class="en">Always ask permission before photographing people—it's a matter of dignity, not just courtesy. The Sindou Peaks at sunset and the Sahel at dawn offer the most dramatic light. Drones require permits.</p>
+                    <p class="fr hidden">Demandez toujours la permission avant de photographier les gens—c'est une question de dignité, pas seulement de courtoisie. Les Pics de Sindou au coucher du soleil et le Sahel à l'aube offrent la lumière la plus dramatique. Les drones nécessitent des permis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing -->
+    <section>
+        <div class="container" style="text-align: center; max-width: 700px;">
+            <h2 class="section-title en" style="display: inline-block;">Final Thoughts</h2>
+            <h2 class="section-title fr hidden" style="display: inline-block;">Réflexions Finales</h2>
+            
+            <p class="en" style="font-size: 1.15rem; margin-top: 30px;">
+                Burkina Faso is not a country you visit for comfort. It is a country you visit for truth. 
+                The truth that the world's poorest nations often possess its richest souls. The truth that 
+                a bowl of tô shared under a mango tree can taste better than any Michelin-starred meal. 
+                The truth that Thomas Sankara's dream of a self-reliant, dignified Africa did not die with him 
+                in 1987—it lives in every Burkinabé who plants a tree, weaves a cloth, or welcomes a stranger 
+                with a smile that says, "You are one of us now."
+            </p>
+            <p class="fr hidden" style="font-size: 1.15rem; margin-top: 30px;">
+                Le Burkina Faso n'est pas un pays que vous visitez pour le confort. C'est un pays que vous visitez 
+                pour la vérité. La vérité que les nations les plus pauvres du monde possèdent souvent les âmes 
+                les plus riches. La vérité qu'un bol de tô partagé sous un manguier peut avoir meilleur goût 
+                que n'importe quel repas étoilé Michelin. La vérité que le rêve de Thomas Sankara d'une Afrique 
+                autosuffisante et digne n'est pas mort avec lui en 1987—il vit dans chaque Burkinabé qui plante 
+                un arbre, tisse un pagne ou accueille un étranger avec un sourire qui dit : « Tu es des nôtres maintenant. »
+            </p>
+            
+            <p class="en" style="margin-top: 30px; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--earth); font-style: italic;">
+                "Burkina Faso is not a destination. It is a mirror that shows you who you really are."
+            </p>
+            <p class="fr hidden" style="margin-top: 30px; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--earth); font-style: italic;">
+                « Le Burkina Faso n'est pas une destination. C'est un miroir qui vous montre qui vous êtes vraiment. »
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.flagsonline.it/751723a81cac9a3e5e7f90feb093e0bb738876f4.jpg" alt="Burkina Faso Flag" class="footer-flag">
+            <p class="footer-quote en">"Homeland or Death, We Will Overcome."</p>
+            <p class="footer-quote fr hidden">« La Patrie ou la Mort, Nous Vaincrons. »</p>
+            <p class="footer-copy en">&copy; 2026 Burkina Faso Travel Blog. Written with love for the traveler in you.</p>
+            <p class="footer-copy fr hidden">&copy; 2026 Blog de Voyage Burkina Faso. Écrit avec amour pour le voyageur en vous.</p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            // Update buttons
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+            
+            // Show/hide English content
+            document.querySelectorAll('.en').forEach(el => {
+                el.classList.toggle('hidden', lang === 'fr');
+            });
+            
+            // Show/hide French content
+            document.querySelectorAll('.fr').forEach(el => {
+                el.classList.toggle('hidden', lang === 'en');
+            });
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Add smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Apply initial styles and observe
+        document.querySelectorAll('.city-card, .tip-card, .timeline-item, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+print("Path: /mnt/agents/output/burkina_faso_travel_guide.html")
+print(f"File size: {len(html_content)} characters")
