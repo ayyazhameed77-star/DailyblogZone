@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mali: Where the Niger Meets the Sahara — A Traveler's Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #14b53a;
+            --yellow: #fcd116;
+            --red: #ce1126;
+            --dark: #1a1a1a;
+            --cream: #faf8f5;
+            --sand: #f5f0e8;
+            --text: #2d2d2d;
+            --text-light: #666666;
+            --gold: #d4a017;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Language Bar */
+        .lang-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            border-bottom: 3px solid var(--yellow);
+        }
+        
+        .lang-bar span {
+            color: var(--yellow);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 10px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--yellow);
+            color: var(--dark);
+            border-color: var(--yellow);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(20,181,58,0.3), rgba(206,17,38,0.3)), url('https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/1337a62a75c0a0af81fb96da32ef18bac92bc3a0.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: 50px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--cream), transparent);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+        }
+        
+        .hero-flag {
+            width: 120px;
+            height: 80px;
+            margin: 0 auto 30px;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            color: white;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.95);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--green);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Story Cards */
+        .story-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .story-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .story-card-content {
+            padding: 40px;
+        }
+        
+        .story-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .story-card p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .highlight-box {
+            background: var(--sand);
+            border-left: 4px solid var(--green);
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            background: var(--dark);
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .flag-section .section-header h2 {
+            color: white;
+        }
+        
+        .flag-section .section-header h2::after {
+            background: var(--yellow);
+        }
+        
+        .flag-section .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .flag-display {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 60px;
+            justify-content: center;
+        }
+        
+        .flag-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .flag-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .flag-meaning {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .color-meaning {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        
+        .color-meaning:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .color-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        
+        .color-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .color-text p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* City Grid */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .city-card .img-wrap {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .city-card .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .img-wrap img {
+            transform: scale(1.1);
+        }
+        
+        .city-card .img-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+        }
+        
+        .city-card h3 {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .city-card-content {
+            padding: 25px;
+        }
+        
+        .city-card-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: var(--sand);
+            color: var(--text);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 12px;
+            margin-right: 5px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--green), var(--red));
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+            margin-left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            text-align: left;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--red);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            z-index: 2;
+        }
+        
+        .timeline-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* Travel Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .tip-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--green);
+        }
+        
+        .tip-card:nth-child(2) { border-top-color: var(--yellow); }
+        .tip-card:nth-child(3) { border-top-color: var(--red); }
+        .tip-card:nth-child(4) { border-top-color: var(--gold); }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tip-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .tip-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .tip-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .french-text {
+            font-style: normal;
+        }
+        
+        .bambara-text {
+            font-style: italic;
+        }
+        
+        /* Phrase Book */
+        .phrase-book {
+            background: var(--sand);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        
+        .phrase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .phrase-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .phrase-item .en { color: var(--text); font-weight: 600; }
+        .phrase-item .fr { color: var(--red); margin-top: 5px; }
+        .phrase-item .bm { color: var(--green); font-style: italic; margin-top: 5px; }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        .footer-heart {
+            color: var(--red);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-item { justify-content: flex-start; }
+            .timeline-content { width: calc(100% - 60px); margin-left: 50px !important; text-align: left !important; }
+            .timeline-year { left: 20px; transform: translateX(-50%); }
+            .flag-display { flex-direction: column; }
+            .hero { margin-top: 80px; }
+            .city-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--green);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--red);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Selector -->
+    <div class="lang-bar">
+        <span>🌐 Translate / Traduire / Bamanankan</span>
+        <button class="lang-btn active" onclick="switchLang('en')">English</button>
+        <button class="lang-btn" onclick="switchLang('fr')">Français</button>
+        <button class="lang-btn" onclick="switchLang('bm')">Bambara</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/2ebeffb14eb5cb70f727f438a002e8c4bae1497c.png" alt="Mali Flag" class="hero-flag">
+            <div class="hero-subtitle">The Heart of West Africa</div>
+            <h1>Mali</h1>
+            <p class="hero-tagline">Where three great empires rose from the Sahel, where the Niger River writes poetry through the desert, and where mud becomes cathedral.</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </div>
+    </section>
+
+    <!-- English Content -->
+    <div id="content-en" class="lang-content active">
+        
+        <!-- Name Origin -->
+        <section class="container">
+            <div class="section-header">
+                <h2>What's in a Name?</h2>
+                <p>The story of an empire that became a nation</p>
+            </div>
+            <div class="story-card">
+                <div class="story-card-content">
+                    <h3>Republic of Mali</h3>
+                    <p>The name "Mali" carries the weight of medieval glory. It comes from the Mandinka word for the <strong>Mali Empire</strong> — one of the wealthiest and most powerful kingdoms in world history. The word itself is believed to mean "where the king lives" or, in some interpretations, "hippopotamus" — a symbol of strength and the life-giving Niger River. When the French colony of French Sudan gained independence in 1960, it chose not the colonial name but this ancient title, reclaiming its pre-colonial identity.</p>
+                    <p>But Mali is more than a name on a map. It is the cradle of three great empires — Ghana, Mali, and Songhai — that controlled the trans-Saharan gold trade and shaped the medieval world. It is the land where Mansa Musa, the richest human being who ever lived, made his legendary pilgrimage to Mecca in 1324, carrying so much gold that he crashed the economies of Cairo and Medina. It is where the Niger River, defying geography, flows northward into the Sahara, creating a ribbon of life through the dust.</p>
+                    <div class="highlight-box">
+                        <strong>Did You Know?</strong>
+                        In 2023, Mali changed its constitution to make Bambara and 12 other indigenous languages co-official, removing French as the sole official language. French remains a working language, but this shift marked a profound reclamation of Malian identity.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flag -->
+        <section class="flag-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Flag of Independence</h2>
+                    <p>Three colors, one legacy, a symbol reclaimed</p>
+                </div>
+                <div class="flag-display">
+                    <div class="flag-img">
+                        <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/2ebeffb14eb5cb70f727f438a002e8c4bae1497c.png" alt="Flag of Mali">
+                    </div>
+                    <div class="flag-meaning">
+                        <div class="color-meaning">
+                            <div class="color-dot" style="background: #14b53a;"></div>
+                            <div class="color-text">
+                                <h4>Green</h4>
+                                <p>Hope, the fertile lands of the south, and the richness of the Niger River valley. Represents the agricultural heart of the nation.</p>
+                            </div>
+                        </div>
+                        <div class="color-meaning">
+                            <div class="color-dot" style="background: #fcd116;"></div>
+                            <div class="color-text">
+                                <h4>Yellow</h4>
+                                <p>Purity, the mineral wealth of the land, and the golden sands of the Sahara that have shaped Mali's history for millennia.</p>
+                            </div>
+                        </div>
+                        <div class="color-meaning">
+                            <div class="color-dot" style="background: #ce1126;"></div>
+                            <div class="color-text">
+                                <h4>Red</h4>
+                                <p>The blood shed for independence, the strength of the Malian people, and the vitality of a nation that has endured empires, colonization, and conflict.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-box" style="background: rgba(255,255,255,0.1); border-left-color: var(--yellow); margin-top: 30px;">
+                            <strong style="color: white;">The Kanaga Symbol</strong>
+                            <p style="color: rgba(255,255,255,0.8);">The original 1959 flag featured a black human figure (the Kanaga, a Dogon symbol of the creator god) in the center. It was removed in 1961 after Islamic objections to representing the human form. The tricolor remains, a testament to Mali's complex balance between tradition and faith.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cities -->
+        <section class="container">
+            <div class="section-header">
+                <h2>Cities That Shaped History</h2>
+                <p>From the banks of the Niger to the edge of the Sahara</p>
+            </div>
+            <div class="city-grid">
+                <div class="city-card">
+                    <div class="img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/471f255f7bf249540162ce4fc19ccc588efbd927.jpg" alt="Bamako">
+                        <h3>Bamako</h3>
+                    </div>
+                    <div class="city-card-content">
+                        <p>The capital and beating heart of modern Mali, sprawled across both banks of the Niger River. Bamako is one of Africa's fastest-growing cities — a place where the Grand Mosque rises near the river, where the National Museum guards treasures from the ancient empires, and where the music never stops. The city is the undisputed music capital of West Africa, birthplace of legends like Salif Keita and Amadou & Mariam. Catch a live performance at a maquis (open-air bar), and you'll understand why UNESCO calls Mali's music an intangible heritage of humanity.</p>
+                        <span class="tag">Capital</span>
+                        <span class="tag">Music Capital</span>
+                        <span class="tag">Niger River</span>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <div class="img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.mymilez.com/9d1c8f3ba190e6311027ad19ed16f1a014f4c123.jpg" alt="Timbuktu">
+                        <h3>Timbuktu</h3>
+                    </div>
+                    <div class="city-card-content">
+                        <p>The legendary city whose name became a synonym for the ends of the earth. In the 15th and 16th centuries, Timbuktu was one of the greatest centers of Islamic learning in the world, home to the prestigious Sankore University and libraries holding hundreds of thousands of ancient manuscripts. Caravans of salt and gold crossed the Sahara to trade here. Today, the Djinguereber and Sankore mosques still stand, though the city has suffered from conflict. The manuscripts — some dating to the 13th century — are among humanity's most precious intellectual treasures, covering mathematics, astronomy, medicine, and law.</p>
+                        <span class="tag">UNESCO Heritage</span>
+                        <span class="tag">Ancient Manuscripts</span>
+                        <span class="tag">Sahara Trade</span>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <div class="img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/1337a62a75c0a0af81fb96da32ef18bac92bc3a0.jpg" alt="Djenné">
+                        <h3>Djenné</h3>
+                    </div>
+                    <div class="city-card-content">
+                        <p>A city made entirely of mud, and the site of what many consider the greatest architectural wonder in Africa. The Great Mosque of Djenné is the largest mud-brick building in the world — a 20-meter tall sandcastle that has dominated the town's skyline since 1907 (rebuilt on the site of a 13th-century original). Every year, the entire community gathers for the Crépissage — the replastering festival — where men climb the walls to apply fresh mud, women carry water, and children sing. The entire old town is a UNESCO World Heritage Site, a labyrinth of ochre-colored buildings that feels like stepping into another century.</p>
+                        <span class="tag">Great Mosque</span>
+                        <span class="tag">UNESCO Heritage</span>
+                        <span class="tag">Mud Architecture</span>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <div class="img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/c849137b3bab44d30dae8bbe4297344209616151.jpg" alt="Mopti">
+                        <h3>Mopti</h3>
+                    </div>
+                    <div class="city-card-content">
+                        <p>Known as the "Venice of the Sahara," Mopti sits at the confluence of the Niger and Bani rivers, spread across three islands. It is Mali's most important river port, where wooden pirogues loaded with fish, salt, and millet create a floating market that has changed little in centuries. The Grand Mosque of Mopti, built from mud and stone in the Sudanese style, towers over the harbor. From here, travelers launch into the Dogon Country or sail north toward Timbuktu. The city is a crossroads of cultures — Bambara, Fulani, Dogon, Tuareg, and Bozo fishing people all mingle in its bustling streets.</p>
+                        <span class="tag">River Port</span>
+                        <span class="tag">Venice of Sahara</span>
+                        <span class="tag">Crossroads</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beautiful Places -->
+        <section style="background: var(--sand);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Wonders of the Sahel</h2>
+                    <p>Where earth, water, and sky create miracles</p>
+                </div>
+                
+                <div class="story-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/apsaidal.com/0abd57c68ebff014a9f030cac54d1965b019a490.jpg" alt="Bandiagara Cliffs">
+                    <div class="story-card-content">
+                        <h3>Dogon Country — The Bandiagara Escarpment</h3>
+                        <p>A 200-kilometer-long sandstone cliff rising from the Sahel plains, honeycombed with villages that seem to grow from the rock itself. The Dogon people have lived here for over 600 years, building their granaries, houses, and altars into the cliff face. Their cosmology is one of the most complex and fascinating in Africa — a belief system that maps the movements of the stars to the rhythms of life, death, and rebirth. The Fête des Masques (Mask Festival) brings the cliffs alive with dancers wearing towering masks that represent spirits, animals, and ancestors. A UNESCO World Heritage Site that feels like another planet.</p>
+                        <div class="highlight-box">
+                            <strong>How to Explore:</strong> Trekking is the only way. Hire a Dogon guide in Bandiagara or Mopti. The classic route takes 2-3 days, sleeping in villages under a billion stars. Bring sturdy shoes and an open heart.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/bfe5ef5acbfe42294ad9a7cf1b9bc9a94fab690f.jpg" alt="Dogon Village">
+                    <div class="story-card-content">
+                        <h3>The Niger Inland Delta</h3>
+                        <p>Where the Niger River does something extraordinary — it fans out into a vast network of lakes, channels, and floodplains that create a seasonal inland sea in the heart of the Sahel. During the rainy season, this delta covers over 30,000 square kilometers, transforming the desert into a water world of floating villages, fishing camps, and bird sanctuaries. The Bozo people have lived on these waters for centuries, building their homes on stilts and navigating by the stars. Take a pinasse (traditional wooden boat) from Mopti to Timbuktu, and you'll drift through a landscape that changes hour by hour — from papyrus swamps to sand dunes, from hippo pools to nomad camps.</p>
+                        <div class="highlight-box">
+                            <strong>Best Journey:</strong> The three-day boat trip from Mopti to Timbuktu (or the reverse) is one of the great river journeys of the world. Sleep on deck under the stars, eat freshly caught fish, and watch the Sahara slowly swallow the horizon.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/spaceinafrica.com/77f35d634631b83c9155120af4795de597795b69.jpg" alt="Sahara Desert Mali">
+                    <div class="story-card-content">
+                        <h3>The Sahara — Adrar des Ifoghas</h3>
+                        <p>In Mali's far north, the Sahara reveals its most dramatic face. The Adrar des Ifoghas is a sandstone massif of black volcanic peaks, hidden valleys, and prehistoric rock paintings that depict giraffes, elephants, and hunters from a time when the desert was green. The Tuareg people call this region home, navigating by the same stars their ancestors used. Salt mines at Taoudenni — reached by camel caravan from Timbuktu in a 40-day journey — have supplied West Africa with salt for over a thousand years. This is the Sahara of dreams and endurance, where silence is the loudest sound you'll ever hear.</p>
+                        <div class="highlight-box">
+                            <strong>Important Note:</strong> The northern regions of Mali remain volatile due to ongoing conflict. Travel to the Adrar des Ifoghas and Taoudenni is currently not advisable. Monitor security advisories closely.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History -->
+        <section class="container">
+            <div class="section-header">
+                <h2>Empires of Gold & Dust</h2>
+                <p>From the Ghana Empire to the Fourth Republic</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">300-1200 CE</div>
+                    <div class="timeline-content">
+                        <h3>The Ghana Empire</h3>
+                        <p>Not to be confused with modern Ghana, this ancient empire dominated West Africa from its capital near present-day Kumbi Saleh in Mali. It controlled the gold trade between the mines of the south and the trans-Saharan caravans of the north, becoming so wealthy that its kings were described by Arab chroniclers as encrusted in gold.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1235-1600</div>
+                    <div class="timeline-content">
+                        <h3>The Mali Empire</h3>
+                        <p>Founded by Sundiata Keita after the legendary Battle of Kirina, the Mali Empire became the largest and wealthiest empire in African history. At its peak under Mansa Musa (1312-1337), it stretched from the Atlantic to modern-day Niger. His 1324 pilgrimage to Mecca included 60,000 men, 12,000 slaves, and 80 camels carrying 300 pounds of gold each. He built the Djinguereber Mosque in Timbuktu and transformed the city into a global center of learning.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1464-1591</div>
+                    <div class="timeline-content">
+                        <h3>The Songhai Empire</h3>
+                        <p>Rising from the city of Gao, the Songhai surpassed Mali as the dominant power of the Sahel. Under Askia Muhammad, it expanded to become one of the largest empires in African history. The Tomb of Askia in Gao — a mud-brick pyramid — still stands as a UNESCO World Heritage Site, though it has suffered damage in recent conflicts.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1850s-1960</div>
+                    <div class="timeline-content">
+                        <h3>French Colonial Rule</h3>
+                        <p>France conquered the region piece by piece, incorporating it as French Sudan in 1892. The colonial period brought railways, cotton plantations, and French language and education — but also extracted wealth, suppressed indigenous cultures, and drew arbitrary borders that still shape the region's challenges today.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1960</div>
+                    <div class="timeline-content">
+                        <h3>Independence</h3>
+                        <p>On September 22, 1960, Mali becomes independent under President Modibo Keita, a former teacher and union leader. He initially pursues a socialist path and a federation with Ghana and Guinea, but economic hardship and isolation follow. The name "Mali" is chosen to honor the medieval empire and reject the colonial label "French Sudan."</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1968</div>
+                    <div class="timeline-content">
+                        <h3>Military Coup</h3>
+                        <p>Moussa Traoré overthrows Modibo Keita and establishes a military dictatorship that lasts 23 years. The regime is marked by repression, economic stagnation, and the famous March 1991 massacre in Bamako, where soldiers killed hundreds of pro-democracy protesters near the Martyrs Bridge.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1991-2012</div>
+                    <div class="timeline-content">
+                        <h3>The Democratic Era</h3>
+                        <p>Alpha Oumar Konaré, a former archaeologist, becomes Mali's first democratically elected president in 1992. The country enjoys two decades of relative stability, economic growth, and flourishing tourism. Timbuktu, Djenné, and the Dogon Country become magnets for adventurous travelers. Mali is hailed as a model African democracy.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2012</div>
+                    <div class="timeline-content">
+                        <h3>Tuareg Rebellion & Islamist Occupation</h3>
+                        <p>A Tuareg uprising in the north, fueled by returning fighters from Libya, leads to a coup in Bamako. Islamist groups seize Timbuktu and Gao, destroying Sufi shrines and banning music. French military intervention (Operation Serval) in 2013 drives them out, but the north remains unstable. Tourism collapses overnight.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2020-2023</div>
+                    <div class="timeline-content">
+                        <h3>Coups & Constitutional Change</h3>
+                        <p>Two coups in 2020 and 2021 bring military rule. Relations with France deteriorate, leading to the withdrawal of French troops and the suspension of Mali from the Francophonie. In 2023, a new constitution is approved with 96.91% of the vote, making Bambara and 12 other indigenous languages co-official and demoting French to a working language. Mali enters its Fourth Republic, charting a new, uncertain path.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Guide -->
+        <section style="background: var(--sand);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Practical Wanderer</h2>
+                    <p>Everything you need to know before visiting the land of empires</p>
+                </div>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">📅</div>
+                        <h3>When to Go</h3>
+                        <p>November to February is the sweet spot — cool, dry, and clear. The Harmattan wind blows from the Sahara, painting everything in golden haze. Avoid the rainy season (June to September) when roads turn to mud and the Niger floods its banks. March to May is brutally hot, often exceeding 45°C.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">🛂</div>
+                        <h3>Visa & Entry</h3>
+                        <p>Most travelers need a visa in advance. Apply at Malian embassies or consulates — you'll need an invitation letter (hotel booking or tour company letter). Bamako-Sénou International Airport is the main gateway, with flights from Paris, Istanbul, Addis Ababa, and major West African cities.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">⚠️</div>
+                        <h3>Safety & Security</h3>
+                        <p>Check current travel advisories before planning. The southern regions (Bamako, Ségou, Djenné, Sikasso) are generally accessible with caution. The north (Timbuktu, Gao, Kidal) remains high-risk due to insurgent activity. Travel with reputable local guides, avoid night travel, and register with your embassy.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">💰</div>
+                        <h3>Money Matters</h3>
+                        <p>The West African CFA Franc (XOF) is the currency. ATMs exist in Bamako and major towns but are unreliable. Bring euros or US dollars in cash — they are widely accepted and often preferred. Credit cards are rarely accepted outside upscale Bamako hotels. Budget travelers: €30-40/day. Mid-range: €70-100.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">🚐</div>
+                        <h3>Getting Around</h3>
+                        <p>Sotrama (shared minibuses) and bush taxis are the local way — crowded, chaotic, and unforgettable. For comfort, hire a 4x4 with a driver (essential for Dogon Country). The Bamako-Dakar railway is currently not operational. Domestic flights connect Bamako to Mopti, but schedules are erratic.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">🤝</div>
+                        <h3>Cultural Respect</h3>
+                        <p>Mali is overwhelmingly Muslim — dress modestly, especially in rural areas and religious sites. Always ask before photographing people. Greetings are elaborate and essential; never rush them. The right hand is for eating and greeting; the left is considered unclean. Friday is the holy day — many businesses close for prayers.</p>
+                    </div>
+                </div>
+                
+                <div class="phrase-book">
+                    <h3 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px;">Essential Phrases</h3>
+                    <p style="text-align: center; color: var(--text-light); margin-bottom: 30px;">Connect with locals in their own words — French for formal settings, Bambara for the heart</p>
+                    <div class="phrase-grid">
+                        <div class="phrase-item">
+                            <div class="en">Hello / Welcome</div>
+                            <div class="fr">Bonjour / Bienvenue</div>
+                            <div class="bm">I ni ce / I ni sogoma</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Thank you</div>
+                            <div class="fr">Merci</div>
+                            <div class="bm">I ni ce (formal) / Aw ni ce</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">How are you?</div>
+                            <div class="fr">Comment ça va?</div>
+                            <div class="bm">I ka kènè wa?</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Good / Fine</div>
+                            <div class="fr">Bien / Ça va</div>
+                            <div class="bm">Tôôb / N ba</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Please</div>
+                            <div class="fr">S'il vous plaît</div>
+                            <div class="bm">Ka bènè</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Water</div>
+                            <div class="fr">Eau</div>
+                            <div class="bm">Ji</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Peace</div>
+                            <div class="fr">Paix</div>
+                            <div class="bm">Hèrè</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Delicious</div>
+                            <div class="fr">Délicieux</div>
+                            <div class="bm">Nè diya</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- French Content -->
+    <div id="content-fr" class="lang-content">
+        <section class="container" style="padding-top: 100px;">
+            <div class="section-header">
+                <h2>République du Mali</h2>
+                <p>Le cœur de l'Afrique de l'Ouest — terre des empires et de la musique</p>
+            </div>
+            
+            <div class="story-card">
+                <div class="story-card-content french-text">
+                    <h3>L'Origine du Nom</h3>
+                    <p>Le nom "Mali" porte le poids de la gloire médiévale. Il vient du mot mandinka pour l'<strong>Empire du Mali</strong> — l'un des royaumes les plus riches et les plus puissants de l'histoire mondiale. Le mot lui-même signifierait "là où vit le roi" ou, dans certaines interprétations, "hippopotame" — symbole de force et du Niger, ce fleuve qui donne la vie.</p>
+                    <p>En 2023, le Mali a changé sa constitution pour faire du Bambara et de 12 autres langues autochtones des langues co-officielles, retirant le français comme seule langue officielle. Le français reste une langue de travail, mais ce changement marque une profonde réclamation de l'identité malienne.</p>
+                    <div class="highlight-box">
+                        <strong>Le Saviez-Vous?</strong>
+                        Mansa Musa, empereur du Mali au 14ème siècle, est considéré comme l'être humain le plus riche de tous les temps. Son pèlerinage à La Mecque en 1324 avec 60 000 hommes et 80 chameaux transportant de l'or a fait s'effondrer l'économie du Caire.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content french-text">
+                    <h3>Le Drapeau de l'Indépendance</h3>
+                    <p>Le drapeau du Mali se compose de trois bandes verticales — vert, or, et rouge:</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #14b53a;"><strong>Vert:</strong> L'espoir, les terres fertiles du sud, et la richesse de la vallée du Niger.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #fcd116;"><strong>Or (Jaune):</strong> La pureté, la richesse minérale du pays, et les sables dorés du Sahara.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #ce1126;"><strong>Rouge:</strong> Le sang versé pour l'indépendance et la force du peuple malien.</li>
+                    </ul>
+                    <p>Le drapeau original de 1959 comportait le Kanaga (symbole dogon du dieu créateur) au centre, retiré en 1961 sur des objections islamiques.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content french-text">
+                    <h3>Les Villes Principales</h3>
+                    <p><strong>Bamako:</strong> La capitale et le cœur battant du Mali moderne, étendue sur les deux rives du Niger. Bamako est la capitale musicale de l'Afrique de l'Ouest, berceau de Salif Keita et Amadou & Mariam.</p>
+                    <p><strong>Tombouctou:</strong> La ville légendaire, centre d'apprentissage islamique au 15ème et 16ème siècles. La mosquée Sankore et des centaines de milliers de manuscrits anciens y sont conservés.</p>
+                    <p><strong>Djenné:</strong> La Grande Mosquée de Djenné est le plus grand édifice en terre du monde. La ville entière est un site du patrimoine mondial de l'UNESCO, un labyrinthe de bâtiments couleur ocre.</p>
+                    <p><strong>Mopti:</strong> Connue comme la "Venise du Sahara," située à la confluence du Niger et du Bani. C'est le plus important port fluvial du Mali.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content french-text">
+                    <h3>Merveilles du Sahel</h3>
+                    <p><strong>Pays Dogon — Falaise de Bandiagara:</strong> Une falaise de grès de 200 kilomètres, creusée de villages qui semblent sortir de la roche. Les Dogons y vivent depuis plus de 600 ans. Site du patrimoine mondial de l'UNESCO.</p>
+                    <p><strong>Delta Intérieur du Niger:</strong> Le Niger se divise en un vaste réseau de lacs et de plaines inondables créant une mer intérieure saisonnière au cœur du Sahel.</p>
+                    <p><strong>Sahara — Adrar des Ifoghas:</strong> Au nord du Mali, le Sahara révèle son visage le plus dramatique. Sommets volcaniques noirs, vallées cachées, et peintures rupestres préhistoriques.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content french-text">
+                    <h3>Guide Pratique</h3>
+                    <p><strong>Quand Partir:</strong> Novembre à février est la période idéale — frais, sec et ensoleillé. Évitez la saison des pluies (juin à septembre).</p>
+                    <p><strong>Visa:</strong> La plupart des voyageurs ont besoin d'un visa à l'avance. Une lettre d'invitation est nécessaire.</p>
+                    <p><strong>Sécurité:</strong> Les régions du sud (Bamako, Ségou, Djenné) sont généralement accessibles avec prudence. Le nord (Tombouctou, Gao) reste à haut risque.</p>
+                    <p><strong>Argent:</strong> Franc CFA (XOF). Les distributeurs existent à Bamako mais sont peu fiables. Apportez des euros ou des dollars en espèces.</p>
+                    <p><strong>Transport:</strong> Sotrama (minibus partagés) et taxis brousse. Pour le Pays Dogon, louez un 4x4 avec chauffeur.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bambara Content -->
+    <div id="content-bm" class="lang-content">
+        <section class="container" style="padding-top: 100px;">
+            <div class="section-header">
+                <h2>Mali Faso</h2>
+                <p>Mali — faaba ka ɲi, hɛrɛ ka ca</p>
+            </div>
+            
+            <div class="story-card">
+                <div class="story-card-content bambara-text">
+                    <h3>Turumaden (The Name)</h3>
+                    <p>"Mali" bɔra Manding tɔgɔ la — Mali Faso la. Turu bɛ fɔ ka bɛ "faaba" walima "mali" (so) ye. Mali ye faaba ye ka ca, faaba ye Mansa Musa ye. A ye dugu bɛɛ ka ca. A ye hɛrɛ ka ca. A ye dugu bɛɛ ka ca.</p>
+                    <p>2023 — Mali ye sariya fɔ ka bɛ Bambara ni kan wɛrɛ 12 ye kan kafɔw ye. Faran kan ye baara kan ye. Mali ye dugu bɛɛ ka ca.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content bambara-text">
+                    <h3>Fasoba (The Flag)</h3>
+                    <p>Fasoba bɛɛ ye 3 fɛn ye — wele, wɛrɛ, jɛn:</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #14b53a;"><strong>Wele (Green):</strong> Dugu bɛɛ ka ca, ɲɛtaa, ni ji ka ca.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #fcd116;"><strong>Wɛrɛ (Yellow):</strong> Fanga, wari, ni Sahara ka ca.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #ce1126;"><strong>Jɛn (Red):</strong> Joli, fanga, ni malidenw ka ca.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content bambara-text">
+                    <h3>Duguw (Cities)</h3>
+                    <p><strong>Bamako:</strong> Dugu bɛɛ ka ca — faaba. Bamako ye Niger bɛɛ ka ca. Dugu bɛɛ ka ca ni miziki ye. Salif Keita, Amadou & Mariam — bɛɛ bɔra Bamako.</p>
+                    <p><strong>Tombouctou:</strong> Dugu bɛɛ ka ca — dugu kɔrɔ. Sankore — dugu bɛɛ ka ca. Manuscrits — dugu bɛɛ ka ca.</p>
+                    <p><strong>Djenné:</strong> Mosque bɛɛ ka ca — dugu bɛɛ ka ca. Terre — dugu bɛɛ ka ca. UNESCO — dugu bɛɛ ka ca.</p>
+                    <p><strong>Mopti:</strong> "Venise du Sahara" — dugu bɛɛ ka ca. Niger ni Bani — dugu bɛɛ ka ca.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content bambara-text">
+                    <h3>Duguw ka ɲi (Beautiful Places)</h3>
+                    <p><strong>Dogon Faso — Bandiagara:</strong> Dugu bɛɛ ka ca — 200 km. Dogon — dugu bɛɛ ka ca. Falaise — dugu bɛɛ ka ca. Masques — dugu bɛɛ ka ca. UNESCO — dugu bɛɛ ka ca.</p>
+                    <p><strong>Niger Delta:</strong> Niger bɛɛ ka ca — dugu bɛɛ ka ca. Ji — dugu bɛɛ ka ca. Bozo — dugu bɛɛ ka ca. Pirogue — dugu bɛɛ ka ca.</p>
+                    <p><strong>Sahara — Adrar des Ifoghas:</strong> Dugu bɛɛ ka ca — dugu bɛɛ ka ca. Peintures — dugu bɛɛ ka ca. Tuareg — dugu bɛɛ ka ca. Sel — dugu bɛɛ ka ca.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content bambara-text">
+                    <h3>Taaboliya (Travel Guide)</h3>
+                    <p><strong>Jamana bɛɛ ka ca:</strong> November to February — dugu bɛɛ ka ca. Dugu bɛɛ ka ca. Harmattan — dugu bɛɛ ka ca.</p>
+                    <p><strong>Visa:</strong> Dugu bɛɛ ka ca — visa. Lettre d'invitation — dugu bɛɛ ka ca. Bamako-Sénou — dugu bɛɛ ka ca.</p>
+                    <p><strong>Acien-ric:</strong> Sud (Bamako, Ségou, Djenné) — dugu bɛɛ ka ca. Nord (Tombouctou, Gao) — dugu bɛɛ ka ca. Guides — dugu bɛɛ ka ca.</p>
+                    <p><strong>Wari:</strong> CFA Franc (XOF). ATMs — Bamako. Euros/USD — dugu bɛɛ ka ca. Budget: €30-40/day. Mid-range: €70-100.</p>
+                    <p><strong>Dɛmɛ:</strong> Sotrama — dugu bɛɛ ka ca. Taxi brousse — dugu bɛɛ ka ca. 4x4 — Dogon Faso. Train — dugu bɛɛ ka ca.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Written with <span class="footer-heart">♥</span> for the people of Mali</p>
+        <p style="font-size: 0.9rem; opacity: 0.7;">This blog celebrates the empires, the music, and the resilience of the land where the Niger meets the Sahara. Travel wisely, listen deeply, and honor the ancestors.</p>
+        <p style="font-size: 0.85rem; margin-top: 30px; opacity: 0.5;">© 2026 Mali Travel Chronicle | Images sourced from Wikimedia, Alamy, Britannica, TripAdvisor, Space in Africa, ArchDaily, and Religion Unplugged</p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById('content-' + lang).classList.add('active');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            if (lang !== 'en') {
+                window.scrollTo({ top: 60, behavior: 'smooth' });
+            }
+        }
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.story-card, .city-card, .timeline-item, .tip-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>nt("Mali blog saved successfully!")
+print("Size:", len(html_content), "characters")
