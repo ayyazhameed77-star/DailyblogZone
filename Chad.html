@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Chad - The Hidden Heart of Africa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --chad-blue: #002664;
+            --chad-yellow: #FECB00;
+            --chad-red: #C60C30;
+            --sand: #F5F0E8;
+            --dark: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--sand);
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Translation Bar */
+        .lang-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 38, 100, 0.95);
+            z-index: 1000;
+            padding: 12px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .lang-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 24px;
+            margin: 0 8px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--chad-yellow);
+            color: var(--chad-blue);
+            border-color: var(--chad-yellow);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--chad-blue) 0%, #001a4d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://kimi-web-img.moonshot.cn/img/explore-chad.org/40b55c179b196b1fda78d68d63b0a7c72c62eabf.jpg') center/cover;
+            opacity: 0.25;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .flag-display {
+            width: 180px;
+            height: 120px;
+            margin: 0 auto 30px;
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            animation: wave 3s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+        
+        .flag-stripe {
+            flex: 1;
+        }
+        .flag-blue { background: var(--chad-blue); }
+        .flag-yellow { background: var(--chad-yellow); }
+        .flag-red { background: var(--chad-red); }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        /* Content Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--chad-blue);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--chad-yellow);
+        }
+        
+        .intro-text {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 2;
+        }
+        
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--chad-blue), var(--chad-yellow), var(--chad-red));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--chad-red);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--chad-red);
+        }
+        
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--chad-red);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        /* City Cards */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-image {
+            transform: scale(1.05);
+        }
+        
+        .city-content {
+            padding: 28px;
+        }
+        
+        .city-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--chad-blue);
+            margin-bottom: 12px;
+        }
+        
+        .city-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--chad-yellow);
+            color: var(--chad-blue);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        /* Flag Meaning */
+        .flag-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px;
+            border-radius: 20px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .flag-meaning {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .meaning-item {
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .meaning-color {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        .meaning-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 280px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 25px 20px 20px;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--chad-blue);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .footer-flag {
+            width: 120px;
+            height: 80px;
+            margin: 20px auto;
+            display: flex;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        /* Arabic Font Support */
+        [lang="ar"] {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        [lang="ar"] .section-title::after {
+            left: auto;
+            right: 0;
+        }
+        
+        [lang="ar"] .timeline {
+            padding-left: 0;
+            padding-right: 40px;
+        }
+        
+        [lang="ar"] .timeline::before {
+            left: auto;
+            right: 15px;
+        }
+        
+        [lang="ar"] .timeline-item::before {
+            left: auto;
+            right: -33px;
+        }
+        
+        [lang="ar"] .timeline-item:hover {
+            transform: translateX(-10px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .flag-section {
+                padding: 30px 20px;
+            }
+            .lang-btn {
+                padding: 6px 16px;
+                font-size: 12px;
+                margin: 4px;
+            }
+        }
+        
+        /* Fade animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Selector -->
+    <div class="lang-bar">
+        <div class="lang-container">
+            <button class="lang-btn active" onclick="setLang('en')" data-lang="en">🇺🇸 English</button>
+            <button class="lang-btn" onclick="setLang('fr')" data-lang="fr">🇫🇷 Français</button>
+            <button class="lang-btn" onclick="setLang('ar')" data-lang="ar">🇸🇦 العربية</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="flag-display">
+                <div class="flag-stripe flag-blue"></div>
+                <div class="flag-stripe flag-yellow"></div>
+                <div class="flag-stripe flag-red"></div>
+            </div>
+            <h1 data-en="Discover Chad" data-fr="Découvrez le Tchad" data-ar="اكتشف تشاد">Discover Chad</h1>
+            <p class="hero-subtitle" data-en="The Hidden Heart of Africa" data-fr="Le Cœur Caché de l'Afrique" data-ar="قلب أفريقيا الخفي">The Hidden Heart of Africa</p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="Welcome to the Unknown" data-fr="Bienvenue dans l'Inconnu" data-ar="مرحبًا بكم في المجهول">Welcome to the Unknown</h2>
+            <p class="intro-text fade-in" data-en="Nestled in the very center of Africa, Chad is a land of breathtaking contrasts. From the shimmering sands of the Sahara to the wildlife-rich savannas of the south, this landlocked nation remains one of the continent's last true frontiers. Often called the \"Dead Heart of Africa\" due to its landlocked position, Chad pulses with life, culture, and history that few travelers ever get to witness." data-fr="Niché au centre même de l'Afrique, le Tchad est une terre de contrastes à couper le souffle. Des sables scintillants du Sahara aux savanes riches en faune du sud, cette nation sans littoral reste l'une des dernières véritables frontières du continent. Souvent appelé le \"Cœur Mort de l'Afrique\" en raison de sa position continentale, le Tchad pulse de vie, de culture et d'histoire que peu de voyageurs ont la chance de découvrir." data-ar="تقع تشاد في قلب أفريقيا، وهي أرض من التناقضات المذهلة. من رمال الصحراء اللامعة إلى السافانا الغنية بالحياة البرية في الجنوب، تظل هذه الدولة الحبيسة واحدة من آخر الحدود الحقيقية للقارة. غالبًا ما تُسمى \"قلب أفريقيا الميت\" بسبب موقعها الحبيس، لكنها تنبض بالحياة والثقافة والتاريخ الذي يشهده القليل من المسافرين.">
+                Nestled in the very center of Africa, Chad is a land of breathtaking contrasts. From the shimmering sands of the Sahara to the wildlife-rich savannas of the south, this landlocked nation remains one of the continent's last true frontiers. Often called the "Dead Heart of Africa" due to its landlocked position, Chad pulses with life, culture, and history that few travelers ever get to witness.
+            </p>
+        </div>
+    </section>
+
+    <!-- Flag Section -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="The Flag & Its Soul" data-fr="Le Drapeau et Son Âme" data-ar="العلم وروحه">The Flag & Its Soul</h2>
+            <p class="intro-text fade-in" data-en="Adopted on November 6, 1959, just before independence, the Chadian flag is a vertical tricolor that tells the story of a nation. Remarkably, it is nearly identical to Romania's flag, but Chad's version uses a darker shade of blue—specifically \"cobalt\"—representing the vast African sky and the waters of Lake Chad." data-fr="Adopté le 6 novembre 1959, juste avant l'indépendance, le drapeau tchadien est un tricolore vertical qui raconte l'histoire d'une nation. Remarquablement, il est presque identique au drapeau de la Roumanie, mais la version tchadienne utilise une nuance plus foncée de bleu—spécifiquement le \"cobalt\"—représentant le vaste ciel africain et les eaux du Lac Tchad." data-ar="اعتُمد في 6 نوفمبر 1959، قبل الاستقلال مباشرة، العلم التشادي ثلاثي الألوان العمودي الذي يروي قصة أمة. من المثير للدهشة أنه مطابق تقريبًا لعلم رومانيا، لكن النسخة التشادية تستخدم درجة أغمق من اللون الأزرق—تحديدًا \"الكوبالت\"—تمثل السماء الأفريقية الشاسعة ومياه بحيرة تشاد.">
+                Adopted on November 6, 1959, just before independence, the Chadian flag is a vertical tricolor that tells the story of a nation. Remarkably, it is nearly identical to Romania's flag, but Chad's version uses a darker shade of blue—specifically "cobalt"—representing the vast African sky and the waters of Lake Chad.
+            </p>
+            
+            <div class="flag-section fade-in">
+                <div style="width: 200px; height: 130px; margin: 0 auto 30px; display: flex; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <div style="flex: 1; background: var(--chad-blue);"></div>
+                    <div style="flex: 1; background: var(--chad-yellow);"></div>
+                    <div style="flex: 1; background: var(--chad-red);"></div>
+                </div>
+                
+                <div class="flag-meaning">
+                    <div class="meaning-item">
+                        <div class="meaning-color" style="background: var(--chad-blue);"></div>
+                        <h3 class="meaning-title" data-en="Blue" data-fr="Bleu" data-ar="الأزرق">Blue</h3>
+                        <p data-en="The sky, hope, and the waters of Lake Chad that sustain millions" data-fr="Le ciel, l'espoir et les eaux du Lac Tchad qui font vivre des millions de personnes" data-ar="السماء والأمل ومياه بحيرة تشاد التي ت sustain الملايين">The sky, hope, and the waters of Lake Chad that sustain millions</p>
+                    </div>
+                    <div class="meaning-item">
+                        <div class="meaning-color" style="background: var(--chad-yellow);"></div>
+                        <h3 class="meaning-title" data-en="Yellow" data-fr="Jaune" data-ar="الأصفر">Yellow</h3>
+                        <p data-en="The sun, the desert sands, and the bright future of the nation" data-fr="Le soleil, les sables du désert et l'avenir brillant de la nation" data-ar="الشمس ورمال الصحراء والمستقبل المشرق للأمة">The sun, the desert sands, and the bright future of the nation</p>
+                    </div>
+                    <div class="meaning-item">
+                        <div class="meaning-color" style="background: var(--chad-red);"></div>
+                        <h3 class="meaning-title" data-en="Red" data-fr="Rouge" data-ar="الأحمر">Red</h3>
+                        <p data-en="Progress, unity, and the sacrifice of those who fought for independence" data-fr="Le progrès, l'unité et le sacrifice de ceux qui ont combattu pour l'indépendance" data-ar="التقدم والوحدة وتضحية الذين قاتلوا من أجل الاستقلال">Progress, unity, and the sacrifice of those who fought for independence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="A Journey Through Time" data-fr="Un Voyage à Travers le Temps" data-ar="رحلة عبر الزمن">A Journey Through Time</h2>
+            <p class="intro-text fade-in" data-en="Chad's history is a tapestry woven with ancient civilizations, powerful sultanates, European colonialism, and a fierce struggle for independence. The country's name comes from Lake Chad, which in turn derives from the Kanuri word \"Sádǝ\" meaning \"large expanse of water.\"" data-fr="L'histoire du Tchad est une tapisserie tissée de civilisations anciennes, de puissants sultanats, du colonialisme européen et d'une lutte acharnée pour l'indépendance. Le nom du pays vient du Lac Tchad, qui dérive du mot kanouri \"Sádǝ\" signifiant \"vaste étendue d'eau.\"" data-ar="تاريخ تشاد هو نسيج مُنسوج من الحضارات القديمة والسلطنات القوية والاستعمار الأوروبي والنضال الشرس من أجل الاستقلال. يأتي اسم البلاد من بحيرة تشاد، التي بدورها مشتقة من كلمة كانوري \"Sádǝ\" وتعني \"مساحة مائية واسعة.\">">
+                Chad's history is a tapestry woven with ancient civilizations, powerful sultanates, European colonialism, and a fierce struggle for independence. The country's name comes from Lake Chad, which in turn derives from the Kanuri word "Sádǝ" meaning "large expanse of water."
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">7th Century</div>
+                    <p data-en="The powerful Kanem-Bornu Empire rises around Lake Chad, becoming one of Africa's longest-lasting empires and controlling trans-Saharan trade routes for centuries." data-fr="Le puissant empire du Kanem-Bornu s'élève autour du Lac Tchad, devenant l'un des empires les plus durables d'Afrique et contrôlant les routes commerciales transsahariennes pendant des siècles." data-ar="يظهر إمبراطورية كانم-بورنو القوية حول بحيرة تشاد، لتصبح واحدة من أطول الإمبراطوريات الأفريقية عمرًا وتسيطر على طرق التجارة عبر الصحراء لقرون.">The powerful Kanem-Bornu Empire rises around Lake Chad, becoming one of Africa's longest-lasting empires and controlling trans-Saharan trade routes for centuries.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">1500s–1800s</div>
+                    <p data-en="The Sultanate of Baghirmi and the Wadai Sultanate flourish. Abéché becomes a major center of Islamic learning and trade, while Arab traders bring new cultures and religions to the region." data-fr="Le Sultanat de Baghirmi et le Sultanat du Ouadaï prospèrent. Abéché devient un grand centre d'apprentissage islamique et de commerce, tandis que les marchands arabes apportent de nouvelles cultures et religions dans la région." data-ar="تزدهر سلطنة باغرمي وسلطنة وداي. تصبح أبشي مركزًا رئيسيًا للتعلم الإسلامي والتجارة، بينما يجلب التجار العرب ثقافات وأديانًا جديدة إلى المنطقة.">The Sultanate of Baghirmi and the Wadai Sultanate flourish. Abéché becomes a major center of Islamic learning and trade, while Arab traders bring new cultures and religions to the region.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">1900</div>
+                    <p data-en="French forces conquer the territory, incorporating it into French Equatorial Africa. The colonial period brings infrastructure but also exploitation, reshaping traditional societies." data-fr="Les forces françaises conquérissent le territoire, l'incorporant dans l'Afrique équatoriale française. La période coloniale apporte des infrastructures mais aussi de l'exploitation, remodelant les sociétés traditionnelles." data-ar="تغزو القوات الفرنسية الأراضي، مدمجة إياها في أفريقيا الاستوائية الفرنسية. تجلب الفترة الاستعمارية البنية التحتية لكن أيضًا الاستغلال، مما يعيد تشكيل المجتمعات التقليدية.">French forces conquer the territory, incorporating it into French Equatorial Africa. The colonial period brings infrastructure but also exploitation, reshaping traditional societies.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">August 11, 1960</div>
+                    <p data-en="Chad gains independence from France under President François Tombalbaye. The new nation faces the challenge of uniting over 200 ethnic groups speaking more than 100 languages." data-fr="Le Tchad accède à l'indépendance de la France sous la présidence de François Tombalbaye. La nouvelle nation fait face au défi d'unir plus de 200 groupes ethniques parlant plus de 100 langues." data-ar="تكتسب تشاد استقلالها من فرنسا تحت رئاسة فرانسوا تومبالباي. تواجه الأمة الجديدة تحدي توحيد أكثر من 200 مجموعة عرقية تتحدث أكثر من 100 لغة.">Chad gains independence from France under President François Tombalbaye. The new nation faces the challenge of uniting over 200 ethnic groups speaking more than 100 languages.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">Today</div>
+                    <p data-en="Modern Chad is rediscovering its tourism potential. From the rehabilitated Zakouma National Park to the UNESCO-listed Ennedi Massif, the country is slowly opening its doors to intrepid travelers seeking authentic Africa." data-fr="Le Tchad moderne redécouvre son potentiel touristique. Du Parc National de Zakouma réhabilité au Massif de l'Ennedi inscrit à l'UNESCO, le pays ouvre lentement ses portes aux voyageurs intrépides à la recherche d'une Afrique authentique." data-ar="تكتشف تشاد الحديثة إمكاناتها السياحية. من حديقة زاكوما الوطنية المعاد تأهيلها إلى هضبة إنيدي المدرجة في قائمة اليونسكو، تفتح البلاد أبوابها ببطء للمسافرين الجريئين الباحثين عن أفريقيا الأصيلة.">Modern Chad is rediscovering its tourism potential. From the rehabilitated Zakouma National Park to the UNESCO-listed Ennedi Massif, the country is slowly opening its doors to intrepid travelers seeking authentic Africa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cities Section -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="Cities That Define Chad" data-fr="Les Villes qui Définissent le Tchad" data-ar="المدن التي تعرف تشاد">Cities That Define Chad</h2>
+            <p class="intro-text fade-in" data-en="Beyond the headlines, Chad's cities are vibrant centers of culture, commerce, and hospitality. Each tells a different story of this complex nation." data-fr="Au-delà des titres, les villes tchadiennes sont des centres vibrants de culture, de commerce et d'hospitalité. Chacune raconte une histoire différente de cette nation complexe." data-ar="وراء العناوين الرئيسية، مدن تشاد هي مراكز نابضة بالحياة للثقافة والتجارة والضيافة. كل منها يروي قصة مختلفة لهذه الأمة المعقدة.">Beyond the headlines, Chad's cities are vibrant centers of culture, commerce, and hospitality. Each tells a different story of this complex nation.</p>
+            
+            <div class="cities-grid">
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.penguintravel.com/da75e420446699f4f71d516cf0e0f0736cd16071.jpg" alt="N'Djamena" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Capital" data-fr="Capitale" data-ar="العاصمة">Capital</span>
+                        <h3 class="city-name">N'Djamena</h3>
+                        <p class="city-desc" data-en="Straddling the Chari River on the Cameroon border, N'Djamena is Chad's beating heart. Visit the National Museum to see the famous \"Toumaï\" skull (one of humanity's oldest ancestors), explore the Grand Marché for colorful textiles, and watch the sunset over the Chari River. The Grande Mosquée and Notre-Dame Cathedral stand as symbols of religious harmony." data-fr="Chevauchant la rivière Chari à la frontière du Cameroun, N'Djamena est le cœur battant du Tchad. Visitez le Musée National pour voir le célèbre crâne \"Toumaï\" (l'un des ancêtres les plus anciens de l'humanité), explorez le Grand Marché pour les textiles colorés, et admirez le coucher de soleil sur la rivière Chari. La Grande Mosquée et la Cathédrale Notre-Dame sont des symboles d'harmonie religieuse." data-ar="على ضفاف نهر شاري عند الحدود الكاميرونية، انجمينا هي قلب تشاد النابض. زر المتحف الوطني لرؤية جمجمة \"توماي\" الشهيرة (أحد أقدم أسلاف البشرية)، واستكشف السوق الكبير للأقمشة الملونة، وشاهد غروب الشمس فوق نهر شاري. تقف الجامع الكبير وكاتدرائية السيدة العذراء رموزًا للوئام الديني.">Straddling the Chari River on the Cameroon border, N'Djamena is Chad's beating heart. Visit the National Museum to see the famous "Toumaï" skull (one of humanity's oldest ancestors), explore the Grand Marché for colorful textiles, and watch the sunset over the Chari River. The Grande Mosquée and Notre-Dame Cathedral stand as symbols of religious harmony.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/a79ae336a6ca0ff9123f344e25e52e2dddc48b5c.jpg" alt="Moundou" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Economic Hub" data-fr="Pôle Économique" data-ar="مركز اقتصادي">Economic Hub</span>
+                        <h3 class="city-name">Moundou</h3>
+                        <p class="city-desc" data-en="Chad's second-largest city and the economic capital of the south. Famous for the Gala Brewery (producing Chad's favorite beer since independence), Moundou sits in the fertile Logone Valley. The city is a gateway to the Ngambai culture, with lively markets and a more relaxed pace than the capital." data-fr="Deuxième plus grande ville du Tchad et capitale économique du sud. Célèbre pour la Brasserie Gala (qui produit la bière préférée des Tchadiens depuis l'indépendance), Moundou se situe dans la fertile vallée du Logone. La ville est la porte d'entrée de la culture Ngambai, avec des marchés animés et un rythme plus détendu que la capitale." data-ar="ثاني أكبر مدينة في تشاد والعاصمة الاقتصادية للجنوب. مشهورة بمشروب غالا (تنتج البيرة المفضلة للتشاديين منذ الاستقلال)، تقع موندو في وادي لوجوني الخصب. المدينة هي بوابة ثقافة النجامباي، مع أسواق نابضة بالحياة وإيقاع أكثر استرخاءً من العاصمة.">Chad's second-largest city and the economic capital of the south. Famous for the Gala Brewery (producing Chad's favorite beer since independence), Moundou sits in the fertile Logone Valley. The city is a gateway to the Ngambai culture, with lively markets and a more relaxed pace than the capital.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/d3e3ab7bce2b37bdacf0efbd0637102ae5c280d4.jpg" alt="Abéché" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Historic Capital" data-fr="Capitale Historique" data-ar="عاصمة تاريخية">Historic Capital</span>
+                        <h3 class="city-name">Abéché</h3>
+                        <p class="city-desc" data-en="Once the capital of the powerful Wadai Sultanate, Abéché retains its oriental charm with narrow cobblestone streets, ancient mosques, and the Sultan's Palace. Surrounded by desert, it remains a center of Islamic learning and a living museum of Chad's pre-colonial grandeur. The Grand Mosque of Abéché is one of the largest in the country." data-fr="Ancienne capitale du puissant Sultanat du Ouadaï, Abéché conserve son charme oriental avec ses rues pavées étroites, ses anciennes mosquées et le Palais du Sultan. Entourée de désert, elle reste un centre d'apprentissage islamique et un musée vivant de la grandeur précoloniale du Tchad. La Grande Mosquée d'Abéché est l'une des plus grandes du pays." data-ar="كانت عاصمة سلطنة وداي القوية، تحتفظ أبشي بسحرها الشرقي بشوارعها الضيقة المرصوفة بالحصى والمساجد القديمة وقصر السلطان. محاطة بالصحراء، تظل مركزًا للتعلم الإسلامي ومتحفًا حيًا لعظمة تشاد ما قبل الاستعمار. جامع أبشي الكبير هو أحد أكبر المساجد في البلاد.">Once the capital of the powerful Wadai Sultanate, Abéché retains its oriental charm with narrow cobblestone streets, ancient mosques, and the Sultan's Palace. Surrounded by desert, it remains a center of Islamic learning and a living museum of Chad's pre-colonial grandeur. The Grand Mosque of Abéché is one of the largest in the country.</p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/explore-chad.org/9c366e12e8ca1956607c5075e821d265575987dc.jpg" alt="Faya-Largeau" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Desert Oasis" data-fr="Oasis du Désert" data-ar="واحة صحراوية">Desert Oasis</span>
+                        <h3 class="city-name">Faya-Largeau</h3>
+                        <p class="city-desc" data-en="Deep in the Sahara, Faya-Largeau is one of the world's largest oasis towns. A six-hour drive from N'Djamena reveals breathtaking desert scenery and nomadic Toubou tribes. The town serves as the administrative center of the Borkou-Ennedi-Tibesti region and is the gateway to the legendary Tibesti Mountains." data-fr="Au cœur du Sahara, Faya-Largeau est l'une des plus grandes oasis du monde. Une route de six heures depuis N'Djamena révèle des paysages désertiques à couper le souffle et les tribus nomades Toubou. La ville est le centre administratif de la région du Borkou-Ennedi-Tibesti et la porte d'entrée des légendaires monts Tibesti." data-ar="في عمق الصحراء، فايا لارجو هي واحدة من أكبر مدن الواحات في العالم. تكشف رحلة بالسيارة لمدة ست ساعات من انجمينا عن مناظر صحراوية خلابة وقبائل التبو الرحل. تخدم المدينة كمركز إداري لمنطقة بوركو-إنيدي-تيبستي وهي بوابة جبال تيبستي الأسطورية.">Deep in the Sahara, Faya-Largeau is one of the world's largest oasis towns. A six-hour drive from N'Djamena reveals breathtaking desert scenery and nomadic Toubou tribes. The town serves as the administrative center of the Borkou-Ennedi-Tibesti region and is the gateway to the legendary Tibesti Mountains.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Natural Wonders -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="Nature's Masterpieces" data-fr="Chefs-d'Œuvre de la Nature" data-ar="تحف الطبيعة">Nature's Masterpieces</h2>
+            <p class="intro-text fade-in" data-en="Chad's landscapes are raw, untamed, and utterly mesmerizing. From prehistoric rock art to wildlife spectacles, nature here operates on a grand scale." data-fr="Les paysages tchadiens sont bruts, indomptés et absolument fascinants. De l'art rupestre préhistorique aux spectacles de la faune, la nature opère ici à grande échelle." data-ar="مناظر تشاد خام وغير المروضة وساحرة تمامًا. من فن الصخور قبل التاريخ إلى عروض الحياة البرية، تعمل الطبيعة هنا على نطاق واسع.">Chad's landscapes are raw, untamed, and utterly mesmerizing. From prehistoric rock art to wildlife spectacles, nature here operates on a grand scale.</p>
+            
+            <div class="gallery">
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/journeysbydesign.com/4359f8cb4e99815dc4fcd920dc58b0e838642b21.jpg" alt="Zakouma National Park">
+                    <div class="gallery-caption" data-en="Zakouma National Park - Home to elephants, lions, and giraffes" data-fr="Parc National de Zakouma - Terre des éléphants, lions et girafes" data-ar="حديقة زاكوما الوطنية - موطن الفيلة والأسود والزرافات">Zakouma National Park - Home to elephants, lions, and giraffes</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/explore-chad.org/40b55c179b196b1fda78d68d63b0a7c72c62eabf.jpg" alt="Ennedi Desert">
+                    <div class="gallery-caption" data-en="Ennedi Massif - UNESCO World Heritage rock formations" data-fr="Massif de l'Ennedi - Formations rocheuses du patrimoine mondial UNESCO" data-ar="هضبة إنيدي - تكوينات صخرية في مواقع التراث العالمي لليونسكو">Ennedi Massif - UNESCO World Heritage rock formations</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/global.unitednations.entermediadb.net/792c98a9856d97ccc75081df63f352e7345e070e.jpg" alt="Lake Chad">
+                    <div class="gallery-caption" data-en="Lake Chad - The shrinking inland sea that sustains millions" data-fr="Lac Tchad - La mer intérieure rétrécissante qui fait vivre des millions" data-ar="بحيرة تشاد - البحر الداخلي المتقلص الذي ي sustain الملايين">Lake Chad - The shrinking inland sea that sustains millions</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/kumakonda.es/c80a161bc9297826c42d978150c89c53a50b9601.jpg" alt="Chadian Culture">
+                    <div class="gallery-caption" data-en="The vibrant cultures of Chad's 200+ ethnic groups" data-fr="Les cultures vibrantes des 200+ groupes ethniques du Tchad" data-ar="ثقافات تشاد النابضة بالحياة لأكثر من 200 مجموعة عرقية">The vibrant cultures of Chad's 200+ ethnic groups</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture & People -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="People & Culture" data-fr="Peuple et Culture" data-ar="الشعب والثقافة">People & Culture</h2>
+            <p class="intro-text fade-in" data-en="With over 200 ethnic groups including the Sara, Arab, Kanembu, and Toubou, Chad is a mosaic of languages, traditions, and beliefs. French and Arabic are the official languages, but local languages like Sara, Kanuri, and Masalit color daily life. Traditional music, dance, and craftsmanship remain vital, while the country's cuisine features millet, sorghum, and spicy stews like \"daraba\" made with okra and peanuts." data-fr="Avec plus de 200 groupes ethniques dont les Sara, Arabes, Kanembu et Toubou, le Tchad est une mosaïque de langues, de traditions et de croyances. Le français et l'arabe sont les langues officielles, mais les langues locales comme le Sara, le Kanuri et le Masalit colorent la vie quotidienne. La musique traditionnelle, la danse et l'artisanat restent vitaux, tandis que la cuisine du pays met en vedette le millet, le sorgho et les ragoûts épicés comme le \"daraba\" à base de gombo et d'arachides." data-ar="مع أكثر من 200 مجموعة عرقية تشمل السارا والعرب والكانمبو والتبو، تشاد هي فسيفساء من اللغات والتقاليد والمعتقدات. الفرنسية والعربية هما اللغتان الرسميتان، لكن اللغات المحلية مثل السارا والكانوري والماساليت تلون الحياة اليومية. تظل الموسيقى التقليدية والرقص والحرف اليدوية حيوية، بينما تتميز المأكولات المحلية بالدخن والذرة الرفيعة واليخنات الحارة مثل \"دارابا\" المصنوعة من الباميا والفول السوداني.">
+                With over 200 ethnic groups including the Sara, Arab, Kanembu, and Toubou, Chad is a mosaic of languages, traditions, and beliefs. French and Arabic are the official languages, but local languages like Sara, Kanuri, and Masalit color daily life. Traditional music, dance, and craftsmanship remain vital, while the country's cuisine features millet, sorghum, and spicy stews like "daraba" made with okra and peanuts.
+            </p>
+            
+            <div style="background: linear-gradient(135deg, var(--chad-blue), #003d99); color: white; padding: 50px; border-radius: 20px; text-align: center; margin-top: 40px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px;" data-en="Did You Know?" data-fr="Le Saviez-Vous?" data-ar="هل كنت تعلم؟">Did You Know?</h3>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto; opacity: 0.9;" data-en="The \"Toumaï\" skull discovered in Chad in 2002 is approximately 7 million years old, making it one of the oldest known human ancestors. The name means \"hope of life\" in the local Goran language, and it rewrote the story of human origins, suggesting humanity may have been born in the Sahel, not just East Africa." data-fr="Le crâne \"Toumaï\" découvert au Tchad en 2002 date d'environ 7 millions d'années, ce qui en fait l'un des ancêtres humains connus les plus anciens. Le nom signifie \"espoir de vie\" dans la langue locale Goran, et il a réécrit l'histoire des origines humaines, suggérant que l'humanité serait peut-être née dans le Sahel, et non seulement en Afrique de l'Est." data-ar="جمجمة \"توماي\" المكتشفة في تشاد عام 2002 يعود تاريخها إلى حوالي 7 ملايين سنة، مما يجعلها واحدة من أقدم أسلاف البشرية المعروفة. يعني الاسم \"أمل الحياة\" باللغة المحلية غوران، وأعادت كتابة قصة أصول البشرية، مما يشير إلى أن البشرية قد تكون ولدت في الساحل، وليس فقط في شرق أفريقيا.">
+                    The "Toumaï" skull discovered in Chad in 2002 is approximately 7 million years old, making it one of the oldest known human ancestors. The name means "hope of life" in the local Goran language, and it rewrote the story of human origins, suggesting humanity may have been born in the Sahel, not just East Africa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-flag">
+            <div style="flex: 1; background: var(--chad-blue);"></div>
+            <div style="flex: 1; background: var(--chad-yellow);"></div>
+            <div style="flex: 1; background: var(--chad-red);"></div>
+        </div>
+        <h3 data-en="Chad Awaits" data-fr="Le Tchad Vous Attend" data-ar="تشاد في انتظارك">Chad Awaits</h3>
+        <p data-en="A land of ancient mysteries, warm hospitality, and landscapes that will forever change how you see Africa. Travel responsibly, respect local cultures, and carry Chad's story with you." data-fr="Une terre de mystères anciens, d'hospitalité chaleureuse et de paysages qui changeront pour toujours votre regard sur l'Afrique. Voyagez de manière responsable, respectez les cultures locales et emportez l'histoire du Tchad avec vous." data-ar="أرض من الألغاز القديمة والضيافة الدافئة والمناظر التي ستغير إلى الأبد كيف ترى أفريقيا. سافر بمسؤولية، واحترم الثقافات المحلية، واحمل قصة تشاد معك.">
+            A land of ancient mysteries, warm hospitality, and landscapes that will forever change how you see Africa. Travel responsibly, respect local cultures, and carry Chad's story with you.
+        </p>
+        <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 30px;">
+            © 2026 Chad Travel Blog | Designed for curious souls
+        </p>
+    </footer>
+
+    <script>
+        // Translation System
+        function setLang(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.dataset.lang === lang) btn.classList.add('active');
+            });
+            
+            // Update HTML lang and dir
+            document.documentElement.lang = lang;
+            if(lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+            } else {
+                document.documentElement.dir = 'ltr';
+            }
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.dataset[lang];
+                } else {
+                    el.textContent = el.dataset[lang];
+                }
+            });
+            
+            // Save preference
+            localStorage.setItem('chad-lang', lang);
+        }
+        
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Load saved language
+        const savedLang = localStorage.getItem('chad-lang') || 'en';
+        setLang(savedLang);
+    </script>
+</body>
+</html>
