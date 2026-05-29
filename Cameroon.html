@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Cameroon — Africa in Miniature</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cmr-green: #007A5E;
+            --cmr-red: #CE1126;
+            --cmr-yellow: #FCD116;
+            --sand: #F8F6F0;
+            --dark: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--sand);
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Translation Bar */
+        .lang-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 122, 94, 0.95);
+            z-index: 1000;
+            padding: 14px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .lang-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 10px 32px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 200px;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--cmr-yellow);
+            color: var(--cmr-green);
+            border-color: var(--cmr-yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(252, 209, 22, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--cmr-green) 0%, #005a45 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://kimi-web-img.moonshot.cn/img/discover-cameroon.com/ee67fa0ba31df1c0a0dd7a2933a5f09a4a5c655f.jpg') center/cover;
+            opacity: 0.2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .flag-display {
+            width: 200px;
+            height: 133px;
+            margin: 0 auto 30px;
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            animation: wave 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .flag-display::after {
+            content: '★';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--cmr-yellow);
+            font-size: 36px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+        
+        .flag-stripe {
+            flex: 1;
+        }
+        .flag-green { background: var(--cmr-green); }
+        .flag-red { background: var(--cmr-red); }
+        .flag-yellow { background: var(--cmr-yellow); }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        /* Content Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--cmr-green);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--cmr-red);
+        }
+        
+        .intro-text {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 2;
+        }
+        
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--cmr-green), var(--cmr-yellow), var(--cmr-red));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--cmr-red);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--cmr-red);
+        }
+        
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--cmr-red);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        /* City Cards */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-image {
+            transform: scale(1.05);
+        }
+        
+        .city-content {
+            padding: 28px;
+        }
+        
+        .city-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--cmr-green);
+            margin-bottom: 12px;
+        }
+        
+        .city-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--cmr-yellow);
+            color: #1a1a1a;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        /* Flag Meaning */
+        .flag-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px;
+            border-radius: 20px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .flag-meaning {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .meaning-item {
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .meaning-color {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        .meaning-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 280px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 25px 20px 20px;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--cmr-green);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .footer-flag {
+            width: 140px;
+            height: 93px;
+            margin: 20px auto;
+            display: flex;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .footer-flag::after {
+            content: '★';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--cmr-yellow);
+            font-size: 24px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .flag-section {
+                padding: 30px 20px;
+            }
+            .lang-container {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .lang-btn {
+                max-width: 100%;
+                width: 200px;
+            }
+        }
+        
+        /* Fade animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Selector -->
+    <div class="lang-bar">
+        <div class="lang-container">
+            <button class="lang-btn active" onclick="setLang('en')" data-lang="en">🇺🇸 English</button>
+            <button class="lang-btn" onclick="setLang('fr')" data-lang="fr">🇫🇷 Français</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="flag-display">
+                <div class="flag-stripe flag-green"></div>
+                <div class="flag-stripe flag-red"></div>
+                <div class="flag-stripe flag-yellow"></div>
+            </div>
+            <h1 data-en="Discover Cameroon" data-fr="Découvrez le Cameroun">Discover Cameroon</h1>
+            <p class="hero-subtitle" data-en="Africa in Miniature" data-fr="L'Afrique en Miniature">Africa in Miniature</p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="A World in One Country" data-fr="Un Monde dans un Seul Pays">A World in One Country</h2>
+            <p class="intro-text fade-in" data-en="Cameroon is often called \"Africa in Miniature\"—and for good reason. From the thundering Atlantic coastline to the misty peaks of West Africa's highest mountain, from steamy rainforests to Sahelian savannas, this bilingual nation packs an entire continent's diversity into one triangular territory. Straddling both English and French-speaking Africa, Cameroon is a cultural crossroads where over 250 ethnic groups and languages create a vibrant, harmonious chaos that captivates every traveler lucky enough to visit." data-fr="Le Cameroun est souvent appelé \"l'Afrique en miniature\"—et pour cause. De la côte tonitruante de l'Atlantique aux sommets brumeux de la plus haute montagne d'Afrique de l'Ouest, des forêts tropicales humides aux savanes sahéliennes, cette nation bilingue condense toute la diversité d'un continent en un seul territoire triangulaire. À cheval entre l'Afrique anglophone et francophone, le Cameroun est un carrefour culturel où plus de 250 groupes ethniques et langues créent une harmonieuse vibration chaotique qui captive chaque voyageur assez chanceux pour visiter.">
+                Cameroon is often called "Africa in Miniature"—and for good reason. From the thundering Atlantic coastline to the misty peaks of West Africa's highest mountain, from steamy rainforests to Sahelian savannas, this bilingual nation packs an entire continent's diversity into one triangular territory. Straddling both English and French-speaking Africa, Cameroon is a cultural crossroads where over 250 ethnic groups and languages create a vibrant, harmonious chaos that captivates every traveler lucky enough to visit.
+            </p>
+        </div>
+    </section>
+
+    <!-- Flag Section -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="The Tricolor Star" data-fr="La Tricolore Étoilée">The Tricolor Star</h2>
+            <p class="intro-text fade-in" data-en="Cameroon's flag is a powerful symbol of unity and Pan-African pride. Adopted on May 20, 1975, it replaced the earlier two-star flag with a single golden star at the center—representing the unity of the formerly separate French and British territories. The vertical tricolor of green, red, and yellow echoes the Pan-African colors shared across the continent." data-fr="Le drapeau du Cameroun est un puissant symbole d'unité et de fierté panafricaine. Adopté le 20 mai 1975, il a remplacé l'ancien drapeau à deux étoiles par une seule étoile dorée au centre—représentant l'unité des anciens territoires français et britanniques. Le tricolore vertical vert, rouge et jaune reprend les couleurs panafricaines partagées à travers le continent.">
+                Cameroon's flag is a powerful symbol of unity and Pan-African pride. Adopted on May 20, 1975, it replaced the earlier two-star flag with a single golden star at the center—representing the unity of the formerly separate French and British territories. The vertical tricolor of green, red, and yellow echoes the Pan-African colors shared across the continent.
+            </p>
+            
+            <div class="flag-section fade-in">
+                <div style="width: 220px; height: 147px; margin: 0 auto 30px; display: flex; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative;">
+                    <div style="flex: 1; background: var(--cmr-green);"></div>
+                    <div style="flex: 1; background: var(--cmr-red); position: relative;">
+                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--cmr-yellow); font-size: 40px;">★</span>
+                    </div>
+                    <div style="flex: 1; background: var(--cmr-yellow);"></div>
+                </div>
+                
+                <div class="flag-meaning">
+                    <div class="meaning-item">
+                        <div class="meaning-color" style="background: var(--cmr-green);"></div>
+                        <h3 class="meaning-title" data-en="Green" data-fr="Vert">Green</h3>
+                        <p data-en="The lush southern forests, hope, and the rich vegetation that covers much of the country" data-fr="Les forêts luxuriantes du sud, l'espoir et la riche végétation qui couvre une grande partie du pays">The lush southern forests, hope, and the rich vegetation that covers much of the country</p>
+                    </div>
+                    <div class="meaning-item">
+                        <div class="meaning-color" style="background: var(--cmr-red);"></div>
+                        <h3 class="meaning-title" data-en="Red" data-fr="Rouge">Red</h3>
+                        <p data-en="Unity, independence, and the blood of those who fought for the nation's freedom" data-fr="L'unité, l'indépendance et le sang de ceux qui ont combattu pour la liberté de la nation">Unity, independence, and the blood of those who fought for the nation's freedom</p>
+                    </div>
+                    <div class="meaning-item">
+                        <div class="meaning-color" style="background: var(--cmr-yellow);"></div>
+                        <h3 class="meaning-title" data-en="Yellow" data-fr="Jaune">Yellow</h3>
+                        <p data-en="The sun, the northern savannas, and the prosperity of the Cameroonian people" data-fr="Le soleil, les savanes du nord et la prospérité du peuple camerounais">The sun, the northern savannas, and the prosperity of the Cameroonian people</p>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; font-style: italic; color: #666;" data-en="The central star symbolizes the unity of the French and English-speaking regions, shining as one nation." data-fr="L'étoile centrale symbolise l'unité des régions francophones et anglophones, brillant comme une seule nation.">
+                    The central star symbolizes the unity of the French and English-speaking regions, shining as one nation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- History -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="From Prawns to Independence" data-fr="Des Crevettes à l'Indépendance">From Prawns to Independence</h2>
+            <p class="intro-text fade-in" data-en="The very name \"Cameroon\" comes from the Portuguese \"Rio dos Camarões\"—River of Prawns—named for the abundant shrimp in the Wouri River estuary. What began as a European trading post grew into one of Africa's most culturally complex nations, shaped by German colonization, French and British rule, and an enduring spirit of unity." data-fr="Le nom même \"Cameroun\" vient du portugais \"Rio dos Camarões\"—Rivière des Crevettes—nommé ainsi pour les abondantes crevettes dans l'estuaire de la rivière Wouri. Ce qui a commencé comme un comptoir de trading européen est devenu l'une des nations les plus culturellement complexes d'Afrique, façonnée par la colonisation allemande, le règne français et britannique, et un esprit d'unité durable.">
+                The very name "Cameroon" comes from the Portuguese "Rio dos Camarões"—River of Prawns—named for the abundant shrimp in the Wouri River estuary. What began as a European trading post grew into one of Africa's most culturally complex nations, shaped by German colonization, French and British rule, and an enduring spirit of unity.
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">1472</div>
+                    <p data-en="Portuguese explorer Fernando Po arrives at the Wouri River, marveling at the endless shrimp and naming it \"Rio dos Camarões.\" European traders soon follow, exchanging goods, guns, and sadly, slaves." data-fr="L'explorateur portugais Fernando Po arrive à la rivière Wouri, s'émerveillant des crevettes sans fin et la nommant \"Rio dos Camarões.\" Les marchands européens suivent bientôt, échangeant des marchandises, des armes et malheureusement, des esclaves.">Portuguese explorer Fernando Po arrives at the Wouri River, marveling at the endless shrimp and naming it "Rio dos Camarões." European traders soon follow, exchanging goods, guns, and sadly, slaves.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">1884</div>
+                    <p data-en="Germany establishes the colony of Kamerun, stretching far into the interior. The Germans build railways, plantations, and infrastructure—yet also brutally suppress local resistance, leaving a complex legacy." data-fr="L'Allemagne établit la colonie du Kamerun, s'étendant loin dans l'intérieur. Les Allemands construisent des chemins de fer, des plantations et des infrastructures—mais répriment aussi brutalement la résistance locale, laissant un héritage complexe.">Germany establishes the colony of Kamerun, stretching far into the interior. The Germans build railways, plantations, and infrastructure—yet also brutally suppress local resistance, leaving a complex legacy.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">1916–1960</div>
+                    <p data-en="After World War I, the territory is divided between France and Britain. French Cameroon becomes independent on January 1, 1960, under President Ahmadou Ahidjo. British Southern Cameroons faces a different path." data-fr="Après la Première Guerre mondiale, le territoire est divisé entre la France et la Grande-Bretagne. Le Cameroun français accède à l'indépendance le 1er janvier 1960 sous la présidence d'Ahmadou Ahidjo. Le Cameroun méridional britannique suit un chemin différent.">After World War I, the territory is divided between France and Britain. French Cameroon becomes independent on January 1, 1960, under President Ahmadou Ahidjo. British Southern Cameroons faces a different path.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">October 1, 1961</div>
+                    <p data-en="British Southern Cameroons gains independence and merges with the Republic of Cameroon to form the Federal Republic. Two stars on the original flag represented these two states—East and West Cameroon." data-fr="Le Cameroun méridional britannique accède à l'indépendance et fusionne avec la République du Cameroun pour former la République fédérale. Les deux étoiles sur le drapeau original représentaient ces deux États—le Cameroun oriental et occidental.">British Southern Cameroons gains independence and merges with the Republic of Cameroon to form the Federal Republic. Two stars on the original flag represented these two states—East and West Cameroon.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">May 20, 1972</div>
+                    <p data-en="A referendum abolishes the federal system, creating the United Republic of Cameroon. The single star replaces two, symbolizing one unified nation. May 20 remains Cameroon's National Day, celebrated with parades and pride across the country." data-fr="Un référendum abolit le système fédéral, créant la République unie du Cameroun. L'étoile unique remplace les deux, symbolisant une nation unifiée. Le 20 mai reste la fête nationale du Cameroun, célébrée avec des défilés et de la fierté dans tout le pays.">A referendum abolishes the federal system, creating the United Republic of Cameroon. The single star replaces two, symbolizing one unified nation. May 20 remains Cameroon's National Day, celebrated with parades and pride across the country.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">Today</div>
+                    <p data-en="Modern Cameroon is a nation of 30 million people, blessed with extraordinary biodiversity, two official languages, and an unrivaled cultural richness. From the Waza savannas to the Korup rainforest, it remains one of Africa's most rewarding—if challenging—destinations." data-fr="Le Cameroun moderne est une nation de 30 millions d'habitants, dotée d'une biodiversité extraordinaire, de deux langues officielles et d'une richesse culturelle inégalée. Des savanes de Waza à la forêt tropicale de Korup, il reste l'une des destinations les plus enrichissantes—quoique exigeantes—d'Afrique.">Modern Cameroon is a nation of 30 million people, blessed with extraordinary biodiversity, two official languages, and an unrivaled cultural richness. From the Waza savannas to the Korup rainforest, it remains one of Africa's most rewarding—if challenging—destinations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cities Section -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="Cities That Shape Cameroon" data-fr="Les Villes qui Façonnent le Cameroun">Cities That Shape Cameroon</h2>
+            <p class="intro-text fade-in" data-en="Each major city in Cameroon feels like a different country. From the political elegance of Yaoundé to the commercial pulse of Douala, the cool highland air of Bamenda to the Sahelian warmth of Garoua—urban Cameroon is a journey in itself." data-fr="Chaque grande ville du Cameroun ressemble à un pays différent. De l'élégance politique de Yaoundé au pouls commercial de Douala, de l'air frais des hauts plateaux de Bamenda à la chaleur sahélienne de Garoua—le Cameroun urbain est en soi un voyage.">
+                Each major city in Cameroon feels like a different country. From the political elegance of Yaoundé to the commercial pulse of Douala, the cool highland air of Bamenda to the Sahelian warmth of Garoua—urban Cameroon is a journey in itself.
+            </p>
+            
+            <div class="cities-grid">
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/images.immediate.co.uk/9f5822bcc691fd98d00c32740cfff8281fbfaa0e.jpg" alt="Yaoundé" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Political Capital" data-fr="Capitale Politique">Political Capital</span>
+                        <h3 class="city-name">Yaoundé</h3>
+                        <p class="city-desc" data-en="Sprawling across seven hills, Yaoundé is one of Africa's most pleasantly laid-out capitals. Visit the Reunification Monument—an architectural masterpiece symbolizing the union of French and British Cameroons. The National Museum offers deep insight into the country's 250+ ethnic groups, while the Notre-Dame des Victoires Cathedral dominates the skyline. Don't miss Mefou National Park nearby, a sanctuary for rescued gorillas and chimpanzees." data-fr="Étalée sur sept collines, Yaoundé est l'une des capitales les plus agréablement aménagées d'Afrique. Visitez le Monument de la Réunification—un chef-d'œuvre architectural symbolisant l'union des Camerouns français et britannique. Le Musée National offre un aperçu profond des 250+ groupes ethniques du pays, tandis que la Cathédrale Notre-Dame des Victoires domine l'horizon. Ne manquez pas le Parc National de Mefou à proximité, un sanctuaire pour gorilles et chimpanzés rescapés.">
+                            Sprawling across seven hills, Yaoundé is one of Africa's most pleasantly laid-out capitals. Visit the Reunification Monument—an architectural masterpiece symbolizing the union of French and British Cameroons. The National Museum offers deep insight into the country's 250+ ethnic groups, while the Notre-Dame des Victoires Cathedral dominates the skyline. Don't miss Mefou National Park nearby, a sanctuary for rescued gorillas and chimpanzees.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.dextragroup.com/6989ab191e01f840f32e27cabbe051f929f74249.jpg" alt="Douala" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Economic Capital" data-fr="Capitale Économique">Economic Capital</span>
+                        <h3 class="city-name">Douala</h3>
+                        <p class="city-desc" data-en="Cameroon's beating commercial heart sits on the Wouri River delta. Douala is loud, chaotic, and utterly addictive. Explore the Douala Maritime Museum, snap photos of the iconic La Nouvelle Liberté sculpture, and lose yourself in the sensory overload of Eko Market. The Bonanjo district reveals elegant colonial architecture, while the Wouri Bridge offers sunset views over one of Africa's busiest ports." data-fr="Le cœur commercial battant du Cameroun se situe dans le delta de la rivière Wouri. Douala est bruyante, chaotique et totalement addictive. Explorez le Musée Maritime de Douala, photographiez l'iconique sculpture La Nouvelle Liberté, et perdez-vous dans la surcharge sensorielle du Marché Eko. Le quartier Bonanjo révèle une élégante architecture coloniale, tandis que le Pont Wouri offre des vues sur le coucher de soleil sur l'un des ports les plus fréquentés d'Afrique.">
+                            Cameroon's beating commercial heart sits on the Wouri River delta. Douala is loud, chaotic, and utterly addictive. Explore the Douala Maritime Museum, snap photos of the iconic La Nouvelle Liberté sculpture, and lose yourself in the sensory overload of Eko Market. The Bonanjo district reveals elegant colonial architecture, while the Wouri Bridge offers sunset views over one of Africa's busiest ports.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/15016dc205c90eeee06a2ab590901b58c322f633.jpg" alt="Bamenda" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Highland Jewel" data-fr="Joyau des Hauts Plateaux">Highland Jewel</span>
+                        <h3 class="city-name">Bamenda</h3>
+                        <p class="city-desc" data-en="Nestled in the cool Northwest highlands, Bamenda offers a refreshing escape from coastal humidity. The city is the gateway to the legendary Ring Road—one of Africa's most spectacular drives—winding through traditional chiefdoms, volcanic lakes, and the surreal landscapes of the Grassfields. Explore local craft markets, visit the Bafut Palace (a UNESCO tentative site), and experience Anglophone Cameroon's unique culture." data-fr="Nichée dans les hauts plateaux frais du Nord-Ouest, Bamenda offre une échappatoire rafraîchissante à l'humidité côtière. La ville est la porte d'entrée à la légendaire Ring Road—l'une des routes les plus spectaculaires d'Afrique—serpentant à travers des chefferies traditionnelles, des lacs volcaniques et les paysages surréalistes des Grassfields. Explorez les marchés d'artisanat locaux, visitez le Palais de Bafut (site candidat UNESCO) et découvrez la culture unique du Cameroun anglophone.">
+                            Nestled in the cool Northwest highlands, Bamenda offers a refreshing escape from coastal humidity. The city is the gateway to the legendary Ring Road—one of Africa's most spectacular drives—winding through traditional chiefdoms, volcanic lakes, and the surreal landscapes of the Grassfields. Explore local craft markets, visit the Bafut Palace (a UNESCO tentative site), and experience Anglophone Cameroon's unique culture.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/media.gettyimages.com/b656afe5cd75094ebd93d50768c71d42be0f3555.jpg" alt="Garoua" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Northern Gateway" data-fr="Porte du Nord">Northern Gateway</span>
+                        <h3 class="city-name">Garoua</h3>
+                        <p class="city-desc" data-en="The largest city in northern Cameroon sits on the Benue River, serving as the gateway to Waza National Park—one of Central Africa's finest wildlife reserves. Garoua's Great Mosque is an architectural landmark, while the nearby Kola Gorges offer dramatic rock formations and hidden waterfalls. The city pulses with Fulani culture, vibrant markets, and the rhythmic heat of the Sahel." data-fr="La plus grande ville du nord du Cameroun se situe sur la rivière Bénoué, servant de porte d'entrée au Parc National de Waza—l'une des plus belles réserves fauniques d'Afrique centrale. La Grande Mosquée de Garoua est un monument architectural, tandis que les gorges de Kola à proximité offrent des formations rocheuses spectaculaires et des cascades cachées. La ville pulse de culture peule, de marchés vibrants et de la chaleur rythmique du Sahel.">
+                            The largest city in northern Cameroon sits on the Benue River, serving as the gateway to Waza National Park—one of Central Africa's finest wildlife reserves. Garoua's Great Mosque is an architectural landmark, while the nearby Kola Gorges offer dramatic rock formations and hidden waterfalls. The city pulses with Fulani culture, vibrant markets, and the rhythmic heat of the Sahel.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/cf4d9b1380c8b74c05b8ae97d2e236a178d20f0c.jpg" alt="Limbe" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Coastal Paradise" data-fr="Paradis Côtier">Coastal Paradise</span>
+                        <h3 class="city-name">Limbe</h3>
+                        <p class="city-desc" data-en="Where the Atlantic meets the volcanic slopes of Mount Cameroon, Limbe enchants with black-sand beaches, botanical gardens dating to 1892, and a wildlife rescue center for gorillas and chimps. The Limbe Botanic Garden is one of Africa's oldest, while the nearby Bimbia slave port offers a poignant historical journey. It's the perfect place to unwind after inland adventures." data-fr="Là où l'Atlantique rencontre les pentes volcaniques du Mont Cameroun, Limbe enchante avec ses plages de sable noir, des jardins botaniques datant de 1892 et un centre de sauvetage de faune pour gorilles et chimpanzés. Le Jardin Botanique de Limbe est l'un des plus anciens d'Afrique, tandis que le port négrier de Bimbia à proximité offre un poignant voyage historique. C'est l'endroit parfait pour se détendre après des aventures à l'intérieur des terres.">
+                            Where the Atlantic meets the volcanic slopes of Mount Cameroon, Limbe enchants with black-sand beaches, botanical gardens dating to 1892, and a wildlife rescue center for gorillas and chimps. The Limbe Botanic Garden is one of Africa's oldest, while the nearby Bimbia slave port offers a poignant historical journey. It's the perfect place to unwind after inland adventures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Natural Wonders -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="Nature's Grand Stage" data-fr="La Grande Scène de la Nature">Nature's Grand Stage</h2>
+            <p class="intro-text fade-in" data-en="Cameroon doesn't do landscapes by half-measure. You can climb an active volcano at dawn, watch elephants drink at sunset, and stand beneath waterfalls that tumble directly into the ocean—all in a single trip." data-fr="Le Cameroun ne fait pas les choses à moitié en matière de paysages. Vous pouvez gravir un volcan actif à l'aube, observer des éléphants boire au coucher du soleil, et vous tenir sous des cascades qui se jettent directement dans l'océan—tout cela en un seul voyage.">
+                Cameroon doesn't do landscapes by half-measure. You can climb an active volcano at dawn, watch elephants drink at sunset, and stand beneath waterfalls that tumble directly into the ocean—all in a single trip.
+            </p>
+            
+            <div class="gallery">
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.rezdy.com/b0c590bd0f64f02fbd33fb00312d68045e977f74.jpg" alt="Mount Cameroon">
+                    <div class="gallery-caption" data-en="Mount Cameroon — West Africa's highest peak at 4,095m" data-fr="Mont Cameroun — Plus haut sommet d'Afrique de l'Ouest à 4 095 m">Mount Cameroon — West Africa's highest peak at 4,095m</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/557c9c223fc49cd8034b1c25ea5f78e11f88074a.jpg" alt="Lobé Falls">
+                    <div class="gallery-caption" data-en="Lobé Falls — Where freshwater plunges into the Atlantic" data-fr="Chutes de Lobé — Là où l'eau douce plonge dans l'Atlantique">Lobé Falls — Where freshwater plunges into the Atlantic</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/15f1f45887b59224a3d88bafc6dc8181dc6454c4.jpg" alt="Waza National Park">
+                    <div class="gallery-caption" data-en="Waza National Park — Elephants, lions, and giraffes in the savanna" data-fr="Parc National de Waza — Éléphants, lions et girafes dans la savane">Waza National Park — Elephants, lions, and giraffes in the savanna</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/b8e5337329a3857b1660ef505c4ef802366c6cb4.jpg" alt="Cameroon Culture">
+                    <div class="gallery-caption" data-en="Traditional masked dance — living heritage of the Grassfields" data-fr="Danse masquée traditionnelle—patrimoine vivant des Grassfields">Traditional masked dance — living heritage of the Grassfields</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture & People -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="People & Culture" data-fr="Peuple et Culture">People & Culture</h2>
+            <p class="intro-text fade-in" data-en="Cameroon is a linguistic marvel. French and English are the official languages—a legacy of colonial partition—but walk ten kilometers and you might hear Bamileke, Bamoun, Fulfulde, Ewondo, Bassa, or any of 250+ indigenous tongues. This is a country where a taxi driver might switch between four languages in a single conversation. The food is equally diverse: try ndolé (bitterleaf stew with peanuts and shrimp), grilled fish with plantains, or the fiery pepper soup that clears sinuses and souls alike." data-fr="Le Cameroun est une merveille linguistique. Le français et l'anglais sont les langues officielles—un héritage de la partition coloniale—mais marchez dix kilomètres et vous pourriez entendre du bamiléké, du bamoun, du peul, de l'ewondo, du bassa, ou n'importe laquelle des 250+ langues autochtones. C'est un pays où un chauffeur de taxi peut passer d'une langue à l'autre dans une seule conversation. La cuisine est tout aussi diversifiée : essayez le ndolé (ragoût de feuilles amères avec arachides et crevettes), du poisson grillé avec plantains, ou la soupe au piment enflammée qui dégage les sinus et les âmes.">
+                Cameroon is a linguistic marvel. French and English are the official languages—a legacy of colonial partition—but walk ten kilometers and you might hear Bamileke, Bamoun, Fulfulde, Ewondo, Bassa, or any of 250+ indigenous tongues. This is a country where a taxi driver might switch between four languages in a single conversation. The food is equally diverse: try ndolé (bitterleaf stew with peanuts and shrimp), grilled fish with plantains, or the fiery pepper soup that clears sinuses and souls alike.
+            </p>
+            
+            <div style="background: linear-gradient(135deg, var(--cmr-green), #005a45); color: white; padding: 50px; border-radius: 20px; text-align: center; margin-top: 40px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px;" data-en="Did You Know?" data-fr="Le Saviez-Vous?">Did You Know?</h3>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto; opacity: 0.9;" data-en="Cameroon has one of the highest literacy rates in Africa and is a powerhouse of African literature, music, and football. The Indomitable Lions national team was the first African squad to reach the FIFA World Cup quarterfinals in 1990. Writers like Ferdinand Oyono and Mongo Beti shaped Francophone African literature, while musicians such as Manu Dibango (who created the global hit \"Soul Makossa\") put Cameroonian jazz on the world map." data-fr="Le Cameroun a l'un des taux d'alphabétisation les plus élevés d'Afrique et est une puissance de la littérature, de la musique et du football africains. L'équipe nationale des Lions Indomptables fut la première équipe africaine à atteindre les quarts de finale de la Coupe du Monde FIFA en 1990. Des écrivains comme Ferdinand Oyono et Mongo Beti ont façonné la littérature africaine francophone, tandis que des musiciens comme Manu Dibango (créateur du tube mondial \"Soul Makossa\") ont placé le jazz camerounais sur la carte du monde.">
+                    Cameroon has one of the highest literacy rates in Africa and is a powerhouse of African literature, music, and football. The Indomitable Lions national team was the first African squad to reach the FIFA World Cup quarterfinals in 1990. Writers like Ferdinand Oyono and Mongo Beti shaped Francophone African literature, while musicians such as Manu Dibango (who created the global hit "Soul Makossa") put Cameroonian jazz on the world map.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-flag">
+            <div style="flex: 1; background: var(--cmr-green);"></div>
+            <div style="flex: 1; background: var(--cmr-red); position: relative;">
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--cmr-yellow); font-size: 28px;">★</span>
+            </div>
+            <div style="flex: 1; background: var(--cmr-yellow);"></div>
+        </div>
+        <h3 data-en="Cameroon Calls" data-fr="Le Cameroun Vous Appelle">Cameroon Calls</h3>
+        <p data-en="A land where rainforests whisper, volcanoes rumble, and 250 cultures dance as one. Pack your curiosity, bring your appetite, and discover why this truly is Africa in miniature." data-fr="Une terre où les forêts tropicales murmurent, les volcans grondent et 250 cultures dansent à l'unisson. Emballez votre curiosité, apportez votre appétit et découvrez pourquoi c'est vraiment l'Afrique en miniature.">
+            A land where rainforests whisper, volcanoes rumble, and 250 cultures dance as one. Pack your curiosity, bring your appetite, and discover why this truly is Africa in miniature.
+        </p>
+        <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 30px;">
+            © 2026 Cameroon Travel Blog | Paix — Travail — Patrie
+        </p>
+    </footer>
+
+    <script>
+        // Translation System
+        function setLang(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.dataset.lang === lang) btn.classList.add('active');
+            });
+            
+            // Update HTML lang
+            document.documentElement.lang = lang;
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.dataset[lang];
+                } else {
+                    el.textContent = el.dataset[lang];
+                }
+            });
+            
+            // Save preference
+            localStorage.setItem('cmr-lang', lang);
+        }
+        
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Load saved language
+        const savedLang = localStorage.getItem('cmr-lang') || 'en';
+        setLang(savedLang);
+    </script>
+</body>
+</html>
