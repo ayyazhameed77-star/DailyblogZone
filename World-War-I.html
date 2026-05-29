@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World War I: The Great War That Changed Everything</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .arabic-text { font-family: 'Noto Naskh Arabic', serif; direction: rtl; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #4B5563; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+        
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+        
+        /* Timeline line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #4B5563;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation & Language Switcher -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-gray-800 tracking-wider">WWI HISTORY</span>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="switchLanguage('en')" id="btn-en" class="px-3 py-1 rounded-full text-sm font-medium bg-gray-800 text-white transition hover:bg-gray-900">English</button>
+                    <button onclick="switchLanguage('ar')" id="btn-ar" class="px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-700 transition hover:bg-gray-300">العربية (Arabic)</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+        <div class="absolute inset-0 z-0 opacity-40">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/British_55th_Division_gas_casualties_10_April_1918.jpg/1280px-British_55th_Division_gas_casualties_10_April_1918.jpg" alt="WWI Trench Warfare" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg" data-en="The War to End All Wars" data-ar="الحرب التي ستنهي كل الحروب">The War to End All Wars</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 font-light" data-en="How World War I reshaped the modern world, 1914–1918." data-ar="كيف أعادت الحرب العالمية الأولى تشكيل العالم الحديث، 1914–1918.">How World War I reshaped the modern world, 1914–1918.</p>
+            <a href="#content" class="inline-block bg-gray-700 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-800 transition transform hover:scale-105 shadow-lg">Read Full Story</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="content" class="max-w-5xl mx-auto px-4 py-16 space-y-24">
+
+        <!-- Introduction Section -->
+        <section class="text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-en="The Great War: A Human Catastrophe" data-ar="الحرب العظمى: كارثة إنسانية">The Great War: A Human Catastrophe</h2>
+            <p class="text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto" data-en="World War I, also known as the Great War, was the first truly global conflict in human history. Lasting from July 28, 1914, to November 11, 1918, it involved more than 30 nations and claimed the lives of approximately 16 million people—9 million soldiers and 7 million civilians. The war saw the collapse of four great empires: the German, Austro-Hungarian, Russian, and Ottoman Empires. It introduced industrialized killing on an unprecedented scale, with trench warfare, chemical weapons, machine guns, and tanks transforming the battlefield into a nightmare of mud, blood, and steel. The war did not merely end lives; it shattered the old world order and planted the seeds of the modern era, including the Russian Revolution, the rise of fascism, and the eventual outbreak of World War II." 
+               data-ar="الحرب العالمية الأولى، المعروفة أيضاً بالحرب العظمى، كانت أول صراع عالمي حقيقي في تاريخ البشرية. استمرت من 28 يوليو 1914 إلى 11 نوفمبر 1918، وشاركت فيها أكثر من 30 دولة وأسفرت عن مقتل حوالي 16 مليون شخص—9 ملايين جندي و7 ملايين مدني. شهدت الحرب انهيار أربع إمبراطوريات عظيمة: الإمبراطوريات الألمانية والنمساوية المجرية والروسية والعثمانية. أدخلت القتل الصناعي على نطاق غير مسبوق، حيث حولت حرب الخنادق والأسلحة الكيميائية والرشاشات والدبابات ساحة المعركة إلى كابوس من الوحل والدم والفولاذ. لم تنهِ الحرب الحياة فحسب؛ بل حطمت النظام العالمي القديم وزرعت بذور العصر الحديث، بما في ذلك الثورة الروسية وصعود الفاشية والاندلاع النهائي للحرب العالمية الثانية.">
+               World War I, also known as the Great War, was the first truly global conflict in human history. Lasting from July 28, 1914, to November 11, 1918, it involved more than 30 nations and claimed the lives of approximately 16 million people—9 million soldiers and 7 million civilians. The war saw the collapse of four great empires: the German, Austro-Hungarian, Russian, and Ottoman Empires. It introduced industrialized killing on an unprecedented scale, with trench warfare, chemical weapons, machine guns, and tanks transforming the battlefield into a nightmare of mud, blood, and steel. The war did not merely end lives; it shattered the old world order and planted the seeds of the modern era, including the Russian Revolution, the rise of fascism, and the eventual outbreak of World War II.
+            </p>
+        </section>
+
+        <!-- The Two Sides: Allied vs Central Powers -->
+        <section class="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900" data-en="The Two Sides: Who Fought Whom?" data-ar="الجانبان: من قاتل من؟">The Two Sides: Who Fought Whom?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Allied Powers -->
+                <div class="bg-blue-50 rounded-2xl p-8 border-l-4 border-blue-600">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-4" data-en="The Allied Powers" data-ar="قوات الحلفاء">The Allied Powers</h3>
+                    <p class="text-gray-700 mb-4" data-en="Led by the British Empire, France, and Russia (the Triple Entente), the Allies were later joined by Italy, the United States, Japan, and numerous other nations. The United States entered the war in 1917 after German submarine attacks on American ships and the infamous Zimmermann Telegram, which proposed a German-Mexican alliance against the U.S. The Allies' combined industrial might, manpower, and naval blockade of Germany ultimately proved decisive." 
+                       data-ar="بقيادة الإمبراطورية البريطانية وفرنسا وروسيا (الحلف الثلاثي)، انضمت إلى الحلفاء لاحقاً إيطاليا والولايات المتحدة واليابان والعديد من الدول الأخرى. دخلت الولايات المتحدة الحرب في عام 1917 بعد الهجمات الألمانية بالغواصات على السفن الأمريكية وبرقية زimmermann الشهيرة، التي اقترحت تحالفاً ألمانياً مكسيكياً ضد الولايات المتحدة. أثبتت القوة الصناعية المشتركة للحلفاء والقوى البشرية والحصار البحري على ألمانيا حاسمة في النهاية.">
+                       Led by the British Empire, France, and Russia (the Triple Entente), the Allies were later joined by Italy, the United States, Japan, and numerous other nations. The United States entered the war in 1917 after German submarine attacks on American ships and the infamous Zimmermann Telegram, which proposed a German-Mexican alliance against the U.S. The Allies' combined industrial might, manpower, and naval blockade of Germany ultimately proved decisive.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>🇬🇧 British Empire (UK, Canada, Australia, India, etc.)</li>
+                        <li>🇫🇷 France</li>
+                        <li>🇷🇺 Russia (until 1917)</li>
+                        <li>🇮🇹 Italy (from 1915)</li>
+                        <li>🇺🇸 United States (from 1917)</li>
+                        <li>🇯🇵 Japan</li>
+                    </ul>
+                </div>
+
+                <!-- Central Powers -->
+                <div class="bg-red-50 rounded-2xl p-8 border-l-4 border-red-600">
+                    <h3 class="text-2xl font-bold text-red-800 mb-4" data-en="The Central Powers" data-ar="قوات المركز">The Central Powers</h3>
+                    <p class="text-gray-700 mb-4" data-en="Led by the German Empire and Austria-Hungary, the Central Powers were joined by the Ottoman Empire and Bulgaria. Germany, under Kaiser Wilhelm II, possessed one of the largest armies (4.5 million soldiers) and a powerful navy. Austria-Hungary, a multi-ethnic empire, was the first to declare war on Serbia following the assassination of Archduke Franz Ferdinand. Despite early successes on the Eastern Front, the Central Powers were eventually overwhelmed by the combined resources of the Allies and the entry of fresh American troops." 
+                       data-ar="بقيادة الإمبراطورية الألمانية والنمسا-المجر، انضمت إلى قوات المركز الإمبراطورية العثمانية وبلغاريا. ألمانيا، تحت قيادة القيصر فيلهلم الثاني، كانت تمتلك واحداً من أكبر الجيوش (4.5 مليون جندي) وقوة بحرية قوية. النمسا-المجر، إمبراطورية متعددة الأعراق، كانت الأولى في إعلان الحرب على صربيا بعد اغتيال الأرشيدوق فرانز فرديناند. على الرغم من النجاحات المبكرة في الجبهة الشرقية، إلا أن قوات المركز تم القضاء عليها في النهاية بفضل الموارد المشتركة للحلفاء ودخول القوات الأمريكية الطازجة.">
+                       Led by the German Empire and Austria-Hungary, the Central Powers were joined by the Ottoman Empire and Bulgaria. Germany, under Kaiser Wilhelm II, possessed one of the largest armies (4.5 million soldiers) and a powerful navy. Austria-Hungary, a multi-ethnic empire, was the first to declare war on Serbia following the assassination of Archduke Franz Ferdinand. Despite early successes on the Eastern Front, the Central Powers were eventually overwhelmed by the combined resources of the Allies and the entry of fresh American troops.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>🇩🇪 German Empire</li>
+                        <li>🇦🇹 Austria-Hungary</li>
+                        <li>🇹🇷 Ottoman Empire</li>
+                        <li>🇧🇬 Bulgaria</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Causes of the War -->
+        <section>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900" data-en="Why Did It Happen? The Spark and the Powder Keg" data-ar="لماذا حدثت؟ الشرارة وبرميل البارود">Why Did It Happen? The Spark and the Powder Keg</h2>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4" data-en="The Spark: June 28, 1914" data-ar="الشرارة: 28 يونيو 1914">The Spark: June 28, 1914</h3>
+                        <p class="text-gray-600 leading-relaxed" data-en="On this fateful day in Sarajevo, a 19-year-old Serbian nationalist named Gavrilo Princip assassinated Archduke Franz Ferdinand, heir to the Austro-Hungarian throne. This single act of violence triggered a catastrophic chain reaction. Austria-Hungary, backed by Germany's 'blank check' of unconditional support, declared war on Serbia. Russia mobilized to defend Serbia. Germany declared war on Russia, then on France. When Germany invaded neutral Belgium to reach France, Britain declared war on Germany. Within weeks, Europe was engulfed in flames." 
+                           data-ar="في هذا اليوم المصيري في سراييفو، اغتال قاتل صربي قومي يبلغ من العمر 19 عاماً يدعى غافريلو برينسيب الأرشيدوق فرانز فرديناند، وريث عرش النمسا-المجر. أدى هذا الفعل الوحيد للعنف إلى تفاعل كارثي متسلسل. أعلنت النمسا-المجر، بدعم من ألمانيا 'الشيك المفتوح' للدعم غير المشروط، الحرب على صربيا. تحركت روسيا للدفاع عن صربيا. أعلنت ألمانيا الحرب على روسيا، ثم على فرنسا. عندما غزت ألمانيا بلجيكا المحايدة للوصول إلى فرنسا، أعلنت بريطانيا الحرب على ألمانيا. في غضون أسابيع، اجتاحت أوروبا النيران.">
+                           On this fateful day in Sarajevo, a 19-year-old Serbian nationalist named Gavrilo Princip assassinated Archduke Franz Ferdinand, heir to the Austro-Hungarian throne. This single act of violence triggered a catastrophic chain reaction. Austria-Hungary, backed by Germany's 'blank check' of unconditional support, declared war on Serbia. Russia mobilized to defend Serbia. Germany declared war on Russia, then on France. When Germany invaded neutral Belgium to reach France, Britain declared war on Germany. Within weeks, Europe was engulfed in flames.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4" data-en="The Powder Keg: Underlying Causes" data-ar="برميل البارود: الأسباب الأساسية">The Powder Keg: Underlying Causes</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="mr-2 text-gray-800 font-bold">1.</span>
+                                <span data-en="Militarism: European powers engaged in an arms race, building massive armies and navies." data-ar="الميليتارism: انخرطت القوى الأوروبية في سباق تسلح، وبناء جيوش وأساطيل ضخمة.">Militarism: European powers engaged in an arms race, building massive armies and navies.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2 text-gray-800 font-bold">2.</span>
+                                <span data-en="Alliances: A web of treaties (Triple Entente vs. Triple Alliance) guaranteed that a local conflict would become a continental war." data-ar="التحالفات: شبكة من المعاهدات (الحلف الثلاثي ضد الحلف الثلاثي) ضمنت أن يتحول صراع محلي إلى حرب قارية.">Alliances: A web of treaties guaranteed that a local conflict would become a continental war.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2 text-gray-800 font-bold">3.</span>
+                                <span data-en="Imperialism: Rivalries over colonies in Africa and Asia created tensions between Britain, France, and Germany." data-ar="الإمبريالية: المنافسات على المستعمرات في أفريقيا وآسيا خلقت توترات بين بريطانيا وفرنسا وألمانيا.">Imperialism: Rivalries over colonies in Africa and Asia created tensions between Britain, France, and Germany.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2 text-gray-800 font-bold">4.</span>
+                                <span data-en="Nationalism: Fervent pride and aggressive patriotism fueled desires for expansion and revenge, especially in the Balkans." data-ar="القومية: الفخر المتهور والوطنية العدوانية أشعلت الرغبات في التوسع والانتقام، خاصة في البلقان.">Nationalism: Fervent pride and aggressive patriotism fueled desires for expansion and revenge.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Major Battles & Casualties -->
+        <section class="bg-gray-900 rounded-3xl p-8 md:p-16 text-white shadow-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-en="The Bloodiest Battles in History" data-ar="أكثر المعارك دموية في التاريخ">The Bloodiest Battles in History</h2>
+            
+            <div class="space-y-8">
+                <!-- Battle of the Somme -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-red-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <h3 class="text-2xl font-bold text-white">Battle of the Somme (July–Nov 1916)</h3>
+                        <span class="text-red-400 font-bold text-lg mt-2 md:mt-0">~1,113,000 casualties</span>
+                    </div>
+                    <p class="text-gray-300" data-en="Fought between British/French forces and Germany, the first day alone (July 1, 1916) saw 57,470 British casualties, including 19,240 dead—the bloodiest single day in British military history. Over 141 days, the battle produced over 1 million casualties for minimal territorial gain. It epitomized the horror of trench warfare." 
+                       data-ar="قاتلت فيها القوات البريطانية/الفرنسية ضد ألمانيا، شهد اليوم الأول وحده (1 يوليو 1916) 57,470 ضحية بريطانية، بما في ذلك 19,240 قتيلاً—أكثر يوم دموي في التاريخ العسكري البريطاني. على مدار 141 يوماً، أنتجت المعركة أكثر من مليون ضحية مقابل مكاسب إقليمية ضئيلة. جسدت أفظع حرب الخنادق.">
+                       Fought between British/French forces and Germany, the first day alone (July 1, 1916) saw 57,470 British casualties, including 19,240 dead—the bloodiest single day in British military history. Over 141 days, the battle produced over 1 million casualties for minimal territorial gain. It epitomized the horror of trench warfare.
+                    </p>
+                </div>
+
+                <!-- Battle of Verdun -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <h3 class="text-2xl font-bold text-white">Battle of Verdun (Feb–Dec 1916)</h3>
+                        <span class="text-orange-400 font-bold text-lg mt-2 md:mt-0">~698,000 casualties</span>
+                    </div>
+                    <p class="text-gray-300" data-en="German General Erich von Falkenhayn intended to 'bleed France white' by attacking the symbolic fortress of Verdun. The battle lasted 302 days, with both sides suffering over 300,000 casualties each. It became a symbol of French determination and the futility of attrition warfare." 
+                       data-ar="أراد الجنرال الألماني إريك فون فالكنهاين 'أن ينزف فرنسا بياضاً' من خلال مهاجمة حصن فردان الرمزي. استمرت المعركة 302 يوماً، مع معاناة كلا الجانبين من أكثر من 300,000 ضحية لكل منهما. أصبحت رمزاً للعزيمة الفرنسية وعبثية حرب الاستنزاف.">
+                       German General Erich von Falkenhayn intended to 'bleed France white' by attacking the symbolic fortress of Verdun. The battle lasted 302 days, with both sides suffering over 300,000 casualties each. It became a symbol of French determination and the futility of attrition warfare.
+                    </p>
+                </div>
+
+                <!-- Brusilov Offensive -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-yellow-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <h3 class="text-2xl font-bold text-white">Brusilov Offensive (June–Sept 1916)</h3>
+                        <span class="text-yellow-400 font-bold text-lg mt-2 md:mt-0">~2,317,000 casualties</span>
+                    </div>
+                    <p class="text-gray-300" data-en="The most lethal offensive of the war, launched by Russian General Aleksei Brusilov against Austria-Hungary. Russia alone lost around 1.4 million men. Though a tactical victory for Russia, the staggering losses contributed to the collapse of morale and the eventual Russian Revolution of 1917." 
+                       data-ar="الهجوم الأكثر فتكاً في الحرب، أطلقه الجنرال الروسي أليكسي بروسيلوف ضد النمسا-المجر. خسرت روسيا وحدها حوالي 1.4 مليون رجل. على الرغم من أنه انتصار تكتيكي لروسيا، إلا أن الخسائر المذهلة ساهمت في انهيار الروح المعنوية والثورة الروسية النهائية عام 1917.">
+                       The most lethal offensive of the war, launched by Russian General Aleksei Brusilov against Austria-Hungary. Russia alone lost around 1.4 million men. Though a tactical victory for Russia, the staggering losses contributed to the collapse of morale and the eventual Russian Revolution of 1917.
+                    </p>
+                </div>
+
+                <!-- Gallipoli -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-green-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <h3 class="text-2xl font-bold text-white">Gallipoli Campaign (1915–1916)</h3>
+                        <span class="text-green-400 font-bold text-lg mt-2 md:mt-0">~470,000 casualties</span>
+                    </div>
+                    <p class="text-gray-300" data-en="A disastrous Allied attempt to knock the Ottoman Empire out of the war by securing control of the Dardanelles Strait. British, French, Australian, and New Zealand (ANZAC) forces suffered 187,959 casualties. The Ottomans lost 174,828. The campaign ended in Allied evacuation and became a defining moment of national identity for Australia and New Zealand." 
+                       data-ar="محاولة فاشلة للحلفاء لإخراج الإمبراطورية العثمانية من الحرب من خلال السيطرة على مضيق الدردنيل. عانت القوات البريطانية والفرنسية والأسترالية والنيوزيلندية (ANZAC) من 187,959 ضحية. خسر العثمانيون 174,828. انتهت الحملة بإخلاء الحلفاء وأصبحت لحظة محددة للهوية الوطنية لأستراليا ونيوزيلندا.">
+                       A disastrous Allied attempt to knock the Ottoman Empire out of the war by securing control of the Dardanelles Strait. British, French, Australian, and New Zealand (ANZAC) forces suffered 187,959 casualties. The Ottomans lost 174,828. The campaign ended in Allied evacuation and became a defining moment of national identity for Australia and New Zealand.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Total Casualties Box -->
+            <div class="mt-12 bg-red-900/50 rounded-xl p-8 text-center border border-red-700">
+                <h3 class="text-2xl font-bold text-white mb-2" data-en="Total Human Cost" data-ar="التكلفة البشرية الإجمالية">Total Human Cost</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                    <div>
+                        <div class="text-3xl font-bold text-red-400">16M+</div>
+                        <div class="text-sm text-gray-300" data-en="Total Deaths" data-ar="إجمالي الوفيات">Total Deaths</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-orange-400">9M</div>
+                        <div class="text-sm text-gray-300" data-en="Military Deaths" data-ar="وفيات عسكرية">Military Deaths</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-yellow-400">7M</div>
+                        <div class="text-sm text-gray-300" data-en="Civilian Deaths" data-ar="وفيات مدنية">Civilian Deaths</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-green-400">21M+</div>
+                        <div class="text-sm text-gray-300" data-en="Wounded" data-ar="جرحى">Wounded</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aftermath & Treaty of Versailles -->
+        <section>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900" data-en="The Aftermath: How the War Changed Everything" data-ar="النتائج: كيف غيرت الحرب كل شيء">The Aftermath: How the War Changed Everything</h2>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-en="The Treaty of Versailles (1919)" data-ar="معاهدة فرساي (1919)">The Treaty of Versailles (1919)</h3>
+                        <p class="text-gray-600 leading-relaxed" data-en="Signed on June 28, 1919, exactly five years after Franz Ferdinand's assassination, the treaty placed sole blame for the war on Germany (Article 231, the 'War Guilt Clause'). Germany was forced to pay 132 billion gold marks in reparations, disarm its military to 100,000 men, lose all colonies, and cede 13% of its European territory—including Alsace-Lorraine to France and industrial regions to Poland. The treaty was meant to ensure peace but instead bred humiliation, economic collapse, and resentment that Adolf Hitler exploited to rise to power." 
+                           data-ar="وقعت في 28 يونيو 1919، بالضبط بعد خمس سنوات من اغتيال فرانز فرديناند، وضعت المعاهدة اللوم الكامل للحرب على ألمانيا (المادة 231، 'بند ذنب الحرب'). أجبرت ألمانيا على دفع 132 مليار مارك ذهبي كتعويضات، وتسليح جيشها إلى 100,000 رجل، وفقدان جميع مستعمراتها، وتنازل 13% من أراضيها الأوروبية—بما في ذلك الألزاس واللورين لفرنسا والمناطق الصناعية لبولندا. كانت المعاهدة تهدف إلى ضمان السلام ولكنها بدلاً من ذلك ولدت الذل والانهيار الاقتصادي والاستياء الذي استغله أدولف هتلر للوصول إلى السلطة.">
+                           Signed on June 28, 1919, exactly five years after Franz Ferdinand's assassination, the treaty placed sole blame for the war on Germany (Article 231, the 'War Guilt Clause'). Germany was forced to pay 132 billion gold marks in reparations, disarm its military to 100,000 men, lose all colonies, and cede 13% of its European territory—including Alsace-Lorraine to France and industrial regions to Poland. The treaty was meant to ensure peace but instead bred humiliation, economic collapse, and resentment that Adolf Hitler exploited to rise to power.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <h4 class="text-xl font-bold text-gray-800 mb-3" data-en="The Middle East Redrawn" data-ar="إعادة رسم الشرق الأوسط">The Middle East Redrawn</h4>
+                            <p class="text-gray-600 text-sm" data-en="The collapse of the Ottoman Empire led Britain and France to carve up the region through the Sykes-Picot Agreement. Arbitrary borders created Iraq, Syria, Lebanon, and Palestine—borders that ignored ethnic and tribal realities and continue to fuel regional conflicts today." 
+                               data-ar="أدى انهيار الإمبراطورية العثمانية إلى قيام بريطانيا وفرنسا بتقسيم المنطقة من خلال اتفاقية سايكس-بيكو. الحدود التعسفية أنشأت العراق وسوريا ولبنان وفلسطين—حدود تجاهلت الواقع العرقي والقبلي وتواصل إشعال الصراعات الإقليمية حتى اليوم.">
+                               The collapse of the Ottoman Empire led Britain and France to carve up the region through the Sykes-Picot Agreement. Arbitrary borders created Iraq, Syria, Lebanon, and Palestine—borders that ignored ethnic and tribal realities and continue to fuel regional conflicts today.
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <h4 class="text-xl font-bold text-gray-800 mb-3" data-en="The Russian Revolution" data-ar="الثورة الروسية">The Russian Revolution</h4>
+                            <p class="text-gray-600 text-sm" data-en="The war's immense suffering and food shortages triggered the 1917 Russian Revolution, toppling the Tsar and bringing the Bolsheviks to power. Russia withdrew from the war via the Treaty of Brest-Litovsk (1918), giving Germany control of Poland, Ukraine, and the Baltic states." 
+                               data-ar="أدى معاناة الحرب الهائلة ونقص الغذاء إلى إشعال الثورة الروسية عام 1917، وسقوط القيصر ووصول البلاشفة إلى السلطة. انسحبت روسيا من الحرب عبر معاهدة بريست-ليتوفسك (1918)، مما أعطى ألمانيا السيطرة على بولندا وأوكرانيا ودول البلطيق.">
+                               The war's immense suffering and food shortages triggered the 1917 Russian Revolution, toppling the Tsar and bringing the Bolsheviks to power. Russia withdrew from the war via the Treaty of Brest-Litovsk (1918), giving Germany control of Poland, Ukraine, and the Baltic states.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-xl">
+                        <p class="text-gray-700 italic" data-en="British economist John Maynard Keynes condemned the Versailles settlement, predicting it would lead to the economic collapse of Germany and 'Revolution, before which the horrors of the later German war will fade into nothing.' He was tragically prophetic." 
+                           data-ar="دان الاقتصادي البريطاني جون ماينارد كينز تسوية فرساي، متنبئاً بأنها ستؤدي إلى الانهيار الاقتصادي لألمانيا و'ثورة، قبلها ستتلاشى رعب الحرب الألمانية اللاحقة إلى لا شيء.' كان نبوئته مأساوية.">
+                           British economist John Maynard Keynes condemned the Versailles settlement, predicting it would lead to the economic collapse of Germany and 'Revolution, before which the horrors of the later German war will fade into nothing.' He was tragically prophetic.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legacy Section -->
+        <section class="bg-gray-800 rounded-3xl p-8 md:p-16 text-white shadow-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8" data-en="Why It Matters Today" data-ar="لماذا يهم ذلك اليوم">Why It Matters Today</h2>
+            <p class="text-lg text-gray-300 text-center max-w-3xl mx-auto leading-relaxed" data-en="World War I was not just a war—it was the death of the 19th century and the birth of the 20th. It destroyed monarchies, redrew maps, unleashed ideologies (communism, fascism, nationalism), and revolutionized warfare, medicine, and women's roles in society. The League of Nations, the first attempt at global governance, was created—and failed. The unresolved grievances of Versailles directly led to World War II. Understanding WWI is essential to understanding the modern world: from the borders of the Middle East to the European Union, from the Russian Revolution to the American superpower. The war proved that industrialized nations could destroy themselves—and the world—in ways previously unimaginable." 
+               data-ar="لم تكن الحرب العالمية الأولى مجرد حرب—كانت وفاة القرن التاسع عشر وميلاد القرن العشرين. دمرت الملكيات، وأعادت رسم الخرائط، وأطلقت الأيديولوجيات (الشيوعية، الفاشية، القومية)، وقلبت الحرب والطب وأدوار المرأة في المجتمع. عصبة الأمم، أول محاولة للحكم العالمي، تم إنشاؤها—وفشلت. أدت المظالم غير المحلولة في فرساي مباشرة إلى الحرب العالمية الثانية. فهم الحرب العالمية الأولى ضروري لفهم العالم الحديث: من حدود الشرق الأوسط إلى الاتحاد الأوروبي، من الثورة الروسية إلى القوة العظمى الأمريكية. أثبتت الحرب أن الأمم الصناعية يمكن أن تدمر نفسها—والعالم—بطرق كانت سابقاً لا يمكن تصورها.">
+               World War I was not just a war—it was the death of the 19th century and the birth of the 20th. It destroyed monarchies, redrew maps, unleashed ideologies (communism, fascism, nationalism), and revolutionized warfare, medicine, and women's roles in society. The League of Nations, the first attempt at global governance, was created—and failed. The unresolved grievances of Versailles directly led to World War II. Understanding WWI is essential to understanding the modern world: from the borders of the Middle East to the European Union, from the Russian Revolution to the American superpower. The war proved that industrialized nations could destroy themselves—and the world—in ways previously unimaginable.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-4 font-serif">WORLD WAR I</h2>
+            <p class="text-gray-400 mb-8" data-en="Lest we forget." data-ar="لئلا ننسى.">Lest we forget.</p>
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-sm text-gray-500"> 2026 WWI History Blog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-en]');
+            
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                
+                setTimeout(() => {
+                    if (lang === 'ar') {
+                        el.innerText = el.getAttribute('data-ar');
+                        el.classList.add('arabic-text');
+                    } else {
+                        el.innerText = el.getAttribute('data-en');
+                        el.classList.remove('arabic-text');
+                    }
+                    el.style.opacity = '1';
+                }, 300);
+            });
+
+            const btnEn = document.getElementById('btn-en');
+            const btnAr = document.getElementById('btn-ar');
+
+            if (lang === 'en') {
+                btnEn.classList.remove('bg-gray-200', 'text-gray-700');
+                btnEn.classList.add('bg-gray-800', 'text-white');
+                btnAr.classList.remove('bg-gray-800', 'text-white');
+                btnAr.classList.add('bg-gray-200', 'text-gray-700');
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+            } else {
+                btnAr.classList.remove('bg-gray-200', 'text-gray-700');
+                btnAr.classList.add('bg-gray-800', 'text-white');
+                btnEn.classList.remove('bg-gray-800', 'text-white');
+                btnEn.classList.add('bg-gray-200', 'text-gray-700');
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+            }
+        }
+    </script>
+</body>
+</html>
