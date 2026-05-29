@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World War II: The Complete Story | A Human History Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+--primary: #1a1a2e;
+--secondary: #16213e;
+--accent: #c0392b;
+--accent-light: #e74c3c;
+--gold: #d4af37;
+--cream: #f5f0e8;
+--text-dark: #2c3e50;
+--text-light: #7f8c8d;
+--white: #ffffff;
+--border: rgba(0,0,0,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Inter', sans-serif;
+background: var(--cream);
+color: var(--text-dark);
+line-height: 1.7;
+overflow-x: hidden;
+}
+.translate-bar {
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+padding: 12px 0;
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.translate-bar-inner {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 10px;
+}
+.translate-bar label {
+color: var(--gold);
+font-weight: 600;
+font-size: 14px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.translate-bar select {
+background: rgba(255,255,255,0.1);
+border: 1px solid rgba(255,255,255,0.2);
+color: var(--white);
+padding: 8px 16px;
+border-radius: 8px;
+font-family: 'Inter', sans-serif;
+font-size: 14px;
+cursor: pointer;
+outline: none;
+transition: all 0.3s ease;
+}
+.translate-bar select:hover {
+background: rgba(255,255,255,0.2);
+border-color: var(--gold);
+}
+.translate-bar select option {
+background: var(--primary);
+color: var(--white);
+}
+.translate-bar .current-lang {
+color: rgba(255,255,255,0.7);
+font-size: 13px;
+}
+.hero {
+position: relative;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+background: var(--primary);
+}
+.hero-bg {
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background: linear-gradient(135deg, rgba(26,26,46,0.95) 0%, rgba(22,33,62,0.9) 50%, rgba(192,57,43,0.3) 100%),
+url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=1920') center/cover;
+animation: heroZoom 20s ease-in-out infinite alternate;
+}
+@keyframes heroZoom {
+0% { transform: scale(1); }
+100% { transform: scale(1.1); }
+}
+.hero-content {
+position: relative;
+z-index: 2;
+text-align: center;
+max-width: 900px;
+padding: 40px 20px;
+}
+.hero-badge {
+display: inline-block;
+background: rgba(212,175,55,0.15);
+border: 1px solid var(--gold);
+color: var(--gold);
+padding: 8px 24px;
+border-radius: 50px;
+font-size: 13px;
+font-weight: 600;
+letter-spacing: 3px;
+text-transform: uppercase;
+margin-bottom: 30px;
+animation: fadeInDown 1s ease;
+}
+.hero h1 {
+font-family: 'Playfair Display', serif;
+font-size: clamp(2.5rem, 6vw, 5rem);
+font-weight: 900;
+color: var(--white);
+line-height: 1.1;
+margin-bottom: 24px;
+text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+animation: fadeInUp 1s ease 0.3s both;
+}
+.hero h1 span {
+color: var(--gold);
+display: block;
+}
+.hero-subtitle {
+font-family: 'Merriweather', serif;
+font-size: clamp(1rem, 2vw, 1.3rem);
+color: rgba(255,255,255,0.8);
+max-width: 600px;
+margin: 0 auto 40px;
+font-weight: 300;
+animation: fadeInUp 1s ease 0.6s both;
+}
+.hero-meta {
+display: flex;
+justify-content: center;
+gap: 30px;
+flex-wrap: wrap;
+animation: fadeInUp 1s ease 0.9s both;
+}
+.hero-meta-item {
+display: flex;
+align-items: center;
+gap: 8px;
+color: rgba(255,255,255,0.7);
+font-size: 14px;
+}
+.hero-meta-item i { color: var(--gold); }
+.scroll-indicator {
+position: absolute;
+bottom: 40px;
+left: 50%;
+transform: translateX(-50%);
+animation: bounce 2s infinite;
+}
+.scroll-indicator i {
+color: var(--gold);
+font-size: 24px;
+}
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+40% { transform: translateX(-50%) translateY(-15px); }
+60% { transform: translateX(-50%) translateY(-8px); }
+}
+@keyframes fadeInDown {
+from { opacity: 0; transform: translateY(-30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.stats-bar {
+background: var(--white);
+padding: 50px 20px;
+border-bottom: 1px solid var(--border);
+}
+.stats-grid {
+max-width: 1100px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 30px;
+text-align: center;
+}
+.stat-item { padding: 20px; }
+.stat-number {
+font-family: 'Playfair Display', serif;
+font-size: 3rem;
+font-weight: 900;
+color: var(--accent);
+line-height: 1;
+}
+.stat-label {
+font-size: 13px;
+color: var(--text-light);
+text-transform: uppercase;
+letter-spacing: 2px;
+margin-top: 8px;
+font-weight: 500;
+}
+.container {
+max-width: 800px;
+margin: 0 auto;
+padding: 0 20px;
+}
+.section { padding: 80px 0; }
+.section-header {
+text-align: center;
+margin-bottom: 60px;
+}
+.section-label {
+display: inline-block;
+color: var(--accent);
+font-size: 12px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 3px;
+margin-bottom: 16px;
+}
+.section-title {
+font-family: 'Playfair Display', serif;
+font-size: clamp(2rem, 4vw, 3rem);
+font-weight: 700;
+color: var(--primary);
+line-height: 1.2;
+margin-bottom: 16px;
+}
+.section-subtitle {
+font-family: 'Merriweather', serif;
+font-size: 1.1rem;
+color: var(--text-light);
+max-width: 600px;
+margin: 0 auto;
+font-weight: 300;
+}
+.article-content {
+font-family: 'Merriweather', serif;
+font-size: 1.15rem;
+line-height: 1.9;
+color: var(--text-dark);
+}
+.article-content p { margin-bottom: 28px; }
+.article-content h2 {
+font-family: 'Playfair Display', serif;
+font-size: 2rem;
+color: var(--primary);
+margin: 50px 0 24px;
+padding-bottom: 12px;
+border-bottom: 3px solid var(--gold);
+display: inline-block;
+}
+.article-content h3 {
+font-family: 'Inter', sans-serif;
+font-size: 1.3rem;
+font-weight: 700;
+color: var(--secondary);
+margin: 36px 0 16px;
+}
+.article-content strong {
+color: var(--primary);
+font-weight: 700;
+}
+.quote-block {
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+color: var(--white);
+padding: 40px 50px;
+margin: 40px 0;
+border-radius: 12px;
+position: relative;
+overflow: hidden;
+}
+.quote-block::before {
+content: '"';
+font-family: 'Playfair Display', serif;
+font-size: 120px;
+color: rgba(212,175,55,0.2);
+position: absolute;
+top: -20px;
+left: 20px;
+line-height: 1;
+}
+.quote-block p {
+font-family: 'Playfair Display', serif;
+font-size: 1.4rem;
+font-style: italic;
+line-height: 1.6;
+margin-bottom: 16px;
+position: relative;
+z-index: 1;
+}
+.quote-block cite {
+font-family: 'Inter', sans-serif;
+font-size: 14px;
+font-style: normal;
+color: var(--gold);
+font-weight: 600;
+}
+.timeline-section {
+background: var(--white);
+padding: 80px 20px;
+}
+.timeline {
+max-width: 900px;
+margin: 0 auto;
+position: relative;
+}
+.timeline::before {
+content: '';
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+width: 3px;
+height: 100%;
+background: linear-gradient(to bottom, var(--gold), var(--accent));
+}
+.timeline-item {
+display: flex;
+justify-content: flex-end;
+padding-right: 50%;
+position: relative;
+margin-bottom: 50px;
+}
+.timeline-item:nth-child(even) {
+justify-content: flex-start;
+padding-right: 0;
+padding-left: 50%;
+}
+.timeline-dot {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+width: 20px;
+height: 20px;
+background: var(--accent);
+border: 4px solid var(--white);
+border-radius: 50%;
+box-shadow: 0 0 0 4px var(--accent-light);
+z-index: 2;
+}
+.timeline-content {
+background: var(--cream);
+padding: 28px 32px;
+border-radius: 12px;
+max-width: 380px;
+margin: 0 30px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+border-left: 4px solid var(--accent);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-item:nth-child(even) .timeline-content {
+border-left: none;
+border-right: 4px solid var(--accent);
+}
+.timeline-content:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+.timeline-date {
+font-family: 'Playfair Display', serif;
+font-size: 1.3rem;
+font-weight: 700;
+color: var(--accent);
+margin-bottom: 8px;
+}
+.timeline-title {
+font-family: 'Inter', sans-serif;
+font-size: 1.1rem;
+font-weight: 700;
+color: var(--primary);
+margin-bottom: 10px;
+}
+.timeline-desc {
+font-size: 0.95rem;
+color: var(--text-light);
+line-height: 1.6;
+}
+.countries-section {
+background: var(--cream);
+padding: 80px 20px;
+}
+.countries-grid {
+max-width: 1100px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 24px;
+}
+.country-card {
+background: var(--white);
+border-radius: 16px;
+padding: 32px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+transition: all 0.4s ease;
+border: 1px solid var(--border);
+position: relative;
+overflow: hidden;
+}
+.country-card::before {
+content: '';
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 4px;
+background: var(--accent);
+}
+.country-card.allies::before { background: #2980b9; }
+.country-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+.country-card-header {
+display: flex;
+align-items: center;
+gap: 16px;
+margin-bottom: 20px;
+}
+.country-flag {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+background: var(--cream);
+border: 2px solid var(--border);
+}
+.country-name {
+font-family: 'Playfair Display', serif;
+font-size: 1.4rem;
+font-weight: 700;
+color: var(--primary);
+}
+.country-role {
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
+padding: 4px 12px;
+border-radius: 20px;
+display: inline-block;
+margin-bottom: 16px;
+}
+.country-role.axis {
+background: rgba(192,57,43,0.1);
+color: var(--accent);
+}
+.country-role.allies {
+background: rgba(41,128,185,0.1);
+color: #2980b9;
+}
+.country-card p {
+font-size: 0.95rem;
+color: var(--text-light);
+line-height: 1.7;
+}
+.country-leader {
+margin-top: 16px;
+padding-top: 16px;
+border-top: 1px solid var(--border);
+font-size: 0.9rem;
+color: var(--text-dark);
+}
+.country-leader strong { color: var(--accent); }
+.battles-section {
+background: var(--white);
+padding: 80px 20px;
+}
+.battles-grid {
+max-width: 1100px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 20px;
+}
+.battle-card {
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+color: var(--white);
+padding: 32px;
+border-radius: 16px;
+position: relative;
+overflow: hidden;
+transition: transform 0.3s ease;
+}
+.battle-card:hover { transform: scale(1.03); }
+.battle-card::after {
+content: '';
+position: absolute;
+top: -50%; right: -50%;
+width: 100%; height: 100%;
+background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+}
+.battle-date {
+font-size: 12px;
+font-weight: 600;
+color: var(--gold);
+text-transform: uppercase;
+letter-spacing: 2px;
+margin-bottom: 12px;
+}
+.battle-name {
+font-family: 'Playfair Display', serif;
+font-size: 1.4rem;
+font-weight: 700;
+margin-bottom: 12px;
+position: relative;
+z-index: 1;
+}
+.battle-desc {
+font-size: 0.95rem;
+color: rgba(255,255,255,0.8);
+line-height: 1.6;
+position: relative;
+z-index: 1;
+}
+.battle-winner {
+margin-top: 16px;
+padding-top: 16px;
+border-top: 1px solid rgba(255,255,255,0.1);
+font-size: 0.85rem;
+color: var(--gold);
+font-weight: 600;
+}
+.aftermath-section {
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+color: var(--white);
+padding: 100px 20px;
+position: relative;
+overflow: hidden;
+}
+.aftermath-section::before {
+content: '';
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background: url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=1920') center/cover;
+opacity: 0.05;
+}
+.aftermath-content {
+max-width: 800px;
+margin: 0 auto;
+position: relative;
+z-index: 1;
+}
+.aftermath-section .section-title { color: var(--white); }
+.aftermath-section .section-subtitle { color: rgba(255,255,255,0.7); }
+.impact-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 24px;
+margin-top: 50px;
+}
+.impact-card {
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.1);
+padding: 32px;
+border-radius: 16px;
+backdrop-filter: blur(10px);
+transition: all 0.3s ease;
+}
+.impact-card:hover {
+background: rgba(255,255,255,0.1);
+transform: translateY(-4px);
+}
+.impact-icon {
+width: 50px;
+height: 50px;
+background: rgba(212,175,55,0.2);
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 20px;
+}
+.impact-icon i {
+color: var(--gold);
+font-size: 22px;
+}
+.impact-card h4 {
+font-family: 'Playfair Display', serif;
+font-size: 1.2rem;
+margin-bottom: 12px;
+color: var(--white);
+}
+.impact-card p {
+font-size: 0.95rem;
+color: rgba(255,255,255,0.7);
+line-height: 1.7;
+}
+.footer {
+background: #0d0d1a;
+color: rgba(255,255,255,0.6);
+padding: 60px 20px 30px;
+text-align: center;
+}
+.footer-content {
+max-width: 800px;
+margin: 0 auto;
+}
+.footer-logo {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem;
+color: var(--white);
+margin-bottom: 16px;
+}
+.footer-logo span { color: var(--gold); }
+.footer p {
+font-size: 0.9rem;
+line-height: 1.8;
+margin-bottom: 8px;
+}
+.footer-divider {
+width: 60px;
+height: 2px;
+background: var(--gold);
+margin: 24px auto;
+}
+.footer-credit {
+font-size: 0.8rem;
+color: rgba(255,255,255,0.4);
+}
+@media (max-width: 768px) {
+.timeline::before { left: 20px; }
+.timeline-item, .timeline-item:nth-child(even) {
+justify-content: flex-start;
+padding-left: 50px;
+padding-right: 0;
+}
+.timeline-dot { left: 20px; }
+.timeline-content {
+margin: 0;
+max-width: 100%;
+}
+.timeline-item:nth-child(even) .timeline-content {
+border-right: none;
+border-left: 4px solid var(--accent);
+}
+.hero-meta {
+flex-direction: column;
+gap: 12px;
+}
+.stats-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+html { scroll-behavior: smooth; }
+.reading-progress {
+position: fixed;
+top: 0; left: 0;
+height: 3px;
+background: linear-gradient(to right, var(--gold), var(--accent));
+z-index: 1001;
+transition: width 0.1s ease;
+}
+</style>
+</head>
+<body>
+<div class="reading-progress" id="readingProgress"></div>
+
+<div class="translate-bar">
+<div class="translate-bar-inner">
+<label><i class="fas fa-globe"></i> <span data-translate="translate_label">Translate This Blog</span></label>
+<div style="display:flex; gap:10px; align-items:center;">
+<select id="languageSelect" onchange="translatePage()">
+<option value="en">English</option>
+<option value="es">Spanish</option>
+<option value="fr">French</option>
+<option value="de">German</option>
+<option value="it">Italian</option>
+<option value="pt">Portuguese</option>
+<option value="ru">Russian</option>
+<option value="zh">Chinese</option>
+<option value="ja">Japanese</option>
+<option value="ko">Korean</option>
+<option value="ar">Arabic</option>
+<option value="hi">Hindi</option>
+<option value="pl">Polish</option>
+<option value="nl">Dutch</option>
+<option value="tr">Turkish</option>
+<option value="vi">Vietnamese</option>
+</select>
+<span class="current-lang" id="currentLang">English</span>
+</div>
+</div>
+</div>
+
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-content">
+<div class="hero-badge" data-translate="hero_badge">A Human History Blog</div>
+<h1>
+<span data-translate="hero_title_1">World War II</span>
+<span data-translate="hero_title_2">The War That Changed Everything</span>
+</h1>
+<p class="hero-subtitle" data-translate="hero_subtitle">
+A comprehensive human story of the deadliest conflict in history — from its devastating causes to its world-shaping aftermath. Written for you, the reader who seeks to understand humanity's darkest hour.
+</p>
+<div class="hero-meta">
+<div class="hero-meta-item">
+<i class="fas fa-calendar-alt"></i>
+<span data-translate="hero_date">September 1, 1939 – September 2, 1945</span>
+</div>
+<div class="hero-meta-item">
+<i class="fas fa-globe-americas"></i>
+<span data-translate="hero_scope">Global Conflict</span>
+</div>
+<div class="hero-meta-item">
+<i class="fas fa-clock"></i>
+<span data-translate="hero_read">15 min read</span>
+</div>
+</div>
+</div>
+<div class="scroll-indicator">
+<i class="fas fa-chevron-down"></i>
+</div>
+</section>
+
+<section class="stats-bar">
+<div class="stats-grid">
+<div class="stat-item">
+<div class="stat-number">60-75M</div>
+<div class="stat-label" data-translate="stat_deaths">Lives Lost</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">50+</div>
+<div class="stat-label" data-translate="stat_countries">Countries Involved</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">6</div>
+<div class="stat-label" data-translate="stat_years">Years of War</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">$4T</div>
+<div class="stat-label" data-translate="stat_cost">Economic Cost</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="article-content">
+<p data-translate="intro_1">
+<strong>World War II</strong> was not merely a military conflict — it was a seismic shift in human civilization. Lasting from September 1, 1939, to September 2, 1945, it engulfed nearly every nation on Earth, claimed an estimated 60 to 75 million lives, and fundamentally reshaped the political, social, and economic landscape of our world. It was the deadliest conflict in human history, a war where civilians became targets, where industrial-scale genocide was perpetrated, and where the very survival of nations hung in the balance.
+</p>
+<p data-translate="intro_2">
+This blog is written for you — the curious reader, the history enthusiast, the student seeking understanding. We will journey together through the reasons this war began, the nations that fought, the battles that decided its course, and the lasting legacy that continues to shape our world today. Let us remember, so that we may never forget.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section" style="background: var(--white);">
+<div class="container">
+<div class="section-header">
+<div class="section-label" data-translate="causes_label">Chapter One</div>
+<h2 class="section-title" data-translate="causes_title">Why Did World War II Happen?</h2>
+<p class="section-subtitle" data-translate="causes_subtitle">Understanding the roots of the deadliest conflict in human history</p>
+</div>
+<div class="article-content">
+<h2 data-translate="causes_heading">The Seeds of Destruction</h2>
+
+<p data-translate="causes_p1">
+World War II did not erupt overnight. It was the culmination of decades of political failures, economic crises, and the rise of dangerous ideologies. The war was, in many ways, a continuation of the disputes left unresolved by World War I — an uneasy 20-year hiatus that only delayed the inevitable confrontation.
+</p>
+
+<h3 data-translate="cause1_title">1. The Treaty of Versailles (1919)</h3>
+<p data-translate="cause1_p1">
+The peace treaty that ended World War I imposed harsh penalties on Germany: massive reparations payments, territorial losses, military restrictions, and the infamous "War Guilt Clause" that forced Germany to accept sole responsibility for the war. These conditions humiliated the German people, crippled their economy, and created fertile ground for extremist ideologies. The resentment simmering in Germany would later be exploited by Adolf Hitler and the Nazi Party.
+</p>
+
+<h3 data-translate="cause2_title">2. The Rise of Fascism and Nazism</h3>
+<p data-translate="cause2_p1">
+In the 1920s and 1930s, totalitarian regimes rose to power across Europe. In Italy, <strong>Benito Mussolini</strong> established a fascist dictatorship in 1922, promising to restore the glory of the Roman Empire. In Germany, <strong>Adolf Hitler</strong> and the Nazi Party exploited economic despair and national humiliation to seize power in 1933. Hitler's ideology of Aryan racial supremacy, anti-Semitism, and the quest for <em>Lebensraum</em> (living space) in Eastern Europe set the stage for expansionist war.
+</p>
+
+<h3 data-translate="cause3_title">3. The Great Depression (1929)</h3>
+<p data-translate="cause3_p1">
+The global economic collapse of 1929 devastated economies worldwide. Unemployment soared, banks failed, and international trade collapsed. In Germany, the Depression wiped out the middle class and radicalized millions of voters. Desperate populations turned to strongmen who promised order, jobs, and national restoration — paving the way for Hitler's electoral victories and the Nazi consolidation of power.
+</p>
+
+<h3 data-translate="cause4_title">4. The Policy of Appeasement</h3>
+<p data-translate="cause4_p1">
+Western democracies, scarred by the horrors of World War I, pursued a policy of appeasement toward Hitler's aggressive expansion. When Germany remilitarized the Rhineland in 1936, annexed Austria in 1938, and demanded the Sudetenland from Czechoslovakia, Britain and France chose negotiation over confrontation. The <strong>Munich Agreement</strong> of September 1938, which ceded Czechoslovak territory to Germany, was the shameful peak of this policy. British Prime Minister Neville Chamberlain returned home declaring "peace for our time" — a peace that would last less than a year.
+</p>
+
+<h3 data-translate="cause5_title">5. Japanese Militarism and Expansion</h3>
+<p data-translate="cause5_p1">
+While Europe drifted toward war, Japan was pursuing its own imperial ambitions in Asia. In 1931, Japan invaded Manchuria and established the puppet state of Manchukuo. By 1937, Japan launched a full-scale invasion of China, marking the beginning of the <strong>Second Sino-Japanese War</strong>. Japan's quest for resources and empire in Asia would eventually lead to conflict with the Western powers, culminating in the attack on Pearl Harbor in 1941.
+</p>
+
+<div class="quote-block">
+<p data-translate="quote_churchill">Those who fail to learn from history are condemned to repeat it.</p>
+<cite>— Winston Churchill</cite>
+</div>
+
+<h3 data-translate="cause6_title">6. The Failure of the League of Nations</h3>
+<p data-translate="cause6_p1">
+The League of Nations, created after World War I to prevent future conflicts, proved toothless. Without the participation of the United States, and with no mechanism for enforcing its resolutions, the League watched helplessly as Japan invaded Manchuria, Italy conquered Ethiopia, and Germany rearmed. By the late 1930s, the League had become a symbol of the international community's collective failure to act.
+</p>
+</div>
+</div>
+</section>
+
+# Part 3: Timeline and Countries sections
+output_path = '/mnt/agents/output/ww2_blog.html'
+
+part3 = open(output_path, 'a', encoding='utf-8')
+part3.write('''<section class="timeline-section">
+<div class="section-header">
+<div class="section-label" data-translate="timeline_label">Chapter Two</div>
+<h2 class="section-title" data-translate="timeline_title">The Timeline of War</h2>
+<p class="section-subtitle" data-translate="timeline_subtitle">Key moments that defined the course of history</p>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t1_date">September 1, 1939</div>
+<div class="timeline-title" data-translate="t1_title">Germany Invades Poland</div>
+<div class="timeline-desc" data-translate="t1_desc">Hitler's Blitzkrieg sweeps across Poland. Britain and France declare war on Germany two days later. World War II officially begins.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t2_date">June 1940</div>
+<div class="timeline-title" data-translate="t2_title">Fall of France</div>
+<div class="timeline-desc" data-translate="t2_desc">Germany conquers France in just six weeks. The British evacuate 338,000 troops from Dunkirk. France signs armistice.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t3_date">July–Oct 1940</div>
+<div class="timeline-title" data-translate="t3_title">Battle of Britain</div>
+<div class="timeline-desc" data-translate="t3_desc">The RAF defends Britain against the Luftwaffe. Churchill declares: "Never in the field of human conflict was so much owed by so many to so few."</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t4_date">June 22, 1941</div>
+<div class="timeline-title" data-translate="t4_title">Operation Barbarossa</div>
+<div class="timeline-desc" data-translate="t4_desc">Germany invades the Soviet Union with 3 million troops. Hitler breaks the Nazi-Soviet Pact, opening the Eastern Front.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t5_date">December 7, 1941</div>
+<div class="timeline-title" data-translate="t5_title">Pearl Harbor</div>
+<div class="timeline-desc" data-translate="t5_desc">Japan attacks the US Pacific Fleet at Pearl Harbor, Hawaii. The United States enters the war. "A date which will live in infamy."</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t6_date">June 1942</div>
+<div class="timeline-title" data-translate="t6_title">Battle of Midway</div>
+<div class="timeline-desc" data-translate="t6_desc">The US Navy defeats the Japanese at Midway, sinking four aircraft carriers. The turning point in the Pacific War.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t7_date">August 1942 – Feb 1943</div>
+<div class="timeline-title" data-translate="t7_title">Battle of Stalingrad</div>
+<div class="timeline-desc" data-translate="t7_desc">The Soviet Red Army encircles and destroys the German 6th Army. The turning point on the Eastern Front. Over 2 million casualties.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t8_date">June 6, 1944</div>
+<div class="timeline-title" data-translate="t8_title">D-Day: Normandy</div>
+<div class="timeline-desc" data-translate="t8_desc">156,000 Allied troops land on the beaches of Normandy. The largest amphibious invasion in history. Liberation of Western Europe begins.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t9_date">May 8, 1945</div>
+<div class="timeline-title" data-translate="t9_title">Victory in Europe (VE Day)</div>
+<div class="timeline-desc" data-translate="t9_desc">Germany unconditionally surrenders. Hitler commits suicide on April 30. The war in Europe ends after nearly six years.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t10_date">August 6 & 9, 1945</div>
+<div class="timeline-title" data-translate="t10_title">Atomic Bombs on Hiroshima & Nagasaki</div>
+<div class="timeline-desc" data-translate="t10_desc">The US drops atomic bombs on two Japanese cities. Over 200,000 killed. Japan announces surrender on August 15.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="timeline-date" data-translate="t11_date">September 2, 1945</div>
+<div class="timeline-title" data-translate="t11_title">Japan Surrenders (VJ Day)</div>
+<div class="timeline-desc" data-translate="t11_desc">Japan formally surrenders aboard the USS Missouri in Tokyo Bay. World War II officially ends. The world enters a new era.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="countries-section">
+<div class="section-header">
+<div class="section-label" data-translate="countries_label">Chapter Three</div>
+<h2 class="section-title" data-translate="countries_title">The Nations at War</h2>
+<p class="section-subtitle" data-translate="countries_subtitle">The major powers that shaped the conflict</p>
+</div>
+<div class="countries-grid">
+<div class="country-card axis">
+<div class="country-card-header">
+<div class="country-flag">🇩🇪</div>
+<div class="country-name" data-translate="c_ger_name">Germany</div>
+</div>
+<div class="country-role axis" data-translate="c_ger_role">Axis Power — Leader</div>
+<p data-translate="c_ger_desc">Under Adolf Hitler and the Nazi Party, Germany sought to dominate Europe, exterminate Jewish people, and establish a "Thousand-Year Reich." Germany's Blitzkrieg tactics conquered much of Europe before being defeated on two fronts.</p>
+<div class="country-leader"><strong data-translate="leader_label">Leader:</strong> <span data-translate="c_ger_leader">Adolf Hitler (Führer, 1934–1945)</span></div>
+</div>
+
+<div class="country-card axis">
+<div class="country-card-header">
+<div class="country-flag">🇯🇵</div>
+<div class="country-name" data-translate="c_jpn_name">Japan</div>
+</div>
+<div class="country-role axis" data-translate="c_jpn_role">Axis Power — Pacific</div>
+<p data-translate="c_jpn_desc">Driven by militarist nationalism and the desire for an Asian empire, Japan invaded China in 1937 and attacked Pearl Harbor in 1941. Japan's expansion across Asia and the Pacific was halted at Midway and ended with atomic bombings.</p>
+<div class="country-leader"><strong data-translate="leader_label">Leader:</strong> <span data-translate="c_jpn_leader">Emperor Hirohito (1926–1989)</span></div>
+</div>
+
+<div class="country-card axis">
+<div class="country-card-header">
+<div class="country-flag">🇮🇹</div>
+<div class="country-name" data-translate="c_ita_name">Italy</div>
+</div>
+<div class="country-role axis" data-translate="c_ita_role">Axis Power — Mediterranean</div>
+<p data-translate="c_ita_desc">Benito Mussolini's fascist regime joined Germany in 1940, seeking to recreate the Roman Empire. Italy suffered defeats in North Africa and Greece, surrendered in 1943, and switched sides. Mussolini was captured and executed in 1945.</p>
+<div class="country-leader"><strong data-translate="leader_label">Leader:</strong> <span data-translate="c_ita_leader">Benito Mussolini (Duce, 1922–1943)</span></div>
+</div>
+
+<div class="country-card allies">
+<div class="country-card-header">
+<div class="country-flag">🇺🇸</div>
+<div class="country-name" data-translate="c_usa_name">United States</div>
+</div>
+<div class="country-role allies" data-translate="c_usa_role">Allied Power — Arsenal of Democracy</div>
+<p data-translate="c_usa_desc">After Pearl Harbor, the US mobilized its immense industrial might. American forces fought in Europe, North Africa, and the Pacific. The US developed the atomic bomb and emerged as a global superpower after the war.</p>
+<div class="country-leader"><strong data-translate="leader_label">Leader:</strong> <span data-translate="c_usa_leader">Franklin D. Roosevelt (1933–1945) / Harry S. Truman (1945)</span></div>
+</div>
+
+<div class="country-card allies">
+<div class="country-card-header">
+<div class="country-flag">🇬🇧</div>
+<div class="country-name" data-translate="c_uk_name">United Kingdom</div>
+</div>
+<div class="country-role allies" data-translate="c_uk_role">Allied Power — Defender of Freedom</div>
+<p data-translate="c_uk_desc">Britain stood alone against Nazi Germany from June 1940 to June 1941. The RAF won the Battle of Britain, and Churchill's leadership inspired the free world. Britain fought across all theaters and helped plan D-Day.</p>
+<div class="country-leader"><strong data-translate="leader_label">Leader:</strong> <span data-translate="c_uk_leader">Winston Churchill (Prime Minister, 1940–1945)</span></div>
+</div>
+
+<div class="country-card allies">
+<div class="country-card-header">
+<div class="country-flag">🇷🇺</div>
+<div class="country-name" data-translate="c_ussr_name">Soviet Union</div>
+</div>
+<div class="country-role allies" data-translate="c_ussr_role">Allied Power — Eastern Front</div>
+<p data-translate="c_ussr_desc">The USSR suffered the highest casualties of any nation — an estimated 27 million dead. After the German invasion in 1941, the Red Army fought its way from Stalingrad to Berlin, bearing the heaviest burden of defeating Nazism.</p>
+<div class="country-leader"><strong data-translate="leader_label">Leader:</strong> <span data-translate="c_ussr_leader">Joseph Stalin (General Secretary, 1924–1953)</span></div>
+</div>
+
+<div class="country-card allies">
+<div class="country-card-header">
+<div class="country-flag">🇨🇳</div>
+<div class="country-name" data-translate="c_chn_name">China</div>
+</div>
+<div class="country-role allies" data-translate="c_chn_role">Allied Power — Asia</div>
+<p data-translate="c_chn_desc">China had been fighting Japan since 1937, years before the global war began. Chinese forces tied down millions of Japanese troops, contributing significantly to the Allied victory in Asia at enormous human cost.</p>
+<div class="country-leader"><strong data-translate="leader_label">Leader:</strong> <span data-translate="c_chn_leader">Chiang Kai-shek (Generalissimo)</span></div>
+</div>
+
+<div class="country-card allies">
+<div class="country-card-header">
+<div class="country-flag">🇫🇷</div>
+<div class="country-name" data-translate="c_fra_name">France</div>
+</div>
+<div class="country-role allies" data-translate="c_fra_role">Allied Power — Liberated Nation</div>
+<p data-translate="c_fra_desc">France fell to Germany in six weeks in 1940. The Free French Forces under Charles de Gaulle continued fighting from Britain and Africa. France was liberated by Allied forces in 1944 and became a permanent UN Security Council member.</p>
+<div class="country-leader"><strong data-translate="leader_label">Leader:</strong> <span data-translate="c_fra_leader">Charles de Gaulle (Free French Leader)</span></div>
+</div>
+</div>
+</section>
+
+# Part 4: Battles, Aftermath, Conclusion, Footer + JavaScript
+output_path = '/mnt/agents/output/ww2_blog.html'
+
+part4 = open(output_path, 'a', encoding='utf-8')
+part4.write('''<section class="battles-section">
+<div class="section-header">
+<div class="section-label" data-translate="battles_label">Chapter Four</div>
+<h2 class="section-title" data-translate="battles_title">Battles That Changed History</h2>
+<p class="section-subtitle" data-translate="battles_subtitle">The decisive confrontations that determined the war's outcome</p>
+</div>
+<div class="battles-grid">
+<div class="battle-card">
+<div class="battle-date" data-translate="b1_date">September 1939 – May 1940</div>
+<div class="battle-name" data-translate="b1_name">Invasion of Poland</div>
+<div class="battle-desc" data-translate="b1_desc">Germany's Blitzkrieg overwhelmed Poland in 35 days. Britain and France declared war, but could not save Poland. The war in Europe began.</div>
+<div class="battle-winner" data-translate="b1_winner">Winner: Axis</div>
+</div>
+<div class="battle-card">
+<div class="battle-date" data-translate="b2_date">July – October 1940</div>
+<div class="battle-name" data-translate="b2_name">Battle of Britain</div>
+<div class="battle-desc" data-translate="b2_desc">The RAF defeated the Luftwaffe in the skies over England. Hitler's planned invasion of Britain was abandoned. Britain stood unconquered.</div>
+<div class="battle-winner" data-translate="b2_winner">Winner: Allies</div>
+</div>
+<div class="battle-card">
+<div class="battle-date" data-translate="b3_date">August 1942 – February 1943</div>
+<div class="battle-name" data-translate="b3_name">Battle of Stalingrad</div>
+<div class="battle-desc" data-translate="b3_desc">The bloodiest battle in history. The German 6th Army was encircled and destroyed. The turning point of the war on the Eastern Front.</div>
+<div class="battle-winner" data-translate="b3_winner">Winner: Soviet Union</div>
+</div>
+<div class="battle-card">
+<div class="battle-date" data-translate="b4_date">June 4–7, 1942</div>
+<div class="battle-name" data-translate="b4_name">Battle of Midway</div>
+<div class="battle-desc" data-translate="b4_desc">US Navy ambushed and sank four Japanese carriers. Japan lost its naval superiority in the Pacific. The turning point in the Pacific War.</div>
+<div class="battle-winner" data-translate="b4_winner">Winner: United States</div>
+</div>
+<div class="battle-card">
+<div class="battle-date" data-translate="b5_date">October 23 – November 4, 1942</div>
+<div class="battle-name" data-translate="b5_name">Battle of El Alamein</div>
+<div class="battle-desc" data-translate="b5_desc">Montgomery's British 8th Army defeated Rommel's Afrika Korps. The Axis advance in North Africa was halted. Churchill called it "the end of the beginning."</div>
+<div class="battle-winner" data-translate="b5_winner">Winner: Allies</div>
+</div>
+<div class="battle-card">
+<div class="battle-date" data-translate="b6_date">June 6, 1944</div>
+<div class="battle-name" data-translate="b6_name">D-Day (Normandy)</div>
+<div class="battle-desc" data-translate="b6_desc">156,000 Allied troops stormed the beaches of Normandy. The largest amphibious invasion ever. Liberation of Western Europe began.</div>
+<div class="battle-winner" data-translate="b6_winner">Winner: Allies</div>
+</div>
+<div class="battle-card">
+<div class="battle-date" data-translate="b7_date">December 16, 1944 – January 25, 1945</div>
+<div class="battle-name" data-translate="b7_name">Battle of the Bulge</div>
+<div class="battle-desc" data-translate="b7_desc">Hitler's last major offensive in the West. German forces created a "bulge" in Allied lines but were repelled. Germany's final gambit failed.</div>
+<div class="battle-winner" data-translate="b7_winner">Winner: Allies</div>
+</div>
+<div class="battle-card">
+<div class="battle-date" data-translate="b8_date">April 1 – June 22, 1945</div>
+<div class="battle-name" data-translate="b8_name">Battle of Okinawa</div>
+<div class="battle-desc" data-translate="b8_desc">The bloodiest battle of the Pacific War. Over 12,000 American and 100,000 Japanese lives lost. It convinced the US to use atomic weapons.</div>
+<div class="battle-winner" data-translate="b8_winner">Winner: United States</div>
+</div>
+</div>
+</section>
+
+<section class="aftermath-section">
+<div class="aftermath-content">
+<div class="section-header">
+<div class="section-label" style="color: var(--gold);">Chapter Five</div>
+<h2 class="section-title">The World After the War</h2>
+<p class="section-subtitle">How World War II reshaped civilization forever</p>
+</div>
+<div class="article-content" style="color: rgba(255,255,255,0.85);">
+<p data-translate="aftermath_1">
+When the guns finally fell silent on September 2, 1945, the world had been transformed beyond recognition. Europe lay in ruins, entire cities reduced to rubble. The Holocaust had claimed six million Jewish lives and millions of others. The atomic age had dawned with terrifying force. But from this devastation emerged a new world order — one that would define international relations for generations.
+</p>
+</div>
+<div class="impact-grid">
+<div class="impact-card">
+<div class="impact-icon"><i class="fas fa-landmark"></i></div>
+<h4 data-translate="impact1_title">The United Nations</h4>
+<p data-translate="impact1_desc">The UN was established in 1945 to prevent future global conflicts. The five victorious powers — US, USSR, UK, China, and France — became permanent Security Council members.</p>
+</div>
+<div class="impact-card">
+<div class="impact-icon"><i class="fas fa-radiation"></i></div>
+<h4 data-translate="impact2_title">The Nuclear Age</h4>
+<p data-translate="impact2_desc">The atomic bombings ushered in the nuclear era. The world now lived under the shadow of mutually assured destruction, shaping Cold War geopolitics.</p>
+</div>
+<div class="impact-card">
+<div class="impact-icon"><i class="fas fa-flag"></i></div>
+<h4 data-translate="impact3_title">Decolonization</h4>
+<p data-translate="impact3_desc">European empires crumbled. Britain, France, and other colonial powers could no longer maintain their overseas territories. Asia and Africa gained independence.</p>
+</div>
+<div class="impact-card">
+<div class="impact-icon"><i class="fas fa-chart-line"></i></div>
+<h4 data-translate="impact4_title">American Superpower</h4>
+<p data-translate="impact4_desc">The US emerged as the world's dominant economic and military power. The Marshall Plan rebuilt Europe, and the dollar became the global reserve currency.</p>
+</div>
+<div class="impact-card">
+<div class="impact-icon"><i class="fas fa-hammer"></i></div>
+<h4 data-translate="impact5_title">The Cold War</h4>
+<p data-translate="impact5_desc">The alliance between the US and USSR collapsed. For 45 years, the world was divided into capitalist and communist blocs, threatening nuclear war.</p>
+</div>
+<div class="impact-card">
+<div class="impact-icon"><i class="fas fa-balance-scale"></i></div>
+<h4 data-translate="impact6_title">Nuremberg Trials</h4>
+<p data-translate="impact6_desc">Nazi leaders were tried for war crimes, establishing the principle that individuals — not just states — could be held accountable for atrocities.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="article-content">
+<h2 data-translate="conclusion_title">Why We Must Remember</h2>
+<p data-translate="conclusion_1">
+World War II was more than a military conflict — it was a test of humanity itself. It revealed both the darkest depths of human cruelty and the highest heights of human courage. Ordinary men and women became heroes. Nations rose from the ashes. The world, scarred but not broken, chose to rebuild rather than retreat.
+</p>
+<p data-translate="conclusion_2">
+The generation that fought this war — often called "The Greatest Generation" — left us a world that, while imperfect, is freer and more prosperous than any in history. Their sacrifice demands that we remember, that we learn, and that we remain vigilant against the forces of hatred, tyranny, and division that nearly destroyed civilization.
+</p>
+<p data-translate="conclusion_3">
+As you close this blog, remember: history is not just dates and battles. It is the story of people — people who loved, feared, hoped, and fought. Their story is our story. And their lesson is clear: <strong>freedom is never free, and peace must always be defended.</strong>
+</p>
+
+<div class="quote-block" style="margin-top: 50px;">
+<p data-translate="final_quote">In war, resolution. In defeat, defiance. In victory, magnanimity. In peace, good will.</p>
+<cite>— Winston Churchill</cite>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-logo">World War <span>II</span></div>
+<p data-translate="footer_1">A human history blog dedicated to remembering the past and honoring those who sacrificed everything.</p>
+<p data-translate="footer_2">Written with care for readers who seek to understand.</p>
+<div class="footer-divider"></div>
+<p class="footer-credit" data-translate="footer_credit">2024 World War II History Blog. All rights reserved. | Built for human readers.</p>
+</div>
+</footer>
+
+<script>
+// Translation data
+const translations = {
+en: {
+    translate_label: "Translate This Blog",
+    hero_badge: "A Human History Blog",
+    hero_title_1: "World War II",
+    hero_title_2: "The War That Changed Everything",
+    hero_subtitle: "A comprehensive human story of the deadliest conflict in history — from its devastating causes to its world-shaping aftermath. Written for you, the reader who seeks to understand humanity's darkest hour.",
+    hero_date: "September 1, 1939 – September 2, 1945",
+    hero_scope: "Global Conflict",
+    hero_read: "15 min read",
+    stat_deaths: "Lives Lost",
+    stat_countries: "Countries Involved",
+    stat_years: "Years of War",
+    stat_cost: "Economic Cost",
+    intro_1: "World War II was not merely a military conflict — it was a seismic shift in human civilization. Lasting from September 1, 1939, to September 2, 1945, it engulfed nearly every nation on Earth, claimed an estimated 60 to 75 million lives, and fundamentally reshaped the political, social, and economic landscape of our world. It was the deadliest conflict in human history, a war where civilians became targets, where industrial-scale genocide was perpetrated, and where the very survival of nations hung in the balance.",
+    intro_2: "This blog is written for you — the curious reader, the history enthusiast, the student seeking understanding. We will journey together through the reasons this war began, the nations that fought, the battles that decided its course, and the lasting legacy that continues to shape our world today. Let us remember, so that we may never forget.",
+    causes_label: "Chapter One",
+    causes_title: "Why Did World War II Happen?",
+    causes_subtitle: "Understanding the roots of the deadliest conflict in human history",
+    causes_heading: "The Seeds of Destruction",
+    causes_p1: "World War II did not erupt overnight. It was the culmination of decades of political failures, economic crises, and the rise of dangerous ideologies. The war was, in many ways, a continuation of the disputes left unresolved by World War I — an uneasy 20-year hiatus that only delayed the inevitable confrontation.",
+    cause1_title: "1. The Treaty of Versailles (1919)",
+    cause1_p1: "The peace treaty that ended World War I imposed harsh penalties on Germany: massive reparations payments, territorial losses, military restrictions, and the infamous 'War Guilt Clause' that forced Germany to accept sole responsibility for the war. These conditions humiliated the German people, crippled their economy, and created fertile ground for extremist ideologies. The resentment simmering in Germany would later be exploited by Adolf Hitler and the Nazi Party.",
+    cause2_title: "2. The Rise of Fascism and Nazism",
+    cause2_p1: "In the 1920s and 1930s, totalitarian regimes rose to power across Europe. In Italy, Benito Mussolini established a fascist dictatorship in 1922, promising to restore the glory of the Roman Empire. In Germany, Adolf Hitler and the Nazi Party exploited economic despair and national humiliation to seize power in 1933. Hitler's ideology of Aryan racial supremacy, anti-Semitism, and the quest for Lebensraum (living space) in Eastern Europe set the stage for expansionist war.",
+    cause3_title: "3. The Great Depression (1929)",
+    cause3_p1: "The global economic collapse of 1929 devastated economies worldwide. Unemployment soared, banks failed, and international trade collapsed. In Germany, the Depression wiped out the middle class and radicalized millions of voters. Desperate populations turned to strongmen who promised order, jobs, and national restoration — paving the way for Hitler's electoral victories and the Nazi consolidation of power.",
+    cause4_title: "4. The Policy of Appeasement",
+    cause4_p1: "Western democracies, scarred by the horrors of World War I, pursued a policy of appeasement toward Hitler's aggressive expansion. When Germany remilitarized the Rhineland in 1936, annexed Austria in 1938, and demanded the Sudetenland from Czechoslovakia, Britain and France chose negotiation over confrontation. The Munich Agreement of September 1938, which ceded Czechoslovak territory to Germany, was the shameful peak of this policy. British Prime Minister Neville Chamberlain returned home declaring 'peace for our time' — a peace that would last less than a year.",
+    cause5_title: "5. Japanese Militarism and Expansion",
+    cause5_p1: "While Europe drifted toward war, Japan was pursuing its own imperial ambitions in Asia. In 1931, Japan invaded Manchuria and established the puppet state of Manchukuo. By 1937, Japan launched a full-scale invasion of China, marking the beginning of the Second Sino-Japanese War. Japan's quest for resources and empire in Asia would eventually lead to conflict with the Western powers, culminating in the attack on Pearl Harbor in 1941.",
+    quote_churchill: "Those who fail to learn from history are condemned to repeat it.",
+    cause6_title: "6. The Failure of the League of Nations",
+    cause6_p1: "The League of Nations, created after World War I to prevent future conflicts, proved toothless. Without the participation of the United States, and with no mechanism for enforcing its resolutions, the League watched helplessly as Japan invaded Manchuria, Italy conquered Ethiopia, and Germany rearmed. By the late 1930s, the League had become a symbol of the international community's collective failure to act.",
+    timeline_label: "Chapter Two",
+    timeline_title: "The Timeline of War",
+    timeline_subtitle: "Key moments that defined the course of history",
+    t1_date: "September 1, 1939",
+    t1_title: "Germany Invades Poland",
+    t1_desc: "Hitler's Blitzkrieg sweeps across Poland. Britain and France declare war on Germany two days later. World War II officially begins.",
+    t2_date: "June 1940",
+    t2_title: "Fall of France",
+    t2_desc: "Germany conquers France in just six weeks. The British evacuate 338,000 troops from Dunkirk. France signs armistice.",
+    t3_date: "July–Oct 1940",
+    t3_title: "Battle of Britain",
+    t3_desc: "The RAF defends Britain against the Luftwaffe. Churchill declares: 'Never in the field of human conflict was so much owed by so many to so few.'",
+    t4_date: "June 22, 1941",
+    t4_title: "Operation Barbarossa",
+    t4_desc: "Germany invades the Soviet Union with 3 million troops. Hitler breaks the Nazi-Soviet Pact, opening the Eastern Front.",
+    t5_date: "December 7, 1941",
+    t5_title: "Pearl Harbor",
+    t5_desc: "Japan attacks the US Pacific Fleet at Pearl Harbor, Hawaii. The United States enters the war. 'A date which will live in infamy.'",
+    t6_date: "June 1942",
+    t6_title: "Battle of Midway",
+    t6_desc: "The US Navy defeats the Japanese at Midway, sinking four aircraft carriers. The turning point in the Pacific War.",
+    t7_date: "August 1942 – Feb 1943",
+    t7_title: "Battle of Stalingrad",
+    t7_desc: "The Soviet Red Army encircles and destroys the German 6th Army. The turning point on the Eastern Front. Over 2 million casualties.",
+    t8_date: "June 6, 1944",
+    t8_title: "D-Day: Normandy",
+    t8_desc: "156,000 Allied troops land on the beaches of Normandy. The largest amphibious invasion in history. Liberation of Western Europe begins.",
+    t9_date: "May 8, 1945",
+    t9_title: "Victory in Europe (VE Day)",
+    t9_desc: "Germany unconditionally surrenders. Hitler commits suicide on April 30. The war in Europe ends after nearly six years.",
+    t10_date: "August 6 & 9, 1945",
+    t10_title: "Atomic Bombs on Hiroshima & Nagasaki",
+    t10_desc: "The US drops atomic bombs on two Japanese cities. Over 200,000 killed. Japan announces surrender on August 15.",
+    t11_date: "September 2, 1945",
+    t11_title: "Japan Surrenders (VJ Day)",
+    t11_desc: "Japan formally surrenders aboard the USS Missouri in Tokyo Bay. World War II officially ends. The world enters a new era.",
+    countries_label: "Chapter Three",
+    countries_title: "The Nations at War",
+    countries_subtitle: "The major powers that shaped the conflict",
+    c_ger_name: "Germany",
+    c_ger_role: "Axis Power — Leader",
+    c_ger_desc: "Under Adolf Hitler and the Nazi Party, Germany sought to dominate Europe, exterminate Jewish people, and establish a 'Thousand-Year Reich.' Germany's Blitzkrieg tactics conquered much of Europe before being defeated on two fronts.",
+    c_ger_leader: "Adolf Hitler (Führer, 1934–1945)",
+    c_jpn_name: "Japan",
+    c_jpn_role: "Axis Power — Pacific",
+    c_jpn_desc: "Driven by militarist nationalism and the desire for an Asian empire, Japan invaded China in 1937 and attacked Pearl Harbor in 1941. Japan's expansion across Asia and the Pacific was halted at Midway and ended with atomic bombings.",
+    c_jpn_leader: "Emperor Hirohito (1926–1989)",
+    c_ita_name: "Italy",
+    c_ita_role: "Axis Power — Mediterranean",
+    c_ita_desc: "Benito Mussolini's fascist regime joined Germany in 1940, seeking to recreate the Roman Empire. Italy suffered defeats in North Africa and Greece, surrendered in 1943, and switched sides. Mussolini was captured and executed in 1945.",
+    c_ita_leader: "Benito Mussolini (Duce, 1922–1943)",
+    c_usa_name: "United States",
+    c_usa_role: "Allied Power — Arsenal of Democracy",
+    c_usa_desc: "After Pearl Harbor, the US mobilized its immense industrial might. American forces fought in Europe, North Africa, and the Pacific. The US developed the atomic bomb and emerged as a global superpower after the war.",
+    c_usa_leader: "Franklin D. Roosevelt (1933–1945) / Harry S. Truman (1945)",
+    c_uk_name: "United Kingdom",
+    c_uk_role: "Allied Power — Defender of Freedom",
+    c_uk_desc: "Britain stood alone against Nazi Germany from June 1940 to June 1941. The RAF won the Battle of Britain, and Churchill's leadership inspired the free world. Britain fought across all theaters and helped plan D-Day.",
+    c_uk_leader: "Winston Churchill (Prime Minister, 1940–1945)",
+    c_ussr_name: "Soviet Union",
+    c_ussr_role: "Allied Power — Eastern Front",
+    c_ussr_desc: "The USSR suffered the highest casualties of any nation — an estimated 27 million dead. After the German invasion in 1941, the Red Army fought its way from Stalingrad to Berlin, bearing the heaviest burden of defeating Nazism.",
+    c_ussr_leader: "Joseph Stalin (General Secretary, 1924–1953)",
+    c_chn_name: "China",
+    c_chn_role: "Allied Power — Asia",
+    c_chn_desc: "China had been fighting Japan since 1937, years before the global war began. Chinese forces tied down millions of Japanese troops, contributing significantly to the Allied victory in Asia at enormous human cost.",
+    c_chn_leader: "Chiang Kai-shek (Generalissimo)",
+    c_fra_name: "France",
+    c_fra_role: "Allied Power — Liberated Nation",
+    c_fra_desc: "France fell to Germany in six weeks in 1940. The Free French Forces under Charles de Gaulle continued fighting from Britain and Africa. France was liberated by Allied forces in 1944 and became a permanent UN Security Council member.",
+    c_fra_leader: "Charles de Gaulle (Free French Leader)",
+    leader_label: "Leader:",
+    battles_label: "Chapter Four",
+    battles_title: "Battles That Changed History",
+    battles_subtitle: "The decisive confrontations that determined the war's outcome",
+    b1_date: "September 1939 – May 1940",
+    b1_name: "Invasion of Poland",
+    b1_desc: "Germany's Blitzkrieg overwhelmed Poland in 35 days. Britain and France declared war, but could not save Poland. The war in Europe began.",
+    b1_winner: "Winner: Axis",
+    b2_date: "July – October 1940",
+    b2_name: "Battle of Britain",
+    b2_desc: "The RAF defeated the Luftwaffe in the skies over England. Hitler's planned invasion of Britain was abandoned. Britain stood unconquered.",
+    b2_winner: "Winner: Allies",
+    b3_date: "August 1942 – February 1943",
+    b3_name: "Battle of Stalingrad",
+    b3_desc: "The bloodiest battle in history. The German 6th Army was encircled and destroyed. The turning point of the war on the Eastern Front.",
+    b3_winner: "Winner: Soviet Union",
+    b4_date: "June 4–7, 1942",
+    b4_name: "Battle of Midway",
+    b4_desc: "US Navy ambushed and sank four Japanese carriers. Japan lost its naval superiority in the Pacific. The turning point in the Pacific War.",
+    b4_winner: "Winner: United States",
+    b5_date: "October 23 – November 4, 1942",
+    b5_name: "Battle of El Alamein",
+    b5_desc: "Montgomery's British 8th Army defeated Rommel's Afrika Korps. The Axis advance in North Africa was halted. Churchill called it 'the end of the beginning.'",
+    b5_winner: "Winner: Allies",
+    b6_date: "June 6, 1944",
+    b6_name: "D-Day (Normandy)",
+    b6_desc: "156,000 Allied troops stormed the beaches of Normandy. The largest amphibious invasion ever. Liberation of Western Europe began.",
+    b6_winner: "Winner: Allies",
+    b7_date: "December 16, 1944 – January 25, 1945",
+    b7_name: "Battle of the Bulge",
+    b7_desc: "Hitler's last major offensive in the West. German forces created a 'bulge' in Allied lines but were repelled. Germany's final gambit failed.",
+    b7_winner: "Winner: Allies",
+    b8_date: "April 1 – June 22, 1945",
+    b8_name: "Battle of Okinawa",
+    b8_desc: "The bloodiest battle of the Pacific War. Over 12,000 American and 100,000 Japanese lives lost. It convinced the US to use atomic weapons.",
+    b8_winner: "Winner: United States",
+    aftermath_1: "When the guns finally fell silent on September 2, 1945, the world had been transformed beyond recognition. Europe lay in ruins, entire cities reduced to rubble. The Holocaust had claimed six million Jewish lives and millions of others. The atomic age had dawned with terrifying force. But from this devastation emerged a new world order — one that would define international relations for generations.",
+    impact1_title: "The United Nations",
+    impact1_desc: "The UN was established in 1945 to prevent future global conflicts. The five victorious powers — US, USSR, UK, China, and France — became permanent Security Council members.",
+    impact2_title: "The Nuclear Age",
+    impact2_desc: "The atomic bombings ushered in the nuclear era. The world now lived under the shadow of mutually assured destruction, shaping Cold War geopolitics.",
+    impact3_title: "Decolonization",
+    impact3_desc: "European empires crumbled. Britain, France, and other colonial powers could no longer maintain their overseas territories. Asia and Africa gained independence.",
+    impact4_title: "American Superpower",
+    impact4_desc: "The US emerged as the world's dominant economic and military power. The Marshall Plan rebuilt Europe, and the dollar became the global reserve currency.",
+    impact5_title: "The Cold War",
+    impact5_desc: "The alliance between the US and USSR collapsed. For 45 years, the world was divided into capitalist and communist blocs, threatening nuclear war.",
+    impact6_title: "Nuremberg Trials",
+    impact6_desc: "Nazi leaders were tried for war crimes, establishing the principle that individuals — not just states — could be held accountable for atrocities.",
+    conclusion_title: "Why We Must Remember",
+    conclusion_1: "World War II was more than a military conflict — it was a test of humanity itself. It revealed both the darkest depths of human cruelty and the highest heights of human courage. Ordinary men and women became heroes. Nations rose from the ashes. The world, scarred but not broken, chose to rebuild rather than retreat.",
+    conclusion_2: "The generation that fought this war — often called 'The Greatest Generation' — left us a world that, while imperfect, is freer and more prosperous than any in history. Their sacrifice demands that we remember, that we learn, and that we remain vigilant against the forces of hatred, tyranny, and division that nearly destroyed civilization.",
+    conclusion_3: "As you close this blog, remember: history is not just dates and battles. It is the story of people — people who loved, feared, hoped, and fought. Their story is our story. And their lesson is clear: freedom is never free, and peace must always be defended.",
+    final_quote: "In war, resolution. In defeat, defiance. In victory, magnanimity. In peace, good will.",
+    footer_1: "A human history blog dedicated to remembering the past and honoring those who sacrificed everything.",
+    footer_2: "Written with care for readers who seek to understand.",
+    footer_credit: "2024 World War II History Blog. All rights reserved. | Built for human readers."
+},
+es: {
+    translate_label: "Traducir Este Blog",
+    hero_badge: "Un Blog de Historia Humana",
+    hero_title_1: "Segunda Guerra Mundial",
+    hero_title_2: "La Guerra que Lo Cambió Todo",
+    hero_subtitle: "Una historia humana completa del conflicto más mortífero de la historia — desde sus devastadoras causas hasta sus consecuencias que cambiaron el mundo. Escrito para ti, el lector que busca comprender la hora más oscura de la humanidad.",
+    hero_date: "1 de septiembre de 1939 – 2 de septiembre de 1945",
+    hero_scope: "Conflicto Global",
+    hero_read: "Lectura de 15 min",
+    stat_deaths: "Vidas Perdidas",
+    stat_countries: "Países Involucrados",
+    stat_years: "Años de Guerra",
+    stat_cost: "Costo Económico",
+    intro_1: "La Segunda Guerra Mundial no fue simplemente un conflicto militar — fue un cambio sísmico en la civilización humana. Durando desde el 1 de septiembre de 1939 hasta el 2 de septiembre de 1945, envolvió a casi todas las naciones de la Tierra, reclamó un estimado de 60 a 75 millones de vidas, y remodeló fundamentalmente el panorama político, social y económico de nuestro mundo. Fue el conflicto más mortífero en la historia humana, una guerra donde los civiles se convirtieron en objetivos, donde se perpetró un genocidio a escala industrial, y donde la supervivencia misma de las naciones pendía de un hilo.",
+    intro_2: "Este blog está escrito para ti — el lector curioso, el entusiasta de la historia, el estudiante que busca comprender. Viajaremos juntos a través de las razones por las que comenzó esta guerra, las naciones que lucharon, las batallas que decidieron su curso, y el legado perdurable que continúa dando forma a nuestro mundo hoy. Recordemos, para que nunca olvidemos.",
+    causes_label: "Capítulo Uno",
+    causes_title: "¿Por Qué Ocurrió la Segunda Guerra Mundial?",
+    causes_subtitle: "Comprendiendo las raíces del conflicto más mortífero en la historia humana",
+    causes_heading: "Las Semillas de la Destrucción",
+    causes_p1: "La Segunda Guerra Mundial no estalló de la noche a la mañana. Fue la culminación de décadas de fracasos políticos, crisis económicas y el ascenso de ideologías peligrosas. La guerra fue, en muchos sentidos, una continuación de las disputas dejadas sin resolver por la Primera Guerra Mundial — una pausa incómoda de 20 años que solo retrasó la confrontación inevitable.",
+    cause1_title: "1. El Tratado de Versalles (1919)",
+    cause1_p1: "El tratado de paz que terminó la Primera Guerra Mundial impuso duras penas a Alemania: pagos masivos de reparaciones, pérdidas territoriales, restricciones militares, y la infame 'Cláusula de Culpa de Guerra' que obligó a Alemania a aceptar la responsabilidad única de la guerra. Estas condiciones humillaron al pueblo alemán, paralizaron su economía y crearon terreno fértil para ideologías extremistas. El resentimiento que hervía en Alemania sería más tarde explotado por Adolf Hitler y el Partido Nazi.",
+    cause2_title: "2. El Ascenso del Fascismo y el Nazismo",
+    cause2_p1: "En las décadas de 1920 y 1930, regímenes totalitarios ascendieron al poder en toda Europa. En Italia, Benito Mussolini estableció una dictadura fascista en 1922, prometiendo restaurar la gloria del Imperio Romano. En Alemania, Adolf Hitler y el Partido Nazi explotaron la desesperación económica y la humillación nacional para tomar el poder en 1933. La ideología de Hitler de supremacía racial aria, antisemitismo y la búsqueda de Lebensraum (espacio vital) en Europa Oriental preparó el escenario para la guerra expansionista.",
+    cause3_title: "3. La Gran Depresión (1929)",
+    cause3_p1: "El colapso económico global de 1929 devastó las economías de todo el mundo. El desempleo se disparó, los bancos quebraron y el comercio internacional colapsó. En Alemania, la Depresión eliminó a la clase media y radicalizó a millones de votantes. Las poblaciones desesperadas recurrieron a hombres fuertes que prometían orden, empleos y restauración nacional — allanando el camino para las victorias electorales de Hitler y la consolidación del poder nazi.",
+    cause4_title: "4. La Política de Apaciguamiento",
+    cause4_p1: "Las democracias occidentales, marcadas por los horrores de la Primera Guerra Mundial, persiguieron una política de apaciguamiento hacia la expansión agresiva de Hitler. Cuando Alemania remilitarizó el Rhin en 1936, anexó Austria en 1938 y exigió el Sudetenland de Checoslovaquia, Gran Bretaña y Francia eligieron la negociación sobre la confrontación. El Acuerdo de Munich de septiembre de 1938, que cedió territorio checoslovaco a Alemania, fue el pico vergonzoso de esta política. El Primer Ministro británico Neville Chamberlain regresó a casa declarando 'paz para nuestro tiempo' — una paz que duraría menos de un año.",
+    cause5_title: "5. El Militarismo y la Expansión Japonesa",
+    cause5_p1: "Mientras Europa se dirigía hacia la guerra, Japón perseguía sus propias ambiciones imperiales en Asia. En 1931, Japón invadió Manchuria y estableció el estado títere de Manchukuo. Para 1937, Japón lanzó una invasión a gran escala de China, marcando el comienzo de la Segunda Guerra Sino-Japonesa. La búsqueda de Japón por recursos y un imperio en Asia eventualmente llevaría al conflicto con las potencias occidentales, culminando en el ataque a Pearl Harbor en 1941.",
+    quote_churchill: "Aquellos que no aprenden de la historia están condenados a repetirla.",
+    cause6_title: "6. El Fracaso de la Liga de las Naciones",
+    cause6_p1: "La Liga de las Naciones, creada después de la Primera Guerra Mundial para prevenir futuros conflictos, resultó ser inútil. Sin la participación de los Estados Unidos, y sin mecanismo para hacer cumplir sus resoluciones, la Liga observó impotente mientras Japón invadía Manchuria, Italia conquistaba Etiopía y Alemania se rearmaba. A finales de los años 1930, la Liga se había convertido en un símbolo del fracaso colectivo de la comunidad internacional para actuar.",
+    timeline_label: "Capítulo Dos",
+    timeline_title: "La Cronología de la Guerra",
+    timeline_subtitle: "Momentos clave que definieron el curso de la historia",
+    t1_date: "1 de septiembre de 1939",
+    t1_title: "Alemania Invade Polonia",
+    t1_desc: "La Blitzkrieg de Hitler barre a través de Polonia. Gran Bretaña y Francia declaran la guerra a Alemania dos días después. La Segunda Guerra Mundial comienza oficialmente.",
+    t2_date: "Junio de 1940",
+    t2_title: "Caída de Francia",
+    t2_desc: "Alemania conquista Francia en solo seis semanas. Los británicos evacúan 338,000 tropas de Dunkerque. Francia firma el armisticio.",
+    t3_date: "Julio–Oct de 1940",
+    t3_title: "Batalla de Inglaterra",
+    t3_desc: "La RAF defiende a Gran Bretaña contra la Luftwaffe. Churchill declara: 'Nunca en el campo del conflicto humano se le debió tanto a tantos por tan pocos.'",
+    t4_date: "22 de junio de 1941",
+    t4_title: "Operación Barbarroja",
+    t4_desc: "Alemania invade la Unión Soviética con 3 millones de tropas. Hitler rompe el Pacto Nazi-Soviético, abriendo el Frente Oriental.",
+    t5_date: "7 de diciembre de 1941",
+    t5_title: "Pearl Harbor",
+    t5_desc: "Japón ataca la Flota del Pacífico de EE.UU. en Pearl Harbor, Hawái. Estados Unidos entra en la guerra. 'Una fecha que vivirá en la infamia.'",
+    t6_date: "Junio de 1942",
+    t6_title: "Batalla de Midway",
+    t6_desc: "La Marina de EE.UU. derrota a los japoneses en Midway, hundiendo cuatro portaaviones. El punto de inflexión en la Guerra del Pacífico.",
+    t7_date: "Agosto 1942 – Feb 1943",
+    t7_title: "Batalla de Stalingrado",
+    t7_desc: "El Ejército Rojo soviético rodea y destruye al 6º Ejército alemán. El punto de inflexión en el Frente Oriental. Más de 2 millones de bajas.",
+    t8_date: "6 de junio de 1944",
+    t8_title: "Día D: Normandía",
+    t8_desc: "156,000 tropas aliadas desembarcan en las playas de Normandía. La invasión anfibia más grande de la historia. Comienza la liberación de Europa Occidental.",
+    t9_date: "8 de mayo de 1945",
+    t9_title: "Victoria en Europa (Día VE)",
+    t9_desc: "Alemania se rinde incondicionalmente. Hitler se suicida el 30 de abril. La guerra en Europa termina después de casi seis años.",
+    t10_date: "6 y 9 de agosto de 1945",
+    t10_title: "Bombas Atómicas en Hiroshima y Nagasaki",
+    t10_desc: "EE.UU. lanza bombas atómicas sobre dos ciudades japonesas. Más de 200,000 muertos. Japón anuncia su rendición el 15 de agosto.",
+    t11_date: "2 de septiembre de 1945",
+    t11_title: "Japón se Rinde (Día VJ)",
+    t11_desc: "Japón se rinde formalmente a bordo del USS Missouri en la Bahía de Tokio. La Segunda Guerra Mundial termina oficialmente. El mundo entra en una nueva era.",
+    countries_label: "Capítulo Tres",
+    countries_title: "Las Naciones en Guerra",
+    countries_subtitle: "Las grandes potencias que dieron forma al conflicto",
+    c_ger_name: "Alemania",
+    c_ger_role: "Potencia del Eje — Líder",
+    c_ger_desc: "Bajo Adolf Hitler y el Partido Nazi, Alemania buscó dominar Europa, exterminar al pueblo judío y establecer un 'Reich de Mil Años.' Las tácticas de Blitzkrieg de Alemania conquistaron gran parte de Europa antes de ser derrotada en dos frentes.",
+    c_ger_leader: "Adolf Hitler (Führer, 1934–1945)",
+    c_jpn_name: "Japón",
+    c_jpn_role: "Potencia del Eje — Pacífico",
+    c_jpn_desc: "Impulsado por el nacionalismo militarista y el deseo de un imperio asiático, Japón invadió China en 1937 y atacó Pearl Harbor en 1941. La expansión de Japón a través de Asia y el Pacífico se detuvo en Midway y terminó con los bombardeos atómicos.",
+    c_jpn_leader: "Emperador Hirohito (1926–1989)",
+    c_ita_name: "Italia",
+    c_ita_role: "Potencia del Eje — Mediterráneo",
+    c_ita_desc: "El régimen fascista de Benito Mussolini se unió a Alemania en 1940, buscando recrear el Imperio Romano. Italia sufrió derrotas en el norte de África y Grecia, se rindió en 1943 y cambió de bando. Mussolini fue capturado y ejecutado en 1945.",
+    c_ita_leader: "Benito Mussolini (Duce, 1922–1943)",
+    c_usa_name: "Estados Unidos",
+    c_usa_role: "Potencia Aliada — Arsenal de la Democracia",
+    c_usa_desc: "Después de Pearl Harbor, EE.UU. movilizó su inmenso poder industrial. Las fuerzas estadounidenses lucharon en Europa, el norte de África y el Pacífico. EE.UU. desarrolló la bomba atómica y emergió como una superpotencia global después de la guerra.",
+    c_usa_leader: "Franklin D. Roosevelt (1933–1945) / Harry S. Truman (1945)",
+    c_uk_name: "Reino Unido",
+    c_uk_role: "Potencia Aliada — Defensor de la Libertad",
+    c_uk_desc: "Gran Bretaña se mantuvo sola contra la Alemania nazi desde junio de 1940 hasta junio de 1941. La RAF ganó la Batalla de Inglaterra, y el liderazgo de Churchill inspiró al mundo libre. Gran Bretaña luchó en todos los teatros y ayudó a planificar el Día D.",
+    c_uk_leader: "Winston Churchill (Primer Ministro, 1940–1945)",
+    c_ussr_name: "Unión Soviética",
+    c_ussr_role: "Potencia Aliada — Frente Oriental",
+    c_ussr_desc: "La URSS sufrió las bajas más altas de cualquier nación — un estimado de 27 millones de muertos. Después de la invasión alemana en 1941, el Ejército Rojo luchó desde Stalingrado hasta Berlín, cargando con la mayor carga de derrotar al nazismo.",
+    c_ussr_leader: "Joseph Stalin (Secretario General, 1924–1953)",
+    c_chn_name: "China",
+    c_chn_role: "Potencia Aliada — Asia",
+    c_chn_desc: "China había estado luchando contra Japón desde 1937, años antes de que comenzara la guerra global. Las fuerzas chinas mantuvieron ocupados a millones de tropas japonesas, contribuyendo significativamente a la victoria aliada en Asia a un costo humano enorme.",
+    c_chn_leader: "Chiang Kai-shek (Generalísimo)",
+    c_fra_name: "Francia",
+    c_fra_role: "Potencia Aliada — Nación Liberada",
+    c_fra_desc: "Francia cayó ante Alemania en seis semanas en 1940. Las Fuerzas Francesas Libres bajo Charles de Gaulle continuaron luchando desde Gran Bretaña y África. Francia fue liberada por las fuerzas aliadas en 1944 y se convirtió en miembro permanente del Consejo de Seguridad de la ONU.",
+    c_fra_leader: "Charles de Gaulle (Líder de las Fuerzas Francesas Libres)",
+    leader_label: "Líder:",
+    battles_label: "Capítulo Cuatro",
+    battles_title: "Batallas que Cambiaron la Historia",
+    battles_subtitle: "Las confrontaciones decisivas que determinaron el resultado de la guerra",
+    b1_date: "Septiembre 1939 – Mayo 1940",
+    b1_name: "Invasión de Polonia",
+    b1_desc: "La Blitzkrieg de Alemania abrumó a Polonia en 35 días. Gran Bretaña y Francia declararon la guerra, pero no pudieron salvar a Polonia. La guerra en Europa comenzó.",
+    b1_winner: "Ganador: Eje",
+    b2_date: "Julio – Octubre de 1940",
+    b2_name: "Batalla de Inglaterra",
+    b2_desc: "La RAF derrotó a la Luftwaffe en los cielos sobre Inglaterra. La invasión planeada de Hitler a Gran Bretaña fue abandonada. Gran Bretaña permaneció inconquistada.",
+    b2_winner: "Ganador: Aliados",
+    b3_date: "Agosto 1942 – Febrero 1943",
+    b3_name: "Batalla de Stalingrado",
+    b3_desc: "La batalla más sangrienta de la historia. El 6º Ejército alemán fue rodeado y destruido. El punto de inflexión de la guerra en el Frente Oriental.",
+    b3_winner: "Ganador: Unión Soviética",
+    b4_date: "4–7 de junio de 1942",
+    b4_name: "Batalla de Midway",
+    b4_desc: "La Marina de EE.UU. emboscó y hundió cuatro portaaviones japoneses. Japón perdió su superioridad naval en el Pacífico. El punto de inflexión en la Guerra del Pacífico.",
+    b4_winner: "Ganador: Estados Unidos",
+    b5_date: "23 de octubre – 4 de noviembre de 1942",
+    b5_name: "Batalla de El Alamein",
+    b5_desc: "El 8º Ejército británico de Montgomery derrotó al Afrika Korps de Rommel. El avance del Eje en el norte de África fue detenido. Churchill lo llamó 'el fin del principio.'",
+    b5_winner: "Ganador: Aliados",
+    b6_date: "6 de junio de 1944",
+    b6_name: "Día D (Normandía)",
+    b6_desc: "156,000 tropas aliadas asaltaron las playas de Normandía. La invasión anfibia más grande jamás realizada. Comenzó la liberación de Europa Occidental.",
+    b6_winner: "Ganador: Aliados",
+    b7_date: "16 de diciembre de 1944 – 25 de enero de 1945",
+    b7_name: "Batalla de las Ardenas",
+    b7_desc: "La última ofensiva mayor de Hitler en el Oeste. Las fuerzas alemanas crearon una 'protuberancia' en las líneas aliadas pero fueron rechazadas. El último intento de Alemania fracasó.",
+    b7_winner: "Ganador: Aliados",
+    b8_date: "1 de abril – 22 de junio de 1945",
+    b8_name: "Batalla de Okinawa",
+    b8_desc: "La batalla más sangrienta de la Guerra del Pacífico. Más de 12,000 vidas estadounidenses y 100,000 japonesas perdidas. Convenció a EE.UU. de usar armas atómicas.",
+    b8_winner: "Ganador: Estados Unidos",
+    aftermath_1: "Cuando los cañones finalmente callaron el 2 de septiembre de 1945, el mundo había sido transformado más allá del reconocimiento. Europa yacía en ruinas, ciudades enteras reducidas a escombros. El Holocausto había reclamado seis millones de vidas judías y millones de otros. La era atómica había amanecido con fuerza aterradora. Pero de esta devastación surgió un nuevo orden mundial — uno que definiría las relaciones internacionales por generaciones.",
+    impact1_title: "Las Naciones Unidas",
+    impact1_desc: "La ONU fue establecida en 1945 para prevenir futuros conflictos globales. Las cinco potencias victoriosas — EE.UU., URSS, Reino Unido, China y Francia — se convirtieron en miembros permanentes del Consejo de Seguridad.",
+    impact2_title: "La Era Nuclear",
+    impact2_desc: "Los bombardeos atómicos dieron paso a la era nuclear. El mundo ahora vivía bajo la sombra de la destrucción mutua asegurada, dando forma a la geopolítica de la Guerra Fría.",
+    impact3_title: "Descolonización",
+    impact3_desc: "Los imperios europeos se desmoronaron. Gran Bretaña, Francia y otras potencias coloniales ya no pudieron mantener sus territorios de ultramar. Asia y África ganaron la independencia.",
+    impact4_title: "Superpotencia Estadounidense",
+    impact4_desc: "EE.UU. emergió como el poder económico y militar dominante del mundo. El Plan Marshall reconstruyó Europa, y el dólar se convirtió en la moneda de reserva global.",
+    impact5_title: "La Guerra Fría",
+    impact5_desc: "La alianza entre EE.UU. y la URSS colapsó. Durante 45 años, el mundo estuvo dividido en bloques capitalistas y comunistas, amenazando la guerra nuclear.",
+    impact6_title: "Juicios de Nuremberg",
+    impact6_desc: "Los líderes nazis fueron juzgados por crímenes de guerra, estableciendo el principio de que los individuos — no solo los estados — podían ser responsabilizados por atrocidades.",
+    conclusion_title: "Por Qué Debemos Recordar",
+    conclusion_1: "La Segunda Guerra Mundial fue más que un conflicto militar — fue una prueba de la humanidad misma. Reveló tanto las profundidades más oscuras de la crueldad humana como las alturas más elevadas del coraje humano. Hombres y mujeres ordinarios se convirtieron en héroes. Las naciones resurgieron de las cenizas. El mundo, cicatrizado pero no roto, eligió reconstruir en lugar de retirarse.",
+    conclusion_2: "La generación que luchó en esta guerra — a menudo llamada 'La Generación Más Grande' — nos dejó un mundo que, aunque imperfecto, es más libre y próspero que cualquier otro en la historia. Su sacrificio exige que recordemos, que aprendamos, y que permanezcamos vigilantes contra las fuerzas del odio, la tiranía y la división que casi destruyeron la civilización.",
+    conclusion_3: "Al cerrar este blog, recuerda: la historia no son solo fechas y batallas. Es la historia de personas — personas que amaron, temieron, esperaron y lucharon. Su historia es nuestra historia. Y su lección es clara: la libertad nunca es gratis, y la paz siempre debe ser defendida.",
+    final_quote: "En la guerra, resolución. En la derrota, desafío. En la victoria, magnanimidad. En la paz, buena voluntad.",
+    footer_1: "Un blog de historia humana dedicado a recordar el pasado y honrar a quienes sacrificaron todo.",
+    footer_2: "Escrito con cuidado para lectores que buscan comprender.",
+    footer_credit: "2024 Blog de Historia de la Segunda Guerra Mundial. Todos los derechos reservados. | Construido para lectores humanos."
+}
+};
+
+function translatePage() {
+    const lang = document.getElementById('languageSelect').value;
+    const currentLang = document.getElementById('currentLang');
+    const langNames = {
+        en: 'English', es: 'Spanish', fr: 'French', de: 'German', it: 'Italian',
+        pt: 'Portuguese', ru: 'Russian', zh: 'Chinese', ja: 'Japanese', ko: 'Korean',
+        ar: 'Arabic', hi: 'Hindi', pl: 'Polish', nl: 'Dutch', tr: 'Turkish', vi: 'Vietnamese'
+    };
+    currentLang.textContent = langNames[lang] || 'English';
+    
+    const t = translations[lang] || translations.en;
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (t[key]) {
+            el.textContent = t[key];
+        }
+    });
+    
+    document.body.setAttribute('lang', lang);
+    if (lang === 'ar') {
+        document.body.style.direction = 'rtl';
+    } else {
+        document.body.style.direction = 'ltr';
+    }
+}
+
+// Reading progress bar
+window.addEventListener('scroll', function() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('readingProgress').style.width = progress + '%';
+});
+</script>
+</body>
+</html>
