@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senegal: The Land of Teranga — A Traveler's Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #00853f;
+            --yellow: #fdef42;
+            --red: #e31b23;
+            --dark: #1a1a1a;
+            --cream: #faf8f5;
+            --sand: #f5f0e8;
+            --text: #2d2d2d;
+            --text-light: #666666;
+            --gold: #d4a017;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Language Bar */
+        .lang-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            border-bottom: 3px solid var(--yellow);
+        }
+        
+        .lang-bar span {
+            color: var(--yellow);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 10px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--yellow);
+            color: var(--dark);
+            border-color: var(--yellow);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0,133,63,0.4), rgba(227,27,35,0.3)), url('https://kimi-web-img.moonshot.cn/img/images.adsttc.com/951f629d9fa5abdb05727fcbc7da8841b221b3f6.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: 50px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--cream), transparent);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+        }
+        
+        .hero-flag {
+            width: 120px;
+            height: 80px;
+            margin: 0 auto 30px;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            color: white;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.95);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--green);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Story Cards */
+        .story-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .story-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .story-card-content {
+            padding: 40px;
+        }
+        
+        .story-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .story-card p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .highlight-box {
+            background: var(--sand);
+            border-left: 4px solid var(--green);
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            background: var(--dark);
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .flag-section .section-header h2 {
+            color: white;
+        }
+        
+        .flag-section .section-header h2::after {
+            background: var(--yellow);
+        }
+        
+        .flag-section .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .flag-display {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 60px;
+            justify-content: center;
+        }
+        
+        .flag-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .flag-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .flag-meaning {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .color-meaning {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        
+        .color-meaning:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .color-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        
+        .color-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .color-text p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* City Grid */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .city-card .img-wrap {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .city-card .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .img-wrap img {
+            transform: scale(1.1);
+        }
+        
+        .city-card .img-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+        }
+        
+        .city-card h3 {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .city-card-content {
+            padding: 25px;
+        }
+        
+        .city-card-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: var(--sand);
+            color: var(--text);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 12px;
+            margin-right: 5px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--green), var(--red));
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+            margin-left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            text-align: left;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--red);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            z-index: 2;
+        }
+        
+        .timeline-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* Travel Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .tip-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--green);
+        }
+        
+        .tip-card:nth-child(2) { border-top-color: var(--yellow); }
+        .tip-card:nth-child(3) { border-top-color: var(--red); }
+        .tip-card:nth-child(4) { border-top-color: var(--gold); }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tip-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .tip-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .tip-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .french-text {
+            font-style: normal;
+        }
+        
+        .wolof-text {
+            font-style: italic;
+        }
+        
+        /* Phrase Book */
+        .phrase-book {
+            background: var(--sand);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        
+        .phrase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .phrase-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .phrase-item .en { color: var(--text); font-weight: 600; }
+        .phrase-item .fr { color: var(--red); margin-top: 5px; }
+        .phrase-item .wo { color: var(--green); font-style: italic; margin-top: 5px; }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        .footer-heart {
+            color: var(--red);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-item { justify-content: flex-start; }
+            .timeline-content { width: calc(100% - 60px); margin-left: 50px !important; text-align: left !important; }
+            .timeline-year { left: 20px; transform: translateX(-50%); }
+            .flag-display { flex-direction: column; }
+            .hero { margin-top: 80px; }
+            .city-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--green);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--red);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Selector -->
+    <div class="lang-bar">
+        <span>🌐 Translate / Traduire / Tuddale</span>
+        <button class="lang-btn active" onclick="switchLang('en')">English</button>
+        <button class="lang-btn" onclick="switchLang('fr')">Français</button>
+        <button class="lang-btn" onclick="switchLang('wo')">Wolof</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/806bc3f490303cdac424fe8587187e7242d5d3ef.png" alt="Senegal Flag" class="hero-flag">
+            <div class="hero-subtitle">The Land of Teranga</div>
+            <h1>Senegal</h1>
+            <p class="hero-tagline">Where the Atlantic kisses ancient shores, hospitality is a religion, and every stranger is treated as family.</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </div>
+    </section>
+
+    <!-- English Content -->
+    <div id="content-en" class="lang-content active">
+        
+        <!-- Name Origin -->
+        <section class="container">
+            <div class="section-header">
+                <h2>What's in a Name?</h2>
+                <p>The story behind West Africa's most welcoming nation</p>
+            </div>
+            <div class="story-card">
+                <div class="story-card-content">
+                    <h3>Republic of Senegal</h3>
+                    <p>The name "Senegal" carries the echo of rivers and canoes. The most widely accepted theory traces it to the Wolof phrase <em>"Sunu Gaal"</em> — meaning "our canoe." When Portuguese explorers first arrived in the 15th century, they heard this phrase and recorded it as <em>"Senegaal,"</em> which eventually became Senegal. Another theory links it to the Zenaga Berbers who once inhabited the region's northern reaches.</p>
+                    <p>But the name that truly defines this nation isn't the one on maps — it's <strong>Teranga</strong>. This Wolof word means "hospitality," and it is the soul of Senegal. It is not just a welcome; it is a philosophy. A belief that every guest is a gift, every stranger is family, and the table is never too small for one more. In Senegal, Teranga is not practiced — it is lived.</p>
+                    <div class="highlight-box">
+                        <strong>Did You Know?</strong>
+                        Senegal's national motto is "Un Peuple, Un But, Une Foi" (One People, One Goal, One Faith). It is one of Africa's most stable democracies and has never experienced a military coup.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flag -->
+        <section class="flag-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Flag of Unity</h2>
+                    <p>Three colors, one star, infinite meaning</p>
+                </div>
+                <div class="flag-display">
+                    <div class="flag-img">
+                        <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/806bc3f490303cdac424fe8587187e7242d5d3ef.png" alt="Flag of Senegal">
+                    </div>
+                    <div class="flag-meaning">
+                        <div class="color-meaning">
+                            <div class="color-dot" style="background: #00853f;"></div>
+                            <div class="color-text">
+                                <h4>Green</h4>
+                                <p>Hope, nature, and the fertile plains of the Senegal River valley. Also represents the country's Islamic faith.</p>
+                            </div>
+                        </div>
+                        <div class="color-meaning">
+                            <div class="color-dot" style="background: #fdef42;"></div>
+                            <div class="color-text">
+                                <h4>Yellow</h4>
+                                <p>The wealth of the arts, the gold of Senegalese creativity, and the prosperity born from cultural richness.</p>
+                            </div>
+                        </div>
+                        <div class="color-meaning">
+                            <div class="color-dot" style="background: #e31b23;"></div>
+                            <div class="color-text">
+                                <h4>Red</h4>
+                                <p>The sacrifice and blood shed for independence, the life force of the nation, and the determination to build a future.</p>
+                            </div>
+                        </div>
+                        <div class="color-meaning">
+                            <div class="color-dot" style="background: #00853f; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></div>
+                            <div class="color-text">
+                                <h4>The Green Star</h4>
+                                <p>The five-pointed star represents the openness of Senegal to the five continents, and the unity of all Senegalese people under one sky. It also echoes the Star of Islam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cities -->
+        <section class="container">
+            <div class="section-header">
+                <h2>Cities That Tell Stories</h2>
+                <p>From colonial echoes to spiritual grandeur</p>
+            </div>
+            <div class="city-grid">
+                <div class="city-card">
+                    <div class="img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/f321d9df59220f1837311b592eb59a5b04cc8a42.jpg" alt="Dakar Skyline">
+                        <h3>Dakar</h3>
+                    </div>
+                    <div class="city-card-content">
+                        <p>The vibrant capital perched on the Cap-Vert peninsula, where the westernmost point of mainland Africa meets the Atlantic. Dakar pulses with the rhythm of Mbalax music, the scent of grilled fish at Soumbédioune market, and the energy of a city that never sleeps. Climb to the African Renaissance Monument — a 49-meter bronze statue overlooking the ocean — or lose yourself in the colorful chaos of Sandaga Market. This is where tradition and modernity dance together.</p>
+                        <span class="tag">Capital</span>
+                        <span class="tag">Mbalax Music</span>
+                        <span class="tag">African Renaissance Monument</span>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <div class="img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/images.adsttc.com/951f629d9fa5abdb05727fcbc7da8841b221b3f6.jpg" alt="Saint-Louis">
+                        <h3>Saint-Louis</h3>
+                    </div>
+                    <div class="city-card-content">
+                        <p>A UNESCO World Heritage site and the former capital of French West Africa. Saint-Louis is a living museum of colonial architecture, wrought-iron balconies, and pastel facades that seem to fade into the Senegal River. The iconic Faidherbe Bridge, built in 1897, connects the island to the mainland. Every year, the city hosts the Saint-Louis Jazz Festival, filling the streets with saxophones and soul. It is also the gateway to the Djoudj National Bird Sanctuary.</p>
+                        <span class="tag">UNESCO Heritage</span>
+                        <span class="tag">Jazz Festival</span>
+                        <span class="tag">Colonial Architecture</span>
+                    </div>
+                </div>
+                
+                <div class="city-card">
+                    <div class="img-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/a5b743c94f9970f1ddfa88081b3d447cdf599e4d.jpg" alt="Touba Grand Mosque">
+                        <h3>Touba</h3>
+                    </div>
+                    <div class="city-card-content">
+                        <p>The holy city of the Mouride Brotherhood and one of the most important spiritual centers in West Africa. The Grand Mosque of Touba, with its seven minarets and massive green dome, can hold up to 7,000 worshippers. Founded by Sheikh Amadou Bamba in 1887, Touba is a city of pilgrimage, prayer, and profound peace. During the annual Magal festival, millions of devotees converge here — it is the largest religious gathering in Senegal and one of the largest in Africa.</p>
+                        <span class="tag">Holy City</span>
+                        <span class="tag">Mouride Brotherhood</span>
+                        <span class="tag">Magal Festival</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beautiful Places -->
+        <section style="background: var(--sand);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Wonders of the West</h2>
+                    <p>Nature and history in perfect harmony</p>
+                </div>
+                
+                <div class="story-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/media.tacdn.com/a12ee42b57ad0ad2d7562596ae2f90aa3686a316.jpg" alt="Lac Rose Pink Lake">
+                    <div class="story-card-content">
+                        <h3>Lac Rose — The Pink Lake</h3>
+                        <p>Just an hour north of Dakar lies a lake that defies imagination. Lake Retba, known as Lac Rose, shimmers in shades of bubblegum pink and magenta, thanks to the Dunaliella salina algae that thrive in its super-salty waters. The salt content rivals the Dead Sea, allowing you to float effortlessly. Watch local salt harvesters wade into the rose-colored waters, their skin glistening with salt crystals, and feel like you've stepped into a dream. The color is most vivid during the dry season from November to June.</p>
+                        <div class="highlight-box">
+                            <strong>Insider Tip:</strong> Visit at sunset when the pink waters turn golden-orange, and the salt harvesters finish their day's work in silhouette against the sky.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/0f537f2e8bc4bbe4fe894e684410c84e63e0b81a.jpg" alt="Gorée Island">
+                    <div class="story-card-content">
+                        <h3>Gorée Island — The Door of No Return</h3>
+                        <p>A short ferry ride from Dakar, this tiny island carries the weight of centuries. Gorée was one of the largest slave-trading centers on the African coast. Today, it is a UNESCO World Heritage Site and a place of pilgrimage for the African diaspora. The Maison des Esclaves (House of Slaves) with its haunting "Door of No Return" opens onto the Atlantic — the last view millions of enslaved Africans had of their homeland. But Gorée is also an island of art, color, and resilience. Galleries, bougainvillea-covered courtyards, and the laughter of children remind you that life persists even in the shadow of history.</p>
+                        <div class="highlight-box">
+                            <strong>Important Note:</strong> While historians debate the scale of Gorée's role in the transatlantic slave trade, its symbolic power as a memorial to human suffering and dignity is undeniable. Visit with respect and an open heart.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/1d5b0b0137cc29f2e9baee26b1938415892efb12.gif" alt="Niokolo-Koba National Park">
+                    <div class="story-card-content">
+                        <h3>Niokolo-Koba National Park</h3>
+                        <p>Senegal's largest national park and a UNESCO World Heritage Site, covering nearly one million hectares of savannah, woodland, and wetlands along the Gambia River. This is one of West Africa's last great wildernesses — home to elephants, lions, leopards, chimpanzees, Derby elands (the world's largest antelope), and hippos that lull you to sleep with their grunts. The journey here from Dakar (700km) is an adventure in itself, transitioning from coastal bustle to the silent grandeur of the interior. Stay at Campement Wassadou and fall asleep to the sound of the river.</p>
+                        <div class="highlight-box">
+                            <strong>Wildlife Insight:</strong> Unlike East Africa's crowded reserves, Niokolo-Koba offers a sense of discovery and solitude. Hire a local guide like Koday — after decades in the park, they can spot a chameleon in a bush you'd walk right past.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/whc.unesco.org/3f19945618329a2b5efaa6705bd13694c5a59e21.jpg" alt="Sine-Saloum Delta">
+                    <div class="story-card-content">
+                        <h3>Sine-Saloum Delta</h3>
+                        <p>A labyrinth of mangroves, lagoons, and over 200 islands, this UNESCO Biosphere Reserve is where the Saloum River meets the Atlantic. Explore by pirogue (traditional canoe), gliding through channels where dolphins sometimes swim alongside you. Visit ancient shell mounds — burial sites built entirely of seashells by civilizations long past. The fishing villages here move to the rhythm of the tides, not the clock. It is the best place in Senegal to simply breathe, observe, and let the world slow down.</p>
+                        <div class="highlight-box">
+                            <strong>Base Camp:</strong> Stay in Toubakouta or Palmarin. Ecolodge Palmarin offers rustic luxury with mangrove views and traditional Serer hospitality.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History -->
+        <section class="container">
+            <div class="section-header">
+                <h2>A Story of Peace & Pride</h2>
+                <p>From ancient kingdoms to the vanguard of African democracy</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">13th Century</div>
+                    <div class="timeline-content">
+                        <h3>The Djolof Empire</h3>
+                        <p>The Wolof people unite under the powerful Djolof Empire, creating a centralized state that dominates the Senegal River valley. Wolof becomes the lingua franca of the region, a status it maintains to this day.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1444</div>
+                    <div class="timeline-content">
+                        <h3>Portuguese Arrival</h3>
+                        <p>Portuguese explorers land on the coast, beginning centuries of European presence. They name the region "Senegaal" and establish trading posts for gold, gum arabic, and sadly, human beings.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1659</div>
+                    <div class="timeline-content">
+                        <h3>French Saint-Louis</h3>
+                        <p>The French establish a permanent settlement on Saint-Louis island, making it the first colonial city of Black Africa. It becomes the capital of French West Africa and a hub of the transatlantic trade.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1887</div>
+                    <div class="timeline-content">
+                        <h3>Amadou Bamba & Touba</h3>
+                        <p>Sheikh Amadou Bamba M'backé founds the Mouride Brotherhood in Touba, creating one of Africa's most influential Sufi movements. His legacy of hard work, prayer, and non-violence shapes modern Senegal profoundly.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1960</div>
+                    <div class="timeline-content">
+                        <h3>Independence</h3>
+                        <p>On April 4, 1960, Senegal breaks free from French colonial rule. Léopold Sédar Senghor, a poet and philosopher, becomes the first president. He is one of the founding fathers of the Négritude movement and the concept of Francophonie — a vision of French-speaking nations united by culture, not conquest.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1982</div>
+                    <div class="timeline-content">
+                        <h3>Senegambia Confederation</h3>
+                        <p>Senegal and The Gambia form a short-lived confederation, reflecting the deep cultural and historical ties between the two nations. Though it dissolves in 1989, the bond between the "two wings of the same bird" remains strong.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2000</div>
+                    <div class="timeline-content">
+                        <h3>Peaceful Transition</h3>
+                        <p>President Abdoulaye Wade wins the election, marking Senegal's first peaceful transfer of power. This cements Senegal's reputation as one of Africa's most stable democracies — a nation that changes leaders through ballots, not bullets.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2024-2026</div>
+                    <div class="timeline-content">
+                        <h3>A New Generation</h3>
+                        <p>President Bassirou Diomaye Faye, elected in 2024 as Africa's youngest leader, ushers in a new era of anti-establishment politics and pan-African identity. Wolof rises in official spaces, and Senegal reclaims its linguistic sovereignty while maintaining its openness to the world. The nation stands as a bridge between Francophone Africa and the wider continent.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Guide -->
+        <section style="background: var(--sand);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Practical Wanderer</h2>
+                    <p>Everything you need to know before visiting the land of Teranga</p>
+                </div>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">📅</div>
+                        <h3>When to Go</h3>
+                        <p>The dry season from November to May is ideal. Days are warm and sunny, nights are cool, and the Harmattan wind brings a hazy golden light. The rainy season (June to October) is lush and green but can make road travel challenging in remote areas.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">🛂</div>
+                        <h3>Visa & Entry</h3>
+                        <p>Many nationalities (including EU, US, and ECOWAS citizens) can enter visa-free or obtain a visa on arrival. Dakar's Blaise Diagne International Airport is modern and efficient, with direct flights from Paris, Istanbul, New York, and major African hubs.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">⚠️</div>
+                        <h3>Safety & Health</h3>
+                        <p>Senegal is one of West Africa's safest countries. Petty theft exists in Dakar markets, so stay alert. Malaria prophylaxis is recommended. Drink bottled water and try the street food — it's delicious and generally safe, but start gently with your stomach!</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">💰</div>
+                        <h3>Money Matters</h3>
+                        <p>The West African CFA Franc (XOF) is the currency. ATMs are common in Dakar and Saint-Louis. Credit cards are accepted at upscale hotels and restaurants, but cash is king everywhere else. Budget travelers can get by on €40-50/day; mid-range travelers on €80-120.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">🚕</div>
+                        <h3>Getting Around</h3>
+                        <p>Car Rapide (brightly painted minibuses) and sept-places (shared taxis) are the local way. For comfort, hire a private taxi or use ride apps like Heetch. The new Train Express Regional connects Dakar to Diamniadio in 20 minutes — a marvel of modern infrastructure.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">🤝</div>
+                        <h3>Cultural Respect</h3>
+                        <p>Dress modestly, especially in rural areas and religious sites. Always greet people before asking questions — a simple "Salaam aleikum" or "Nanga def" opens every door. Accept tea offers; the attaya ritual (three rounds of sweet mint tea) is sacred social time. Never rush it.</p>
+                    </div>
+                </div>
+                
+                <div class="phrase-book">
+                    <h3 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px;">Essential Phrases</h3>
+                    <p style="text-align: center; color: var(--text-light); margin-bottom: 30px;">Connect with locals in their own words — French for formal settings, Wolof for the heart</p>
+                    <div class="phrase-grid">
+                        <div class="phrase-item">
+                            <div class="en">Hello / Welcome</div>
+                            <div class="fr">Bonjour / Bienvenue</div>
+                            <div class="wo">Salaam aleikum / Nanga def</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Thank you</div>
+                            <div class="fr">Merci</div>
+                            <div class="wo">Jërëjëf</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">How are you?</div>
+                            <div class="fr">Comment ça va?</div>
+                            <div class="wo">Nanga def? / Ana waa kër?</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Good / Fine</div>
+                            <div class="fr">Bien / Ça va</div>
+                            <div class="wo">Mangi fi rekk</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Please</div>
+                            <div class="fr">S'il vous plaît</div>
+                            <div class="wo">Léegi / Baal ma</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Hospitality / Teranga</div>
+                            <div class="fr">Hospitalité</div>
+                            <div class="wo">Teranga</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Peace</div>
+                            <div class="fr">Paix</div>
+                            <div class="wo">Jàmm</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="en">Delicious</div>
+                            <div class="fr">Délicieux</div>
+                            <div class="wo">Daf dara lu bon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- French Content -->
+    <div id="content-fr" class="lang-content">
+        <section class="container" style="padding-top: 100px;">
+            <div class="section-header">
+                <h2>République du Sénégal</h2>
+                <p>La terre de la Teranga — où l'hospitalité est une religion</p>
+            </div>
+            
+            <div class="story-card">
+                <div class="story-card-content french-text">
+                    <h3>L'Origine du Nom</h3>
+                    <p>Le nom "Sénégal" porte l'écho des rivières et des pirogues. La théorie la plus acceptée le trace à la phrase wolof <em>"Sunu Gaal"</em> — signifiant "notre pirogue." Lorsque les explorateurs portugais sont arrivés au 15ème siècle, ils ont entendu cette phrase et l'ont notée comme <em>"Senegaal,"</em> qui est finalement devenu Sénégal.</p>
+                    <p>Mais le nom qui définit vraiment cette nation n'est pas celui sur les cartes — c'est <strong>Teranga</strong>. Ce mot wolof signifie "hospitalité," et c'est l'âme du Sénégal. Ce n'est pas simplement un accueil ; c'est une philosophie. Une croyance que chaque invité est un cadeau, chaque étranger est de la famille, et la table n'est jamais trop petite pour un de plus.</p>
+                    <div class="highlight-box">
+                        <strong>Le Saviez-Vous?</strong>
+                        La devise nationale du Sénégal est "Un Peuple, Un But, Une Foi." C'est l'une des démocraties les plus stables d'Afrique et n'a jamais connu de coup d'État militaire.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content french-text">
+                    <h3>Le Drapeau de l'Unité</h3>
+                    <p>Le drapeau du Sénégal se compose de trois bandes verticales — vert, or, et rouge — avec une étoile verte à cinq branches au centre:</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #00853f;"><strong>Vert:</strong> L'espoir, la nature, et la foi islamique du pays.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #fdef42;"><strong>Or (Jaune):</strong> La richesse des arts, l'or de la créativité sénégalaise.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #e31b23;"><strong>Rouge:</strong> Le sacrifice et le sang versé pour l'indépendance.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #00853f;"><strong>Étoile Verte:</strong> L'ouverture du Sénégal aux cinq continents et l'unité du peuple.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content french-text">
+                    <h3>Les Villes Principales</h3>
+                    <p><strong>Dakar:</strong> La capitale vibrante située sur la péninsule du Cap-Vert, où le point le plus occidental de l'Afrique continentale rencontre l'Atlantique. Le Monument de la Renaissance Africaine — une statue de bronze de 49 mètres — domine l'océan.</p>
+                    <p><strong>Saint-Louis:</strong> Site du patrimoine mondial de l'UNESCO et ancienne capitale de l'Afrique-Occidentale française. Le pont Faidherbe, construit en 1897, relie l'île au continent. Chaque année, la ville accueille le festival de jazz de Saint-Louis.</p>
+                    <p><strong>Touba:</strong> La ville sainte de la confrérie mouride et l'un des centres spirituels les plus importants d'Afrique de l'Ouest. La Grande Mosquée de Touba, avec ses sept minarets, peut accueillir jusqu'à 7 000 fidèles. Pendant le Magal annuel, des millions de pèlerins convergent ici.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content french-text">
+                    <h3>Merveilles Naturelles</h3>
+                    <p><strong>Lac Rose (Lac Retba):</strong> Situé à une heure au nord de Dakar, ce lac scintille dans des nuances de rose bubblegum grâce à une algue spécifique. La teneur en sel rivalise avec celle de la Mer Morte.</p>
+                    <p><strong>Île de Gorée:</strong> Site du patrimoine mondial de l'UNESCO et lieu de pèlerinage pour la diaspora africaine. La Maison des Esclaves avec sa porte "Sans Retour" s'ouvre sur l'Atlantique.</p>
+                    <p><strong>Parc National du Niokolo-Koba:</strong> Le plus grand parc national du Sénégal et site du patrimoine mondial de l'UNESCO. Éléphants, lions, léopards, chimpanzés, et élans de Derby y vivent.</p>
+                    <p><strong>Delta du Sine-Saloum:</strong> Un labyrinthe de mangroves, de lagunes et de plus de 200 îles. Explorez en pirogue traditionnelle, où les dauphins nagent parfois à vos côtés.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content french-text">
+                    <h3>Guide Pratique</h3>
+                    <p><strong>Quand Partir:</strong> La saison sèche de novembre à mai est idéale. Les jours sont chauds et ensoleillés, les nuits fraîches.</p>
+                    <p><strong>Visa:</strong> De nombreuses nationalités (y compris UE, US, CEDEAO) peuvent entrer sans visa ou obtenir un visa à l'arrivée. L'aéroport international Blaise Diagne est moderne et efficace.</p>
+                    <p><strong>Sécurité:</strong> Le Sénégal est l'un des pays les plus sûrs d'Afrique de l'Ouest. Une prophylaxie antipaludéenne est recommandée.</p>
+                    <p><strong>Argent:</strong> Le Franc CFA (XOF). Les distributeurs sont courants à Dakar et Saint-Louis. Les cartes de crédit sont acceptées dans les hôtels haut de gamme, mais le liquide est roi partout ailleurs.</p>
+                    <p><strong>Transport:</strong> Le Car Rapide et les sept-places sont le mode local. Le nouveau Train Express Regional relie Dakar à Diamniadio en 20 minutes.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Wolof Content -->
+    <div id="content-wo" class="lang-content">
+        <section class="container" style="padding-top: 100px;">
+            <div class="section-header">
+                <h2>Réewum Senegaal</h2>
+                <p>ŋat ci àll — Teranga, teye ak jàmm</p>
+            </div>
+            
+            <div class="story-card">
+                <div class="story-card-content wolof-text">
+                    <h3>Tudd Réew mi (The Name)</h3>
+                    <p>"Senegaal" dafa bokk ci Wolof "Sunu Gaal" — teye "sañu gaal." Kàttan gi dafa am ci tur wi mooy <strong>Teranga</strong>. Teranga dafa teye yokk ndaw, yokk xol, teye wax ne këp këp ku dugg ci dëkk bi am na ku ko sopp. Ci Senegaal, Teranga dafa dara bu ñu ko def — dafa dara bu ñu ko dund.</p>
+                    <p><strong>4 Avril 1960</strong> — Senegaal am na ndaw. Léopold Sédar Senghor aye bukk-koom bu njëkk. Mooy ab xaleem bu mag, ab mbind mu mag, teye ab kàttan bu mag ci àdduna bi.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content wolof-text">
+                    <h3>Raaya Senegaal (The Flag)</h3>
+                    <p>Raaya bi am na 3 xalaat — weex, weex-wënn, teye xonk:</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #00853f;"><strong>Weex (Green):</strong> Xol bu sedd, àll, teye diine Islaam.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #fdef42;"><strong>Weex-wënn (Yellow):</strong> Jaay, xam-xam, teye ànd ak àll.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #e31b23;"><strong>Xonk (Red):</strong> Dëj, pïr, teye kàttan bu ñu ko jàp.</li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; border-left: 4px solid #00853f;"><strong>Bennub xew (Green Star):</strong> Bennub kàttan, yokk àdduna, teye jàmm.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content wolof-text">
+                    <h3>Dëkk yi (Cities)</h3>
+                    <p><strong>Dakar:</strong> Dëkk bu mag bi — dëkk bu njëkk. Am na Monument de la Renaissance Africaine (49 mètres). Am na marché Sandaga, Soumbédioune, teye mbalax.</p>
+                    <p><strong>Saint-Louis:</strong> Dëkk bu yàgg — UNESCO. Pont Faidherbe (1897). Jazz festival bu mag. Dëkk bu rafet lool.</p>
+                    <p><strong>Touba:</strong> Dëkk bu sell — Mouride. Grande Mosquée — 7 minarets. Magal — kàttan bu mag, millions de pèlerins.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content wolof-text">
+                    <h3>Àll yi (Beautiful Places)</h3>
+                    <p><strong>Lac Rose:</strong> Ndox mu xonk — bubblegum pink. Dunaliella salina. Ndox mi dafa tuuti — tuuti ndox. Salt harvesters — ñu ko sopp lool.</p>
+                    <p><strong>Gorée:</strong> Dëkk bu yàgg — UNESCO. Maison des Esclaves — "Porte du Non-Retour." Dëkk bu xol — teye ànd ak jàmm.</p>
+                    <p><strong>Niokolo-Koba:</strong> Parc bu mag — UNESCO. Elephants, lions, léopards, chimpanzés. Derby eland — bu mag bi.</p>
+                    <p><strong>Sine-Saloum:</strong> Mangroves, lagunes, 200 islands. Pirogue — dauphins. Shell mounds — ñu yàgg.</p>
+                </div>
+            </div>
+            
+            <div class="story-card" style="margin-top: 40px;">
+                <div class="story-card-content wolof-text">
+                    <h3>Tan (Travel Guide)</h3>
+                    <p><strong>Jamono bu rafet:</strong> November to May — dry season. Àll sedd, guddi sedd. Harmattan — xol bu sedd.</p>
+                    <p><strong>Visa:</strong> EU, US, CEDEAO — visa-free. Blaise Diagne Airport — modern, rafet.</p>
+                    <p><strong>Acien-ric:</strong> Senegaal dafa dëgg — safe. Paludisme — médicament. Ndox bu sell — bottle. Street food — dafa dara lu bon, waaye bëgën.</p>
+                    <p><strong>Xel:</strong> CFA Franc (XOF). ATMs — Dakar, Saint-Louis. Cash — bu mag. Budget: €40-50/day. Mid-range: €80-120.</p>
+                    <p><strong>Dëgg-dëgg:</strong> Car Rapide — bu rafet. Sept-places — bu sedd. Train Express — Dakar to Diamniadio (20 minutes). Heetch — app.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Written with <span class="footer-heart">♥</span> for the people of Senegal</p>
+        <p style="font-size: 0.9rem; opacity: 0.7;">This blog celebrates the beauty, hospitality, and resilience of the land of Teranga. Travel with an open heart, and Senegal will open hers to you.</p>
+        <p style="font-size: 0.85rem; margin-top: 30px; opacity: 0.5;">© 2026 Senegal Travel Chronicle | Images sourced from Wikimedia, Britannica, Alamy, ArchDaily, Viator, UNESCO, and ATTA</p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById('content-' + lang).classList.add('active');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            if (lang !== 'en') {
+                window.scrollTo({ top: 60, behavior: 'smooth' });
+            }
+        }
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.story-card, .city-card, .timeline-item, .tip-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
