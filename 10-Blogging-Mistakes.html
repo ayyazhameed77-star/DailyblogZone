@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>10 Blogging Mistakes Every Beginner Makes — And How to Fix Them</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #1a1209;
+    --paper: #faf7f2;
+    --cream: #f3ede3;
+    --accent: #c94c1a;
+    --gold: #c9922a;
+    --muted: #7a6e62;
+    --border: #d9cfc4;
+    --highlight: #fff3e0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 32px 56px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .kicker::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 48px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    color: #fff;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: #f0c98a;
+  }
+
+  .header-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #a09080;
+    letter-spacing: 0.08em;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .header-bg-text {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 240px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── HERO IMAGE ── */
+  .hero-image {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+    filter: sepia(20%) contrast(1.05);
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    padding: 56px 0 32px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 48px;
+  }
+
+  .intro-lead {
+    font-size: 1.35rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #3a2e20;
+  }
+
+  .intro-lead strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .drop-cap::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.2em;
+    font-weight: 900;
+    float: left;
+    line-height: 0.72;
+    margin: 0.12em 0.1em 0 0;
+    color: var(--accent);
+  }
+
+  /* ── MISTAKE CARDS ── */
+  .mistakes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mistake {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 28px;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(28px);
+    animation: fadeUp 0.55s ease forwards;
+  }
+
+  .mistake:nth-child(1)  { animation-delay: 0.05s; }
+  .mistake:nth-child(2)  { animation-delay: 0.10s; }
+  .mistake:nth-child(3)  { animation-delay: 0.15s; }
+  .mistake:nth-child(4)  { animation-delay: 0.20s; }
+  .mistake:nth-child(5)  { animation-delay: 0.25s; }
+  .mistake:nth-child(6)  { animation-delay: 0.30s; }
+  .mistake:nth-child(7)  { animation-delay: 0.35s; }
+  .mistake:nth-child(8)  { animation-delay: 0.40s; }
+  .mistake:nth-child(9)  { animation-delay: 0.45s; }
+  .mistake:nth-child(10) { animation-delay: 0.50s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .mistake-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    text-align: center;
+    padding-top: 4px;
+    transition: color 0.3s;
+  }
+
+  .mistake:hover .mistake-number {
+    color: var(--accent);
+  }
+
+  .mistake-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  .mistake-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+
+  .mistake-body p {
+    color: #3d3028;
+    font-size: 1rem;
+    line-height: 1.78;
+    margin-bottom: 14px;
+  }
+
+  .fix-box {
+    background: var(--highlight);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 12px;
+  }
+
+  .fix-box strong {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .fix-box p {
+    font-size: 0.95rem;
+    color: #4a3820;
+    margin: 0;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 56px -40px;
+    padding: 36px 48px;
+    background: var(--ink);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: -30px;
+    left: 12px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .pull-quote blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    line-height: 1.45;
+    color: #f0e8d8;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pull-quote cite {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: #a09080;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    padding: 56px 0 40px;
+    border-top: 2px solid var(--ink);
+    margin-top: 48px;
+  }
+
+  .closing h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  .closing p {
+    color: #3d3028;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: #7a6e62;
+    text-align: center;
+    padding: 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  footer span {
+    color: var(--accent);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .mistake {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .mistake-number {
+      font-size: 2rem;
+      text-align: left;
+    }
+    .pull-quote {
+      margin: 40px 0;
+      padding: 28px 24px;
+    }
+    h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-bg-text">✕</div>
+  <div class="header-inner">
+    <div class="kicker">The Beginner's Guide</div>
+    <h1>10 Blogging Mistakes <em>Every Beginner</em> Makes — And How to Fix Them</h1>
+    <div class="header-meta">
+      <span>By Alex Morgan</span>
+      <span>May 28, 2026</span>
+      <span>12 min read</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO IMAGE -->
+<img
+  class="hero-image"
+  src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80&auto=format&fit=crop"
+  alt="A person writing on a laptop at a wooden desk with a coffee cup nearby"
+/>
+
+<!-- MAIN CONTENT -->
+<main>
+  <div class="container">
+
+    <!-- INTRO -->
+    <section class="intro">
+      <p class="intro-lead drop-cap">
+        Everyone starts somewhere. The first post, the empty dashboard, the blinking cursor — and the overwhelming question: <strong>am I doing this right?</strong> Probably not entirely. And that's okay. What matters is knowing which mistakes are silently killing your blog before it even gets a chance to grow.
+      </p>
+      <p class="intro-lead" style="margin-top: 18px; font-size: 1.1rem;">
+        Whether you launched last week or last year, these are the ten missteps almost every new blogger stumbles into — and exactly what to do instead.
+      </p>
+    </section>
+
+    <!-- MISTAKES -->
+    <div class="mistakes-list">
+
+      <!-- 1 -->
+      <article class="mistake">
+        <div class="mistake-number">01</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">Strategy</span>
+          <h2>Writing for Everyone — and Reaching No One</h2>
+          <p>When you try to appeal to every possible reader, your voice becomes diluted, generic, and forgettable. "General lifestyle blog" is not a niche. Readers follow blogs because they feel understood — and you can't make someone feel understood when you're shouting into a crowd.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>Define your ideal reader as one specific person. What do they do? What do they struggle with? Write every post directly to that person, and your whole blog becomes magnetic.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="mistake">
+        <div class="mistake-number">02</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">Consistency</span>
+          <h2>Publishing in Bursts, Then Disappearing</h2>
+          <p>Three posts in one weekend, then silence for six weeks. This pattern confuses readers, tanks your SEO, and is impossible to sustain. Blogging is a marathon, not a series of sprints.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>Choose a publishing schedule you can realistically maintain — even if that's just once every two weeks. Boring consistency always outperforms brilliant inconsistency.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="mistake">
+        <div class="mistake-number">03</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">SEO</span>
+          <h2>Ignoring Search Intent Completely</h2>
+          <p>You can write beautifully and still get zero traffic if nobody is actually searching for what you wrote. Writing without any awareness of how real people phrase their questions online is one of the most common — and costly — beginner oversights.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>Before writing, type your topic into Google. Look at the autocomplete suggestions and the "People Also Ask" section. These reveal exactly how your audience talks and what they want to know.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- PULL QUOTE -->
+      <div class="pull-quote">
+        <blockquote>
+          "Your blog doesn't fail because you aren't talented enough. It fails because nobody told you the rules of the game."
+        </blockquote>
+        <cite>— The Craft of Blogging</cite>
+      </div>
+
+      <!-- 4 -->
+      <article class="mistake">
+        <div class="mistake-number">04</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">Readability</span>
+          <h2>Writing Walls of Text</h2>
+          <p>Online readers scan before they read. If they land on your post and see a dense, unbroken block of text, most will leave in under three seconds. The way your post looks is almost as important as what it says.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>Use short paragraphs (2–4 sentences max), meaningful subheadings every 300 words or so, and bullet points for any list of three or more items. White space is not wasted space — it's breathing room.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="mistake">
+        <div class="mistake-number">05</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">Voice</span>
+          <h2>Sounding Like a Wikipedia Article</h2>
+          <p>Stiff, overly formal writing is the fastest way to lose a reader. People come to blogs for a human voice — opinion, personality, even a little imperfection. If your prose could have been written by a committee, it's time to loosen up.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>Read your drafts aloud. Anything that sounds unnatural when spoken needs to be rewritten. Contractions, short sentences, even starting a sentence with "And" — all allowed. Write like you talk, then polish it.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="mistake">
+        <div class="mistake-number">06</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">Growth</span>
+          <h2>Skipping an Email List in the Early Days</h2>
+          <p>Social platforms change algorithms, get banned, or fall out of fashion. An email list is the only audience you truly own. Beginners who wait until they "have enough readers" to start building one almost always regret it — every email address not collected is one that's gone forever.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>Set up a simple email signup on Day 1, even with zero subscribers. Offer a small, useful freebie (a checklist, a short guide) in exchange for signing up. Start building before you think you need to.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="mistake">
+        <div class="mistake-number">07</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">Design</span>
+          <h2>Neglecting Mobile Readers</h2>
+          <p>More than 60% of web traffic comes from mobile devices. If your blog looks broken, cramped, or unreadable on a phone, you are failing the majority of your audience before they read a single word.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>Always preview every post on your phone before publishing. Choose a responsive theme and test it on at least two screen sizes. Font size on mobile should be no smaller than 16px.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="mistake">
+        <div class="mistake-number">08</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">Headlines</span>
+          <h2>Writing Weak, Vague Post Titles</h2>
+          <p>"My Thoughts on Productivity" will never compete with "7 Counterintuitive Habits That Helped Me Work Half the Hours." The title is the first — and often only — thing people use to decide whether to click. A weak title dooms a brilliant post.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>Write at least five title options for every post and choose the most specific, benefit-driven one. Ask yourself: "Does this title make someone feel like they'd be missing out if they didn't read this?"</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="mistake">
+        <div class="mistake-number">09</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">Metrics</span>
+          <h2>Obsessing Over Traffic Too Early</h2>
+          <p>Checking Google Analytics every day when you have 12 posts published is a recipe for demoralization. Early traffic is almost always low — that's normal, not a sign of failure. Treating small numbers as evidence to quit is one of the main reasons promising blogs die young.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>For your first six months, focus on output, not outcomes. Your job is to write 30 good posts, develop your voice, and learn what resonates. Traffic comes after the foundation is built, not before.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="mistake">
+        <div class="mistake-number">10</div>
+        <div class="mistake-body">
+          <span class="mistake-tag">Mindset</span>
+          <h2>Waiting Until It's Perfect to Publish</h2>
+          <p>Perfectionism is procrastination wearing a respectable costume. Beginners often sit on drafts for weeks, endlessly tweaking, convinced the post isn't ready. Meanwhile, an imperfect post that's live is infinitely more useful than a perfect one that exists only on your hard drive.</p>
+          <div class="fix-box">
+            <strong>The Fix</strong>
+            <p>Adopt a "good enough to help someone" standard instead of a "perfect" one. Publish, get feedback, improve. Your tenth post will be better than your first not because you waited, but because you shipped nine before it.</p>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /.mistakes-list -->
+
+    <!-- CLOSING -->
+    <section class="closing">
+      <h2>Now Go Make Mistakes — The Useful Kind</h2>
+      <p>Every successful blogger you admire made every single one of these errors. The difference between them and the bloggers who gave up is simple: they kept going anyway, and they paid attention to what wasn't working.</p>
+      <p>Print this list. Tape it above your desk if you have to. Not to intimidate yourself, but as a reminder that these mistakes are fixable — every last one of them — and that recognizing them puts you already ahead of where most beginners are.</p>
+      <p>Now close this tab and go write something. Imperfectly, honestly, and for the right person.</p>
+    </section>
+
+  </div><!-- /.container -->
+</main>
+
+<footer>
+  <p>Written with intention &nbsp;·&nbsp; <span>The Blogger's Handbook</span> &nbsp;·&nbsp; 2026</p>
+</footer>
+
+</body>
+</html>
