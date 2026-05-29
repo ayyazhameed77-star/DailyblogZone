@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Côte d'Ivoire: The Ivory Coast — A Traveler's Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ivoire-orange: #F77F00;
+            --ivoire-white: #FFFFFF;
+            --ivoire-green: #009E60;
+            --ivoire-dark: #1A1A1A;
+            --sand: #FDF8F0;
+            --lagoon: #006B54;
+            --text-dark: #2C2C2C;
+            --text-light: #666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--sand);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            background: var(--ivoire-dark);
+            padding: 12px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .lang-bar button {
+            background: transparent;
+            border: 2px solid var(--ivoire-white);
+            color: var(--ivoire-white);
+            padding: 8px 24px;
+            margin: 0 8px;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-bar button:hover, .lang-bar button.active {
+            background: var(--ivoire-white);
+            color: var(--ivoire-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%),
+                        url('https://images.unsplash.com/photo-1528127269322-539801943592?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--sand), transparent);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+            letter-spacing: -1px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .hero .author {
+            font-style: italic;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-hint span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .scroll-hint span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 10px;
+            background: white;
+            border-radius: 3px;
+            animation: scroll 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        @keyframes scroll {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 25px; }
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--ivoire-orange);
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .flag-container {
+            max-width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .flag-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .flag-img {
+            width: 100%;
+            display: block;
+        }
+        
+        .flag-meaning {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .meaning-card {
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .meaning-card.orange { background: rgba(247, 127, 0, 0.08); border-left: 4px solid var(--ivoire-orange); }
+        .meaning-card.white { background: rgba(255, 255, 255, 0.9); border-left: 4px solid #ccc; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meaning-card.green { background: rgba(0, 158, 96, 0.08); border-left: 4px solid var(--ivoire-green); }
+        
+        .meaning-card h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* City Cards */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        
+        .city-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-img {
+            transform: scale(1.05);
+        }
+        
+        .city-content {
+            padding: 30px;
+        }
+        
+        .city-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        
+        .city-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--sand);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--lagoon);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--ivoire-orange), var(--ivoire-white), var(--ivoire-green));
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--ivoire-orange);
+        }
+        
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--ivoire-orange);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        /* Beautiful Places Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+        
+        /* Travel Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .tip-card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        
+        .tip-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .tip-card h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--ivoire-dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-flag {
+            width: 80px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            box-shadow: 0 5px 20px rgba(255,255,255,0.1);
+        }
+        
+        .footer-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .footer-copy {
+            opacity: 0.6;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+        
+        /* French content adjustments */
+        .fr .section-title::after {
+            left: 0;
+        }
+        
+        /* Hidden class for language toggle */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 50px 0;
+            }
+            
+            .cities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Selection color */
+        ::selection {
+            background: var(--ivoire-orange);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <button class="active" onclick="setLanguage('en')" id="btn-en">🇬🇧 English</button>
+        <button onclick="setLanguage('fr')" id="btn-fr">🇨🇮 Français</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="en">Côte d'Ivoire: The Ivory Coast</h1>
+            <h1 class="fr hidden">Côte d'Ivoire : La Côte des Éléphants</h1>
+            <p class="subtitle en">A Journey Through Lagoons, Basilicas, and the Beating Heart of West Africa</p>
+            <p class="subtitle fr hidden">Un Voyage à Travers les Lagunes, les Basiliques et le Cœur Battant de l'Afrique de l'Ouest</p>
+            <p class="author en">By a passionate traveler &middot; May 2026</p>
+            <p class="author fr hidden">Par un voyageur passionné &middot; Mai 2026</p>
+        </div>
+        <div class="scroll-hint">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro">
+        <div class="container">
+            <h2 class="section-title en">Why Côte d'Ivoire?</h2>
+            <h2 class="section-title fr hidden">Pourquoi la Côte d'Ivoire ?</h2>
+            
+            <p class="lead en">
+                They call it the "Ivory Coast," but that name barely scratches the surface. Côte d'Ivoire is a country 
+                of staggering contrasts—where the glass towers of Abidjan rise above lagoon waters like a West African 
+                Manhattan, where the world's largest basilica stands in a quiet political capital, and where the 
+                Atlantic surf crashes against colonial mansions frozen in time. It is a place that humbles you with 
+                its complexity and seduces you with its warmth.
+            </p>
+            <p class="lead fr hidden">
+                On l'appelle la « Côte d'Ivoire », mais ce nom ne fait qu'effleurer la surface. La Côte d'Ivoire est un pays 
+                de contrastes saisissants—où les tours de verre d'Abidjan s'élèvent au-dessus des eaux de la lagune comme 
+                un Manhattan de l'Afrique de l'Ouest, où la plus grande basilique du monde se dresse dans une capitale 
+                politique tranquille, et où le ressac de l'Atlantique s'écrase contre des demeures coloniales figées dans 
+                le temps. C'est un endroit qui vous humilie par sa complexité et vous séduit par sa chaleur.
+            </p>
+            
+            <p class="en">
+                I still remember my first evening in Treichville, Abidjan. The air smelled of grilled tilapia and 
+                attiéké, zouglou music spilled from open-air maquis, and the lagoon reflected the city lights like liquid 
+                gold. An elderly woman selling mangoes smiled and said, "Tu es chez toi ici"—You are at home here. 
+                That is Côte d'Ivoire in a sentence: hospitality so effortless it feels like gravity.
+            </p>
+            <p class="fr hidden">
+                Je me souviens encore de ma première soirée à Treichville, Abidjan. L'air sentait le tilapia grillé et 
+                l'attiéké, la musique zouglou débordait des maquis en plein air, et la lagune reflétait les lumières 
+                de la ville comme de l'or liquide. Une femme âgée vendant des mangues a souri et m'a dit : 
+                « Tu es chez toi ici ». C'est la Côte d'Ivoire en une phrase : une hospitalité si naturelle 
+                qu'elle ressemble à la gravité.
+            </p>
+        </div>
+    </section>
+
+    <!-- Name Origin Section -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title en">The Story Behind the Name</h2>
+            <h2 class="section-title fr hidden">L'Histoire Derrière le Nom</h2>
+            
+            <p class="en">
+                The name <strong>Côte d'Ivoire</strong> was born from commerce and longing. In the 14th and 15th centuries, 
+                French and Portuguese sailors navigating the West African coast encountered a land rich in elephant ivory. 
+                The French called it <em>Côte d'Ivoire</em>; the Portuguese called it <em>Costa do Marfim</em>—both meaning 
+                "Coast of Ivory." It was one of four "coasts" European traders mapped: the Grain Coast (Liberia), 
+                the Gold Coast (Ghana), the Slave Coast (Nigeria, Togo, Benin), and the Ivory Coast.
+            </p>
+            <p class="fr hidden">
+                Le nom <strong>Côte d'Ivoire</strong> est né du commerce et de la nostalgie. Aux XIVe et XVe siècles, 
+                les marins français et portugais naviguant sur la côte ouest-africaine ont rencontré une terre riche 
+                en ivoire d'éléphant. Les Français l'ont appelée <em>Côte d'Ivoire</em> ; les Portugais l'ont appelée 
+                <em>Costa do Marfim</em>—tous deux signifiant « Côte de l'Ivoire ». C'était l'une des quatre « côtes » 
+                que les marchands européens cartographiaient : la Côte du Poivre (Liberia), la Côte de l'Or (Ghana), 
+                la Côte des Esclaves (Nigeria, Togo, Bénin) et la Côte d'Ivoire.
+            </p>
+            
+            <p class="en">
+                But in 1985, President Félix Houphouët-Boigny made a bold decree: the country would be known as 
+                <strong>Côte d'Ivoire</strong> in <em>every</em> language, not translated. It was a statement of identity, 
+                a refusal to let the world define this nation through the lens of colonial trade. Today, when you say 
+                "Côte d'Ivoire," you are speaking a name that carries both the weight of history and the pride of 
+                self-determination.
+            </p>
+            <p class="fr hidden">
+                Mais en 1985, le président Félix Houphouët-Boigny a pris un décret audacieux : le pays serait connu sous 
+                le nom de <strong>Côte d'Ivoire</strong> dans <em>toutes</em> les langues, sans traduction. C'était une affirmation 
+                d'identité, un refus de laisser le monde définir cette nation à travers le prisme du commerce colonial. 
+                Aujourd'hui, lorsque vous dites « Côte d'Ivoire », vous prononcez un nom qui porte à la fois le poids 
+                de l'histoire et la fierté de l'autodétermination.
+            </p>
+            
+            <div class="flag-meaning" style="margin-top: 40px;">
+                <div class="meaning-card orange en">
+                    <h4>🧡 Orange</h4>
+                    <p>The savanna and northern lands, representing national growth, the sun's warmth, and the spirit of progress that drives the nation forward.</p>
+                </div>
+                <div class="meaning-card orange fr hidden">
+                    <h4>🧡 Orange</h4>
+                    <p>La savane et les terres du nord, représentant la croissance nationale, la chaleur du soleil et l'esprit de progrès qui fait avancer la nation.</p>
+                </div>
+                
+                <div class="meaning-card white en">
+                    <h4>🤍 White</h4>
+                    <p>Peace, purity, and unity. It symbolizes the harmony between the country's diverse ethnic groups—Akan, Mandé, Krou, and others.</p>
+                </div>
+                <div class="meaning-card white fr hidden">
+                    <h4>🤍 Blanc</h4>
+                    <p>La paix, la pureté et l'unité. Il symbolise l'harmonie entre les divers groupes ethniques du pays—Akan, Mandé, Krou et autres.</p>
+                </div>
+                
+                <div class="meaning-card green en">
+                    <h4>💚 Green</h4>
+                    <p>Hope for the future and the lush vegetation of the southern forests. It represents the rich agricultural bounty, especially cocoa and coffee.</p>
+                </div>
+                <div class="meaning-card green fr hidden">
+                    <h4>💚 Vert</h4>
+                    <p>L'espoir pour l'avenir et la végétation luxuriante des forêts du sud. Il représente la richesse agricole, notamment le cacao et le café.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flag Section -->
+    <section class="flag-section">
+        <div class="container">
+            <h2 class="section-title en">The National Flag</h2>
+            <h2 class="section-title fr hidden">Le Drapeau National</h2>
+            <p class="en" style="margin-bottom: 30px;">Adopted on December 3, 1959, just before independence, the flag mirrors the vertical tricolor of France—but with colors that speak of Africa.</p>
+            <p class="fr hidden" style="margin-bottom: 30px;">Adopté le 3 décembre 1959, juste avant l'indépendance, le drapeau reprend le tricolore vertical de la France—mais avec des couleurs qui parlent d'Afrique.</p>
+            
+            <div class="flag-container">
+                <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/305ad969b13bcc6ebf4c097cb9a4b89a672a8798.png" alt="Cote d'Ivoire Flag" class="flag-img">
+            </div>
+            <p class="en" style="margin-top: 20px; font-style: italic; color: var(--text-light);">
+                The flag was designed to replace the French tricolor while maintaining a visual link to the colonial past. 
+                Its orange-white-green bands were inspired by the flag of Niger, symbolizing pan-African solidarity.
+            </p>
+            <p class="fr hidden" style="margin-top: 20px; font-style: italic; color: var(--text-light);">
+                Le drapeau a été conçu pour remplacer le drapeau français tout en maintenant un lien visuel avec le passé colonial. 
+                Ses bandes orange-blanc-vert ont été inspirées par le drapeau du Niger, symbolisant la solidarité panafricaine.
+            </p>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title en">A Walk Through Time</h2>
+            <h2 class="section-title fr hidden">Une Promenade à Travers le Temps</h2>
+            
+            <p class="lead en">
+                Côte d'Ivoire's history is a tapestry woven from ancient kingdoms, European ambition, and the 
+                unyielding spirit of a people who turned cocoa beans into gold.
+            </p>
+            <p class="lead fr hidden">
+                L'histoire de la Côte d'Ivoire est une tapisserie tissée de royaumes anciens, d'ambition européenne et 
+                de l'esprit inébranlable d'un peuple qui a transformé les fèves de cacao en or.
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item en">
+                    <div class="timeline-year">11th–16th Century</div>
+                    <p>Powerful kingdoms flourish in the north. The Kong Empire, founded by the Jula people, becomes a major center of Islamic trade and learning. The Baoulé and Agni kingdoms rise in the central forests.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">XIe–XVIe Siècle</div>
+                    <p>De puissants royaumes fleurissent dans le nord. L'Empire de Kong, fondé par les Dioula, devient un grand centre de commerce et d'apprentissage islamique. Les royaumes Baoulé et Agni s'élèvent dans les forêts centrales.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1483</div>
+                    <p>Portuguese explorer Diogo Cão becomes the first European to reach the coast. French, Dutch, and British traders follow, drawn by ivory, gold, and eventually slaves.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">1483</div>
+                    <p>L'explorateur portugais Diogo Cão devient le premier Européen à atteindre la côte. Les marchands français, néerlandais et britanniques suivent, attirés par l'ivoire, l'or et finalement les esclaves.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1843–1893</div>
+                    <p>France establishes protectorates along the coast. After decades of military campaigns against resistant kingdoms like the Wassoulou Empire, Côte d'Ivoire becomes a French colony in 1893.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">1843–1893</div>
+                    <p>La France établit des protectorats le long de la côte. Après des décennies de campagnes militaires contre des royaumes résistants comme l'Empire Wassoulou, la Côte d'Ivoire devient une colonie française en 1893.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1944</div>
+                    <p>Félix Houphouët-Boigny, a cocoa farmer and chief's nephew, founds the Syndicat Agricole Africain to fight forced labor. His political rise begins, eventually leading the country to independence.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">1944</div>
+                    <p>Félix Houphouët-Boigny, planteur de cacao et neveu d'un chef, fonde le Syndicat Agricole Africain pour lutter contre le travail forcé. Son ascension politique commence, menant finalement le pays à l'indépendance.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">August 7, 1960</div>
+                    <p><strong>Independence!</strong> Côte d'Ivoire breaks free from France under the leadership of Houphouët-Boigny. The new nation adopts its tricolor flag and embarks on an ambitious path of economic growth—the "Ivorian Miracle."</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">7 Août 1960</div>
+                    <p><strong>Indépendance !</strong> La Côte d'Ivoire se libère de la France sous la direction de Houphouët-Boigny. La nouvelle nation adopte son drapeau tricolore et s'engage sur une voie ambitieuse de croissance économique—le « Miracle Ivoirien ».</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">1983</div>
+                    <p>Yamoussoukro, Houphouët-Boigny's birthplace, is declared the political capital, while Abidjan remains the economic heart. The Basilica of Our Lady of Peace is completed in 1989—an architectural wonder.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">1983</div>
+                    <p>Yamoussoukro, lieu de naissance de Houphouët-Boigny, est déclarée capitale politique, tandis qu'Abidjan reste le cœur économique. La Basilique Notre-Dame de la Paix est achevée en 1989—une merveille architecturale.</p>
+                </div>
+                
+                <div class="timeline-item en">
+                    <div class="timeline-year">Today</div>
+                    <p>Côte d'Ivoire is the world's largest cocoa producer and one of West Africa's economic powerhouses. With over 60 ethnic groups, 78 languages, and a vibrant culture of music, dance, and cuisine, it stands as a testament to African resilience and creativity.</p>
+                </div>
+                <div class="timeline-item fr hidden">
+                    <div class="timeline-year">Aujourd'hui</div>
+                    <p>La Côte d'Ivoire est le plus grand producteur de cacao au monde et l'une des puissances économiques de l'Afrique de l'Ouest. Avec plus de 60 groupes ethniques, 78 langues et une culture vibrante de musique, danse et cuisine, elle témoigne de la résilience et de la créativité africaines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Famous Cities -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title en">Cities That Capture the Soul</h2>
+            <h2 class="section-title fr hidden">Des Villes qui Captent l'Âme</h2>
+            
+            <p class="lead en">
+                From the lagoon-side skyscrapers of Abidjan to the misty mountains of Man, each city in Côte d'Ivoire 
+                offers a different verse in the country's beautiful song.
+            </p>
+            <p class="lead fr hidden">
+                Des gratte-ciel au bord de la lagune d'Abidjan aux montagnes brumeuses de Man, chaque ville de 
+                Côte d'Ivoire offre un vers différent dans la belle chanson du pays.
+            </p>
+            
+            <div class="cities-grid">
+                <!-- Abidjan -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/t4.ftcdn.net/bbcd1941223d68fac1e766302dc0fd0af590ddcb.jpg" alt="Abidjan Skyline" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Economic Capital</span>
+                        <span class="city-tag fr hidden">Capitale Économique</span>
+                        <h3 class="en">Abidjan</h3>
+                        <h3 class="fr hidden">Abidjan</h3>
+                        <p class="en">
+                            Welcome to the "Paris of West Africa"—a city of lagoons, skyscrapers, and relentless energy. 
+                            Abidjan is not just the economic engine of Côte d'Ivoire; it is the cultural pulse of a nation. 
+                            Explore the Plateau district's modern architecture, lose yourself in the vibrant markets of 
+                            Treichville, and dance to coupé-décalé beats in the open-air maquis until dawn. Don't miss 
+                            St. Paul's Cathedral—a stunning modern basilica shaped like an elephant.
+                        </p>
+                        <p class="fr hidden">
+                            Bienvenue dans le « Paris de l'Afrique de l'Ouest »—une ville de lagunes, de gratte-ciel et 
+                            d'une énergie implacable. Abidjan n'est pas seulement le moteur économique de la Côte d'Ivoire ; 
+                            c'est le pouls culturel d'une nation. Explorez l'architecture moderne du quartier Plateau, perdez-vous 
+                            dans les marchés vibrants de Treichville, et dansez sur les rythmes du coupé-décalé dans les maquis 
+                            en plein air jusqu'à l'aube. Ne manquez pas la Cathédrale Saint-Paul—une basilique moderne 
+                            époustouflante en forme d'éléphant.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Yamoussoukro -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1542259681-d4cd3839ae89?w=800" alt="Yamoussoukro Basilica" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Political Capital</span>
+                        <span class="city-tag fr hidden">Capitale Politique</span>
+                        <h3 class="en">Yamoussoukro</h3>
+                        <h3 class="fr hidden">Yamoussoukro</h3>
+                        <p class="en">
+                            A quiet city with a monumental secret. The Basilica of Our Lady of Peace dominates the skyline 
+                            like a divine spacecraft—at 30,000 square meters, it is the largest church building on Earth, 
+                            even bigger than St. Peter's in Rome. Built at a cost of $300 million and consecrated by Pope John Paul II 
+                            in 1990, it is a testament to Houphouët-Boigny's grand vision. Nearby, sacred crocodiles lounge 
+                            by the Presidential Palace lagoon, fed daily like ancient deities.
+                        </p>
+                        <p class="fr hidden">
+                            Une ville tranquille avec un secret monumental. La Basilique Notre-Dame de la Paix domine 
+                            l'horizon comme un vaisseau spatial divin—avec 30 000 m², c'est le plus grand édifice religieux 
+                            sur Terre, encore plus grand que Saint-Pierre de Rome. Construite pour 300 millions de dollars et 
+                            consacrée par le pape Jean-Paul II en 1990, elle témoigne de la grande vision de Houphouët-Boigny. 
+                            À proximité, des crocodiles sacrés se prélassent au bord de la lagune du Palais Présidentiel, 
+                            nourris quotidiennement comme d'anciennes divinités.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Grand-Bassam -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/d2b91e5746be5012d2458bfa30e31b4dbac758cf.jpg" alt="Grand-Bassam Beach" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">UNESCO Heritage</span>
+                        <span class="city-tag fr hidden">Patrimoine UNESCO</span>
+                        <h3 class="en">Grand-Bassam</h3>
+                        <h3 class="fr hidden">Grand-Bassam</h3>
+                        <p class="en">
+                            The first French colonial capital of Côte d'Ivoire is now a UNESCO World Heritage site of 
+                            haunting beauty. Stroll through the Old French Quarter with its pastel colonial mansions, 
+                            visit the National Costume Museum to see the dazzling robes of Ivorian royalty, and then 
+                            sink your toes into the golden sands of the Atlantic beach. Grand-Bassam is history you can 
+                            touch—and a weekend escape that feels like a dream.
+                        </p>
+                        <p class="fr hidden">
+                            La première capitale coloniale française de la Côte d'Ivoire est désormais un site du 
+                            patrimoine mondial de l'UNESCO d'une beauté saisissante. Promenez-vous dans le Vieux Quartier 
+                            Français avec ses demeures coloniales pastel, visitez le Musée National du Costume pour voir 
+                            les robes éblouissantes de la royauté ivoirienne, puis enfoncez vos orteils dans les sables 
+                            dorés de la plage atlantique. Grand-Bassam est une histoire que l'on peut toucher—et une 
+                            escapade de week-end qui ressemble à un rêve.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Man -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/discover-ivorycoast.com/3e9602ca59c0fbba17b008b440e8d3103e4c7747.jpg" alt="Man Mountains" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">City of 18 Mountains</span>
+                        <span class="city-tag fr hidden">Ville des 18 Monts</span>
+                        <h3 class="en">Man</h3>
+                        <h3 class="fr hidden">Man</h3>
+                        <p class="en">
+                            Nestled in the lush western highlands, Man is the adventure capital of Côte d'Ivoire. 
+                            Hike to the summit of Mount Tonkoui (1,223m) for panoramic views over Liberia and Guinea, 
+                            chase waterfalls like La Cascade crashing through bamboo forests, and witness the legendary 
+                            stilt dancers of the Dan and Yacouba peoples performing acrobatic feats at ceremonies. 
+                            The air here smells of coffee, cocoa, and rainforest mist.
+                        </p>
+                        <p class="fr hidden">
+                            Nichée dans les hautes terres luxuriantes de l'ouest, Man est la capitale de l'aventure 
+                            de la Côte d'Ivoire. Grimpez au sommet du Mont Tonkoui (1 223 m) pour des vues panoramiques 
+                            sur le Liberia et la Guinée, poursuivez des cascades comme La Cascade s'écrasant à travers 
+                            des forêts de bambous, et assistez aux légendaires danseurs sur échasses des peuples Dan 
+                            et Yacouba réalisant des prouesses acrobatiques lors des cérémonies. L'air ici sent 
+                            le café, le cacao et la brume de la forêt tropicale.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Korhogo -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/discover-ivorycoast.com/4e6122f8a35de0e79e71e872c8a8a2698600a6e8.jpg" alt="Korhogo Waterfall" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Northern Arts Hub</span>
+                        <span class="city-tag fr hidden">Capitale des Arts du Nord</span>
+                        <h3 class="en">Korhogo</h3>
+                        <h3 class="fr hidden">Korhogo</h3>
+                        <p class="en">
+                            The cultural capital of the north is a treasure trove of Senufo art. Korhogo is famous 
+                            for its woodcarvers, weavers, and painters who create bold geometric designs on cloth 
+                            and canvas. Visit the vibrant market for handwoven blankets and traditional medicine, 
+                            then explore the surrounding villages where blacksmiths still forge using ancient techniques. 
+                            The nearby Senoufo villages with their distinctive granaries are a photographer's paradise.
+                        </p>
+                        <p class="fr hidden">
+                            La capitale culturelle du nord est un trésor d'art sénoufo. Korhogo est célèbre pour ses 
+                            sculpteurs sur bois, ses tisserands et ses peintres qui créent des motifs géométriques 
+                            audacieux sur tissu et toile. Visitez le marché animé pour des couvertures tissées à la main 
+                            et la médecine traditionnelle, puis explorez les villages environnants où les forgerons 
+                            travaillent encore avec des techniques anciennes. Les villages sénoufo voisins avec leurs 
+                            greniers distinctifs sont un paradis pour les photographes.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Taï National Park -->
+                <div class="city-card">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/discover-ivorycoast.com/4e9a15f4184669c8de41e5e80918b6622a409791.jpg" alt="Taï National Park Elephants" class="city-img">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag en">Rainforest Paradise</span>
+                        <span class="city-tag fr hidden">Paradis de la Forêt Tropicale</span>
+                        <h3 class="en">Taï National Park</h3>
+                        <h3 class="fr hidden">Parc National de Taï</h3>
+                        <p class="en">
+                            A UNESCO World Heritage site and one of West Africa's last primary rainforests, Taï is 
+                            a cathedral of green. Home to pygmy hippos, forest elephants, and wild chimpanzees 
+                            who use stone tools, this park is a living laboratory of evolution. The canopy towers 
+                            50 meters overhead, lianas twist like serpents, and the air hums with the chorus of 
+                            unseen life. It is not a zoo—it is Africa as it has been for millennia.
+                        </p>
+                        <p class="fr hidden">
+                            Un site du patrimoine mondial de l'UNESCO et l'une des dernières forêts tropicales primaires 
+                            d'Afrique de l'Ouest, Taï est une cathédrale de verdure. Abritant des hippopotames nains, 
+                            des éléphants de forêt et des chimpanzés sauvages qui utilisent des outils en pierre, ce parc 
+                            est un laboratoire vivant de l'évolution. La canopée s'élève à 50 mètres de hauteur, les lianes 
+                            se tordent comme des serpents, et l'air vibre du chœur d'une vie invisible. Ce n'est pas un zoo 
+                            —c'est l'Afrique telle qu'elle a été pendant des millénaires.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beautiful Places Gallery -->
+    <section>
+        <div class="container">
+            <h2 class="section-title en">Natural Wonders</h2>
+            <h2 class="section-title fr hidden">Merveilles Naturelles</h2>
+            
+            <p class="lead en">
+                Beyond the cities, Côte d'Ivoire reveals landscapes that seem painted by a divine hand— 
+                from thundering waterfalls to endless cocoa groves.
+            </p>
+            <p class="lead fr hidden">
+                Au-delà des villes, la Côte d'Ivoire révèle des paysages qui semblent peints par une main divine— 
+                des cascades tonitruantes aux vergers de cacao infinis.
+            </p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/t4.ftcdn.net/bbcd1941223d68fac1e766302dc0fd0af590ddcb.jpg" alt="Abidjan Lagoon">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Abidjan Lagoon</h4>
+                        <h4 class="fr hidden">Lagune d'Abidjan</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/d2b91e5746be5012d2458bfa30e31b4dbac758cf.jpg" alt="Grand-Bassam Beach">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Grand-Bassam Beach</h4>
+                        <h4 class="fr hidden">Plage de Grand-Bassam</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/discover-ivorycoast.com/4e6122f8a35de0e79e71e872c8a8a2698600a6e8.jpg" alt="Waterfall">
+                    <div class="gallery-overlay">
+                        <h4 class="en">La Cascade, Man</h4>
+                        <h4 class="fr hidden">La Cascade, Man</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/discover-ivorycoast.com/4e9a15f4184669c8de41e5e80918b6622a409791.jpg" alt="Forest Elephants">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Taï Forest Elephants</h4>
+                        <h4 class="fr hidden">Éléphants de Forêt de Taï</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/discover-ivorycoast.com/3e9602ca59c0fbba17b008b440e8d3103e4c7747.jpg" alt="Mountains">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Mount Tonkoui</h4>
+                        <h4 class="fr hidden">Mont Tonkoui</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/72db544e48322aa40b401e10c090ca7bc0ecf7fe.jpg" alt="Man Peaks">
+                    <div class="gallery-overlay">
+                        <h4 class="en">Peaks of Man</h4>
+                        <h4 class="fr hidden">Sommets de Man</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Tips -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title en">Essential Travel Tips</h2>
+            <h2 class="section-title fr hidden">Conseils de Voyage Essentiels</h2>
+            
+            <p class="lead en">
+                Côte d'Ivoire rewards the prepared traveler. Here is what I learned from my journeys through 
+                lagoons, forests, and maquis.
+            </p>
+            <p class="lead fr hidden">
+                La Côte d'Ivoire récompense le voyageur préparé. Voici ce que j'ai appris de mes voyages à travers 
+                les lagunes, les forêts et les maquis.
+            </p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">☀️</div>
+                    <h4 class="en">Best Time to Visit</h4>
+                    <h4 class="fr hidden">Meilleure Période pour Visiter</h4>
+                    <p class="en">November to March is ideal—dry, warm, and perfect for beaches and wildlife. The Harmattan wind (December–February) brings a surreal hazy light and cooler mornings.</p>
+                    <p class="fr hidden">De novembre à mars est idéal—sec, chaud et parfait pour les plages et la faune. Le vent Harmattan (décembre–février) apporte une lumière brumeuse surréaliste et des matinées plus fraîches.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎒</div>
+                    <h4 class="en">What to Pack</h4>
+                    <h4 class="fr hidden">Quoi Emporter</h4>
+                    <p class="en">Light breathable clothing, a rain jacket for the south, and sturdy hiking boots for the west. Mosquito repellent is essential. Dress modestly outside Abidjan.</p>
+                    <p class="fr hidden">Vêtements légers et respirants, un imperméable pour le sud et des chaussures de randonnée robustes pour l'ouest. Un répulsif anti-moustiques est essentiel. Habillez-vous modestement en dehors d'Abidjan.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">💰</div>
+                    <h4 class="en">Money Matters</h4>
+                    <h4 class="fr hidden">Questions d'Argent</h4>
+                    <p class="en">The West African CFA franc (XOF) is the currency. Cash is widely used; credit cards work mainly in upscale Abidjan hotels. Mobile money (Orange Money, MTN MoMo) is very popular.</p>
+                    <p class="fr hidden">Le franc CFA ouest-africain (XOF) est la monnaie. L'argent liquide est largement utilisé ; les cartes de crédit fonctionnent principalement dans les hôtels haut de gamme d'Abidjan. La monnaie mobile (Orange Money, MTN MoMo) est très populaire.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🍽️</div>
+                    <h4 class="en">Must-Try Foods</h4>
+                    <h4 class="fr hidden">Plats à Ne Pas Manquer</h4>
+                    <p class="en">Attiéké (fermented cassava couscous) with grilled fish, kedjenou (slow-cooked chicken in a sealed pot), alloco (fried plantains), and foutou with palm nut soup. Pair with bissap juice or local Bangui beer.</p>
+                    <p class="fr hidden">Attiéké (couscous de manioc fermenté) avec poisson grillé, kedjenou (poulet mijoté dans un pot scellé), alloco (bananes plantain frites), et foutou avec sauce graine. Accompagnez de jus de bissap ou de bière locale Bangui.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🗣️</div>
+                    <h4 class="en">Language</h4>
+                    <h4 class="fr hidden">Langue</h4>
+                    <p class="en">French is the official language and essential for travel. Learning a few Dioula phrases—"Anwula" (hello), "I ni ce" (thank you)—goes a long way in the north. English is rare outside major hotels.</p>
+                    <p class="fr hidden">Le français est la langue officielle et essentielle pour voyager. Apprendre quelques phrases en dioula—« Anwula » (bonjour), « I ni ce » (merci)—est très apprécié dans le nord. L'anglais est rare en dehors des grands hôtels.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">📸</div>
+                    <h4 class="en">Photography</h4>
+                    <h4 class="fr hidden">Photographie</h4>
+                    <p class="en">Always ask permission before photographing people—it's deeply appreciated. The Basilica allows interior photos (no flash). Grand-Bassam's colonial architecture is best captured in the soft morning light.</p>
+                    <p class="fr hidden">Demandez toujours la permission avant de photographier les gens—c'est très apprécié. La Basilique permet les photos intérieures (sans flash). L'architecture coloniale de Grand-Bassam est mieux capturée dans la douce lumière du matin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing -->
+    <section>
+        <div class="container" style="text-align: center; max-width: 700px;">
+            <h2 class="section-title en" style="display: inline-block;">Final Thoughts</h2>
+            <h2 class="section-title fr hidden" style="display: inline-block;">Réflexions Finales</h2>
+            
+            <p class="en" style="font-size: 1.15rem; margin-top: 30px;">
+                Côte d'Ivoire taught me that the best travel is not about checking boxes—it is about surrendering 
+                to a place until it changes you. When you stand beneath the dome of the Basilica of Peace, 
+                so vast it swallows sound, or when a cocoa farmer in the hinterlands shares his harvest with you 
+                under a mango tree, you realize that this country is not defined by its past of ivory and empires. 
+                It is defined by the generosity of its people, the rhythm of its music, and the stubborn hope 
+                that grows green in its soil.
+            </p>
+            <p class="fr hidden" style="font-size: 1.15rem; margin-top: 30px;">
+                La Côte d'Ivoire m'a appris que le meilleur voyage ne consiste pas à cocher des cases—il s'agit 
+                de se laisser aller à un endroit jusqu'à ce qu'il vous change. Lorsque vous vous tenez sous le dôme 
+                de la Basilique de la Paix, si vaste qu'il engloutit le son, ou lorsqu'un planteur de cacao dans 
+                l'arrière-pays partage sa récolte avec vous sous un manguier, vous réalisez que ce pays n'est pas 
+                défini par son passé d'ivoire et d'empires. Il est défini par la générosité de son peuple, le rythme 
+                de sa musique et l'espoir tenace qui pousse vert dans son sol.
+            </p>
+            
+            <p class="en" style="margin-top: 30px; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--lagoon); font-style: italic;">
+                "Côte d'Ivoire is not a destination. It is a rhythm you learn to dance."
+            </p>
+            <p class="fr hidden" style="margin-top: 30px; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--lagoon); font-style: italic;">
+                « La Côte d'Ivoire n'est pas une destination. C'est un rythme que l'on apprend à danser. »
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/305ad969b13bcc6ebf4c097cb9a4b89a672a8798.png" alt="Cote d'Ivoire Flag" class="footer-flag">
+            <p class="footer-quote en">"The land where cocoa grows like gold and hospitality flows like the lagoon."</p>
+            <p class="footer-quote fr hidden">« La terre où le cacao pousse comme de l'or et l'hospitalité coule comme la lagune. »</p>
+            <p class="footer-copy en">&copy; 2026 Côte d'Ivoire Travel Blog. Written with love for the traveler in you.</p>
+            <p class="footer-copy fr hidden">&copy; 2026 Blog de Voyage Côte d'Ivoire. Écrit avec amour pour le voyageur en vous.</p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            // Update buttons
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+            
+            // Show/hide English content
+            document.querySelectorAll('.en').forEach(el => {
+                el.classList.toggle('hidden', lang === 'fr');
+            });
+            
+            // Show/hide French content
+            document.querySelectorAll('.fr').forEach(el => {
+                el.classList.toggle('hidden', lang === 'en');
+            });
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Add smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Apply initial styles and observe
+        document.querySelectorAll('.city-card, .tip-card, .timeline-item, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
