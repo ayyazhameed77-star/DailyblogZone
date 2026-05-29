@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Congo — The Green Heart of Africa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --congo-green: #009543;
+            --congo-yellow: #FBDE4A;
+            --congo-red: #DC241F;
+            --forest: #0d3328;
+            --sand: #F5F0E8;
+            --dark: #1a1a1a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--sand);
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Translation Bar */
+        .lang-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 51, 40, 0.95);
+            z-index: 1000;
+            padding: 14px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .lang-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 10px 32px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 200px;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--congo-yellow);
+            color: var(--forest);
+            border-color: var(--congo-yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(251, 222, 74, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--forest) 0%, #052015 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://kimi-web-img.moonshot.cn/img/treevive.earth/11ac36e9f42bf4a1f84a27afe5b347888e65b710.jpeg') center/cover;
+            opacity: 0.25;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .flag-display {
+            width: 200px;
+            height: 133px;
+            margin: 0 auto 30px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            animation: wave 3s ease-in-out infinite;
+            background: var(--congo-green);
+        }
+        
+        .flag-display::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, transparent 33%, var(--congo-yellow) 33%, var(--congo-yellow) 66%, transparent 66%);
+            transform: skewY(-26deg) scale(1.5);
+        }
+        
+        .flag-display::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 50%; height: 50%;
+            background: var(--congo-green);
+        }
+        
+        .flag-star {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            color: var(--congo-yellow);
+            font-size: 28px;
+            z-index: 5;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        /* Content Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--forest);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--congo-yellow);
+        }
+        
+        .intro-text {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 2;
+        }
+        
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--congo-green), var(--congo-yellow), var(--congo-red));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--congo-red);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--congo-red);
+        }
+        
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--congo-red);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        /* City Cards */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .city-card:hover .city-image {
+            transform: scale(1.05);
+        }
+        
+        .city-content {
+            padding: 28px;
+        }
+        
+        .city-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--forest);
+            margin-bottom: 12px;
+        }
+        
+        .city-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .city-tag {
+            display: inline-block;
+            background: var(--congo-yellow);
+            color: var(--forest);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        /* Flag Meaning */
+        .flag-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px;
+            border-radius: 20px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .flag-meaning {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .meaning-item {
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .meaning-color {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        .meaning-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 280px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 25px 20px 20px;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--forest);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .footer-flag {
+            width: 140px;
+            height: 93px;
+            margin: 20px auto;
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            background: var(--congo-green);
+        }
+        
+        .footer-flag::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, transparent 33%, var(--congo-yellow) 33%, var(--congo-yellow) 66%, transparent 66%);
+            transform: skewY(-26deg) scale(1.5);
+        }
+        
+        .footer-flag::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 50%; height: 50%;
+            background: var(--congo-green);
+        }
+        
+        .footer-star {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            color: var(--congo-yellow);
+            font-size: 22px;
+            z-index: 5;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .flag-section { padding: 30px 20px; }
+            .lang-container {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .lang-btn {
+                max-width: 100%;
+                width: 200px;
+            }
+        }
+        
+        /* Fade animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Selector -->
+    <div class="lang-bar">
+        <div class="lang-container">
+            <button class="lang-btn active" onclick="setLang('en')" data-lang="en">🇺🇸 English</button>
+            <button class="lang-btn" onclick="setLang('fr')" data-lang="fr">🇫🇷 Français</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="flag-display">
+                <div class="flag-star">★</div>
+            </div>
+            <h1 data-en="Discover Congo" data-fr="Découvrez le Congo">Discover Congo</h1>
+            <p class="hero-subtitle" data-en="The Green Heart of Africa" data-fr="Le Cœur Vert de l'Afrique">The Green Heart of Africa</p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="The Other Congo" data-fr="L'Autre Congo">The Other Congo</h2>
+            <p class="intro-text fade-in" data-en="Let's clear up the confusion right away—this is not the Democratic Republic of Congo. This is the Republic of the Congo, often called Congo-Brazzaville, a smaller, calmer, and impossibly green nation on the Equator. With roughly 70% of its land cloaked in pristine rainforest, it is one of the most forested countries on Earth. Here, the Congo River whispers secrets to the Atlantic, gorillas roam untouched jungles, and the capital city sits so close to its giant neighbor Kinshasa that you could swim across—though I wouldn't recommend it. For travelers seeking raw, authentic Africa without the crowds, this is the frontier you've been dreaming of." data-fr="Éclairons la confusion tout de suite—ce n'est pas la République démocratique du Congo. C'est la République du Congo, souvent appelée Congo-Brazzaville, une nation plus petite, plus calme et d'un vert impossible sur l'équateur. Avec environ 70% de son territoire enveloppé de forêt tropicale vierge, c'est l'un des pays les plus boisés de la Terre. Ici, le fleuve Congo murmure ses secrets à l'Atlantique, les gorilles errent dans des jungles intactes, et la capitale est si proche de sa voisine géante Kinshasa que vous pourriez la traverser à la nage—bien que je ne le recommande pas. Pour les voyageurs en quête d'une Afrique brute et authentique sans les foules, c'est la frontière dont vous rêvez.">
+                Let's clear up the confusion right away—this is not the Democratic Republic of Congo. This is the Republic of the Congo, often called Congo-Brazzaville, a smaller, calmer, and impossibly green nation on the Equator. With roughly 70% of its land cloaked in pristine rainforest, it is one of the most forested countries on Earth. Here, the Congo River whispers secrets to the Atlantic, gorillas roam untouched jungles, and the capital city sits so close to its giant neighbor Kinshasa that you could swim across—though I wouldn't recommend it. For travelers seeking raw, authentic Africa without the crowds, this is the frontier you've been dreaming of.
+            </p>
+        </div>
+    </section>
+
+    <!-- Flag Section -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="The Flag of Hope" data-fr="Le Drapeau de l'Espoir">The Flag of Hope</h2>
+            <p class="intro-text fade-in" data-en="Adopted on August 18, 1959, the flag of the Republic of the Congo is a striking diagonal tricolor. Its bold geometry sets it apart from nearly every other African banner. The diagonal band represents the journey of the Congolese people—dynamic, forward-moving, and unafraid to carve its own path." data-fr="Adopté le 18 août 1959, le drapeau de la République du Congo est un tricolore diagonal saisissant. Sa géométrie audacieuse le distingue de pratiquement tous les autres drapeaux africains. La bande diagonale représente le voyage du peuple congolais—dynamique, avançant vers l'avenir et sans peur de se frayer son propre chemin.">
+                Adopted on August 18, 1959, the flag of the Republic of the Congo is a striking diagonal tricolor. Its bold geometry sets it apart from nearly every other African banner. The diagonal band represents the journey of the Congolese people—dynamic, forward-moving, and unafraid to carve its own path.
+            </p>
+            
+            <div class="flag-section fade-in">
+                <div style="width: 220px; height: 147px; margin: 0 auto 30px; position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); background: var(--congo-green);">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, transparent 33%, var(--congo-yellow) 33%, var(--congo-yellow) 66%, transparent 66%); transform: skewY(-26deg) scale(1.5);"></div>
+                    <div style="position: absolute; top: 0; left: 0; width: 50%; height: 50%; background: var(--congo-green);"></div>
+                    <div style="position: absolute; top: 18px; left: 18px; color: var(--congo-yellow); font-size: 32px; z-index: 5;">★</div>
+                </div>
+                
+                <div class="flag-meaning">
+                    <div class="meaning-item">
+                        <div class="meaning-color" style="background: var(--congo-green);"></div>
+                        <h3 class="meaning-title" data-en="Green" data-fr="Vert">Green</h3>
+                        <p data-en="The agriculture and the vast, life-giving rainforests that cover the nation" data-fr="L'agriculture et les vastes forêts tropicales vivifiantes qui couvrent la nation">The agriculture and the vast, life-giving rainforests that cover the nation</p>
+                    </div>
+                    <div class="meaning-item">
+                        <div class="meaning-color" style="background: var(--congo-yellow);"></div>
+                        <h3 class="meaning-title" data-en="Yellow" data-fr="Jaune">Yellow</h3>
+                        <p data-en="Friendship, warmth, and the rich petroleum that fuels the economy" data-fr="L'amitié, la chaleur et le riche pétrole qui alimente l'économie">Friendship, warmth, and the rich petroleum that fuels the economy</p>
+                    </div>
+                    <div class="meaning-item">
+                        <div class="meaning-color" style="background: var(--congo-red);"></div>
+                        <h3 class="meaning-title" data-en="Red" data-fr="Rouge">Red</h3>
+                        <p data-en="The courage and blood shed for independence and freedom" data-fr="Le courage et le sang versé pour l'indépendance et la liberté">The courage and blood shed for independence and freedom</p>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; font-style: italic; color: #666;" data-en="The golden star in the upper hoist symbolizes a bright future and the hope of a young nation stepping onto the world stage." data-fr="L'étoile dorée dans le coin supérieur symbolise un avenir brillant et l'espoir d'une jeune nation faisant son entrée sur la scène mondiale.">
+                    The golden star in the upper hoist symbolizes a bright future and the hope of a young nation stepping onto the world stage.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- History -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="A Story Written in Green" data-fr="Une Histoire Écrite en Vert">A Story Written in Green</h2>
+            <p class="intro-text fade-in" data-en="Long before Europeans arrived, the forests echoed with the songs of Pygmy hunter-gatherers and the drums of Bantu kingdoms. The Congo's history is one of ancient kingdoms, colonial exploitation, and a resilient march toward sovereignty." data-fr="Bien longtemps avant l'arrivée des Européens, les forêts résonnaient des chants des chasseurs-cueilleurs pygmées et des tambours des royaumes bantous. L'histoire du Congo est celle de royaumes anciens, d'exploitation coloniale et d'une marche résiliente vers la souveraineté.">
+                Long before Europeans arrived, the forests echoed with the songs of Pygmy hunter-gatherers and the drums of Bantu kingdoms. The Congo's history is one of ancient kingdoms, colonial exploitation, and a resilient march toward sovereignty.
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">Pre-1400s</div>
+                    <p data-en="The original inhabitants, the Pygmy peoples, live deep in the forest. Over millennia, Bantu-speaking tribes migrate from the north and west, establishing kingdoms like the Kongo, Loango, and Teke that trade across Central Africa." data-fr="Les habitants originels, les peuples pygmées, vivent au cœur de la forêt. Au fil des millénaires, les tribus de langue bantoue migrent du nord et de l'ouest, établissant des royaumes comme le Kongo, Loango et Téké qui commercent à travers l'Afrique centrale.">The original inhabitants, the Pygmy peoples, live deep in the forest. Over millennia, Bantu-speaking tribes migrate from the north and west, establishing kingdoms like the Kongo, Loango, and Teke that trade across Central Africa.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">1483</div>
+                    <p data-en="Portuguese explorer Diogo Cão reaches the mouth of the Congo River, opening the region to European trade. Ivory, copper, and tragically, slaves flow across the Atlantic for centuries, reshaping the kingdoms and their societies." data-fr="L'explorateur portugais Diogo Cão atteint l'embouchure du fleuve Congo, ouvrant la région au commerce européen. L'ivoire, le cuivre et tragiquement, les esclaves traversent l'Atlantique pendant des siècles, remodelant les royaumes et leurs sociétés.">Portuguese explorer Diogo Cão reaches the mouth of the Congo River, opening the region to European trade. Ivory, copper, and tragically, slaves flow across the Atlantic for centuries, reshaping the kingdoms and their societies.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">1880</div>
+                    <p data-en="Pierre Savorgnan de Brazza signs treaties with Teke chiefs, establishing French control over the north bank of the Congo River. The territory becomes French Congo, later French Equatorial Africa, with Brazzaville as its capital." data-fr="Pierre Savorgnan de Brazza signe des traités avec les chefs Téké, établissant le contrôle français sur la rive nord du fleuve Congo. Le territoire devient le Congo français, puis l'Afrique équatoriale française, avec Brazzaville comme capitale.">Pierre Savorgnan de Brazza signs treaties with Teke chiefs, establishing French control over the north bank of the Congo River. The territory becomes French Congo, later French Equatorial Africa, with Brazzaville as its capital.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">August 15, 1960</div>
+                    <p data-en="The Republic of the Congo gains independence from France. Fulbert Youlou becomes the first president. The young nation navigates coups, a socialist experiment, civil war in 1997, and eventually finds stability under renewed leadership." data-fr="La République du Congo accède à l'indépendance de la France. Fulbert Youlou devient le premier président. La jeune nation traverse des coups d'État, une expérience socialiste, une guerre civile en 1997, et trouve finalement la stabilité sous un leadership renouvelé.">The Republic of the Congo gains independence from France. Fulbert Youlou becomes the first president. The young nation navigates coups, a socialist experiment, civil war in 1997, and eventually finds stability under renewed leadership.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">Today</div>
+                    <p data-en="Modern Congo is quietly emerging as an ecotourism powerhouse. With African Parks managing Odzala-Kokoua and conservation partners protecting vast swathes of rainforest, the country is opening its doors to intrepid travelers seeking gorillas, forest elephants, and the raw soul of the Congo Basin." data-fr="Le Congo moderne émerge tranquillement comme une puissance de l'écotourisme. Avec African Parks qui gère Odzala-Kokoua et des partenaires de conservation protégeant de vastes étendues de forêt tropicale, le pays ouvre ses portes aux voyageurs intrépides en quête de gorilles, d'éléphants de forêt et de l'âme brute du bassin du Congo.">Modern Congo is quietly emerging as an ecotourism powerhouse. With African Parks managing Odzala-Kokoua and conservation partners protecting vast swathes of rainforest, the country is opening its doors to intrepid travelers seeking gorillas, forest elephants, and the raw soul of the Congo Basin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cities Section -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="Cities of the Congo" data-fr="Les Villes du Congo">Cities of the Congo</h2>
+            <p class="intro-text fade-in" data-en="Most of Congo's five million people live between two main poles—the political capital on the river, and the industrial port on the sea. But venture north or inland, and you'll discover trading towns, forest gateways, and timeless villages where pirogues replace taxis." data-fr="La plupart des cinq millions de Congolais vivent entre deux pôles principaux—la capitale politique sur le fleuve, et le port industriel sur la mer. Mais aventurez-vous au nord ou à l'intérieur, et vous découvrirez des villes commerçantes, des portes d'entrée de la forêt et des villages intemporels où les pirogues remplacent les taxis.">
+                Most of Congo's five million people live between two main poles—the political capital on the river, and the industrial port on the sea. But venture north or inland, and you'll discover trading towns, forest gateways, and timeless villages where pirogues replace taxis.
+            </p>
+            
+            <div class="cities-grid">
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.wildlifeworldwide.com/4cfa8a315fa525700e13d397b1b15977d1eef42c.jpg" alt="Brazzaville" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Capital" data-fr="Capitale">Capital</span>
+                        <h3 class="city-name">Brazzaville</h3>
+                        <p class="city-desc" data-en="Perched on the north bank of the Congo River, Brazzaville faces Kinshasa across one of the world's widest rivers—forming a twin-capital spectacle found nowhere else on Earth. Climb to the Nabemba Tower for panoramic views, visit the striking Basilique Sainte-Anne with its futuristic green-tiled roof, and explore the vibrant Poto-Poto district, home to one of Africa's oldest painting schools. The city feels surprisingly relaxed, with wide boulevards, outdoor cafes, and a gentle tropical breeze." data-fr="Perchée sur la rive nord du fleuve Congo, Brazzaville fait face à Kinshasa de l'autre côté d'un des fleuves les plus larges du monde—formant un spectacle de capitales jumelles que l'on ne trouve nulle part ailleurs sur Terre. Grimpez à la Tour Nabemba pour des vues panoramiques, visitez la saisissante Basilique Sainte-Anne avec son toit futuriste aux tuiles vertes, et explorez le vibrant quartier Poto-Poto, foyer d'une des plus anciennes écoles de peinture d'Afrique. La ville est étonnamment détendue, avec de larges boulevards, des cafés en plein air et une douce brise tropicale.">
+                            Perched on the north bank of the Congo River, Brazzaville faces Kinshasa across one of the world's widest rivers—forming a twin-capital spectacle found nowhere else on Earth. Climb to the Nabemba Tower for panoramic views, visit the striking Basilique Sainte-Anne with its futuristic green-tiled roof, and explore the vibrant Poto-Poto district, home to one of Africa's oldest painting schools. The city feels surprisingly relaxed, with wide boulevards, outdoor cafes, and a gentle tropical breeze.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.dextragroup.com/63e40a610a51287a042c876a926e619ba676d966.jpg" alt="Pointe-Noire" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Oil & Ocean" data-fr="Pétrole & Océan">Oil & Ocean</span>
+                        <h3 class="city-name">Pointe-Noire</h3>
+                        <p class="city-desc" data-en="Congo's economic engine sits where the rainforest meets the Atlantic. Pointe-Noire is the country's oil hub and only deep-water port, handling timber, minerals, and the offshore petroleum that drives the economy. Beyond the industrial zones, you'll find palm-fringed beaches, excellent seafood, and a laid-back coastal vibe. The city is also the jumping-off point for the scenic CFCO railway inland and the wild Conkouati-Douli National Park to the north." data-fr="Le moteur économique du Congo se situe là où la forêt tropicale rencontre l'Atlantique. Pointe-Noire est le centre pétrolier du pays et son seul port en eau profonde, traitant le bois, les minéraux et le pétrole offshore qui fait tourner l'économie. Au-delà des zones industrielles, vous trouverez des plages bordées de palmiers, une excellente fruits de mer et une atmosphère côtière détendue. La ville est aussi le point de départ pour le pittoresque chemin de fer CFCO vers l'intérieur et le sauvage Parc National de Conkouati-Douli au nord.">
+                            Congo's economic engine sits where the rainforest meets the Atlantic. Pointe-Noire is the country's oil hub and only deep-water port, handling timber, minerals, and the offshore petroleum that drives the economy. Beyond the industrial zones, you'll find palm-fringed beaches, excellent seafood, and a laid-back coastal vibe. The city is also the jumping-off point for the scenic CFCO railway inland and the wild Conkouati-Douli National Park to the north.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/visitodzala-kokoua.org/4ff9a2ee25261a42e6757f02a1d0b86c272c24ea.jpg" alt="Odzala" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Wildlife Gateway" data-fr="Porte de la Faune">Wildlife Gateway</span>
+                        <h3 class="city-name">Ouesso</h3>
+                        <p class="city-desc" data-en="Deep in the northern rainforest, Ouesso is the frontier town that opens the door to Odzala-Kokoua National Park and the legendary Sangha River. This is not a city of skyscrapers but of timber yards, river traders, and forest guides. From here, you embark by pirogue into one of Earth's last great rainforests, tracking western lowland gorillas and forest elephants through swamps and bais that feel like another planet." data-fr="Au cœur de la forêt tropicale du nord, Ouesso est la ville frontière qui ouvre la porte au Parc National d'Odzala-Kokoua et à la légendaire rivière Sangha. Ce n'est pas une ville de gratte-ciel mais de scieries, de commerçants fluviaux et de guides de la forêt. D'ici, vous embarquez en pirogue dans l'une des dernières grandes forêts tropicales de la Terre, pistez les gorilles des plaines de l'Ouest et les éléphants de forêt à travers des marais et des bais qui semblent une autre planète.">
+                            Deep in the northern rainforest, Ouesso is the frontier town that opens the door to Odzala-Kokoua National Park and the legendary Sangha River. This is not a city of skyscrapers but of timber yards, river traders, and forest guides. From here, you embark by pirogue into one of Earth's last great rainforests, tracking western lowland gorillas and forest elephants through swamps and bais that feel like another planet.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="city-card fade-in">
+                    <div style="overflow: hidden;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/static.wixstatic.com/ef450d6ef4f60518a4e962e7186c4d9e3541ca13.jpeg" alt="Basilica" class="city-image">
+                    </div>
+                    <div class="city-content">
+                        <span class="city-tag" data-en="Sacred Architecture" data-fr="Architecture Sacrée">Sacred Architecture</span>
+                        <h3 class="city-name">Brazzaville's Basilique</h3>
+                        <p class="city-desc" data-en="While technically within Brazzaville, the Basilique Sainte-Anne-du-Congo deserves its own spotlight. Designed by architect Roger Erell and consecrated in 1949, this masterpiece features a radical tent-like roof of green tiles that seems to float above the sanctuary. It is one of the most unique religious buildings in Africa—a blend of modernist daring and spiritual serenity that stops every visitor in their tracks." data-fr="Bien que techniquement à Brazzaville, la Basilique Sainte-Anne-du-Congo mérite son propre projecteur. Conçue par l'architecte Roger Erell et consacrée en 1949, ce chef-d'œuvre présente un toit radical en forme de tente de tuiles vertes qui semble flotter au-dessus du sanctuaire. C'est l'un des édifices religieux les plus uniques d'Afrique—un mélange d'audace moderniste et de sérénité spirituelle qui arrête chaque visiteur dans son élan.">
+                            While technically within Brazzaville, the Basilique Sainte-Anne-du-Congo deserves its own spotlight. Designed by architect Roger Erell and consecrated in 1949, this masterpiece features a radical tent-like roof of green tiles that seems to float above the sanctuary. It is one of the most unique religious buildings in Africa—a blend of modernist daring and spiritual serenity that stops every visitor in their tracks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Natural Wonders -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="Where the Wild Things Are" data-fr="Là où Vivent les Choses Sauvages">Where the Wild Things Are</h2>
+            <p class="intro-text fade-in" data-en="The Congo Basin is the world's second-largest rainforest, and Congo-Brazzaville holds some of its most pristine corners. This is not safari country of open savannas—it is dense, humid, green, and utterly mesmerizing. You will travel by boat, by foot through swamps, and by 4x4 along red-clay roads that dissolve in the rain." data-fr="Le bassin du Congo est la deuxième plus grande forêt tropicale du monde, et le Congo-Brazzaville en détient certains des coins les plus vierges. Ce n'est pas le pays des safaris sur les savanes ouvertes—c'est dense, humide, vert et absolument fascinant. Vous voyagerez en bateau, à pied à travers les marais, et en 4x4 sur des routes d'argile rouge qui se dissolvent sous la pluie.">
+                The Congo Basin is the world's second-largest rainforest, and Congo-Brazzaville holds some of its most pristine corners. This is not safari country of open savannas—it is dense, humid, green, and utterly mesmerizing. You will travel by boat, by foot through swamps, and by 4x4 along red-clay roads that dissolve in the rain.
+            </p>
+            
+            <div class="gallery">
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/visitodzala-kokoua.org/4ff9a2ee25261a42e6757f02a1d0b86c272c24ea.jpg" alt="Odzala Gorilla">
+                    <div class="gallery-caption" data-en="Odzala-Kokoua — Home to 7,200 western lowland gorillas" data-fr="Odzala-Kokoua — Foyer de 7 200 gorilles des plaines de l'Ouest">Odzala-Kokoua — Home to 7,200 western lowland gorillas</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/treevive.earth/11ac36e9f42bf4a1f84a27afe5b347888e65b710.jpeg" alt="Rainforest">
+                    <div class="gallery-caption" data-en="The Congo Basin — Earth's second lung" data-fr="Le bassin du Congo — Le deuxième poumon de la Terre">The Congo Basin — Earth's second lung</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.dextragroup.com/63e40a610a51287a042c876a926e619ba676d966.jpg" alt="Pointe-Noire Coast">
+                    <div class="gallery-caption" data-en="Pointe-Noire — Where the forest meets the Atlantic" data-fr="Pointe-Noire — Là où la forêt rencontre l'Atlantique">Pointe-Noire — Where the forest meets the Atlantic</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/9dac3bacfa8633727b6eb665f66eebac366dd4d5.jpg" alt="Basilica">
+                    <div class="gallery-caption" data-en="Basilique Sainte-Anne — Africa's most daring church" data-fr="Basilique Sainte-Anne — L'église la plus audacieuse d'Afrique">Basilique Sainte-Anne — Africa's most daring church</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture & People -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="Rhythms of the Forest" data-fr="Rythmes de la Forêt">Rhythms of the Forest</h2>
+            <p class="intro-text fade-in" data-en="With over 60 ethnic groups, Congo is a tapestry of languages and traditions. French is the official tongue, but Lingala and Kituba echo through markets and villages. Music is the heartbeat of Congolese life—soukous and rumba rhythms born here have conquered dance floors across Africa and beyond. In the north, Pygmy communities still practice ancient forest traditions, offering a rare window into humanity's deep past. The cuisine is simple and satisfying: smoked fish, cassava leaves, plantains, and spicy poulet moambe—chicken in palm-nut sauce that warms the soul." data-fr="Avec plus de 60 groupes ethniques, le Congo est une tapisserie de langues et de traditions. Le français est la langue officielle, mais le lingala et le kituba résonnent dans les marchés et les villages. La musique est le cœur battant de la vie congolaise—les rythmes soukous et rumba nés ici ont conquis les pistes de danse à travers l'Afrique et au-delà. Dans le nord, les communautés pygmées pratiquent encore les traditions anciennes de la forêt, offrant une rare fenêtre sur le passé profond de l'humanité. La cuisine est simple et satisfaisante : poisson fumé, feuilles de manioc, plantains et poulet moambe épicé—poulet à la sauce de noix de palme qui réchauffe l'âme.">
+                With over 60 ethnic groups, Congo is a tapestry of languages and traditions. French is the official tongue, but Lingala and Kituba echo through markets and villages. Music is the heartbeat of Congolese life—soukous and rumba rhythms born here have conquered dance floors across Africa and beyond. In the north, Pygmy communities still practice ancient forest traditions, offering a rare window into humanity's deep past. The cuisine is simple and satisfying: smoked fish, cassava leaves, plantains, and spicy poulet moambe—chicken in palm-nut sauce that warms the soul.
+            </p>
+            
+            <div style="background: linear-gradient(135deg, var(--forest), #052015); color: white; padding: 50px; border-radius: 20px; text-align: center; margin-top: 40px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px;" data-en="Did You Know?" data-fr="Le Saviez-Vous?">Did You Know?</h3>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto; opacity: 0.9;" data-en="Brazzaville and Kinshasa are the world's closest capitals, separated only by the Congo River—less than five kilometers apart. Yet they belong to two different countries with different colonial histories (French and Belgian). No other place on Earth offers such a dramatic contrast between neighbors." data-fr="Brazzaville et Kinshasa sont les capitales les plus proches du monde, séparées uniquement par le fleuve Congo—moins de cinq kilomètres de distance. Pourtant, elles appartiennent à deux pays différents avec des histoires coloniales différentes (française et belge). Nul autre endroit sur Terre n'offre un contraste aussi dramatique entre voisins.">
+                    Brazzaville and Kinshasa are the world's closest capitals, separated only by the Congo River—less than five kilometers apart. Yet they belong to two different countries with different colonial histories (French and Belgian). No other place on Earth offers such a dramatic contrast between neighbors.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-flag">
+            <div class="footer-star">★</div>
+        </div>
+        <h3 data-en="Congo Calls" data-fr="Le Congo Vous Appelle">Congo Calls</h3>
+        <p data-en="Pack your sense of adventure, leave your expectations behind, and step into the emerald unknown. The Congo does not reveal herself easily—but for those who make the journey, she offers rewards beyond measure." data-fr="Emballez votre sens de l'aventure, laissez vos attentes derrière vous, et pénétrez dans l'inconnu émeraude. Le Congo ne se révèle pas facilement—mais pour ceux qui font le voyage, il offre des récompenses incommensurables.">
+            Pack your sense of adventure, leave your expectations behind, and step into the emerald unknown. The Congo does not reveal herself easily—but for those who make the journey, she offers rewards beyond measure.
+        </p>
+        <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 30px;">
+            © 2026 Congo Travel Blog | Unité — Travail — Progrès
+        </p>
+    </footer>
+
+    <script>
+        // Translation System
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.dataset.lang === lang) btn.classList.add('active');
+            });
+            
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.dataset[lang];
+                } else {
+                    el.textContent = el.dataset[lang];
+                }
+            });
+            
+            localStorage.setItem('congo-lang', lang);
+        }
+        
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Load saved language
+        const savedLang = localStorage.getItem('congo-lang') || 'en';
+        setLang(savedLang);
+    </script>
+</body>
+</html>
