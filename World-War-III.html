@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World War III: The Full Analysis — Causes, Countries & Consequences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0C0F;
+  --near-black: #111418;
+  --dark: #1C2028;
+  --panel: #222830;
+  --border: #2E3540;
+  --border-lit: #404A58;
+  --text: #D8DDE8;
+  --text-dim: #7A8494;
+  --text-muted: #4A5260;
+  --red: #D93025;
+  --red-dim: #8B1E18;
+  --amber: #E8A020;
+  --amber-dim: #7A5010;
+  --blue: #2E6FD8;
+  --blue-dim: #1A3A70;
+  --teal: #18A068;
+  --teal-dim: #0A4A30;
+  --white: #F0F4FA;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ── Scanline texture ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── HEADER ── */
+.masthead {
+  position: relative;
+  background: var(--near-black);
+  border-bottom: 1px solid var(--border-lit);
+  overflow: hidden;
+  padding: 0;
+}
+.masthead-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(46,111,216,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,111,216,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.masthead-glow {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(217,48,37,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.masthead-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.masthead-tag {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  margin-bottom: 1.5rem;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.masthead h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  letter-spacing: 6px;
+  color: var(--white);
+  line-height: 0.95;
+  margin-bottom: 0.5rem;
+}
+.masthead h1 span { color: var(--red); }
+.masthead-subtitle {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--text-dim);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.masthead-disclaimer {
+  display: inline-block;
+  background: var(--amber-dim);
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 2px;
+}
+
+/* ── TRANSLATE BAR ── */
+.translate-bar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--dark);
+  border-bottom: 2px solid var(--red-dim);
+  padding: 0.65rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.tbar-label {
+  color: var(--amber);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tbar-label span { color: var(--text-dim); }
+.translate-bar select {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border-lit);
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif;
+  min-width: 190px;
+}
+.translate-bar select:focus { outline: 1px solid var(--amber); }
+.translate-bar select option, .translate-bar select optgroup { background: var(--dark); }
+.tbtn {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 7px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
+  font-family: 'IBM Plex Sans', sans-serif;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tbtn:hover { background: #B02018; }
+.tbtn:disabled { background: var(--red-dim); cursor: wait; }
+.rbtn {
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.rbtn:hover { color: var(--white); border-color: var(--border-lit); }
+#tbar-status {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--teal);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── CHAPTER DIVIDERS ── */
+.ch-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 4rem 0 2rem;
+}
+.ch-divider::before, .ch-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.ch-num {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red);
+  white-space: nowrap;
+  padding: 4px 12px;
+  border: 1px solid var(--red-dim);
+  border-radius: 2px;
+}
+
+/* ── SECTION TITLES ── */
+h2.sec-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+h2.sec-title em { color: var(--amber); font-style: italic; }
+
+h3.sub-head {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: var(--amber);
+  margin: 2.5rem 0 0.75rem;
+  font-style: italic;
+}
+
+p { margin-bottom: 1.25rem; color: var(--text); }
+
+strong { color: var(--white); font-weight: 600; }
+
+/* ── INTRO BLOCK ── */
+.intro-block {
+  background: var(--panel);
+  border-left: 3px solid var(--red);
+  padding: 2rem 2rem;
+  margin: 3rem 0 2.5rem;
+  border-radius: 0 4px 4px 0;
+}
+.intro-block p {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 2.5rem 0;
+}
+.stat-cell {
+  background: var(--panel);
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  color: var(--red);
+  display: block;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: block;
+  margin-top: 4px;
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-top: 1px solid var(--border-lit);
+  border-bottom: 1px solid var(--border-lit);
+  padding: 1.75rem 0;
+  margin: 2.5rem 0;
+  text-align: center;
+}
+.pull-quote blockquote {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--white);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+.pull-quote cite {
+  display: block;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 0.75rem;
+}
+
+/* ── COUNTRY CARDS ── */
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.c-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border-lit);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.c-card:hover { border-color: var(--red); }
+.c-card-head {
+  padding: 1rem 1.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.c-flag { font-size: 1.8rem; }
+.c-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--white);
+  flex: 1;
+}
+.c-badge {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+.badge-nato { background: rgba(46,111,216,0.25); color: #6AABFF; border: 1px solid rgba(46,111,216,0.4); }
+.badge-rival { background: rgba(217,48,37,0.2); color: #FF7A70; border: 1px solid rgba(217,48,37,0.4); }
+.badge-neutral { background: rgba(24,160,104,0.2); color: #5ACCA0; border: 1px solid rgba(24,160,104,0.4); }
+.badge-regional { background: rgba(232,160,32,0.2); color: #FFD070; border: 1px solid rgba(232,160,32,0.4); }
+.c-card-body { padding: 1rem 1.25rem; font-size: 0.9rem; line-height: 1.65; }
+.c-card-body p { margin-bottom: 0.5rem; color: var(--text); font-size:0.9rem; }
+.c-card-body strong { color: var(--amber); }
+.c-card-foot {
+  padding: 0.5rem 1.25rem 0.75rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+.c-card-foot span { color: var(--red); }
+
+/* ── TENSION METER ── */
+.tension-list { margin: 1.5rem 0; }
+.tension-item { margin-bottom: 1rem; }
+.tension-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+.tension-name { font-size: 13px; font-weight: 600; color: var(--white); letter-spacing: 0.5px; }
+.tension-val { font-size: 11px; font-weight: 600; color: var(--text-dim); }
+.tension-bar-bg {
+  height: 6px;
+  background: var(--dark);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.tension-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 100px; margin: 2rem 0; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 76px; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.tl-yr {
+  position: absolute;
+  left: -100px;
+  top: 3px;
+  width: 70px;
+  text-align: right;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: var(--amber);
+}
+.tl-dot {
+  position: absolute;
+  left: -28px;
+  top: 7px;
+  width: 10px; height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  border: 2px solid var(--black);
+  box-shadow: 0 0 0 1px var(--red);
+  z-index: 1;
+}
+.tl-body { background: var(--panel); border: 1px solid var(--border); border-radius: 4px; padding: 0.85rem 1.25rem; }
+.tl-body h4 { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--white); margin-bottom: 4px; }
+.tl-body p { font-size: 0.88rem; color: var(--text-dim); margin: 0; line-height: 1.5; }
+
+/* ── SCENARIO CARDS ── */
+.scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0; }
+.scenario-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.25rem;
+}
+.scenario-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+.scenario-card h4 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--white); margin-bottom: 0.5rem; }
+.scenario-card p { font-size: 0.875rem; color: var(--text-dim); margin: 0; line-height: 1.6; }
+.scenario-risk {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+.risk-critical { background: rgba(217,48,37,0.2); color: #FF7A70; border:1px solid rgba(217,48,37,0.4); }
+.risk-high { background: rgba(232,160,32,0.2); color: #FFD070; border:1px solid rgba(232,160,32,0.4); }
+.risk-moderate { background: rgba(46,111,216,0.2); color: #6AABFF; border:1px solid rgba(46,111,216,0.4); }
+
+/* ── VERDICT BOX ── */
+.verdict-box {
+  background: var(--near-black);
+  border: 1px solid var(--border-lit);
+  border-left: 4px solid var(--amber);
+  border-radius: 4px;
+  padding: 2rem 2rem;
+  margin: 3rem 0;
+}
+.verdict-box h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  color: var(--amber);
+  margin-bottom: 1rem;
+}
+.verdict-box p { color: var(--text); margin-bottom: 0.75rem; }
+
+/* ── ALERT BOX ── */
+.alert {
+  background: rgba(217,48,37,0.07);
+  border: 1px solid rgba(217,48,37,0.3);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.alert-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+.alert p { color: #C8A0A0; margin: 0; font-size: 0.9rem; }
+
+/* ── WARNING BANNER ── */
+.war-warning {
+  background: var(--near-black);
+  border-top: 2px solid var(--red);
+  border-bottom: 2px solid var(--red);
+  padding: 2.5rem 2rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+.war-warning h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 4px;
+  color: var(--red);
+  margin-bottom: 1rem;
+}
+.war-warning p { color: var(--text-dim); max-width: 680px; margin: 0 auto 0.75rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--near-black);
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 5rem;
+}
+footer span { color: var(--red); }
+
+/* ── LOADING ── */
+#loading-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(5,6,8,0.88);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+#loading-overlay.show { display: flex; }
+.spin {
+  width: 44px; height: 44px;
+  border: 2px solid rgba(217,48,37,0.2);
+  border-top: 2px solid var(--red);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#loading-overlay p { color: var(--amber); font-size: 0.95rem; font-style: italic; font-family: 'IBM Plex Sans', sans-serif; }
+
+@media (max-width: 600px) {
+  .timeline { padding-left: 70px; }
+  .timeline::before { left: 48px; }
+  .tl-yr { left: -70px; width: 44px; font-size: 0.8rem; }
+  .tl-dot { left: -20px; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .translate-bar { gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="loading-overlay">
+  <div class="spin"></div>
+  <p id="loading-msg">Translating…</p>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-grid"></div>
+  <div class="masthead-glow"></div>
+  <div class="masthead-inner">
+    <div class="masthead-tag">⚠ Geopolitical Analysis · 2024–2025</div>
+    <h1>WORLD<br><span>WAR III</span></h1>
+    <p class="masthead-subtitle">The Tensions, the Countries, Who Holds the Advantage — and Why Another Global War Must Never Begin</p>
+    <div class="masthead-disclaimer">⚠ Analysis & History · Not a Prediction · For Educational Purposes</div>
+  </div>
+</header>
+
+<!-- TRANSLATE BAR -->
+<div class="translate-bar">
+  <span class="tbar-label">🌐 Translate <span>/ ترجمہ / 翻訳 / Traducir</span></span>
+  <select id="lang-select">
+    <option value="">— Select Language —</option>
+    <optgroup label="Europe">
+      <option value="French">French (Français)</option>
+      <option value="German">German (Deutsch)</option>
+      <option value="Spanish">Spanish (Español)</option>
+      <option value="Italian">Italian (Italiano)</option>
+      <option value="Russian">Russian (Русский)</option>
+      <option value="Ukrainian">Ukrainian (Українська)</option>
+      <option value="Polish">Polish (Polski)</option>
+      <option value="Turkish">Turkish (Türkçe)</option>
+      <option value="Serbian">Serbian (Српски)</option>
+      <option value="Romanian">Romanian (Română)</option>
+      <option value="Greek">Greek (Ελληνικά)</option>
+      <option value="Hungarian">Hungarian (Magyar)</option>
+      <option value="Czech">Czech (Čeština)</option>
+      <option value="Swedish">Swedish (Svenska)</option>
+      <option value="Norwegian">Norwegian (Norsk)</option>
+    </optgroup>
+    <optgroup label="Asia & Middle East">
+      <option value="Arabic">Arabic (العربية)</option>
+      <option value="Urdu">Urdu (اردو)</option>
+      <option value="Hindi">Hindi (हिन्दी)</option>
+      <option value="Japanese">Japanese (日本語)</option>
+      <option value="Chinese (Simplified)">Chinese Simplified (简体中文)</option>
+      <option value="Chinese (Traditional)">Chinese Traditional (繁體中文)</option>
+      <option value="Korean">Korean (한국어)</option>
+      <option value="Persian">Persian / Farsi (فارسی)</option>
+      <option value="Hebrew">Hebrew (עברית)</option>
+      <option value="Thai">Thai (ภาษาไทย)</option>
+      <option value="Vietnamese">Vietnamese (Tiếng Việt)</option>
+      <option value="Indonesian">Indonesian (Bahasa Indonesia)</option>
+    </optgroup>
+    <optgroup label="South Asia">
+      <option value="Bengali">Bengali (বাংলা)</option>
+      <option value="Punjabi">Punjabi (ਪੰਜਾਬੀ / پنجابی)</option>
+      <option value="Pashto">Pashto (پښتو)</option>
+      <option value="Nepali">Nepali (नेपाली)</option>
+      <option value="Sinhala">Sinhala (සිංහල)</option>
+    </optgroup>
+    <optgroup label="Americas & Africa">
+      <option value="Portuguese">Portuguese (Português)</option>
+      <option value="Dutch">Dutch (Nederlands)</option>
+      <option value="Swahili">Swahili (Kiswahili)</option>
+      <option value="Amharic">Amharic (አማርኛ)</option>
+      <option value="Hausa">Hausa</option>
+      <option value="Afrikaans">Afrikaans</option>
+    </optgroup>
+  </select>
+  <button class="tbtn" id="translate-btn" onclick="translateBlog()">Translate Now</button>
+  <button class="rbtn" id="reset-btn" style="display:none" onclick="resetBlog()">↩ English</button>
+  <span id="tbar-status"></span>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="blog-content">
+<div class="container">
+
+  <div class="intro-block">
+    <p>World War III has not happened. But the conditions that could produce it — great-power rivalry, regional wars, nuclear arsenals on hair-trigger, economic interdependence under strain — are more visible today than at any point since the Cold War. This is a complete analysis: the tensions, the key nations, who holds strategic advantages, and why every nation on Earth has a reason to prevent it.</p>
+  </div>
+
+  <!-- ── CH 1: WHAT WOULD WW3 EVEN BE? ── -->
+  <div class="ch-divider"><span class="ch-num">Chapter One</span></div>
+  <h2 class="sec-title">What Would <em>World War III</em> Actually Look Like?</h2>
+
+  <p>A third world war would not look like the first two. There would be no single assassination, no clear declaration of war on a single morning. Military analysts and historians describe the most likely path as an <strong>escalation cascade</strong> — a regional conflict that draws in major powers through alliance obligations, miscalculation, or deliberate provocation, spiraling beyond anyone's control.</p>
+
+  <p>Unlike 1914 or 1939, a modern great-power conflict would involve cyber warfare disabling power grids and financial systems before a single soldier crossed a border. Space-based assets — satellites critical to GPS, communications, and intelligence — would be targeted in the first hours. Hypersonic missiles would compress reaction times from hours to minutes. And overshadowing everything: the existence of roughly 12,500 nuclear warheads split between nine nations.</p>
+
+  <h3 class="sub-head">Three Flashpoints Most Likely to Trigger It</h3>
+  <p><strong>Taiwan:</strong> China has stated unambiguously it will use military force to reunify Taiwan if necessary. The United States has sold Taiwan weapons for decades and has strategic ambiguity commitments to defend it. A Chinese invasion of Taiwan would almost certainly draw in the US, Japan, Australia, and potentially South Korea — making it the single most dangerous geopolitical flashpoint on Earth today.</p>
+
+  <p><strong>Ukraine / NATO's Eastern Flank:</strong> Russia's full-scale invasion of Ukraine in 2022 brought NATO's borders into direct confrontation with Russian military power. Article 5 of the NATO charter — an attack on one is an attack on all — means any Russian strike on NATO territory (Estonia, Latvia, Lithuania, Poland) would legally obligate 32 nations to respond. The risk of miscalculation is enormous.</p>
+
+  <p><strong>Middle East Escalation:</strong> The wars in Gaza and Lebanon in 2023–2024 revealed how quickly regional conflicts can draw in Iran, Hezbollah, Houthi forces in Yemen, and potentially Israel's nuclear arsenal. A wider Middle East war involving Iran directly could pull in the United States, Gulf states, and Russia in unpredictable combinations.</p>
+
+  <div class="alert">
+    <div class="alert-title">⚠ Important Context</div>
+    <p>This blog analyzes strategic tensions and historical patterns. World War III has not occurred. The purpose of this analysis is understanding — and ultimately, prevention. Every war begins with people failing to understand the consequences of their choices.</p>
+  </div>
+
+  <!-- ── CH 2: KEY NATIONS ── -->
+  <div class="ch-divider"><span class="ch-num">Chapter Two</span></div>
+  <h2 class="sec-title">The Key Nations:<br><em>Who Has the Power?</em></h2>
+
+  <p>Any potential world conflict would revolve around a small number of great powers and nuclear states. Here is an honest assessment of each major actor, their strategic position, strengths, weaknesses, and interests.</p>
+
+  <div class="country-grid">
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇺🇸</span>
+        <span class="c-name">United States</span>
+        <span class="c-badge badge-nato">NATO Lead</span>
+      </div>
+      <div class="c-card-body">
+        <p>The world's dominant military power by every measure — largest defense budget ($886B in 2024), 800+ overseas bases, 11 aircraft carrier groups, the most advanced nuclear triad. The US leads NATO and has security commitments across Europe, the Pacific, and the Middle East simultaneously.</p>
+        <p><strong>Advantage:</strong> Unmatched global power projection, technology, and alliance network. <strong>Vulnerability:</strong> Domestic political division, overextension, and the challenge of fighting in multiple theaters at once.</p>
+      </div>
+      <div class="c-card-foot">Nuclear Warheads: <span>~5,550</span> · GDP: <span>$27T</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇨🇳</span>
+        <span class="c-name">China (PRC)</span>
+        <span class="c-badge badge-rival">Rising Power</span>
+      </div>
+      <div class="c-card-body">
+        <p>China is the primary strategic challenger to US dominance. With the world's largest army by personnel (2 million+ active), the fastest-growing navy, and a defense budget approaching $300B, China is rapidly closing military gaps. Its primary goal is reunification of Taiwan and dominance of the South China Sea.</p>
+        <p><strong>Advantage:</strong> Massive industrial capacity, home-field advantage in the Pacific, growing nuclear arsenal. <strong>Vulnerability:</strong> No combat experience since 1979; demographic decline; heavy economic dependence on global trade.</p>
+      </div>
+      <div class="c-card-foot">Nuclear Warheads: <span>~500 (growing)</span> · GDP: <span>$18T</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇷🇺</span>
+        <span class="c-name">Russia</span>
+        <span class="c-badge badge-rival">Revisionist Power</span>
+      </div>
+      <div class="c-card-body">
+        <p>Russia remains the world's largest nuclear arsenal holder. Despite military setbacks in Ukraine revealing serious structural weaknesses, Russia possesses advanced missile technology (hypersonic Kinzhal, Zircon), the largest nuclear stockpile, and a willingness to use force that most democracies lack. Putin has repeatedly invoked nuclear threats.</p>
+        <p><strong>Advantage:</strong> Nuclear arsenal; energy leverage over Europe; willingness to sustain massive casualties. <strong>Vulnerability:</strong> Economy the size of Italy's; catastrophic conventional military losses in Ukraine; isolated internationally.</p>
+      </div>
+      <div class="c-card-foot">Nuclear Warheads: <span>~6,257</span> · GDP: <span>$2.2T</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇬🇧</span>
+        <span class="c-name">United Kingdom</span>
+        <span class="c-badge badge-nato">NATO</span>
+      </div>
+      <div class="c-card-body">
+        <p>Post-Brexit Britain remains one of NATO's most capable military powers. With a nuclear-armed submarine fleet (Trident), advanced intelligence capabilities (GCHQ/MI6), and a professional military with recent combat experience in Iraq and Afghanistan, the UK punches above its weight. It has been one of Ukraine's most committed supporters.</p>
+        <p><strong>Advantage:</strong> Nuclear deterrent, intelligence superiority, global diplomatic reach. <strong>Vulnerability:</strong> Reduced conventional forces; post-Brexit diplomatic isolation from Europe.</p>
+      </div>
+      <div class="c-card-foot">Nuclear Warheads: <span>~225</span> · GDP: <span>$3.1T</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇫🇷</span>
+        <span class="c-name">France</span>
+        <span class="c-badge badge-nato">NATO</span>
+      </div>
+      <div class="c-card-body">
+        <p>France is Europe's most strategically independent military power. As the only EU member with a nuclear deterrent (force de frappe), France maintains a doctrine of autonomous nuclear use. It has the most expeditionary-capable military in continental Europe and has led operations across Africa and the Middle East.</p>
+        <p><strong>Advantage:</strong> Independent nuclear deterrent, strong defense industry (Dassault, Thales), decisive political leadership on defense. <strong>Vulnerability:</strong> Internal political polarization; African operations constrained.</p>
+      </div>
+      <div class="c-card-foot">Nuclear Warheads: <span>~290</span> · GDP: <span>$3T</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇮🇳</span>
+        <span class="c-name">India</span>
+        <span class="c-badge badge-neutral">Strategic Neutral</span>
+      </div>
+      <div class="c-card-body">
+        <p>India is the world's most populous country, a nuclear power, and pursues a doctrine of "strategic autonomy" — refusing to fully align with either the US-led West or China-Russia bloc. India has border disputes with both China and Pakistan (also nuclear). It is simultaneously a member of the US-aligned QUAD and a partner in Russia-led SCO forums.</p>
+        <p><strong>Advantage:</strong> Nuclear deterrent; massive manpower; growing economy. <strong>Vulnerability:</strong> Two-front nuclear threat from China and Pakistan; infrastructure gaps.</p>
+      </div>
+      <div class="c-card-foot">Nuclear Warheads: <span>~172</span> · GDP: <span>$3.7T</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇩🇪</span>
+        <span class="c-name">Germany</span>
+        <span class="c-badge badge-nato">NATO</span>
+      </div>
+      <div class="c-card-body">
+        <p>For 75 years, Germany deliberately kept its military weak as a guarantee to its neighbors. The Zeitenwende ("turning point") declared by Chancellor Scholz after Russia's 2022 invasion changed this — Germany committed €100 billion to military modernization. As NATO's largest European economy, Germany's military transformation is geopolitically significant.</p>
+        <p><strong>Advantage:</strong> Industrial and economic power; central NATO position. <strong>Vulnerability:</strong> Military still in rebuilding phase; deep historic and cultural resistance to war.</p>
+      </div>
+      <div class="c-card-foot">No nuclear weapons · GDP: <span>$4.5T</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇯🇵</span>
+        <span class="c-name">Japan</span>
+        <span class="c-badge badge-nato">US Alliance</span>
+      </div>
+      <div class="c-card-body">
+        <p>Japan sits under a direct Chinese and North Korean military threat and hosts the largest US military presence outside American soil. Japan's post-war pacifist constitution has historically limited its military, but in 2022–2023 Tokyo announced a historic military buildup — doubling defense spending and acquiring long-range strike capabilities for the first time since 1945.</p>
+        <p><strong>Advantage:</strong> Advanced technology; US security umbrella; critical geographic position blocking Chinese Pacific access. <strong>Vulnerability:</strong> Constitutional and public resistance to war; energy import dependence.</p>
+      </div>
+      <div class="c-card-foot">No nuclear weapons · GDP: <span>$4.2T</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇰🇵</span>
+        <span class="c-name">North Korea</span>
+        <span class="c-badge badge-rival">Rogue Nuclear</span>
+      </div>
+      <div class="c-card-body">
+        <p>North Korea is the world's most unpredictable nuclear state. Kim Jong-Un has tested ICBMs capable of reaching US mainland and deployed troops to fight alongside Russia in Ukraine (2024). North Korea's nuclear arsenal — estimated at 40–50 warheads — combined with its willingness for provocations makes it a wild card in any East Asian conflict.</p>
+        <p><strong>Advantage:</strong> Nuclear blackmail capability; Russian support. <strong>Vulnerability:</strong> Isolated, poverty-stricken economy; completely dependent on China's goodwill.</p>
+      </div>
+      <div class="c-card-foot">Nuclear Warheads: <span>~40–50</span> · GDP: <span>~$18B</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇮🇷</span>
+        <span class="c-name">Iran</span>
+        <span class="c-badge badge-regional">Regional Power</span>
+      </div>
+      <div class="c-card-body">
+        <p>Iran is the Middle East's most capable revisionist power. Without a nuclear weapon (though enrichment continues near weapons-grade levels), Iran projects power through proxy networks: Hezbollah in Lebanon, Hamas in Gaza, Houthis in Yemen, militias in Iraq and Syria. In 2024, Iran launched direct missile and drone strikes on Israel — the first direct attack in its history.</p>
+        <p><strong>Advantage:</strong> Deep proxy network; strategic depth; energy wealth. <strong>Vulnerability:</strong> Economic sanctions; internal instability; no nuclear deterrent (yet).</p>
+      </div>
+      <div class="c-card-foot">Near-nuclear enrichment · GDP: <span>~$400B</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇵🇰</span>
+        <span class="c-name">Pakistan</span>
+        <span class="c-badge badge-regional">Nuclear State</span>
+      </div>
+      <div class="c-card-body">
+        <p>Pakistan is the only Muslim-majority nuclear state and sits at the intersection of South Asian, Central Asian, and Middle Eastern geopolitics. Its nuclear arsenal — aimed primarily at India — and its complex relationships with Afghanistan, China, and the US make it a critical variable. Political instability and an economy in perpetual crisis raise questions about nuclear security.</p>
+        <p><strong>Advantage:</strong> Nuclear deterrent; geostrategic location; China alliance (CPEC). <strong>Vulnerability:</strong> Severe economic fragility; civil-military tensions; terrorism within borders.</p>
+      </div>
+      <div class="c-card-foot">Nuclear Warheads: <span>~170</span> · GDP: <span>~$340B</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card-head">
+        <span class="c-flag">🇺🇦</span>
+        <span class="c-name">Ukraine</span>
+        <span class="c-badge badge-neutral">Active War</span>
+      </div>
+      <div class="c-card-body">
+        <p>Ukraine has been fighting the largest land war in Europe since World War II since February 2022. Despite overwhelming initial odds, Ukraine has survived, inflicted enormous losses on Russia, and struck Russian territory with drones. Ukraine gave up its nuclear weapons in 1994 in exchange for security guarantees — a decision it bitterly regrets. Its survival is central to European security.</p>
+        <p><strong>Advantage:</strong> Motivated defenders; Western weapons and training; growing industrial capacity. <strong>Vulnerability:</strong> Smaller population; dependent on Western aid; no nuclear deterrent.</p>
+      </div>
+      <div class="c-card-foot">No nuclear weapons · In active war since 2022</div>
+    </div>
+
+  </div>
+
+  <!-- ── CH 3: TENSION LEVELS ── -->
+  <div class="ch-divider"><span class="ch-num">Chapter Three</span></div>
+  <h2 class="sec-title">Global Tension Meters:<br><em>Where Is War Most Likely?</em></h2>
+
+  <p>Based on current military deployments, diplomatic breakdowns, and historical escalation patterns, here is an assessment of the world's most dangerous flashpoints ranked by immediate risk of escalation to major war.</p>
+
+  <div class="tension-list">
+
+    <div class="tension-item">
+      <div class="tension-header">
+        <span class="tension-name">🇹🇼 Taiwan Strait — China vs USA/Japan</span>
+        <span class="tension-val">96% — CRITICAL</span>
+      </div>
+      <div class="tension-bar-bg"><div class="tension-bar-fill" style="width:96%; background: var(--red);"></div></div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-header">
+        <span class="tension-name">🇺🇦 Ukraine — Russia vs NATO</span>
+        <span class="tension-val">88% — CRITICAL</span>
+      </div>
+      <div class="tension-bar-bg"><div class="tension-bar-fill" style="width:88%; background: var(--red);"></div></div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-header">
+        <span class="tension-name">🇮🇱 Middle East — Israel, Iran, Proxies</span>
+        <span class="tension-val">82% — HIGH</span>
+      </div>
+      <div class="tension-bar-bg"><div class="tension-bar-fill" style="width:82%; background: #D96020;"></div></div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-header">
+        <span class="tension-name">🇰🇵 Korean Peninsula — North Korea</span>
+        <span class="tension-val">74% — HIGH</span>
+      </div>
+      <div class="tension-bar-bg"><div class="tension-bar-fill" style="width:74%; background: var(--amber);"></div></div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-header">
+        <span class="tension-name">🇮🇳 India-China-Pakistan Triangle</span>
+        <span class="tension-val">68% — HIGH</span>
+      </div>
+      <div class="tension-bar-bg"><div class="tension-bar-fill" style="width:68%; background: var(--amber);"></div></div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-header">
+        <span class="tension-name">🌍 Sahel / Sub-Saharan Power Vacuum</span>
+        <span class="tension-val">50% — MODERATE</span>
+      </div>
+      <div class="tension-bar-bg"><div class="tension-bar-fill" style="width:50%; background: var(--blue);"></div></div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-header">
+        <span class="tension-name">🌊 South China Sea — Territorial Claims</span>
+        <span class="tension-val">72% — HIGH</span>
+      </div>
+      <div class="tension-bar-bg"><div class="tension-bar-fill" style="width:72%; background: var(--amber);"></div></div>
+    </div>
+
+  </div>
+
+  <!-- ── CH 4: WHO WOULD "WIN"? ── -->
+  <div class="ch-divider"><span class="ch-num">Chapter Four</span></div>
+  <h2 class="sec-title">Who Would "Win"<br><em>a Third World War?</em></h2>
+
+  <p>This question deserves an honest, unsettling answer: <strong>nobody.</strong> In any conflict between nuclear-armed great powers, the concept of "winning" collapses. But let us analyze the strategic advantages of each bloc — not to celebrate war, but to understand why deterrence matters and where the balance lies.</p>
+
+  <h3 class="sub-head">The Western Alliance (USA + NATO + Japan + Australia)</h3>
+  <p>On paper, the US-led Western alliance is far more powerful than any rival coalition. Combined GDP of NATO members is approximately $45 trillion — roughly twice Russia and China combined. The US alone spends more on defense than the next 10 nations. NATO's 32 members bring diverse military capabilities across air, sea, land, space, and cyber. Advanced weapons systems — F-35 stealth fighters, Virginia-class submarines, precision-guided munitions, and unmatched satellite intelligence — give Western forces qualitative advantages even where rivals have numerical parity.</p>
+  <p>The key Western advantages: <strong>alliance cohesion</strong> (tested but real), <strong>naval dominance</strong> (critical for any Pacific or Atlantic conflict), <strong>air superiority</strong> in most scenarios, and <strong>economic staying power</strong> to sustain a long conflict.</p>
+  <p>Western vulnerabilities: democratic systems require public support to sustain wars; supply chains for ammunition and weapons have atrophied (Ukraine exposed this); and fighting simultaneously against China in the Pacific and Russia in Europe would stretch even American resources to the limit.</p>
+
+  <h3 class="sub-head">The China-Russia Axis (with Iran and North Korea)</h3>
+  <p>China and Russia are not a formal alliance but have declared a "friendship without limits" and align on anti-Western objectives. Together they have the world's two largest nuclear arsenals (Russia) and fastest-growing military (China). Russia's geography — spanning 11 time zones — makes it impossible to occupy or destroy conventionally. China's industrial capacity means it could replace destroyed weapons systems far faster than the US or Europe in a prolonged war.</p>
+  <p>The Eastern axis advantages: <strong>nuclear parity or superiority</strong> (Russia), <strong>geographic depth</strong>, <strong>industrial scale</strong> (China), and <strong>willingness to absorb losses</strong> that democratic publics would not tolerate.</p>
+  <p>Critical vulnerabilities: China and Russia have no trust-based operational history together; China's navy has no combat experience; Russia's conventional military has been dramatically weakened in Ukraine; and both states face severe long-term demographic and economic decline.</p>
+
+  <h3 class="sub-head">The Nuclear Reality That Ends All Analysis</h3>
+  <p>Every strategic assessment reaches the same conclusion: the moment a conventional war between the US and Russia or the US and China crosses the nuclear threshold — even by miscalculation — the concept of "who wins" evaporates. A full nuclear exchange between the US and Russia would kill an estimated 5 billion people within two years, primarily through nuclear winter causing global crop failure. China's growing arsenal would add to this catastrophe.</p>
+
+  <div class="pull-quote">
+    <blockquote>"In a nuclear war, there are no winners. Both sides lose — and so does every innocent nation caught between them."</blockquote>
+    <cite>— Ronald Reagan & Mikhail Gorbachev, Joint Statement, 1985</cite>
+  </div>
+
+  <!-- ── CH 5: HOW COUNTRIES COULD PREVENT IT ── -->
+  <div class="ch-divider"><span class="ch-num">Chapter Five</span></div>
+  <h2 class="sec-title">How to Prevent It:<br><em>What Better Nations Do</em></h2>
+
+  <p>The better question is not who would "win" World War III — it is how it can be prevented. History shows that great-power wars are never inevitable. They happen when deterrence fails, when miscommunication spirals, when leaders miscalculate the other side's resolve, or when domestic politics inside one country demand an external enemy. Each of these failure modes can be addressed.</p>
+
+  <div class="scenario-grid">
+    <div class="scenario-card">
+      <span class="scenario-icon">🤝</span>
+      <h4>Strong Diplomacy Channels</h4>
+      <p>The US and Soviet Union survived the Cold War partly because of direct hotlines and communication protocols established after the Cuban Missile Crisis. Restoring and expanding US–China and US–Russia military-to-military communication reduces the risk of accidents spiraling into war.</p>
+      <span class="scenario-risk risk-high">Priority: Critical</span>
+    </div>
+    <div class="scenario-card">
+      <span class="scenario-icon">🛡️</span>
+      <h4>Credible Deterrence</h4>
+      <p>Paradoxically, strong defense prevents war. Countries that demonstrate the will and ability to defend themselves — as Ukraine has shown against Russia — make aggression prohibitively costly. NATO's eastern military buildup has deterred Russian expansion beyond Ukraine.</p>
+      <span class="scenario-risk risk-high">Priority: High</span>
+    </div>
+    <div class="scenario-card">
+      <span class="scenario-icon">📜</span>
+      <h4>Nuclear Arms Control</h4>
+      <p>The New START treaty between the US and Russia has lapsed. China is expanding its arsenal without limits. New arms control frameworks — including China for the first time — are essential to prevent an unconstrained nuclear arms race that itself increases war risk through instability.</p>
+      <span class="scenario-risk risk-critical">Priority: Urgent</span>
+    </div>
+    <div class="scenario-card">
+      <span class="scenario-icon">🌐</span>
+      <h4>Economic Interdependence</h4>
+      <p>States rarely go to war with their largest trading partners. The web of economic interdependence between China and the US ($600B+ annual trade), despite rising tensions, remains a powerful structural deterrent. Maintaining economic bridges even during political tensions reduces war's appeal.</p>
+      <span class="scenario-risk risk-moderate">Priority: Important</span>
+    </div>
+    <div class="scenario-card">
+      <span class="scenario-icon">🏛️</span>
+      <h4>Multilateral Institutions</h4>
+      <p>The UN, though imperfect, provides a forum where conflicts can be debated rather than fought. Regional organizations — ASEAN in Southeast Asia, the African Union — can mediate disputes before they escalate. Investing in multilateral frameworks is cheap compared to the cost of war.</p>
+      <span class="scenario-risk risk-moderate">Priority: Important</span>
+    </div>
+    <div class="scenario-card">
+      <span class="scenario-icon">📡</span>
+      <h4>AI and Cyber Rules</h4>
+      <p>A cyber attack on an adversary's nuclear command and control system could trigger a nuclear launch from a misreading of intentions. Establishing international norms around cyber warfare and AI-driven military systems is perhaps the most urgent arms control challenge of the 21st century.</p>
+      <span class="scenario-risk risk-critical">Priority: Urgent</span>
+    </div>
+  </div>
+
+  <!-- ── CH 6: TIMELINE OF TENSIONS ── -->
+  <div class="ch-divider"><span class="ch-num">Chapter Six</span></div>
+  <h2 class="sec-title">Road to the Brink:<br><em>Key Events 2014–2025</em></h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-yr">2014</span>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <h4>Russia Annexes Crimea</h4>
+        <p>Russia seizes Ukraine's Crimea peninsula and backs separatists in Donbas. The first forcible change of European borders since World War II. NATO scrambles to reassure eastern members.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-yr">2015</span>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <h4>China Builds Islands in South China Sea</h4>
+        <p>China constructs military installations on disputed reefs, effectively claiming vast swaths of international waters and enraging Vietnam, Philippines, and the United States.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-yr">2017</span>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <h4>North Korea Tests ICBM</h4>
+        <p>North Korea successfully tests intercontinental ballistic missiles capable of reaching the US mainland. Trump and Kim exchange nuclear threats publicly. The Korean peninsula comes closer to war than at any time since 1953.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-yr">2020</span>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <h4>India-China Border War</h4>
+        <p>Chinese and Indian troops clash along the Himalayan border in the deadliest confrontation between the two nuclear powers in 45 years. 20 Indian soldiers and an unknown number of Chinese soldiers killed in hand-to-hand combat.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-yr">2022</span>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <h4>Russia Invades Ukraine — Full Scale</h4>
+        <p>February 24: Russia launches the largest ground war in Europe since 1945. Putin invokes nuclear threats. NATO mobilizes its eastern flank. The world's energy and food systems are shaken. The war continues into 2025.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-yr">2023</span>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <h4>Gaza War and Middle East Expansion</h4>
+        <p>The October 7 Hamas attack on Israel triggers a war in Gaza, Hezbollah rocket campaigns in Lebanon, Houthi attacks on Red Sea shipping, and eventually direct Iranian strikes on Israel. The Middle East edges toward regional war.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-yr">2024</span>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <h4>North Korea Sends Troops to Russia</h4>
+        <p>Reports confirm North Korean soldiers deployed to fight alongside Russian forces in Ukraine — the first case of Asian troops fighting in a European war. China-Russia "no-limits partnership" deepens. US warns of consequences.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-yr">2025</span>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <h4>Taiwan Strait Tensions Peak</h4>
+        <p>China conducts its largest-ever military exercises around Taiwan. The US deploys carrier strike groups. Japan and Australia accelerate defense spending. Diplomatic channels remain open but strained.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CH 7: WHO IS "BETTER"? ── -->
+  <div class="ch-divider"><span class="ch-num">Chapter Seven</span></div>
+  <h2 class="sec-title">The Real Question:<br><em>Which Countries Behave Better?</em></h2>
+
+  <p>Setting aside raw military power, the more important question for preventing World War III is: which nations are acting more responsibly on the world stage? Which governments are upholding the rules-based international order that has reduced war between great powers since 1945? And which are undermining it?</p>
+
+  <h3 class="sub-head">Nations Upholding International Order</h3>
+  <p>The nations that have most consistently respected international law, supported multilateral institutions, and avoided using force to change borders are generally the world's liberal democracies — the United States (with significant exceptions), Western Europe, Japan, South Korea, Canada, and Australia. These countries have disputes, but they resolve them through courts, diplomacy, and international bodies rather than military force.</p>
+  <p>Notably, <strong>Germany's post-war transformation</strong> — from the most aggressive major power in history to a staunch defender of multilateral order — stands as perhaps the greatest example that countries can change their behavior fundamentally. Japan offers the same lesson.</p>
+
+  <h3 class="sub-head">Nations Undermining the Order</h3>
+  <p><strong>Russia</strong> has invaded its neighbors four times since 2008 (Georgia, Ukraine twice, Syria intervention). It has used chemical weapons on foreign soil, interfered in democratic elections globally, and violated every arms control treaty it signed. Putin's Russia represents the clearest challenge to the post-war international order.</p>
+  <p><strong>China</strong> under Xi Jinping has become increasingly assertive — building militarized islands in international waters, threatening Taiwan, conducting economic coercion against Australia and Lithuania, and refusing to condemn Russia's invasion. China is not yet in Russia's category of recklessness, but its trajectory is troubling.</p>
+  <p><strong>North Korea</strong> and <strong>Iran</strong> are destabilizing regional powers — the former through nuclear proliferation, the latter through proxy warfare — but neither has the capability to trigger a global war alone.</p>
+
+  <div class="verdict-box">
+    <h3>THE FINAL VERDICT</h3>
+    <p>There is no "better country" in the absolute sense — every great power has blood on its hands from its own history of imperialism, war, and hypocrisy. The United States has launched unjust wars. Western Europe colonized the world. Russia committed the Gulag. China committed the Great Leap Forward.</p>
+    <p>But in the specific context of preventing World War III, the question is: <strong>who is making the world more stable or less stable right now?</strong></p>
+    <p>Russia's invasion of Ukraine — the largest act of territorial aggression in Europe since Hitler — is the single greatest threat to global peace today. China's military buildup around Taiwan is the second greatest. North Korea's nuclear proliferation is the third.</p>
+    <p>The countries <strong>most likely to prevent World War III</strong> are those that invest in diplomacy, uphold arms control treaties, maintain strong defensive alliances, and resist the temptation to use military force to solve political problems. No single country is perfect in this regard. But the framework — international law, democratic accountability, nuclear restraint — exists. The challenge is whether enough leaders choose to use it.</p>
+  </div>
+
+  <!-- ── FINAL WARNING ── -->
+  <div class="war-warning">
+    <h2>THE LESSON OF HISTORY</h2>
+    <p>Every major war in history was considered unlikely by most of its participants until days or weeks before it began. The leaders of 1914 expected a short, limited conflict. They were wrong. The leaders of 1939 thought Hitler's demands would eventually be satisfied. They were wrong.</p>
+    <p>The leaders of tomorrow may believe a limited war over Taiwan or Ukraine can be controlled before it goes nuclear. They may be wrong too.</p>
+    <p>The only guaranteed way to win World War III is to ensure it never begins. That requires not military strength alone — but wisdom, restraint, and the stubborn insistence on talking even when talking is hard.</p>
+    <p><strong>Every generation inherits the world the previous one built. Build carefully.</strong></p>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stat-cell">
+      <span class="stat-num">12,500</span>
+      <span class="stat-label">Nuclear Warheads Worldwide</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">9</span>
+      <span class="stat-label">Nuclear-Armed States</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">32</span>
+      <span class="stat-label">NATO Member Nations</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">$2.2T</span>
+      <span class="stat-label">Global Defense Spend 2024</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">193</span>
+      <span class="stat-label">UN Member States</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">5B+</span>
+      <span class="stat-label">Projected Deaths in Full Nuclear Exchange</span>
+    </div>
+  </div>
+
+</div><!-- /container -->
+</main>
+
+<footer>
+  <p><span>World War III Analysis</span> · Geopolitical Education Blog · Written for Human Understanding</p>
+  <p style="margin-top:0.5rem">Translation feature powered by Claude AI · For educational and analytical purposes only</p>
+  <p style="margin-top:0.5rem; color: var(--red-dim);">⚠ This blog contains analysis of current geopolitical tensions. It does not advocate for war. It advocates for peace through understanding.</p>
+</footer>
+
+<script>
+const originalHTML = document.getElementById('blog-content').innerHTML;
+
+async function translateBlog() {
+  const lang = document.getElementById('lang-select').value;
+  if (!lang) {
+    document.getElementById('tbar-status').textContent = '⚠ Choose a language first';
+    return;
+  }
+
+  const overlay = document.getElementById('loading-overlay');
+  const btn = document.getElementById('translate-btn');
+  const status = document.getElementById('tbar-status');
+  const msg = document.getElementById('loading-msg');
+
+  overlay.classList.add('show');
+  btn.disabled = true;
+  status.textContent = '';
+  msg.textContent = `Translating to ${lang}…`;
+
+  const content = document.getElementById('blog-content');
+  const textNodes = [];
+  const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const p = node.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      if (['SCRIPT','STYLE','OPTION','OPTGROUP'].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+      if (node.textContent.trim().length < 2) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+  const CHUNK = 28;
+  let done = 0;
+
+  for (let i = 0; i < textNodes.length; i += CHUNK) {
+    const batch = textNodes.slice(i, i + CHUNK);
+    const texts = batch.map(n => n.textContent);
+
+    const prompt = `You are a professional translator specializing in geopolitics, history, and current affairs. 
+Translate the following ${texts.length} text strings from English to ${lang}. 
+Return ONLY a valid JSON array of translated strings in the exact same order.
+Preserve proper nouns (country names, people's names, acronyms like NATO, UN, GDP).
+No explanations. No markdown. No code fences. Just the JSON array.
+Input: ${JSON.stringify(texts)}`;
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+      const data = await res.json();
+      const rawText = data.content?.find(b => b.type === 'text')?.text || '[]';
+      const clean = rawText.trim().replace(/^```json\s*/,'').replace(/^```\s*/,'').replace(/\s*```$/,'');
+      const translations = JSON.parse(clean);
+      batch.forEach((node, idx) => {
+        if (translations[idx]) node.textContent = translations[idx];
+      });
+      done += batch.length;
+      msg.textContent = `Translating to ${lang}… ${Math.round(done / textNodes.length * 100)}%`;
+    } catch(e) {
+      console.error('Translation batch error:', e);
+    }
+  }
+
+  overlay.classList.remove('show');
+  btn.disabled = false;
+  document.getElementById('reset-btn').style.display = 'inline-block';
+  status.textContent = `✓ Translated to ${lang}`;
+}
+
+function resetBlog() {
+  document.getElementById('blog-content').innerHTML = originalHTML;
+  document.getElementById('reset-btn').style.display = 'none';
+  document.getElementById('tbar-status').textContent = '';
+  document.getElementById('lang-select').value = '';
+}
+</script>
+</body>
+</html>
