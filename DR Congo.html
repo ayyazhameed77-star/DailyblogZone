@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR Congo: The River That Breathes — A Traveler's Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --congo-blue: #007FFF;
+            --congo-red: #CE1021;
+            --congo-yellow: #F7D618;
+            --forest: #1B4D3E;
+            --earth: #5C4033;
+            --cream: #F5F0E8;
+            --deep-night: #0a0a1a;
+            --warm-white: #FDF8F0;
+            --text-dark: #1a1a2e;
+            --text-light: #5a5a6a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .lang-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+        
+        .lang-bar span {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--congo-yellow);
+            border-color: var(--congo-yellow);
+            color: var(--deep-night);
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--deep-night) 0%, var(--congo-blue) 50%, var(--forest) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px 60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.06)"/></svg>');
+            background-size: 200px 200px;
+            animation: twinkle 8s linear infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(247, 214, 24, 0.15);
+            border: 1px solid var(--congo-yellow);
+            color: var(--congo-yellow);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero h1 span {
+            color: var(--congo-yellow);
+            font-style: italic;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--congo-yellow);
+            font-weight: 700;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-label {
+            display: inline-block;
+            color: var(--earth);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+        .section-intro {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .name-origin {
+            background: linear-gradient(to bottom, var(--warm-white), var(--cream));
+        }
+        .name-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .name-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 12rem;
+            color: var(--cream);
+            opacity: 0.5;
+            line-height: 1;
+        }
+        .name-card p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .etymology-box {
+            background: linear-gradient(135deg, var(--congo-blue), #0a3d8c);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        .etymology-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--congo-yellow);
+        }
+        .etymology-box p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .flag-section {
+            background: var(--deep-night);
+            color: white;
+            padding: 80px 20px;
+        }
+        .flag-section .section-label { color: var(--congo-yellow); }
+        .flag-section h2 { color: white; }
+        .flag-section .section-intro { color: rgba(255,255,255,0.7); }
+        
+        .flag-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .flag-visual { text-align: center; }
+        .flag-visual img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+        .flag-visual img:hover { transform: scale(1.03); }
+        .flag-meaning h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--congo-yellow);
+            margin-bottom: 20px;
+        }
+        .color-meaning {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .color-bar {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .color-bar.blue { background: #007FFF; }
+        .color-bar.red { background: #CE1021; }
+        .color-bar.yellow { background: #F7D618; }
+        .color-text h4 {
+            font-size: 1.05rem;
+            margin-bottom: 3px;
+        }
+        .color-text p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        .star-meaning {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            border-left: 3px solid var(--congo-yellow);
+        }
+        .star-meaning p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .history-section { background: var(--warm-white); }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--congo-yellow), var(--congo-red));
+        }
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            max-width: 350px;
+            position: relative;
+        }
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 15px;
+            height: 15px;
+            background: var(--congo-yellow);
+            border-radius: 50%;
+            border: 3px solid var(--warm-white);
+        }
+        .timeline-item:nth-child(odd) .timeline-content::after { right: -42px; }
+        .timeline-item:nth-child(even) .timeline-content::after { left: -42px; }
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--congo-blue);
+            font-weight: 700;
+        }
+        .timeline-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        
+        .cities-section {
+            background: linear-gradient(to bottom, var(--cream), var(--warm-white));
+        }
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .city-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+        .city-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .city-card:hover .city-image { transform: scale(1.05); }
+        .city-content { padding: 30px; }
+        .city-tag {
+            display: inline-block;
+            background: var(--cream);
+            color: var(--earth);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .city-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        .city-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        .city-fact {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--cream);
+            font-size: 0.85rem;
+            color: var(--earth);
+            font-style: italic;
+        }
+        
+        .travel-section { background: var(--warm-white); }
+        .travel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .travel-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--congo-yellow);
+            transition: all 0.3s ease;
+        }
+        .travel-card:hover {
+            border-left-color: var(--congo-red);
+            transform: translateX(5px);
+        }
+        .travel-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .travel-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        .travel-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        .best-time {
+            background: linear-gradient(135deg, var(--forest), #1e3d2f);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .best-time h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--congo-yellow);
+        }
+        .best-time p {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .culture-section {
+            background: var(--deep-night);
+            color: white;
+            padding: 80px 20px;
+        }
+        .culture-section .section-label { color: var(--congo-yellow); }
+        .culture-section h2 { color: white; }
+        .culture-section .section-intro { color: rgba(255,255,255,0.7); }
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .culture-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        .culture-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+        .culture-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin: 15px 0;
+            color: var(--congo-yellow);
+        }
+        .culture-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .footer {
+            background: #050510;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.85rem;
+        }
+        .footer a {
+            color: var(--congo-yellow);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .flag-container { grid-template-columns: 1fr; text-align: center; }
+            .timeline::before { left: 20px; }
+            .timeline-item, .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -42px; right: auto;
+            }
+            .name-card { padding: 30px 20px; }
+            .name-card::before { font-size: 8rem; top: -10px; }
+        }
+        
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <div class="lang-bar">
+        <span>🌐 Language</span>
+        <button class="lang-btn active" onclick="switchLang('en')" id="btn-en">English</button>
+        <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">Français</button>
+    </div>
+
+    <!-- ENGLISH -->
+    <div id="content-en" class="lang-content active">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Africa's Beating Heart</div>
+                <h1>Discover <span>DR Congo</span></h1>
+                <p class="hero-subtitle">Where the Congo River flows like a continent's artery, where gorillas rule the mist, and where music and resilience shake the soul of Africa.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2.34M</div>
+                        <div class="stat-label">km² of Wonder</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">116M+</div>
+                        <div class="stat-label">Vibrant Souls</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">UNESCO Sites</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-hint">↓ Scroll to explore</div>
+        </section>
+
+        <section class="section name-origin">
+            <div class="section-header">
+                <div class="section-label">Etymology</div>
+                <h2>The Story Behind the Name</h2>
+                <p class="section-intro">A name carved by the river, shaped by kings, and rewritten by history more times than any other African nation.</p>
+            </div>
+            <div class="name-card">
+                <p>The name <strong>"Congo"</strong> flows from the mighty <strong>Congo River</strong> — the world's deepest and second-most voluminous river, a liquid highway that cuts through the continent's green heart. But the river itself took its name from the <strong>Kingdom of Kongo</strong>, the great Bantu civilization that flourished near its mouth when Portuguese explorers arrived in 1483.</p>
+                <p>The word <strong><em>Kongo</em></strong> comes from the Kikongo language, meaning <strong>"to gather"</strong> or <strong>"hunters"</strong> — a fitting name for a kingdom that united diverse peoples. The river was also known as <strong><em>Zaire</em></strong>, from the Kikongo <em>nzadi</em> meaning "river" or "river swallowing rivers."</p>
+                <p>From 1885 to 1908, it was the <strong>Congo Free State</strong> — King Leopold II's personal property. Then the <strong>Belgian Congo</strong> until 1960. At independence, it became the <strong>Republic of Congo-Léopoldville</strong>, then the DRC, then <strong>Zaire</strong> under Mobutu (1971–1997), and finally back to the <strong>Democratic Republic of the Congo</strong> in 1997. No other African nation has worn so many names.</p>
+                <div class="etymology-box">
+                    <h3>🗣️ Did You Know?</h3>
+                    <p>The term <strong><em>bula matari</em></strong> ("break rocks") was given to Henry Morton Stanley by locals who watched him blast through the lower Congo with dynamite. It later became the Congolese nickname for the colonial state itself — an "irresistible, crushing force."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="flag-section">
+            <div class="section-header">
+                <div class="section-label">National Symbol</div>
+                <h2>The Flag of DR Congo</h2>
+                <p class="section-intro">A sky of blue, a band of blood and gold, and a star that burns with hope — one of Africa's most striking flags.</p>
+            </div>
+            <div class="flag-container">
+                <div class="flag-visual">
+                    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/0995f0accd77857ce1dbfbbb2dc3ecfdf4bfa02d.png" alt="Flag of DR Congo">
+                </div>
+                <div class="flag-meaning">
+                    <h3>Colors of a Nation Reborn</h3>
+                    <p>Adopted on February 18, 2006, after the end of the Second Congo War, this flag replaced the lighter blue flag of Mobutu's era. It is a declaration of a new beginning.</p>
+                    <div class="color-meaning">
+                        <div class="color-item">
+                            <div class="color-bar blue"></div>
+                            <div class="color-text">
+                                <h4>Sky Blue</h4>
+                                <p>Peace and the vast Congo sky — the hope for a stable, harmonious future.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar red"></div>
+                            <div class="color-text">
+                                <h4>Red Diagonal Band</h4>
+                                <p>The blood of the country's martyrs — those who fought for independence and justice.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar yellow"></div>
+                            <div class="color-text">
+                                <h4>Yellow Borders</h4>
+                                <p>The nation's wealth — gold, copper, cobalt, diamonds, and the fertile soil.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="star-meaning">
+                        <p>⭐ <strong>The Yellow Star</strong> in the canton represents a radiant future for the Congo — a light that refuses to be extinguished, no matter how dark the night.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section history-section">
+            <div class="section-header">
+                <div class="section-label">Through the Ages</div>
+                <h2>A Journey Through Time</h2>
+                <p class="section-intro">From the Kingdom of Kongo to the struggle for independence, the Congo's story is written in water, fire, and unbreakable spirit.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">~1390 CE</div>
+                        <div class="timeline-title">The Kingdom of Kongo</div>
+                        <div class="timeline-desc">A powerful Bantu kingdom emerges near the Congo River's mouth. It becomes one of Africa's most sophisticated states, trading with Portugal, adopting Christianity, and ruling over parts of present-day Angola, DRC, Gabon, and Congo-Brazzaville.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1483</div>
+                        <div class="timeline-title">Portuguese Arrival</div>
+                        <div class="timeline-desc">Diogo Cão becomes the first European to reach the Congo River. Diplomatic relations begin, and the Kingdom of Kongo's king is baptized. But the Portuguese hunger for slaves soon poisons the friendship, and the kingdom begins to fracture.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1885</div>
+                        <div class="timeline-title">The Congo Free State</div>
+                        <div class="timeline-desc">At the Berlin Conference, King Leopold II of Belgium claims the Congo as his personal property. His reign becomes one of history's most brutal colonial enterprises — forced rubber harvesting, mutilation, and an estimated 10 million deaths.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1908</div>
+                        <div class="timeline-title">Belgian Colony</div>
+                        <div class="timeline-desc">International outrage forces Belgium to take the Congo from Leopold. It becomes the Belgian Congo. The Belgians build infrastructure but exclude Congolese from leadership, creating a devastating human resource gap that will haunt independence.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">June 30, 1960</div>
+                        <div class="timeline-title">Independence</div>
+                        <div class="timeline-desc">Patrice Lumumba becomes the first Prime Minister, and Joseph Kasa-Vubu the President. But within days, the army mutinies, Katanga secedes, and Lumumba is assassinated with Belgian complicity. The Congo Crisis begins — a proxy Cold War battlefield.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1997</div>
+                        <div class="timeline-title">The Name Returns</div>
+                        <div class="timeline-desc">Laurent-Désiré Kabila overthrows Mobutu Sese Seko, ending the 32-year Zaire era. The country's name is restored to the Democratic Republic of the Congo — a symbolic return to its origins and a promise of renewal.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cities-section">
+            <div class="section-header">
+                <div class="section-label">Must-Visit Destinations</div>
+                <h2>Cities Where Africa Pulsates</h2>
+                <p class="section-intro">From the continent's third-largest city to the edge of a lava lake, these places are the soul of the Congo.</p>
+            </div>
+            <div class="cities-grid">
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/t4.ftcdn.net/a3a1434b1848bbef9df05b29a62f65c57542638a.jpg" alt="Kinshasa skyline Congo River sunset" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Capital City</div>
+                        <h3>Kinshasa</h3>
+                        <p>Home to over 17 million people, Kinshasa is Africa's third-largest city and one of its most electrifying. The Congo River separates it from Brazzaville — making them the world's closest capitals. Explore the National Museum's 46,000 artifacts, dance to soukous at a maquis bar, meet the legendary <em>Sapeurs</em> in their three-piece suits, and cruise the river at sunset. The energy here is contagious.</p>
+                        <div class="city-fact">💡 Best for: Music and nightlife, Lola ya Bonobo sanctuary, river cruises, and the Marché des Voleurs.</div>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.flyairlink.com/6208c45b3958b25bc78e1485a9112062c00903f1.jpg" alt="Lubumbashi city aerial view" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Mining Capital</div>
+                        <h3>Lubumbashi</h3>
+                        <p>The copper-belt metropolis of the southeast. Lubumbashi is the DRC's second city and the economic engine of Katanga. Stroll past elegant colonial architecture, visit the National Museum of Lubumbashi, and explore the bustling markets. The nearby Kundelungu National Park offers striking landscapes and wildlife. It's a city that feels like a different country from Kinshasa — drier, calmer, and deeply rooted in the mining story.</p>
+                        <div class="city-fact">💡 Best for: Colonial architecture, copper mining history, Lubumbashi Zoo, and Kundelungu National Park.</div>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/national-parks.org/3129b387d0ee79f066d02ee17b4c220219530e7c.jpg" alt="Virunga National Park baby gorilla" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Wildlife Paradise</div>
+                        <h3>Goma & Virunga</h3>
+                        <p>The adventure of a lifetime. Virunga National Park — Africa's oldest national park and a UNESCO treasure — is home to a quarter of the world's endangered mountain gorillas. Trek through misty forests to meet them face to face. Then hike Mount Nyiragongo, the active volcano whose lava lake glows like a portal to the Earth's core. The nearby city of Goma, on Lake Kivu's shores, is the resilient gateway to it all.</p>
+                        <div class="city-fact">💡 Best for: Gorilla trekking, Nyiragongo volcano hike, Lake Kivu, and chimpanzee tracking.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section travel-section">
+            <div class="section-header">
+                <div class="section-label">Practical Wisdom</div>
+                <h2>The Traveler's Compass</h2>
+                <p class="section-intro">The DRC is vast, complex, and unforgettable. Come prepared, and it will change your life.</p>
+            </div>
+            <div class="travel-grid">
+                <div class="travel-card">
+                    <div class="travel-icon">🛂</div>
+                    <h3>Visa & Entry</h3>
+                    <p>Most visitors need a visa in advance. Apply at DRC embassies with passport photos, yellow fever certificate, and an invitation letter or hotel booking. An e-visa system is available for some nationalities. Security clearances may be required for the east.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">💰</div>
+                    <h3>Money Matters</h3>
+                    <p>The Congolese franc (CDF) is the currency, but US dollars are widely used and preferred. Bring crisp, post-2009 bills. ATMs exist in Kinshasa and Lubumbashi but are unreliable. Credit cards are rarely accepted. Cash is king.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">✈️</div>
+                    <h3>Getting Around</h3>
+                    <p>Domestic flights connect Kinshasa, Lubumbashi, Goma, and Kisangani. Roads are often rough; a 4x4 is essential outside cities. On the Congo River, barges and pirogues are the traditional highways — slow but unforgettable. In cities, moto-taxis are everywhere.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🍲</div>
+                    <h3>Food & Drink</h3>
+                    <p>Try <em>fufu</em> with <em>moambe</em> chicken (palm nut sauce), <em>saka saka</em> (cassava leaves), <em>liboke</em> (fish grilled in banana leaves), and <em>beignets</em> for breakfast. Fresh grilled tilapia from the Congo River is a must. Drink only bottled water.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🎒</div>
+                    <h3>What to Pack</h3>
+                    <p>Light cotton clothing, a good rain jacket, sturdy hiking boots for gorilla trekking, headlamp, power bank, and universal adapter. For the east: warm layers for volcano hikes. Malaria prophylaxis is essential. A satellite phone is wise for remote areas.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🗣️</div>
+                    <h3>Languages</h3>
+                    <p>French is the official language. Lingala is the lingua franca of the west and Kinshasa. Swahili dominates the east. Tshiluba is spoken in the south. English is growing in Goma and tourist areas. A few words in Lingala — <em>"Mbote"</em> (hello) — open doors.</p>
+                </div>
+            </div>
+            <div class="best-time">
+                <h3>🌤️ Best Time to Visit</h3>
+                <p><strong>June to September and December to February</strong> (dry seasons) are ideal for gorilla trekking, hiking Nyiragongo, and wildlife viewing. The rainy seasons (March–May and October–November) make roads impassable and trekking muddy, but the forests are at their most lush.</p>
+            </div>
+        </section>
+
+        <section class="culture-section">
+            <div class="section-header">
+                <div class="section-label">Living Heritage</div>
+                <h2>The Soul of the Congo</h2>
+                <p class="section-intro">Over 250 ethnic groups, a continent's worth of music, and a style that the world has never stopped copying.</p>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <h3>🎵 Rumba & Soukous</h3>
+                    <p>The Congo's gift to the world. From Franco Luambo's legendary guitar riffs to Papa Wemba's velvet voice, Congolese rumba and soukous have shaped African music for generations. Kinshasa's nightclubs still shake until dawn.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🎩 The Sapeurs</h3>
+                    <p>The <em>Société des Ambianceurs et des Personnes Élégantes</em> — dandies who turn slum streets into Paris runways. In handmade suits and polished leather shoes, they prove that elegance is a state of mind, not a bank balance.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🦍 Bonobos & Gorillas</h3>
+                    <p>The DRC is the only country home to all three African great apes: bonobos, chimpanzees, and gorillas. The Lola ya Bonobo sanctuary near Kinshasa rescues orphaned bonobos, while Virunga protects the last mountain gorillas.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🎨 Art & Craft</h3>
+                    <p>From the intricate Kuba textiles of Kasai to the powerful Songye masks and the bold contemporary art of Kinshasa's Academy of Fine Arts, Congolese creativity is as diverse as its 250 ethnic groups.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>Made with ❤️ for travelers who seek the road less traveled.</p>
+            <p style="margin-top: 10px;">DR Congo — <em>"The River That Breathes"</em> — awaits your footsteps.</p>
+        </div>
+    </div>
+
+    <!-- FRENCH -->
+    <div id="content-fr" class="lang-content">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Le Cœur Battant de l'Afrique</div>
+                <h1>Découvrez la <span>RDC</span></h1>
+                <p class="hero-subtitle">Là où le fleuve Congo coule comme l'artère d'un continent, où les gorilles règnent dans la brume, et où la musique et la résilience secouent l'âme de l'Afrique.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2,34M</div>
+                        <div class="stat-label">km² de Merveilles</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">116M+</div>
+                        <div class="stat-label">Âmes Vibrantes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Sites UNESCO</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-hint">↓ Faites défiler pour explorer</div>
+        </section>
+
+        <section class="section name-origin">
+            <div class="section-header">
+                <div class="section-label">Étymologie</div>
+                <h2>L'Histoire Derrière le Nom</h2>
+                <p class="section-intro">Un nom taillé par le fleuve, façonné par des rois, et réécrit par l'histoire plus souvent que toute autre nation africaine.</p>
+            </div>
+            <div class="name-card">
+                <p>Le nom <strong>"Congo"</strong> découle du majestueux <strong>fleuve Congo</strong> — le plus profond et le deuxième plus volumineux du monde, une autoroute liquide qui traverse le cœur vert du continent. Mais le fleuve lui-même a pris son nom du <strong>Royaume du Kongo</strong>, la grande civilisation bantoue qui prospéra près de son embouchure lorsque les explorateurs portugais arrivèrent en 1483.</p>
+                <p>Le mot <strong><em>Kongo</em></strong> vient de la langue kikongo, signifiant <strong>"rassembler"</strong> ou <strong>"chasseurs"</strong> — un nom approprié pour un royaume qui unissait des peuples divers. Le fleuve était aussi connu sous le nom de <strong><em>Zaire</em></strong>, du kikongo <em>nzadi</em> signifiant "fleuve" ou "fleuve avalant des fleuves."</p>
+                <p>De 1885 à 1908, c'était l'<strong>État Indépendant du Congo</strong> — la propriété personnelle du roi Léopold II. Puis le <strong>Congo belge</strong> jusqu'en 1960. À l'indépendance, ce devint la <strong>République du Congo-Léopoldville</strong>, puis la RDC, puis le <strong>Zaire</strong> sous Mobutu (1971–1997), et enfin retour à la <strong>République Démocratique du Congo</strong> en 1997. Aucune autre nation africaine n'a porté autant de noms.</p>
+                <div class="etymology-box">
+                    <h3>🗣️ Le Saviez-Vous ?</h3>
+                    <p>Le terme <strong><em>bula matari</em></strong> ("briser les rochers") fut donné à Henry Morton Stanley par les locaux qui le virent faire sauter le bas-Congo à la dynamite. Il devint plus tard le surnom congolais de l'État colonial lui-même — une "force irrésistible et écrasante."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="flag-section">
+            <div class="section-header">
+                <div class="section-label">Symbole National</div>
+                <h2>Le Drapeau de la RDC</h2>
+                <p class="section-intro">Un ciel de bleu, une bande de sang et d'or, et une étoile qui brûle d'espoir — l'un des drapeaux les plus frappants d'Afrique.</p>
+            </div>
+            <div class="flag-container">
+                <div class="flag-visual">
+                    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/0995f0accd77857ce1dbfbbb2dc3ecfdf4bfa02d.png" alt="Drapeau de la RDC">
+                </div>
+                <div class="flag-meaning">
+                    <h3>Les Couleurs d'une Nation Renaissante</h3>
+                    <p>Adopté le 18 février 2006, après la fin de la Deuxième Guerre du Congo, ce drapeau a remplacé le bleu plus clair de l'ère Mobutu. C'est une déclaration de nouveau départ.</p>
+                    <div class="color-meaning">
+                        <div class="color-item">
+                            <div class="color-bar blue"></div>
+                            <div class="color-text">
+                                <h4>Bleu Ciel</h4>
+                                <p>La paix et le vaste ciel congolais — l'espoir d'un avenir stable et harmonieux.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar red"></div>
+                            <div class="color-text">
+                                <h4>Bande Rouge Diagonale</h4>
+                                <p>Le sang des martyrs du pays — ceux qui ont lutté pour l'indépendance et la justice.</p>
+                            </div>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-bar yellow"></div>
+                            <div class="color-text">
+                                <h4>Bordures Jaunes</h4>
+                                <p>La richesse de la nation — or, cuivre, cobalt, diamants, et la terre fertile.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="star-meaning">
+                        <p>⭐ <strong>L'Étoile Jaune</strong> dans le canton représente un avenir radieux pour le Congo — une lumière qui refuse de s'éteindre, quelle que soit l'obscurité de la nuit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section history-section">
+            <div class="section-header">
+                <div class="section-label">À Travers les Âges</div>
+                <h2>Un Voyage dans le Temps</h2>
+                <p class="section-intro">Du Royaume du Kongo à la lutte pour l'indépendance, l'histoire du Congo s'écrit dans l'eau, le feu et un esprit inébranlable.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">~1390 EC</div>
+                        <div class="timeline-title">Le Royaume du Kongo</div>
+                        <div class="timeline-desc">Un puissant royaume bantou émerge près de l'embouchure du fleuve Congo. Il devient l'un des États les plus sophistiqués d'Afrique, commerçant avec le Portugal, adoptant le christianisme, et gouvernant des parties de l'actuel Angola, RDC, Gabon et Congo-Brazzaville.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1483</div>
+                        <div class="timeline-title">L'Arrivée Portugaise</div>
+                        <div class="timeline-desc">Diogo Cão devient le premier Européen à atteindre le fleuve Congo. Des relations diplomatiques commencent, et le roi du Kongo est baptisé. Mais la soif portugaise d'esclaves empoisonne vite l'amitié, et le royaume commence à se fracturer.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1885</div>
+                        <div class="timeline-title">L'État Indépendant du Congo</div>
+                        <div class="timeline-desc">À la Conférence de Berlin, le roi Léopold II de Belgique revendique le Congo comme propriété personnelle. Son règne devient l'une des entreprises coloniales les plus brutales de l'histoire — récolte forcée du caoutchouc, mutilations, et environ 10 millions de morts.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1908</div>
+                        <div class="timeline-title">Colonie Belge</div>
+                        <div class="timeline-desc">L'indignation internationale force la Belgique à reprendre le Congo des mains de Léopold. Il devient le Congo belge. Les Belges construisent des infrastructures mais excluent les Congolais des postes de direction, créant un déficit de ressources humaines qui hantera l'indépendance.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">30 Juin 1960</div>
+                        <div class="timeline-title">L'Indépendance</div>
+                        <div class="timeline-desc">Patrice Lumumba devient le premier Premier ministre, et Joseph Kasa-Vubu le Président. Mais en quelques jours, l'armée se mutine, le Katanga fait sécession, et Lumumba est assassiné avec la complicité belge. La Crise congolaise commence — un champ de bataille proxy de la Guerre froide.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1997</div>
+                        <div class="timeline-title">Le Nom Retourne</div>
+                        <div class="timeline-desc">Laurent-Désiré Kabila renverse Mobutu Sese Seko, mettant fin aux 32 ans d'ère Zaire. Le nom du pays est restauré en République Démocratique du Congo — un retour symbolique à ses origines et une promesse de renouveau.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cities-section">
+            <div class="section-header">
+                <div class="section-label">Destinations Incontournables</div>
+                <h2>Des Villes où l'Afrique Pulses</h2>
+                <p class="section-intro">De la troisième plus grande ville du continent au bord d'un lac de lave, ces lieux sont l'âme du Congo.</p>
+            </div>
+            <div class="cities-grid">
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/t4.ftcdn.net/a3a1434b1848bbef9df05b29a62f65c57542638a.jpg" alt="Skyline de Kinshasa au coucher du soleil" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Capitale</div>
+                        <h3>Kinshasa</h3>
+                        <p>Chez à plus de 17 millions d'habitants, Kinshasa est la troisième plus grande ville d'Afrique et l'une des plus électrisantes. Le fleuve Congo la sépare de Brazzaville — les capitales les plus proches du monde. Explorez les 46 000 artefacts du Musée National, dansez le soukous dans un maquis, rencontrez les légendaires <em>Sapeurs</em> en costume trois-pièces, et faites une croisière fluviale au coucher du soleil. L'énergie ici est contagieuse.</p>
+                        <div class="city-fact">💡 Idéal pour : Musique et vie nocturne, sanctuaire Lola ya Bonobo, croisières fluviales, et le Marché des Voleurs.</div>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.flyairlink.com/6208c45b3958b25bc78e1485a9112062c00903f1.jpg" alt="Vue aérienne de Lubumbashi" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Capitale Minière</div>
+                        <h3>Lubumbashi</h3>
+                        <p>La métropole du cuivre du sud-est. Lubumbashi est la deuxième ville de la RDC et le moteur économique du Katanga. Promenez-vous devant une architecture coloniale élégante, visitez le Musée National de Lubumbashi, et explorez les marchés animés. Le proche Parc National de Kundelungu offre des paysages saisissants et une faune riche. C'est une ville qui semble appartenir à un autre pays que Kinshasa — plus sèche, plus calme, et profondément ancrée dans l'histoire minière.</p>
+                        <div class="city-fact">💡 Idéal pour : Architecture coloniale, histoire minière du cuivre, zoo de Lubumbashi, et Parc National de Kundelungu.</div>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/national-parks.org/3129b387d0ee79f066d02ee17b4c220219530e7c.jpg" alt="Bébé gorille dans le Parc National des Virunga" class="city-image">
+                    <div class="city-content">
+                        <div class="city-tag">Paradis de la Faune</div>
+                        <h3>Goma & Virunga</h3>
+                        <p>L'aventure d'une vie. Le Parc National des Virunga — le plus ancien parc national d'Afrique et un trésor UNESCO — abrite un quart des gorilles de montagne en danger dans le monde. Faites un trek à travers des forêts brumeuses pour les rencontrer face à face. Puis grimpez le Mont Nyiragongo, le volcan actif dont le lac de lave brille comme un portail vers le cœur de la Terre. La ville voisine de Goma, sur les rives du lac Kivu, est la porte résiliente vers tout cela.</p>
+                        <div class="city-fact">💡 Idéal pour : Suivi des gorilles, randonnée du volcan Nyiragongo, lac Kivu, et suivi des chimpanzés.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section travel-section">
+            <div class="section-header">
+                <div class="section-label">Sagesse Pratique</div>
+                <h2>La Boussole du Voyageur</h2>
+                <p class="section-intro">La RDC est vaste, complexe et inoubliable. Venez préparé, et elle changera votre vie.</p>
+            </div>
+            <div class="travel-grid">
+                <div class="travel-card">
+                    <div class="travel-icon">🛂</div>
+                    <h3>Visa & Entrée</h3>
+                    <p>La plupart des visiteurs ont besoin d'un visa à l'avance. Demandez-le dans les ambassades de la RDC avec des photos d'identité, un certificat de fièvre jaune, et une lettre d'invitation ou une réservation d'hôtel. Un système d'e-visa est disponible pour certaines nationalités. Des autorisations de sécurité peuvent être nécessaires pour l'est.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">💰</div>
+                    <h3>Questions d'Argent</h3>
+                    <p>Le franc congolais (CDF) est la monnaie, mais les dollars américains sont largement utilisés et préférés. Apportez des billets neufs, post-2009. Les distributeurs existent à Kinshasa et Lubumbashi mais sont peu fiables. Les cartes de crédit sont rarement acceptées. L'argent liquide est roi.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">✈️</div>
+                    <h3>Se Déplacer</h3>
+                    <p>Des vols domestiques relient Kinshasa, Lubumbashi, Goma et Kisangani. Les routes sont souvent difficiles ; un 4x4 est essentiel en dehors des villes. Sur le fleuve Congo, les barges et pirogues sont les autoroutes traditionnelles — lentes mais inoubliables. En ville, les moto-taxis sont partout.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🍲</div>
+                    <h3>Gastronomie</h3>
+                    <p>Essayez le <em>fufu</em> avec le <em>poulet moambe</em> (sauce de noix de palme), le <em>saka saka</em> (feuilles de manioc), le <em>liboke</em> (poisson grillé dans des feuilles de bananier), et les <em>beignets</em> au petit-déjeuner. Le tilapia frais grillé du fleuve Congo est un incontournable. Buvez uniquement de l'eau en bouteille.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🎒</div>
+                    <h3>Que Mettre dans ses Bagages</h3>
+                    <p>Vêtements en coton léger, un bon imperméable, des bottes de randonnée robustes pour le suivi des gorilles, lampe frontale, batterie externe et adaptateur universel. Pour l'est : des couches chaudes pour les randonnées volcaniques. La prophylaxie antipaludique est essentielle. Un téléphone satellite est sage pour les zones reculées.</p>
+                </div>
+                <div class="travel-card">
+                    <div class="travel-icon">🗣️</div>
+                    <h3>Langues</h3>
+                    <p>Le français est la langue officielle. Le lingala est la lingua franca de l'ouest et de Kinshasa. Le swahili domine l'est. Le tshiluba est parlé dans le sud. L'anglais se développe à Goma et dans les zones touristiques. Quelques mots en lingala — <em>"Mbote"</em> (bonjour) — ouvrent des portes.</p>
+                </div>
+            </div>
+            <div class="best-time">
+                <h3>🌤️ Meilleure Période pour Visiter</h3>
+                <p><strong>Juin à septembre et décembre à février</strong> (saisons sèches) sont idéaux pour le suivi des gorilles, la randonnée du Nyiragongo et l'observation de la faune. Les saisons des pluies (mars-mai et octobre-novembre) rendent les routes impraticables et le trekking boueux, mais les forêts sont à leur apogée de verdure.</p>
+            </div>
+        </section>
+
+        <section class="culture-section">
+            <div class="section-header">
+                <div class="section-label">Patrimoine Vivant</div>
+                <h2>L'Âme du Congo</h2>
+                <p class="section-intro">Plus de 250 groupes ethniques, une musique digne d'un continent, et un style que le monde n'a jamais cessé de copier.</p>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <h3>🎵 Rumba & Soukous</h3>
+                    <p>Le cadeau du Congo au monde. Des riffs de guitare légendaires de Franco Luambo à la voix de velours de Papa Wemba, la rumba et le soukous congolais ont façonné la musique africaine pendant des générations. Les nightclubs de Kinshasa tremblent encore jusqu'à l'aube.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🎩 Les Sapeurs</h3>
+                    <p>La <em>Société des Ambianceurs et des Personnes Élégantes</em> — des dandies qui transforment les rues des bidonvilles en podiums parisiens. En costumes sur mesure et chaussures en cuir ciré, ils prouvent que l'élégance est un état d'esprit, pas un solde bancaire.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🦍 Bonobos & Gorilles</h3>
+                    <p>La RDC est le seul pays abritant les trois grands singes africains : bonobos, chimpanzés et gorilles. Le sanctuaire Lola ya Bonobo près de Kinshasa sauve les bonobos orphelins, tandis que Virunga protège les derniers gorilles de montagne.</p>
+                </div>
+                <div class="culture-item">
+                    <h3>🎨 Art & Artisanat</h3>
+                    <p>Des textiles Kuba complexes du Kasai aux puissants masques Songye et à l'art contemporain audacieux de l'Académie des Beaux-Arts de Kinshasa, la créativité congolaise est aussi diverse que ses 250 groupes ethniques.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>Fait avec ❤️ pour les voyageurs qui cherchent la route moins fréquentée.</p>
+            <p style="margin-top: 10px;">RDC — <em>"Le Fleuve qui Respire"</em> — attend vos pas.</p>
+        </div>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('content-' + lang).classList.add('active');
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
