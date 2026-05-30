@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Botswana: The Land of Water and Wonder</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid #009543; /* Botswana Green */
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #0056b3; /* Botswana Blue */
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .flag-section {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+
+        .city-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: transform 0.2s;
+        }
+
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .city-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .city-content {
+            padding: 20px;
+        }
+
+        .translate-btn {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: background 0.3s;
+        }
+
+        .translate-btn:hover {
+            background-color: #003d82;
+        }
+
+        #blog-content {
+            transition: opacity 0.5s ease;
+        }
+
+        .language-tag {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Discover Botswana: The Land of Water and Wonder</h1>
+        <p class="language-tag">Current Language: English</p>
+    </header>
+
+    <!-- Feature Translate Button -->
+    <div style="text-align: center;">
+        <button class="translate-btn" onclick="toggleContent()">🌐 Translate to Setswana (Local Dialect)</button>
+        <small style="display:block; margin-top:5px; color:#777;">*Simulated translation for demonstration</small>
+    </div>
+
+    <div id="blog-content">
+        <section>
+            <h2>🇧🇼 Country Background</h2>
+            <p>Botswana is often referred to as "African Dream Realized." A landlocked country in Southern Africa, it is renowned for its high standard of living, political stability, and incredible natural beauty. From the vast, otherworldly sands of the Kalahari Desert to the lush, teeming wetlands of the Okavango Delta, Botswana offers a unique travel experience that balances luxury with raw wilderness. It is a destination where conservation leads the way, offering pristine safaris that remain largely untouched by mass tourism.</p>
+        </section>
+
+        <section class="flag-section">
+            <h3>The Botswana Flag</h3>
+            <!-- Placeholder for Flag Image -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_Botswana.svg" alt="Flag of Botswana" width="300">
+            <p><strong>Symbolism:</strong> The light blue stripe represents water, essential for life in this semi-arid country. The black stripe represents the majority Batswana population, with a white border symbolizing racial harmony. The green stripe represents vegetation and agriculture.</p>
+        </section>
+
+        <section>
+            <h2>🏙️ Famous Cities & Must-See Destinations</h2>
+            
+            <div class="city-card">
+                <!-- Placeholder for Gaborone Image -->
+                <img src="https://images.unsplash.com/photo-1580834386801-02685563b374?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gaborone Cityscape">
+                <div class="city-content">
+                    <h3>1. Gaborone: The Capital</h3>
+                    <p>Gaborone is a clean, modern, and safe city that serves as the economic heart of Botswana. While it’s not a wildlife hub, it offers a glimpse into contemporary Botswana life. Visit the National Museum and Art Gallery to learn about the country's history and culture, or browse the Main Market for local crafts and textiles.</p>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <!-- Placeholder for Maun Image -->
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Maun Gateway to the Delta">
+                <div class="city-content">
+                    <h3>2. Maun: The Safari Capital</h3>
+                    <p>Maun is the gateway to the Okavango Delta. Almost all safaris to the delta start here. It’s a bustling hub of activity with lodges, tour operators, and airstrips. After your safari, enjoy a relaxed evening at a local restaurant or visit the Maun Heritage Village to understand the local culture.</p>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <!-- Placeholder for Okavango Delta Image -->
+                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Okavango Delta Boat Safari">
+                <div class="city-content">
+                    <h3>3. The Okavango Delta: A World Wonder</h3>
+                    <p>Though not a city, the Delta is the crown jewel of Botswana. It is a unique inland delta where water from Angola spreads into a network of lagoons and channels. Take a traditional mokoro (canoe) trip through the reeds, spot elephants, hippos, and rare birds, and witness one of Africa’s most biodiverse ecosystems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🗣️ National Languages</h2>
+            <p>Botswana is bilingual. <strong>English</strong> is the official language of government and business, widely used in education and media. However, the national language is <strong>Setswana</strong>, spoken by the majority of the population. Learning a few phrases in Setswana, such as "Dumela" (Hello) and "Ke a leboga" (Thank you), will warmly endear you to the local people and enhance your travel experience.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Botswana Travel Blog. Run on LibertAI & Aleph Cloud.</p>
+    </footer>
+</div>
+
+<script>
+    // Simple script to simulate translation by replacing text
+    // Note: This is a basic simulation for the blog feature request
+    let isTranslated = false;
+
+    function toggleContent() {
+        const contentDiv = document.getElementById('blog-content');
+        const tag = document.querySelector('.language-tag');
+        
+        if (!isTranslated) {
+            // Simulate Setswana phrases for demonstration
+            // In a real app, this would use an API like Google Translate
+            document.querySelector('h2:nth-of-type(1)').innerText = "Tlhaloso ya Naga: Botswana";
+            document.querySelector('#blog-content p:nth-of-type(1)').innerText = "Botswana e tsebjwa jaaka 'Rulaganyo ya Botlhokwa jwa Afrika'. Naga e e ko fa tlase ga Afrika Borwa, e itumela ka maemo a a kwa godimo a botshelo, tshegetso ya polotiki, le botshelo jo bo botoka jwa tlhago. Go tswa mo letlhakoreng la Kalahari go ya go Okavango Delta, Botswana e nna le boiphihlelo jo bo farologaneng.";
+            
+            document.querySelector('h2:nth-of-type(2)').innerText = "Ditsha le Dikgosi";
+            document.querySelector('.city-card:nth-of-type(1) .city-content h3').innerText = "1. Gaborone: Motse-mogolo";
+            document.querySelector('.city-card:nth-of-type(1) .city-content p').innerText = "Gaborone ke motse o o tlwaelegileng, o o itshekileng le o o nang le maatla. Ke pelô ya ditiro ya Botswana. O ka etela Museum ya Naga go ithuta ka botshelo jwa batho ba Botswana.";
+            
+            tag.innerText = "Current Language: Setswana (Simulated)";
+            tag.style.color = "#0056b3";
+        } else {
+            // Reset to English
+            document.querySelector('h2:nth-of-type(1)').innerText = "Country Background";
+            document.querySelector('#blog-content p:nth-of-type(1)').innerText = "Botswana is often referred to as 'African Dream Realized.' A landlocked country in Southern Africa, it is renowned for its high standard of living, political stability, and incredible natural beauty. From the vast, otherworldly sands of the Kalahari Desert to the lush, teeming wetlands of the Okavango Delta, Botswana offers a unique travel experience that balances luxury with raw wilderness. It is a destination where conservation leads the way, offering pristine safaris that remain largely untouched by mass tourism.";
+            
+            document.querySelector('h2:nth-of-type(2)').innerText = "Famous Cities & Must-See Destinations";
+            document.querySelector('.city-card:nth-of-type(1) .city-content h3').innerText = "1. Gaborone: The Capital";
+            document.querySelector('.city-card:nth-of-type(1) .city-content p').innerText = "Gaborone is a clean, modern, and safe city that serves as the economic heart of Botswana. While it’s not a wildlife hub, it offers a glimpse into contemporary Botswana life. Visit the National Museum and Art Gallery to learn about the country's history and culture, or browse the Main Market for local crafts and textiles.";
+            
+            tag.innerText = "Current Language: English";
+            tag.style.color = "#7f8c8d";
+        }
+        
+        isTranslated = !isTranslated;
+    }
+</script>
+
+</body>
+</html>
