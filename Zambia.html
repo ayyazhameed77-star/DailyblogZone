@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Zambia: The Real Africa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid #198a00; /* Zambia Green */
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #ef7d00; /* Zambia Orange/Red */
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .flag-section {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+
+        .city-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: transform 0.2s;
+        }
+
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .city-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .city-content {
+            padding: 20px;
+        }
+
+        .translate-btn {
+            display: inline-block;
+            background-color: #198a00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: background 0.3s;
+        }
+
+        .translate-btn:hover {
+            background-color: #146b00;
+        }
+
+        #blog-content {
+            transition: opacity 0.5s ease;
+        }
+
+        .language-tag {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Discover Zambia: The Real Africa</h1>
+        <p class="language-tag">Current Language: English</p>
+    </header>
+
+    <!-- Feature Translate Button -->
+    <div style="text-align: center;">
+        <button class="translate-btn" onclick="toggleContent()">🌐 Translate to Bemba (Local Dialect)</button>
+        <small style="display:block; margin-top:5px; color:#777;">*Simulated translation for demonstration</small>
+    </div>
+
+    <div id="blog-content">
+        <section>
+            <h2>🇿🇲 Country Background & History</h2>
+            <p>Known as the "Land of Water," Zambia is a hidden gem in Southern Africa. Its name is derived from the Zambezi River, which has been the lifeblood of the region for centuries. Historically, the area was inhabited by various Bantu-speaking groups, including the Bemba, Lozi, and Ngoni. It gained independence from British rule in 1964 under the leadership of Kenneth Kaunda, who championed African socialism and regional peace. Today, Zambia is celebrated for its political stability, warm people, and incredible biodiversity. It is often called the "Real Africa" because it offers an authentic, uncrowded safari experience.</p>
+        </section>
+
+        <section class="flag-section">
+            <h3>The Zambian Flag</h3>
+            <!-- Placeholder for Flag Image -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Flag_of_Zambia.svg" alt="Flag of Zambia" width="300">
+            <p><strong>Symbolism:</strong> The green field represents the country's vegetation and agriculture. The red stripe symbolizes the struggle for freedom. The black square stands for the people, and the orange rectangle represents mineral wealth. The eagle in the center symbolizes the ability to rise above the nation's problems.</p>
+        </section>
+
+        <section>
+            <h2>🏙️ Famous Cities & Must-See Destinations</h2>
+            
+            <div class="city-card">
+                <!-- Placeholder for Lusaka Image -->
+                <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lusaka Cityscape">
+                <div class="city-content">
+                    <h3>1. Lusaka: The Capital</h3>
+                    <p>Lusaka is the bustling heart of Zambia. It’s a city of contrasts, where modern shopping malls sit next to vibrant local markets like the Swahili Market. Here, you can experience the local food scene, try *Nshima* (the staple maize dish), and visit the Lusaka National Museum to understand the country’s rich history.</p>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <!-- Placeholder for Livingstone Image -->
+                <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Victoria Falls Livingstone">
+                <div class="city-content">
+                    <h3>2. Livingstone: The Adventure Capital</h3>
+                    <p>Livingstone is the tourist hub of Zambia, located right on the border with Zimbabwe. It is the gateway to the world-famous Victoria Falls (Mosi-oa-Tunya). The town is filled with adventure seekers ready to go white-water rafting, zip-lining over the falls, or taking a sunset cruise on the Zambezi River.</p>
+                </div>
+            </div>
+
+            <div class="city-card">
+                <!-- Placeholder for Victoria Falls Image -->
+                <img src="https://images.unsplash.com/photo-1544979590-2c35ea8c0e74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Victoria Falls Mist">
+                <div class="city-content">
+                    <h3>3. Victoria Falls (Mosi-oa-Tunya): The Smoke That Thunders</h3>
+                    <p>This is one of the Seven Natural Wonders of the World. The sheer volume of water falling from the edge of the continent creates a mist that can be seen from miles away. The Zambian side offers unique perspectives, such as the Knife-Edge Bridge crossing and the Devil’s Pool swim during the dry season, where you can swim right at the edge of the falling water.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🗣️ National Languages</h2>
+            <p>English is the official language of Zambia and is used in government, business, and education. However, the country is linguistically diverse, with over 70 indigenous languages. The most widely spoken local languages include <strong>Bemba</strong>, <strong>Nyanja (Chewa)</strong>, <strong>Tonga</strong>, and <strong>Bemba</strong>. Greeting people in their local language is highly appreciated and is a key part of Zambian culture.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Zambia Travel Blog. Run on LibertAI & Aleph Cloud.</p>
+    </footer>
+</div>
+
+<script>
+    // Simple script to simulate translation by replacing text
+    // Note: This is a basic simulation for the blog feature request
+    let isTranslated = false;
+
+    function toggleContent() {
+        const contentDiv = document.getElementById('blog-content');
+        const tag = document.querySelector('.language-tag');
+        
+        if (!isTranslated) {
+            // Simulate Bemba phrases for demonstration
+            // In a real app, this would use an API like Google Translate
+            document.querySelector('h2:nth-of-type(1)').innerText = "Inshila ya Zambia: Njoka ya Mulwi";
+            document.querySelector('#blog-content p:nth-of-type(1)').innerText = "Zambia, ikalenga 'Njoka ya Mulwi', ni kantu ka kuma kwa Afrika. Izina lyayo lyajijilwe ku Mulwi. Mu bwafya bwalulu, abantu bamyabo bali bali. Ku mutwe 1964, Zambia yatenguka ku Bitaliani kwa Kenneth Kaunda. Kuno, Zambia ibali ne bantu abakondwa.";
+            
+            document.querySelector('h2:nth-of-type(2)').innerText = "Ibanga lyatukwila";
+            document.querySelector('.city-card:nth-of-type(1) .city-content h3').innerText = "1. Lusaka: Umushiti";
+            document.querySelector('.city-card:nth-of-type(1) .city-content p').innerText = "Lusaka ni mushiti wa Zambia. Hali maketi ya kuno na maketi ya bantu. Oya kulya Nshima no kwingila mu musumba.";
+            
+            tag.innerText = "Current Language: Bemba (Simulated)";
+            tag.style.color = "#ef7d00";
+        } else {
+            // Reset to English
+            document.querySelector('h2:nth-of-type(1)').innerText = "Country Background & History";
+            document.querySelector('#blog-content p:nth-of-type(1)').innerText = "Known as the 'Land of Water,' Zambia is a hidden gem in Southern Africa. Its name is derived from the Zambezi River, which has been the lifeblood of the region for centuries. Historically, the area was inhabited by various Bantu-speaking groups, including the Bemba, Lozi, and Ngoni. It gained independence from British rule in 1964 under the leadership of Kenneth Kaunda, who championed African socialism and regional peace. Today, Zambia is celebrated for its political stability, warm people, and incredible biodiversity. It is often called the 'Real Africa' because it offers an authentic, uncrowded safari experience.";
+            
+            document.querySelector('h2:nth-of-type(2)').innerText = "Famous Cities & Must-See Destinations";
+            document.querySelector('.city-card:nth-of-type(1) .city-content h3').innerText = "1. Lusaka: The Capital";
+            document.querySelector('.city-card:nth-of-type(1) .city-content p').innerText = "Lusaka is the bustling heart of Zambia. It’s a city of contrasts, where modern shopping malls sit next to vibrant local markets like the Swahili Market. Here, you can experience the local food scene, try *Nshima* (the staple maize dish), and visit the Lusaka National Museum to understand the country’s rich history.";
+            
+            tag.innerText = "Current Language: English";
+            tag.style.color = "#7f8c8d";
+        }
+        
+        isTranslated = !isTranslated;
+    }
+</script>
+
+</body>
+</html>
