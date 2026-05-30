@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Mozambique — Where Africa Meets the Indian Ocean</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #007a5e;
+            --yellow: #f4c430;
+            --black: #1a1a1a;
+            --red: #dc143c;
+            --dark: #111;
+            --light: #f5f3ef;
+            --cream: #fffdf8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(17,17,17,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .lang-btn {
+            padding: 8px 22px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+        .lang-btn.active { background: var(--yellow); color: var(--dark); border-color: var(--yellow); }
+        
+        /* Hero */
+        .hero {
+            margin-top: 50px;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #0a3d2e 0%, #007a5e 50%, #0d1f1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1920') center/cover;
+            opacity: 0.12;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .hero .flag-wrap {
+            margin: 25px auto;
+            width: 140px;
+            height: 90px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        .hero .flag-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .intro {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 50px;
+            padding-left: 25px;
+            border-left: 4px solid var(--green);
+        }
+        
+        /* Sections */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin: 50px 0 25px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--yellow));
+            border-radius: 2px;
+        }
+        
+        p { margin-bottom: 20px; font-size: 1.05rem; color: #444; }
+        
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .city-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .city-body { padding: 30px; }
+        .city-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .city-body .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: var(--light);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--green);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .city-body p { font-size: 1rem; color: #555; }
+        
+        /* Highlights */
+        .highlight-box {
+            background: linear-gradient(135deg, #005c45, #007a5e);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 150px; height: 150px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .highlight-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .highlight-box li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .highlight-box li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--yellow);
+        }
+        
+        /* Gallery row */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover { transform: scale(1.03); }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        .footer .heart { color: var(--red); }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .gallery { grid-template-columns: 1fr; }
+            .city-img { height: 220px; }
+        }
+        
+        /* Hide/show languages */
+        .lang-en, .lang-pt { display: none; }
+        .lang-en.active, .lang-pt.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇺🇸 English</button>
+        <button class="lang-btn" onclick="setLang('pt')" id="btn-pt">🇵🇹 Português</button>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="subtitle lang-en active">Where Africa Meets the Indian Ocean</div>
+            <div class="subtitle lang-pt">Onde África Encontra o Oceano Índico</div>
+            <h1 class="lang-en active">Mozambique</h1>
+            <h1 class="lang-pt">Moçambique</h1>
+            <div class="flag-wrap">
+                <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/6ebe12fe5c9a1fca0ece8c75e1b262bf77c882da.jpg" alt="Flag of Mozambique">
+            </div>
+            <p class="lang-en active" style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:600px; margin:0 auto;">A 2,500-kilometer ribbon of coastline where dhows sail past coral reefs, where peri-peri prawns sizzle over open flames, and where the rhythm of Marrabenta drifts through jacaranda-lined streets.</p>
+            <p class="lang-pt" style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:600px; margin:0 auto;">Uma fita de 2.500 quilómetros de costa onde dhows navegam junto a recifes de coral, onde camarões peri-peri chiam sobre chamas abertas, e onde o ritmo da Marrabenta flutua por ruas alinhadas de jacarandás.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Introduction -->
+        <div class="lang-en active">
+            <p class="intro">
+                Stretching along the southeastern edge of Africa like a sun-bleached smile, Mozambique is a nation defined by the sea. For over a millennium, its shores have drawn traders, explorers, and dreamers — from Swahili merchants sailing dhows laden with gold and ivory, to Portuguese navigators seeking passage to India, to modern travelers chasing the perfect wave and the perfect prawn. Today, with roughly <strong>35 million people</strong> speaking more than <strong>40 languages</strong>, Mozambique is a vibrant tapestry of Bantu, Arab, Portuguese, and Indian influences — a place where the past is savored as deeply as the seafood.
+            </p>
+        </div>
+        <div class="lang-pt">
+            <p class="intro">
+                Estendendo-se ao longo da borda sudeste de África como um sorriso descolorido pelo sol, Moçambique é uma nação definida pelo mar. Durante mais de um milénio, as suas costas atraíram comerciantes, exploradores e sonhadores — desde mercadores suahili navegando dhows carregados de ouro e marfim, até navegadores portugueses à procura de passagem para a Índia, até viajantes modernos à caça da onda perfeita e do camarão perfeito. Hoje, com aproximadamente <strong>35 milhões de pessoas</strong> falando mais de <strong>40 línguas</strong>, Moçambique é uma tapeçaria vibrante de influências bantu, árabes, portuguesas e indianas — um lugar onde o passado é saboreado tão profundamente quanto os frutos do mar.
+            </p>
+        </div>
+
+        <!-- Background -->
+        <div class="lang-en active">
+            <h2>A Land Shaped by Tides and Time</h2>
+            <p>
+                Mozambique's story begins with the great <strong>Bantu migrations</strong> that swept through the region from the 4th century BC, bringing iron-smelting technology, agriculture, and the linguistic roots that still bind the nation. By the 9th century, the Swahili Coast had blossomed into a thriving network of port towns — Sofala, Angoche, and Mozambique Island — where African gold and ivory were traded for Persian cloth, Chinese porcelain, and Indian spices. Islam took root among the coastal elites, and the rhythm of the Indian Ocean became the heartbeat of the region.
+            </p>
+            <p>
+                Everything changed in <strong>1498</strong> when <strong>Vasco da Gama</strong> dropped anchor off Mozambique's coast. The Portuguese would remain for nearly five centuries, transforming the coast into a colonial outpost that linked Africa, Asia, and Europe. The struggle for independence, led by <strong>FRELIMO</strong> (Front for the Liberation of Mozambique) under visionaries like <strong>Eduardo Mondlane</strong> and <strong>Samora Machel</strong>, culminated in freedom on <strong>June 25, 1975</strong>. But joy was shadowed by a devastating civil war that raged until 1992, leaving scars that the country still heals. Today, Mozambique is a republic of extraordinary resilience, its official language <strong>Portuguese</strong> serving as a bridge among the Makua, Tsonga, Lomwe, Sena, Ndau, and dozens of other ethnic groups that call this land home.
+            </p>
+            <p>
+                Culture here is inseparable from rhythm and flavor. <strong>Marrabenta</strong> music, born in the sultry south, blends guitar-driven melodies with the pulse of daily life. The <strong>Chopi Timbila</strong> dance, recognized by UNESCO as an Intangible Cultural Heritage, sees orchestras of wooden xylophones perform elaborate compositions passed down through generations. The visual arts are equally celebrated — <strong>Makonde sculpture</strong>, with its intricate intertwining figures, and the powerful paintings of <strong>Malangatana Ngwenya</strong>, whose murals captured the soul of a nation in struggle. And then there is the food: <strong>peri-peri sauce</strong>, forged from fiery bird's-eye chilies, garlic, and lemon, transforms every meal into an event. Tiger prawns the size of your hand, crayfish, grilled fish, and the comforting staple <strong>matapa</strong> (cassava leaves cooked in coconut milk) make Mozambican cuisine one of Africa's most delectable.
+            </p>
+        </div>
+        <div class="lang-pt">
+            <h2>Uma Terra Moldada pelas Marés e pelo Tempo</h2>
+            <p>
+                A história de Moçambique começa com as grandes <strong>migrações bantu</strong> que varreram a região desde o século IV a.C., trazendo tecnologia de fundição de ferro, agricultura e as raízes linguísticas que ainda unem a nação. No século IX, a Costa Suahili florescera numa rede próspera de cidades portuárias — Sofala, Angoche e a Ilha de Moçambique — onde o ouro e o marfim africanos eram trocados por tecidos persas, porcelana chinesa e especiarias indianas. O Islão enraizou-se entre as elites costeiras, e o ritmo do Oceano Índico tornou-se o batimento cardíaco da região.
+            </p>
+            <p>
+                Tudo mudou em <strong>1498</strong> quando <strong>Vasco da Gama</strong> lançou âncora ao largo da costa de Moçambique. Os portugueses permaneceram por quase cinco séculos, transformando a costa num posto colonial que ligava África, Ásia e Europa. A luta pela independência, liderada pela <strong>FRELIMO</strong> (Frente de Libertação de Moçambique) sob visionários como <strong>Eduardo Mondlane</strong> e <strong>Samora Machel</strong>, culminou na liberdade a <strong>25 de Junho de 1975</strong>. Mas a alegria foi ensombrada por uma devastadora guerra civil que se estendeu até 1992, deixando cicatrizes que o país ainda cura. Hoje, Moçambique é uma república de resiliência extraordinária, a sua língua oficial <strong>português</strong> servindo de ponte entre os Makua, Tsonga, Lomwe, Sena, Ndau e dezenas de outros grupos étnicos que chamam esta terra de lar.
+            </p>
+            <p>
+                A cultura aqui é inseparável do ritmo e do sabor. A música <strong>Marrabenta</strong>, nascida no sul abrasador, mistura melodias conduzidas por guitarra com o pulsar da vida quotidiana. A dança <strong>Chopi Timbila</strong>, reconhecida pela UNESCO como Património Cultural Imaterial, vê orquestras de xilofones de madeira executarem composições elaboradas transmitidas de geração em geração. As artes visuais são igualmente celebradas — a <strong>escultura Makonde</strong>, com as suas intrincadas figuras entrelaçadas, e as poderosas pinturas de <strong>Malangatana Ngwenya</strong>, cujos murais capturaram a alma de uma nação em luta. E depois há a comida: o <strong>molho peri-peri</strong>, forjado a partir de pimentos bird's-eye ardentes, alho e limão, transforma cada refeição num evento. Camarões-tigre do tamanho da sua mão, lagostins, peixe grelhado, e o reconfortante prato base <strong>matapa</strong> (folhas de mandioca cozidas em leite de coco) fazem da cozinha moçambicana uma das mais deliciosas de África.
+            </p>
+        </div>
+
+        <!-- Cities Section -->
+        <div class="lang-en active">
+            <h2>Cities That Breathe the Ocean</h2>
+        </div>
+        <div class="lang-pt">
+            <h2>Cidades Que Respiram o Oceano</h2>
+        </div>
+
+        <div class="city-grid">
+            <!-- Maputo -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/t3.ftcdn.net/0d598d5c5db26d2a06ee0ceed622ed58690be74b.jpg" alt="Maputo city skyline at night">
+                <div class="city-body">
+                    <span class="tag lang-en active">Capital City</span>
+                    <span class="tag lang-pt">Cidade Capital</span>
+                    <h3 class="lang-en active">Maputo</h3>
+                    <h3 class="lang-pt">Maputo</h3>
+                    <p class="lang-en active">
+                        Formerly <strong>Lourenço Marques</strong>, Maputo is a city of intoxicating contrasts — where Portuguese colonial grandeur meets African urban energy in a swirl of color, sound, and scent. The legendary <strong>Maputo Railway Station</strong>, designed by an associate of Gustave Eiffel, is widely considered one of the world's most beautiful train stations — its wrought-iron filigree and mint-green domes a haunting reminder of a bygone era. Wide avenues lined with flame trees and jacarandas burst into purple and red bloom each spring, while the <strong>Fortaleza de Maputo</strong> stands sentinel over the harbor where dhows still glide past modern container ships. The city's soul, however, beats strongest at the <strong>Mercado do Peixe</strong> — the fish market — where the day's catch is displayed in glistening rows before being grilled to perfection over charcoal, slathered in peri-peri, and served with ice-cold <strong>2M beer</strong>. Maputo's nightlife is legendary; Marrabenta bands play until dawn in crowded bars, and the city's art galleries — showcasing everything from Makonde sculpture to provocative contemporary works — reveal a creative spirit that refuses to be silenced.
+                    </p>
+                    <p class="lang-pt">
+                        Anteriormente <strong>Lourenço Marques</strong>, Maputo é uma cidade de contrastes intoxicantes — onde a grandiosidade colonial portuguesa encontra a energia urbana africana num redemoinho de cor, som e perfume. A lendária <strong>Estação Ferroviária de Maputo</strong>, desenhada por um associado de Gustave Eiffel, é amplamente considerada uma das mais bonitas estações de comboio do mundo — a sua filigrana de ferro forjado e cúpulas verde-menta são uma lembrança assombrosa de uma era passada. Avenidas largas alinhadas de flamboyants e jacarandás rebentam em flor roxa e vermelha a cada primavera, enquanto a <strong>Fortaleza de Maputo</strong> vigia o porto onde dhows ainda deslizam junto a navios porta-contentores modernos. A alma da cidade, no entanto, pulsa mais forte no <strong>Mercado do Peixe</strong> — onde a captura do dia é exibida em filas reluzentes antes de ser grelhada na perfeição sobre carvão, coberta de peri-peri, e servida com <strong>cerveja 2M</strong> gelada. A vida noturna de Maputo é lendária; bandas de Marrabenta tocam até ao amanhecer em bares lotados, e as galerias de arte da cidade — exibindo tudo desde escultura Makonde até obras contemporâneas provocadoras — revelam um espírito criativo que se recusa a ser silenciado.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Beira -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/www.mozambique.co.za/52c1d628ca071856d26050ee75474ecb168d6a09.jpg" alt="Beira city and port">
+                <div class="city-body">
+                    <span class="tag lang-en active">The Second City</span>
+                    <span class="tag lang-pt">A Segunda Cidade</span>
+                    <h3 class="lang-en active">Beira</h3>
+                    <h3 class="lang-pt">Beira</h3>
+                    <p class="lang-en active">
+                        At the mouth of the mighty <strong>Pungwe River</strong>, Beira is Mozambique's second-largest city and its industrial heart — but also a place of unexpected colonial charm. The <strong>Praça do Município</strong>, the city's central square, is ringed by faded but dignified Portuguese-era buildings, terraced cafés, and tea rooms where old men still gather to play dominoes and debate football. The <strong>Beira Cathedral</strong>, erected in 1925, was built partly from stones salvaged from the 16th-century Fort of Sofala — a poetic recycling of history. Nearby, the <strong>Casa Infante de Sagres</strong> and <strong>Casa Portugal</strong> stand as elegant relics of the colonial merchant era. Beira is fiercely hot and humid, its streets scented with salt and swamp, yet it possesses a gritty authenticity that more polished destinations lack. The city's pavement cafés invariably serve enormous <strong>tiger prawns</strong> and cheap crayfish — the kind of meal that stains your fingers with garlic butter and peri-peri for hours. Beyond the city, Beira serves as the gateway to <strong>Gorongosa National Park</strong>, once called "the place where Noah parked his ark," now being restored to its former glory as one of Africa's richest wildlife refuges.
+                    </p>
+                    <p class="lang-pt">
+                        Na foz do poderoso <strong>Rio Púnguè</strong>, Beira é a segunda maior cidade de Moçambique e o seu coração industrial — mas também um lugar de charme colonial inesperado. A <strong>Praça do Município</strong>, a praça central da cidade, é circundada por edifícios da era portuguesa desbotados mas dignos, cafés em terraços e salas de chá onde velhos ainda se reúnem para jogar dominó e debater futebol. A <strong>Sé de Beira</strong>, erguida em 1925, foi construída em parte com pedras salvas do Forte de Sofala do século XVI — uma reciclagem poética da história. Nas proximidades, a <strong>Casa Infante de Sagres</strong> e a <strong>Casa Portugal</strong> permanecem como relíquias elegantes da era dos mercadores coloniais. Beira é ferozmente quente e húmida, as suas ruas perfumadas com sal e pântano, mas possui uma autenticidade robusta que destinos mais polidos carecem. Os cafés de esplanada da cidade servem invariavelmente enormes <strong>camarões-tigre</strong> e lagostins baratos — o tipo de refeição que mancha os dedos com manteiga de alho e peri-peri durante horas. Para além da cidade, Beira serve como porta de entrada para o <strong>Parque Nacional da Gorongosa</strong>, outrora chamado "o lugar onde Noé estacionou a sua arca," agora a ser restaurado à sua antiga glória como um dos mais ricos refúgios de vida selvagem de África.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pemba -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/d632421e4a491dc46e3d4cbc20b6a489b490eb31.jpg" alt="Pemba beach boardwalk and turquoise ocean">
+                <div class="city-body">
+                    <span class="tag lang-en active">The Northern Pearl</span>
+                    <span class="tag lang-pt">A Pérola do Norte</span>
+                    <h3 class="lang-en active">Pemba</h3>
+                    <h3 class="lang-pt">Pemba</h3>
+                    <p class="lang-en active">
+                        In the far north, where the African bush tumbles directly into the Indian Ocean, <strong>Pemba</strong> is a city that time has treated kindly. Founded in 1904 as Porto Amélia, it escaped the heavy industrialization that scarred other coastal cities, and much of its natural beauty remains pristine. The old town is a ramshackle delight of wooden huts and colonial ruins set among ancient <strong>baobab trees</strong> that predate the city itself. Pemba's enormous market stretches for nearly two kilometers along a main thoroughfare — a sensory overload of spices, silverware, textiles, and the irrepressible chatter of commerce. But Pemba's true gift is its position as gateway to the <strong>Quirimbas Archipelago</strong>, a chain of 31 islands that is a UNESCO Biosphere Reserve. Here, dhows with billowing lateen sails glide between islands where dugongs graze on seagrass, humpback whales breach in season, and coral reefs explode with life. <strong>Ibo Island</strong>, a short boat ride away, is a time capsule of Portuguese and Swahili architecture — crumbling forts, silver workshops, and silenced slave-trade wharves now overgrown with hibiscus. The diving here is world-class; the waters so clear you can see your shadow on the sand ten meters below.
+                    </p>
+                    <p class="lang-pt">
+                        No extremo norte, onde a mata africana desaba diretamente no Oceano Índico, <strong>Pemba</strong> é uma cidade que o tempo tratou com bondade. Fundada em 1904 como Porto Amélia, escapou à pesada industrialização que marcou outras cidades costeiras, e grande parte da sua beleza natural permanece intocada. A cidade velha é uma delícia desconjuntada de cabanas de madeira e ruínas coloniais situadas entre antigas <strong>árvores de baobá</strong> que precedem a própria cidade. O enorme mercado de Pemba estende-se por quase dois quilómetros ao longo de uma artéria principal — uma sobrecarga sensorial de especiarias, prataria, tecidos e a conversa irreprimível do comércio. Mas o verdadeiro dom de Pemba é a sua posição como porta de entrada para o <strong>Arquipélago das Quirimbas</strong>, uma cadeia de 31 ilhas que é Reserva da Biosfera da UNESCO. Aqui, dhows com velas latinas deslizam entre ilhas onde dugongos pastam em prados de erva marinha, baleias-jubarte saltam em época, e recifes de coral explodem de vida. A <strong>Ilha do Ibo</strong>, a uma curta viagem de barco, é uma cápsula do tempo de arquitetura portuguesa e suahili — fortes em ruínas, oficinas de prata, e cais do comércio de escravos agora silenciados e cobertos de hibiscos. O mergulho aqui é de classe mundial; as águas tão claras que pode ver a sua sombra na areia a dez metros de profundidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nature & Beauty -->
+        <div class="lang-en active">
+            <h2>Paradise Found, Again and Again</h2>
+            <p>
+                Mozambique's coastline is a 2,500-kilometer masterpiece of natural wonder. The <strong>Bazaruto Archipelago</strong>, off the coast of Vilanculos, is a national park of five islands where sand dunes plunge into turquoise shallows, and the last remaining <strong>dugong populations</strong> in East Africa graze peacefully on seagrass meadows. Here, you can ride a horse along deserted beaches at sunrise, dive with manta rays and whale sharks, or simply let the wind carry you across the water in a traditional dhow.
+            </p>
+            <p>
+                Further north, the <strong>Ilha de Moçambique</strong> is a UNESCO World Heritage Site that was the capital of Portuguese East Africa for nearly four centuries. The island divides into Stone Town in the north — with the <strong>Capela de Nossa Senhora de Baluarte</strong>, possibly the oldest surviving European building in the southern hemisphere, dating to 1522 — and Reed Town in the south, where coral-built houses still stand. Inland, <strong>Lake Niassa</strong> (shared with Malawi) is an inland sea of crystalline water harboring more tropical fish species than any lake on Earth. And everywhere along the coast, from <strong>Tofo</strong> to <strong>Ponta do Ouro</strong>, the ocean delivers: humpback whales breach between June and October, whale sharks glide through plankton blooms, and coral reefs shimmer with life that seems borrowed from a dream.
+            </p>
+        </div>
+        <div class="lang-pt">
+            <h2>Paraíso Encontrado, Vez Após Vez</h2>
+            <p>
+                A costa de Moçambique é uma obra-prima de 2.500 quilómetros de maravilha natural. O <strong>Arquipélago de Bazaruto</strong>, ao largo de Vilanculos, é um parque nacional de cinco ilhas onde dunas de areia mergulham em águas rasas turquesa, e as últimas <strong>populações remanescentes de dugongos</strong> em África Oriental pastam pacificamente em prados de erva marinha. Aqui, pode montar a cavalo ao longo de praias desertas ao nascer do sol, mergulhar com raias-manta e tubarões-baleia, ou simplesmente deixar que o vento o leve através da água num dhow tradicional.
+            </p>
+            <p>
+                Mais a norte, a <strong>Ilha de Moçambique</strong> é um Património Mundial da UNESCO que foi a capital da África Oriental Portuguesa durante quase quatro séculos. A ilha divide-se na Cidade de Pedra no norte — com a <strong>Capela de Nossa Senhora de Baluarte</strong>, possivelmente o edifício europeu mais antigo ainda de pé no hemisfério sul, datado de 1522 — e a Cidade de Caniço no sul, onde casas construídas de coral ainda permanecem. No interior, o <strong>Lago Niassa</strong> (partilhado com o Malawi) é um mar interior de água cristalina que abriga mais espécies de peixes tropicais do que qualquer lago na Terra. E em toda a costa, de <strong>Tofo</strong> a <strong>Ponta do Ouro</strong>, o oceano entrega: baleias-jubarte saltam entre Junho e Outubro, tubarões-baleia deslizam através de florações de plâncton, e recifes de coral cintilam com vida que parece emprestada de um sonho.
+            </p>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery">
+            <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/dc37c030015f42d54e7aec56ed80f2b7761ae4c7.jpg" alt="Pemba turquoise beach cove">
+            <img src="https://kimi-web-img.moonshot.cn/img/assets.minorhotels.com/3ec5e78aacc91547ce7dff7b74ba21a68194cb62.jpg" alt="Pemba beach resort with palm trees">
+        </div>
+
+        <!-- Culture Highlight -->
+        <div class="lang-en active">
+            <div class="highlight-box">
+                <h3>Why Mozambique Enchants</h3>
+                <ul>
+                    <li>2,500 km of pristine Indian Ocean coastline</li>
+                    <li>Bazaruto & Quirimbas: UNESCO archipelago reserves</li>
+                    <li>Whale sharks, manta rays, and humpback whales</li>
+                    <li>Ilha de Moçambique: 500 years of Swahili-Portuguese history</li>
+                    <li>Peri-peri cuisine: Africa's spiciest culinary secret</li>
+                    <li>Marrabenta music and Chopi Timbila (UNESCO Heritage)</li>
+                    <li>Makonde sculpture: world-renowned wood carving tradition</li>
+                    <li>Gorongosa National Park: "Where Noah parked his ark"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lang-pt">
+            <div class="highlight-box">
+                <h3>Por Que Moçambique Encanta</h3>
+                <ul>
+                    <li>2.500 km de costa intocada do Oceano Índico</li>
+                    <li>Bazaruto e Quirimbas: reservas de arquipélago UNESCO</li>
+                    <li>Tubarões-baleia, raias-manta e baleias-jubarte</li>
+                    <li>Ilha de Moçambique: 500 anos de história suahili-portuguesa</li>
+                    <li>Cozinha peri-peri: o segredo culinário mais picante de África</li>
+                    <li>Música Marrabenta e Chopi Timbila (Património UNESCO)</li>
+                    <li>Escultura Makonde: tradição de talha em madeira de renome mundial</li>
+                    <li>Parque Nacional da Gorongosa: "Onde Noé estacionou a sua arca"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="lang-en active">
+            <h2>A Journey You Will Never Forget</h2>
+            <p>
+                Mozambique is not a country you visit; it is a country you feel. It is the sting of peri-peri on your lips as you tear into a grilled lobster on a beach where the only footprints are your own. It is the creak of a dhow's wooden hull as it tacks against the wind, the lateen sail snapping like a flag. It is the hum of a Marrabenta guitar drifting from a Maputo bar at midnight, and the ancient gaze of a baobab tree that has watched empires rise and fall.
+            </p>
+            <p>
+                It is a place of profound contrasts — where colonial grandeur crumbles beside vibrant African markets, where the scars of civil war are slowly being overwritten by new roads and new hope, and where the warmest smiles on the continent welcome you not as a tourist, but as a guest. Whether you come for the whales, the waves, the woodcarvings, or simply the wonder of a sunset over the Indian Ocean, Mozambique will give you something far more valuable: the certainty that you have discovered one of the world's last great secrets. Pack light. Bring your appetite. And prepare to fall in love.
+            </p>
+        </div>
+        <div class="lang-pt">
+            <h2>Uma Viagem Que Nunca Esquecerá</h2>
+            <p>
+                Moçambique não é um país que se visita; é um país que se sente. É a ardência do peri-peri nos lábios enquanto despedaça uma lagosta grelhada numa praia onde as únicas pegadas são as suas. É o ranger do casco de madeira de um dhow enquanto navega contra o vento, a vela latina estalando como uma bandeira. É o zumbido de uma guitarra Marrabenta a flutuar de um bar de Maputo à meia-noite, e o olhar antigo de uma árvore de baobá que viu impérios erguerem-se e caírem.
+            </p>
+            <p>
+                É um lugar de contrastes profundos — onde a grandiosidade colonial desmorona ao lado de mercados africanos vibrantes, onde as cicatrizes da guerra civil estão lentamente a ser substituídas por novas estradas e nova esperança, e onde os sorrisos mais calorosos do continente o acolhem não como turista, mas como convidado. Quer venha pelas baleias, pelas ondas, pelas talhas em madeira, ou simplesmente pela maravilha de um pôr do sol sobre o Oceano Índico, Moçambique dar-lhe-á algo muito mais valioso: a certeza de que descobriu um dos últimos grandes segredos do mundo. Faça a mala leve. Traga o seu apetite. E prepare-se para se apaixonar.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p class="lang-en active">Written with <span class="heart">❤</span> for curious souls · Images sourced from public references</p>
+        <p class="lang-pt">Escrito com <span class="heart">❤</span> para almas curiosas · Imagens de referências públicas</p>
+        <p style="margin-top:8px; font-size:0.8rem; opacity:0.6;">© 2026 Travel Blog · Mozambique</p>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.lang-en, .lang-pt').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.add('active'));
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.documentElement.lang = lang === 'pt' ? 'pt' : 'en';
+        }
+    </script>
+</body>
+</html>
+print("Mozambique blog saved successfully!")
+print(f"File size: {len(html_content)} characters")
