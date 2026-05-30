@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seychelles Travel Guide & History</title>
+    <style>
+        :root {
+            --blue: #003F87;
+            --yellow: #FCD856;
+            --red: #D62718;
+            --white: #FFFFFF;
+            --green: #007A3D;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #e0f7fa 0%, #f8f9fa 100%);
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            background: var(--dark);
+            padding: 12px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .lang-bar button {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 8px 24px;
+            margin: 0 8px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 600;
+        }
+        
+        .lang-bar button:hover, .lang-bar button.active {
+            background: var(--yellow);
+            color: var(--dark);
+            border-color: var(--yellow);
+            transform: translateY(-2px);
+        }
+        
+        /* Header */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+        
+        .flag-container {
+            margin-top: 25px;
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .flag-container img {
+            width: 180px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: var(--blue);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--yellow);
+            display: inline-block;
+        }
+        
+        .card h3 {
+            color: var(--green);
+            font-size: 1.3rem;
+            margin: 25px 0 12px;
+        }
+        
+        .card p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+        
+        /* Image styling */
+        .image-box {
+            margin: 25px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .image-box:hover img {
+            transform: scale(1.03);
+        }
+        
+        .caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        
+        /* Info boxes */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, var(--light) 0%, #e8f4f8 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--blue);
+        }
+        
+        .info-box strong {
+            color: var(--red);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* History timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid var(--yellow);
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--red);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--yellow);
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--blue);
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        /* Creole text styling */
+        .creole-text {
+            display: none;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+        
+        .creole-text h2 {
+            color: var(--green);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .card {
+                padding: 25px;
+            }
+            .lang-bar button {
+                padding: 6px 16px;
+                font-size: 13px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <button onclick="setLanguage('en')" id="btn-en" class="active">🇬🇧 English</button>
+        <button onclick="setLanguage('cr')" id="btn-cr">🇸🇨 Kreol (Seselwa)</button>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 class="en-text">Seychelles</h1>
+        <h1 class="creole-text">Sesel</h1>
+        <p class="subtitle en-text">A Paradise in the Indian Ocean</p>
+        <p class="subtitle creole-text">Paradi dan Losean Endyen</p>
+        <div class="flag-container">
+            <img src="https://cdn.britannica.com/53e7ab8c157278e951ab75330e7ec9a9881685aa.jpg" alt="Flag of Seychelles">
+            <p style="margin-top:10px; font-size:0.9rem;">Republic of Seychelles | Repiblik Sesel</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Introduction -->
+        <div class="card">
+            <h2 class="en-text">🇨🇭 Country Overview</h2>
+            <h2 class="creole-text">🇨🇭 Profil Peyi</h2>
+            
+            <div class="image-box">
+                <img src="https://t4.ftcdn.net/jpg/02/89/05/81/360_F_289058150_6EBY49Ea5eB5g5sAYL7q4B0e2adJ6eB8.jpg" alt="Seychelles Islands Aerial View">
+                <p class="caption en-text">Aerial view of the stunning Seychelles islands</p>
+                <p class="caption creole-text">Vue aeriel bote zil Sesel</p>
+            </div>
+
+            <p class="en-text">
+                The <strong>Republic of Seychelles</strong> is an archipelagic island country in the Indian Ocean, off the eastern coast of Africa. Comprising 115 islands, it is home to some of the world's most beautiful beaches, rare wildlife, and a vibrant Creole culture. With a population of approximately 100,000 people, it is one of the smallest countries in Africa but boasts the highest GDP per capita on the continent.
+            </p>
+            <p class="creole-text">
+                <strong>Repiblik Sesel</strong> se en peyi zil dan Losean Endyen, kot larivaz les Lafrik. Li konsist 115 zil e li ena bann plaz ki pli bel dan lemond, bann zannimo raar, ek en kiltir Kreol vibran. Avek en popilasion environ 100,000 moun, li se enn dan bann peyi ki pli piti dan Lafrik, me li ena GDP par kapit ki pli o dan kontinan.
+            </p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <strong class="en-text">Capital</strong>
+                    <strong class="creole-text">Kapital</strong>
+                    <span class="en-text">Victoria (on Mahé Island)</span>
+                    <span class="creole-text">Victoria (lor zil Mahé)</span>
+                </div>
+                <div class="info-box">
+                    <strong class="en-text">Official Languages</strong>
+                    <strong class="creole-text">Lang ofisiel</strong>
+                    <span>English, French, Seychellois Creole (Kreol Seselwa)</span>
+                </div>
+                <div class="info-box">
+                    <strong class="en-text">Independence</strong>
+                    <strong class="creole-text">Endepandans</strong>
+                    <span class="en-text">June 29, 1976</span>
+                    <span class="creole-text">29 Zen 1976</span>
+                </div>
+                <div class="info-box">
+                    <strong class="en-text">Currency</strong>
+                    <strong class="creole-text">Larzan</strong>
+                    <span>Seychellois Rupee (SCR)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- History -->
+        <div class="card">
+            <h2 class="en-text">📜 History of Seychelles</h2>
+            <h2 class="creole-text">📜 Listwar Sesel</h2>
+
+            <p class="en-text">
+                The history of Seychelles is a fascinating tale of discovery, colonization, and cultural fusion. First sighted by Arab traders and later by Portuguese explorers, the islands remained uninhabited until the mid-18th century.
+            </p>
+            <p class="creole-text">
+                Listwar Sesel se en zistwar pasionan de dekouver, kolonizasion, ek fuzion kiltirel. Bann komersan Arab ek bann explorater Portigee ti trouv zil la premie fwa, me zil la ti rete san moun ziska milye 18em siek.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">1756</span>
+                    <p class="en-text">French Captain Corneille Nicholas Morphey claims the islands for France, naming them after French Finance Minister Jean Moreau de Séchelles. The "Stone of Possession" is laid on Mahé.</p>
+                    <p class="creole-text">Kapiten franse Corneille Nicholas Morphey pran zil la pou Fras, li don zil non Ministre Finans Jean Moreau de Séchelles. "Pierre de Possession" pose lor Mahé.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1770</span>
+                    <p class="en-text">First permanent settlement established by French settlers from Mauritius, bringing African slaves to work on plantations.</p>
+                    <p class="creole-text">Premie koloni permanan etabli par bann kolon franse ki sorti Moris, ki amenn bann esklav Afriken pou travay lor plantasion.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1794</span>
+                    <p class="en-text">British forces seize control during the Napoleonic Wars, though French influence remains strong.</p>
+                    <p class="creole-text">Fors Britanik pran kontrol pandan Lagerr Napoleon, me enfluans franse rete for.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1814</span>
+                    <p class="en-text">Under the Treaty of Paris, Seychelles officially becomes a British colony, administered from Mauritius.</p>
+                    <p class="creole-text">Anba Traite Paris, Sesel vin en koloni Britanik ofisielman, administre depi Moris.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1835</span>
+                    <p class="en-text">Abolition of slavery transforms the social and economic structure. Freed slaves and later Indian and Chinese laborers shape the Creole identity.</p>
+                    <p class="creole-text">Abolision lesklavaz transforme striktir sosyal ek ekonomik. Bann esklav libere ek bann travayer Endien ek Sinwa ki vini plitar forme lidentite Kreol.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1841</span>
+                    <p class="en-text">Port Royal is renamed <strong>Victoria</strong> in honor of Queen Victoria, becoming the capital.</p>
+                    <p class="creole-text">Port Royal gagn non <strong>Victoria</strong> an loner Rezin Victoria, ek li vin kapital.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1903</span>
+                    <p class="en-text">Seychelles becomes a separate Crown Colony. The iconic Clock Tower (a miniature of London's Big Ben) is erected in Victoria.</p>
+                    <p class="creole-text">Sesel vin en Crown Colony separer. Lorloz ikonik (en ti kopie Big Ben Londre) monte dan Victoria.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1976</span>
+                    <p class="en-text"><strong>Independence!</strong> Seychelles becomes a sovereign republic within the Commonwealth, with James Mancham as first President.</p>
+                    <p class="creole-text"><strong>Endepandans!</strong> Sesel vin en repiblik souveren dan Commonwealth, avek James Mancham kouma premie Prezidan.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1977</span>
+                    <p class="en-text">France-Albert René comes to power, leading the country for 27 years and implementing major social reforms.</p>
+                    <p class="creole-text">France-Albert René pran pouvwar, li dirige peyi pou 27 lanner ek met an plas bann reform sosyal majer.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Victoria City -->
+        <div class="card">
+            <h2 class="en-text">🏙️ Victoria — The Capital City</h2>
+            <h2 class="creole-text">🏙️ Victoria — Kapital Sesel</h2>
+
+            <div class="image-box">
+                <img src="https://www.seyvillas.com/img/guide/islands/mahe/victoria/clocktower.jpg" alt="Victoria Clock Tower">
+                <p class="caption en-text">The iconic Clock Tower in the heart of Victoria</p>
+                <p class="caption creole-text">Lorloz ikonik dan ler Victoria</p>
+            </div>
+
+            <p class="en-text">
+                Victoria, located on Mahé Island, is one of the world's smallest capitals, yet it pulses with energy and charm. Founded by the French in 1778 as "L'Établissement" and later renamed by the British, this city is a living museum of colonial architecture and Creole vibrancy.
+            </p>
+            <p class="creole-text">
+                Victoria, ki sitire lor zil Mahé, se ennan bann kapital ki pli piti dan lemond, me li plen lenerzi ek charme. Fonde par Franse an 1778 kouma "L'Établissement" ek plitar renomme par Britanik, sa vil la se en mize viv de larkitektir kolonial ek vibrans Kreol.
+            </p>
+
+            <h3 class="en-text">Top Attractions</h3>
+            <h3 class="creole-text">Bann Attraksion Prensipal</h3>
+
+            <div class="image-box">
+                <img src="https://www.seyvillas.com/img/guide/islands/mahe/victoria/market.jpg" alt="Sir Selwyn Selwyn-Clarke Market">
+                <p class="caption en-text">The bustling Sir Selwyn Selwyn-Clarke Market</p>
+                <p class="caption creole-text">Marke Sir Selwyn Selwyn-Clarke bien okipe</p>
+            </div>
+
+            <p class="en-text">
+                <strong>Sir Selwyn Selwyn-Clarke Market:</strong> Built in 1840, this is the beating heart of Victoria. Under the shade of a giant mango tree, vendors sell fresh fish, tropical fruits (mango, papaya, passion fruit), spices (vanilla, cinnamon), and handmade crafts. The colors, aromas, and friendly banter make it an unforgettable experience.
+            </p>
+            <p class="creole-text">
+                <strong>Marke Sir Selwyn Selwyn-Clarke:</strong> Bati an 1840, sa se ler Victoria. Anba lonbraz en gros pie mango, bann vander vann pwason fre, bann fri tropikal (mango, papay, frwi pasion), bann epis (vanil, kanmel), ek bann lartizanat. Bann kouler, loder, ek bann konversasion amikal fer li en eksperians inoubliab.
+            </p>
+
+            <p class="en-text">
+                <strong>Cathedral of Our Lady of Immaculate Conception:</strong> Built in 1874 and renovated in the 1990s, this is the largest Catholic church in Seychelles. Its stained-glass windows and beautiful gardens offer a peaceful retreat.
+            </p>
+            <p class="creole-text">
+                <strong>Katedral Notre Dame de l'Immaculée Conception:</strong> Bati an 1874 ek renove dan bann anne 1990, sa se legliz katolik ki pli gran dan Sesel. So bann lafenetr vitrail ek boli zarden ofer en retret pe.
+            </p>
+
+            <p class="en-text">
+                <strong>Arul Mihu Navasakthi Vinayagar Temple:</strong> This brightly colored Hindu temple, built in 1992, represents the harmonious multicultural fabric of Seychelles. The ornate roof is a photographer's delight.
+            </p>
+            <p class="creole-text">
+                <strong>Temple Arul Mihu Navasakthi Vinayagar:</strong> Sa temple Indou bien kouler, bati an 1992, reprezant tissi multikiltirel harmonie Sesel. Toit la bien orne, en plezir pou fotografer.
+            </p>
+
+            <div class="image-box">
+                <img src="https://www.seyvillas.com/img/guide/islands/mahe/victoria/temple.jpg" alt="Hindu Temple in Victoria">
+                <p class="caption en-text">The colorful Hindu Temple in Victoria</p>
+                <p class="caption creole-text">Temple Indou kouler dan Victoria</p>
+            </div>
+
+            <p class="en-text">
+                <strong>National Botanical Gardens:</strong> Founded in 1901, these gardens span 10,000 square meters and house over 500 plant species, including the legendary Coco de Mer palm, 40 species of palms, and an orchid garden with 150 varieties. Giant Aldabra tortoises roam freely here!
+            </p>
+            <p class="creole-text">
+                <strong>Zarden Botanik Nasyonal:</strong> Fonde an 1901, bann zarden sa fer 10,000 metre kare ek konten plis ki 500 espes plant, ki enkli pie palm Coco de Mer lejenda, 40 espes palm, ek en zarden orkide avek 150 variete. Bann torti Aldabra geant promen lib dan sa!
+            </p>
+        </div>
+
+        <!-- Culture & Language -->
+        <div class="card">
+            <h2 class="en-text">🗣️ Culture & Seychellois Creole</h2>
+            <h2 class="creole-text">🗣️ Kiltir ek Kreol Seselwa</h2>
+
+            <p class="en-text">
+                Seychellois culture is a rich <strong>Creole melting pot</strong> — a blend of French, African, Indian, Chinese, and British influences. This fusion is evident in the cuisine (octopus curry, grilled fish with Creole sauce, ladob dessert), music (Sega and Moutya rhythms), and daily life.
+            </p>
+            <p class="creole-text">
+                Kiltir Seselwa se en <strong>melting pot Kreol</strong> rich — en melanz de Franse, Afriken, Endien, Sinwa, ek Britanik. Sa fuzion la vizib dan kizin (kari zourit, pwason griyav ek sos Kreol, ladob), mizik (ritm Sega ek Moutya), ek lavi toulejour.
+            </p>
+
+            <h3 class="en-text">Seychellois Creole (Kreol Seselwa)</h3>
+            <h3 class="creole-text">Kreol Seselwa</h3>
+
+            <p class="en-text">
+                <strong>Kreol</strong> is the mother tongue of 99% of Seychellois people and one of the three official languages. It is a French-based creole with simplified grammar, enriched by African, English, Hindi, and Malagasy words. Since independence in 1976, the government has promoted Kreol through education and media. The <em>Creole Institute of Seychelles (Lenstiti Kreol)</em>, established in 1981, standardizes the language's spelling and grammar.
+            </p>
+            <p class="creole-text">
+                <strong>Kreol</strong> se lang maternel 99% bann Seselwa ek ennan trwa lang ofisiel. Li se en kreol base lor franse avek gramere sinplifie, enrichi par bann mo Afriken, Angle, Hindi, ek Malgas. Depi endepandans an 1976, gouvenman promouv Kreol atrav ledikasion ek media. <em>Lenstiti Kreol Sesel</em>, ki etabli an 1981, standarize lortograf ek gramere lang la.
+            </p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <strong class="en-text">Hello</strong>
+                    <strong class="creole-text">Bonjour</strong>
+                    <span>Bonzour</span>
+                </div>
+                <div class="info-box">
+                    <strong class="en-text">Thank you</strong>
+                    <strong class="creole-text">Mersi</strong>
+                    <span>Mersi</span>
+                </div>
+                <div class="info-box">
+                    <strong class="en-text">Beautiful</strong>
+                    <strong class="creole-text">Bel</strong>
+                    <span>Bel</span>
+                </div>
+                <div class="info-box">
+                    <strong class="en-text">Goodbye</strong>
+                    <strong class="creole-text">Orevwar</strong>
+                    <span>Orevwar</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Tips -->
+        <div class="card">
+            <h2 class="en-text">✈️ Travel Guide</h2>
+            <h2 class="creole-text">✈️ Gid Vwayaz</h2>
+
+            <div class="image-box">
+                <img src="https://pescart.com/wp-content/uploads/2019/03/seychelles-aerial-drone-photography-004.jpg" alt="Beautiful Seychelles Beach">
+                <p class="caption en-text">The pristine beaches of Seychelles</p>
+                <p class="caption creole-text">Bann plaz prop Sesel</p>
+            </div>
+
+            <h3 class="en-text">Best Time to Visit</h3>
+            <h3 class="creole-text">Meyer Ler pou Vizite</h3>
+            <p class="en-text">
+                The ideal time is during the <strong>southeast trade winds (May to November)</strong> when temperatures are milder (24-29°C) and humidity is lower. March and April are the hottest months, but perfect for diving.
+            </p>
+            <p class="creole-text">
+                Ler meyer se pandan <strong>aliz lesid (Me pou Novem)</strong> kan tanperer pli dou (24-29°C) ek imidite pli ba. Mars ek Avril se bann mwa ki pli so, me parfe pou plonze.
+            </p>
+
+            <h3 class="en-text">Must-Visit Islands</h3>
+            <h3 class="creole-text">Zil ki Bizin Vizite</h3>
+            <p class="en-text">
+                <strong>Mahé:</strong> The largest island, home to Victoria and Morne Seychellois National Park.<br>
+                <strong>Praslin:</strong> Famous for Vallée de Mai, a UNESCO site with Coco de Mer palms.<br>
+                <strong>La Digue:</strong> Known for Anse Source d'Argent, one of the world's most photographed beaches.<br>
+                <strong>Aldabra:</strong> The world's second-largest coral atoll, home to giant tortoises.
+            </p>
+            <p class="creole-text">
+                <strong>Mahé:</strong> Zil ki pli gran, kot Victoria ek Parke Nasyonal Morne Seychellois.<br>
+                <strong>Praslin:</strong> Koni pou Vallée de Mai, en sit UNESCO avek bann palm Coco de Mer.<br>
+                <strong>La Digue:</strong> Koni pou Anse Source d'Argent, ennan bann plaz ki pli fotografye dan lemond.<br>
+                <strong>Aldabra:</strong> Deziem pli gran atoll koray dan lemond, kot bann torti geant viv.
+            </p>
+
+            <h3 class="en-text">Practical Tips</h3>
+            <h3 class="creole-text">Bann Konsey Pratik</h3>
+            <p class="en-text">
+                • Currency: Seychellois Rupee (SCR), but Euros and USD are widely accepted.<br>
+                • Driving: Left-hand side. Car rental and buses are available.<br>
+                • Visa: No visa required for most nationalities; a Visitor's Permit is issued on arrival.<br>
+                • Nature: Please respect the delicate ecosystem. Do not touch tortoises or pick shells.
+            </p>
+            <p class="creole-text">
+                • Larzan: Roupie Seselwa (SCR), me Euro ek USD aksepte partou.<br>
+                • Konduir: Kot les. Louer loto ek bis disponib.<br>
+                • Visa: Nena bezwen visa pou plispar nasyonalite; en Permi Viziter donn ler arive.<br>
+                • Nature: Respek lekosistem delicat. Touche torti ou pran kokiy pa autorize.
+            </p>
+        </div>
+
+        <!-- Flag Meaning -->
+        <div class="card">
+            <h2 class="en-text">🏳️ The Flag of Seychelles</h2>
+            <h2 class="creole-text">🏳️ Drapo Sesel</h2>
+
+            <div class="image-box">
+                <img src="https://cdn.britannica.com/53e7ab8c157278e951ab75330e7ec9a9881685aa.jpg" alt="Seychelles Flag">
+                <p class="caption en-text">The five-colored bands of the Seychelles flag</p>
+                <p class="caption creole-text">Bann senn kouler drapo Sesel</p>
+            </div>
+
+            <p class="en-text">
+                Adopted in 1996, the flag features five oblique bands radiating from the lower hoist corner:<br>
+                <strong>Blue</strong> — the sky and the sea surrounding Seychelles<br>
+                <strong>Yellow</strong> — the sun giving light and life<br>
+                <strong>Red</strong> — the people and their determination to work in unity and love<br>
+                <strong>White</strong> — social justice and harmony<br>
+                <strong>Green</strong> — the land and natural environment
+            </p>
+            <p class="creole-text">
+                Adopte an 1996, drapo la montre senn bann senn oblik ki sorti depi koin anba goch:<br>
+                <strong>Ble</strong> — lesiel ek lanmer ki antour Sesel<br>
+                <strong>Jon</strong> — soley ki donn limyer ek lavi<br>
+                <strong>Rouz</strong> — bann moun ek zeterminasion pou travay dan linite ek lamour<br>
+                <strong>Blan</strong> — lasite sosyal ek harmonie<br>
+                <strong>Ver</strong> — later ek anvironman natirel
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p class="en-text">🌴 Discover Seychelles — Where Nature Meets Paradise 🌴</p>
+        <p class="creole-text">🌴 Dekouvri Sesel — Kot Natir Rankont Paradi 🌴</p>
+        <p style="margin-top:15px; font-size:0.85rem;">© 2026 Seychelles Travel Blog | Blogger Guide</p>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            const enTexts = document.querySelectorAll('.en-text');
+            const crTexts = document.querySelectorAll('.creole-text');
+            const btnEn = document.getElementById('btn-en');
+            const btnCr = document.getElementById('btn-cr');
+            
+            if (lang === 'en') {
+                enTexts.forEach(el => el.style.display = 'block');
+                crTexts.forEach(el => el.style.display = 'none');
+                btnEn.classList.add('active');
+                btnCr.classList.remove('active');
+                document.documentElement.lang = 'en';
+            } else {
+                enTexts.forEach(el => el.style.display = 'none');
+                crTexts.forEach(el => el.style.display = 'block');
+                btnCr.classList.add('active');
+                btnEn.classList.remove('active');
+                document.documentElement.lang = 'crs';
+            }
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setLanguage('en');
+        });
+    </script>
+
+</body>
+</html>
