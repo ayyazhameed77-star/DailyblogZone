@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Zimbabwe — The House of Stone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #009739;
+            --yellow: #f4c430;
+            --red: #dc143c;
+            --black: #1a1a1a;
+            --dark: #111;
+            --light: #f5f3ef;
+            --cream: #fffdf8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(17,17,17,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .lang-btn {
+            padding: 8px 22px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+        .lang-btn.active { background: var(--yellow); color: var(--dark); border-color: var(--yellow); }
+        
+        /* Hero */
+        .hero {
+            margin-top: 50px;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #0d3318 0%, #1a5c2e 50%, #0d1f0d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1920') center/cover;
+            opacity: 0.12;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .hero .flag-wrap {
+            margin: 25px auto;
+            width: 140px;
+            height: 90px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        .hero .flag-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .intro {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 50px;
+            padding-left: 25px;
+            border-left: 4px solid var(--green);
+        }
+        
+        /* Sections */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin: 50px 0 25px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--yellow));
+            border-radius: 2px;
+        }
+        
+        p { margin-bottom: 20px; font-size: 1.05rem; color: #444; }
+        
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .city-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .city-body { padding: 30px; }
+        .city-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .city-body .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: var(--light);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--green);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .city-body p { font-size: 1rem; color: #555; }
+        
+        /* Highlights */
+        .highlight-box {
+            background: linear-gradient(135deg, #0d5c1e, #009739);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 150px; height: 150px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .highlight-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .highlight-box li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .highlight-box li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--yellow);
+        }
+        
+        /* Gallery row */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover { transform: scale(1.03); }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        .footer .heart { color: var(--red); }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .gallery { grid-template-columns: 1fr; }
+            .city-img { height: 220px; }
+        }
+        
+        /* Hide/show languages */
+        .lang-en, .lang-sn { display: none; }
+        .lang-en.active, .lang-sn.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇺🇸 English</button>
+        <button class="lang-btn" onclick="setLang('sn')" id="btn-sn">🇿🇼 ChiShona</button>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="subtitle lang-en active">The House of Stone</div>
+            <div class="subtitle lang-sn">Imba yeDombo</div>
+            <h1 class="lang-en active">Zimbabwe</h1>
+            <h1 class="lang-sn">Zimbabwe</h1>
+            <div class="flag-wrap">
+                <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/e6f1198422be439053f025a8fce966172a03d92f.jpg" alt="Flag of Zimbabwe">
+            </div>
+            <p class="lang-en active" style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:600px; margin:0 auto;">Where ancient stone cities whisper of lost empires, where the Zambezi thunders into misty eternity, and where the warm spirit of a resilient people welcomes every traveler home.</p>
+            <p class="lang-sn" style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:600px; margin:0 auto;">Kwakasara maguta edombo anotaura nezvemasangano akaparara, kwakapfuura Zambezi ichirova ichisiya mheni, uye kwakasara mwoyo wavanhu vane simba vachigamuchira mutyairi mumusha wake.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Introduction -->
+        <div class="lang-en active">
+            <p class="intro">
+                Landlocked in the heart of Southern Africa, Zimbabwe is a nation that carries its history in its very name — <strong>"Dzimba dzemabwe"</strong> in the Shona language means <strong>"House of Stone."</strong> And stone it is — from the towering dry-stone walls of <strong>Great Zimbabwe</strong>, the medieval city that once housed 10,000 souls and traded gold across the Indian Ocean, to the granite domes of <strong>Matobo Hills</strong> that have watched over this land for two billion years. Zimbabwe is a country of extraordinary depth: ancient ruins, thundering waterfalls, world-class safaris, and a people whose warmth and resilience have become legendary across the continent.
+            </p>
+        </div>
+        <div class="lang-sn">
+            <p class="intro">
+                Yakavharwa pakati peAfrica yepasi rose, Zimbabwe ndiyo nyika inochengetedza nhau yayo muzita rayo — <strong>"Dzimba dzemabwe"</strong> muchiShona chinoreva <strong>"Imba yeDombo."</strong> Uye dombo ndiro — kubva pazvikwama zvakareba zveGreat Zimbabwe, guta rekare rakagara vanhu 10,000 uye rakashandura goridhe kumahombekombe eIndian, kusvika pazvibayiro zveMatobo Hills zvakatarisira nyika iyi kwemakore mabili bhiriyoni. Zimbabwe ndiyo nyika yekudzika kwazvo: zvikwama zvekare, matenga ane mheni, uye vanhu vane mwoyo wakanaka uye nesimba vakazivikanwa kwazvo panyika yose.
+            </p>
+        </div>
+
+        <!-- Background -->
+        <div class="lang-en active">
+            <h2>A Land Forged in Stone and Spirit</h2>
+            <p>
+                Zimbabwe's story begins long before written records. For over <strong>100,000 years</strong>, this land has been home to sophisticated societies. The <strong>Shona people</strong>, who form the majority today, built the legendary <strong>Kingdom of Zimbabwe</strong> between the 11th and 15th centuries — a trading empire that sent gold and ivory to the Swahili Coast and beyond. The massive stone walls of Great Zimbabwe, built without mortar, remain one of Africa's greatest architectural mysteries and a UNESCO World Heritage Site that lent its name to the modern nation.
+            </p>
+            <p>
+                In the 19th century, the <strong>Ndebele people</strong> arrived under King Mzilikazi, establishing a powerful kingdom in the west with Bulawayo as its capital. British colonial rule followed from 1890 to 1980, a period that saw the land renamed Rhodesia and the suppression of indigenous cultures. Yet the spirit of resistance never faded. The liberation struggle, drawing on ancient cultural symbols and modern determination, culminated in independence on <strong>April 18, 1980</strong>. Today, Zimbabwe is home to roughly <strong>16 million people</strong> across many ethnic groups, with <strong>Shona</strong> and <strong>Ndebele</strong> as the major languages alongside English.
+            </p>
+            <p>
+                Zimbabwean culture is perhaps best expressed through its world-famous <strong>stone sculpture</strong> tradition. Artists like Nicholas Mukomberanwa transformed granite and serpentine stone into spiritual forms that now grace galleries from New York to Paris. Music pulses through daily life — from the hypnotic rhythms of the <strong>mbira</strong> (thumb piano) to the globally celebrated voices of Thomas Mapfumo and Oliver Mtukudzi, whose sungura and chimurenga music gave voice to a nation's joys and struggles.
+            </p>
+        </div>
+        <div class="lang-sn">
+            <h2>Nyika Yakagadzirwa neDombo neMweya</h2>
+            <p>
+                Nhau yeZimbabwe inotanga kare zvachose pamberi pezvinyorwa. Kwemakore <strong>100,000</strong>, nyika iyi yakanga iri musha wemasangano akakura. Vanhu <strong>vaShona</strong>, vanova vazhinji nhasi, vakavaka <strong>Umbuso weZimbabwe</strong> pakati pezana re11 uye re15 — umambo wekushandisa hwakatumira goridhe nezvinoonekwa kuSwahili Coast nemhiri. Masvingo akareba eGreat Zimbabwe, akavakwa pasina mota, acharamba achiri mumwe wemafungu akakosha ekuvaka eAfrica uye nzvimbo yehunyanzvi hweUNESCO yakapa zita ranguva ino.
+            </p>
+            <p>
+                Muzana re19, vanhu <strong>vaNdebele</strong> vakasvika pasi paMambo Mzilikazi, vachivaka umambo hwekumanikidza kumavirira neBulawayo sechigaro chawo. Ugaro hwechiBritish hwakatevera kubva 1890 kusvika 1980, nguva yakazivikanwa seRhodesia uye kumanikidzwa kwemasangano echikwavo. Asi mweya wekurwisana hauna kufamba. Kurwa kwekuzvidzora, kwakatora zviratidzo zvekare uye kugadzirisa kwezvino, kwapedzisira nekusununguka pa<strong>18 Kubvumbi 1980</strong>. Nhasi, Zimbabwe ine vanhu vakati <strong>16 mamiriyoni</strong> mumakundi akasiyana, ne<strong>chiShona</strong> ne<strong>isiNdebele</strong> sezvirurimi zvikuru pamwe nechiEnglish.
+            </p>
+            <p>
+                Masangano eZimbabwe anogona kuonekwa zvikuru kubudikidza netsika yayo <strong>yekushonga dombo</strong> inozivikanwa pasi rose. Vashongi seNicholas Mukomberanwa vakushandura dombo regranite neSerpentine zvakaita mifananidzo yemweya inogara mumagariro kubva kuNew York kusvika kuParis. Mhere inopfura mupenyu wezuva nezuva — kubva pazvininipiswa zve<strong>mbira</strong> kusvika pamazwi anozivikanwa pasi rose aThomas Mapfumo naOliver Mtukudzi, vakaimba sungura nechimurenga vakapa inzwi kune zvifaro uye kurwadziwa kwenyika.
+            </p>
+        </div>
+
+        <!-- Cities Section -->
+        <div class="lang-en active">
+            <h2>Cities That Define a Nation</h2>
+        </div>
+        <div class="lang-sn">
+            <h2>Maguta Anoonesa Nyika</h2>
+        </div>
+
+        <div class="city-grid">
+            <!-- Harare -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/0ace9a78821b4df2418648180d89843f0f83f65e.jpg" alt="Harare skyline at sunset">
+                <div class="city-body">
+                    <span class="tag lang-en active">Capital City — Sunshine City</span>
+                    <span class="tag lang-sn">Guta Rukuru — Guta reZuva</span>
+                    <h3 class="lang-en active">Harare</h3>
+                    <h3 class="lang-sn">Harare</h3>
+                    <p class="lang-en active">
+                        At an altitude of <strong>1,483 meters</strong>, Harare basks in a perpetual spring climate that earned it the nickname <strong>"Sunshine City."</strong> Renamed from Salisbury on the second anniversary of independence, this is one of Africa's most pleasantly livable capitals. Jacaranda trees paint the avenues purple in October, and the scent of blooming msasa trees drifts through suburbs where modern glass towers rise beside jacaranda-shaded colonial verandas. The <strong>National Gallery of Zimbabwe</strong> houses one of the continent's finest collections of Shona sculpture, while the <strong>Chapungu Sculpture Park</strong> offers an open-air cathedral of stone art set among indigenous woodland. For a breath of wild Africa within city limits, the <strong>Mukuvisi Woodlands</strong> lets you walk among zebra, giraffe, and impala just minutes from downtown. Harare's craft markets burst with color — hand-woven baskets, bold textiles, and the unmistakable smooth curves of stone carvings that have made Zimbabwean art famous worldwide.
+                    </p>
+                    <p class="lang-sn">
+                        Pamusoro-soro pe<strong>1,483 mita</strong>, Harare inogara muchando wekupenya chakapa zita rekuti <strong>"Guta reZuva."</strong> Rakachinjwa zita kubva paSalisbury panguva yechitatu chekusununguka, uye ndiyo imwe yemaguta akapenya zvikuru eAfrica. Miti yeJacaranda inopenda mitemo nerima muna Gumiguru, uye kunhuhwira kwemiti yeMsasa kunouyiswa mumaguta akwakamira matowers emagirazi pedyo nezvirugu zvekare zvakadzika nemiti yeJacaranda. <strong>National Gallery yeZimbabwe</strong> ine chimwe chezvakawanda zvakanaka zvakasiyiwa zvakasongwa nedombo reShona, uye <strong>Chapungu Sculpture Park</strong> inopa nzvimbo yamakuva emafananidzo edombo akagadzirwa pakati pemiti yechikwavo. Kuti upfue Africa yasikana mumaguta, <strong>Mukuvisi Woodlands</strong> inokubvumira kufamba pakati pezvimbwa, mhesvamabwe, nemhara mumaminitsi kubva paguta. Masoko eHarare ane ruzhinji rwemavara — matengu akasungwa neMaoko, masaga ane mavara, nemafananidzo akasvika akaita kuti uremu hweZimbabwe hwazivikanwe pasi rose.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bulawayo -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/d275qa3r78gy2e.cloudfront.net/ff82af419e3f21d39f79409d7a7ce57fc987a633.jpg" alt="Bulawayo aerial city view">
+                <div class="city-body">
+                    <span class="tag lang-en active">City of Kings</span>
+                    <span class="tag lang-sn">Guta reVamambo</span>
+                    <h3 class="lang-en active">Bulawayo</h3>
+                    <h3 class="lang-sn">Bulawayo</h3>
+                    <p class="lang-en active">
+                        Zimbabwe's second city carries the soul of the Ndebele nation. Known as the <strong>"City of Kings"</strong> for its historical ties to the Ndebele monarchy, Bulawayo moves at a gentler pace than Harare, its wide jacaranda-lined avenues shaded by a century of growth. The <strong>Natural History Museum of Zimbabwe</strong> is one of Africa's finest, housing everything from dinosaur fossils to a near-complete collection of the country's extraordinary birdlife. Nearby, the <strong>Khami Ruins</strong> — a UNESCO World Heritage Site — reveal the terraced stone platforms of a later kingdom that succeeded Great Zimbabwe, offering a quieter, more intimate encounter with ancient stone architecture. Bulawayo is also the gateway to <strong>Matobo National Park</strong>, where granite domes balance impossibly atop one another, white rhinos roam freely, and San rock paintings dating back over 2,000 years still whisper stories of hunters and spirits on cave walls. The city's markets thrum with Ndebele beadwork, whose bold geometric patterns have inspired designers worldwide.
+                    </p>
+                    <p class="lang-sn">
+                        Guta rechipiri reZimbabwe rinochengetedza mweya wenyika yeNdebele. Zvichizivikanwa se<strong>"Guta reVamambo"</strong> nokuda kwemubatanidzwe wacho neumambo hweNdebele, Bulawayo inofamba nokunyarara kupfuura Harare, mitemo yayo yakafara yakadzika nemiti yeJacaranda yakura zvakare. <strong>Natural History Museum yeZimbabwe</strong> ndiyo imwe yezvakanaka zveAfrica, ine zvinhu zvose kubva pamafosera eDinosaur kusvika kuchekwa kwemhuka dzemhuka dzekudenga. Pedyo, <strong>Khami Ruins</strong> — nzvimbo yehunyanzvi hweUNESCO — inoratidza zvikwama zvedombo zvakagadzirwa neumambo hwekare hwakatevera Great Zimbabwe, ichipa kutenderana kwechokwadi kwakanyarara nezvemasvingo ekare. Bulawayo ndiyo imwe yezvido zveMatobo National Park, kwazvibayiro zvegranite zvinogara pamusoro pemweya, zvimbwa dzemhara dzichifamba nokusununguka, uye zvifananidzo zveDombo zveSan zvakareba makore 2,000 zvichiri taura nhau dzevatsivi nemweya pamasvingo emapango. Masoko eguta ane mhere nebasa reNdebele, ramafananidzo ayo akasimudzira vakadziri pasi rose.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Victoria Falls -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/www.andbeyond.com/ca81b67d1fc91e0d2896c3cefbeab531c58e66ff.jpg" alt="Victoria Falls sunset view">
+                <div class="city-body">
+                    <span class="tag lang-en active">The Smoke That Thunders</span>
+                    <span class="tag lang-sn">Mosi-oa-Tunya</span>
+                    <h3 class="lang-en active">Victoria Falls</h3>
+                    <h3 class="lang-sn">Victoria Falls</h3>
+                    <p class="lang-en active">
+                        There are places on Earth that humble the human spirit, and <strong>Victoria Falls</strong> is one of them. Known locally as <strong>Mosi-oa-Tunya</strong> — "The Smoke That Thunders" — this is the world's largest curtain of falling water, spanning <strong>1.7 kilometers</strong> wide and dropping <strong>108 meters</strong> into the Batoka Gorge. Scottish explorer David Livingstone first laid European eyes upon it in 1855 and wrote that "scenes so lovely must have been gazed upon by angels in their flight." The mist rises so high it creates its own microclimate — a perpetual rainbow forest where the roar of water can be heard from 40 kilometers away. Declared a <strong>UNESCO World Heritage Site in 1989</strong> and one of the Seven Natural Wonders of the World, Victoria Falls is also Africa's adventure capital. Bungee jump from the historic bridge spanning the Zambezi gorge, white-water raft through Class V rapids, take a "Flight of Angels" helicopter ride over the thundering curtain, or simply stand at Knife-Edge Point and let the spray soak your soul. The town itself is a charming hub of craft markets, riverside lodges, and the warmest smiles in Southern Africa.
+                    </p>
+                    <p class="lang-sn">
+                        Pane nzvimbo panyika dzinodzikisa mweya womunhu, uye <strong>Victoria Falls</strong> ndiyo imwe yadzo. Zvichizivikanwa zvichibva kumusha se<strong>Mosi-oa-Tunya</strong> — "Mheni Inorova" — uyu ndiwo mukana mukuru wemvura ichiwira pasi rose, unoreba <strong>1.7 makilomita</strong> uye unowira <strong>108 mita</strong> muBatoka Gorge. Mutsvaki wechiScottish David Livingstone ndiye wakatarisira kumatongi echiEurope zvichibva 1855 uye akanyora kuti "nzvimbo dzakadai dzakanaka dzinofanira kunge dzakatariswa nevatumwa vari kufamba." Mheni inomuka yakareba kudai inogadzira chimiro chayo chekudenga — muhara wechirungu usingaperi kwose kwakasara kunzwa kurova kwemvura kubva pamakilomita 40. Yakaparadzwa se<strong>Nzvimbo yeHunyanzvi hweUNESCO muna 1989</strong> uye imwe yeZvinoshamisa Zvinomutswa Zvinomwe zveNyika, Victoria Falls ndiyo imwe yeCapital yekufara yeAfrica. Tsvaga kubva pabiriji yehistori inopfuura gorge yeZambezi, famba nemvura chena muClass V rapids, tora "Flight of Angels" nehelicopter pamusoro pechirongo chinorova, kana zvachose mira paKnife-Edge Point ugare nokugova mheni ichinyorova mweya wako. Guta pacharo rakanaka rine masoko, zvimba pedyo nerwizi, uye misoro yakanaka zvikuru muAfrica Yepasi rose.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nature & Beauty -->
+        <div class="lang-en active">
+            <h2>Wilderness Without Equal</h2>
+            <p>
+                Beyond its cities, Zimbabwe harbors some of Africa's most extraordinary wild places. <strong>Hwange National Park</strong>, the country's largest, is home to over <strong>40,000 elephants</strong> — one of the greatest concentrations on Earth. Here, lions, cheetahs, wild dogs, and more than 400 bird species roam across teak forests and golden grasslands. Unlike busier parks elsewhere, Hwange offers a sense of profound solitude; it is not uncommon to watch a herd of buffalo at a waterhole with no other vehicle in sight.
+            </p>
+            <p>
+                <strong>Mana Pools National Park</strong>, a UNESCO World Heritage Site on the Zambezi's lower reaches, is legendary for canoe safaris where elephants wade beside your boat and hippos grunt from reed beds. In the east, the <strong>Eastern Highlands</strong> rise like a slice of Scotland transplanted to Africa — misty mountains, trout streams, and the breathtaking <strong>Mutarazi Falls</strong>, the second-highest waterfall in Africa, cascading 762 meters into a gorge draped in rainforest. <strong>Chimanimani National Park</strong> offers rugged hiking trails where rare orchids cling to quartzite peaks, and the views stretch across Mozambique to the Indian Ocean. And everywhere, the ancient <strong>baobab trees</strong> stand sentinel — some over 1,000 years old — their swollen trunks storing the memories of centuries.
+            </p>
+        </div>
+        <div class="lang-sn">
+            <h2>Nyika Yasikana Isina Mumwe Anoita Saivo</h2>
+            <p>
+                Kunze kwemaguta ayo, Zimbabwe ine nzvimbo dzine mhuka dzinoshamisa zvikuru. <strong>National Park yeHwange</strong>, huru yenyika, ine zvimbwa zvakareba <strong>40,000</strong> — imwe yezvikamu zvikuru panyika. Panobva shumba, mambwe, imbwa dzesango, nemhuka dzekudenga zvakareba 400 dzichifamba mumiti yeTeak uye mumapango egold. Zvisiyane nemapaki akawanda kwazvo kwose, Hwange inopa kunzwa kwekugara kwakadzika; hazvina kushamisa kuona boka reBuffalo patsime chemvura pasina mota imwe yakaonekwa.
+            </p>
+            <p>
+                <strong>National Park yeMana Pools</strong>, nzvimbo yehunyanzvi hweUNESCO pazasi reZambezi, inozivikanwa neCanoe safaris kwose kwazvimbwa dzichifamba pedyo nebhoti rako nemhuru dzichibva mumapango. Kumavirira, <strong>Eastern Highlands</strong> inomuka seScotland yakabviswa kuAfrica — makomo ane mheni, nzizi dzeTrout, uye <strong>Mutarazi Falls</strong> inotyisa, chikamu chechipiri chakareba chinemvura muAfrica, chinowira 762 mita mugorge rine mvura. <strong>Chimanimani National Park</strong> inopa nzira dzekufamba dzakasviba kwose kwakasara Orchids dzakasara pamusoro peQuartzite, uye zvakaonekwa zvinoreba kusvika kuMozambique kusvika kuIndian Ocean. Uye kwose, miti <strong>yeBaobab</strong> yakareba inomira — imwe yemakore 1,000 — mitemo yayo yakakura ichichengetedza zvisarudzwa zvezana.
+            </p>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.visitvictoriafalls.org/e268a693369e998754a4b712be849898e3bed087.jpg" alt="Victoria Falls aerial with rainbow">
+            <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/9b7390fed5b0b9ecfbb606ccd6989177dd1b4e82.jpg" alt="Harare cityscape">
+        </div>
+
+        <!-- Culture Highlight -->
+        <div class="lang-en active">
+            <div class="highlight-box">
+                <h3>Why Zimbabwe Captivates</h3>
+                <ul>
+                    <li>Great Zimbabwe: medieval stone city, UNESCO site</li>
+                    <li>Victoria Falls: 1.7km wide, 108m drop, Seven Wonders</li>
+                    <li>Hwange National Park: 40,000+ elephants</li>
+                    <li>Matobo Hills: 2-billion-year-old granite domes</li>
+                    <li>World-famous Shona stone sculpture tradition</li>
+                    <li>Mana Pools: legendary canoe safaris on the Zambezi</li>
+                    <li>Eastern Highlands: Africa's second-tallest waterfall</li>
+                    <li>Zimbabwe bird: iconic soapstone carving on the flag</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lang-sn">
+            <div class="highlight-box">
+                <h3>Nekuchengetedza Kwazvo Zimbabwe</h3>
+                <ul>
+                    <li>Great Zimbabwe: guta redombo rekare, nzvimbo yeUNESCO</li>
+                    <li>Victoria Falls: 1.7km refu, 108m kuwira, Zvinoshamisa Zvinomwe</li>
+                    <li>National Park yeHwange: zvimbwa 40,000+</li>
+                    <li>Matobo Hills: zvibayiro zvegranite zvakareba mabili bhiriyoni</li>
+                    <li>Tsika yekushonga dombo reShona inozivikanwa pasi rose</li>
+                    <li>Mana Pools: canoe safaris dzakazivikanwa paZambezi</li>
+                    <li>Eastern Highlands: chikamu chechipiri chakareba chinemvura muAfrica</li>
+                    <li>Shiri yeZimbabwe: chishongedzo chesoapstone paflag</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="lang-en active">
+            <h2>A Journey Into the Soul of Africa</h2>
+            <p>
+                Zimbabwe is not a destination you simply visit — it is a place that enters you. Stand before the silent stone walls of Great Zimbabwe at dawn, when the golden light catches the ancient mortarless masonry, and you will feel the weight of centuries pressing gently against your chest. Sit beside a campfire in Hwange as elephants materialize from the darkness to drink at a floodlit waterhole, their breath misting in the cool night air, and you will understand why Africa has been called the "mother of humanity."
+            </p>
+            <p>
+                It is a country of extraordinary resilience. Through colonialism, liberation war, economic turbulence, and political storms, the Zimbabwean people have held fast to their dignity, their art, and their warmth. Whether you are bargaining for a hand-carved stone bird in a Harare market, sharing sadza and relish with a family in a rural village, or feeling the spray of Mosi-oa-Tunya soak your skin, you will encounter a hospitality that feels ancient and genuine. Zimbabwe asks only that you come with an open heart. What it gives back — the thunder of falling water, the silence of stone ruins, the laughter of children in a dusty village street — will stay with you forever. This is the House of Stone. And it is waiting for you.
+            </p>
+        </div>
+        <div class="lang-sn">
+            <h2>Urongwa Hwekupinda MuMweya weAfrica</h2>
+            <p>
+                Zimbabwe haisi nzvimbo yaunongozouya — ndiyo nzvimbo inopinda mauri. Mira pamberi pemasvingo asina mhere eGreat Zimbabwe mangwanani-ngwanani, panguva yokupenya kwegold inobata masvingo asina mota, uye uchaziva kuipa kwezana rinosvika pamusoro pako. Gara pedyo nemoto weHwange sezvimbwa zvichibuda mumvura zvichinwa patsime chemvura, mweya wazvo uchifukidza mumhepo inotonhora, uye uchaziva nokuchenjera kuti Africa yakatumidzwa "amai vevanhu."
+            </p>
+            <p>
+                Ndiyo nyika yekutsungirira kwakasiyana. Kubudikidza neuchengeti, hondo yekusununguka, kushanduka kwezvematongerwo enyika, nemhepo dzechisangano, vanhu veZimbabwe vakabata nesimba ravo, uremu hwavo, uye mwoyo wakanaka kwazvo. Kana uri kushandura shiri yadombo yakasongwa neMaoko mumusika weHarare, kana uri kugovana sadza nemuriwo nemhuri mumusha wekumaruzevha, kana kuri kunzwa mheni yeMosi-oa-Tunya ichinwa ganda rako, uchasangana neukama hwakaita sehwekare uye hwechokwadi. Zimbabwe inokumbira chete kuti uye nemwoyo wakasununguka. Zvaanokupa — kurova kwemvura ichiwira, kunyarara kwemasvingo, kuseka kwewana mumugwagwa wemusha — zvicharamba zviri newe nokusingaperi. Uyu ndiwo Imba yeDombo. Uye iri kukumirira.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p class="lang-en active">Written with <span class="heart">❤</span> for curious souls · Images sourced from public references</p>
+        <p class="lang-sn">Yakanyorwa ne<span class="heart">❤</span> kune mweya dzinovhundutswa · Mifananidzo yabva kureferensi dzemunhu wese</p>
+        <p style="margin-top:8px; font-size:0.8rem; opacity:0.6;">© 2026 Travel Blog · Zimbabwe</p>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.lang-en, .lang-sn').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.add('active'));
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.documentElement.lang = lang === 'sn' ? 'sn' : 'en';
+        }
+    </script>
+</body>
+</html>
+print("Zimbabwe blog saved successfully!")
+print(f"File size: {len(html_content)} characters")
