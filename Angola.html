@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Angola — The Beating Heart of Southern Africa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #ce1126;
+            --black: #1a1a1a;
+            --gold: #f4c430;
+            --dark: #111;
+            --light: #f5f3ef;
+            --cream: #fffdf8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(17,17,17,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .lang-btn {
+            padding: 8px 22px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover { border-color: var(--gold); color: var(--gold); }
+        .lang-btn.active { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+        
+        /* Hero */
+        .hero {
+            margin-top: 50px;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #1a0505 0%, #3a1010 50%, #0d0d0d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1920') center/cover;
+            opacity: 0.15;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .hero .flag-wrap {
+            margin: 25px auto;
+            width: 140px;
+            height: 90px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        .hero .flag-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .intro {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 50px;
+            padding-left: 25px;
+            border-left: 4px solid var(--red);
+        }
+        
+        /* Sections */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin: 50px 0 25px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red), var(--gold));
+            border-radius: 2px;
+        }
+        
+        p { margin-bottom: 20px; font-size: 1.05rem; color: #444; }
+        
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .city-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .city-body { padding: 30px; }
+        .city-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .city-body .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: var(--light);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--red);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .city-body p { font-size: 1rem; color: #555; }
+        
+        /* Highlights */
+        .highlight-box {
+            background: linear-gradient(135deg, #8b1a1a, #ce1126);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 150px; height: 150px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .highlight-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .highlight-box li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .highlight-box li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+        
+        /* Gallery row */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover { transform: scale(1.03); }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        .footer .heart { color: var(--red); }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .gallery { grid-template-columns: 1fr; }
+            .city-img { height: 220px; }
+        }
+        
+        /* Hide/show languages */
+        .lang-en, .lang-pt { display: none; }
+        .lang-en.active, .lang-pt.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇺🇸 English</button>
+        <button class="lang-btn" onclick="setLang('pt')" id="btn-pt">🇵🇹 Português</button>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="subtitle lang-en active">The Beating Heart of Southern Africa</div>
+            <div class="subtitle lang-pt">O Coração Batente da África Austral</div>
+            <h1 class="lang-en active">Angola</h1>
+            <h1 class="lang-pt">Angola</h1>
+            <div class="flag-wrap">
+                <img src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/a93464e96a66aa21fe849dd90f88c49c48d4cdd4.jpg" alt="Flag of Angola">
+            </div>
+            <p class="lang-en active" style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:600px; margin:0 auto;">Where ancient kingdoms meet Atlantic waves, where desert dunes kiss turquoise waters, and where the rhythm of Kizomba pulses through streets lined with colonial grace and modern ambition.</p>
+            <p class="lang-pt" style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:600px; margin:0 auto;">Onde antigos reinos encontram as ondas do Atlântico, onde dunas do deserto beijam águas turquesa, e onde o ritmo da Kizomba pulsa pelas ruas alinhadas com graça colonial e ambição moderna.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Introduction -->
+        <div class="lang-en active">
+            <p class="intro">
+                Stretching along Africa's southwestern Atlantic coast, Angola is a vast and captivating nation that defies easy description. It is a land of dramatic extremes — from the thundering <strong>Kalandula Falls</strong> in the tropical north to the ancient <strong>Welwitschia desert</strong> in the arid south, from the glittering skyscrapers of <strong>Luanda</strong> to the timeless traditions of over <strong>100 ethnic groups</strong>. After decades of civil war that ended in 2002, Angola is now stepping confidently onto the world stage as the <strong>Official Host Country of ITB Berlin 2026</strong>, inviting travelers to discover its untamed beauty, warm hospitality, and extraordinary cultural richness.
+            </p>
+        </div>
+        <div class="lang-pt">
+            <p class="intro">
+                Estendendo-se ao longo da costa atlântica do sudoeste de África, Angola é uma nação vasta e cativante que desafia uma descrição fácil. É uma terra de extremos dramáticos — desde as trovejantes <strong>Cataratas de Kalandula</strong> no norte tropical até ao antigo <strong>deserto das Welwitschias</strong> no sul árido, desde os reluzentes arranha-céus de <strong>Luanda</strong> até às tradições atemporais de mais de <strong>100 grupos étnicos</strong>. Após décadas de guerra civil que terminou em 2002, Angola está agora a dar passos confiantes no palco mundial como <strong>País Anfitrião Oficial da ITB Berlim 2026</strong>, convidando viajantes a descobrir a sua beleza indomada, hospitalidade calorosa e extraordinária riqueza cultural.
+            </p>
+        </div>
+
+        <!-- Background -->
+        <div class="lang-en active">
+            <h2>A Land Forged by History</h2>
+            <p>
+                Angola's story stretches back thousands of years. Long before Portuguese explorers arrived in the 15th century, powerful kingdoms like the <strong>Kingdom of Kongo</strong> and the <strong>Kingdom of Ndongo</strong> ruled these lands. Queen Nzinga of Ndongo became a legendary symbol of resistance against colonial expansion, her cunning and courage still celebrated today. The Portuguese established Luanda in 1576 — one of Africa's oldest European-founded cities — and for nearly five centuries, Angola remained under Portuguese rule, becoming the <strong>only Portuguese-speaking nation in Southern Africa</strong>.
+            </p>
+            <p>
+                Independence came on <strong>November 11, 1975</strong>, but was followed by a devastating civil war that lasted until 2002. The scars of that conflict are still visible, yet they coexist with remarkable resilience. Today, Angola is home to roughly <strong>35 million people</strong> across over 100 ethnic groups. The <strong>Ovimbundu</strong>, <strong>Ambundu (Mbundu)</strong>, and <strong>Bakongo</strong> are the largest communities, each preserving distinct languages, traditions, and artistic expressions. Portuguese serves as the unifying language, but walk through any market and you'll hear <strong>Umbundu</strong>, <strong>Kimbundu</strong>, <strong>Kikongo</strong>, and dozens more indigenous tongues weaving through the air like music.
+            </p>
+            <p>
+                Angolan culture is inseparable from rhythm. <strong>Semba</strong>, the sensual precursor to Brazilian samba, was born here. <strong>Kizomba</strong> has seduced dance floors from Lisbon to Tokyo. <strong>Kuduro</strong>, an explosive fusion of electronic beats and African energy, represents the country's dynamic youth. Music is not entertainment in Angola — it is the heartbeat of daily life, accompanying everything from religious ceremonies to Friday night street parties.
+            </p>
+        </div>
+        <div class="lang-pt">
+            <h2>Uma Terra Forjada pela História</h2>
+            <p>
+                A história de Angola estende-se por milhares de anos. Muito antes dos exploradores portugueses chegarem no século XV, poderosos reinos como o <strong>Reino do Kongo</strong> e o <strong>Reino do Ndongo</strong> governavam estas terras. A Rainha Nzinga do Ndongo tornou-se um símbolo lendário de resistência contra a expansão colonial, a sua astúcia e coragem ainda celebradas hoje. Os portugueses estabeleceram Luanda em 1576 — uma das cidades mais antigas fundadas por europeus em África — e durante quase cinco séculos, Angola permaneceu sob domínio português, tornando-se a <strong>única nação de língua portuguesa na África Austral</strong>.
+            </p>
+            <p>
+                A independência chegou a <strong>11 de novembro de 1975</strong>, mas foi seguida por uma devastadora guerra civil que durou até 2002. As cicatrizes desse conflito ainda são visíveis, mas coexistem com uma resiliência notável. Hoje, Angola é lar de aproximadamente <strong>35 milhões de pessoas</strong> distribuídas por mais de 100 grupos étnicos. Os <strong>Ovimbundu</strong>, <strong>Ambundu (Mbundu)</strong> e <strong>Bakongo</strong> são as maiores comunidades, cada uma preservando línguas, tradições e expressões artísticas distintas. O português serve como língua unificadora, mas caminhe por qualquer mercado e ouvirá <strong>Umbundu</strong>, <strong>Kimbundu</strong>, <strong>Kikongo</strong> e dezenas de outras línguas indígenas a tecerem pelo ar como música.
+            </p>
+            <p>
+                A cultura angolana é inseparável do ritmo. A <strong>Semba</strong>, o sensual precursor do samba brasileiro, nasceu aqui. A <strong>Kizomba</strong> seduziu pistas de dança de Lisboa a Tóquio. O <strong>Kuduro</strong>, uma fusão explosiva de batidas eletrónicas e energia africana, representa a juventude dinâmica do país. A música não é entretenimento em Angola — é o batimento cardíaco da vida quotidiana, acompanhando tudo desde cerimónias religiosas até festas de rua de sexta-feira à noite.
+            </p>
+        </div>
+
+        <!-- Cities Section -->
+        <div class="lang-en active">
+            <h2>Cities That Define a Nation</h2>
+        </div>
+        <div class="lang-pt">
+            <h2>Cidades Que Definem uma Nação</h2>
+        </div>
+
+        <div class="city-grid">
+            <!-- Luanda -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/77539a6f8e6b53a1e57b63f10f0e438f1a3abae1.jpg" alt="Luanda skyline and waterfront">
+                <div class="city-body">
+                    <span class="tag lang-en active">Capital City</span>
+                    <span class="tag lang-pt">Cidade Capital</span>
+                    <h3 class="lang-en active">Luanda</h3>
+                    <h3 class="lang-pt">Luanda</h3>
+                    <p class="lang-en active">
+                        Perched on the Atlantic edge, <strong>Luanda</strong> is one of Africa's most electrifying capitals — a city where over ten million souls create a symphony of chaos and charm. The <strong>Marginal</strong>, Luanda's sweeping coastal boulevard, pulses with life at sunset: joggers, fishermen, street vendors, and lovers sharing cold <strong>Cuca beers</strong> as the Atlantic turns gold. In the historic <strong>Baixa</strong> district, pastel-colored colonial buildings from the 16th century stand shoulder-to-shoulder with glass-and-steel skyscrapers that speak to an oil-fueled economic boom. The <strong>Fortaleza de São Miguel</strong>, a 16th-century fortress crowning a hill, offers panoramic views and a museum that whispers of slavery, resistance, and rebirth. Just offshore lies <strong>Ilha do Cabo</strong> (Cabo Island), a sandy peninsula where Luanda's elite gather at chic beach clubs to escape the city's heat. Here, the nightlife is legendary — Kizomba clubs spill onto streets until dawn, and the aroma of <strong>mufete</strong> (grilled fish with palm oil, beans, and cassava) drifts from beachside grills.
+                    </p>
+                    <p class="lang-pt">
+                        Situada na beira do Atlântico, <strong>Luanda</strong> é uma das capitais mais electrizantes de África — uma cidade onde mais de dez milhões de almas criam uma sinfonia de caos e charme. A <strong>Marginal</strong>, a ampla avenida costeira de Luanda, pulsa de vida ao pôr do sol: corredores, pescadores, vendedores de rua e casais partilhando cervejas <strong>Cuca</strong> enquanto o Atlântico se torna dourado. No histórico distrito da <strong>Baixa</strong>, edifícios coloniais de cores pastel do século XVI alinham-se ombro a ombro com arranha-céus de vidro e aço que falam de um boom económico alimentado pelo petróleo. A <strong>Fortaleza de São Miguel</strong>, uma fortaleza do século XVI coroando uma colina, oferece vistas panorâmicas e um museu que sussurra sobre escravatura, resistência e renascimento. Mesmo ao largo fica a <strong>Ilha do Cabo</strong>, uma península arenosa onde a elite de Luanda se reúne em chiques beach clubs para escapar ao calor da cidade. Aqui, a vida noturna é lendária — clubes de Kizomba transbordam para as ruas até ao amanhecer, e o aroma do <strong>mufete</strong> (peixe grelhado com óleo de palma, feijão e mandioca) flutua das grelhas à beira-mar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Lubango -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/6c6e8bc9bdda315e3337bab076b1d6c79f9ee001.jpg" alt="Lubango city and mountains">
+                <div class="city-body">
+                    <span class="tag lang-en active">Garden City of the South</span>
+                    <span class="tag lang-pt">Cidade Jardim do Sul</span>
+                    <h3 class="lang-en active">Lubango</h3>
+                    <h3 class="lang-pt">Lubango</h3>
+                    <p class="lang-en active">
+                        High on the <strong>Huíla Plateau</strong> at 1,700 meters above sea level, <strong>Lubango</strong> is Angola's "Garden City" — a place of perpetual spring where jacaranda trees paint the avenues purple and the air carries the scent of strawberries and eucalyptus. The city's crown jewel is the <strong>Cristo Rei</strong> statue, a white-marble Christ the King monument inspired by Rio's famous Christ the Redeemer, gazing serenely over the valley below. But Lubango's true magic lies just beyond its borders. The <strong>Tundavala Gap</strong> (Fenda da Tundavala) is one of Africa's most breathtaking viewpoints — a sheer 1,000-meter cliff drop where the plateau plunges dramatically into the desert plains of Namibe below, often shrouded in mystical mist. Nearby, the legendary <strong>Serra da Leba</strong> pass snakes down the mountainside in dizzying hairpin turns, an engineering marvel best photographed at night when the lights of passing vehicles trace golden ribbons through the darkness. Lubango is also famous for its <strong>Queijo da Huíla</strong> (Huíla cheese) and cold-climate fruits like peaches — rare delicacies in tropical Africa.
+                    </p>
+                    <p class="lang-pt">
+                        Alto no <strong>Planalto da Huíla</strong>, a 1.700 metros acima do nível do mar, <strong>Lubango</strong> é a "Cidade Jardim" de Angola — um lugar de primavera perpétua onde jacarandás pintam as avenidas de roxo e o ar transporta o perfume de morangos e eucaliptos. A joia da coroa da cidade é a estátua do <strong>Cristo Rei</strong>, um monumento de mármore branco inspirado no famoso Cristo Redentor do Rio, contemplando serenamente o vale abaixo. Mas a verdadeira magia de Lubango reside mesmo para além das suas fronteiras. A <strong>Fenda da Tundavala</strong> é um dos pontos de vista mais deslumbrantes de África — uma queda vertical de 1.000 metros onde o planalto mergulha dramaticamente nas planícies desérticas de Namibe abaixo, frequentemente envolta em névoa mística. Nas proximidades, a lendária passagem da <strong>Serra da Leba</strong> serpenteia pela encosta da montanha em curvas vertiginosas, uma maravilha da engenharia melhor fotografada à noite quando as luzes dos veículos traçam fitas douradas através da escuridão. Lubango é também famosa pelo seu <strong>Queijo da Huíla</strong> e frutas de clima frio como pêssegos — delicadezas raras na África tropical.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Benguela -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/mg.co.za/533ac5cb235d840cb029ca93a09c315e3901b1a3.jpg" alt="Benguela coastal cliffs and turquoise water">
+                <div class="city-body">
+                    <span class="tag lang-en active">Coastal Paradise</span>
+                    <span class="tag lang-pt">Paraíso Costeiro</span>
+                    <h3 class="lang-en active">Benguela</h3>
+                    <h3 class="lang-pt">Benguela</h3>
+                    <p class="lang-en active">
+                        Where the desert meets the sea in spectacular fashion, <strong>Benguela</strong> is Angola's most relaxed and photogenic coastal city. Founded by the Portuguese in 1617, it carries the soul of an old Atlantic port — colorful colonial buildings, palm-lined avenues, and a pace of life that invites you to slow down. The <strong>Church of Our Lady of Pópulo</strong> and the <strong>Benguela Cathedral</strong> are architectural treasures, while the <strong>Museu de Benguela</strong> tells stories of ancient rock engravings and the transatlantic slave trade. But most visitors come for the beaches. <strong>Praia Morena</strong> offers golden sands and warm, clear waters perfect for swimming, while the dramatic cliffs and turquoise coves along the coast feel almost Mediterranean. Benguela is also the gateway to the historic <strong>Benguela Railway</strong> (Caminho de Ferro de Benguela), a colonial-era line that once linked the Atlantic to the copper mines of the Democratic Republic of the Congo, and today offers one of Africa's most scenic rail journeys through mountains, savannah, and timeless villages.
+                    </p>
+                    <p class="lang-pt">
+                        Onde o deserto encontra o mar de forma espetacular, <strong>Benguela</strong> é a cidade costeira mais relaxada e fotogénica de Angola. Fundada pelos portugueses em 1617, transporta a alma de um antigo porto atlântico — edifícios coloniais coloridos, avenidas alinhadas de palmeiras, e um ritmo de vida que convida a abrandar. A <strong>Igreja de Nossa Senhora do Pópulo</strong> e a <strong>Sé de Benguela</strong> são tesouros arquitetónicos, enquanto o <strong>Museu de Benguela</strong> conta histórias de antigas gravuras rupestres e do comércio transatlântico de escravos. Mas a maioria dos visitantes vem pelas praias. A <strong>Praia Morena</strong> oferece areias douradas e águas quentes e claras perfeitas para nadar, enquanto os dramáticos penhascos e enseadas turquesa ao longo da costa parecem quase mediterrânicos. Benguela é também a porta de entrada para a histórica <strong>Caminho de Ferro de Benguela</strong>, uma linha da era colonial que outrora ligava o Atlântico às minas de cobre da República Democrática do Congo, e que hoje oferece uma das viagens ferroviárias mais cénicas de África através de montanhas, savana e aldeias atemporais.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nature & Beauty -->
+        <div class="lang-en active">
+            <h2>Wilderness Without Equal</h2>
+            <p>
+                Angola's natural diversity is staggering. In the north, the <strong>Kalandula Falls</strong> on the Lucala River are among Africa's largest waterfalls by volume — a thundering curtain of water 105 meters high and 400 meters wide, surrounded by lush miombo woodlands that shimmer in the tropical light. The <strong>Pedras Negras de Pungo Andongo</strong> near Malanje are mysterious black monoliths rising from the savannah, their origins wrapped in legend.
+            </p>
+            <p>
+                In the south, the <strong>Iona National Park</strong> in Namibe province is where desert, savannah, and ocean collide in an almost surreal landscape. Here grows the <strong>Welwitschia mirabilis</strong>, a bizarre desert plant that can live for over 2,000 years, surviving on Atlantic fog alone. The <strong>Miradouro da Lua</strong> (Moon Viewpoint) near Luanda offers a lunar-like landscape of eroded white cliffs plunging into the sea — a favorite spot for photographers at sunset. And in the southeast, the <strong>Cuando and Cubango rivers</strong> rise to feed the legendary Okavango Delta, one of the world's greatest inland waterways, within the vast <strong>Kavango-Zambezi Transfrontier Conservation Area</strong>.
+            </p>
+        </div>
+        <div class="lang-pt">
+            <h2>Um Deserto Sem Igual</h2>
+            <p>
+                A diversidade natural de Angola é espantosa. No norte, as <strong>Cataratas de Kalandula</strong> no Rio Lucala estão entre as maiores cataratas de África em volume — uma cortina trovejante de água de 105 metros de altura e 400 metros de largura, rodeada por bosques de miombo exuberantes que cintilam à luz tropical. As <strong>Pedras Negras de Pungo Andongo</strong>, perto de Malanje, são misteriosos monólitos negros que se erguem da savana, as suas origens envoltas em lendas.
+            </p>
+            <p>
+                No sul, o <strong>Parque Nacional do Iona</strong>, na província do Namibe, é onde o deserto, a savana e o oceano colidem numa paisagem quase surreal. Aqui cresce a <strong>Welwitschia mirabilis</strong>, uma bizarra planta do deserto que pode viver mais de 2.000 anos, sobrevivendo apenas ao nevoeiro atlântico. O <strong>Miradouro da Lua</strong>, perto de Luanda, oferece uma paisagem lunar de penhascos brancos erodidos que mergulham no mar — um local favorito para fotógrafos ao pôr do sol. E no sudeste, os rios <strong>Cuando e Cubango</strong> nascem para alimentar a lendária Delta do Okavango, uma das maiores vias navegáveis interiores do mundo, dentro da vasta <strong>Área de Conservação Transfronteiriça do Kavango-Zambeze</strong>.
+            </p>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.beach-on-map.com/6644df53f06b0b1acd4f4a383177698008405a63.jpg" alt="Benguela beach golden cliffs">
+            <img src="https://kimi-web-img.moonshot.cn/img/img.rezdy.com/e9a29e648330af677859f5853c9877f0b4fdaec7.jpg" alt="Angola coastal aerial view">
+        </div>
+
+        <!-- Culture Highlight -->
+        <div class="lang-en active">
+            <div class="highlight-box">
+                <h3>Why Angola Stays With You</h3>
+                <ul>
+                    <li>Only Portuguese-speaking country in Southern Africa</li>
+                    <li>Home to over 100 distinct ethnic groups</li>
+                    <li>Kizomba and Semba born here, now global phenomena</li>
+                    <li>Kalandula Falls: 105m high, 400m wide</li>
+                    <li>Luanda: one of Africa's oldest European-founded cities</li>
+                    <li>Welwitschia plant lives over 2,000 years</li>
+                    <li>Giant Sable Antelope: Angola's national animal</li>
+                    <li>ITB Berlin 2026 Official Host Country</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lang-pt">
+            <div class="highlight-box">
+                <h3>Por Que Angola Fica Consigo</h3>
+                <ul>
+                    <li>Único país de língua portuguesa na África Austral</li>
+                    <li>Lar de mais de 100 grupos étnicos distintos</li>
+                    <li>Kizomba e Semba nasceram aqui, agora fenómenos globais</li>
+                    <li>Cataratas de Kalandula: 105m de altura, 400m de largura</li>
+                    <li>Luanda: uma das cidades mais antigas fundadas por europeus em África</li>
+                    <li>Planta Welwitschia vive mais de 2.000 anos</li>
+                    <li>Palanca Negra Gigante: animal nacional de Angola</li>
+                    <li>País Anfitrião Oficial da ITB Berlim 2026</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="lang-en active">
+            <h2>A Journey Into the Extraordinary</h2>
+            <p>
+                Angola is not a destination for the faint-hearted traveler. Visas require persistence, roads outside major cities can be challenging, and the legacy of war means some regions remain off-limits. But for those willing to venture beyond the familiar, Angola offers rewards that few places on Earth can match. It is a country where you can breakfast on <strong>funge and calulu</strong> in a Luanda street market, lunch on fresh lobster in Benguela, and dine on <strong>Huíla cheese</strong> and strawberries while watching the sun set over the Tundavala cliffs.
+            </p>
+            <p>
+                It is a place where ancient rock art shares the land with oil rigs, where desert nomads and city bankers dance to the same Kizomba beat, and where the warmth of the Angolan people — tested by centuries of hardship yet unbroken — reminds you that the most profound journeys are measured not in miles, but in the connections we make. Angola is awakening. The question is not whether you should visit, but whether you will arrive before the rest of the world discovers what you already know: that this is one of Africa's last great frontiers, and it is spectacular.
+            </p>
+        </div>
+        <div class="lang-pt">
+            <h2>Uma Jornada ao Extraordinário</h2>
+            <p>
+                Angola não é um destino para o viajante de coração fraco. Os vistos exigem persistência, as estradas fora das cidades principais podem ser desafiantes, e o legado da guerra significa que algumas regiões permanecem interditas. Mas para aqueles dispostos a aventurar-se para além do familiar, Angola oferece recompensas que poucos lugares na Terra podem igualar. É um país onde pode tomar o pequeno-almoço com <strong>funge e calulu</strong> num mercado de rua de Luanda, almoçar lagosta fresca em Benguela, e jantar <strong>queijo da Huíla</strong> e morangos enquanto observa o pôr do sol sobre os penhascos da Tundavala.
+            </p>
+            <p>
+                É um lugar onde arte rupestre antiga partilha a terra com plataformas petrolíferas, onde nómadas do deserto e banqueiros urbanos dançam ao mesmo ritmo de Kizomba, e onde o calor do povo angolano — testado por séculos de privações mas incólume — lembra que as jornadas mais profundas não são medidas em quilómetros, mas nas conexões que fazemos. Angola está a despertar. A questão não é se deve visitar, mas se chegará antes que o resto do mundo descubra o que já sabe: que esta é uma das últimas grandes fronteiras de África, e é espetacular.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p class="lang-en active">Written with <span class="heart">❤</span> for curious souls · Images sourced from public references</p>
+        <p class="lang-pt">Escrito com <span class="heart">❤</span> para almas curiosas · Imagens de referências públicas</p>
+        <p style="margin-top:8px; font-size:0.8rem; opacity:0.6;">© 2026 Travel Blog · Angola</p>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.lang-en, .lang-pt').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.add('active'));
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.documentElement.lang = lang === 'pt' ? 'pt' : 'en';
+        }
+    </script>
+</body>
+</html>
+print("Angola blog saved successfully!")
+print(f"File size: {len(html_content)} characters")
