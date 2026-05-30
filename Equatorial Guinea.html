@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Equatorial Guinea — A Hidden Gem of Central Africa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #3e9b00;
+            --red: #ce1126;
+            --blue: #0073ce;
+            --gold: #f4c430;
+            --dark: #1a1a1a;
+            --light: #f8f6f3;
+            --cream: #fffdf8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        /* Language Toggle */
+        .lang-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(26,26,26,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .lang-btn {
+            padding: 8px 22px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover { border-color: var(--gold); color: var(--gold); }
+        .lang-btn.active { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+        
+        /* Hero */
+        .hero {
+            margin-top: 50px;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 50%, #1a2a3a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1920') center/cover;
+            opacity: 0.25;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .hero .flag-wrap {
+            margin: 25px auto;
+            width: 140px;
+            height: 90px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        .hero .flag-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .intro {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 50px;
+            padding-left: 25px;
+            border-left: 4px solid var(--green);
+        }
+        
+        /* Sections */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin: 50px 0 25px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--red));
+            border-radius: 2px;
+        }
+        
+        p { margin-bottom: 20px; font-size: 1.05rem; color: #444; }
+        
+        /* City Cards */
+        .city-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .city-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .city-body { padding: 30px; }
+        .city-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .city-body .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: var(--light);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--green);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .city-body p { font-size: 1rem; color: #555; }
+        
+        /* Highlights */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--green), #2d7a00);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 150px; height: 150px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .highlight-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .highlight-box li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .highlight-box li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+        
+        /* Gallery row */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover { transform: scale(1.03); }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        .footer .heart { color: var(--red); }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .gallery { grid-template-columns: 1fr; }
+            .city-img { height: 220px; }
+        }
+        
+        /* Hide/show languages */
+        .lang-en, .lang-es { display: none; }
+        .lang-en.active, .lang-es.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇺🇸 English</button>
+        <button class="lang-btn" onclick="setLang('es')" id="btn-es">🇪🇸 Español</button>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="subtitle lang-en active">The Hidden Pearl of Central Africa</div>
+            <div class="subtitle lang-es">La Perla Escondida de África Central</div>
+            <h1 class="lang-en active">Equatorial Guinea</h1>
+            <h1 class="lang-es">Guinea Ecuatorial</h1>
+            <div class="flag-wrap">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.flagsonline.it/3b1e39149285beb02fec0ec24432c190b8a4966b.jpg" alt="Flag of Equatorial Guinea">
+            </div>
+            <p class="lang-en active" style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:600px; margin:0 auto;">Africa's only Spanish-speaking nation — where volcanic islands meet ancient rainforest and colonial charm dances with modern ambition.</p>
+            <p class="lang-es" style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:600px; margin:0 auto;">La única nación hispanohablante de África — donde islas volcánicas se encuentran con selvas milenarias y el encanto colonial baila con la ambición moderna.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Introduction -->
+        <div class="lang-en active">
+            <p class="intro">
+                Nestled in the heart of Central Africa, hugging the Gulf of Guinea, lies one of the continent's most fascinating and least understood nations. Equatorial Guinea is a country of striking contrasts — where Bioko Island's volcanic peaks rise from misty Atlantic waters, where mainland rainforests shelter elephants and chimpanzees, and where Spanish colonial architecture stands proudly beside gleaming oil-era skyscrapers.
+            </p>
+        </div>
+        <div class="lang-es">
+            <p class="intro">
+                Ubicada en el corazón de África Central, abrazando el Golfo de Guinea, se encuentra una de las naciones más fascinantes y menos comprendidas del continente. Guinea Ecuatorial es un país de contrastes sorprendentes — donde los picos volcánicos de la Isla Bioko se elevan desde las brumosas aguas del Atlántico, donde las selvas del continente albergan elefantes y chimpancés, y donde la arquitectura colonial española se alza orgullosa junto a rascacielos relucientes de la era petrolera.
+            </p>
+        </div>
+
+        <!-- Background -->
+        <div class="lang-en active">
+            <h2>A Land of Two Realms</h2>
+            <p>
+                Equatorial Guinea is unique among African nations. It is the <strong>only Spanish-speaking country on the continent</strong>, a linguistic legacy that sets it apart from its French and Portuguese-speaking neighbors. With a population of roughly 1.7 million people, it is one of Africa's smallest countries by population, yet one of its wealthiest per capita thanks to substantial offshore oil reserves discovered in the 1990s.
+            </p>
+            <p>
+                The country's geography is divided into two distinct regions: <strong>Bioko Island</strong> (and smaller offshore islands), home to the current capital Malabo, and <strong>Río Muni</strong>, the mainland territory bordering Cameroon and Gabon. This dual nature gives travelers two completely different experiences — the island's dramatic volcanic landscapes, black-sand beaches, and cooler highland climate, versus the mainland's dense tropical forests, wide rivers, and vibrant border-town energy.
+            </p>
+            <p>
+                Culturally, Equatorial Guinea is a rich mosaic. The <strong>Fang people</strong> form the majority on the mainland, while the <strong>Bubi</strong> people are indigenous to Bioko Island. There are also smaller communities of Ndowe, Annobonese, and immigrant populations from Cameroon, Nigeria, and Spain. This diversity is reflected in the country's three official languages — Spanish, French, and Portuguese — a rare trilingual distinction that speaks to its complex colonial and regional history.
+            </p>
+        </div>
+        <div class="lang-es">
+            <h2>Una Tierra de Dos Reinos</h2>
+            <p>
+                Guinea Ecuatorial es única entre las naciones africanas. Es el <strong>único país hispanohablante del continente</strong>, un legado lingüístico que la distingue de sus vecinos de habla francesa y portuguesa. Con una población de aproximadamente 1.7 millones de personas, es uno de los países más pequeños de África en población, pero uno de los más ricos per cápita gracias a las sustanciales reservas de petróleo descubiertas en la década de 1990.
+            </p>
+            <p>
+                La geografía del país se divide en dos regiones distintas: la <strong>Isla Bioko</strong> (y pequeñas islas adyacentes), hogar de la capital actual Malabo, y <strong>Río Muni</strong>, el territorio continental que limita con Camerún y Gabón. Esta naturaleza dual ofrece a los viajeros dos experiencias completamente diferentes — los dramáticos paisajes volcánicos de la isla, playas de arena negra y clima más fresco de las tierras altas, versus las densas selvas tropicales del continente, amplios ríos y la energía vibrante de las ciudades fronterizas.
+            </p>
+            <p>
+                Culturalmente, Guinea Ecuatorial es un rico mosaico. El <strong>pueblo Fang</strong> forma la mayoría en el continente, mientras que el pueblo <strong>Bubi</strong> es indígena de la Isla Bioko. También hay comunidades más pequeñas de Ndowe, Annobonese y poblaciones inmigrantes de Camerún, Nigeria y España. Esta diversidad se refleja en los tres idiomas oficiales del país — español, francés y portugués — una distinción trilingüe poco común que habla de su compleja historia colonial y regional.
+            </p>
+        </div>
+
+        <!-- Cities Section -->
+        <div class="lang-en active">
+            <h2>Cities That Tell a Story</h2>
+        </div>
+        <div class="lang-es">
+            <h2>Ciudades Que Cuentan una Historia</h2>
+        </div>
+
+        <div class="city-grid">
+            <!-- Malabo -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/4c4f0d954b6be25c0bc40f0066c6cd0e780c430f.jpg" alt="Malabo aerial view">
+                <div class="city-body">
+                    <span class="tag lang-en active">Capital City</span>
+                    <span class="tag lang-es">Ciudad Capital</span>
+                    <h3 class="lang-en active">Malabo</h3>
+                    <h3 class="lang-es">Malabo</h3>
+                    <p class="lang-en active">
+                        Perched on the northern coast of Bioko Island, Malabo is a city where time seems to move at its own gentle pace. The stunning <strong>Cathedral of Santa Isabel</strong> dominates Plaza de la Independencia with its apricot-colored neo-Gothic spires rising 40 meters into the tropical sky. Stroll along the <strong>Paseo Marítimo</strong> at sunset, where the Gulf of Guinea sparkles and fishermen haul in the day's catch. Behind the city, the mighty <strong>Pico Basile</strong> volcano looms at over 3,000 meters, its rainforest-clad slopes hiding rare birds and butterflies. Malabo's culinary scene is a delicious fusion of Spanish and African traditions — don't miss <strong>Pepesup</strong>, a fiery fish soup that locals swear cures everything from heartbreak to hangovers.
+                    </p>
+                    <p class="lang-es">
+                        Situada en la costa norte de la Isla Bioko, Malabo es una ciudad donde el tiempo parece moverse a su propio ritmo gentil. La impresionante <strong>Catedral de Santa Isabel</strong> domina la Plaza de la Independencia con sus agujas neogóticas de color albaricoque elevándose 40 metros hacia el cielo tropical. Pasee por el <strong>Paseo Marítimo</strong> al atardecer, donde el Golfo de Guinea brilla y los pescadores traen la captura del día. Detrás de la ciudad, el imponente volcán <strong>Pico Basile</strong> se cierne a más de 3,000 metros, sus laderas cubiertas de selva escondiendo aves raras y mariposas. La escena culinaria de Malabo es una deliciosa fusión de tradiciones españolas y africanas — no se pierda el <strong>Pepesup</strong>, una sopa de pescado picante que los locales juran cura todo, desde desamores hasta resacas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bata -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/cc0a7f642c79997b4b877a498b87b0780c08d0fb.jpg" alt="Bata city view">
+                <div class="city-body">
+                    <span class="tag lang-en active">Economic Capital</span>
+                    <span class="tag lang-es">Capital Económica</span>
+                    <h3 class="lang-en active">Bata</h3>
+                    <h3 class="lang-es">Bata</h3>
+                    <p class="lang-en active">
+                        On the mainland's Atlantic coast, <strong>Bata</strong> is Equatorial Guinea's largest city and economic engine. Life here revolves around the bustling port, vibrant markets, and a seafront corniche where locals gather to watch the waves. The city feels more spread out than Malabo, with a rhythm driven by commerce and cross-border trade. The <strong>Liberation Tower</strong> (Torre de la Libertad) offers a revolving restaurant with panoramic views — a surreal experience of fine dining above a city that still maintains deep traditional roots. Bata serves as the gateway to the mainland's interior rainforests, where Monte Alén National Park protects forest elephants, chimpanzees, and cascading waterfalls hidden in emerald jungle.
+                    </p>
+                    <p class="lang-es">
+                        En la costa atlántica del continente, <strong>Bata</strong> es la ciudad más grande de Guinea Ecuatorial y su motor económico. La vida aquí gira en torno al bullicioso puerto, mercados vibrantes y un paseo marítimo donde los locales se reúnen para observar las olas. La ciudad se siente más extendida que Malabo, con un ritmo impulsado por el comercio y el intercambio transfronterizo. La <strong>Torre de la Libertad</strong> ofrece un restaurante giratorio con vistas panorámicas — una experiencia surrealista de alta cocina sobre una ciudad que aún mantiene profundas raíces tradicionales. Bata sirve como puerta de entrada a las selvas interiores del continente, donde el Parque Nacional Monte Alén protege elefantes de bosque, chimpancés y cascadas ocultas en la jungla esmeralda.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ciudad de la Paz / Oyala -->
+            <div class="city-card">
+                <img class="city-img" src="https://kimi-web-img.moonshot.cn/img/images.adsttc.com/a3f6221a242b9953b3a141c9c70ed14faf1e2094.jpg" alt="Ciudad de la Paz aerial view">
+                <div class="city-body">
+                    <span class="tag lang-en active">Future Capital</span>
+                    <span class="tag lang-es">Capital Futura</span>
+                    <h3 class="lang-en active">Ciudad de la Paz (Oyala)</h3>
+                    <h3 class="lang-es">Ciudad de la Paz (Oyala)</h3>
+                    <p class="lang-en active">
+                        Deep in the mainland jungle rises one of Africa's most ambitious urban projects — <strong>Ciudad de la Paz</strong>, the planned new capital. This futuristic city, also known as Oyala, is slowly emerging from the rainforest with wide boulevards, modern government buildings, and the stunning <strong>Djibholo Hotel</strong>, a five-star oasis in the middle of the jungle. While still under construction, it represents Equatorial Guinea's vision for the future: a capital connected to the African continent, surrounded by pristine nature. The nearby <strong>Sipopo Conference Centre</strong>, with its striking modern architecture, has already hosted African Union summits. It is a surreal sight — gleaming marble and glass structures rising from the emerald canopy, where monkeys still outnumber bureaucrats.
+                    </p>
+                    <p class="lang-es">
+                        En lo profundo de la jungla continental surge uno de los proyectos urbanos más ambiciosos de África — la <strong>Ciudad de la Paz</strong>, la planificada nueva capital. Esta ciudad futurista, también conocida como Oyala, emerge lentamente de la selva con amplios bulevares, modernos edificios gubernamentales y el impresionante <strong>Hotel Djibholo</strong>, un oasis de cinco estrellas en medio de la jungla. Aunque aún en construcción, representa la visión de Guinea Ecuatorial para el futuro: una capital conectada al continente africano, rodeada de naturaleza prístina. El cercano <strong>Centro de Conferencias de Sipopo</strong>, con su llamativa arquitectura moderna, ya ha albergado cumbres de la Unión Africana. Es una vista surrealista — estructuras relucientes de mármol y vidrio surgiendo del dosel esmeralda, donde los monos aún superan en número a los burócratas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nature & Beauty -->
+        <div class="lang-en active">
+            <h2>Nature's Untouched Masterpieces</h2>
+            <p>
+                Beyond its cities, Equatorial Guinea harbors some of Central Africa's most pristine wilderness. <strong>Ureka Village</strong> on Bioko's southern coast offers remote black-sand beaches where sea turtles nest, and waterfalls tumble directly into the Atlantic. The <strong>Moka Valley</strong> and its surrounding highlands are a hiker's paradise, with trails winding through cloud forests that seem unchanged for millennia.
+            </p>
+            <p>
+                On the mainland, <strong>Monte Alén National Park</strong> spans over 1,400 square miles of primary rainforest. Here, dedicated travelers can trek through dense jungle in search of forest elephants, western lowland gorillas, and the elusive chimpanzees whose calls echo through the canopy at dawn. The <strong>Río Campo</strong> estuary near the Cameroon border offers a quieter, riverine world of mangroves and fishing villages, where dugout canoes glide silently through brown waters at sunrise.
+            </p>
+        </div>
+        <div class="lang-es">
+            <h2>Obras Maestras Intactas de la Naturaleza</h2>
+            <p>
+                Más allá de sus ciudades, Guinea Ecuatorial alberga algunas de las zonas silvestres más prístinas de África Central. El <strong>Pueblo de Ureka</strong> en la costa sur de Bioko ofrece remotas playas de arena negra donde anidan las tortugas marinas, y cascadas que caen directamente al Atlántico. El <strong>Valle de Moka</strong> y sus tierras altas circundantes son un paraíso para los excursionistas, con senderos serpenteando a través de bosques nublados que parecen inmutables desde hace milenios.
+            </p>
+            <p>
+                En el continente, el <strong>Parque Nacional Monte Alén</strong> abarca más de 1,400 millas cuadradas de selva primaria. Aquí, los viajeros dedicados pueden caminar a través de la densa jungla en busca de elefantes de bosque, gorilas de llanura occidental y los esquivos chimpancés cuyos llamados resuenan a través del dosel al amanecer. El estuario del <strong>Río Campo</strong> cerca de la frontera con Camerún ofrece un mundo fluvial más tranquilo de manglares y pueblos pesqueros, donde las piraguas deslizan silenciosamente por aguas marrones al amanecer.
+            </p>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.africanleadershipmagazine.co.uk/e32909bba0c94df7727cf2d71c7259c41cec871d.jpg" alt="Bioko Island waterfall">
+            <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/fae7103e8928b059da56a0d81d0324cbae066cf1.jpg" alt="Bioko Island aerial view">
+        </div>
+
+        <!-- Culture Highlight -->
+        <div class="lang-en active">
+            <div class="highlight-box">
+                <h3>Why Equatorial Guinea Captivates</h3>
+                <ul>
+                    <li>Only Spanish-speaking nation in Africa</li>
+                    <li>Three official languages: Spanish, French, Portuguese</li>
+                    <li>Bioko Island's Pico Basile rises 3,011 meters</li>
+                    <li>Monte Alén National Park protects rare wildlife</li>
+                    <li>Colonial architecture dating to 19th century</li>
+                    <li>Black-sand beaches and nesting sea turtles</li>
+                    <li>Rich fusion of Spanish and African cuisine</li>
+                    <li>One of Africa's highest GDP per capita</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lang-es">
+            <div class="highlight-box">
+                <h3>Por Qué Guinea Ecuatorial Cautiva</h3>
+                <ul>
+                    <li>Única nación hispanohablante de África</li>
+                    <li>Tres idiomas oficiales: español, francés, portugués</li>
+                    <li>El Pico Basile de la Isla Bioko se eleva a 3,011 metros</li>
+                    <li>El Parque Nacional Monte Alén protege fauna rara</li>
+                    <li>Arquitectura colonial del siglo XIX</li>
+                    <li>Playas de arena negra y tortugas marinas anidando</li>
+                    <li>Rica fusión de cocina española y africana</li>
+                    <li>Uno de los PIB per cápita más altos de África</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="lang-en active">
+            <h2>A Journey Worth Taking</h2>
+            <p>
+                Equatorial Guinea is not an easy country to visit — visas require patience, photography rules are strict, and infrastructure outside major cities can be challenging. But for the curious traveler, these hurdles are a small price to pay for the reward of discovering one of Africa's last true hidden gems. Whether you're sipping cold beer on Bata's corniche, watching the mist clear from Pico Basile's summit, or simply listening to the rhythms of Spanish and Fang blending in a Malabo market, you'll find a country that defies expectations at every turn.
+            </p>
+            <p>
+                It is a place where the old world and the new world collide beautifully — where colonial cathedrals stand beside oil-funded modernism, where ancient forest traditions survive alongside smartphone-wielding youth, and where the warm hospitality of its people reminds you that the best discoveries are often found in the places least traveled. Equatorial Guinea is waiting. Pack your sense of adventure, bring your appetite for pepper soup, and prepare to be surprised.
+            </p>
+        </div>
+        <div class="lang-es">
+            <h2>Un Viaje Que Vale la Pena</h2>
+            <p>
+                Guinea Ecuatorial no es un país fácil de visitar — las visas requieren paciencia, las normas de fotografía son estrictas, y la infraestructura fuera de las ciudades principales puede ser desafiante. Pero para el viajero curioso, estos obstáculos son un pequeño precio a pagar por la recompensa de descubrir una de las últimas verdaderas joyas escondidas de África. Ya sea bebiendo cerveza fría en el paseo marítimo de Bata, observando cómo la niebla se disipa desde la cima del Pico Basile, o simplemente escuchando los ritmos del español y el fang mezclándose en un mercado de Malabo, encontrará un país que desafía las expectativas a cada paso.
+            </p>
+            <p>
+                Es un lugar donde el viejo mundo y el nuevo mundo chocan bellamente — donde las catedrales coloniales se alzan junto al modernismo financiado por el petróleo, donde las antiguas tradiciones forestales sobreviven junto a jóvenes con smartphones, y donde la cálida hospitalidad de su gente le recuerda que los mejores descubrimientos a menudo se encuentran en los lugares menos transitados. Guinea Ecuatorial le espera. Empaque su sentido de aventura, traiga su apetito por la sopa de pimienta, y prepárese para sorprenderse.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p class="lang-en active">Written with <span class="heart">❤</span> for curious souls · Images sourced from public references</p>
+        <p class="lang-es">Escrito con <span class="heart">❤</span> para almas curiosas · Imágenes de referencias públicas</p>
+        <p style="margin-top:8px; font-size:0.8rem; opacity:0.6;">© 2026 Travel Blog · Equatorial Guinea</p>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.lang-en, .lang-es').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.add('active'));
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.documentElement.lang = lang === 'es' ? 'es' : 'en';
+        }
+    </script>
+</body>
+</html>
+print("Blog saved successfully!")
+print(f"File size: {len(html_content)} characters")
