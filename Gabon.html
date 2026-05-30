@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇬🇦 Gabon Travel Guide | Discover the Last Eden</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --green: #009639;
+            --yellow: #FFD100;
+            --blue: #3A75C4;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gold: #c9a227;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50px;
+            padding: 8px 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .lang-btn {
+            border: none;
+            background: transparent;
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+        
+        .lang-btn.active {
+            background: var(--green);
+            color: white;
+        }
+        
+        .lang-btn:hover:not(.active) {
+            background: rgba(0,150,57,0.1);
+            color: var(--green);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0,150,57,0.85) 0%, rgba(58,117,196,0.85) 100%),
+                        url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1920') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .hero-flag {
+            width: 120px;
+            height: 80px;
+            margin: 0 auto 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: wave 3s ease-in-out infinite;
+        }
+        
+        .hero-flag img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+        
+        .hero .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.8;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        .scroll-down i {
+            font-size: 2rem;
+            color: white;
+            opacity: 0.7;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--green);
+            background: rgba(0,150,57,0.08);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--green);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 60%;
+        }
+        
+        /* Section Styles */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-header .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green), var(--yellow), var(--blue));
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-image .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 40px 30px 30px;
+            color: white;
+        }
+        
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 3px solid var(--green);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+        
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 5px;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 20px;
+        }
+        
+        .flag-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .flag-display {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        .flag-display img {
+            width: 100%;
+            display: block;
+        }
+        
+        .flag-meaning {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .flag-color {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .color-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+        
+        .color-dot.green { background: var(--green); }
+        .color-dot.yellow { background: var(--yellow); }
+        .color-dot.blue { background: var(--blue); }
+        
+        /* Cities Section */
+        .cities-section {
+            background: white;
+        }
+        
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+        
+        .city-image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+        
+        .city-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .city-card:hover .city-image img {
+            transform: scale(1.1);
+        }
+        
+        .city-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--green);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .city-content {
+            padding: 30px;
+        }
+        
+        .city-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .city-content .city-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .city-content .city-meta i {
+            margin-right: 5px;
+            color: var(--green);
+        }
+        
+        .city-content p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .city-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .highlight-tag {
+            background: rgba(0,150,57,0.1);
+            color: var(--green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* Nature Section */
+        .nature-section {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+            color: white;
+            padding: 100px 20px;
+        }
+        
+        .nature-section .section-header h2 {
+            color: white;
+        }
+        
+        .nature-section .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .nature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nature-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .nature-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .nature-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .nature-card-content {
+            padding: 25px;
+        }
+        
+        .nature-card-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--yellow);
+        }
+        
+        .nature-card-content p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        /* Tips Section */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .tip-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--green);
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+        
+        .tip-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--green), var(--blue));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .tip-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .tip-card h4 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        
+        .tip-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+        
+        .footer-flag {
+            width: 80px;
+            margin: 0 auto 20px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .footer p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 30px;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--green);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 2rem; }
+            .nav-container { gap: 15px; }
+        }
+        
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+        
+        /* French text hidden by default */
+        .fr { display: none; }
+        body.lang-fr .en { display: none; }
+        body.lang-fr .fr { display: block; }
+        body.lang-fr .fr-inline { display: inline; }
+        body.lang-fr .en-inline { display: none; }
+        .fr-inline { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
+        <button class="lang-btn" onclick="setLang('fr')" id="btn-fr">🇫🇷 Français</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Gabon.svg/1200px-Flag_of_Gabon.svg.png" alt="Flag of Gabon">
+            </div>
+            <h1 class="en">GABON</h1>
+            <h1 class="fr">GABON</h1>
+            <p class="subtitle en">The Last Eden of Africa</p>
+            <p class="subtitle fr">Le Dernier Eden de l'Afrique</p>
+            <p class="tagline en">Discover • Explore • Experience</p>
+            <p class="tagline fr">Découvrir • Explorer • Vivre</p>
+        </div>
+        <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#about" class="nav-link en">About</a>
+            <a href="#about" class="nav-link fr">À Propos</a>
+            <a href="#flag" class="nav-link en">Flag</a>
+            <a href="#flag" class="nav-link fr">Drapeau</a>
+            <a href="#cities" class="nav-link en">Cities</a>
+            <a href="#cities" class="nav-link fr">Villes</a>
+            <a href="#nature" class="nav-link en">Nature</a>
+            <a href="#nature" class="nav-link fr">Nature</a>
+            <a href="#tips" class="nav-link en">Travel Tips</a>
+            <a href="#tips" class="nav-link fr">Conseils</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-header fade-in">
+            <h2 class="en">About Gabon</h2>
+            <h2 class="fr">À Propos du Gabon</h2>
+            <div class="divider"></div>
+            <p class="en">A hidden gem on the Equator, where ancient rainforests meet the Atlantic Ocean</p>
+            <p class="fr">Un joyau caché sur l'Équateur, où les forêts tropicales anciennes rencontrent l'océan Atlantique</p>
+        </div>
+        
+        <div class="about-grid fade-in">
+            <div class="about-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Libreville_aerial.jpg/1280px-Libreville_aerial.jpg" alt="Libreville Aerial View">
+                <div class="overlay">
+                    <h4 class="en">Libreville - The Capital</h4>
+                    <h4 class="fr">Libreville - La Capitale</h4>
+                    <p class="en">Where modern Africa meets tropical paradise</p>
+                    <p class="fr">Où l'Afrique moderne rencontre le paradis tropical</p>
+                </div>
+            </div>
+            <div class="about-content">
+                <h3 class="en">The Gabonese Republic</h3>
+                <h3 class="fr">La République Gabonaise</h3>
+                <p class="en">
+                    Gabon, officially the <strong>Gabonese Republic</strong>, is a stunning country on the Atlantic coast of Central Africa, straddling the Equator. With an area of approximately 270,000 km² and a population of around 2.3 million people, it is one of the most sparsely populated countries in Africa. About <strong>80% of the country is covered by dense rainforest</strong>, earning it the nickname "Africa's Last Eden."
+                </p>
+                <p class="fr">
+                    Le Gabon, officiellement la <strong>République Gabonaise</strong>, est un pays magnifique sur la côte atlantique de l'Afrique centrale, à cheval sur l'Équateur. Avec une superficie d'environ 270 000 km² et une population d'environ 2,3 millions d'habitants, c'est l'un des pays les moins densément peuplés d'Afrique. Environ <strong>80% du pays est couvert de forêt tropicale dense</strong>, ce qui lui vaut le surnom de "Dernier Eden de l'Afrique".
+                </p>
+                <p class="en">
+                    The country gained independence from France on <strong>August 17, 1960</strong>. French is the official language, serving as a unifying force among the nation's 40+ ethnic groups, with the Fang being the largest. Gabon is renowned for its extraordinary biodiversity, pristine national parks, and being one of the wealthiest nations in Africa per capita thanks to its oil reserves.
+                </p>
+                <p class="fr">
+                    Le pays a obtenu son indépendance de la France le <strong>17 août 1960</strong>. Le français est la langue officielle, servant de force unificatrice parmi les 40+ groupes ethniques du pays, les Fang étant le plus grand. Le Gabon est réputé pour sa biodiversité extraordinaire, ses parcs nationaux vierges, et pour être l'une des nations les plus riches d'Afrique par habitant grâce à ses réserves de pétrole.
+                </p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number">2.3M</div>
+                        <div class="label en">Population</div>
+                        <div class="label fr">Population</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">270K</div>
+                        <div class="label en">km² Area</div>
+                        <div class="label fr">km² Superficie</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">80%</div>
+                        <div class="label en">Rainforest</div>
+                        <div class="label fr">Forêt Tropicale</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flag Section -->
+    <section class="flag-section" id="flag">
+        <div class="flag-container fade-in">
+            <div class="section-header">
+                <h2 class="en">The National Flag</h2>
+                <h2 class="fr">Le Drapeau National</h2>
+                <div class="divider"></div>
+                <p class="en">Adopted on August 9, 1960 — a symbol of independence and national pride</p>
+                <p class="fr">Adopté le 9 août 1960 — un symbole d'indépendance et de fierté nationale</p>
+            </div>
+            
+            <div class="flag-display">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Gabon.svg/1200px-Flag_of_Gabon.svg.png" alt="Flag of Gabon">
+            </div>
+            
+            <p class="en" style="color:#666; line-height:1.8; max-width:700px; margin:0 auto 30px;">
+                The flag of Gabon features three horizontal bands of <strong>green, yellow, and blue</strong>. The green band at the top symbolizes the country's lush forests and natural resources. The yellow band in the center represents the Equator, which crosses the country, as well as the sun and mineral wealth. The blue band at the bottom signifies the Atlantic Ocean that borders Gabon to the west. The flag was officially adopted just before independence in 1960, replacing the colonial flag that included the French Tricolour.
+            </p>
+            <p class="fr" style="color:#666; line-height:1.8; max-width:700px; margin:0 auto 30px;">
+                Le drapeau du Gabon comporte trois bandes horizontales de <strong>vert, jaune et bleu</strong>. La bande verte en haut symbolise les forêts luxuriantes et les ressources naturelles du pays. La bande jaune au centre représente l'Équateur, qui traverse le pays, ainsi que le soleil et les richesses minérales. La bande bleue en bas signifie l'océan Atlantique qui borde le Gabon à l'ouest. Le drapeau a été officiellement adopté juste avant l'indépendance en 1960, remplaçant le drapeau colonial qui incluait le Tricolore français.
+            </p>
+            
+            <div class="flag-meaning">
+                <div class="flag-color">
+                    <div class="color-dot green"></div>
+                    <div>
+                        <strong class="en">Green</strong>
+                        <strong class="fr">Vert</strong>
+                        <br><small class="en">Forests & Nature</small>
+                        <small class="fr">Forêts & Nature</small>
+                    </div>
+                </div>
+                <div class="flag-color">
+                    <div class="color-dot yellow"></div>
+                    <div>
+                        <strong class="en">Yellow</strong>
+                        <strong class="fr">Jaune</strong>
+                        <br><small class="en">Equator & Sun</small>
+                        <small class="fr">Équateur & Soleil</small>
+                    </div>
+                </div>
+                <div class="flag-color">
+                    <div class="color-dot blue"></div>
+                    <div>
+                        <strong class="en">Blue</strong>
+                        <strong class="fr">Bleu</strong>
+                        <br><small class="en">Atlantic Ocean</small>
+                        <small class="fr">Océan Atlantique</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cities Section -->
+    <section class="section cities-section" id="cities">
+        <div class="section-header fade-in">
+            <h2 class="en">Famous Cities</h2>
+            <h2 class="fr">Villes Célèbres</h2>
+            <div class="divider"></div>
+            <p class="en">Explore the vibrant urban centers of Gabon</p>
+            <p class="fr">Explorez les centres urbains vibrants du Gabon</p>
+        </div>
+        
+        <div class="cities-grid">
+            <!-- Libreville -->
+            <div class="city-card fade-in">
+                <div class="city-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Libreville_aerial.jpg/1280px-Libreville_aerial.jpg" alt="Libreville">
+                    <span class="city-badge en">Capital City</span>
+                    <span class="city-badge fr">Capitale</span>
+                </div>
+                <div class="city-content">
+                    <h3>Libreville</h3>
+                    <div class="city-meta">
+                        <span><i class="fas fa-users"></i> <span class="en">~800,000</span><span class="fr">~800 000</span></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span class="en">Northwest Coast</span><span class="fr">Côte Nord-Ouest</span></span>
+                    </div>
+                    <p class="en">
+                        Libreville, meaning "Free Town," is Gabon's capital and largest city. Founded in 1849 as a settlement for freed slaves, it has grown into a modern coastal metropolis. The city features beautiful Atlantic beaches, the bustling Mont-Bouët market, the National Museum of Arts and Traditions, and a stunning waterfront boulevard. It's the political, economic, and cultural heart of Gabon.
+                    </p>
+                    <p class="fr">
+                        Libreville, signifiant "Ville Libre", est la capitale et la plus grande ville du Gabon. Fondée en 1849 comme colonie pour les esclaves affranchis, elle est devenue une métropole côtière moderne. La ville compte de magnifiques plages atlantiques, le marché animé de Mont-Bouët, le Musée National des Arts et Traditions, et un superbe boulevard en bord de mer. C'est le cœur politique, économique et culturel du Gabon.
+                    </p>
+                    <div class="city-highlights">
+                        <span class="highlight-tag en">🏖️ Beaches</span>
+                        <span class="highlight-tag fr">🏖️ Plages</span>
+                        <span class="highlight-tag en">🛍️ Markets</span>
+                        <span class="highlight-tag fr">🛍️ Marchés</span>
+                        <span class="highlight-tag en">🏛️ Museums</span>
+                        <span class="highlight-tag fr">🏛️ Musées</span>
+                        <span class="highlight-tag en">🌊 Waterfront</span>
+                        <span class="highlight-tag fr">🌊 Front de Mer</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Port-Gentil -->
+            <div class="city-card fade-in">
+                <div class="city-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/media.gettyimages.com/8460de7678af14353217bd5ef6e0028e19a34b4c.jpg" alt="Port-Gentil">
+                    <span class="city-badge" style="background:var(--blue);">Economic Capital</span>
+                </div>
+                <div class="city-content">
+                    <h3>Port-Gentil</h3>
+                    <div class="city-meta">
+                        <span><i class="fas fa-users"></i> <span class="en">~136,000</span><span class="fr">~136 000</span></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span class="en">Mandji Island</span><span class="fr">Île Mandji</span></span>
+                    </div>
+                    <p class="en">
+                        Port-Gentil is Gabon's economic powerhouse and second-largest city, situated on Mandji Island. Known as the nation's oil capital, it features a unique island setting with no road connections to the mainland — access is only by air or sea. The city boasts colonial-era architecture, vibrant nightlife, the historic St. Louis Church, and serves as the gateway to the spectacular Loango National Park.
+                    </p>
+                    <p class="fr">
+                        Port-Gentil est la plaque tournante économique du Gabon et la deuxième plus grande ville, située sur l'île Mandji. Connue comme la capitale pétrolière du pays, elle se distingue par son emplacement insulaire unique sans connexion routière au continent — l'accès se fait uniquement par air ou par mer. La ville compte une architecture d'époque coloniale, une vie nocturne animée, l'historique église Saint-Louis, et sert de porte d'entrée au spectaculaire Parc National de Loango.
+                    </p>
+                    <div class="city-highlights">
+                        <span class="highlight-tag en">⛽ Oil Industry</span>
+                        <span class="highlight-tag fr">⛽ Industrie Pétrolière</span>
+                        <span class="highlight-tag en">🏝️ Island City</span>
+                        <span class="highlight-tag fr">🏝️ Ville Insulaire</span>
+                        <span class="highlight-tag en">🌅 Sunsets</span>
+                        <span class="highlight-tag fr">🌅 Couchers de Soleil</span>
+                        <span class="highlight-tag en">🎵 Nightlife</span>
+                        <span class="highlight-tag fr">🎵 Vie Nocturne</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Franceville -->
+            <div class="city-card fade-in">
+                <div class="city-image">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800" alt="Franceville">
+                    <span class="city-badge" style="background:var(--gold); color:#333;">Interior Gem</span>
+                </div>
+                <div class="city-content">
+                    <h3>Franceville (Masuku)</h3>
+                    <div class="city-meta">
+                        <span><i class="fas fa-users"></i> <span class="en">~110,000</span><span class="fr">~110 000</span></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span class="en">Southeast Gabon</span><span class="fr">Sud-Est du Gabon</span></span>
+                    </div>
+                    <p class="en">
+                        Franceville, also known as Masuku, is the capital of the Haut-Ogooué Province in southeastern Gabon. Founded by Pierre Savorgnan de Brazza in 1880, it's one of the oldest colonial settlements. The city sits on a plateau with stunning views, features a university campus, and serves as a regional transport hub. Nearby attractions include the breathtaking Lékoni Canyons and rich mining areas.
+                    </p>
+                    <p class="fr">
+                        Franceville, également connue sous le nom de Masuku, est la capitale de la province du Haut-Ogooué dans le sud-est du Gabon. Fondée par Pierre Savorgnan de Brazza en 1880, c'est l'une des plus anciennes colonies. La ville est située sur un plateau avec des vues à couper le souffle, abrite un campus universitaire, et sert de centre de transport régional. Les attractions à proximité incluent les spectaculaires Gorges de Lékoni et les riches zones minières.
+                    </p>
+                    <div class="city-highlights">
+                        <span class="highlight-tag en">🏔️ Plateau Views</span>
+                        <span class="highlight-tag fr">🏔️ Vues du Plateau</span>
+                        <span class="highlight-tag en">🎓 University</span>
+                        <span class="highlight-tag fr">🎓 Université</span>
+                        <span class="highlight-tag en">⛏️ Mining History</span>
+                        <span class="highlight-tag fr">⛏️ Histoire Minière</span>
+                        <span class="highlight-tag en">🏞️ Canyons</span>
+                        <span class="highlight-tag fr">🏞️ Gorges</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lambaréné -->
+            <div class="city-card fade-in">
+                <div class="city-image">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800" alt="Lambaréné">
+                    <span class="city-badge" style="background:#e74c3c;">Historic</span>
+                </div>
+                <div class="city-content">
+                    <h3>Lambaréné</h3>
+                    <div class="city-meta">
+                        <span><i class="fas fa-users"></i> <span class="en">~39,000</span><span class="fr">~39 000</span></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span class="en">Ogooué River</span><span class="fr">Fleuve Ogooué</span></span>
+                    </div>
+                    <p class="en">
+                        Lambaréné is a charming town on the Ogooué River, world-famous as the home of the Albert Schweitzer Hospital, founded by the Nobel Peace Prize winner in 1913. The town is surrounded by a stunning network of lakes and river channels, making it a paradise for nature lovers. Visitors can explore the Schweitzer Museum, take pirogue trips through mangrove channels, and experience authentic Gabonese river life.
+                    </p>
+                    <p class="fr">
+                        Lambaréné est une charmante ville sur le fleuve Ogooué, mondialement connue comme le siège de l'Hôpital Albert Schweitzer, fondé par le lauréat du Prix Nobel de la Paix en 1913. La ville est entourée d'un réseau époustouflant de lacs et de canaux fluviaux, en faisant un paradis pour les amoureux de la nature. Les visiteurs peuvent explorer le Musée Schweitzer, faire des excursions en pirogue à travers les canaux de mangrove, et découvrir la vie fluviale gabonaise authentique.
+                    </p>
+                    <div class="city-highlights">
+                        <span class="highlight-tag en">🏥 Schweitzer Hospital</span>
+                        <span class="highlight-tag fr">🏥 Hôpital Schweitzer</span>
+                        <span class="highlight-tag en">🛶 River Trips</span>
+                        <span class="highlight-tag fr">🛶 Excursions Fluviales</span>
+                        <span class="highlight-tag en">📚 Museum</span>
+                        <span class="highlight-tag fr">📚 Musée</span>
+                        <span class="highlight-tag en">🐊 Wildlife</span>
+                        <span class="highlight-tag fr">🐊 Faune</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nature Section -->
+    <section class="nature-section" id="nature">
+        <div class="section-header fade-in">
+            <h2 class="en">Natural Wonders</h2>
+            <h2 class="fr">Merveilles Naturelles</h2>
+            <div class="divider"></div>
+            <p class="en">Gabon protects 11% of its territory in national parks — a world-leading commitment</p>
+            <p class="fr">Le Gabon protège 11% de son territoire dans des parcs nationaux — un engagement mondial de premier plan</p>
+        </div>
+        
+        <div class="nature-grid">
+            <div class="nature-card fade-in">
+                <img src="https://kimi-web-img.moonshot.cn/img/journeysbydesign.com/d616cb81a31441184fe9ca0caf4abd9b87fff614.jpg" alt="Loango National Park">
+                <div class="nature-card-content">
+                    <h4>Loango National Park</h4>
+                    <p class="en">Known as "Africa's Last Eden," this park is famous for its "surfing" elephants, hippos lounging on beaches, and incredible biodiversity where rainforest meets the Atlantic.</p>
+                    <p class="fr">Connu comme le "Dernier Eden de l'Afrique", ce parc est célèbre pour ses éléphants "surfeurs", ses hippopotames se prélassant sur les plages, et une biodiversité incroyable où la forêt tropicale rencontre l'Atlantique.</p>
+                </div>
+            </div>
+            
+            <div class="nature-card fade-in">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800" alt="Ivindo National Park">
+                <div class="nature-card-content">
+                    <h4>Ivindo National Park</h4>
+                    <p class="en">A UNESCO World Heritage Site featuring the spectacular Kongou and Mingouli waterfalls, pristine rainforest, and some of Africa's most diverse ecosystems.</p>
+                    <p class="fr">Un site du patrimoine mondial de l'UNESCO présentant les spectaculaires chutes de Kongou et Mingouli, une forêt tropicale vierge, et certains des écosystèmes les plus diversifiés d'Afrique.</p>
+                </div>
+            </div>
+            
+            <div class="nature-card fade-in">
+                <img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=800" alt="Pongara National Park">
+                <div class="nature-card-content">
+                    <h4>Pongara National Park</h4>
+                    <p class="en">Just an hour from Libreville, this coastal park features lush mangroves, stunning Atlantic views, monkeys, and a variety of bird species in a pristine setting.</p>
+                    <p class="fr">À seulement une heure de Libreville, ce parc côtier comporte des mangroves luxuriantes, des vues atlantiques à couper le souffle, des singes, et une variété d'espèces d'oiseaux dans un cadre vierge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Tips Section -->
+    <section class="section" id="tips">
+        <div class="section-header fade-in">
+            <h2 class="en">Essential Travel Tips</h2>
+            <h2 class="fr">Conseils de Voyage Essentiels</h2>
+            <div class="divider"></div>
+            <p class="en">Everything you need to know before visiting Gabon</p>
+            <p class="fr">Tout ce que vous devez savoir avant de visiter le Gabon</p>
+        </div>
+        
+        <div class="tips-grid">
+            <div class="tip-card fade-in">
+                <div class="tip-icon"><i class="fas fa-passport"></i></div>
+                <h4 class="en">Visa & Entry</h4>
+                <h4 class="fr">Visa & Entrée</h4>
+                <p class="en">Most visitors need a visa. Apply in advance at Gabonese embassies. A yellow fever vaccination certificate is mandatory. Passport must be valid for at least 6 months.</p>
+                <p class="fr">La plupart des visiteurs ont besoin d'un visa. Postulez à l'avance auprès des ambassades gabonaises. Un certificat de vaccination contre la fièvre jaune est obligatoire. Le passeport doit être valide pendant au moins 6 mois.</p>
+            </div>
+            
+            <div class="tip-card fade-in">
+                <div class="tip-icon"><i class="fas fa-money-bill-wave"></i></div>
+                <h4 class="en">Currency</h4>
+                <h4 class="fr">Monnaie</h4>
+                <p class="en">The Central African CFA franc (XAF) is used. Cash is king for local markets and taxis. Credit cards (mainly Visa) are accepted at upscale hotels and supermarkets. ATMs are available in major cities.</p>
+                <p class="fr">Le franc CFA de l'Afrique centrale (XAF) est utilisé. L'argent liquide est roi pour les marchés locaux et les taxis. Les cartes de crédit (principalement Visa) sont acceptées dans les hôtels haut de gamme et les supermarchés. Les distributeurs sont disponibles dans les grandes villes.</p>
+            </div>
+            
+            <div class="tip-card fade-in">
+                <div class="tip-icon"><i class="fas fa-language"></i></div>
+                <h4 class="en">Language</h4>
+                <h4 class="fr">Langue</h4>
+                <p class="en">French is the official language. English is rarely spoken outside business circles. Learning basic French phrases like "Bonjour" and "Merci" goes a long way. Fang and Myene are also widely spoken.</p>
+                <p class="fr">Le français est la langue officielle. L'anglais est rarement parlé en dehors des milieux d'affaires. Apprendre des phrases françaises de base comme "Bonjour" et "Merci" est très utile. Le fang et le myene sont également largement parlés.</p>
+            </div>
+            
+            <div class="tip-card fade-in">
+                <div class="tip-icon"><i class="fas fa-sun"></i></div>
+                <h4 class="en">Best Time to Visit</h4>
+                <h4 class="fr">Meilleure Période</h4>
+                <p class="en">June to September (dry season) is ideal for wildlife viewing. The weather is hot and humid year-round with two rainy seasons: February-May and October-December.</p>
+                <p class="fr">De juin à septembre (saison sèche) est idéal pour l'observation de la faune. Le climat est chaud et humide toute l'année avec deux saisons des pluies : février-mai et octobre-décembre.</p>
+            </div>
+            
+            <div class="tip-card fade-in">
+                <div class="tip-icon"><i class="fas fa-shield-virus"></i></div>
+                <h4 class="en">Health & Safety</h4>
+                <h4 class="fr">Santé & Sécurité</h4>
+                <p class="en">Malaria is a risk — bring repellent and sleep under nets. Drink bottled water. Port-Gentil and Libreville are generally safe, but avoid poorly lit areas at night. Travel insurance is recommended.</p>
+                <p class="fr">Le paludisme est un risque — apportez du répulsif et dormez sous des moustiquaires. Buvez de l'eau en bouteille. Port-Gentil et Libreville sont généralement sûrs, mais évitez les zones mal éclairées la nuit. Une assurance voyage est recommandée.</p>
+            </div>
+            
+            <div class="tip-card fade-in">
+                <div class="tip-icon"><i class="fas fa-utensils"></i></div>
+                <h4 class="en">Food & Culture</h4>
+                <h4 class="fr">Nourriture & Culture</h4>
+                <p class="en">Try local dishes like poulet nyembwe (chicken in palm nut sauce), smoked fish, and plantains. Fresh seafood is excellent on the coast. Dress modestly when visiting administrative buildings.</p>
+                <p class="fr">Essayez des plats locaux comme le poulet nyembwe (poulet à la sauce de noix de palme), le poisson fumé, et les plantains. Les fruits de mer frais sont excellents sur la côte. Habillez-vous modestement lors des visites d'immeubles administratifs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-flag">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Gabon.svg/1200px-Flag_of_Gabon.svg.png" alt="Gabon Flag">
+        </div>
+        <h3 class="en">Visit Gabon</h3>
+        <h3 class="fr">Visitez le Gabon</h3>
+        <p class="en">Experience the magic of Africa's Last Eden</p>
+        <p class="fr">Vivez la magie du Dernier Eden de l'Afrique</p>
+        
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="en">🇬🇦 Gabon Travel Guide | Made with ❤️ for travelers worldwide</p>
+            <p class="fr">🇬🇦 Guide de Voyage du Gabon | Fait avec ❤️ pour les voyageurs du monde entier</p>
+            <p style="margin-top:10px; font-size:0.75rem; opacity:0.5;">© 2026 | Gabon - République Gabonaise</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switcher
+        function setLang(lang) {
+            document.body.classList.toggle('lang-fr', lang === 'fr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+            localStorage.setItem('gabon-lang', lang);
+        }
+        
+        // Load saved language
+        const savedLang = localStorage.getItem('gabon-lang');
+        if (savedLang === 'fr') {
+            setLang('fr');
+        }
+        
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Parallax effect on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPositionY = (scrolled * 0.5) + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
