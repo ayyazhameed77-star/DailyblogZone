@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mauritius Travel Guide - The Star of the Indian Ocean</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+  
+  :root {
+    --red: #EA2839;
+    --blue: #001489;
+    --yellow: #FFD500;
+    --green: #00A651;
+    --dark: #1a1a2e;
+    --light: #f8f9fa;
+    --cream: #fefcf8;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: #333;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+  
+  /* Language Toggle */
+  .lang-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--dark);
+    z-index: 1000;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  
+  .lang-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+  }
+  
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--yellow);
+    color: var(--dark);
+    border-color: var(--yellow);
+    font-weight: 600;
+  }
+  
+  /* Hero */
+  .hero {
+    margin-top: 40px;
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(135deg, rgba(0,20,137,0.7) 0%, rgba(0,166,81,0.6) 100%),
+                url('https://kimi-web-img.moonshot.cn/img/mauritiusattractions.com/02c2942e1b4b0cf756a02b47e0ee71ddc66f56c0.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+  
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 150px;
+    background: linear-gradient(to top, var(--cream), transparent);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 20px;
+  }
+  
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #fff;
+    text-shadow: 2px 4px 20px rgba(0,0,0,0.4);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+  }
+  
+  .hero .subtitle {
+    font-size: 1.3rem;
+    color: var(--yellow);
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.9);
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  
+  .scroll-down {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-15px); }
+    60% { transform: translateX(-50%) translateY(-8px); }
+  }
+  
+  /* Sections */
+  section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+  
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    color: var(--dark);
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--red), var(--blue), var(--yellow), var(--green));
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+  
+  /* Flag Section */
+  .flag-section {
+    background: #fff;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  .flag-img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .flag-img:hover { transform: scale(1.02); }
+  
+  .flag-colors {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .color-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+  }
+  
+  .color-bar:hover { transform: translateX(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  
+  .color-dot {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  .color-red { background: var(--red); }
+  .color-blue { background: var(--blue); }
+  .color-yellow { background: var(--yellow); }
+  .color-green { background: var(--green); }
+  
+  /* City Cards */
+  .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  
+  .city-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  
+  .city-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  }
+  
+  .city-card .img-wrap {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .city-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .city-card:hover img { transform: scale(1.1); }
+  
+  .city-card .img-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 30px 20px 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  }
+  
+  .city-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 1.6rem;
+  }
+  
+  .city-card .content {
+    padding: 25px;
+  }
+  
+  .city-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 12px;
+    margin-right: 5px;
+  }
+  
+  .tag-capital { background: var(--red); color: #fff; }
+  .tag-beach { background: var(--blue); color: #fff; }
+  .tag-nature { background: var(--green); color: #fff; }
+  .tag-heritage { background: var(--yellow); color: var(--dark); }
+  
+  /* Info Grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  
+  .info-card {
+    background: #fff;
+    padding: 35px 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--blue);
+  }
+  
+  .info-card:nth-child(2) { border-top-color: var(--red); }
+  .info-card:nth-child(3) { border-top-color: var(--yellow); }
+  .info-card:nth-child(4) { border-top-color: var(--green); }
+  
+  .info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  
+  .info-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .info-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+  }
+  
+  .info-card p { color: #777; font-size: 0.9rem; }
+  
+  /* Quote */
+  .quote-section {
+    background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .quote-section::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 15rem;
+    color: rgba(255,255,255,0.05);
+    position: absolute;
+    top: -50px;
+    left: 50px;
+    line-height: 1;
+  }
+  
+  .quote-section blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  
+  .quote-section cite {
+    display: block;
+    margin-top: 20px;
+    color: var(--yellow);
+    font-size: 1rem;
+    font-style: normal;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Footer */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+  }
+  
+  footer .flag-strip {
+    display: flex;
+    height: 6px;
+    max-width: 200px;
+    margin: 0 auto 25px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  footer .flag-strip div { flex: 1; }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .flag-section { grid-template-columns: 1fr; padding: 30px; }
+    .hero { min-height: 500px; }
+    section { padding: 50px 15px; }
+  }
+  
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+  
+  /* Animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" data-lang="en">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('fr')" data-lang="fr">🇫🇷 Français</button>
+  <button class="lang-btn" onclick="setLang('mr')" data-lang="mr">🇲🇺 Morisien</button>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="subtitle" data-i18n="subtitle">The Star of the Indian Ocean</div>
+    <h1 data-i18n="heroTitle">Mauritius</h1>
+    <p data-i18n="heroDesc">Discover an island where turquoise lagoons meet volcanic peaks, where Creole charm dances with colonial elegance, and every sunset paints a new masterpiece.</p>
+  </div>
+  <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView()">↓</div>
+</section>
+
+<!-- About / Flag -->
+<section id="about">
+  <h2 class="section-title" data-i18n="aboutTitle">About Mauritius</h2>
+  <div class="flag-section fade-in">
+    <div>
+      <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/88f1d6e985a68ee5b2d71836541c21ea2c255116.png" alt="Flag of Mauritius" class="flag-img">
+      <div style="text-align:center; margin-top:15px; font-size:0.85rem; color:#888;" data-i18n="flagCaption">National Flag of the Republic of Mauritius</div>
+    </div>
+    <div>
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:15px; color:var(--dark);" data-i18n="flagTitle">The Four Stripes of Identity</h3>
+      <p style="color:#666; margin-bottom:25px; line-height:1.8;" data-i18n="flagDesc">Adopted on March 12, 1968 — the day of independence — the flag of Mauritius carries the soul of a nation in four bold horizontal bands. Each color whispers a chapter of the island's story.</p>
+      
+      <div class="flag-colors">
+        <div class="color-bar">
+          <div class="color-dot color-red"></div>
+          <div>
+            <strong style="color:var(--red);" data-i18n="redTitle">Red</strong>
+            <p style="font-size:0.85rem; color:#777; margin-top:3px;" data-i18n="redDesc">The blood of freedom fighters and the struggle for independence.</p>
+          </div>
+        </div>
+        <div class="color-bar">
+          <div class="color-dot color-blue"></div>
+          <div>
+            <strong style="color:var(--blue);" data-i18n="blueTitle">Blue</strong>
+            <p style="font-size:0.85rem; color:#777; margin-top:3px;" data-i18n="blueDesc">The Indian Ocean that cradles the island and connects it to the world.</p>
+          </div>
+        </div>
+        <div class="color-bar">
+          <div class="color-dot color-yellow"></div>
+          <div>
+            <strong style="color:#c9a000;" data-i18n="yellowTitle">Yellow</strong>
+            <p style="font-size:0.85rem; color:#777; margin-top:3px;" data-i18n="yellowDesc">The golden light of a new dawn — hope for the future.</p>
+          </div>
+        </div>
+        <div class="color-bar">
+          <div class="color-dot color-green"></div>
+          <div>
+            <strong style="color:var(--green);" data-i18n="greenTitle">Green</strong>
+            <p style="font-size:0.85rem; color:#777; margin-top:3px;" data-i18n="greenDesc">The lush vegetation and agricultural heritage of the island.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Facts -->
+<section>
+  <h2 class="section-title" data-i18n="factsTitle">Quick Facts</h2>
+  <div class="info-grid">
+    <div class="info-card fade-in">
+      <div class="info-icon">🏛️</div>
+      <h4 data-i18n="capital">Capital</h4>
+      <p data-i18n="capitalVal">Port Louis</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="info-icon">👥</div>
+      <h4 data-i18n="population">Population</h4>
+      <p data-i18n="populationVal">~1.3 Million</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="info-icon">🗣️</div>
+      <h4 data-i18n="languages">Languages</h4>
+      <p data-i18n="languagesVal">English, French, Morisyen (Creole)</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="info-icon">🌡️</div>
+      <h4 data-i18n="climate">Climate</h4>
+      <p data-i18n="climateVal">Tropical — 25°C to 30°C year-round</p>
+    </div>
+  </div>
+</section>
+
+<!-- Famous Cities -->
+<section>
+  <h2 class="section-title" data-i18n="citiesTitle">Famous Cities & Places</h2>
+  <div class="cities-grid">
+    
+    <!-- Port Louis -->
+    <div class="city-card fade-in">
+      <div class="img-wrap">
+        <img src="https://kimi-web-img.moonshot.cn/img/content.r9cdn.net/e3b7b3b613fb5f3bbe4e65f61abec8ca59bfd1b3.jpg" alt="Port Louis">
+        <div class="img-overlay"><h3>Port Louis</h3></div>
+      </div>
+      <div class="content">
+        <p data-i18n="portLouisDesc">The vibrant capital where colonial architecture meets bustling markets. Walk through the Central Market's spice-scented alleys, explore the Caudan Waterfront, and visit the UNESCO-listed Aapravasi Ghat — the landing point of indentured laborers who shaped the island's multicultural soul.</p>
+        <span class="tag tag-capital">Capital</span>
+        <span class="tag tag-heritage">Heritage</span>
+      </div>
+    </div>
+    
+    <!-- Grand Baie -->
+    <div class="city-card fade-in">
+      <div class="img-wrap">
+        <img src="https://kimi-web-img.moonshot.cn/img/hblimg.mmtcdn.com/9ecb8b347ac4c448b94197e25d627a583cbb3726.jpg" alt="Grand Baie">
+        <div class="img-overlay"><h3>Grand Baie</h3></div>
+      </div>
+      <div class="content">
+        <p data-i18n="grandBaieDesc">The "Tropical Riviera" of Mauritius. Crystal-clear lagoons, powdery white sand, and a lively coastal village atmosphere. Perfect for snorkeling, sunset catamaran cruises, and beachfront dining under the stars.</p>
+        <span class="tag tag-beach">Beach</span>
+        <span class="tag tag-nature">Nature</span>
+      </div>
+    </div>
+    
+    <!-- Chamarel -->
+    <div class="city-card fade-in">
+      <div class="img-wrap">
+        <img src="https://kimi-web-img.moonshot.cn/img/mauritiusattractions.com/8871cdabaae437d6f4fc1e82fdd32b1fab02a465.jpg" alt="Chamarel Seven Coloured Earth">
+        <div class="img-overlay"><h3>Chamarel</h3></div>
+      </div>
+      <div class="content">
+        <p data-i18n="chamarelDesc">Home to the legendary Seven Coloured Earths — a surreal landscape of sand dunes in red, brown, violet, and gold. Nearby, the 95-meter Chamarel Waterfall cascades into a lush valley, and the Rhumerie de Chamarel offers world-class rum tastings.</p>
+        <span class="tag tag-nature">Nature Wonder</span>
+        <span class="tag tag-heritage">Heritage</span>
+      </div>
+    </div>
+    
+    <!-- Le Morne -->
+    <div class="city-card fade-in">
+      <div class="img-wrap">
+        <img src="https://kimi-web-img.moonshot.cn/img/mauritiusattractions.com/d91a2c6e45243fa5f022c18138e0be02223327c3.jpg" alt="Le Morne Brabant">
+        <div class="img-overlay"><h3>Le Morne</h3></div>
+      </div>
+      <div class="content">
+        <p data-i18n="leMorneDesc">A UNESCO World Heritage site and a powerful symbol of freedom. The 556-meter basaltic mountain was a refuge for escaped slaves. Today, it offers breathtaking hikes, kitesurfing at "One Eye" wave, and the famous underwater waterfall illusion visible from above.</p>
+        <span class="tag tag-nature">Mountain</span>
+        <span class="tag tag-heritage">UNESCO Site</span>
+      </div>
+    </div>
+    
+    <!-- Flic en Flac -->
+    <div class="city-card fade-in">
+      <div class="img-wrap">
+        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/804afc87722125aefa9c6f5d7dc68c2670f07580.jpg" alt="Flic en Flac Beach">
+        <div class="img-overlay"><h3>Flic en Flac</h3></div>
+      </div>
+      <div class="content">
+        <p data-i18n="flicFlacDesc">An 8-kilometer stretch of pristine beach on the west coast, renowned as the island's best diving destination. Explore underwater cathedrals, encounter dolphins at dawn, and unwind at beach shacks serving freshly caught seafood.</p>
+        <span class="tag tag-beach">Beach</span>
+        <span class="tag tag-nature">Diving</span>
+    </div>
+    </div>
+    
+    <!-- Belle Mare -->
+    <div class="city-card fade-in">
+      <div class="img-wrap">
+        <img src="https://kimi-web-img.moonshot.cn/img/mauritiusattractions.com/02c2942e1b4b0cf756a02b47e0ee71ddc66f56c0.jpg" alt="Belle Mare">
+        <div class="img-overlay"><h3>Belle Mare</h3></div>
+      </div>
+      <div class="content">
+        <p data-i18n="belleMareDesc">A 10-kilometer paradise of blindingly white sand and turquoise waters on the east coast. Luxury resorts line the shore, while the coral reef teems with marine life. A sunrise here is an experience you'll carry forever.</p>
+        <span class="tag tag-beach">Beach</span>
+        <span class="tag tag-nature">Sunrise</span>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Quote -->
+<div class="quote-section">
+  <blockquote data-i18n="quote">"Mauritius was made first, and then heaven, heaven being copied after Mauritius."</blockquote>
+  <cite data-i18n="quoteAuthor">— Mark Twain</cite>
+</div>
+
+<!-- Travel Tips -->
+<section>
+  <h2 class="section-title" data-i18n="tipsTitle">Travel Tips</h2>
+  <div class="info-grid">
+    <div class="info-card fade-in">
+      <div class="info-icon">📅</div>
+      <h4 data-i18n="bestTime">Best Time to Visit</h4>
+      <p data-i18n="bestTimeDesc">May to December for dry, pleasant weather. Avoid January–March (cyclone season).</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="info-icon">🍛</div>
+      <h4 data-i18n="food">Must-Try Food</h4>
+      <p data-i18n="foodDesc">Dholl puri, boulettes, mine frite, fresh seafood curry, and local rum.</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="info-icon">🚗</div>
+      <h4 data-i18n="transport">Getting Around</h4>
+      <p data-i18n="transportDesc">Rent a car for freedom, or use taxis and buses for main routes.</p>
+    </div>
+    <div class="info-card fade-in">
+      <div class="info-icon">💰</div>
+      <h4 data-i18n="currency">Currency</h4>
+      <p data-i18n="currencyDesc">Mauritian Rupee (MUR). Credit cards accepted at most hotels and restaurants.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="flag-strip">
+    <div style="background:var(--red);"></div>
+    <div style="background:var(--blue);"></div>
+    <div style="background:var(--yellow);"></div>
+    <div style="background:var(--green);"></div>
+  </div>
+  <p data-i18n="footer">Mauritius Travel Guide &copy; 2026 | Stella Clavisque Maris Indici</p>
+</footer>
+
+<script>
+// Translations
+const translations = {
+  en: {
+    subtitle: "The Star of the Indian Ocean",
+    heroTitle: "Mauritius",
+    heroDesc: "Discover an island where turquoise lagoons meet volcanic peaks, where Creole charm dances with colonial elegance, and every sunset paints a new masterpiece.",
+    aboutTitle: "About Mauritius",
+    flagCaption: "National Flag of the Republic of Mauritius",
+    flagTitle: "The Four Stripes of Identity",
+    flagDesc: "Adopted on March 12, 1968 — the day of independence — the flag of Mauritius carries the soul of a nation in four bold horizontal bands. Each color whispers a chapter of the island's story.",
+    redTitle: "Red", redDesc: "The blood of freedom fighters and the struggle for independence.",
+    blueTitle: "Blue", blueDesc: "The Indian Ocean that cradles the island and connects it to the world.",
+    yellowTitle: "Yellow", yellowDesc: "The golden light of a new dawn — hope for the future.",
+    greenTitle: "Green", greenDesc: "The lush vegetation and agricultural heritage of the island.",
+    factsTitle: "Quick Facts",
+    capital: "Capital", capitalVal: "Port Louis",
+    population: "Population", populationVal: "~1.3 Million",
+    languages: "Languages", languagesVal: "English, French, Morisyen (Creole)",
+    climate: "Climate", climateVal: "Tropical — 25°C to 30°C year-round",
+    citiesTitle: "Famous Cities & Places",
+    portLouisDesc: "The vibrant capital where colonial architecture meets bustling markets. Walk through the Central Market's spice-scented alleys, explore the Caudan Waterfront, and visit the UNESCO-listed Aapravasi Ghat — the landing point of indentured laborers who shaped the island's multicultural soul.",
+    grandBaieDesc: "The 'Tropical Riviera' of Mauritius. Crystal-clear lagoons, powdery white sand, and a lively coastal village atmosphere. Perfect for snorkeling, sunset catamaran cruises, and beachfront dining under the stars.",
+    chamarelDesc: "Home to the legendary Seven Coloured Earths — a surreal landscape of sand dunes in red, brown, violet, and gold. Nearby, the 95-meter Chamarel Waterfall cascades into a lush valley, and the Rhumerie de Chamarel offers world-class rum tastings.",
+    leMorneDesc: "A UNESCO World Heritage site and a powerful symbol of freedom. The 556-meter basaltic mountain was a refuge for escaped slaves. Today, it offers breathtaking hikes, kitesurfing at 'One Eye' wave, and the famous underwater waterfall illusion visible from above.",
+    flicFlacDesc: "An 8-kilometer stretch of pristine beach on the west coast, renowned as the island's best diving destination. Explore underwater cathedrals, encounter dolphins at dawn, and unwind at beach shacks serving freshly caught seafood.",
+    belleMareDesc: "A 10-kilometer paradise of blindingly white sand and turquoise waters on the east coast. Luxury resorts line the shore, while the coral reef teems with marine life. A sunrise here is an experience you'll carry forever.",
+    quote: '"Mauritius was made first, and then heaven, heaven being copied after Mauritius."',
+    quoteAuthor: "— Mark Twain",
+    tipsTitle: "Travel Tips",
+    bestTime: "Best Time to Visit", bestTimeDesc: "May to December for dry, pleasant weather. Avoid January–March (cyclone season).",
+    food: "Must-Try Food", foodDesc: "Dholl puri, boulettes, mine frite, fresh seafood curry, and local rum.",
+    transport: "Getting Around", transportDesc: "Rent a car for freedom, or use taxis and buses for main routes.",
+    currency: "Currency", currencyDesc: "Mauritian Rupee (MUR). Credit cards accepted at most hotels and restaurants.",
+    footer: "Mauritius Travel Guide © 2026 | Stella Clavisque Maris Indici"
+  },
+  fr: {
+    subtitle: "L'Étoile de l'Océan Indien",
+    heroTitle: "Maurice",
+    heroDesc: "Découvrez une île où les lagons turquoise rencontrent les pics volcaniques, où le charme créole danse avec l'élégance coloniale, et où chaque coucher de soleil peint un nouveau chef-d'œuvre.",
+    aboutTitle: "À Propos de Maurice",
+    flagCaption: "Drapeau National de la République de Maurice",
+    flagTitle: "Les Quatre Bandes de l'Identité",
+    flagDesc: "Adopté le 12 mars 1968 — jour de l'indépendance — le drapeau de Maurice porte l'âme d'une nation en quatre bandes horizontales audacieuses. Chaque couleur murmure un chapitre de l'histoire de l'île.",
+    redTitle: "Rouge", redDesc: "Le sang des combattants de la liberté et la lutte pour l'indépendance.",
+    blueTitle: "Bleu", blueDesc: "L'Océan Indien qui berce l'île et la relie au monde.",
+    yellowTitle: "Jaune", yellowDesc: "La lumière dorée d'une nouvelle aube — l'espoir pour l'avenir.",
+    greenTitle: "Vert", greenDesc: "La végétation luxuriante et le patrimoine agricole de l'île.",
+    factsTitle: "Faits Rapides",
+    capital: "Capitale", capitalVal: "Port Louis",
+    population: "Population", populationVal: "~1,3 Million",
+    languages: "Langues", languagesVal: "Anglais, Français, Morisyen (Créole)",
+    climate: "Climat", climateVal: "Tropical — 25°C à 30°C toute l'année",
+    citiesTitle: "Villes & Lieux Célèbres",
+    portLouisDesc: "La capitale vibrante où l'architecture coloniale rencontre les marchés animés. Promenez-vous dans les allées parfumées aux épices du Marché Central, explorez le Caudan Waterfront, et visitez l'Aapravasi Ghat classé UNESCO — le point de débarquement des travailleurs engagés qui ont façonné l'âme multiculturelle de l'île.",
+    grandBaieDesc: "La 'Riviera Tropicale' de Maurice. Lagons cristallins, sable blanc poudreux, et une atmosphère animée de village côtier. Parfait pour le snorkeling, les croisières en catamaran au coucher du soleil, et les dîners en bord de mer sous les étoiles.",
+    chamarelDesc: "Terre des légendaires Terres des Sept Couleurs — un paysage surréaliste de dunes de sable rouges, brunes, violettes et dorées. À proximité, la cascade de Chamarel de 95 mètres dévale une vallée luxuriante, et la Rhumerie de Chamarel propose des dégustations de rhum de classe mondiale.",
+    leMorneDesc: "Un site du patrimoine mondial de l'UNESCO et un puissant symbole de liberté. La montagne basaltique de 556 mètres était un refuge pour les esclaves en fuite. Aujourd'hui, elle offre des randonnées à couper le souffle, le kitesurf à la vague 'One Eye', et la célèbre illusion de la cascade sous-marine visible d'en haut.",
+    flicFlacDesc: "Une étendue de 8 kilomètres de plage immaculée sur la côte ouest, réputée comme la meilleure destination de plongée de l'île. Explorez les cathédrales sous-marines, rencontrez les dauphins à l'aube, et détendez-vous dans les paillotes de plage servant des fruits de mer fraîchement pêchés.",
+    belleMareDesc: "Un paradis de 10 kilomètres de sable éblouissant et d'eaux turquoise sur la côte est. Des resorts de luxe bordent le rivage, tandis que le récif corallien regorge de vie marine. Un lever de soleil ici est une expérience que vous garderez pour toujours.",
+    quote: '"Maurice a été créée en premier, puis le paradis, le paradis étant copié sur Maurice."',
+    quoteAuthor: "— Mark Twain",
+    tipsTitle: "Conseils de Voyage",
+    bestTime: "Meilleure Période", bestTimeDesc: "De mai à décembre pour un temps sec et agréable. Évitez janvier-mars (saison des cyclones).",
+    food: "À Ne Pas Manquer", foodDesc: "Dholl puri, boulettes, mine frite, curry de fruits de mer frais, et rhum local.",
+    transport: "Se Déplacer", transportDesc: "Louez une voiture pour plus de liberté, ou utilisez taxis et bus pour les routes principales.",
+    currency: "Monnaie", currencyDesc: "Roupie mauricienne (MUR). Cartes de crédit acceptées dans la plupart des hôtels et restaurants.",
+    footer: "Guide de Voyage Maurice © 2026 | Stella Clavisque Maris Indici"
+  },
+  mr: {
+    subtitle: "Létwal Losean Endien",
+    heroTitle: "Moris",
+    heroDesc: "Dekouvrir enn zil kot lagonn tirkoiz rankont somé volkanik, kot lamour kreol dans ek elegans kolonial, ek sak soley kouche peint nouvo masterpiss.",
+    aboutTitle: "A Propos Moris",
+    flagCaption: "Drapo Nasion Repiblik Moris",
+    flagTitle: "Kat Band Identité",
+    flagDesc: "Adopte 12 Mars 1968 — zour lindépendans — drapo Moris port lame enn nasion dan kat band orizontal. Sak koulé koz enn chapittre listwar zil la.",
+    redTitle: "Rouz", redDesc: "Disan bann kombatan liberte ek lalit pou lindépendans.",
+    blueTitle: "Ble", blueDesc: "Losean Endien ki berse zil la ek konekte li ar lemonn.",
+    yellowTitle: "Zon", yellowDesc: "Limyer dor nouvo zour — lespwar pou lavenir.",
+    greenTitle: "Ver", greenDesc: "Bann plantasyon ek eritaz agrikol zil la.",
+    factsTitle: "Bann Fet Rapid",
+    capital: "Lakapital", capitalVal: "Port Louis",
+    population: "Popilasion", populationVal: "~1.3 Milyon",
+    languages: "Bann Langaz", languagesVal: "Angle, Franse, Morisyen (Kreol)",
+    climate: "Klima", climateVal: "Tropikal — 25°C a 30°C toultan",
+    citiesTitle: "Bann Vil & Landmark Koni",
+    portLouisDesc: "Lakapital vivan kot larkitektir kolonial rankont bann marse animé. Mars dan bann rwaye Marse Central ki sant bon epis, explore Caudan Waterfront, ek vizit Aapravasi Ghat (UNESCO) — landin bann travayer engazé ki finn form lame miltikiltirel zil la.",
+    grandBaieDesc: "La 'Riviera Tropikal' Moris. Lagonn kristal, sable blan poudre, ek enn atmosfer vivan vilaz kotye. Parfe pou snorkeling, bann kroazier katamaran kot soley kouche, ek dine bordmer anba zetwal.",
+    chamarelDesc: "Lakaz bann lejander Ter Sept Koulé — enn peyaz suréel bann dinn sable rouz, maron, vyole ek dor. Pre, Cascade Chamarel 95 met koule dan enn vale ver, ek Rhumerie Chamarel ofer bann degistasion rom mondyal.",
+    leMorneDesc: "Enn sit eritaz mondyal UNESCO ek enn simbol pwisan liberte. Montagn basaltik 556 met ti enn refiz pou bann esklav sovaz. Zordi, li ofer bann randone a kup le souf, kitesurf lor vagn 'One Eye', ek illizion kaskad anba delo ki vizib depi anle.",
+    flicFlacDesc: "Enn etand 8 kilomet plaz prop lor larivaz lwes, koni kome meyer destinasion plonzh zil la. Explore katedral anba delo, rankont delfin gramatin, ek relax dan bann paillote plaz ki servi bann fruitmer fre.",
+    belleMareDesc: "Enn paradis 10 kilomet sable eklersisan ek delo tirkoiz lor larivaz les. Bann otel de luxe bord rivaz, pandan ki resif koray plin ek lavi marin. Enn lev soley ici enn eksperians ki ou pou gard pou toultan.",
+    quote: '"Moris finn kree anpremie, apre paradi, paradi finn kopye lor Moris."',
+    quoteAuthor: "— Mark Twain",
+    tipsTitle: "Bann Konsey Vwayaz",
+    bestTime: "Meyer Ler Vizite", bestTimeDesc: "Me a Desam pou tan sek ek agreab. Evite Zanvie-Mars (sezon siklone).",
+    food: "Manze Oblize Eseye", foodDesc: "Dholl puri, boulettes, mine frite, kari fruitmer fre, ek rom lokal.",
+    transport: "Deplasman", transportDesc: "Lwe enn loto pou liberte, ou servi taksi ek bis pou bann rout prensipal.",
+    currency: "Larzan", currencyDesc: "Ropi Morisyen (MUR). Kart kredi aksepter dan plupar bann otel ek restoran.",
+    footer: "Guide Vwayaz Moris © 2026 | Stella Clavisque Maris Indici"
+  }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key]) el.textContent = t[key];
+  });
+  
+  document.documentElement.lang = lang === 'mr' ? 'mfe' : lang;
+}
+
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
+print("File saved successfully!")
+print(f"Total characters: {len(html_content)}")
