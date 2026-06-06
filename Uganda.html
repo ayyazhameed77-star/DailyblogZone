@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uganda Travel Guide – Pearl of Africa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8973A;
+    --dark: #1A1A1A;
+    --cream: #FAF6EF;
+    --green: #2D6A4F;
+    --red: #B5121B;
+    --black: #000000;
+    --text: #2C2C2C;
+    --muted: #6B6B6B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  /* LANGUAGE BAR */
+  .lang-bar {
+    background: var(--dark);
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .lang-bar span {
+    color: #aaa;
+    font-size: 13px;
+    margin-right: 10px;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .lang-btn {
+    display: inline-block;
+    padding: 5px 14px;
+    margin: 3px;
+    border-radius: 20px;
+    border: 1px solid rgba(200,151,58,0.4);
+    color: #ccc;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.25s;
+    background: transparent;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 92vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0a2218 0%, #1A3A2A 40%, #0e1a10 100%);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(10,34,24,0.85) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+    padding: 0 24px;
+  }
+  .flag-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .flag-svg {
+    width: 72px;
+    height: 48px;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+  }
+  .country-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 82px);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    text-align: center;
+  }
+  .meta-item .val {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+  }
+  .meta-item .lbl {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%,100%{transform:translateX(-50%) translateY(0)}
+    50%{transform:translateX(-50%) translateY(-8px)}
+  }
+
+  /* COUNTRY OVERVIEW */
+  .overview {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px 60px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 60px;
+    align-items: start;
+  }
+  @media(max-width:800px){.overview{grid-template-columns:1fr;}}
+  .section-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--dark);
+  }
+  p { margin-bottom: 18px; color: var(--text); }
+  .info-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--gold);
+  }
+  .info-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 18px;
+    color: var(--dark);
+  }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0ece4;
+    font-size: 14px;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-row .key { color: var(--muted); font-weight: 400; }
+  .info-row .val { font-weight: 700; color: var(--dark); text-align: right; }
+
+  /* FLAG DISPLAY */
+  .flag-display {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .flag-display h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+  .flag-large {
+    width: 100%;
+    max-width: 260px;
+    height: 160px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    margin-bottom: 16px;
+  }
+  .flag-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    text-align: left;
+  }
+  .flag-stripe-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    justify-content: center;
+  }
+  .stripe {
+    height: 20px;
+    width: 46px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stripe-label { font-size: 10px; color: #fff; font-weight: 700; letter-spacing: 0.5px; }
+
+  /* DIVIDER */
+  .divider {
+    text-align: center;
+    margin: 10px 0 60px;
+  }
+  .divider span {
+    display: inline-block;
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin: 0 6px;
+    vertical-align: middle;
+  }
+  .divider i {
+    color: var(--gold);
+    font-size: 20px;
+    vertical-align: middle;
+  }
+
+  /* CITIES SECTION */
+  .cities-section {
+    background: var(--dark);
+    padding: 80px 24px;
+  }
+  .cities-inner { max-width: 1100px; margin: 0 auto; }
+  .cities-header { text-align: center; margin-bottom: 50px; }
+  .cities-header .section-tag { color: var(--gold); }
+  .cities-header h2 { color: #fff; font-family: 'Playfair Display', serif; font-size: 40px; }
+  .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  .city-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .city-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .city-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+  .city-body { padding: 24px; }
+  .city-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 6px;
+    color: var(--dark);
+  }
+  .city-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .city-body p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+  .city-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 700;
+  }
+  .city-location svg { width: 16px; height: 16px; }
+
+  /* BLOG CONTENT */
+  .blog-section {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+  .blog-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 28px;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+  .blog-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin: 36px 0 14px;
+    color: var(--dark);
+  }
+  .blog-section p { font-size: 17px; color: var(--text); }
+  .pull-quote {
+    margin: 40px 0;
+    padding: 28px 36px;
+    border-left: 5px solid var(--gold);
+    background: #fff;
+    border-radius: 0 12px 12px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--dark);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    line-height: 1.5;
+  }
+  .highlight-box {
+    background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    margin: 36px 0;
+  }
+  .highlight-box h3 { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 16px; }
+  .highlight-box ul { list-style: none; padding: 0; }
+  .highlight-box ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .highlight-box ul li::before { content: '✦'; color: var(--gold); font-size: 10px; }
+  .inline-img {
+    width: 100%;
+    border-radius: 16px;
+    margin: 28px 0;
+    max-height: 400px;
+    object-fit: cover;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+  .img-caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: -20px;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  footer strong { color: var(--gold); }
+
+  /* TRANSLATION CONTENT */
+  [data-lang] { display: none; }
+  [data-lang="en"] { display: block; }
+  .lang-inline[data-lang] { display: none; }
+  .lang-inline[data-lang="en"] { display: inline; }
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <span>🌍 Read in:</span>
+  <button class="lang-btn active" onclick="setLang('en')">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('fr')">🇫🇷 Français</button>
+  <button class="lang-btn" onclick="setLang('ar')">🇸🇦 العربية</button>
+  <button class="lang-btn" onclick="setLang('sw')">🇹🇿 Kiswahili</button>
+  <button class="lang-btn" onclick="setLang('hi')">🇮🇳 हिंदी</button>
+  <button class="lang-btn" onclick="setLang('zh')">🇨🇳 中文</button>
+  <button class="lang-btn" onclick="setLang('ur')">🇵🇰 اردو</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="flag-wrap">
+      <!-- Uganda Flag SVG -->
+      <svg class="flag-svg" viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="10" y="0" fill="#000"/>
+        <rect width="90" height="10" y="10" fill="#FCD116"/>
+        <rect width="90" height="10" y="20" fill="#D21034"/>
+        <rect width="90" height="10" y="30" fill="#000"/>
+        <rect width="90" height="10" y="40" fill="#FCD116"/>
+        <rect width="90" height="10" y="50" fill="#D21034"/>
+        <circle cx="45" cy="30" r="13" fill="#fff"/>
+        <!-- Grey Crowned Crane simplified -->
+        <ellipse cx="45" cy="34" rx="6" ry="8" fill="#888"/>
+        <circle cx="45" cy="24" r="5" fill="#888"/>
+        <circle cx="44.5" cy="23.5" r="1.8" fill="#ff0000"/>
+        <circle cx="46" cy="22" r="0.8" fill="#FCD116"/>
+        <!-- crown -->
+        <line x1="44" y1="19" x2="43" y2="16" stroke="#FCD116" stroke-width="0.8"/>
+        <line x1="45" y1="18.5" x2="45" y2="15.5" stroke="#FCD116" stroke-width="0.8"/>
+        <line x1="46" y1="19" x2="47" y2="16" stroke="#FCD116" stroke-width="0.8"/>
+        <circle cx="43" cy="15.5" r="1" fill="#FCD116"/>
+        <circle cx="45" cy="15" r="1" fill="#FCD116"/>
+        <circle cx="47" cy="15.5" r="1" fill="#FCD116"/>
+      </svg>
+      <div>
+        <div class="country-label">East Africa · Republic of Uganda</div>
+      </div>
+    </div>
+    <h1>Uganda — <em>Pearl of Africa</em></h1>
+    <p class="hero-sub">
+      <span data-lang="en" style="display:inline">Where mountains meet jungle, and wildlife roams free</span>
+      <span data-lang="fr" style="display:none">Là où les montagnes rencontrent la jungle et la faune sauvage</span>
+      <span data-lang="ar" style="display:none;direction:rtl">حيث تلتقي الجبال بالغابات وتجول الحياة البرية بحرية</span>
+      <span data-lang="sw" style="display:none">Mahali ambapo milima inakutana na msitu na wanyama wa porini</span>
+      <span data-lang="hi" style="display:none">जहाँ पहाड़ जंगल से मिलते हैं और वन्यजीव स्वतंत्र विचरण करते हैं</span>
+      <span data-lang="zh" style="display:none">山脉与丛林交汇，野生动物自由漫步之地</span>
+      <span data-lang="ur" style="display:none;direction:rtl">جہاں پہاڑ جنگل سے ملتے ہیں اور جنگلی حیات آزادانہ گھومتی ہے</span>
+    </p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="val">47M+</span><span class="lbl">Population</span></div>
+      <div class="meta-item"><span class="val">241,551</span><span class="lbl">km² Area</span></div>
+      <div class="meta-item"><span class="val">Kampala</span><span class="lbl">Capital City</span></div>
+      <div class="meta-item"><span class="val">1,200m+</span><span class="lbl">Avg. Altitude</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint">↓ scroll to explore</div>
+</section>
+
+<!-- OVERVIEW SECTION -->
+<section class="overview">
+  <div>
+    <div class="section-tag">Country Overview</div>
+
+    <!-- EN -->
+    <div data-lang="en">
+      <h2 class="section-title">The Jewel of East Africa</h2>
+      <p>Nestled in the heart of East Africa, Uganda is a land of breathtaking beauty, extraordinary biodiversity, and a rich cultural tapestry that has enchanted travellers for centuries. Winston Churchill famously called it the "Pearl of Africa" — a title it continues to earn every single day.</p>
+      <p>Uganda is home to more than half the world's remaining mountain gorillas, the source of the mighty Nile River, and some of the most spectacular landscapes on the African continent — from snow-capped Rwenzori Mountains to the shimmering expanse of Lake Victoria.</p>
+      <p>With over 56 indigenous tribes, a vibrant capital in Kampala, and a warmth of people that feels genuine and rare, Uganda is not merely a destination. It is an experience that changes you forever.</p>
+    </div>
+
+    <!-- FR -->
+    <div data-lang="fr" style="display:none">
+      <h2 class="section-title">Le Joyau de l'Afrique de l'Est</h2>
+      <p>Niché au cœur de l'Afrique de l'Est, l'Ouganda est un pays d'une beauté époustouflante, d'une biodiversité extraordinaire et d'une riche mosaïque culturelle. Winston Churchill l'avait surnommé la "Perle de l'Afrique" — un titre qu'il mérite encore chaque jour.</p>
+      <p>L'Ouganda abrite plus de la moitié des gorilles de montagne restants dans le monde, la source du puissant Nil, et certains des paysages les plus spectaculaires du continent africain.</p>
+      <p>Avec plus de 56 tribus indigènes et la chaleur de son peuple, l'Ouganda est bien plus qu'une destination — c'est une expérience qui vous transforme à jamais.</p>
+    </div>
+
+    <!-- AR -->
+    <div data-lang="ar" style="display:none;direction:rtl;text-align:right">
+      <h2 class="section-title">جوهرة أفريقيا الشرقية</h2>
+      <p>تقع أوغندا في قلب أفريقيا الشرقية، وهي أرض ذات جمال خلاب وتنوع بيولوجي استثنائي ونسيج ثقافي غني. أطلق عليها ونستون تشرشل اسم "لؤلؤة أفريقيا" — وهو لقب تستحقه حتى اليوم.</p>
+      <p>تضم أوغندا أكثر من نصف غوريلا الجبل المتبقية في العالم، ومنبع نهر النيل العظيم، وبعضاً من أكثر المناظر الطبيعية روعةً في القارة الأفريقية.</p>
+      <p>مع أكثر من 56 قبيلة أصلية ودفء شعبها الحقيقي، أوغندا ليست مجرد وجهة سياحية، بل هي تجربة تغيرك إلى الأبد.</p>
+    </div>
+
+    <!-- SW -->
+    <div data-lang="sw" style="display:none">
+      <h2 class="section-title">Lulu ya Afrika Mashariki</h2>
+      <p>Uganda iko katikati ya Afrika Mashariki, ni nchi yenye uzuri wa kupendeza, utofauti wa kibiolojia wa ajabu, na utamaduni tajiri ambao umevutia wasafiri kwa karne nyingi. Winston Churchill aliita "Lulu ya Afrika" — jina ambalo inaendelea kulipata kila siku.</p>
+      <p>Uganda ina zaidi ya nusu ya gorilla za mlima zilizobaki duniani, chanzo cha Mto Nile Mkuu, na mandhari nzuri zaidi barani Afrika.</p>
+    </div>
+
+    <!-- HI -->
+    <div data-lang="hi" style="display:none">
+      <h2 class="section-title">पूर्वी अफ्रीका का रत्न</h2>
+      <p>पूर्वी अफ्रीका के हृदय में स्थित युगांडा एक अद्भुत सौंदर्य, असाधारण जैव विविधता और समृद्ध सांस्कृतिक विरासत वाला देश है। विंस्टन चर्चिल ने इसे "अफ्रीका का मोती" कहा था — और यह नाम आज भी सार्थक है।</p>
+      <p>युगांडा में दुनिया के आधे से अधिक पर्वतीय गोरिल्ला हैं, महान नील नदी का उद्गम है, और अफ्रीकी महाद्वीप के सबसे शानदार परिदृश्य हैं।</p>
+    </div>
+
+    <!-- ZH -->
+    <div data-lang="zh" style="display:none">
+      <h2 class="section-title">东非明珠</h2>
+      <p>乌干达位于东非腹地，是一片拥有令人叹为观止的美景、非凡生物多样性和丰富文化底蕴的土地。温斯顿·丘吉尔曾称其为"非洲的明珠"——这一美誉至今仍实至名归。</p>
+      <p>乌干达拥有世界上超过一半的山地大猩猩，尼罗河的发源地，以及非洲大陆最壮观的自然景观。</p>
+    </div>
+
+    <!-- UR -->
+    <div data-lang="ur" style="display:none;direction:rtl;text-align:right">
+      <h2 class="section-title">مشرقی افریقہ کا جواہر</h2>
+      <p>مشرقی افریقہ کے قلب میں واقع یوگنڈا ایک خوبصورت، غیر معمولی حیاتیاتی تنوع اور امیر ثقافتی ورثے والا ملک ہے۔ ونسٹن چرچل نے اسے "افریقہ کا موتی" کہا تھا — اور یہ لقب آج بھی سچا ہے۔</p>
+      <p>یوگنڈا میں دنیا کے نصف سے زیادہ پہاڑی گوریلے ہیں، عظیم دریائے نیل کا منبع ہے، اور افریقی براعظم کے سب سے شاندار مناظر ہیں۔</p>
+    </div>
+  </div>
+
+  <div>
+    <!-- FLAG CARD -->
+    <div class="flag-display">
+      <h3>🏳 National Flag</h3>
+      <svg class="flag-large" viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="180" height="20" y="0" fill="#000"/>
+        <rect width="180" height="20" y="20" fill="#FCD116"/>
+        <rect width="180" height="20" y="40" fill="#D21034"/>
+        <rect width="180" height="20" y="60" fill="#000"/>
+        <rect width="180" height="20" y="80" fill="#FCD116"/>
+        <rect width="180" height="20" y="100" fill="#D21034"/>
+        <circle cx="90" cy="60" r="26" fill="#fff"/>
+        <!-- Crane body -->
+        <ellipse cx="90" cy="66" rx="11" ry="14" fill="#666"/>
+        <circle cx="90" cy="49" r="9" fill="#555"/>
+        <circle cx="89" cy="47" r="3.5" fill="#cc0000"/>
+        <!-- Crown feathers -->
+        <line x1="87" y1="41" x2="85" y2="35" stroke="#FCD116" stroke-width="1.2"/>
+        <line x1="90" y1="40" x2="90" y2="34" stroke="#FCD116" stroke-width="1.2"/>
+        <line x1="93" y1="41" x2="95" y2="35" stroke="#FCD116" stroke-width="1.2"/>
+        <circle cx="85" cy="34.5" r="1.8" fill="#FCD116"/>
+        <circle cx="90" cy="33.5" r="1.8" fill="#FCD116"/>
+        <circle cx="95" cy="34.5" r="1.8" fill="#FCD116"/>
+        <!-- Legs -->
+        <line x1="86" y1="78" x2="83" y2="88" stroke="#666" stroke-width="1.5"/>
+        <line x1="94" y1="78" x2="97" y2="88" stroke="#666" stroke-width="1.5"/>
+        <line x1="83" y1="88" x2="78" y2="91" stroke="#666" stroke-width="1.2"/>
+        <line x1="83" y1="88" x2="83" y2="93" stroke="#666" stroke-width="1.2"/>
+        <line x1="97" y1="88" x2="102" y2="91" stroke="#666" stroke-width="1.2"/>
+        <line x1="97" y1="88" x2="97" y2="93" stroke="#666" stroke-width="1.2"/>
+      </svg>
+      <div class="flag-stripe-row">
+        <div class="stripe" style="background:#000"><span class="stripe-label">BLK</span></div>
+        <div class="stripe" style="background:#FCD116"><span class="stripe-label" style="color:#000">YEL</span></div>
+        <div class="stripe" style="background:#D21034"><span class="stripe-label">RED</span></div>
+      </div>
+      <p class="flag-desc"><strong>Black</strong> — the African people &amp; their heritage.<br><strong>Yellow</strong> — Africa's sunshine and vitality.<br><strong>Red</strong> — African brotherhood &amp; blood.<br><strong>Grey Crowned Crane</strong> — Uganda's national bird, symbol of gentleness.</p>
+    </div>
+
+    <!-- QUICK FACTS -->
+    <div class="info-card">
+      <h3>📋 Quick Facts</h3>
+      <div class="info-row"><span class="key">Capital</span><span class="val">Kampala</span></div>
+      <div class="info-row"><span class="key">Official Languages</span><span class="val">English, Swahili</span></div>
+      <div class="info-row"><span class="key">Currency</span><span class="val">Ugandan Shilling (UGX)</span></div>
+      <div class="info-row"><span class="key">Time Zone</span><span class="val">UTC+3 (EAT)</span></div>
+      <div class="info-row"><span class="key">Calling Code</span><span class="val">+256</span></div>
+      <div class="info-row"><span class="key">Best Time to Visit</span><span class="val">Jun–Sep / Dec–Feb</span></div>
+      <div class="info-row"><span class="key">Visa</span><span class="val">E-Visa Available</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span>✦<span></span></div>
+
+<!-- CITIES SECTION -->
+<section class="cities-section">
+  <div class="cities-inner">
+    <div class="cities-header">
+      <div class="section-tag">Famous Cities & Destinations</div>
+      <h2>Explore Uganda's Iconic Places</h2>
+    </div>
+    <div class="cities-grid">
+
+      <!-- Kampala -->
+      <div class="city-card">
+        <img class="city-img" src="https://images.unsplash.com/photo-1595167244917-c0f17e5b47d8?w=600&q=80" alt="Kampala City Uganda" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'"/>
+        <div class="city-body">
+          <div class="city-tag">Capital City</div>
+          <h3>Kampala</h3>
+          <p>A dynamic, hilly metropolis built across seven hills, Kampala blends colonial architecture with modern skyscrapers, vibrant markets, and an electric nightlife scene. The Kasubi Tombs, Gaddafi National Mosque, and Owino Market are unmissable.</p>
+          <div class="city-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            0.3472° N, 32.6110° E
+          </div>
+        </div>
+      </div>
+
+      <!-- Entebbe -->
+      <div class="city-card">
+        <img class="city-img" src="https://images.unsplash.com/photo-1625456381035-ffc70f0e00ec?w=600&q=80" alt="Entebbe Lake Victoria Uganda" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'"/>
+        <div class="city-body">
+          <div class="city-tag">Gateway City</div>
+          <h3>Entebbe</h3>
+          <p>Sitting on the shores of Lake Victoria, Entebbe is the country's international gateway and a tranquil retreat from Kampala. Home to the Uganda Wildlife Education Centre and the beautiful Entebbe Botanical Gardens where Tarzan was filmed.</p>
+          <div class="city-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            0.0613° N, 32.4700° E
+          </div>
+        </div>
+      </div>
+
+      <!-- Jinja -->
+      <div class="city-card">
+        <img class="city-img" src="https://images.unsplash.com/photo-1606768666853-403c90a981ad?w=600&q=80" alt="Jinja Source of the Nile Uganda" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'"/>
+        <div class="city-body">
+          <div class="city-tag">Adventure Capital</div>
+          <h3>Jinja</h3>
+          <p>Known as the "Adventure Capital of East Africa," Jinja sits at the source of the River Nile where it leaves Lake Victoria. Whitewater rafting, bungee jumping, kayaking, and the famous Nile Special beer — Jinja has it all.</p>
+          <div class="city-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            0.4478° N, 33.2026° E
+          </div>
+        </div>
+      </div>
+
+      <!-- Bwindi -->
+      <div class="city-card">
+        <img class="city-img" src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80" alt="Bwindi Impenetrable Forest Uganda" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'"/>
+        <div class="city-body">
+          <div class="city-tag">UNESCO World Heritage</div>
+          <h3>Bwindi Forest</h3>
+          <p>A UNESCO World Heritage Site, Bwindi Impenetrable Forest is home to nearly half the world's mountain gorillas. Gorilla trekking here is considered one of the most profound wildlife encounters on Earth — a life-changing adventure.</p>
+          <div class="city-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            1.0500° S, 29.7167° E
+          </div>
+        </div>
+      </div>
+
+      <!-- Murchison Falls -->
+      <div class="city-card">
+        <img class="city-img" src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80" alt="Murchison Falls Uganda" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'"/>
+        <div class="city-body">
+          <div class="city-tag">National Park</div>
+          <h3>Murchison Falls</h3>
+          <p>Uganda's largest national park is home to Murchison Falls — where the Nile squeezes through a narrow 7-metre gap and thunders 43 metres down in a spectacular cascade. Elephants, hippos, lions, and over 450 bird species await.</p>
+          <div class="city-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            2.2781° N, 31.6870° E
+          </div>
+        </div>
+      </div>
+
+      <!-- Fort Portal -->
+      <div class="city-card">
+        <img class="city-img" src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=600&q=80" alt="Rwenzori Mountains Fort Portal Uganda" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'"/>
+        <div class="city-body">
+          <div class="city-tag">Mountain Gateway</div>
+          <h3>Fort Portal</h3>
+          <p>Nestled near the Rwenzori "Mountains of the Moon" and the crater lakes region, Fort Portal is one of Uganda's most charming towns. The cool highland climate, tea estates, and proximity to Kibale Forest (chimpanzee capital) make it magical.</p>
+          <div class="city-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            0.6614° N, 30.2749° E
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="margin-top:60px"><span></span>✦<span></span></div>
+
+<!-- BLOG ARTICLE -->
+<article class="blog-section">
+  <div class="section-tag">Travel Blog · 1000+ Words</div>
+
+  <!-- EN -->
+  <div data-lang="en">
+    <h2>Uganda: Why Churchill Was Right to Call It the Pearl of Africa</h2>
+    <p>There are countries you visit. And then there are countries that visit you — that settle into your bones long after the plane has touched down back home. Uganda is the latter. From the moment you step off the aircraft at Entebbe International Airport and breathe in the warm, humid air rich with the scent of red earth and tropical blooms, you understand that this place is different. This place is alive in a way that few destinations on Earth can claim.</p>
+
+    <img class="inline-img" src="https://images.unsplash.com/photo-1534476478164-b15fec4b37a0?w=1000&q=80" alt="Uganda landscape Africa" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1000&q=80'"/>
+    <p class="img-caption">The rolling green hills and misty valleys of Uganda — untouched and timeless</p>
+
+    <h3>A Country Painted in a Thousand Shades of Green</h3>
+    <p>Uganda sits on the equator, straddling the western branch of the Great Rift Valley. Its geography is staggering in its variety — rolling savannah plains, dense equatorial rainforests, towering mountain ranges, vast lakes, and rivers that carry the story of entire civilizations. The country receives two rainy seasons per year, which means one thing above all: it is always, irreducibly, spectacularly green.</p>
+    <p>To drive through the countryside between Kampala and Fort Portal is to understand why photographers fall speechless. The road winds past tea estates draped in mist, banana plantations heavy with fruit, and crater lakes — perfectly circular depressions filled with still, jade-coloured water — that look like nature's own mirrors placed carelessly in the hillsides.</p>
+
+    <div class="pull-quote">"The Kingdom of Uganda is a fairy tale. You climb up a railway instead of a beanstalk, and at the top there is a wonderful new world." — Winston Churchill, 1908</div>
+
+    <h3>Kampala: Africa's Most Underrated Capital</h3>
+    <p>Kampala deserves a conversation that travel media rarely gives it. Spread across seven hills — much like Rome — Kampala is a city of perpetual energy, colour, and contrast. Matatu minibuses weave through traffic with breathtaking confidence. Street vendors sell roasted maize and jackfruit from wooden carts. The air smells of frying mandazi and motorcycle exhaust in a combination that is somehow, inexplicably, wonderful.</p>
+    <p>The Kasubi Tombs, a UNESCO World Heritage Site, house the burial grounds of four Buganda kings and represent one of the finest examples of an organic architectural tradition in sub-Saharan Africa. The Gaddafi National Mosque — the largest mosque in East Africa — rises dramatically above the city from Old Kampala Hill, its dome and minarets catching the afternoon light like a scene from a dream. The Uganda National Museum holds artefacts spanning millennia of history from the Nile Valley civilisations to modern independence.</p>
+    <p>But Kampala's real magic is in its streets. Wander through Owino Market — a vast, chaotic, utterly captivating labyrinth of stalls selling everything from second-hand clothes to fresh fish — and you will encounter the true heartbeat of the city.</p>
+
+    <img class="inline-img" src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1000&q=80" alt="Gorilla trekking Bwindi Uganda" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1000&q=80'"/>
+    <p class="img-caption">Mountain gorillas in Bwindi — a humbling encounter with our closest relatives</p>
+
+    <h3>The Gorillas of Bwindi: A Once-in-a-Lifetime Encounter</h3>
+    <p>If there is one experience in Uganda that stands above all others, it is gorilla trekking in Bwindi Impenetrable National Forest. This ancient rainforest, draped across the Albertine Rift highlands in southwestern Uganda, is home to roughly 459 mountain gorillas — nearly half of the entire global population. The forest earned its name honestly: the vegetation is dense, the terrain is steep, and the humidity is relentless.</p>
+    <p>The trek itself can last anywhere from one hour to eight, depending on where the gorilla family has decided to rest that day. When you finally part the undergrowth and come face to face with a silverback — a massive, muscular, utterly calm animal sitting in the dappled forest light — time stops. The gorilla looks at you with dark, intelligent eyes, and for a moment, the boundary between human and animal dissolves entirely. It is one of the most humbling experiences available to any traveller on this planet.</p>
+
+    <div class="highlight-box">
+      <h3>🦁 Top Wildlife Experiences in Uganda</h3>
+      <ul>
+        <li>Gorilla Trekking in Bwindi Impenetrable Forest</li>
+        <li>Chimpanzee Tracking in Kibale National Park</li>
+        <li>Big Five Safari in Queen Elizabeth National Park</li>
+        <li>Nile Boat Safari at Murchison Falls</li>
+        <li>Shoebill Stork Encounter in Mabamba Swamp</li>
+        <li>Tree-climbing Lions in Ishasha, Queen Elizabeth NP</li>
+        <li>White-water Rafting on the Nile at Jinja</li>
+        <li>Rhino Tracking at Ziwa Rhino Sanctuary</li>
+      </ul>
+    </div>
+
+    <h3>The Nile: Where History Begins</h3>
+    <p>Every river has a source. The Nile — the longest river in the world, the lifeblood of ancient Egypt, the artery along which one of humanity's greatest civilisations was built — begins its 6,650-kilometre journey here, in Uganda, as it exits Lake Victoria at Jinja. Standing at the source and watching the dark green water begin its unhurried journey north toward the Mediterranean is to stand at a point of genuine historical significance. It is awe-inspiring in the most literal sense of the word.</p>
+    <p>Jinja has embraced its identity as the adventure capital of East Africa with tremendous enthusiasm. The rapids below the source of the Nile offer some of the finest white-water rafting in the world. Bungee jumping platforms loom over the churning water. Kayakers and stand-up paddle boarders dot the calmer stretches. At sunset, boat trips along the Nile offer golden-hour views that no photograph can adequately capture.</p>
+
+    <h3>The People: Uganda's Greatest Treasure</h3>
+    <p>No travel guide to Uganda would be complete without speaking of its people — and doing so inadequately would be a disservice. Uganda is home to over 56 recognised indigenous tribes, each with its own language, traditions, music, and ceremonial practices. The Buganda kingdom, the Banyankole of the southwest, the Acholi of the north, the Basoga of the east — together they weave a cultural tapestry of extraordinary richness and variety.</p>
+    <p>What strikes every traveller, invariably and without exception, is the warmth. Ugandans greet strangers with a genuineness that feels rare in the modern world. Children run alongside vehicles waving and calling "Mzungu! Mzungu!" (foreigner). Elders share wisdom over cups of sweet milky chai. Strangers become friends within minutes. It is the kind of hospitality that reminds you why travel, at its core, is about human connection.</p>
+
+    <h3>Practical Travel Tips</h3>
+    <p><strong>When to go:</strong> The best time to visit Uganda is during the dry seasons — June to September and December to February. Gorilla trekking permits are available year-round but the forest trails are more manageable in dry conditions.</p>
+    <p><strong>Getting there:</strong> Entebbe International Airport (EBB) receives direct flights from Nairobi, Amsterdam, Dubai, London, Brussels, and Addis Ababa. The e-visa is straightforward to obtain online before travel.</p>
+    <p><strong>Budget:</strong> Uganda offers remarkable value across all budget levels. A gorilla trekking permit costs USD $700 — expensive, but widely considered worth every cent. Budget accommodation starts at USD $15/night; luxury lodges in national parks can reach $500+/night.</p>
+    <p>Uganda does not shout for your attention. It does not need to. Its mountains, its gorillas, its rivers, and its people speak quietly but with absolute authority. Go once, and you will spend the rest of your life looking for a reason to return.</p>
+  </div>
+
+  <!-- FR -->
+  <div data-lang="fr" style="display:none">
+    <h2>Ouganda : Pourquoi Churchill Avait Raison de l'Appeler la Perle de l'Afrique</h2>
+    <p>Il y a des pays que l'on visite, et il y a des pays qui vous visitent — qui s'installent dans vos os longtemps après que l'avion a atterri. L'Ouganda appartient à la seconde catégorie. Dès que vous posez le pied à l'aéroport international d'Entebbe et respirez l'air chaud et humide chargé de l'odeur de la terre rouge et des fleurs tropicales, vous comprenez que cet endroit est différent. Cet endroit est vivant d'une façon que peu de destinations dans le monde peuvent revendiquer.</p>
+    <h3>Kampala : La Capitale la Plus Sous-Estimée d'Afrique</h3>
+    <p>Étendue sur sept collines — comme Rome — Kampala est une ville d'énergie perpétuelle, de couleurs et de contrastes. Les Tombeaux de Kasubi, site du Patrimoine mondial de l'UNESCO, abritent les sépultures de quatre rois du Buganda. La Grande Mosquée Gaddafi, la plus grande mosquée d'Afrique de l'Est, s'élève majestueusement au-dessus de la ville depuis la colline du vieux Kampala.</p>
+    <h3>Les Gorilles de Bwindi : Une Rencontre Inoubliable</h3>
+    <p>La forêt impénétrable de Bwindi, dans le sud-ouest de l'Ouganda, abrite environ 459 gorilles de montagne — presque la moitié de la population mondiale totale. Lorsque vous finissez par vous retrouver face à face avec un gorille dos argenté dans la lumière tachetée de la forêt, le temps s'arrête. C'est l'une des expériences les plus humbles disponibles pour tout voyageur sur cette planète.</p>
+    <h3>Le Nil : Là Où L'Histoire Commence</h3>
+    <p>Le Nil — le plus long fleuve du monde — commence son voyage de 6 650 kilomètres ici, en Ouganda, là où il quitte le lac Victoria à Jinja. Jinja a embrassé son identité de capitale de l'aventure de l'Afrique de l'Est avec enthousiasme. Les rapides en aval de la source du Nil offrent un rafting en eaux vives parmi les meilleurs au monde.</p>
+    <h3>Les Habitants : Le Plus Grand Trésor de l'Ouganda</h3>
+    <p>L'Ouganda compte plus de 56 tribus indigènes reconnues. Ce qui frappe chaque voyageur, invariablement, c'est la chaleur humaine. Les Ougandais accueillent les étrangers avec une sincérité qui semble rare dans le monde moderne. C'est le genre d'hospitalité qui vous rappelle pourquoi le voyage est avant tout une question de connexion humaine.</p>
+  </div>
+
+  <!-- AR -->
+  <div data-lang="ar" style="display:none;direction:rtl;text-align:right">
+    <h2>أوغندا: لماذا كان تشرشل محقاً في تسميتها لؤلؤة أفريقيا</h2>
+    <p>هناك دول تزورها، وهناك دول تزورك — تستقر في عظامك طويلاً بعد أن يهبط الطائرة. أوغندا من النوع الثاني. حالما تضع قدمك في مطار عنتيبي الدولي وتستنشق الهواء الدافئ الرطب العطر برائحة الأرض الحمراء والأزهار الاستوائية، ستدرك أن هذا المكان مختلف.</p>
+    <h3>كمبالا: عاصمة أفريقيا الأكثر تقليلاً من شأنها</h3>
+    <p>كمبالا مدينة ذات طاقة لا تتوقف، وألوان وتناقضات. تضم مقابر كاسوبي، إحدى مواقع التراث العالمي لليونسكو، رفات أربعة ملوك من مملكة بوغندا. المسجد الوطني القذافي — أكبر مسجد في شرق أفريقيا — يعلو بشكل درامي فوق المدينة.</p>
+    <h3>غوريلا بويندي: لقاء العمر</h3>
+    <p>يقع غابة بويندي التي لا يمكن اختراقها في جنوب غرب أوغندا، وتضم نحو 459 غوريلا جبلية — ما يقارب نصف التجمع العالمي بأكمله. عندما تجد نفسك وجهاً لوجه أمام ذكر ظهر فضي في ضوء الغابة، يتوقف الزمن.</p>
+    <h3>النيل: حيث يبدأ التاريخ</h3>
+    <p>النيل — أطول أنهار العالم — يبدأ رحلته البالغة 6650 كيلومتراً من هنا في أوغندا، حيث يغادر بحيرة فيكتوريا عند جينجا. أحرزت جينجا شهرة كبيرة بوصفها عاصمة المغامرة في شرق أفريقيا.</p>
+    <h3>الشعب: أعظم كنوز أوغندا</h3>
+    <p>تضم أوغندا أكثر من 56 قبيلة أصلية معترفاً بها. ما يلفت انتباه كل مسافر، دون استثناء، هو الدفء الإنساني. يرحب الأوغنديون بالغرباء بصدق نادر في العالم الحديث.</p>
+  </div>
+
+  <!-- SW -->
+  <div data-lang="sw" style="display:none">
+    <h2>Uganda: Kwa Nini Churchill Alikuwa Sahihi Kuiita Lulu ya Afrika</h2>
+    <p>Kuna nchi unazozitembelea. Na kuna nchi zinazokutembelea — zinazobaki nawe kwa muda mrefu baada ya kurudi nyumbani. Uganda ni ya pili. Mara tu unapoweka mguu katika Uwanja wa Ndege wa Kimataifa wa Entebbe na kupumua hewa ya joto yenye unyevu, unaelewa kwamba mahali hapa ni tofauti.</p>
+    <h3>Kampala: Mji Mkuu Unaopuuzwa Zaidi Barani Afrika</h3>
+    <p>Kampala imejengwa juu ya vilima saba — kama Roma. Makaburi ya Kasubi, Tovuti ya Urithi wa Dunia wa UNESCO, yanashikilia makaburi ya wafalme wanne wa Buganda. Msikiti wa Taifa wa Gaddafi — msikiti mkubwa zaidi Afrika Mashariki — unainuka kwa nguvu juu ya mji.</p>
+    <h3>Gorilla za Bwindi: Mkutano wa Maisha Yote</h3>
+    <p>Msitu usioweza kupenywa wa Bwindi una karibu gorilla 459 za mlima — karibu nusu ya idadi yote duniani. Unapokuta uso kwa uso na gorilla kubwa katika mwanga wa msitu, wakati unasimama.</p>
+    <h3>Watu: Hazina Kubwa ya Uganda</h3>
+    <p>Uganda ina zaidi ya makabila 56 yanayotambuliwa. Kila msafiri anavutiwa na upole na ukarimu wa Waganda — ni aina ya ukaribishaji unaokukumbusha kwamba safari inahusu uhusiano wa kibinadamu.</p>
+  </div>
+
+  <!-- HI -->
+  <div data-lang="hi" style="display:none">
+    <h2>युगांडा: चर्चिल ने सही कहा था — यह अफ्रीका का मोती है</h2>
+    <p>कुछ देश ऐसे होते हैं जिन्हें आप देखने जाते हैं। और कुछ देश ऐसे होते हैं जो आपको देखने आते हैं — जो वापस आने के बाद भी आपकी आत्मा में बसे रहते हैं। युगांडा दूसरी किस्म का देश है।</p>
+    <h3>कंपाला: अफ्रीका की सबसे कम आंकी गई राजधानी</h3>
+    <p>कंपाला सात पहाड़ियों पर बसा शहर है — ठीक रोम की तरह। कासुबी टोम्ब्स, यूनेस्को विश्व धरोहर स्थल, चार बुगांडा राजाओं की समाधि का स्थान है। गद्दाफी नेशनल मस्जिद — पूर्वी अफ्रीका की सबसे बड़ी मस्जिद — शहर के ऊपर आलीशान रूप से खड़ी है।</p>
+    <h3>बविंडी के गोरिल्ला: जीवन में एक बार का अनुभव</h3>
+    <p>बविंडी अभेद्य वन में लगभग 459 पर्वतीय गोरिल्ला हैं — विश्व की कुल जनसंख्या का लगभग आधा। जब आप एक सिल्वरबैक गोरिल्ला से आमने-सामने मिलते हैं, तो समय थम जाता है।</p>
+    <h3>लोग: युगांडा का सबसे बड़ा खज़ाना</h3>
+    <p>युगांडा में 56 से अधिक मान्यता प्राप्त जनजातियाँ हैं। हर यात्री को यहाँ के लोगों की गर्मजोशी अचंभित करती है। युगांडावासी अजनबियों का स्वागत उस सच्चाई से करते हैं जो आधुनिक दुनिया में दुर्लभ है।</p>
+  </div>
+
+  <!-- ZH -->
+  <div data-lang="zh" style="display:none">
+    <h2>乌干达：为何丘吉尔称其为"非洲明珠"是对的</h2>
+    <p>有些国家是你去游览的，有些国家是来拜访你的——在你回家后依然留在你的骨子里。乌干达属于后者。当你踏上恩培培国际机场，呼吸着温润的空气，夹带着红土和热带花卉的气息，你就明白这个地方与众不同。</p>
+    <h3>坎帕拉：非洲最被低估的首都</h3>
+    <p>坎帕拉建在七座山丘之上，宛如非洲的罗马。卡苏比陵，联合国教科文组织世界遗产，是四位布干达国王的长眠之所。卡扎菲国家清真寺是东非最大的清真寺，巍峨耸立于城市之上。</p>
+    <h3>布温迪的大猩猩：一生一次的相遇</h3>
+    <p>布温迪难以穿越森林拥有约459只山地大猩猩，几乎占全球总数的一半。当你在斑驳的林间光影中与银背大猩猩面对面时，时间仿佛凝固了。</p>
+    <h3>人民：乌干达最大的财富</h3>
+    <p>乌干达有超过56个公认的原住民部落。让每位旅行者印象深刻的是乌干达人的热情。他们以一种现代世界罕见的真诚迎接陌生人。</p>
+  </div>
+
+  <!-- UR -->
+  <div data-lang="ur" style="display:none;direction:rtl;text-align:right">
+    <h2>یوگنڈا: چرچل صحیح کہتا تھا — یہ افریقہ کا موتی ہے</h2>
+    <p>کچھ ملک ایسے ہوتے ہیں جہاں آپ جاتے ہیں، اور کچھ ملک ایسے ہوتے ہیں جو آپ کے پاس آتے ہیں — جو واپسی کے بعد بھی آپ کی روح میں رہتے ہیں۔ یوگنڈا دوسری قسم کا ملک ہے۔</p>
+    <h3>کمپالا: افریقہ کا سب سے کم سراہا جانے والا دارالحکومت</h3>
+    <p>کمپالا سات پہاڑیوں پر بسا ہوا ہے — بالکل روم کی طرح۔ کاسوبی مقبرے، یونیسکو عالمی ثقافتی ورثہ، چار بوگانڈا بادشاہوں کی آخری آرام گاہ ہیں۔ گدافی نیشنل مسجد — مشرقی افریقہ کی سب سے بڑی مسجد — شہر کے اوپر شاندار انداز میں کھڑی ہے۔</p>
+    <h3>بوینڈی کے گوریلے: زندگی میں ایک بار کا تجربہ</h3>
+    <p>بوینڈی ناقابلِ نفوذ جنگل میں تقریباً 459 پہاڑی گوریلے ہیں — دنیا کی کل آبادی کا تقریباً نصف۔ جب آپ ایک سلور بیک گوریلے سے آمنے سامنے ملتے ہیں تو وقت رک جاتا ہے۔</p>
+    <h3>لوگ: یوگنڈا کا سب سے بڑا خزانہ</h3>
+    <p>یوگنڈا میں 56 سے زیادہ تسلیم شدہ قبائل ہیں۔ ہر مسافر کو یہاں کے لوگوں کی گرم جوشی حیران کر دیتی ہے۔ یوگنڈا کے لوگ اجنبیوں کو اس خلوص سے خوش آمدید کہتے ہیں جو جدید دنیا میں نایاب ہے۔</p>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>🏳 <strong>Uganda Travel Guide</strong> — Pearl of Africa</p>
+  <p style="margin-top:8px">© 2024 Uganda Explorer Blog · Made with ♥ for every traveller</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  // Update buttons
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  // Show/hide block elements
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    if (el.classList.contains('lang-inline')) return;
+    el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+  });
+
+  // Show/hide hero subtitle spans (inline)
+  document.querySelectorAll('.hero-sub span[data-lang]').forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+  });
+
+  // RTL for Arabic/Urdu
+  document.body.style.direction = (lang === 'ar' || lang === 'ur') ? 'rtl' : 'ltr';
+}
+</script>
+</body>
+</html>
