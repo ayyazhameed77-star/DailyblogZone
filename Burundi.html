@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burundi Travel Guide - Heartbeat of the Great Lakes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #e8f5e9 0%, #fff3e0 50%, #ffebee 100%);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 30%, #c62828 70%, #b71c1c 100%);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(46,125,50,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="30" r="1.5" fill="rgba(255,255,255,0.12)"/><circle cx="75" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="70" r="1" fill="rgba(255,255,255,0.15)"/></svg>');
+            background-size: 100px 100px;
+        }
+        
+        .header h1 {
+            font-size: 3.2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .flag-section {
+            text-align: center;
+            padding: 35px;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .flag-section img {
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+        }
+        
+        .flag-meaning {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .color-box {
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+        
+        .color-green { background: #2e7d32; }
+        .color-white { background: #f5f5f5; color: #333; border: 2px solid #ddd; }
+        .color-red { background: #c62828; }
+        .color-stars { background: linear-gradient(135deg, #c62828, #ff5252); }
+        
+        .section {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .section h2 {
+            color: #2e7d32;
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #c62828;
+            display: inline-block;
+        }
+        
+        .section h3 {
+            color: #b71c1c;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+        
+        .city-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #c62828;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .city-card h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        .city-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+        
+        .city-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .location-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 22px;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 4px solid #c62828;
+            transition: transform 0.3s;
+        }
+        
+        .highlight-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .highlight-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .tips-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 5px solid #f57c00;
+            padding: 22px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        
+        .tips-box h4 {
+            color: #e65100;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+        }
+        
+        .tips-box ul {
+            margin-left: 22px;
+        }
+        
+        .tips-box li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #2e7d32 0%, #c62828 100%);
+            color: white;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 18px;
+            background: white;
+            border-radius: 12px;
+            min-width: 160px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 3px solid #c62828;
+        }
+        
+        .stat-item .number {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .stat-item .label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .culture-banner {
+            background: linear-gradient(135deg, #5d4037 0%, #795548 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .culture-banner h3 {
+            color: #ffcc80;
+            margin-bottom: 10px;
+        }
+        
+        .language-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        
+        .lang-tag {
+            background: #2e7d32;
+            color: white;
+            padding: 5px 14px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+        
+        .quote-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid #1976d2;
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+            font-style: italic;
+            color: #1565c0;
+        }
+        
+        .history-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            border-left: 5px solid #c2185b;
+            padding: 22px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        
+        .history-box h4 {
+            color: #880e4f;
+            margin-bottom: 12px;
+        }
+        
+        .drum-highlight {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border: 2px solid #ff8f00;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .drum-highlight h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            .section {
+                padding: 20px;
+            }
+            .city-image {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🇧🇮 Burundi Travel Guide</h1>
+            <p class="subtitle">Heartbeat of the Great Lakes — Where Drums Echo Through the Hills</p>
+        </div>
+        
+        <!-- Flag Section -->
+        <div class="flag-section">
+            <h2 style="color:#2e7d32; margin-bottom:20px;">National Flag of Burundi</h2>
+            <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/96b3f92bf328189ffcaebcd80d208c5094fa37a7.png" alt="Burundi Flag">
+            <p style="font-style:italic; color:#666; margin-top:10px;">Adopted on June 28, 1967 | Modified to 3:5 ratio on September 27, 1982</p>
+            
+            <div class="flag-meaning">
+                <span class="color-box color-green">Green — Hope & Future Development</span>
+                <span class="color-box color-white">White — Peace & Unity</span>
+                <span class="color-box color-red">Red — Struggle for Independence</span>
+                <span class="color-box color-stars">⭐ 3 Stars — Unity, Work, Progress</span>
+            </div>
+            
+            <div class="quote-box" style="margin-top:20px;">
+                <strong>National Motto:</strong> "Ubumwe, Ibikorwa, Amajambere" (Unity, Work, Progress)<br>
+                <strong>National Anthem:</strong> "Burundi Bwacu" (Our Burundi)<br>
+                <strong>Official Languages:</strong> Kirundi, French, English, Swahili
+            </div>
+        </div>
+        
+        <!-- Country Background -->
+        <div class="section">
+            <h2>🌍 About Burundi</h2>
+            <p>
+                The <strong>Republic of Burundi</strong> is a small, landlocked nation nestled in the heart of East Africa, often called the <strong>"Heartbeat of the Great Lakes"</strong> for its location at the junction of the African Great Lakes region and Southeast Africa. With a land area of just <strong>27,830 square kilometers</strong> (about the size of Maryland), Burundi is one of Africa's most compact countries, yet it is densely packed with culture, history, and natural beauty. It is bordered by <strong>Rwanda to the north, Tanzania to the east and southeast, the Democratic Republic of the Congo to the west</strong>, and the magnificent <strong>Lake Tanganyika</strong> — the world's second-deepest freshwater lake — graces its southwestern border.
+            </p>
+            <p>
+                Burundi's history stretches back over <strong>500 years</strong>, when the Twa, Hutu, and Tutsi peoples first settled in this fertile highland region. For more than <strong>200 years</strong>, Burundi flourished as an independent kingdom ruled by the <em>Mwami</em> (king), with the legendary <strong>Karyenda drum</strong> serving as a semi-divine symbol of royal authority. The king alone could interpret the messages of this sacred drum, transforming them into rules that governed society. In <strong>1885</strong>, Burundi became part of the German colony of German East Africa, and after Germany's defeat in World War I, the League of Nations mandated the territories of Burundi and neighboring Rwanda to Belgium as <strong>Ruanda-Urundi</strong>. Burundi gained independence from Belgium on <strong>July 1, 1962</strong>, initially retaining its monarchy until a coup in 1966 established a republic.
+            </p>
+            <p>
+                The country endured decades of ethnic conflict and civil war, including a devastating genocide in <strong>1972</strong> and a 12-year civil war beginning in <strong>1993</strong>. The <strong>Arusha Agreement of 2000</strong> brought peace, and since 2005, Burundi has been rebuilding. Today, with a population of over <strong>14 million people</strong>, it is one of the most densely populated countries in sub-Saharan Africa, with over <strong>489 people per square kilometer</strong>. The population is remarkably young, with a median age of just <strong>17.7 years</strong> and over <strong>42% under the age of 15</strong>. Despite its challenges, Burundi retains a vibrant culture, warm hospitality, and an unspoiled natural landscape that adventurous travelers find deeply rewarding.
+            </p>
+            
+            <div class="language-bar">
+                <span class="lang-tag">🇧🇮 Kirundi (National)</span>
+                <span class="lang-tag">🇫🇷 French (Official)</span>
+                <span class="lang-tag">🇬🇧 English (Official)</span>
+                <span class="lang-tag">🌍 Swahili</span>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="number">14M+</div>
+                    <div class="label">Population</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">27,830</div>
+                    <div class="label">km² Area</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">1962</div>
+                    <div class="label">Independence</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">489+</div>
+                    <div class="label">People/km²</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">2,684m</div>
+                    <div class="label">Mt. Heha Peak</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bujumbura -->
+        <div class="section">
+            <h2>🏙️ Bujumbura — The Economic Capital on Lake Tanganyika</h2>
+            
+            <div class="city-card">
+                <span class="location-badge">📍 Lake Tanganyika Shore | 3°23'S 29°22'E</span>
+                <h3>Bujumbura — Burundi's Largest City & Former Capital</h3>
+                <img class="city-image" src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/12ff6744e7b456debc078786c8d3d9021dfb9771.jpg" alt="Bujumbura City View">
+                
+                <p>
+                    Bujumbura, affectionately known as <strong>"Buji"</strong> and formerly called Usumbura during colonial times, is Burundi's largest city, economic capital, and main port. Sprawling along the northeastern shore of <strong>Lake Tanganyika</strong> — the world's longest freshwater lake and second-deepest after Lake Baikal — Bujumbura covers an area of approximately <strong>127 km²</strong>. The city retains a distinctly French colonial flavor, with tree-lined boulevards, outdoor cafés, and a relaxed lakeside atmosphere that feels more Mediterranean than African.
+                </p>
+                
+                <h3>🌊 Lake Tanganyika — The Jewel of Bujumbura</h3>
+                <p>
+                    The shimmering waters of Lake Tanganyika are Bujumbura's greatest asset. The city's beaches, such as <strong>Plage de la Saga</strong> and <strong>Plage de la Pierre de Livingstone</strong>, offer surprisingly clear, warm waters perfect for swimming, snorkeling, and simply unwinding. The lake is home to over <strong>350 fish species</strong>, many of which are endemic, making it a paradise for anglers and marine enthusiasts. Sunset boat cruises on traditional wooden boats offer spectacular views of the Congo mountains across the lake, while the waterfront promenade comes alive in the evenings with locals strolling, street vendors selling grilled corn, and the sound of laughter filling the air.
+                </p>
+                
+                <h3>🏛️ Livingstone-Stanley Monument & Historical Sites</h3>
+                <p>
+                    Just south of the city, near the village of Mugere, stands the <strong>Livingstone-Stanley Monument</strong> — a stone pillar marking the spot where the famous Scottish explorer <strong>Dr. David Livingstone</strong> and American journalist <strong>Henry Morton Stanley</strong> spent two nights together in <strong>1871</strong> during their historic meeting. The site offers panoramic views of Lake Tanganyika and the surrounding countryside, making it a meaningful stop for history enthusiasts. In the city center, the <strong>Monument de l'Unité</strong> (Unity Monument) symbolizes the country's aspirations for national cohesion, while the colonial-era <strong>Cathedral Regina Mundi</strong> showcases beautiful architecture.
+                </p>
+                
+                <h3>🐊 Rusizi National Park & Living Museum</h3>
+                <p>
+                    A short drive from Bujumbura lies <strong>Rusizi National Park</strong>, a lush wetland paradise where the Rusizi River flows into Lake Tanganyika. This accessible park is one of Burundi's most visited nature reserves, offering boat tours where visitors can spot <strong>hippos lounging on riverbanks, crocodiles basking in the sun</strong>, and an impressive array of birdlife including herons, storks, and African fish eagles. The park's flat terrain makes it ideal for walking safaris. Back in the city, the <strong>Living Museum of Bujumbura (Musée Vivant)</strong> offers a unique combination of museum, zoo, and cultural center — featuring reptile houses, an aviary, botanical gardens, and traditional craft demonstrations.
+                </p>
+                
+                <h3>🍽️ French Cuisine & Nightlife</h3>
+                <p>
+                    Bujumbura's dining scene reflects its colonial heritage, with <strong>French cuisine</strong> widely available in restaurants across the city. Freshly caught <strong>ndagala</strong> (sardines) from Lake Tanganyika, grilled to perfection and served with plantains, is a local specialty not to be missed. The city's nightlife is surprisingly vibrant, with lakeside bars, live music venues, and clubs where locals and visitors dance to the rhythms of Burundian drumming and contemporary East African beats.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Gitega -->
+        <div class="section">
+            <h2>🏛️ Gitega — The Political & Cultural Capital</h2>
+            
+            <div class="city-card">
+                <span class="location-badge">📍 Central Burundi | 3°26'S 29°55'E</span>
+                <h3>Gitega — Seat of the Ancient Kingdom</h3>
+                <img class="city-image" src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/0415c28943d30c489f78b2db21bfaa74cb6a20fa.jpg" alt="Gitega City with Cathedral">
+                
+                <p>
+                    Gitega, officially designated as Burundi's <strong>political capital in 2019</strong>, is a city steeped in centuries of royal history. For hundreds of years, Gitega served as the seat of the <strong>Burundian <em>mwami</em> (king)</strong> and the capital of the ancient Kingdom of Burundi. Located in the country's central highlands about <strong>65 km east of Bujumbura</strong>, Gitega sits on Burundi's central plateau at a cooler, more comfortable altitude than the lakeside capital. The city functions as a center for religion, education, and administration, with primary and secondary schools, technical institutes, and places of worship for Muslims, Catholics, and Protestants.
+                </p>
+                
+                <h3>🏺 Gitega National Museum (Musée National de Gitega)</h3>
+                <p>
+                    The <strong>Gitega National Museum</strong> is the crown jewel of Burundi's cultural heritage. Founded in <strong>1955</strong> under Belgian colonial rule to preserve the country's rapidly disappearing folk traditions, it remains the largest and most important museum in Burundi. Despite its modest size — the collection is displayed in a single room — the museum houses an extraordinary array of artifacts that tell the story of Burundian civilization. Visitors can marvel at <strong>traditional household items, cow-horn snuffboxes, bark clothing, musical instruments, royal regalia, and ancient jewelry</strong>. One of the most fascinating exhibits is an <strong>1896 photograph of Bujumbura</strong> when the capital was little more than a few tents and a single tree. The museum also features the <strong>Musée Vivant</strong> with a reptile house, aquarium, open-air theater, aviary, and botanical gardens. In 2015, the museum published a landmark catalog of its collection titled <em>"Le Patrimoine Burundais: le Musée de Gitega,"</em> supported by the German Embassy.
+                </p>
+                
+                <h3>🥁 Gishora Drum Sanctuary — The Sacred Heartbeat</h3>
+                <p>
+                    Just outside Gitega lies the <strong>Gishora Drum Sanctuary</strong>, one of the most spiritually significant sites in all of Burundi. This hilltop sanctuary was chosen by <strong>King Gasabo</strong> for its commanding panoramic views of the surrounding countryside. Gishora is home to the <strong>royal drum heritage</strong> — a UNESCO-recognized tradition that celebrates Burundi's historical monarchy and community identity. The sanctuary houses a collection of ancient <strong>Karyenda drums</strong>, the sacred drums that once symbolized the king's divine authority. Visitors can witness electrifying live performances by the <strong>Royal Drummers of Burundi</strong>, who dance and play enormous drums in powerful, synchronized rhythms that tell stories of war, peace, and celebration. The drummers leap, spin, and strike their instruments with astounding athleticism — a spectacle that has captivated audiences worldwide for over 40 years.
+                </p>
+                
+                <h3>⛪ Religious & Educational Heritage</h3>
+                <p>
+                    Gitega is a city of faith and learning. The impressive <strong>Cathedral of Christ the King</strong> dominates the skyline with its tall clock tower, while numerous schools and technical institutes make it an educational hub. The city's central market bustles with activity, offering fresh produce, colorful fabrics, and handmade crafts. Nearby, the spectacular <strong>Chutes de la Karera</strong> (Karera Waterfalls) — a series of four stunning cascades in the Rutana province — make for an unforgettable day trip, with the tallest fall, Kagera, plunging dramatically through lush green hills.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Ngozi -->
+        <div class="section">
+            <h2>🌿 Ngozi — The Northern Gateway</h2>
+            
+            <div class="city-card">
+                <span class="location-badge">📍 Northern Burundi | 2°55'S 29°50'E</span>
+                <h3>Ngozi — Land of Green Hills & Coffee</h3>
+                
+                <p>
+                    Ngozi is a charming provincial capital in northern Burundi, nestled among some of the country's most fertile and picturesque highlands. The region is renowned throughout East Africa for producing some of the finest <strong>Arabica coffee</strong> on the continent. The cool climate, rich volcanic soils, and abundant rainfall create perfect conditions for coffee cultivation, and a visit to Ngozi offers travelers the chance to tour coffee plantations, learn about the bean-to-cup process, and sample freshly brewed Burundian coffee at its source. The town itself is relaxed and welcoming, with a strong sense of community and traditional Burundian hospitality.
+                </p>
+                
+                <h3>☕ Coffee Culture & Agriculture</h3>
+                <p>
+                    Coffee is the lifeblood of Ngozi's economy. During the harvest season (March to July), the hillsides come alive with activity as families hand-pick the ripe red cherries. Many cooperatives offer tours where visitors can see the washing stations, drying tables, and tasting rooms. The experience provides a genuine connection to rural Burundian life and an appreciation for the hard work behind every cup. Beyond coffee, Ngozi's surrounding countryside is a patchwork of banana plantations, bean fields, and terraced hillsides that showcase the agricultural ingenuity of the Burundian people.
+                </p>
+                
+                <h3>🌲 Kibira National Park</h3>
+                <p>
+                    Ngozi serves as a gateway to the magnificent <strong>Kibira National Park</strong>, one of Burundi's most important natural treasures. This ancient montane rainforest, located in the northwestern part of the country near the border with Rwanda, protects the sources of both the <strong>Nile and Congo river systems</strong>. Dense with bamboo, giant ferns, and towering trees draped in moss, Kibira offers tranquil hiking trails where visitors can spot <strong>chimpanzees, black-and-white colobus monkeys, and over 200 bird species</strong>. The mist-laden forest creates an almost mystical atmosphere, and guided tours with local rangers provide both safety and deep ecological insight.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Culture & Drums -->
+        <div class="section">
+            <h2>🥁 The Soul of Burundi — Drums, Dance & Tradition</h2>
+            
+            <div class="gallery">
+                <img src="https://kimi-web-img.moonshot.cn/img/indundi.com/164505e7a42c2b3cffc83d832276be189e20b1a4.jpg" alt="Royal Drummers of Burundi">
+                <img src="https://kimi-web-img.moonshot.cn/img/trekafricatours.com/c26582f85e6717cb30256581c2bfee1954d927dd.webp" alt="Lake Tanganyika Shore">
+            </div>
+            
+            <div class="drum-highlight">
+                <h4>🥁 The Royal Drummers of Burundi</h4>
+                <p>The world-famous Royal Drummers have performed for over 40 years, using the sacred Karyenda, Amashako, Ibishikiso, and Ikiranya drums. Their powerful, synchronized rhythms and acrobatic dance movements have made them global ambassadors of Burundian culture, recognized by UNESCO for their cultural significance.</p>
+            </div>
+            
+            <div class="culture-banner">
+                <h3>🎭 Music, Dance & Oral Tradition</h3>
+                <p>Burundi's culture is deeply rooted in oral tradition — storytelling, riddling, poetry, and song pass history and life lessons from generation to generation. The <strong>Abatimbo</strong> dance is performed at official ceremonies with solemn grace, while the fast-paced <strong>Abanyagasimbo</strong> dance energizes celebrations. Traditional instruments include the flute, zither, ikembe, indonongo, umuduri, inanga, and inyagara.</p>
+            </div>
+            
+            <div class="gallery">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.alluringworld.com/c5fe485e388b03f479a4a62c030a750f7ff581ab.jpg" alt="Kibira National Park">
+                <img src="https://kimi-web-img.moonshot.cn/img/ecoadventuresafaris.com/eaffafc80cf990d7f296292e53e3d1d2d2a0e46f.jpg" alt="Hippos in Burundi">
+            </div>
+            
+            <div class="highlights">
+                <div class="highlight-box">
+                    <h4>🥁 Karyenda Drum</h4>
+                    <p>The sacred royal drum once held semi-divine status. Only the king could interpret its messages, which guided the rules of society.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🧺 Basket Weaving</h4>
+                    <p>Intricate woven baskets are a beloved craft, made by skilled artisans using traditional techniques passed down through generations.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🍺 Impeke Beer</h4>
+                    <p>When Burundians gather, they drink impeke — a traditional sorghum beer — from a shared container to symbolize unity and friendship.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🎵 Oral Literature</h4>
+                    <p>Imigani (tales), indirimbo (songs), amazina (poetry), and ivyivugo (epics) keep Burundi's history alive through the spoken word.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🎭 Traditional Masks</h4>
+                    <p>Carved wooden masks and shields, along with statues and pottery, represent important spiritual and ceremonial traditions.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🍌 Banana Wine</h4>
+                    <p>Urwarwa, a popular homemade banana wine, and impeke sorghum beer are traditional beverages enjoyed at gatherings and celebrations.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Natural Wonders -->
+        <div class="section">
+            <h2>🌿 Burundi's Natural Wonders</h2>
+            
+            <div class="gallery">
+                <img src="https://kimi-web-img.moonshot.cn/img/english.news.cn/5d5777ba8e75a1807f49e605715b0329132275b5.jpg" alt="Lake Tanganyika Aerial View">
+                <img src="https://kimi-web-img.moonshot.cn/img/visitrwanda.com/becb96ac3ed36c4875f8d1e0199254ac1333ba09.jpg" alt="Lake Kivu Islands">
+            </div>
+            
+            <div class="highlights">
+                <div class="highlight-box">
+                    <h4>🏔️ Mount Heha</h4>
+                    <p>At 2,684 meters, Mount Heha is Burundi's highest peak, offering scenic hiking trails through farmland, forests, and mountain villages.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🌊 Lake Tanganyika</h4>
+                    <p>The world's longest freshwater lake and second-deepest, home to 350+ fish species and stunning beaches along Burundi's shore.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🌲 Kibira National Park</h4>
+                    <p>Ancient rainforest protecting the sources of the Nile and Congo rivers, with chimpanzees, colobus monkeys, and 200+ bird species.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>💦 Karera Waterfalls</h4>
+                    <p>Four spectacular cascades near Rutana — Nyakai I & II, Mwaro, and Kagera — surrounded by lush hills and spiritual significance.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🐊 Rusizi National Park</h4>
+                    <p>Wetland paradise where the Rusizi River meets Lake Tanganyika — hippos, crocodiles, and abundant birdlife on boat tours.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>💧 Source of the Nile</h4>
+                    <p>The southernmost source of the Nile River in Makamba province — an unassuming spring that begins Africa's greatest river's journey.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- History & Resilience -->
+        <div class="section">
+            <h2>🕊️ A Story of Resilience</h2>
+            
+            <div class="history-box">
+                <h4>📜 From Kingdom to Republic</h4>
+                <p>
+                    Burundi's journey from an ancient kingdom to a modern republic is a story of both tragedy and hope. The Kingdom of Burundi thrived for centuries under the <em>Mwami</em>, with the sacred Karyenda drum as its spiritual center. German colonization in 1885 and Belgian rule after World War I disrupted these traditions, deepening ethnic divisions that would later explode into violence. Independence in 1962 brought initial hope, but the monarchy was overthrown in 1966. The 1972 genocide and the 1993-2005 civil war brought unimaginable suffering. Yet the <strong>Arusha Agreement of 2000</strong> laid the foundation for peace, and today Burundi is rebuilding — slowly but surely — with a young, vibrant population determined to forge a better future.
+                </p>
+            </div>
+            
+            <div class="history-box">
+                <h4>🤝 Unity Day & National Healing</h4>
+                <p>
+                    Every year on <strong>February 5</strong>, Burundi celebrates <strong>Unity Day</strong> — a national holiday reflecting the country's deep desire for reconciliation and togetherness. The government has worked to promote a unified national identity that transcends ethnic divisions, focusing on shared citizenship rather than tribal labels. While challenges remain, the spirit of unity is palpable in communities across the country, where neighbors of different backgrounds work, worship, and celebrate together.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Travel Tips -->
+        <div class="section">
+            <h2>✈️ Essential Travel Tips</h2>
+            
+            <div class="tips-box">
+                <h4>🌤️ Best Time to Visit</h4>
+                <ul>
+                    <li><strong>June to August (Dry Season):</strong> Best for wildlife viewing, hiking, and exploring national parks. Clear skies and comfortable temperatures.</li>
+                    <li><strong>December to January (Short Dry Season):</strong> Another good window for travel with pleasant weather.</li>
+                    <li><strong>February to May (Long Rains):</strong> Heavy rainfall; some roads may become difficult. Lush green landscapes.</li>
+                    <li><strong>September to November (Short Rains):</strong> Intermittent showers; still viable for travel with proper preparation.</li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>💰 Currency & Money</h4>
+                <ul>
+                    <li>Currency: <strong>Burundian Franc (BIF)</strong></li>
+                    <li>USD and Euros are accepted in major hotels and restaurants</li>
+                    <li>ATMs available in Bujumbura and Gitega; limited elsewhere</li>
+                    <li>Credit cards rarely accepted outside upscale establishments</li>
+                    <li>Carry sufficient cash for rural areas and small purchases</li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>🛂 Visa & Entry Requirements</h4>
+                <ul>
+                    <li>Most visitors require a <strong>visa</strong> (obtainable on arrival for $40-$90 depending on nationality)</li>
+                    <li>Passport must be valid for at least 6 months beyond travel date</li>
+                    <li>Yellow fever certificate required</li>
+                    <li>Check current travel advisories before planning your trip</li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>🚗 Getting Around</h4>
+                <ul>
+                    <li><strong>Taxis:</strong> Available in Bujumbura; negotiate fares in advance</li>
+                    <li><strong>Buses (matatus):</strong> Connect major towns; cheap but crowded</li>
+                    <li><strong>Car rental:</strong> Available in Bujumbura with driver recommended</li>
+                    <li><strong>Moto-taxis:</strong> Common for short distances; always wear a helmet</li>
+                    <li><strong>Roads:</strong> Main roads between Bujumbura and Gitega are paved; rural roads can be rough</li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>🍽️ Must-Try Burundian Cuisine</h4>
+                <ul>
+                    <li><strong>Beans & Rice:</strong> The daily staple, often served with a spicy sauce</li>
+                    <li><strong>Isombe:</strong> Cassava leaves stewed with spinach and palm oil</li>
+                    <li><strong>Mukeke:</strong> Steamed cassava leaves — a beloved comfort food</li>
+                    <li><strong>Brochettes:</strong> Grilled meat skewers, popular street food</li>
+                    <li><strong>Plantains:</strong> Fried, boiled, or mashed — served with nearly every meal</li>
+                    <li><strong>Impeke:</strong> Traditional sorghum beer shared from a communal pot</li>
+                    <li><strong>Urwarwa:</strong> Homemade banana wine — sweet and potent!</li>
+                    <li><strong>Fresh Fish:</strong> Ndagala (sardines) from Lake Tanganyika, grilled to perfection</li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>💡 Practical Tips</h4>
+                <ul>
+                    <li><strong>Health:</strong> Take malaria prophylaxis, drink bottled water, and use insect repellent</li>
+                    <li><strong>Language:</strong> Learn basic Kirundi phrases — "Amakuru" (Hello), "Murakoze" (Thank you)</li>
+                    <li><strong>Dress modestly</strong> when visiting religious sites and rural communities</li>
+                    <li><strong>Photography:</strong> Always ask permission before photographing people</li>
+                    <li><strong>WiFi:</strong> Available in major hotels; mobile data works well in cities</li>
+                    <li><strong>Electricity:</strong> 220V, European-style plugs (Type C and E)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Why Visit -->
+        <div class="section">
+            <h2>💎 Why Burundi Should Be Your Next Adventure</h2>
+            
+            <div class="highlights">
+                <div class="highlight-box">
+                    <h4>🥁 Unforgettable Drum Culture</h4>
+                    <p>Experience the thunderous rhythms of the Royal Drummers — a UNESCO-recognized cultural treasure found nowhere else on Earth.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🌊 Lake Tanganyika</h4>
+                    <p>Swim, snorkel, and relax on the shores of one of the world's most ancient and pristine freshwater lakes.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🌿 Unspoiled Nature</h4>
+                    <p>Explore ancient rainforests, spot chimpanzees, and hike to spectacular waterfalls — all without the tourist crowds.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🏛️ Living History</h4>
+                    <p>Walk through centuries of royal heritage at Gitega, visit the national museum, and stand where Livingstone met Stanley.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>☕ World-Class Coffee</h4>
+                    <p>Taste some of Africa's finest Arabica coffee straight from the plantations in Ngozi's cool, fertile highlands.</p>
+                </div>
+                <div class="highlight-box">
+                    <h4>🤝 Authentic Hospitality</h4>
+                    <p>Experience genuine Burundian warmth and resilience — a people who welcome visitors with open hearts despite their hardships.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <h2 style="color:#ffcc80; border:none; margin-bottom:15px;">🥁 Burundi Awaits You!</h2>
+            <p>
+                Burundi is not the easiest destination, but it is one of the most rewarding. From the thunderous drums of Gishora to the tranquil shores of Lake Tanganyika, from the ancient forests of Kibira to the royal heritage of Gitega — this is a country that beats with an ancient rhythm, resilient and proud. The Burundian people, with their warm smiles and unbreakable spirit, embody the true meaning of their motto: <em>Unity, Work, Progress</em>.
+            </p>
+            <p style="margin-top:15px; font-size:0.9em; opacity:0.8;">
+                <em>"Burundi Bwacu" — Our Burundi</em><br>
+                Come listen to the drums, feel the heartbeat, and discover one of Africa's last hidden gems.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+print("Burundi Travel Guide HTML saved successfully!")
+print(f"File size: {len(html_content)} characters")
